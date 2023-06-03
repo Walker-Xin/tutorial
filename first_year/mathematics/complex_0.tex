@@ -1,0 +1,466 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Complex Numbers and ODEs}
+\def\assignmentno{Problem Set 0}
+\def\assignmentname{Complex Numbers}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Complex Numbers}
+%==========
+
+
+\problem{1}{}
+
+\subproblem{i}
+
+\begin{equation}
+    -i = e^{-i \pi/2}
+\end{equation}
+
+\subproblem{ii}
+
+\begin{equation}
+    \frac{1}{2} - \frac{\sqrt{3}i}{2} = e^{-i \pi/3}
+\end{equation}
+
+\subproblem{iii}
+
+\begin{equation}
+    -3 - 4i = 5 e^{i[\pi + \tan^{-1}(4/3)]}
+\end{equation}
+
+\subproblem{iv}
+
+\begin{equation}
+    1 + i = \mistake{e^{i \pi/4}}
+\end{equation}
+
+\begin{correction}
+    \begin{equation*}
+        1 + i = \sqrt{2} e^{i \pi/4}
+    \end{equation*}
+\end{correction}
+
+\subproblem{v}
+
+\begin{equation}
+    1 - i = \mistake{e^{-i \pi/4}}
+\end{equation}
+
+\begin{correction}
+    \begin{equation*}
+        1 + i = \sqrt{2} e^{-i \pi/4}
+    \end{equation*}
+\end{correction}
+
+\subproblem{vi}
+
+\begin{equation}
+    (1 + i)/(1 - i) = e^{i \pi/2}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \begin{split}
+        &z_{1} + z_{2} = -2 + 3i \\
+        &z_{1} - z_{2} = 4 - i \\
+        &z_{1} z_{2} = -5 - i \\
+        &z_{1}/z_{2} = -\frac{1}{13} (1 + 5i) \\
+        &\left\lvert z_{1} \right\rvert = \sqrt{2} \\
+        &z_{1}^{*} = 1 - i
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+Apparently $z_{1} = \mistake{2 + 2i}$ and $z_{2} = \mistake{-1 - i}$.
+
+\begin{equation}
+    \begin{split}
+        &z_{1} + z_{2} = \mistake{1 + i} \\
+        &z_{1} - z_{2} = \mistake{3 + 3i} \\
+        &z_{1} z_{2} = 2 e^{-i \pi/2} = -2i\\
+        &z_{1}/z_{2} = 2 e^{i \pi} = -2\\
+        &\left\lvert z_{1} \right\rvert = 2 \\
+        &z_{1}^{*} = 2 e^{-i \pi/4}
+    \end{split}
+\end{equation}
+
+\begin{correction}
+    Apparently $z_{1} = \frac{2 + 2i}{\sqrt{2}}$ and $z_{2} = \frac{-1 - i}{\sqrt{2}}$.
+
+    \begin{equation*}
+        \begin{split}
+            &z_{1} + z_{2} = \frac{1 + i}{\sqrt{2}} \\
+            &z_{1} - z_{2} = \frac{3 + 3i}{\sqrt{2}} \\
+        \end{split}
+    \end{equation*}
+\end{correction}
+\qed
+
+
+\problem{3}{}
+
+\subproblem{i}
+
+\begin{equation}
+    z^{2} = (x^{2} - y^{2}) + i(2xy)
+\end{equation}
+
+\subproblem{ii}
+
+\begin{equation}
+    \frac{1}{z} = \frac{1}{x + iy} = \frac{x - iy}{x^{2} + y^{2}}
+\end{equation}
+
+\subproblem{iii}
+
+\begin{equation}
+    i^{-5} = \frac{1}{i^{4} \times i} = \frac{1}{i} = -i
+\end{equation}
+
+\subproblem{iv}
+
+\begin{equation}
+    \frac{2 + 3i}{1 + 6i} = \frac{1}{37} (2 + 3i)(1 - 6i) = \frac{1}{37} (20 - 9i)
+\end{equation}
+
+\subproblem{v}
+
+\begin{equation}
+    e^{i \pi/6} - e^{-i \pi/6} = i 2\sin{\frac{\pi}{6}} = i
+\end{equation}
+\qed
+
+
+\problem{5}{}
+By de Moivre's theorem:
+
+\begin{equation}
+    \begin{split}
+        \cos{4\theta} + i\sin{4\theta} &= (\cos{\theta} + i\sin{\theta})^{4} \\
+        &= \cos^{4}{\theta} + i4\cos^{3}{\theta} \sin{\theta} - 6\cos^{2}{\theta} \sin^{2}{\theta} - i4\cos{\theta} \sin^{3}{\theta} + \sin^{4}{\theta}
+    \end{split}
+\end{equation}
+
+Taking the real part and simplifying:
+
+\begin{equation}
+    \begin{split}
+        \cos{4\theta} &= \cos^{4}{\theta} - 6\cos^{2}{\theta} \sin^{2}{\theta} + \sin^{4}{\theta} \\
+        &= \cos^{4}{\theta} - 6\cos^{2}{\theta} (1 - \cos^{2}{\theta}) + (1 - \cos^{2}{\theta})^{2} \\
+        &= 8\cos^{4}{\theta} - 8\cos^{2}{\theta} + 1
+    \end{split}
+\end{equation}
+
+Set $\theta = \pi/8$ so that $\cos{4\theta} = \cos{(\pi/2)} = 0$:
+
+\begin{equation}
+    \begin{split}
+        8\cos^{4}{(\pi/8)} - 8\cos^{2}{(\pi/8)} + 1 = 0 \\
+        \cos^{2}{(\pi/8)} = \frac{8 \pm \sqrt{64 - 32}}{16} = \frac{2 \pm \sqrt{2}}{4} \\
+        \cos{(\pi/8)} = \sqrt{\frac{2 + \sqrt{2}}{4}}
+    \end{split}
+\end{equation}
+
+Since $\theta = 3\pi/8$ yields the same equation, have:
+
+\begin{equation}
+    \cos{(3\pi/8)} = \sqrt{\frac{2 - \sqrt{2}}{4}}
+\end{equation}
+\qed
+
+
+\problem{6}{}
+
+\begin{equation}
+    \begin{split}
+        \sin^{6}{\theta} &= \mistake{\left( \frac{1 - \cos{2\theta}}{2} \right)^{3}} \\
+        &= \frac{1}{8} (1 - 3\cos{2\theta} + 3\cos^{2}{2\theta} - \cos^{3}{2\theta}) \\
+        &= \frac{1}{8} \left( 1 - 3\cos{2\theta} + \frac{3(1 + \cos{4\theta})}{2} - \frac{\cos{3\theta} + 3\cos{\theta}}{4} \right) \\
+        &= \frac{1}{8} \left( \frac{5}{2} - \frac{3}{4} \cos{\theta} - 3\cos{2\theta} - \frac{1}{4} \cos{3\theta} + \frac{3}{2} \cos{4\theta} \right)
+    \end{split}
+\end{equation}
+
+\begin{correction}
+    \begin{equation*}
+        \begin{split}
+            \sin^{6}{\theta} &= \left( \frac{e^{i\theta} - e^{-i\theta}}{2i} \right)^{6} \\
+            &= -\frac{1}{64} \left( e^{i6\theta} - 6e^{i4\theta} + 15e^{i2\theta} - 20 + 15e^{-i2\theta} - 6e^{-i4\theta} + e^{-i6\theta} \right) \\
+            &= \frac{1}{32} (10 - 15\cos{2\theta} + 6\cos{4\theta} - \cos{6\theta})
+        \end{split}
+    \end{equation*}
+\end{correction}
+\qed
+
+
+\problem{7}{}
+
+\subproblem{i}
+
+\begin{equation}
+    (1 + i)^{9} = \mistake{\left( e^{i \pi/4} \right)^{9}} = e^{i 9\pi/4} = e^{i \pi/4} = 1 + i
+\end{equation}
+
+\begin{correction}
+    \begin{equation*}
+        (1 + i)^{9} = \left( \frac{e^{i \pi/4}}{\sqrt{2}} \right)^{9} = \frac{e^{i 9\pi/4}}{16\sqrt{2}} = \frac{e^{i \pi/4}}{16\sqrt{2}} = \frac{1 + i}{16\sqrt{2}}
+    \end{equation*}
+\end{correction}
+
+\subproblem{ii}
+
+\begin{equation}
+    (1 - i)^{9}/(1 + i)^{9} = \left( \frac{e^{-i \pi/4}}{e^{i \pi/4}} \right) = e^{-i 9\pi/2} = e^{-i \pi/2} = -i
+\end{equation}
+\qed
+
+
+\problem{8}{}
+
+\subproblem{i}
+
+\begin{equation}
+    \sqrt[4]{\frac{-1 - \sqrt{3}i}{2}} = \mistake{\left[ e^{i (-5/6 + 2k)\pi} \right]^{1/4}} = e^{i (-5/24 + k/2)\pi}
+\end{equation}
+
+for $k = 0, \pm1, 2$.
+
+\begin{correction}
+    \begin{equation*}
+        \sqrt[4]{\frac{-1 - \sqrt{3}i}{2}} = \left[ e^{i (-2/3 + 2k)\pi} \right]^{1/4} = e^{i (-2/12 + k/2)\pi}
+    \end{equation*}
+
+    for $k = 0, \pm1, 2$.
+\end{correction}
+
+\subproblem{ii}
+
+\begin{equation}
+    (-8i)^{2/3} = \left[ 8 e^{i (-1/2 + 2k)\pi} \right]^{2/3} = 4 e^{i (-1/3 + 4k/3)\pi}
+\end{equation}
+
+for $k = 0, 1$.
+
+\subproblem{iii}
+
+\begin{equation}
+    \sqrt[8]{16} = \left[ 16 e^{i 2k\pi} \right]^{1/8} = 2^{1/4} e^{i k\pi/4}
+\end{equation}
+
+for $k = 0, \pm1, \pm2, \pm3, -4$.
+\qed
+
+
+\problem{9}{}
+
+\subproblem{i}
+Consider the nth roots of a complex number $r e^{i\theta}$. The sum of the roots is:
+
+\begin{equation}
+    \sum_{k = 0}^{n-1} r^{1/n} e^{i (\theta + 2k\pi)/n} = r^{1/n} e^{i \theta/n} \sum_{k = 0}^{n-1} e^{i 2k\pi/n}
+\end{equation}
+
+Focusing on the summation, which is a geometric series:
+
+\begin{equation}
+    \sum_{k = 0}^{n-1} e^{i 2k\pi/n} = \frac{1 - \left( e^{i 2\pi/n} \right)^{n}}{1 - e^{i 2\pi/n}} = \frac{1 - e^{i 2\pi}}{1 - e^{i 2\pi/n}} = 0
+\end{equation}
+
+Therefore the summation of the nth roots always equals zero.
+
+\subproblem{ii}
+
+\begin{equation}
+    \begin{split}
+        z^{2n + 1} = -1 = e^{i(1 + 2k)\pi} \\
+        z = e^{i(1 + 2k)\pi/(2n + 1)}
+    \end{split}
+\end{equation}
+
+This essentially says that the possible values of $z$ are $(2n + 1)$th roots of $-1$. Then the desired summation is a sum of the (real parts) of the roots, which equates to zero according to the result derived above.
+\qed
+
+
+\problem{10}{}
+
+First note that $z = \pm1$ do not satisfy the equation. Rearranging:
+
+\begin{equation}
+    \begin{split}
+        (z - 1)^{n} &= -(z + 1)^{n} \\
+        \left( \frac{z - 1}{z + 1} \right)^{n} &= e^{i (1 + 2k)\pi} \\
+        z - 1 &= e^{i (1 + 2k)\pi/n} (z + 1) \\
+        z &= \frac{1 + e^{i (1 + 2k)\pi/n}}{1 - e^{i (1 + 2k)\pi/n}} = \frac{e^{-i (1 + 2k)\pi/2n} + e^{i (1 + 2k)\pi/2n}}{e^{-i (1 + 2k)\pi/2n} - e^{i (1 + 2k)\pi/2n}} \\
+        z &= i \cot{\frac{1 + 2k}{2n} \pi}
+    \end{split}
+\end{equation}
+
+\mistake{for $k \in \mathbb{Z}$}.
+
+\begin{correction}
+    for $k = 0, 1, \dots, n - 1$.
+\end{correction}
+
+For the equation, note that $x = -1$ is a root. Hence:
+
+\begin{equation}
+    (x + 1)(x^{2} + 14x + 1) = 0
+\end{equation}
+
+Thus the solutions are $x = -1$ and $x = -7 \pm 4\sqrt{3}$.
+\qed
+
+
+\problem{11}{}
+
+\begin{equation}
+    \begin{split}
+        \sum_{n=0}^{\infty} 2^{-n} \cos{n\theta} &= \Re \sum_{n=0}^{\infty} 2^{-n} e^{in\theta} \\
+        &= \Re \sum_{n=0}^{\infty} \left( \frac{e^{i\theta}}{2} \right) \\
+        &= \Re \frac{1}{1 - e^{i\theta}/2} \\
+        &= \Re \frac{2}{2 - \cos{\theta} - i\sin{\theta}} \\
+        &= \Re \frac{2(2 - \cos{\theta} + i\sin{\theta})}{(2 - \cos{\theta})^{2} + \sin^{2}{\theta}} \\
+        &= \frac{2(2 - \cos{\theta})}{5 - 4\cos{\theta}} \\
+        &= \frac{1 - \frac{1}{2}\cos{\theta}}{\frac{5}{4} - \cos{\theta}}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{12}{}
+
+\begin{equation}
+    \begin{split}
+        \sum_{r = 1}^{n} \binom{n}{r} \sin{2r \theta} &= \Im \sum_{r = 1}^{n} \binom{n}{r} e^{i2r\theta} \\
+        &= \Im \left[ \left( 1 + e^{i2\theta} \right)^{n} - 1 \right] \\
+        &= \Im \left( 1 + e^{i2\theta} \right)^{n} \\
+        &= \Im \left[ e^{in\theta} \left( e^{-i\theta} + e^{i\theta} \right)^{n} \right] \\
+        &= 2^{n} \sin{n\theta} \cos^{n}{\theta}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{13}{}
+
+\subproblem{i}
+
+\begin{equation}
+    e^{3\ln{2} - i\pi} = -e^{3\ln{2}} = -8
+\end{equation}
+
+\subproblem{ii}
+If $y = \ln{i}$, $e^{y} = i = e^{i(1/2 + 2k)\pi}$. Thus:
+
+\begin{equation}
+    \ln{i} = i(1/2 + 2k)\pi
+\end{equation}
+
+\subproblem{iii}
+
+\begin{equation}
+    \begin{split}
+        e^{\ln{(-e)}} = -e = e^{1 + i(1 + 2k)\pi} \\
+        \ln{(-e)} = 1 + i(1 + 2k)\pi
+    \end{split}
+\end{equation}
+
+\subproblem{iv}
+
+\begin{equation}
+    (1 + i)^{iy} = \left( e^{i\pi/4} \right)^{iy} = e^{-\pi y/4}
+\end{equation}
+
+\begin{correction}
+    \begin{equation*}
+        (1 + i)^{iy} = \left[ \frac{e^{i(1/4 + 2k)\pi}}{\sqrt{2}} \right]^{iy} = \left[ e^{i(1/4 + 2k)\pi} e^{-\ln{(\sqrt{2})}} \right]^{iy} = \left( \cos{\ln{(\sqrt{2})}y} - i \sin{\ln{(\sqrt{2})}y} \right) e^{-(1/4 + 2k)\pi}
+    \end{equation*}
+\end{correction}
+
+\subproblem{v}
+
+\begin{equation}
+    \sin{i} = \frac{e^{i^{2}} - e^{-i^{2}}}{2i} = -i\frac{e^{-1} - e}{2} = i \sinh{1}
+\end{equation}
+
+\subproblem{vi}
+
+\begin{equation}
+    \cos{(\pi - 2i \ln{3})} = \frac{e^{i(\pi - 2i \ln{3})} + e^{-i(\pi - 2i \ln{3})}}{2} = -\frac{e^{2\ln{3}} + e^{-2\ln{3}}}{4} = -\frac{41}{9}
+\end{equation}
+
+\subproblem{vii}
+
+\begin{equation}
+    \begin{split}
+        \tanh{(x + iy)} &= \frac{e^{x + iy} - e^{-x - iy}}{e^{x + iy} + e^{-x - iy}} \\
+        &= \frac{e^{2x} - e^{-i2y}}{e^{2x} + e^{-i2y}} \\
+        &= \frac{1}{(e^{2x} + \cos{2y})^{2} + \sin^{2}{2y}} (e^{2x} - e^{-i2y})(e^{2x} + e^{i2y}) \\
+        &= \frac{1 + e^{4x} + i2e^{2x} \sin{2y}}{1 + e^{4x} + 2e^{2x} \cos{2y}}
+    \end{split}
+\end{equation}
+
+\subproblem{viii}
+Let $y = \tan^{-1}{(\sqrt{3}i)}$:
+
+\begin{equation}
+    \begin{split}
+        \tan{y} &= \sqrt{3}i = i\frac{e^{iy} - e^{-iy}}{e^{iy} + e^{-iy}} \\
+        (1 - \sqrt{3})e^{iy} &= (1 + \sqrt{3})e^{-iy} \\
+        e^{i2y} &= \frac{1 + \sqrt{3}}{1 - \sqrt{3}} = -2 - \sqrt{3} = e^{i(1 + 2k)\pi + \ln{(2 + \sqrt{3})}}\\
+        y &= \frac{1 + 2k}{2} \pi - i \frac{\ln{(2 + \sqrt{3})}}{2}
+    \end{split}
+\end{equation}
+
+\subproblem{ix}
+Let $y = \sinh^{-1}{(-1)}$:
+
+\begin{equation}
+    \begin{split}
+        \sinh{y} = \frac{e^{y} - e^{-y}}{2} = -1 \\
+        e^{2y} - 1 + 2e^{y} = 0 \\
+        e^{y} = -1 \pm \sqrt{2}
+    \end{split}
+\end{equation}
+
+\begin{correction}
+    For the positive case:
+
+    \begin{equation*}
+        \begin{split}
+            y &= \ln{1} + \ln{(\sqrt{2} - 1)} \\
+            &= \ln{e^{2k\pi}} + \ln{(\sqrt{2} - 1)} \\
+            &= 2k\pi + \ln{(\sqrt{2} - 1)}
+        \end{split}
+    \end{equation*}
+
+    For the negative case
+
+    \begin{equation*}
+        \begin{split}
+            y &= \ln{-1} + \ln{(\sqrt{2} + 1)} \\
+            &= \ln{e^{(1 + 2k)\pi}} + \ln{(\sqrt{2} + 1)} \\
+            &= (1 + 2k)\pi + \ln{(\sqrt{2} + 1)}
+        \end{split}
+    \end{equation*}
+\end{correction}
+\qed
+
+
+\end{document}

@@ -1,0 +1,362 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Calculus}
+\def\assignmentno{Problem Sheet 0 \& A}
+\def\assignmentname{Hyperbolic Functions \& Differnetiation}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Hyperbolic Functions}
+%==========
+
+
+\problem{0}{}
+
+\subproblem{a}
+Done before in Induction problem set.
+
+\subproblem{b}
+
+\begin{equation}
+    \cosh^{2}{x} - \sinh^{2}{x} = \frac{(e^{x} + e^{-x})^{2} - (e^{x} - e^{-x})^{2}}{4} = \frac{4e^{x} e^{-x}}{4} = 1
+\end{equation}
+
+\begin{equation}
+    \cosh^{2}{x} + \sinh^{2}{x} = \frac{2(e^{2x} + e^{-2x})}{4} = \cosh{2x}
+\end{equation}
+
+\begin{equation}
+    2\cosh{x} \sinh{x} = \frac{(e^{x} + e^{-x})(e^{x} - e^{-x})}{2} = \sinh{2x}
+\end{equation}
+
+\begin{equation}
+    1 - \tanh^{2}{x} = \frac{(e^{x} + e^{-x})^{2} - (e^{x} - e^{-x})^{2}}{(e^{x} + e^{-x})^{2}} = \frac{4}{(e^{x} + e^{-x})^{2}} = \sech^{2}{x}
+\end{equation}
+
+\begin{equation}
+    \coth^{2}{x} - 1 = \frac{(e^{x} + e^{-x})^{2} - (e^{x} - e^{-x})^{2}}{(e^{x} - e^{-x})^{2}} = \frac{4}{(e^{x} - e^{-x})^{2}} = \csch^{2}{x}
+\end{equation}
+
+\subproblem{c}
+These identities are very similar to the trigonometric identities, except for some sign changes.
+
+\subproblem{d}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} (\sinh{x}) = \frac{e^{x} - (-e^{-x})}{2} = \cosh{x}
+\end{equation}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} (\cosh{x}) = \frac{e^{x} + (-e^{-x})}{2} = \sinh{x}
+\end{equation}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} (\tanh{x}) = \frac{\cosh{x} \times \cosh{x} - \sinh{x} \times \sinh{x}}{\cosh^{2}{x}} = \sech^{2}{x}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Differentiation}
+%==========
+
+
+\problem{A1}{Practice in differentiation}
+
+\subproblem{a}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} \sin{x} e^{x^3} = \cos{x} e^{x^3} + \sin{x} e^{x^3} (3x^{2}) = e^{x^3}(\cos{x} + 3x^{2} \sin{x})
+\end{equation}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} e^{x^3 \sin{x}} = e^{x^3 \sin{x}} \left[ (3x^{2}) \sin{x} + x^3 \cos{x} \right] = x^{2} e^{x^3 \sin{x}} \left( 3\sin{x} + x \cos{x} \right)
+\end{equation}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} \ln{[\cosh{(1/x)}]} = \frac{1}{\cosh{(1/x)}} \sinh{(1/x)} \left( -\frac{1}{x^{2}} \right) = -\frac{\tanh{(1/x)}}{x^{2}}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        \cos{y} &= x \\
+        -\sin{y} \frac{\mathrm{d}y}{\mathrm{d}x} &= 1 \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} &= -\frac{1}{\sin{y}} = -\frac{1}{\sqrt{1 - x^{2}}}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \tanh{y} &= \frac{x}{1 + x} \\
+        \sech^{2}{y} \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{1 + x - x}{(1 + x)^{2}} \\
+        \left[ 1 - \left( \frac{x}{1 + x} \right)^{2} \right] \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{1}{(1 + x)^{2}} \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{1}{1 + 2x}
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \begin{split}
+        \ln{y} &= \cos{x} \ln{x} \\
+        \frac{1}{y} \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{\cos{x}}{x} - \sin{x} \ln{x} \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} &= x^{\cos{x}} \left( \frac{\cos{x}}{x} - \sin{x} \ln{x} \right)
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        y &= \frac{2\ln{x}}{\ln{10}} \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{2}{\ln{10}} \frac{1}{x}
+    \end{split}
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    \begin{split}
+        y e^{y \ln{x}} &= x^{2} + y^{2} \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} e^{y \ln{x}} + y e^{y \ln{x}} \left( \ln{x} \frac{\mathrm{d}y}{\mathrm{d}x} + \frac{y}{x} \right) &= 2x + 2y \frac{\mathrm{d}y}{\mathrm{d}x} \\
+        \frac{\mathrm{d}y}{\mathrm{d}x} &= \frac{2x - y^{2} e^{y \ln{x}}/x}{e^{y \ln{x}}(1 + y\ln{x}) - 2y}
+    \end{split}
+\end{equation}
+
+Given $t = ax^{2} + bx + c$, differentiating with respect to time:
+
+\begin{equation}
+    \begin{split}
+        1 = 2ax \dot{x} + b\dot{x} + c \\
+        \dot{x} = \frac{1 - c}{2ax + b}
+    \end{split}
+\end{equation}
+
+Further differentiating:
+
+\begin{equation}
+    \begin{split}
+        \ddot{x} = -\frac{(1 - c)(2a)\dot{x}}{(2ax + b)^{2}} = -\frac{(2a)(1 - c)^{2}}{(2ax + b)^{3}} \propto \dot{x}^{3}
+    \end{split}
+\end{equation}
+
+\subproblem{e}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}\theta}/\frac{\mathrm{d}x}{\mathrm{d}\theta} = \coth{\theta}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} &= \frac{\mathrm{d}}{\mathrm{d}\theta} \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right) / \frac{\mathrm{d}x}{\mathrm{d}\theta} \\
+        &= -\frac{\sech^{2}{\theta}}{\tanh^{2}{\theta}} \frac{1}{\sinh{\theta}} \\
+        &= -\frac{1}{\sinh^{3}{\theta}}
+    \end{split}
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}t}/\frac{\mathrm{d}x}{\mathrm{d}t} = m \frac{t^{m - 1} - t^{-m - 1}}{1 - t^{-2}} = m \frac{t^{m} - t^{-m}}{t - t^{-1}}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    (x^{2} - 4) \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{2} = m^{2} (t^{2} + 2 + t^{-2} - 4) \frac{t^{2m} - 2 + t^{-2m}}{t^{2} - 2 + t^{-2}} = m^{2} (y^{2} - 4)
+\end{equation}
+
+Differentiating this result:
+
+\begin{equation}
+    \begin{split}
+        2x \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{2} + 2 (x^{2} - 4) \frac{\mathrm{d}y}{\mathrm{d}x} \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} = 2m^{2}y \frac{\mathrm{d}y}{\mathrm{d}x} \\
+        (x^{2} - 4) \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} + x \frac{\mathrm{d}y}{\mathrm{d}x} - m^{2}y = 0
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{A2}{Differentiation from first principles}
+From the definition of differentiation:
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}(x^{2})}{\mathrm{d}x} &= \lim_{\delta x \to 0} \frac{(x + \delta x)^{2} - x^{2}}{\delta x} \\
+        &= \lim_{\delta x \to 0} \frac{x^{2} + 2x \delta x + (\delta x)^{2} - x^{2}}{\delta x} \\
+        &= \lim_{\delta x \to 0} (2x + \delta x) \\
+        &= 2x
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}(\sin{x})}{\mathrm{d}x} &= \lim_{\delta x \to 0} \frac{(\sin{x + \delta x} - \sin{x})}{\delta x} \\
+        &= \lim_{\delta x \to 0} \frac{\sin{x} \cos{\delta x} + \cos{x} \sin{\delta x} - \sin{x}}{\delta x} \\
+        &= \sin{x} \lim_{\delta x \to 0} \frac{\cos{\delta x} - 1}{\delta x} + \cos{x} \lim_{\delta x \to 0} \frac{\sin{\delta x}}{\delta x} \\
+        &= \cos{x}
+    \end{split}
+\end{equation}
+
+where the following standard limit results have been used:
+
+\begin{equation}
+    \begin{split}
+        \lim_{x \to 0} \frac{\cos{x} - 1}{x} = 0, \; \lim_{x \to 0} \frac{\sin{x}}{x} = 1
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{A3}{Integration as the inverse of differentiation}
+A standard Riemann integral can be approximated by a Riemann sum, which is the summing of the areas of individual rectangular strips to approximate the area under a curve. Consider a infinitesimally thin rectangular strip of width $\delta x$, located at the interval $[x, x + \delta x)$. Let this strip take the height $f(x)$. The sum of all these strips approximates the area under curve. Then the individual strip leads to an infinitesimal contribution to the integral $\delta I(x) = f(x) \delta x$, or rearranging and taking the limit $\delta x \to 0$, $\mathrm{d}I(x)/\mathrm{d}x = f(x)$.
+\qed
+
+
+\problem{A4}{Derivatives of inverse functions}
+
+\subproblem{a}
+Let $y = f(x)$ so that $x = f^{-1}(y)$, assuming that $f$ has an inverse. Have:
+
+\begin{equation}
+    \begin{split}
+        f^{-1}[f(x)] = x \\
+        \frac{\mathrm{d}}{\mathrm{d}x} f^{-1}[f(x)] = 1 \\
+        (f^{-1})'[f(x)] f'(x) = 1 \\
+        f'(x) = \frac{1}{(f^{-1})'[f(x)]}
+    \end{split}
+\end{equation}
+
+Or using the fact that $\mathrm{d}y/\mathrm{d}x = f'(x)$ and $\mathrm{d}x/\mathrm{d}y = (f^{-1})'(y) = (f^{-1})'[f(x)]$:
+
+\begin{equation}
+    \frac{\mathrm{d}x}{\mathrm{d}y} = \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{-1}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}^{2}x}{\mathrm{d}y^{2}} = \frac{\mathrm{d}}{\mathrm{d}y} \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{-1} = \frac{\mathrm{d}}{\mathrm{d}x} \left[ \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{-1} \right] \frac{\mathrm{d}x}{\mathrm{d}y} = \frac{\mathrm{d}}{\mathrm{d}x} \left[ \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{-1} \right] \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{-1} = - \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}}/\left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{3}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{A5}{Changing variables in differential equations}
+
+\subproblem{a}
+If $z = y x^{2}$, then:
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}z}{\mathrm{d}x} &= x^{2} \frac{\mathrm{d}y}{\mathrm{d}x} + 2xy \\
+        \frac{\mathrm{d}^{2}z}{\mathrm{d}x^{2}} &= x^{2} \frac{\mathrm{d}^{2}y}{\mathrm{d}x^{2}} + 2(y + x) \frac{\mathrm{d}y}{\mathrm{d}x} + 2y
+    \end{split}
+\end{equation}
+
+Substitution into the original differential equation yields:
+
+\begin{equation}
+    \frac{\mathrm{d}^{2}z}{\mathrm{d}x^{2}} + 3\frac{\mathrm{d}z}{\mathrm{d}x} + 2z = x
+\end{equation}
+
+\subproblem{b}
+If $t = \sqrt{x}$, then:
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}z}{\mathrm{d}x} &= \frac{1}{2} x^{-1/2} = \frac{1}{2t} \\
+        \frac{\mathrm{d}^{2}z}{\mathrm{d}x^{2}} &= -\frac{1}{4} x^{-3/2} = -\frac{1}{4t^{3}}
+    \end{split}
+\end{equation}
+
+Substitution into the original equation yields:
+
+\begin{equation}
+    \frac{\mathrm{d}^{2}y}{\mathrm{d}t^{2}} - \frac{\mathrm{d}y}{\mathrm{d}t} - 6y = e^{3t}
+\end{equation}
+\qed
+
+
+\problem{A6}{Leibnitz theorem}
+The Leibnitz theorem, which can be proven through induction, states that for n-times differentiable functions $f$ and $g$, the derivatives of their product is given by:
+
+\begin{equation}
+    (fg)^{(n)} = \sum_{k = 0}^{n} \binom{n}{k} f^{(n-k)} g^{(k)}
+\end{equation}
+
+Given this result, the 8th derivative of $x^{2} \sin{x}$ is simply:
+
+\begin{equation}
+    \begin{split}
+        \left( x^{2} \sin{x} \right)^{(8)} &= (\sin{x})^{(8)} (x^{2}) + 8 (\sin{x})^{(7)} (2x) + 28 (\sin{x})^{(6)} (2) \\
+        &= \left( x^{2} - 56 \right) \sin{x} - 16x \cos{x}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{A7}{Special points of a function}
+
+\subproblem{a}
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{(x^{2} + 2x + 6) - (x - 1)(2x + 2)}{(x^{2} + 2x + 6)^{2}} = \frac{-x^{2} + 2x + 8}{(x^{2} + 2x + 6)^{2}} = \mistake{- \frac{(x - 2)(x + 4)}{(x^{2} + 2x + 6)^{2}}}
+\end{equation}
+
+Therefore, the two stationary points are at $(-4, -5/2)$ and $(2, 1/14)$. The function has no singularity as the denominator is always greater than zero. The root of the function is at $x = 1$. The function also approaches $0_{\pm}$ as $x$ approaches $\pm \infty$. Hence it is inferred that $y(x)$ has the range $\boxed{[-5/2, 1/14]}$.
+
+\begin{correction}
+    \begin{equation*}
+        \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{(x^{2} + 2x + 6) - (x - 1)(2x + 2)}{(x^{2} + 2x + 6)^{2}} = \frac{-x^{2} + 2x + 8}{(x^{2} + 2x + 6)^{2}} = - {\frac{(x + 2)(x - 4)}{(x^{2} + 2x + 6)^{2}}}
+    \end{equation*}
+
+    Therefore, the two stationary points are at $(-2, -1/2)$ and $(4, 1/10)$.
+\end{correction}
+
+\subproblem{b}
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = -\frac{3 - 2x}{(4 + 3x - x^{2})^{2}}
+\end{equation}
+
+Therefore, the single stationary point is at $(3/2, 4/25)$. The function has two singularities (vertical asymptotes) at \mistake{$x = -4$ and $x = 2$} and it approaches $0_{-}$ as as $x$ approaches $\pm \infty$. Hence it is inferred that $y(x)$ has the range $\boxed{(-\infty, 0) \cup [4/25, +\infty)}$.
+
+\begin{correction}
+    The function has two singularities (vertical asymptotes) at $x = -1$ and $x = 4$.
+\end{correction}
+
+\subproblem{c}
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = 8\frac{(15 + 8\tan^{2}{x}) \cos{x} - 16\tan{x} \sec^{2}{x} \sin{x}}{(15 + 8\tan^{2}{x})^{2}}
+\end{equation}
+
+Focusing on the numerator, to have zero derivative, we have the equation:
+
+\begin{equation}
+    7\cos^{4}{x} + 24\cos^{2}{x} - 16 = 0
+\end{equation}
+
+with the condition $\cos{x} \ne 0$ and $15 + 8\tan^{2}{x} \ne 0$.
+
+Solving the equation yields $\cos{x} = \pm \sqrt{4/7}$, where the function takes the value $\frac{8}{21} \sqrt{3/7}$.
+
+The function has zero points at $x = n\pi$ and approaches zero at $x = (1/2 + n)\pi$, where $n$ is an integer. In between these zero points, the function achieves extrema according to the previous quadratic equation. Therefore, the range of the function is $[-a, a]$, where $a = \frac{8}{21} \sqrt{3/7}$.
+
+
+\end{document}

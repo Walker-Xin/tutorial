@@ -1,0 +1,424 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Calculus}
+\def\assignmentno{Probelm Sheet D}
+\def\assignmentname{Partial Differentiation}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Partial Differentiation}
+%==========
+
+
+\problem{D2}{Getting used to partial differentiation}
+
+\subproblem{a}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \frac{\partial}{\partial x} \sqrt{x^{2} + y^{2}} = \frac{x}{\sqrt{x^{2} + y^{2}}}
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \frac{\partial}{\partial x} \tan^{-1}(y/x) = -\frac{y}{x^{2} + y^{2}}
+\end{equation}
+
+\subsubproblem{iii}
+
+\begin{equation}
+    \begin{split}
+        \ln{f} &= x\ln{y} \\
+        \frac{1}{f} \frac{\partial f}{\partial x} &= \ln{y} \\
+        \frac{\partial f}{\partial x} &= y^{x} \ln{y}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial^{2} f}{\partial x \partial y} &= \frac{\partial}{\partial y} \left[ 2x \sin{(x + y)} + (x^{2} + y^{2}) \cos{(x + y)} \right] \\
+        &= 2x \cos{(x + y)} + 2y \cos{(x + y)} - (x^{2} + y^{2}) \sin{(x + y)}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial^{2} f}{\partial y \partial x} &= \frac{\partial}{\partial x} \left[ 2y \sin{(x + y)} + (x^{2} + y^{2}) \cos{(x + y)} \right] \\
+        &= 2x \cos{(x + y)} + 2y \cos{(x + y)} - (x^{2} + y^{2}) \sin{(x + y)}
+    \end{split}
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x \partial y} = mn x^{m - 1} y^{n - 1} = \frac{\partial^{2} f}{\partial y \partial x}
+\end{equation}
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) &= 0 \\
+        \frac{\partial f}{\partial x} &= G(y) \\
+        f(x, y) &= F(x) + G(y) \\
+        \frac{\partial f}{\partial y} &= F(x)
+    \end{split}
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    V_{xx} = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) = \frac{\partial}{\partial x} \left[ \frac{\partial f}{\partial (x - ct)} \frac{\partial (x - ct)}{\partial x} \right] = \frac{\partial^{2} f}{\partial (x - ct)^{2}}
+\end{equation}
+
+\begin{equation}
+    V_{tt} = \frac{\partial}{\partial t} \left[ \frac{\partial f}{\partial (x - ct)} \frac{\partial (x - ct)}{\partial t} \right] = (-c)^{2} \frac{\partial^{2} f}{\partial (x - ct)^{2}}
+\end{equation}
+
+Thus, $V_{xx} - V_{tt}/c^{2} = 0$.
+\qed
+
+
+\problem{D3}{Error estimates}
+We have $g(l, T) = 4\pi^{2} l T^{-2}$. Thus:
+
+\begin{equation}
+    \begin{split}
+        (\Delta g)^{2} &= (\frac{\partial g}{\partial l} \Delta l)^{2} + (\frac{\partial g}{\partial T} \Delta T)^{2} \\
+        &= (4\pi^{2} T^{-2} \Delta l)^{2} + (-8\pi^{2} l T^{-3} \Delta T)^{2} \\
+        \left( \frac{\Delta g}{g} \right)^{2} &= \left( \frac{\Delta l}{l} \right)^{2} + \left( 2\frac{\Delta T}{T} \right)^{2} \\
+        &= (5\%)^{2} + (4\%)^{2} \\
+    \end{split}
+\end{equation}
+
+Therefore, $\Delta g/g = \sqrt{41}\%$.
+\qed
+
+
+\problem{D4}{Total derivatives}
+
+\subproblem{a}
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( \cos^{n}{at} \cos^{n}{at} \right) = na \left( \cos^{n + 1}{at} \sin^{n - 1}{at} - \cos^{n - 1}{at} \sin^{n + 1}{at}\right)
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}}{\mathrm{d}t} &= \frac{\partial u}{\partial x} \frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u}{\partial y} \frac{\mathrm{d}y}{\mathrm{d}t} \\
+        &= n y^{n} x^{n - 1} (-a\sin{at}) + n y^{n - 1} x^{n} (a\cos{at}) \\
+        &= na \left( \cos^{n + 1}{at} \sin^{n - 1}{at} - \cos^{n - 1}{at} \sin^{n + 1}{at}\right)
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \frac{\mathrm{d}u}{\mathrm{d}x} = \frac{\mathrm{d}}{\mathrm{d}x} \left( x^{2} \ln{x} + \frac{1}{\ln{x}} \right) = 2x \ln{x} + x - \frac{1}{x (\ln{x})^{2}}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}}{\mathrm{d}x} &= \frac{\partial u}{\partial x} \frac{\mathrm{d}x}{\mathrm{d}x} + \frac{\partial u}{\partial y} \frac{\mathrm{d}y}{\mathrm{d}x} \\
+        &= 2yx + (x^{2} - \frac{1}{y^{2}}) \frac{1}{x} \\
+        &= 2x \ln{x} + x - \frac{1}{x (\ln{x})^{2}}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{D5}{Chain rule}
+$\omega = e^{-r^{2}}$, so $\partial \omega/\partial r = -2r e^{-r^{2}}$ and $\partial \omega/\partial \theta = 0$. Alternatively:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \omega}{\partial r} &= \frac{\partial \omega}{\partial x} \frac{\partial x}{\partial r} + \frac{\partial \omega}{\partial y} \frac{\partial y}{\partial r} \\
+        &= -e^{x^{2} + y^{2}} (2x \cos{\theta} + 2y \sin{\theta}) \\
+        &= -2r e^{-r^{2}}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \omega}{\partial \theta} &= \frac{\partial \omega}{\partial x} \frac{\partial x}{\partial \theta} + \frac{\partial \omega}{\partial y} \frac{\partial y}{\partial \theta} \\
+        &= -2e^{x^{2} + y^{2}} (-xr \sin{\theta} + yr \cos{\theta})\\
+        &= 0
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{D6}{Exact differetials}
+Note that:
+
+\begin{equation}
+    P = \frac{RT}{V}, V = \frac{RT}{P}, T = \frac{VP}{R}
+\end{equation}
+
+\subproblem{a}
+
+\begin{equation}
+    \left( \frac{\partial P}{\partial V} \right)_{T} \left( \frac{\partial V}{\partial T} \right)_{P} \left( \frac{\partial T}{\partial P} \right)_{V} = \left( -\frac{RT}{V^{2}} \right) \left( \frac{R}{P} \right) \left( \frac{V}{R} \right) = -1
+\end{equation}
+
+\begin{equation}
+    \left( \frac{\partial P}{\partial V} \right)_{T} = -\frac{RT}{V^{2}} = -\frac{P}{V}
+\end{equation}
+
+\begin{equation}
+    \left( \frac{\partial V}{\partial P} \right)_{T} = -\frac{RT}{P^{2}} = -\frac{V}{P}
+\end{equation}
+
+\subproblem{b}
+We have:
+
+\begin{equation}
+    \frac{\partial f}{\partial P} \mathrm{d}P + \frac{\partial f}{\partial V} \mathrm{d}V + \frac{\partial f}{\partial T} \mathrm{d}T = 0
+\end{equation}
+
+Consider $\partial P/\partial V$. This is the same as setting $\mathrm{d}T = 0$ and take the ordinary derivative using the above equation. Applying to all three case:
+
+\begin{equation}
+    \begin{split}
+        \left( \frac{\partial P}{\partial V} \right)_{T} &= \frac{\mathrm{d}P}{\mathrm{d}V} = - \frac{\partial f}{\partial V}/\frac{\partial f}{\partial P} \\
+        \left( \frac{\partial V}{\partial T} \right)_{T} &= \frac{\mathrm{d}V}{\mathrm{d}T} = - \frac{\partial f}{\partial T}/\frac{\partial f}{\partial V} \\
+        \left( \frac{\partial T}{\partial P} \right)_{T} &= \frac{\mathrm{d}T}{\mathrm{d}P} = - \frac{\partial f}{\partial P}/\frac{\partial f}{\partial T}
+    \end{split}
+\end{equation}
+
+Multiplying the above three equations together, we recover the previous results.
+\qed
+
+
+\problem{D7}{Change of variable}
+
+\subproblem{a}
+
+\begin{equation}
+    \left( \frac{\partial z}{\partial x} \right)_{y} = \left( \frac{\partial z}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial z}{\partial v} \frac{\partial v}{\partial x} \right)_{y} = 2x \left( \frac{\partial z}{\partial u} \right)_{v} + 2y \left( \frac{\partial z}{\partial v} \right)_{u}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \left( \frac{\partial z}{\partial u} \right)_{v} = \left( \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial u} \right)_{v} \mistake{= \frac{1}{2x} \left( \frac{\partial z}{\partial x} \right)_{y} + \frac{1}{2y} \left( \frac{\partial z}{\partial y} \right)_{x}}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \left( \frac{\partial z}{\partial u} \right)_{v} = \left( \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial u} \right)_{v}
+    \end{equation}
+
+    On the other hand, we have:
+
+    \begin{equation}
+        \begin{split}
+            u &= x^{2} + y^{2} = x^{2} + \frac{v^{2}}{4x^{2}} \\
+            \left( \frac{\partial u}{\partial x} \right)_{v} &= 2x - \frac{v^{2}}{2x^{3}} = \frac{2(x^{2} - y^{2})}{x} \\
+            \left( \frac{\partial x}{\partial u} \right)_{v} &= \frac{x}{2(x^{2} - y^{2})}
+        \end{split}
+    \end{equation}
+
+    By symmetry:
+
+    \begin{equation}
+        \left( \frac{\partial y}{\partial u} \right)_{v} = -\frac{y}{2(x^{2} - y^{2})}
+    \end{equation}
+
+    Thus:
+
+    \begin{equation}
+        \left( \frac{\partial z}{\partial u} \right)_{v} = \frac{1}{2(x^{2} - y^{2})} \left[ x \left( \frac{\partial z}{\partial x} \right)_{y} - y \left( \frac{\partial z}{\partial y} \right)_{x} \right]
+    \end{equation}
+\end{correction}
+
+\subproblem{c}
+
+\begin{equation}
+    \left( \frac{\partial z}{\partial v} \right)_{v} = \left( \frac{\partial z}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial v} \right)_{v} = \mistake{\frac{1}{2y} \left( \frac{\partial z}{\partial x} \right)_{y} + \frac{1}{2x} \left( \frac{\partial z}{\partial y} \right)_{x}}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \mistake{\left( \frac{\partial z}{\partial u} \right)_{v} - \left( \frac{\partial z}{\partial v} \right)_{v} = \left( \frac{1}{2x} - \frac{1}{2y} \right) \left[ \left( \frac{\partial z}{\partial x} \right)_{y} - \left( \frac{\partial z}{\partial y} \right)_{x} \right]}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \left( \frac{\partial z}{\partial v} \right)_{u} = \left( \frac{\partial z}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial v} \right)_{u}
+    \end{equation}
+
+    On the other hand, we have:
+
+    \begin{equation}
+        \begin{split}
+            v &= 2xy = 2x \sqrt{u - x^{2}} \\
+            \left( \frac{\partial v}{\partial x} \right)_{u} &= 2\left( \sqrt{u - x^{2}} - \frac{x^{2}}{\sqrt{u - x^{2}}} \right) \\
+            \left( \frac{\partial x}{\partial v} \right)_{u} &= \frac{y}{2(y^{2} - x^{2})}
+        \end{split}
+    \end{equation}
+
+    By symmetry:
+
+    \begin{equation}
+        \left( \frac{\partial y}{\partial v} \right)_{u} = -\frac{x}{2(y^{2} - x^{2})}
+    \end{equation}
+
+    Thus:
+
+    \begin{equation}
+        \left( \frac{\partial z}{\partial v} \right)_{u} = \frac{1}{2(y^{2} - x^{2})} \left[ y \left( \frac{\partial z}{\partial x} \right)_{y} - x \left( \frac{\partial z}{\partial y} \right)_{x} \right]
+    \end{equation}
+
+    and:
+
+    \begin{equation}
+        \left( \frac{\partial z}{\partial u} \right)_{v} - \left( \frac{\partial z}{\partial v} \right)_{u} = \frac{1}{2(x - y)} \left[ \left( \frac{\partial z}{\partial x} \right)_{y} - \left( \frac{\partial z}{\partial y} \right)_{x} \right]
+    \end{equation}
+\end{correction}
+
+\subproblem{d}
+We have $z = u + v = (x + y)^{2}$, so that:
+
+\begin{equation}
+    \left( \frac{\partial z}{\partial u} \right)_{v} - \left( \frac{\partial z}{\partial v} \right)_{v} = \left( \frac{1}{2x} - \frac{1}{2y} \right) \left[ \left( \frac{\partial z}{\partial x} \right)_{y} - \left( \frac{\partial z}{\partial y} \right)_{x} \right] = 0
+\end{equation}
+
+
+\qed
+
+
+\problem{D8}{Talor series in 2 variables}
+
+\begin{equation}
+    \begin{split}
+        &f(x, y) \\
+        =& f(2, 3) + \left[ \frac{\partial f}{\partial x} (x - 2) + \frac{\partial f}{\partial y} (y -3) \right] + \frac{1}{2} \left[ \frac{\partial^{2} f}{\partial x^{2}} (x - 2)^{2} + \frac{\partial^{2} f}{\partial y^{2}} (y - 3)^{2} + \frac{\partial^{2} f}{\partial x \partial y} (x - 2) (y - 3) \right] + \dots \\
+        =& e^{6} + 3e^{6}(x - 2) + 2e^{6}(y - 3) + \frac{1}{2} \left[ 9e^{6} (x - 2)^{2} + 6e^{6} (y - 3)^{2} + 4e^{6} (x - 2) (y - 3) \right] + \dots
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{D9}{Stationary Points}
+
+\subproblem{i}
+
+\begin{equation}
+    \frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0
+\end{equation}
+
+This gives us $(x, y) = (0, 0)$. At this point:
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x^{2}} = \frac{\partial^{2} f}{\partial y^{2}} = 2
+\end{equation}
+
+and
+
+\begin{equation}
+    +\frac{\partial^{2} f}{\partial x \partial y} = 0
+\end{equation}
+
+Thus this is a minimum.
+
+\subproblem{ii}
+
+\begin{equation}
+    \frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0
+\end{equation}
+
+This gives us the following equations:
+
+\begin{equation}
+    \begin{split}
+        3x^{2} - 4x + 3y = 0 \\
+        3y^{2} - 4y + 3x = 0
+    \end{split}
+\end{equation}
+
+For real $x$ and $y$, the solutions are $(x, y) = (0, 0)$ and $(x, y) = (1/3, 1/3)$. For $(0, 0)$:
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x^{2}} = \frac{\partial^{2} f}{\partial y^{2}} = -4
+\end{equation}
+
+and
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x \partial y} = 3
+\end{equation}
+
+Thus $(0, 0)$ is a maximum. For $(1/3,  1/3)$:
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x^{2}} = \frac{\partial^{2} f}{\partial y^{2}} = -2
+\end{equation}
+
+and
+
+\begin{equation}
+    \frac{\partial^{2} f}{\partial x \partial y} = 3
+\end{equation}
+
+Thus $f_{xy}^{2} > f_{xx} f_{yy}$ and $(1/3,  1/3)$ is a saddle point.
+
+\subproblem{iii}
+
+\begin{equation}
+    \frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0
+\end{equation}
+
+We have the following equations:
+
+\begin{equation}
+    \begin{split}
+        \sin{y} \left[ \cos{x}\sin{(x + y)} + \sin{x}\cos{(x + y)} \right] = 0 \\
+        \sin{x} \left[ \cos{y}\sin{(x + y)} + \sin{y}\cos{(x + y)} \right] = 0
+    \end{split}
+\end{equation}
+
+This gives us the condition $\tan{x} = \tan{y} = -\tan{(x + y)}$. We have $x = 0$ or $y = 0$. Also:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial^{2} f}{\partial x^{2}} = 2\sin{y} \left[ \cos{x}\cos{(x + y)} - \sin{x}\sin{(x + y)} \right] \\
+        \frac{\partial^{2} f}{\partial y^{2}} = 2\sin{x} \left[ \cos{y}\cos{(x + y)} - \sin{y}\sin{(x + y)} \right]
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{D10}{Exact differnetials}
+
+\subproblem{a}
+(i) is exact. $f(x, y) = xy + C$ for an arbitrary constant $C$.
+
+(ii) is inexact.
+
+(iii) is exact. $f(x, y) = (x^{2} + y^{2} + z^{2})/2 + C$ for an arbitrary constant $C$.
+
+\subproblem{b}
+As the integrand is an exact differential, the path integral evaluates to zero around a complete loop.
+\qed
+
+
+\end{document}

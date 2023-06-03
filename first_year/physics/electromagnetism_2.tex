@@ -1,0 +1,259 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Method of Image Charges \& Electric Fields derived from Gauss' Law}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Method of Image Charges}
+%==========
+
+
+\problem{0}{Background}
+Near a conductor, the parallel component of the electric field is continuous and influenced by external field. The perpendicular component of the electric field is discontinuous and influenced by the surface charge deposited on the conductor.
+\qed
+
+
+\problem{1}{Charge monopole near a flat metal surface}
+
+\subproblem{a}{}
+Using the method of image charges, the radial component of the field cancels out so that the electric field is only in the polar direction:
+
+\begin{equation}
+    \mathbf{E} = -2 \frac{1}{4\pi \epsilon_{0}} \frac{q}{d^{2} + r^{2}} \frac{d}{\sqrt{d^{2} + r^{2}}} \hat{z} = - \frac{qd}{2\pi \epsilon_{0} (d^{2} + r^{2})^{3/2}} \hat{z}
+\end{equation}
+
+\subproblem{c}{}
+We have the surface charge density $\sigma = E_{+} - E_{-}$, so that the total charge is:
+
+\begin{equation}
+    Q = \int_{0}^{\infty} \sigma 2\pi r \, \mathrm{d}r = -\int_{0}^{\infty} \frac{qd}{2\pi \epsilon_{0} (d^{2} + r^{2})^{3/2}} 2\pi r \, \mathrm{d}r = -q
+\end{equation}
+
+\subproblem{d}{}
+The force exerted on the charge is:
+
+\begin{equation}
+    \mathbf{F} = -\frac{1}{4\pi \epsilon_{0}} \frac{q^{2}}{4d^{2}} \hat{z}
+\end{equation}
+
+so that the work down is given by:
+
+\begin{equation}
+    W = \int_{d}^{\infty} -\frac{1}{4\pi \epsilon_{0}} \frac{q^{2}}{4s^{2}} \, \mathrm{d}s = \frac{1}{4\pi \epsilon_{0}} \frac{q^{2}}{4d}
+\end{equation}
+
+and the minimum escape kinetic energy is:
+
+\begin{equation}
+    T = W = \frac{1}{4\pi \epsilon_{0}} \frac{e^{2}}{4d} = \qty{3.6}{eV}
+\end{equation}
+\qed
+
+
+\problem{2}{Two charges near a flat metal surface}
+Using two image charges, the force on the positive charge is:
+
+\begin{equation}
+\begin{split}
+    F_{+} &= \frac{1}{4\pi \epsilon_{0}} \left( \frac{Q^{2}}{a^{2}} - \frac{Q^{2}}{a^{2} + 4b^{2}} \frac{a}{\sqrt{a^{2} + 4b^{2}}} \right) \hat{x} - \frac{1}{4\pi \epsilon_{0}} \left( \frac{Q^{2}}{4b^{2}} - \frac{Q^{2}}{a^{2} + 4b^{2}} \frac{2b}{\sqrt{a^{2} + 4b^{2}}} \right) \hat{z} \\
+    &= \frac{Q^{2}}{4\pi \epsilon_{0}} \left[ \frac{1}{a^{2}} - \frac{a}{(a^{2} + 4b^{2})^{3/2}} \right] \hat{x} - \frac{Q^{2}}{4\pi \epsilon_{0}} \left[ \frac{1}{4b^{2}} - \frac{2b}{(a^{2} + 4b^{2})^{3/2}} \right] \hat{z}
+\end{split}
+\end{equation}
+
+By symmetry, the force on the negative charge is:
+
+\begin{equation}
+    F_{-} = -\frac{Q^{2}}{4\pi \epsilon_{0}} \left[ \frac{1}{a^{2}} - \frac{a}{(a^{2} + 4b^{2})^{3/2}} \right] \hat{x} + \frac{Q^{2}}{4\pi \epsilon_{0}} \left[ \frac{1}{4b^{2}} - \frac{2b}{(a^{2} + 4b^{2})^{3/2}} \right] \hat{z}
+\end{equation}
+\qed
+
+
+\problem{3}{Charge monopole near two orthogonal metal surfaces}
+Let us orient the coordinate axis such that $Q$ is situated at $(a, 0, a)$ Consider two negative charges at $(a, 0, -a)$ and $(-a, 0, a)$, and a positive charge at $(-a, 0, -a)$.
+
+\subproblem{a}{}
+Along the join, which is the y-axis, the electric field produced by the charges are diagonally pair-wise equal and opposite, so that the net electric field is zero.
+
+\subproblem{b}{}
+Just above the point $(a, 0, 0)$, we have the approximation $z \ll a$. The electric potential is given by:
+
+\begin{equation}
+    \phi(z) = \frac{Q}{4\pi \epsilon_{0}} \left[ \frac{1}{\sqrt{4a^{2} + (a+z)^{2}}} - \frac{1}{\sqrt{4a^{2} + (a-z)^{2}}} + \frac{1}{a-z} - \frac{1}{a+z} \right] \approx \frac{Q}{4\pi \epsilon_{0}} \frac{z}{a^{2}} \left( 2 - \frac{4}{5\sqrt{5}} \right)
+\end{equation}
+
+so that the field just above the point $(a, 0, 0)$ is:
+
+\begin{equation}
+    \mathbf{E} = -\frac{\partial \phi}{\partial z} = -\frac{Q}{2\pi \epsilon_{0}} \frac{1}{a^{2}} \left( 1 - \frac{2}{5\sqrt{5}} \right) \hat{z}
+\end{equation}
+
+For the other plate, by symmetry, we have:
+
+\begin{equation}
+    \mathbf{E} = -\frac{Q}{2\pi \epsilon_{0}} \left( 1 - \frac{2}{5\sqrt{5}} \right) \hat{x}
+\end{equation}
+
+\subproblem{d}{}
+The surface charge density is given by:
+
+\begin{equation}
+    \sigma = -\frac{\partial \phi}{\partial z}\vert_{z=0} \epsilon_{0} = -\frac{Q}{2\pi a^{2}} \left( 1 - \frac{2}{5\sqrt{5}} \right)
+\end{equation}
+\qed
+
+
+\problem{4}{Uniformly charged rod near a metal surface}
+Consider a charged rod with linear charge density $\lambda$ and an image charged rod with linear charge density $-\lambda$. By symmetry, the electric field produced is given by:
+
+\begin{equation}
+    \mathbf{E}(x) = -2 \frac{\lambda}{2\pi \epsilon_{0}} \frac{1}{\sqrt{x^{2} + a^{2}}} \frac{d}{\sqrt{x^{2} + a^{2}}} \hat{z} = -\frac{\lambda}{\pi \epsilon_{0}} \frac{d}{\sqrt{x^{2} + a^{2}}} \hat{z}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Electric Fields derived from Gauss' Law}
+%==========
+
+
+\problem{0}{Background}
+Gauss' law states that the electric flux through a closed surface is proportional to the net charge enclosed by the surface. This helps us to derive the electric field from a charge distribution with a high degree of symmetry, as the surface integral can be simplified.
+\qed
+
+
+\problem{1}{Uniformly charged sphere}
+
+\subproblem{a}{}
+For $r \le a$, the field and potential are trivial. For $0 < r < a$, since the charge is uniformly distributed, by Gauss' law, the electric field satisfies:
+
+\begin{equation}
+    E 4\pi r^{2} = \frac{q}{\epsilon_{0}} \frac{r^{3}}{a^{3}}
+\end{equation}
+
+so that $\mathbf{E} = qr/(4\pi \epsilon_{0} a^{3}) \hat{r}$ for $0 < r < a$. The potential is given by the integral:
+
+\begin{equation}
+    V(r) = -\int_{\infty}^{r} E(r) \, \mathrm{d}r = -\int_{\infty}^{a} \frac{q}{4\pi \epsilon_{0} r^{2}} \, \mathrm{d}r - \int_{a}^{r} \frac{qr}{4\pi \epsilon_{0} a^{3}} \, \mathrm{d}r = \frac{q}{4\pi \epsilon_{0} a^{3}} \left( \frac{3a^{2}}{2} - \frac{r^{2}}{2} \right)
+\end{equation}
+
+\subproblem{b}{}
+For a surface charge distribution over a sphere, the electric field is given by Gauss' law
+
+\begin{equation}
+    \mathbf{E}(r) =
+    \begin{cases}
+        \mathbf{0} & r \le a \\
+        \frac{q}{4\pi \epsilon_{0}} \frac{1}{r^{2}} \hat{r} & r > a
+    \end{cases}
+\end{equation}
+
+The potential is given by:
+
+\begin{equation}
+    V(r) =
+    \begin{cases}
+        \frac{q}{4\pi \epsilon_{0}} \frac{1}{a} & r \le a \\
+        \frac{q}{4\pi \epsilon_{0}} \frac{1}{r} & r > a
+    \end{cases}
+\end{equation}
+
+
+\problem{2}{Coulomb energy of the nucleus}
+The charge density can be written as $\rho = (3Ze)/(4\pi a^{3})$ which is a constant. The assembly energy is given by the integral:
+
+\begin{equation}
+    W = \frac{1}{2} \int_{V} \phi \, \mathrm{d}q
+\end{equation}
+
+where $V$ is the sphere occupied by the nucleus and $\phi$ is the electric potential satisfying the expression given in the previous problem.
+
+Carrying out the integration:
+
+\begin{equation}
+\begin{split}
+    W = \frac{1}{2} \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{a} \frac{Ze}{4\pi a^{3}} \left( \frac{3a^{2}}{2} - \frac{r^{2}}{2} \right) \rho r^{2} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = \frac{3 (Ze)^{2}}{20\pi \epsilon a}
+\end{split}
+\end{equation}
+
+If the charge is distributed over the surface instead, then $\phi$ is a constant so that the energy is given by:
+
+\begin{equation}
+    W = \frac{1}{2} \phi Q = \frac{(Ze)^{2}}{8\pi \epsilon a}
+\end{equation}
+\qed
+
+
+\problem{3}{Electron in a hydrogen atom}
+
+\subproblem{a}{}
+$V(r)$ has a horizontal asymptote as $r \to \infty$ and has a minimum at $r = 0$.
+
+\begin{center}
+    \input{../plots/EM_2_C3_a.tex}
+\end{center}
+
+\subproblem{b}{}
+In the limit $r \ll a$, we have the approximation:
+
+\begin{equation}
+    e^{-2r/a} \approx 1 - \frac{2r}{a} + \frac{2r^{2}}{a^{2}} - \frac{4r^{3}}{3a^{3}}
+\end{equation}
+
+so that up to second order in $r/a$, the potential is given by:
+
+\begin{equation}
+    V(r) \approx \frac{q}{4\pi \epsilon_{0}} \left( -\frac{2}{a} + \frac{2r}{a^{2}} - \frac{4r^{2}}{3a^{3}} + \frac{1}{a} - \frac{2r}{a^{2}} + \frac{2r^{2}}{a^{3}} \right) = \frac{q}{4\pi \epsilon_{0}} \left( -\frac{1}{a} + \frac{2r^{2}}{3a^{3}} \right)
+\end{equation}
+
+Therefore, the electric field is given by:
+
+\begin{equation}
+    E(r) = -\frac{\partial V}{\partial r} \approx -\frac{qr}{3\pi \epsilon_{0} a^{3}}
+\end{equation}
+
+\subproblem{c}{}
+We need $E(d) + E_{ext} = 0$, leading to:
+
+\begin{equation}
+    \frac{qd}{3\pi \epsilon_{0} a^{3}} = E_{ext}
+\end{equation}
+
+Taking $p = qd$, we have $p/E_{ext} = 3\pi \epsilon_{0} a^{3}$
+
+\subproblem{d}{}
+We have:
+
+\begin{equation}
+    d = \frac{3\pi \epsilon_{0} a^{3} E}{q} \approx \qty{5e-17}{m}
+\end{equation}
+
+which is much less than $a$.
+
+\subproblem{e}{}
+We know that $\rho = -\epsilon_{0} \nabla^{2} V$, so the charge density is given by:
+
+\begin{equation}
+    \rho(r) = -\frac{q}{4\pi} \nabla \cdot \left( \frac{1 - e^{-2r/a}}{r^{2}} - \frac{2e^{-2r/a}}{ar} - \frac{2e^{-2r/a}}{a^{2}} \right) = -\frac{q}{\pi a^{3}} e^{-2r/a}
+\end{equation}
+
+The total charge is hence given by the integral:
+
+\begin{equation}
+    Q = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{\infty} \rho(r) r^{2} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = -\frac{4q}{a^{3}} \int_{0}^{\infty} r^{2} e^{-2r/a} \, \mathrm{d}r = -q
+\end{equation}
+\qed
+
+\end{document}

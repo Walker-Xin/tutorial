@@ -1,0 +1,717 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vectors \& Matrices}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Vectors, vector spaces and geometry}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Vectors, vector spaces and geometry}
+%==========
+
+
+\problem{1}{}
+(a) is obviously a linearly independent set. To check whether the remaining sets are linearly independent, compute their determinant:
+
+\begin{equation}
+    \det{\begin{pmatrix}
+            0 & 1 & 0 \\
+            1 & 1 & 0 \\
+            1 & 1 & 1
+        \end{pmatrix}} = -1 \ne 0
+\end{equation}
+
+so (b) is linearly independent.
+
+\begin{equation}
+    \det{\begin{pmatrix}
+            1 & 2 & 1  \\
+            0 & 3 & 6  \\
+            1 & 1 & -1
+        \end{pmatrix}} = 0
+\end{equation}
+
+so (c) is linearly dependent. The subset $\left\{ \mathbf{v}_{1}, \mathbf{v}_{2} \right\}$ is linearly independent.
+
+For (d), suppose $\mathbf{v}_{3} = \alpha \mathbf{v}_{1} + \beta \mathbf{v}_{2}$. We have the equation system:
+
+\begin{equation}
+    \begin{split}
+        \alpha + 2\beta &= -3 \\
+        2\alpha + \beta &= 6 \\
+        \beta &= -4 \\
+        -3\alpha - 4\beta &= 1 \\
+    \end{split}
+\end{equation}
+
+which has a solution $(\alpha, \beta) = (5, -4)$.
+
+Thus (d) is linearly dependent
+\qed
+
+
+\problem{2}{}
+
+\subproblem{a}
+The set is spanned by a single vector $(2, 2, 1)^{\intercal}$ so it is closed under addition and multiplication and has a zero vector. Thus it is a sub space.
+
+\subproblem{b}
+There is no zero vector in this set so it is not a sub space.
+
+\subproblem{c}
+For $f:R \to R$ that satisfies $f(x) = f(-x)$, define the sum of two functions as:
+
+\begin{equation}
+    \begin{split}
+        (f_{1} + f_{2})(x) \equiv f_{1}(x) + f_{2}(x)
+    \end{split}
+\end{equation}
+
+$f(x) = 0$ apparently belongs to the subset. Note that:
+
+\begin{equation}
+    \begin{split}
+        (\alpha f_{1} + \beta f_{2})(x) = \alpha f_{1}(x) + \beta f_{2}(x) = \alpha f_{1}(-x) + \beta f_{2}(-x) = (\alpha f_{1} + \beta f_{2})(-x)
+    \end{split}
+\end{equation}
+
+Thus the subset is a vector space.
+\qed
+
+
+\problem{3}{}
+The dimension of $\mathbf{M}_{3 \times 3}$ is nine.
+
+\subproblem{a}
+Let $A = \sum A_{ij}, B = \sum B_{ij} \in V$, where $V$ is the subset of symmetric $3 \times 3$ matrices. Apparently the $3 \times 3$ zero matrix belongs to $V$. Consider a linear combination of $A$ and $B$:
+
+\begin{equation}
+    (\alpha A + \beta B)_{ij} = \alpha A_{ij} + \beta B_{ij} = \alpha A_{ji} + \beta B_{ji} = (\alpha A + \beta B)_{ji}
+\end{equation}
+
+Thus $(\alpha A + \beta B) \in V$, and $V$ thus forms a sub vector space. It has a dimension of \mistake{four} with its basis is given by:
+
+\begin{equation}
+    \left\{
+    I_{3},
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix},
+    \begin{pmatrix}
+        0 & 0 & 1 \\
+        0 & 0 & 0 \\
+        1 & 0 & 0
+    \end{pmatrix},
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    \right\}
+\end{equation}
+
+\begin{correction}
+    It has a dimension of six with its basis is given by:
+
+    \begin{equation}
+        \left\{
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            1 & 0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 1 \\
+            0 & 1 & 0
+        \end{pmatrix}
+        \right\}
+    \end{equation}
+\end{correction}
+
+\subproblem{b}
+Let $A = \sum A_{ij}, B = \sum B_{ij} \in W$, where $W$ is the subset of antisymmetric $3 \times 3$ matrices. Apparently the $3 \times 3$ zero matrix belongs to $W$. Consider a linear combination of $A$ and $B$:
+
+\begin{equation}
+    (\alpha A + \beta B)_{ij} = \alpha A_{ij} + \beta B_{ij} = -\alpha A_{ji} - \beta B_{ji} = -(\alpha A + \beta B)_{ji}
+\end{equation}
+
+Thus $(\alpha A + \beta B) \in W$, and $W$ thus forms a sub vector space. It has a dimension of three with its basis is given by:
+
+\begin{equation}
+    \left\{
+    \begin{pmatrix}
+        0  & 1 & 0 \\
+        -1 & 0 & 0 \\
+        0  & 0 & 0
+    \end{pmatrix},
+    \begin{pmatrix}
+        0  & 0 & 1 \\
+        0  & 0 & 0 \\
+        -1 & 0 & 0
+    \end{pmatrix},
+    \begin{pmatrix}
+        0 & 0  & 0 \\
+        0 & 0  & 1 \\
+        0 & -1 & 0
+    \end{pmatrix}
+    \right\}
+\end{equation}
+
+\subproblem{c}
+For symmetric matrices, the dimension is \mistake{$(n^{2} - n)/2 + 1$}. For antisymmetric matrices, the dimension is $(n^{2} - n)/2$. Their basis are given in a similar fashion as above.
+
+\begin{correction}
+    For symmetric matrices, the dimension is \mistake{$(n^{2} - n)/2 + n$}.
+\end{correction}
+\qed
+
+
+\problem{4}{}
+
+\begin{equation}
+    \det{\begin{pmatrix}
+            1  & 0  & 2 \\
+            -1 & 1  & 0 \\
+            0  & -1 & 1
+        \end{pmatrix}} = 3 \ne 0
+\end{equation}
+
+so the set is linearly independent and thus is a basis of $\mathbb{R}^{3}$. For a general $\mathbf{v} \in \mathbb{R}^{3}$:
+
+\begin{equation}
+    \mathbf{v} = a \mathbf{v}_{1} + b \mathbf{v}_{2} + c \mathbf{v}_{3}
+\end{equation}
+
+where $a, b, c$ are the coordinates of $\mathbf{v}$ relative to the basis determined by the equation system:
+
+\begin{equation}
+    \begin{pmatrix}
+        1  & 0  & 2 \\
+        -1 & 1  & 0 \\
+        0  & -1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a \\
+        b \\
+        c
+    \end{pmatrix} =
+    \begin{pmatrix}
+        x \\
+        y \\
+        z
+    \end{pmatrix}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}
+Let $\mathbf{u}, \mathbf{v} \in U \cap W$. Apparently $\mathbf{0} \in U \cap W$ as $\mathbf{0} \in U$ and $\mathbf{0} \in W$. As $U \cap W$ is a sub set of $V$, $\mathbf{u}, \mathbf{v} \in V$. Consider a linear combination of $\mathbf{u}$ and $\mathbf{v}$:
+
+\begin{equation}
+    \alpha \mathbf{u} + \beta \mathbf{v}
+\end{equation}
+
+As $\mathbf{u}, \mathbf{v} \in U$ and $U$ is a sub vector space, $\alpha \mathbf{u} + \beta \mathbf{v} \in U$. A similar argument can be made for $W$. Hence:
+
+\begin{equation}
+    (\alpha \mathbf{u} + \beta \mathbf{v}) \in U \cap W
+\end{equation}
+
+and thus $U \cap W$ is a sub vector space.
+
+\subproblem{b}
+Let $\mathbf{a}, \mathbf{b} \in U + W$, such that $\mathbf{a} = \mathbf{u}_{1} + \mathbf{w}_{1}$ and $\mathbf{b} = \mathbf{u}_{2} + \mathbf{w}_{2}$. Apparently $\mathbf{0} \in U + W$. Consider a linear combination of $\mathbf{a}$ and $\mathbf{b}$:
+
+\begin{equation}
+    \alpha \mathbf{a} + \beta \mathbf{b} = (\alpha \mathbf{u}_{1} + \beta \mathbf{u}_{2}) + (\alpha \mathbf{w}_{1} + \beta \mathbf{w}_{2})
+\end{equation}
+
+The first term on the right-hand side belongs to $U$ while the second term belongs to $W$ due to them being vector spaces. Thus $(\alpha \mathbf{a} + \beta \mathbf{b}) \in U + W$ and $U + W$ is a sub vector space.
+
+\subproblem{c}
+This is a very loosely argued proof.
+
+Let $U \cap W$ have a basis $\{\mathbf{v}_{i}\}$ of $n$ elements, so that it has a dimension of $n$. Suppose that in order for $\{\mathbf{v}_{i}\}$ to be a basis of $U$, there needs to be an additional set $\{\mathbf{u}_{j}'\}$ of $m$ vectors, where $0 \le m \le \dim{U}$. Also suppose that in order for $\{\mathbf{v}_{i}\}$ to be a basis of $W$, there needs to be an additional set $\{\mathbf{w}_{k}'\}$ of $l$ vectors, where $0 \le l \le \dim{W}$. Then we can assert that the dimension of $U$ is $n + m$ and the dimension of $W$ is $n + l$.
+
+An element in $U + W$ can be thus expressed as $\sum \alpha_{i} \mathbf{v}_{i} + \sum \beta_{j} \mathbf{u}_{j}' + \sum \gamma_{k} \mathbf{w}_{k}'$ where $i, j, k$ take the values from $1$ to $n, l, m$ respectively. Since it has been assumed that $\{\mathbf{v}_{i}, \mathbf{u}_{j}'\}$ and $\{\mathbf{v}_{i}, \mathbf{w}_{k}'\}$ are bases, they must be linearly independent. Then it follows that:
+
+\begin{equation}
+    \dim{(U + W)} = n + l + m = (n + m) + (n + l) - n = \dim{U} + \dim{W} - \dim{(U \cap W)}
+\end{equation}
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+This follows from the anticommutative property of the cross product.
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        \mathbf{a} \times (\mathbf{b} \times \mathbf{c}) &= \mathbf{a} \times \left( \sum_{i} \epsilon_{ijk} b_{j} c_{k} \right) \\
+        &= \epsilon_{lmi} a_{m} \epsilon_{ijk} b_{j} c_{k} \\
+        &= \epsilon_{ilm} \epsilon_{ijk} a_{m} b_{j} c_{k} \\
+        &= (\delta_{lj} \delta_{mk} - \delta_{lk} \delta_{mj}) a_{m} b_{j} c_{k} \\
+        &= a_{m} c_{m} b_{l} - a_{m} b_{m} c_{l} \\
+        &= (\mathbf{a} \cdot \mathbf{c})\mathbf{b} - (\mathbf{a} \cdot \mathbf{b})\mathbf{c}
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \begin{split}
+        (\mathbf{a} \times \mathbf{c}) \cdot (\mathbf{c} \times \mathbf{d}) &= \epsilon_{ijk} a_{j} b_{k} \epsilon_{ilm} c_{l} d_{m} \\
+        &= (\delta_{lj} \delta_{mk} - \delta_{lk} \delta_{mj}) a_{j} b_{k} c_{l} d_{m} \\
+        &= a_{j} b_{k} c_{j} d_{k} - a_{j} b_{k} c_{k} d_{j} \\
+        &= (\mathbf{a} \cdot \mathbf{c}) (\mathbf{b} \cdot \mathbf{d}) - (\mathbf{a} \cdot \mathbf{d}) (\mathbf{b} \cdot \mathbf{c})
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \begin{split}
+        (\mathbf{a} \times \mathbf{b}) &= \mathbf{a} - \mathbf{b} \\
+        \mathbf{a} \cdot (\mathbf{a} \times \mathbf{b}) &= \mathbf{a} \cdot (\mathbf{a} - \mathbf{b}) \\
+        0 &= \mathbf{c} \cdot (\mathbf{a} - \mathbf{b}) \\
+        \mathbf{a} &= \mathbf{b}
+    \end{split}
+\end{equation}
+
+provided that $\mathbf{a} \ne \mathbf{0}$.
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        (\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c} = \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = \mathbf{a} \cdot (\mathbf{b} \times \mathbf{a}) = 0
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+$\mathbf{a} \times \mathbf{c} = \mathbf{b} \times \mathbf{c}$ implies $(\mathbf{a} -\mathbf{b}) \times \mathbf{c} = 0$ and thus $(\mathbf{a} - \mathbf{b}) \perp \mathbf{c}$. Thus:
+
+\begin{equation}
+    (\mathbf{a} - \mathbf{b}) \cdot \mathbf{c} = \pm \left\lvert \mathbf{a} - \mathbf{b} \right\rvert \left\lvert \mathbf{c} \right\rvert
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    (\mathbf{a} \times \mathbf{b}) \times (\mathbf{c} \times \mathbf{b}) = [(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{b}] \mathbf{c} - [(\mathbf{a} \times \mathbf{b}) \cdot \mathbf{c}] \mathbf{b} = [(\mathbf{b} \times \mathbf{a}) \cdot \mathbf{c}] \mathbf{b} = \mathbf{b} [\mathbf{b} \cdot (\mathbf{a} \times \mathbf{c})]
+\end{equation}
+\qed
+
+
+\problem{8}{}
+
+\subproblem{a}
+The magnitude of the cross product is twice the area of the triangle, so they are equal.
+
+\subproblem{b}
+
+\begin{equation}
+    A = \frac{1}{2} \left\lvert PQ \times PR \right\rvert = \frac{1}{2} \left\lvert (1, -4, -1)^{\intercal} \times (-2, -1, 1)^{\intercal} \right\rvert = \frac{\sqrt{107}}{2} \text{ units}^{2}
+\end{equation}
+\qed
+
+
+\problem{9}{}
+
+\subproblem{a}
+$\mathbf{a}$ and $\mathbf{b}$ form a plane with the normal vector $\mathbf{n} = \mathbf{a} \times \mathbf{b} = -7 \mathbf{i} + 5 \mathbf{j} + \mathbf{k}$, and the plane has the scalar equation:
+
+\begin{equation}
+    \mathbf{r} \cdot \mathbf{n} = 0
+\end{equation}
+
+$\mathbf{c} \cdot \mathbf{n} = -7 + 10 - 3 = 0$, so $\mathbf{c}$ is on the plane, and thus they are coplanar.
+
+\subproblem{b}
+The normal vector is $\mathbf{n} = \mathbf{a} \times \mathbf{b} = \mathbf{i} + 2 \mathbf{j} - 3 \mathbf{k}$. For a vector $\mathbf{r}$ to satisfy the given conditions, have $\mathbf{r} \cdot \mathbf{n} = 0$ and $\mathbf{r} \cdot \mathbf{a} = 0$. This leads to two linear equations:
+
+\begin{equation}
+    \begin{split}
+        x + 2y - 3z = 0 \\
+        x + y + z = 0
+    \end{split}
+\end{equation}
+
+Solving this yields:
+
+\begin{equation}
+    \mathbf{r} = \lambda \begin{pmatrix}
+        -5 \\
+        4  \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+for $\lambda \in \mathbb{R}$.
+\qed
+
+
+\problem{10}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \begin{split}
+        \mathbf{v}_{i} \cdot \mathbf{v}_{j}' = \frac{1}{V} [\mathbf{v}_{i} \cdot (\mathbf{v}_{k} \times \mathbf{v}_{i})] = 0 \\
+        \mathbf{v}_{i} \cdot \mathbf{v}_{i}' = \frac{1}{V} [\mathbf{v}_{i} \cdot (\mathbf{v}_{j} \times \mathbf{v}_{k})] = 1
+    \end{split}
+\end{equation}
+
+Let $\mathbf{w} = \sum_{i} \alpha_{i} \mathbf{v}_{i}$. Then:
+
+\begin{equation}
+    \mathbf{w} \cdot \mathbf{v}_{j}' = \sum_{i} \alpha_{i} \mathbf{v}_{i} \cdot \mathbf{v}_{j}' = \sum_{i} \delta_{ij} \alpha_{i} = \alpha_{j}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        V' &= \frac{1}{V} (\mathbf{v}_{2} \times \mathbf{v}_{3}) \cdot (\mathbf{v}_{2}' \times \mathbf{v}_{3}') \\
+        &= - \frac{1}{V^{3}} (\mathbf{v}_{2} \times \mathbf{v}_{3}) \cdot \left[ (\mathbf{v}_{3} \times \mathbf{v}_{1}) \cdot (\mathbf{v}_{2} \times \mathbf{v}_{1}) \right] \\
+        &= - \frac{1}{V^{3}} (\mathbf{v}_{2} \times \mathbf{v}_{3}) \cdot \left[\mathbf{v}_{1} (\mathbf{v}_{1} \cdot (\mathbf{v}_{3} \times \mathbf{v}_{2})) \right] \\
+        &= \frac{\left[ \mathbf{v}_{1} \cdot (\mathbf{v}_{2} \times \mathbf{v}_{3}) \right]^{2}}{V^{3}} \\
+        &= \frac{1}{V}
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \begin{split}
+        \frac{1}{V'} \mathbf{v}_{i}' \times \mathbf{v}_{j}' &= V \frac{1}{V^{2}} \left[ (\mathbf{v}_{j} \times \mathbf{v}_{k}) \times (\mathbf{v}_{k} \times \mathbf{v}_{i}) \right] \\
+        &= -\frac{1}{V} \left[ (\mathbf{v}_{j} \times \mathbf{v}_{k}) \times (\mathbf{v}_{i} \times \mathbf{v}_{k}) \right] \\
+        &= -\frac{1}{V} \mathbf{v}_{k} \left[ \mathbf{v}_{k} \cdot (\mathbf{v}_{j} \times \mathbf{v}_{i}) \right] \\
+        &= \mathbf{v}_{k}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{11}{}
+The x-axis has the vector equation:
+
+\begin{equation}
+    \mathbf{r} = \lambda \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix}
+\end{equation}
+
+where $\lambda \in \mathbb{R}$.
+
+The distance is given by:
+
+\begin{equation}
+    \begin{split}
+        d^{2} &= (\mathbf{p} - \mathbf{r})^{2} \\
+        &= \mathbf{p}^{2} - 2 \mathbf{p} \cdot \mathbf{r} + \mathbf{r}^{2} \\
+        &= 29 - 4\lambda + \lambda^{2} \\
+        &= (\lambda - 2)^{2} + 25
+    \end{split}
+\end{equation}
+
+Thus the minimum distance is $5 \text{ units}$.
+\qed
+
+
+\problem{12}{}
+By inspection, the vector equation of the line is:
+
+\begin{equation}
+    \mathbf{r} =
+    \begin{pmatrix}
+        2 \\
+        1 \\
+        5
+    \end{pmatrix} +
+    \lambda \begin{pmatrix}
+        4 \\
+        3 \\
+        2
+    \end{pmatrix}
+\end{equation}
+
+where $\lambda \in \mathbb{R}$.
+
+The distance is given by:
+
+\begin{equation}
+    d^{2} = \mathbf{r}^{2} = 30 + 42\lambda + 29\lambda^{2}
+\end{equation}
+
+The minimum distance is thus $\sqrt{429/29} \text{ units}$.
+\qed
+
+\problem{13}{}
+Following the usual procedure:
+
+\begin{equation}
+    \begin{split}
+        d^{2} &= (\mathbf{r}_{1} - \mathbf{r}_{2})^{2} \\
+        &= \mathbf{r}_{1}^{2} - 2 \mathbf{r}_{1} \cdot r_{2} + \mathbf{r}_{2}^{2} \\
+        &= \mathbf{q}_{1}^{2} + 2\lambda_{1} (\mathbf{q}_{1} \cdot \mathbf{m}_{1}) + \mathbf{m}_{1}^{2} \lambda_{1}^{2} - 2 \left[ \mathbf{q}_{1} \mathbf{q}_{2} + \lambda_{2} (\mathbf{q}_{1} \cdot \mathbf{m}_{2}) +\lambda_{1} (\mathbf{q}_{2} \cdot \mathbf{m}_{1}) + \lambda_{1} \lambda_{2} \mathbf{m}_{1} \mathbf{m}_{2} \right] + \\
+        &  \mathbf{q}_{2}^{2} + 2\lambda_{1} (\mathbf{q}_{2} \cdot \mathbf{m}_{2}) + \mathbf{m}_{2}^{2} \lambda_{2}^{2}
+    \end{split}
+\end{equation}
+
+To achieve minimum of $d^{2}(\lambda_{1}, \lambda_{2})$:
+
+\begin{equation}
+    \mathrm{d}d^{2} = \frac{\partial d^{2}}{\partial \lambda_{1}} \mathrm{d}\lambda_{1} + \frac{\partial d^{2}}{\partial \lambda_{2}} \mathrm{d}\lambda_{2} = 0
+\end{equation}
+
+Each term yields an equation. Putting them together:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{m}_{1} \cdot (\mathbf{q}_{1} + \mathbf{m}_{1} \lambda_{1} - \mathbf{q}_{2} - \mathbf{m}_{2} \lambda_{2}) = 0 \\
+        \mathbf{m}_{2} \cdot (\mathbf{q}_{2} + \mathbf{m}_{2} \lambda_{2} - \mathbf{q}_{1} - \mathbf{m}_{1} \lambda_{1}) = 0
+    \end{split}
+\end{equation}
+
+This implies either $\mathbf{r}_{1} = \mathbf{r}_{2}$, which is trivial, or $(\mathbf{r}_{1} - \mathbf{r}_{2})$ is perpendicular to both $\mathbf{m}_{1}$ and $\mathbf{m}_{2}$, i.e., $(\mathbf{r}_{1} - \mathbf{r}_{2}) = k(\mathbf{m}_{1} \times \mathbf{m}_{2})$ for some non-zero $k \in \mathbb{R}$.
+
+For the given two lines, $\mathbf{m}_{1} \times \mathbf{m}_{2} = (-3, 0, 3)^{\intercal}$. Then:
+
+\begin{equation}
+    \begin{pmatrix}
+        4 + 2\lambda_{1} - \lambda_{2} \\
+        4 + \lambda_{1} - 2\lambda_{2} \\
+        2\lambda_{1} - \lambda_{2}
+    \end{pmatrix}
+    =
+    k\begin{pmatrix}
+        -3 \\
+        0  \\
+        3
+    \end{pmatrix}
+\end{equation}
+
+This can be transformed into the system of linear equations:
+
+\begin{equation}
+    \begin{pmatrix}
+        -2 & 1 & -3 \\
+        -1 & 2 & 0  \\
+        -2 & 1 & 3
+    \end{pmatrix}
+    \begin{pmatrix}
+        \lambda_{1} \\
+        \lambda_{2} \\
+        k
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        4 \\
+        4 \\
+        0
+    \end{pmatrix}
+\end{equation}
+
+the solution of which is $(\lambda_{1}, \lambda_{2}, k) = (0, 2, -2/3)$.
+
+Thus the minimum distance is $\mistake{2\sqrt{2}} \text{ units}$.
+
+\begin{correction}
+    Thus the minimum distance is $3\sqrt{2} \text{ units}$.
+\end{correction}
+\qed
+
+
+\problem{14}{}
+For Cartesian description, note that:
+
+\begin{equation}
+    \mathbf{n} = P_{1} P_{2} \times P_{1} P_{3} =
+    \det{
+        \begin{pmatrix}
+            \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+            1          & 3          & -2         \\
+            -3         & 4          & 1
+        \end{pmatrix}}
+    =
+    \begin{pmatrix}
+        11 \\
+        5  \\
+        13
+    \end{pmatrix}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \mathbf{r} \cdot \mathbf{n} = OP_{1} \cdot \mathbf{n} = 30
+\end{equation}
+
+or
+
+\begin{equation}
+    11x + 5y + 13z = 30
+\end{equation}
+\qed
+
+
+\problem{15}{}
+For vector description, note that $\mathbf{b} - \mathbf{a} = (-4, 1, -3)^{\intercal}$ and $\mathbf{c} - \mathbf{a} = (-1, 0, 1)^{\intercal}$. Thus:
+
+\begin{equation}
+    \mathbf{r} = \mathbf{a} +
+    \lambda \begin{pmatrix}
+        -4 \\
+        1  \\
+        -3
+    \end{pmatrix}
+    +
+    \mu \begin{pmatrix}
+        -1 \\
+        0  \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+where $\lambda, \mu \in \mathbb{R}$.
+
+For Cartesian description, note that:
+
+\begin{equation}
+    \mathbf{n} = (\mathbf{b} - \mathbf{a}) \times (\mathbf{c} - \mathbf{a}) =
+    \det{
+        \begin{pmatrix}
+            \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+            -4         & 1          & -3         \\
+            -1         & 0          & 1
+        \end{pmatrix}}
+    =
+    \begin{pmatrix}
+        1 \\
+        7 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \mathbf{r} \cdot \mathbf{n} = \mathbf{a} \cdot \mathbf{n} = 18
+\end{equation}
+
+or
+
+\begin{equation}
+    x + 7y + z = 18
+\end{equation}
+\qed
+
+
+\problem{16}{}
+For the line:
+
+\begin{equation}
+    \mathbf{r} =
+    \lambda \begin{pmatrix}
+        1 \\
+        1 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+For the plane:
+
+\begin{equation}
+    \mathbf{r} =
+    \begin{pmatrix}
+        -1 \\
+        1  \\
+        -2
+    \end{pmatrix}
+    +
+    \mu \begin{pmatrix}
+        2 \\
+        4 \\
+        -3
+    \end{pmatrix}
+    +
+    \kappa \begin{pmatrix}
+        1 \\
+        1 \\
+        -1
+    \end{pmatrix}
+\end{equation}
+
+For an intersection, we have the system of linear equations:
+
+\begin{equation}
+    \begin{pmatrix}
+        1 & -2 & -1 \\
+        1 & -4 & -1 \\
+        1 & 3  & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \lambda \\
+        \mu     \\
+        \kappa
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        -1 \\
+        1  \\
+        -2
+    \end{pmatrix}
+\end{equation}
+
+the solution of which is $(\lambda, \mu, \kappa) = (-1, -1, 2)$.
+
+Thus the intersection is the point $(-1, -1, -1)^{\intercal}$.
+\qed
+
+
+\end{document}

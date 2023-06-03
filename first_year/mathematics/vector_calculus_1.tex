@@ -1,0 +1,265 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Multiple Integrals \& Vector Calculus}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+\problem{1}{}
+Magnetic field, acceleration, and force are vectors. Area can be defined as a vector (for example in a surface integral). Angle of polarisation, or an angle in general, can be treated as a pseudo-vector.
+\qed
+
+
+\problem{2}{}
+
+\subproblem{a}{}
+For the first integral, the region of integration is enclosed by the curves $y = \sqrt{x}$, $y = 0$ and $x = 2$. Carrying out the integration:
+
+\begin{equation}
+    \int_{0}^{\sqrt{2}} \int_{y^{2}}^{2} y \, \mathrm{d}x \mathrm{d}y = \int_{0}^{\sqrt{2}} y(2 - y^{2}) \, \mathrm{d}y = 1
+\end{equation}
+
+or, reversing the order of integration:
+
+\begin{equation}
+    \int_{0}^{2} \int_{0}^{\sqrt{x}} y \, \mathrm{d}y \mathrm{d}x = \int_{0}^{2} \frac{x}{2} \, \mathrm{d}x = 1
+\end{equation}
+
+For the second integral, the region of integration is enclosed by the curves $y = \sqrt{x}$, $y = 0$ and $x = 4$. Carrying out the integration:
+
+\begin{equation}
+    \int_{0}^{4} \int_{0}^{\sqrt{x}} y \sqrt{x} \, \mathrm{d}y \mathrm{d}x = \int_{0}^{4} \frac{1}{2} x^{3/2} \, \mathrm{d}x = \frac{32}{5}
+\end{equation}
+
+or, reversing the order of integration:
+
+\begin{equation}
+    \int_{0}^{2} \int_{y^{2}}^{4} y \sqrt{x} \, \mathrm{d}x \mathrm{d}y = \frac{32}{5}
+\end{equation}
+
+For the third integral, the region of integration is enclosed by the curves $y = \sqrt{x}$, $y = -x$ and $y = 1$. Carrying out the integration:
+
+\begin{equation}
+    \int_{0}^{1} \int_{-y}^{y^{2}} x \, \mathrm{d}x \mathrm{d}y = \int_{0}^{1} \frac{y^{4} - y^{2}}{2} \, \mathrm{d}y = -\frac{1}{15}
+\end{equation}
+
+or, reversing the order of integration:
+
+\begin{equation}
+    \int_{-1}^{0} \int_{-x}^{1} x \, \mathrm{d}y \mathrm{d}x + \int_{0}^{1} \int_{\sqrt{x}}^{1} x \, \mathrm{d}y \mathrm{d}x = -\frac{1}{15}
+\end{equation}
+
+\subproblem{b}{}
+The region of integration is enclosed by the curves $y = x$, $y = 0$ and $x = \pi$. Reversing the order of integration:
+
+\begin{equation}
+    \int_{0}^{\pi} \int_{0}^{x} x^{-1} \sin{x} \, \mathrm{d}y \mathrm{d}x = \int_{0}^{\pi} \sin{x} \, \mathrm{d}x = 2
+\end{equation}
+\qed
+
+
+\problem{3}{}
+Explicitly making $z$ the subject of the equation:
+
+\begin{equation}
+    z(x, y) = \pm \sqrt{\frac{7 + 4x + 3xy}{2x}}
+\end{equation}
+
+At $(x, y, z) = (1, -1, 2)$, we are considering the positive sign. The partial derivatives evaluate to:
+
+\begin{equation}
+    \begin{split}
+        z_{x}(1, -1) = -\frac{7}{8} \\
+        z_{y}(1, -1) = \frac{3}{8} \\
+    \end{split}
+\end{equation}
+
+so that the tangent plane has the form:
+
+\begin{equation}
+    z = 2 - \frac{7}{8} (x - 1) + \frac{3}{8} (y + 1)
+\end{equation}
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}{}
+The semi circle disk is defined by the region $D = \left\{ (r, \theta) \mid r \in [0, a], \theta \in [-\pi/2, \pi/2] \right\}$. The mass is given by:
+
+\begin{equation}
+    M = \iint_{D} k \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \int_{0}^{a} k r \, \mathrm{d}r \mathrm{d}\theta = \frac{1}{2} \pi k a^{2}
+\end{equation}
+
+The \mistake{coordinates of the centre of mass are given} by:
+
+\begin{equation}
+    \begin{split}
+        r_{CM} &= \frac{\iint_{D} r k \, \mathrm{d}A}{M} = \frac{\int_{0}^{a} r^{2} \, \mathrm{d}r}{\int_{0}^{a} r \, \mathrm{d}r} = \frac{2}{3} a \\
+        \theta_{CM} &= \frac{\iint_{D} \theta k \, \mathrm{d}A}{M} = \frac{\int_{\pi/2}^{-\pi/2} \theta \, \mathrm{d}\theta}{\int_{\pi/2}^{-\pi/2} \, \mathrm{d}\theta} = 0
+    \end{split}
+\end{equation}
+
+In Cartesian coordinates, the coordinates are \mistake{$(2a/3, 0)$}.
+
+\begin{correction}
+    The coordinates of the centre of mass are given by:
+
+    \begin{equation}
+        \begin{split}
+            x_{CM} &= \frac{\int_{-\pi/2}^{\pi/2} \int_{0}^{a} k r^{2} \cos{\theta} \, \mathrm{d}r \mathrm{d}\theta}{M} = \frac{4a}{3\pi} \\
+            y_{CM} &= \frac{\int_{-\pi/2}^{\pi/2} \int_{0}^{a} k r^{2} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta}{M} = 0
+        \end{split}
+    \end{equation}
+\end{correction}
+
+The moments of inertia about the x- and y-axes are given by:
+
+\begin{equation}
+    \begin{split}
+        I_{x} &= \iint_{D} k r^{2} \sin^{2}{\theta} \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \sin^{2}{\theta} \, \mathrm{d}\theta \int_{0}^{a} k r^{2} \, \mathrm{d}r = \frac{1}{8} \pi k a^{4} \\
+        I_{y} &= \iint_{D} k r^{2} \cos^{2}{\theta} \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \cos^{2}{\theta} \, \mathrm{d}\theta \int_{0}^{a} k r^{2} \, \mathrm{d}r = \frac{1}{8} \pi k a^{4}
+    \end{split}
+\end{equation}
+
+\subproblem{b}{}
+The mass of interest lies in the region $D = \left\{ (r, \theta) \mid r \in [0, \infty), \theta \in [-\pi/2, \pi/2] \right\}$. The mass per unit area can be written as:
+
+\begin{equation}
+    \sigma = k e^{-r^{2}/a^{2}}
+\end{equation}
+
+The mass is given by:
+
+\begin{equation}
+    M = \iint_{D} \sigma \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \int_{0}^{\infty} k e^{-r^{2}/a^{2}} r \, \mathrm{d}r \mathrm{d}\theta = \frac{1}{2} \pi k a^{2}
+\end{equation}
+
+which is the same as a semi-disk.
+
+The \mistake{coordinates of the centre of mass are given} by:
+
+\begin{equation}
+    \begin{split}
+        r_{CM} &= \frac{\iint_{D} r \sigma \, \mathrm{d}A}{M} = \frac{\int_{0}^{\infty} r^{2} e^{-r^{2}/a^{2}} \, \mathrm{d}r}{\int_{0}^{\infty} r e^{-r^{2}/a^{2}} \, \mathrm{d}r} = \frac{\sqrt{\pi}}{2} a \\
+        \theta_{CM} &= \frac{\iint_{D} \theta \sigma \, \mathrm{d}A}{M} = \frac{\int_{\pi/2}^{-\pi/2} \theta \, \mathrm{d}\theta}{\int_{\pi/2}^{-\pi/2} \, \mathrm{d}\theta} = 0
+    \end{split}
+\end{equation}
+
+In Cartesian coordinates, the coordinates are \mistake{$(\sqrt{\pi}/2 a, 0)$}.
+
+\begin{correction}
+    The coordinates of the centre of mass are given by:
+
+    \begin{equation}
+        \begin{split}
+            x_{CM} &= \frac{\int_{-\pi/2}^{\pi/2} \int_{0}^{a} k e^{-r^{2}/a^{2}} r \cos{\theta} \, \mathrm{d}r \mathrm{d}\theta}{M} = \frac{a}{\sqrt{\pi}} \\
+            y_{CM} &= \frac{\int_{-\pi/2}^{\pi/2} \int_{0}^{a} k e^{-r^{2}/a^{2}} r \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta}{M} = 0
+        \end{split}
+    \end{equation}
+\end{correction}
+
+The moments of inertia about the x- and y-axes are given by:
+
+\begin{equation}
+    \begin{split}
+        I_{x} &= \iint_{D} \sigma r^{2} \sin^{2}{\theta} \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \sin^{2}{\theta} \, \mathrm{d}\theta \int_{0}^{\infty} k e^{-r^{2}/a^{2}} r^{3} \, \mathrm{d}r = \frac{1}{4} \pi k a^{4} \\
+        I_{y} &= \iint_{D} \sigma r^{2} \cos^{2}{\theta} \, \mathrm{d}A = \int_{-\pi/2}^{\pi/2} \cos^{2}{\theta} \, \mathrm{d}\theta \int_{0}^{\infty} k e^{-r^{2}/a^{2}} r^{3} \, \mathrm{d}r = \frac{1}{4} \pi k a^{4}
+    \end{split}
+\end{equation}
+
+While the total mass is the same, the centre of mass and moments of inertia are higher for this exponential distribution of mass, which is expected as the mass are farther away from the origin.
+
+\subproblem{c}{}
+The region of integration can be defined as $D = \left\{ (r, \theta) \mid r \in [0, a], \theta \in [0, \pi/2] \right\}$. Carrying out the integration in polar coordinates:
+
+\begin{equation}
+    \iint_{D} (x^{2} + y^{2}) \tan^{-1}{(y/x)} \, \mathrm{d}x \mathrm{d}y = \int_{0}^{\pi/2} \int_{0}^{a} r^{3} \theta \, \mathrm{d}r \mathrm{d}\theta = \frac{\pi^{2}}{32} a^{4}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+For normalisation:
+
+\begin{equation}
+    \int_{0}^{\infty} c e^{-x} \, \mathrm{d}x = c = 1
+\end{equation}
+
+The cumulative distribution function is given by:
+
+\begin{equation}
+    \mistake{F(x) = \int_{0}^{x} c e^{-x} \, \mathrm{d}x = 1 - e^{-x}}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \int_{0}^{x} c e^{-x} \, \mathrm{d}x = 1 - e^{-x}
+    \end{equation}
+
+    so that the cumulative distribution function is given by:
+
+    \begin{equation}
+        F(x) =
+        \begin{cases}
+            0          & \text{if } x < 0    \\
+            1 - e^{-x} & \text{if } x \geq 0
+        \end{cases}
+    \end{equation}
+\end{correction}
+
+and the probability $P(1 < x < 3)$ is:
+
+\begin{equation}
+    P(1 < x < 3) = \int_{1}^{3} c e^{-x} \, \mathrm{d}x = e^{-1} - e^{-3} \approx 0.318
+\end{equation}
+\qed
+
+
+\problem{6}{}
+The region of interest is enclosed by the curves $y = x$, $y = 0$ and $x = 1$. For normalisation:
+
+\begin{equation}
+    \int_{0}^{1} \int_{0}^{x} cx^{2}y \, \mathrm{d}y \mathrm{d}x = \frac{c}{10} = 1
+\end{equation}
+
+so that $c = 10$.
+
+The marginal distribution of $x$ and $y$ are given by:
+
+\mistake{
+    \begin{equation}
+        \begin{split}
+            f_{x}(x) &= \int_{0}^{1} 10x^{2}y \, \mathrm{d}y = 5 x^{2} \\
+            f_{y}(y) &= \int_{0}^{1} 10x^{2}y \, \mathrm{d}x = \frac{10}{3} y
+        \end{split}
+    \end{equation}
+}
+
+\begin{correction}
+    \begin{equation}
+        \begin{split}
+            f_{x}(x) &= \int_{0}^{x} 10x^{2}y \, \mathrm{d}y = \frac{5}{3} x^{3} \\
+            f_{y}(y) &= \int_{y}^{1} 10x^{2}y \, \mathrm{d}x = \frac{10}{3} y(1 - y^{3})
+        \end{split}
+    \end{equation}
+\end{correction}
+
+The probability $P(Y \le X/2)$ is represented by the region enclosed by the curves $y = x/2$, $y = 0$ and $x = 1$. The probability is:
+
+\begin{equation}
+    P(Y \le X/2) =  \int_{0}^{1} \int_{0}^{x/2} 10x^{2}y \, \mathrm{d}y \mathrm{d}x = \frac{1}{4}
+\end{equation}
+\qed
+
+
+\end{document}

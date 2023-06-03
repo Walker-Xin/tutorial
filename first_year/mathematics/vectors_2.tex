@@ -1,0 +1,682 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vectors \& Matrices}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Matrices, linear maps and linear equations}
+\def\name{Xin, Wenkang}
+\def\time{November 8, 2022}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Matrices, linear maps and linear equations}
+%==========
+
+
+\problem{1}{}
+
+\subproblem{a}
+
+\begin{equation}
+    [A(BC)]_{ik} = A_{ij} (BC)_{jk} = A_{ij} B_{jl} C_{lk}
+\end{equation}
+
+\begin{equation}
+    [(AB)C]_{ik} = (AB)_{ij} C_{jk} = A_{il} B_{lj} C_{jk} = A_{ij} B_{jl} C_{lk} = [A(BC)]_{ik}
+\end{equation}
+
+with a change of dummy variable $l \to j$ and $j \to l$.
+
+\subproblem{b}
+
+\begin{equation}
+    (A + B)_{ij}^{\intercal} = (A + B)_{ji} = A_{ji} + B_{ji} = A_{ij}^{\intercal} + B_{ij}^{\intercal}
+\end{equation}
+
+\begin{equation}
+    (\alpha A)_{ij}^{\intercal} = (\alpha A)_{ji} = \alpha A_{ji} = \alpha (A_{ij}^{\intercal})
+\end{equation}
+
+\begin{equation}
+    (AB)_{ij}^{\intercal} = (AB)_{ji} = A_{jk} B_{ki} = (B^{\intercal})_{ik} (A^{\intercal})_{kj} = (B^{\intercal} A^{\intercal})_{ij}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    (A + B)_{ij}^{\dagger} = (A + B)_{ji}^{*} = A_{ji}^{*} + B_{ji}^{*} = A_{ij}^{\dagger} + B_{ij}^{\dagger}
+\end{equation}
+
+\begin{equation}
+    (\alpha A)_{ij}^{\dagger} = (\alpha A)_{ji}^{*} = \alpha^{*} A_{ji}^{*} = \alpha^{*} (A_{ij}^{\dagger})
+\end{equation}
+
+\begin{equation}
+    (AB)_{ij}^{\intercal} = (AB)_{ji}^{*} = A_{jk}^{*} B_{ki}^{*} = B^{\dagger}_{ik} A^{\dagger}_{kj} = (B^{\dagger} A^{\dagger})_{ij}
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    \begin{split}
+        (AB)(AB)^{-1} &= I \\
+        B^{-1} A^{-1} (AB)(AB)^{-1} &= B^{-1} A^{-1} \\
+        (AB)^{-1} &= B^{-1} A^{-1}
+    \end{split}
+\end{equation}
+
+We have:
+
+\begin{equation}
+    A^{\intercal} (A^{\intercal})^{-1} = I
+\end{equation}
+
+Taking the transpose:
+
+\begin{equation}
+    \left[ (A^{\intercal})^{-1} \right]^{\intercal} A = I
+\end{equation}
+
+Since the inverse of a matrix is unique:
+
+\begin{equation}
+    \left[ (A^{\intercal})^{-1} \right]^{\intercal} = A^{-1}
+\end{equation}
+
+Taking the transpose again:
+
+\begin{equation}
+    (A^{\intercal})^{-1} = (A^{-1})^{\intercal}
+\end{equation}
+
+
+\qed
+
+
+\problem{2}{}
+
+\begin{equation}
+    \begin{split}
+        A \to
+        \begin{pmatrix}
+            1 & 1  & 0  & -1 \\
+            0 & 2  & -2 & 1  \\
+            3 & 2  & 0  & -4 \\
+            1 & -2 & a  & 0
+        \end{pmatrix}
+        \to
+        \begin{pmatrix}
+            1 & 1 & 0   & -1   \\
+            0 & 2 & -2  & 1    \\
+            0 & 0 & -1  & -1/2 \\
+            0 & 0 & a-3 & 5/2
+        \end{pmatrix}
+        \to
+        \begin{pmatrix}
+            1 & 1 & 0  & -1 \\
+            0 & 2 & -2 & 1  \\
+            0 & 0 & -2 & -1 \\
+            0 & 0 & a  & 4
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+\mistake{Thus, if $a = 8$, $\rank(A) = 4$. If $a \ne 8$, $\rank(A) = 3$.}
+
+\begin{correction}
+    Thus, if $a = 8$, $\rank(A) = 3$. If $a \ne 8$, $\rank(A) = 4$.
+\end{correction}
+\qed
+
+
+\problem{3}{}
+
+\begin{equation}
+    \begin{split}
+        \left( \begin{array}{ccc|ccc}
+            1 & 0  & -1 & 1 & 0 & 0 \\
+            2 & 1  & -2 & 0 & 1 & 0 \\
+            1 & -3 & 0  & 0 & 0 & 1
+        \end{array} \right)
+        \to
+        \left( \begin{array}{ccc|ccc}
+            1 & 0  & -1 & 1  & 0 & 0 \\
+            0 & 1  & 0  & -2 & 1 & 0 \\
+            0 & -3 & 1  & -1 & 0 & 1
+        \end{array} \right)
+        \to
+        \left( \begin{array}{ccc|ccc}
+            1 & 0 & 0 & -6 & 3 & 1 \\
+            0 & 1 & 0 & -2 & 1 & 0 \\
+            0 & 0 & 1 & -7 & 3 & 1
+        \end{array} \right)
+    \end{split}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    A^{-1} =
+    \begin{pmatrix}
+        -6 & 3 & 1 \\
+        -2 & 1 & 0 \\
+        -7 & 3 & 1
+    \end{pmatrix}
+\end{equation}
+\qed
+
+
+\problem{4}{}
+We have \mistake{$A' = \psi' f \psi = \psi' \phi \phi' f \phi \phi' \psi = PAP^{-1}$}, where $A = \phi' f \phi$, $\phi = I$ and $P = \psi' \phi = \psi'$.
+
+Thus:
+
+\begin{equation}
+    P = \psi^{-1} =
+    \begin{pmatrix}
+        1 & 0 \\
+        1 & 1
+    \end{pmatrix}^{-1}
+    =
+    \begin{pmatrix}
+        1  & 0 \\
+        -1 & 1
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    A' =
+    \begin{pmatrix}
+        1  & 0 \\
+        -1 & 1
+    \end{pmatrix}
+    A
+    \begin{pmatrix}
+        1 & 0 \\
+        1 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        3  & 2  \\
+        -2 & -1
+    \end{pmatrix}
+\end{equation}
+
+\begin{correction}
+    We have $A' = (\phi')^{-1} f \phi' = (\phi')^{-1} \phi \phi^{-1} f \phi \phi^{-1} \phi' = PAP^{-1}$, where $A = \phi^{-1} f \phi$, $\phi = I$ and $P = (\phi')^{-1} \phi = (\phi')^{-1}$.
+
+    Thus:
+
+    \begin{equation}
+        P = (\phi')^{-1} =
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix}^{-1}
+        =
+        \begin{pmatrix}
+            1  & 0 \\
+            -1 & 1
+        \end{pmatrix}
+    \end{equation}
+
+    \begin{equation}
+        A' =
+        \begin{pmatrix}
+            1  & 0 \\
+            -1 & 1
+        \end{pmatrix}
+        A
+        \begin{pmatrix}
+            1 & 0 \\
+            1 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            3  & 2  \\
+            -2 & -1
+        \end{pmatrix}
+    \end{equation}
+
+    P is the matrix that transforms the standard coordinate vector to the coordinate vector in the new basis.
+\end{correction}
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \begin{split}
+        f(\alpha \mathbf{a} + \beta \mathbf{u}) &= (\alpha \mathbf{a} + \beta \mathbf{u}) - 2 \left[ \mathbf{n} \cdot (\alpha \mathbf{a} + \beta \mathbf{u}) \right] \mathbf{n} \\
+        &= \alpha \mathbf{v} - 2 \left( \mathbf{n} \cdot \alpha \mathbf{a} \right) \mathbf{n} + \beta \mathbf{u} - 2 \left( \mathbf{n} \cdot \beta \mathbf{u} \right) \mathbf{n} \\
+        &= \alpha f(\mathbf{a}) + \beta f(\mathbf{u})
+    \end{split}
+\end{equation}
+
+Thus $f$ is linear.
+
+\begin{equation}
+    \begin{split}
+        f[f(\mathbf{v})] &= f[\mathbf{v} - 2(\mathbf{n} \cdot \mathbf{v}) \mathbf{n}] \\
+        &= \mathbf{v} - 2(\mathbf{n} \cdot \mathbf{v}) \mathbf{n} - 2 \left\{ \mathbf{n} \cdot [\mathbf{v} - 2(\mathbf{n} \cdot \mathbf{v}) \mathbf{n}] \right\} \\
+        &= \mathbf{v} - 2(\mathbf{n} \cdot \mathbf{v}) \mathbf{n} - 2 \left\{ \mathbf{n} \cdot \mathbf{v} - 2(\mathbf{n} \cdot \mathbf{v}) (\mathbf{n} \cdot \mathbf{n})] \right\} \\
+        &= \mathbf{v}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+Let $\mathbf{v} = (a, b, c)^{\intercal}$ and $\mathbf{n} = (\alpha, \beta, \gamma)$ relative to the standard basis. Then:
+
+\begin{equation}
+    A \mathbf{v} =
+    \begin{pmatrix}
+        a \\
+        b \\
+        c
+    \end{pmatrix}
+    -
+    2 (a\alpha + b\beta + c\gamma)
+    \begin{pmatrix}
+        \alpha \\
+        \beta  \\
+        \gamma
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        (1 - 2\alpha^{2}) a - 2\alpha\beta b - 2\alpha\gamma c \\
+        -2\alpha\beta a + (1 - 2\beta^{2}) b - 2\beta\gamma c  \\
+        -2\alpha\gamma a - 2\beta\gamma b + (1 - 2\gamma^{2}) c
+    \end{pmatrix}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    A =
+    I - 2 \begin{pmatrix}
+        \alpha^{2}   & \alpha\beta & \alpha\gamma \\
+        \alpha\beta  & \beta^{2}   & \beta\gamma  \\
+        \alpha\gamma & \beta\gamma & \gamma^{2}
+    \end{pmatrix}
+    =
+    I - 2 \begin{pmatrix}
+        \alpha & \alpha & \alpha \\
+        \beta  & \beta  & \beta  \\
+        \gamma & \gamma & \gamma
+    \end{pmatrix}
+    \begin{pmatrix}
+        \alpha & 0     & 0      \\
+        0      & \beta & 0      \\
+        0      & 0     & \gamma
+    \end{pmatrix}
+\end{equation}
+
+\subproblem{c}
+We have $\hat{A} = \psi' f \psi = \psi' \phi \phi' f \phi \phi' \psi = PAP^{-1}$, where $A = \phi' f \phi$, $\phi = I$ and $P = \psi' \phi = \psi' = \left( \mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{n} \right)^{-1}$. Thus:
+
+\begin{equation}
+    \begin{split}
+        \hat{A} &=
+        I - 2\begin{pmatrix}
+            \mathbf{u}_{1} & \mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix}^{-1}
+        \begin{pmatrix}
+            \alpha & \alpha & \alpha \\
+            \beta  & \beta  & \beta  \\
+            \gamma & \gamma & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            \alpha & 0     & 0      \\
+            0      & \beta & 0      \\
+            0      & 0     & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            \mathbf{u}_{1} & \mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix} \\
+        &=
+        I - 2\begin{pmatrix}
+            u_{1x} & u_{1y} & u_{1z} \\
+            u_{2x} & u_{2y} & u_{2z} \\
+            \alpha & \beta  & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            \alpha & \alpha & \alpha \\
+            \beta  & \beta  & \beta  \\
+            \gamma & \gamma & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            \alpha & 0     & 0      \\
+            0      & \beta & 0      \\
+            0      & 0     & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            u_{1x} & u_{2x} & \alpha \\
+            u_{1y} & u_{2y} & \beta  \\
+            u_{1z} & u_{2z} & \gamma
+        \end{pmatrix} \\
+        &=
+        I - 2\begin{pmatrix}
+            u_{1x} & u_{1y} & u_{1z} \\
+            u_{2x} & u_{2y} & u_{2z} \\
+            \alpha & \beta  & \gamma
+        \end{pmatrix}
+        \begin{pmatrix}
+            0 & 0 & \alpha \\
+            0 & 0 & \beta  \\
+            0 & 0 & \gamma
+        \end{pmatrix} \\
+        &=
+        I - 2\begin{pmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            1 & 0 & 0  \\
+            0 & 1 & 0  \\
+            0 & 0 & -1
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+where the identity $\mathbf{u}_{\alpha} \cdot \mathbf{n} = 0$ has been used.
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+We have that $\tr(A) = \delta_{ij} A_{ij}$. Thus
+
+\begin{equation}
+    \tr(AB) = \delta_{ij} (AB)_{ij} = \delta_{ij} A_{ik} B_{kj} = \delta_{ij} A_{jk} B_{ki} = \delta_{ij} B_{ik} A_{kj} = \tr(BA)
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \tr(PAP^{-1}) = \tr(AP^{-1}P) = \tr(A)
+\end{equation}
+
+A basis change of matrices should not affect the trace of a matrix.
+
+\subproblem{c}
+The trace is unity.
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}
+Because the equation is linear (with respect to the derivatives) and differentiation is a linear operation.
+
+\subproblem{b}
+The differentiation operation can be represented by the matrix:
+
+\begin{equation}
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0
+    \end{pmatrix}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    A =
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0
+    \end{pmatrix}^{2}
+    +
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    + 2I
+    =
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        4 & 1 & 0 \\
+        0 & 1 & 2
+    \end{pmatrix}
+\end{equation}
+
+\subproblem{c}
+Consider the augmented matrix:
+
+\begin{equation}
+    \left( \begin{array}{ccc|c}
+        0 & 0 & 0 & 0 \\
+        4 & 1 & 0 & 0 \\
+        0 & 1 & 2 & 0
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|ccc}
+        0 & 0 & 0  & 0 \\
+        4 & 0 & -2 & 0 \\
+        0 & 1 & 2  & 0
+    \end{array} \right)
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \ker{A} = \left\{ p(x) \vert p(x) = \lambda(x^{2} - 4x + 2), \lambda \in \mathbb{R} \right\}
+\end{equation}
+
+\subproblem{d}
+
+Note that:
+
+\begin{equation}
+    D \left( x^{2} - 4x + 2 \right) = x(2) + (1 - x)(2x - 4) + 2x^{2} - 8x + 4 = 0
+\end{equation}
+\qed
+
+
+\problem{8}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \left( \begin{array}{ccc|c}
+        2 - \lambda & 1           & 2           & 0 \\
+        1           & 4 - \lambda & -1          & 0 \\
+        2           & -1          & 2 - \lambda & 0
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|ccc}
+        1 & 4 - \lambda                & -1          & 0 \\
+        0 & 2\lambda - 9               & 4 - \lambda & 0 \\
+        0 & \lambda^{2} - 4\lambda - 2 & 0           & 0
+    \end{array} \right)
+\end{equation}
+
+Thus:
+\begin{equation}
+    \rank(A) =
+    \begin{cases}
+        2 & \text{if } \lambda = 4 \\
+        3 & \text{else}
+    \end{cases}
+\end{equation}
+
+\subproblem{b}
+The solution is either unique, corresponding to $\rank(A) = 3$ or infinite (a line), corresponding to $\rank(A) = 2$.
+\qed
+
+
+\problem{9}{}
+
+\begin{equation}
+    \left( \begin{array}{ccc|c}
+        1 & 1 & 1  & 1        \\
+        1 & 2 & 4  & \eta     \\
+        1 & 4 & 10 & \eta^{2}
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|c}
+        1 & 1 & 1 & 1                    \\
+        0 & 1 & 3 & \eta - 1             \\
+        0 & 0 & 0 & (\eta - 1)(\eta - 2)
+    \end{array} \right)
+\end{equation}
+
+Thus $\rank(A) = 2$ and the solution should be a line. A solution only exists if $\eta = 1$ or $\eta = 2$. If $\eta = 1$, then the solution is $(1, 0, 0)^{\intercal} + \lambda \mathbf{P}$. If $\eta = 2$, then the solution is $(0, 1, 0)^{\intercal} + \lambda \mathbf{P}$, where $\mathbf{P} = (2, -3, 1)^{\intercal}$.
+\qed
+
+
+\problem{10}{}
+
+\begin{equation}
+    \left( \begin{array}{ccc|c}
+        3 & 2  & -1     & 10    \\
+        5 & -1 & -4     & 17    \\
+        1 & 5  & \alpha & \beta
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|c}
+        1 & 5   & \alpha       & \beta       \\
+        0 & -13 & -1 - 3\alpha & 10 - 3\beta \\
+        0 & -26 & -4 - 5\alpha & 17 - 5\beta
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|c}
+        1 & 5   & \alpha       & \beta       \\
+        0 & -13 & -1 - 3\alpha & 10 - 3\beta \\
+        0 & 0   & \alpha - 2   & \beta - 3
+    \end{array} \right)
+\end{equation}
+
+If $\alpha \ne 2$, the solution is unique. If $\alpha = 2$, $\beta = 3$ then the solution is infinite (a line). If $\alpha = 2$ and $\beta \ne 3$, then there is no solution.
+\qed
+
+
+\problem{11}{}
+
+\subproblem{a}
+The essential reason is that addition is a linear operation.
+
+\subproblem{b}
+We only need to show that the dimension of the semi-magic squares space is five and that the matrices $M_{i}$ are linearly independent. To prove the dimension, note that a $3 \times 3$ matrix can be represented by a vector of length nine:
+
+\begin{equation}
+    \mathbf{v} =
+    \begin{pmatrix}
+        a & b & c \\
+        d & e & f \\
+        g & h & i
+    \end{pmatrix}
+    \equiv
+    \begin{pmatrix}
+        a & b & c & d & e & f & g & h & i
+    \end{pmatrix}^{\intercal}
+\end{equation}
+
+For a semi-magic square, the elements must satisfy:
+
+\begin{equation}
+    a + b + c = d + e + f = g + h + i = a + d + g = b + e + h = c + f + i
+\end{equation}
+
+This gives us the following system of equations:
+
+\begin{equation}
+    A \mathbf{v} =
+    \begin{pmatrix}
+        1 & 1  & 1  & -1 & -1 & -1 & 0  & 0  & 0  \\
+        1 & 1  & 1  & 0  & 0  & 0  & -1 & -1 & -1 \\
+        1 & -1 & 0  & 1  & -1 & 0  & 1  & -1 & 1  \\
+        1 & 0  & -1 & 1  & 0  & -1 & 1  & 0  & -1 \\
+        0 & 1  & 1  & 0  & -1 & -1 & 0  & 0  & 0  \\
+        1 & 0  & 1  & 0  & -1 & 0  & 0  & -1 & 0  \\
+    \end{pmatrix}
+    \mathbf{v}
+    =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        0 \\
+        0
+    \end{pmatrix}
+\end{equation}
+
+Performing Gaussian elimination on $A$ gives us:
+
+\begin{equation}
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 & 0 & 0  & 0  & -1/2 & -1/2 \\
+        0 & 1 & 0 & 0 & 0 & -1 & 0  & 1/2  & -1/2 \\
+        0 & 0 & 1 & 0 & 0 & 1  & -1 & -1   & 0    \\
+        0 & 0 & 0 & 1 & 0 & 0  & 0  & -1/2 & -1/2 \\
+        0 & 0 & 0 & 0 & 1 & 1  & -1 & -1/2 & -1/2 \\
+        0 & 0 & 0 & 0 & 0 & 0  & 0  & 0    & 0    \\
+    \end{pmatrix}
+\end{equation}
+
+Thus, the nullity of $A$ is four and $\rank(A) = 5$. It is also trivial to verify that the matrices $M_{i}$ are linearly independent. Thus, $M_{i}$ form a basis of the semi-magic squares space.
+\qed
+
+
+\problem{12}{}
+
+\subproblem{a}
+
+The equations can be rearranged into a system of $n$ equations with the form:
+
+\begin{equation}
+    x_{i} - \sum_{j \in L_{i}} \frac{x_{j}}{n_{j}} = 0
+\end{equation}
+
+Thus, the elements of the coefficient matrix $A$ are:
+
+\begin{equation}
+    A_{ij} = \delta_{ij} - \Delta_{jL_{i}} \frac{1}{n_{j}}
+\end{equation}
+
+where:
+
+\begin{equation}
+    \Delta_{jL_{i}} =
+    \begin{cases}
+        1 \text{ if } j \in L_{i} \\
+        1 \text{ if } j \notin L_{i}
+    \end{cases}
+\end{equation}
+
+Implicit in the definition is the fact that $i \notin L_{i}$ (a site does not have a link to itself).
+
+
+\end{document}

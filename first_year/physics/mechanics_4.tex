@@ -1,0 +1,679 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Central Forces and Orbits}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Central Forces and Orbits}
+%==========
+
+
+\problem{1}{General circular motion}
+
+\subproblem{a}
+Without loss of generality, let $\theta$ be measured in anti-clockwise direction from the vertical line. When expressed in Cartesian coordinates, coordinates of a particle are given by:
+
+\begin{equation}
+    \mathbf{r} = r \hat{r} = r \begin{pmatrix}
+        \cos{\theta} \\
+        \sin{\theta} 
+    \end{pmatrix}
+\end{equation}
+
+Differentiating with respect to time, we have the velocity of the particle:
+
+\begin{equation}
+    \dot{\mathbf{r}} = r \dot{\hat{r}} + \dot{r} \hat{r} 
+    =
+    r \dot{\theta} \begin{pmatrix}
+        -\sin{\theta} \\
+        \cos{\theta} 
+    \end{pmatrix}
+    +
+    \dot{r} \begin{pmatrix}
+        \cos{\theta} \\
+        \sin{\theta} 
+    \end{pmatrix}
+    =
+    r \dot{\theta} \hat{\theta} + \dot{r} \hat{r}
+\end{equation}
+
+Differentiating again, we have the acceleration of the particle:
+
+\begin{equation}
+\begin{split}
+    \ddot{\mathbf{r}} &= r(\ddot{\theta} \hat{\theta} + \dot{\theta} \dot{\hat{\theta}}) + \ddot{r} \hat{r} + \dot{r} \dot{\hat{r}} \\
+    &= r(\ddot{\theta} \hat{\theta} - \dot{\theta}^2 \hat{r}) + \ddot{r} \hat{r} + \dot{r} \dot{\theta} \hat{\theta} \\
+    &= (r \ddot{\theta} + \dot{r} \dot{\theta}) \hat{\theta} + (\ddot{r} - r \dot{\theta}^{2}) \hat{r}
+\end{split}
+\end{equation}
+
+With $r$ as a constant, we have the simplified expression:
+
+\begin{equation}
+    \mathbf{a} = r \ddot{\theta} \hat{\theta} - \frac{v^{2}}{r} \hat{r}
+\end{equation}
+
+\subproblem{b}
+By Newton's second law, we have:
+
+\begin{equation}
+    \mathbf{g} + \frac{\mathbf{N}}{m} = -g \sin{\theta} \hat{\theta} + (g \cos{\theta} - N/m) \hat{r} = r \ddot{\theta} \hat{\theta} - \frac{v^{2}}{r} \hat{r}
+\end{equation}
+
+where $\mathbf{N}$ is the normal reaction force.
+
+For small variations in $\theta$ about the bottom equilibrium, we have the small angle approximation $\sin{\theta} \approx \theta$, and for the tangential component, we have $\ddot{\theta} = -(g/r)\theta$. Therefore, the period of the small oscillation is:
+
+\begin{equation}
+    T = 2\pi \sqrt{\frac{r}{g}}
+\end{equation}
+
+\subproblem{c}
+Focusing on the radial component, we have:
+
+\begin{equation}
+    \frac{N}{m} = g \cos{\theta} + \frac{v^{2}}{r}
+\end{equation}
+
+By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    mgr &= mgr \cos{\theta} + \frac{1}{2}mv^{2} \\
+    v^{2} &= 2gr(1 - \cos{\theta})
+\end{split}
+\end{equation}
+
+so that the magnitude of the reaction force is:
+
+\begin{equation}
+    N = \left[ g \cos{\theta} + 2g(1 - \cos{\theta}) \right] m = \frac{3}{2} mg
+\end{equation}
+\qed
+
+
+\problem{2}{Motion under a central force}
+We have the equation of motion:
+
+\begin{equation}
+    m \ddot{\mathbf{r}} = f(r) \hat{r}
+\end{equation}
+
+Consider the time derivative of $\mathbf{r} \times \dot{\mathbf{r}}$:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t}(\mathbf{r} \times \dot{\mathbf{r}}) = \mathbf{r} \times \ddot{\mathbf{r}} + \dot{\mathbf{r}} \times \dot{\mathbf{r}} = \mathbf{0}
+\end{equation}
+
+as $\ddot{r}$ is parallel to $\hat{r}$ and thus parallel to $\mathbf{r}$. The vector $\mathbf{r} \times \dot{\mathbf{r}}$ is thus a constant. This means that the particle cannot move out of the plane of motion, because to do so it needs to change its direction of motion at some $\mathbf{r}$, at which point the constancy of $\mathbf{r} \times \dot{\mathbf{r}}$ would be violated.
+
+Define the angular momentum of the particle as $\mathbf{J} \equiv \mathbf{r} \times \mathbf{p} = m \mathbf{r} \times \dot{\mathbf{r}}$. Thus for a central field, $\mathbf{J}$ is conserved and $\left\lvert J \right\rvert$ is constant. Considering that $\mathbf{r} = r \hat{r}$ and $\dot{\mathbf{r}} = r \dot{\theta} \hat{\theta} + \dot{r} \hat{r}$, we have $\left\lvert J \right\rvert = r^{2} \dot{\theta}$.
+
+The infinitesimal area swept out by $\mathbf{r}$ is given by:
+
+\begin{equation}
+    \delta A = \frac{1}{2} r^{2} \delta \theta = \frac{1}{2} r^{2} \dot{\theta} \delta t = \frac{1}{2} \left\lvert J \right\rvert \delta t
+\end{equation}
+
+Thus the rate of change of the area is a constant $\left\lvert J \right\rvert/2$
+\qed
+
+
+\problem{3}{Motion on 2-D surface}
+By conservation of energy and angular momentum, we have:
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2}mv_{0}^{2} - mg \frac{l}{2} = mv_{r}^{2} + \frac{1}{2}mv_{\tau}^{2}- mg(l - r) \\
+    J &= m \frac{l}{2} v_{0} = mrv_{\tau}
+\end{split}
+\end{equation}
+
+where $v_{r} = \dot{r}$ and $v_{\tau} = r \dot{\theta}$ are the radial and tangential components of the velocity.
+
+Solving for $v_{r} = \dot{r}$ gives:
+
+\begin{equation}
+    \dot{r}^{2} = \frac{E}{m} + gl - \frac{J^{2}}{2m^{2}r^{2}} - gr
+\end{equation}
+
+so that $A = \frac{E}{m} + gl = (v_{0}^{2} + gl)/2$ and $B = J^{2}/(2m^{2}) = l^{2}v_{0}^{2}/8$.
+
+For circular motion, the weight of the hanging mass provides the centripetal force, so that $mg = mv_{0}^{2}/(l/2)$ or $v_{0}^{2}/gl = 1/2$.
+\qed
+
+
+\problem{4}{Simple orbits}
+
+\subproblem{a}{}
+For a geostationary orbit, we have:
+
+\begin{equation}
+    m \omega^{2} r = G \frac{Mm}{r^{2}}
+\end{equation}
+
+where $\omega = 2\pi/\qty{1}{day} = \qty{7.3}{rad s^{-1}}$. Solving for $r$ leads to:
+
+\begin{equation}
+    r = \qty{35886}{km}
+\end{equation}
+
+\subproblem{b}{}
+Let the origin be the center of mass of the dual-star system. If they are in circular orbits of approximately the same radius, then the center of mass will be at the center of the orbit., meaning that their masses are roughly equal. For one star:
+
+\begin{equation}
+    m \omega^{2} \frac{d}{2} = G \frac{m^{2}}{d^{2}}
+\end{equation}
+
+The distance between the stars satisfies:
+
+\begin{equation}
+    d = 2\frac{v}{\omega} = \qty{8.7e10}{m}
+\end{equation}
+
+so that the mass is given by:
+
+\begin{equation}
+    m = \frac{\omega^{2}d^{3}}{2G} = \qty{1.3e32}{kg}
+\end{equation}
+\qed
+
+
+\problem{5}{Rotation of galaxies}
+First consider the case where $r > R$:
+
+\begin{equation}
+\begin{split}
+    m \frac{v^{2}}{r} = G \frac{Mm}{r^{2}} \\
+    v(r) = \sqrt{\frac{2GM}{r}}
+\end{split}
+\end{equation}
+
+For the case where $r < R$, Gauss law means that only the mass within $r$ is of interest. Since mass scales as $r^{3}$:
+
+\begin{equation}
+\begin{split}
+    m \frac{v^{2}}{r} = G \frac{Mm}{r^{2}} \frac{r^{3}}{R^{3}} \\
+    v(r) = \sqrt{\frac{2GMr^{2}}{R^{3}}}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{6}{Putting satellite into orbit}
+By conservation of energy and angular momentum:
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2} mv_{0}^{2} - G \frac{Mm}{R} = \frac{1}{2} mv_{a}^{2} - \frac{GMm}{5R/2} \\
+    J &= mv_{0}\sin{\theta}R = mv_{a} \frac{5R}{2}
+\end{split}
+\end{equation}
+
+Solving for $v_{0}$ leads to $v_{0}^{2} = 5GM/4R$.
+\qed
+
+
+\problem{7}{Deflection by a central force}
+
+\subproblem{b}{}
+Operating in polar coordinates, conservation of energy and angular momentum gives:
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2} m v^{2} = \frac{1}{2} m \dot{r}^{2} + \frac{1}{2}m r^{2} \dot{\theta}^{2} - G \frac{Mm}{r} \\
+    J &= mvb = m r^{2} \dot{\theta}
+\end{split}
+\end{equation}
+
+Using the expression for $J$ to express $\dot{\theta}$ gives:
+
+\begin{equation}
+    E = \frac{1}{2} m \dot{r}^{2} + \frac{J^{2}}{2mr^{2}} - G \frac{Mm}{r}
+\end{equation}
+
+\subproblem{c}{}
+For closest approach, we set $\dot{r}$ to be zero and a quadratic equation results:
+
+\begin{equation}
+    Er^{2} + GMmr - \frac{J^{2}}{2m} = 0
+\end{equation}
+
+Rejecting the negative root, the solution is:
+
+\begin{equation}
+    r = \frac{GMm (\sqrt{1 + \frac{2EJ^{2}}{G^{2}M^{2}m^{3}}} - 1)}{2E} = \frac{GM}{v^{2}} \left[ \sqrt{1 + \left( \frac{bv^{2}}{GM} \right)^{2}} - 1 \right]
+\end{equation}
+\qed
+
+
+\problem{8}{}
+Conservation of energy and angular momentum gives:
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2} m v_{p}^{2} - G \frac{Mm}{R_{E}/2} \\
+    J &= mv_{p} \frac{R_{E}}{2} = m r^{2} \dot{\theta}
+\end{split}
+\end{equation}
+
+where $v_{p} = \qty{60}{km s^{-1}}$ is the speed of the comet at perigee.
+
+When $r = R_{E}$, the tangential speed is given by conservation of angular momentum so that $v_{\tau} = J/R_{E} = v_{p}/2$. The total speed is given by conservation of energy:
+
+\begin{equation}
+    \frac{1}{2} m (v_{\tau}^{2} + v_{r}^{2}) - G \frac{Mm}{R_{E}} = \frac{1}{2} m v_{p}^{2} - G \frac{Mm}{R_{E}/2}
+\end{equation}
+
+where $v = \sqrt{v_{\tau}^{2} + v_{r}^{2}}$ is the speed of the comet at $r = R_{E}$.
+
+Solving for $v$ gives $v = \sqrt{v_{p}^{2} - 2GM/R_{E}}$, and solving for $v_{r}$ gives an expression for the angle:
+
+\begin{equation}
+    \tan{\theta} = \frac{v_{r}}{v_{\tau}} = \frac{\sqrt{\frac{3}{4} v_{p}^{2} - \frac{2GM}{R_{E}}}}{{v_{p}/2}}
+\end{equation}
+\qed
+
+
+\problem{9}{Changing orbit}
+
+\subproblem{a}{}
+For uniform circular motion, the centripetal force is given by:
+
+\begin{equation}
+    \frac{mv_{0}^{2}}{r_{0}} = \frac{GMm}{r_{0}^{2}}
+\end{equation}
+
+so that $r_{0} = GM/v_{0}^{2}$.
+
+\subproblem{b}{}
+For the angular momentum and energy:
+
+\begin{equation}
+\begin{split}
+    J_{0} &= mv_{0}r_{0} = \frac{GMm}{v_{0}} \\
+    E_{0} &= \frac{1}{2} m v_{0}^{2} - G \frac{Mm}{r_{0}} = -\frac{1}{2} m v_{0}^{2}
+\end{split}
+\end{equation}
+
+\subproblem{c}{}
+In the circular orbit, all of the velocity is in the tangential direction. To achieve a change in angular momentum described, the tangential velocity changes from $v_{\tau} = v_{0}$ to $\alpha v_{0}$. For the energy to be still unchanged, the radial velocity increases from zero to $v_{r} = \sqrt{1 - \alpha^{2}} v_{0}$. 
+
+Given the standard expression for conservation of energy, we set $\dot{r} = 0$ and solve for $r$. The maximum and minimum radii satisfy the quadratic equation:
+
+\begin{equation}
+    E_{0}r^{2} + GMm r - \frac{\alpha^{2} J_{0}^{2}}{2m} = 0
+\end{equation}
+
+Solving for the roots gives:
+
+\begin{equation}
+\begin{split}
+    r_{+} &= r_{0} \left( 1 + \sqrt{1 - \alpha^{2}} \right) \\
+    r_{-} &= r_{0} \left( 1 - \sqrt{1 - \alpha^{2}} \right)
+\end{split}
+\end{equation}
+
+\subproblem{d}{}
+In the present case, the tangential velocity is unchanged but the radial velocity increases to $v_{r} = v_{0}/10$. The expression for conservation of energy gives:
+
+\begin{equation}
+    Er^{2} + GMm r - \frac{J_{0}^{2}}{2m} = 0
+\end{equation}
+
+where $E = 1.01 (mv_{0}^{2}/2) - G \frac{Mm}{r_{0}} = -0.99 (mv_{0}^{2}/2)$.
+
+The difference in the roots is:
+
+\begin{equation}
+    r_{+} - r_{-} = \frac{\sqrt{(GMm)^{2} + 2J_{0}^{2}/m}}{E} = 0.20 r_{0}
+\end{equation}
+\qed
+
+
+\problem{10}{Rutherford scattering}
+In order to obtain an expression for the Rutherford scattering angle, it is necessary to solve for the expression of $r$ in terms of $\theta$ in a central field problem. The full derivation is given in the appendix. With a potential energy of the form $V = (q_{1}q_{2}/4\pi \epsilon_{0})/r \equiv K/r$, we have the relation between $r$ and $\theta$:
+
+\begin{equation}
+    \sin^{-1} \left( \frac{J/(mr) + K/J}{\sqrt{2E/m + K^{2}/J^{2}}} \right) \equiv \sin^{-1} \left( \frac{u + K/J}{u_{0}} \right) = \theta + \theta_{0}
+\end{equation}
+
+where $\theta_{0}$ is an integration constant and $u$ and $u_{0}$ are defined for convenience.
+
+The angle of deflection is related to the change in polar angle by $\alpha = 2\pi - \Delta \theta$, where $\Delta \theta$ is the total change in polar angle during the whole motion. Now we let $r \to \infty$ so that $u \to 0$. There are two solutions to $\theta$ on the interval $[0, \pi]$:
+
+\begin{equation}
+\begin{split}
+    \theta_{1} = \sin^{-1} {\left( \frac{K/J}{u_{0}} \right)} - \theta_{0} \\
+    \theta_{2} = \pi - \sin^{-1} {\left( \frac{K/J}{u_{0}} \right)} - \theta_{0}
+\end{split}
+\end{equation}
+
+so that the total change in polar angle is $\Delta \theta = \pi - 2\sin^{-1}{(K/Ju_{0})}$.
+
+Therefore, the angle of deflection is $\alpha = 2\pi - \Delta \theta = 2\sin^{-1}{(K/Ju_{0})}$. Observing the expression for $u_{0}$ leads to the simplified expression:
+
+\begin{equation}
+    \cot{\frac{\alpha}{2}} = \frac{\sqrt{2E/m}}{K/J} = \frac{4\pi \epsilon_{0}}{q_{1}q_{2}} d v_{0}^{2} m
+\end{equation}
+\qed
+
+
+\problem{11}{Two-body dynamics}
+
+\subproblem{a}{}
+The equations of motion for $\mathbf{r}_{1}$ and $\mathbf{r}_{2}$ are:
+
+\begin{equation}
+\begin{split}
+    m_{1} \ddot{\mathbf{r}}_{1} &= -\frac{Gm_{1}m_{2}}{r^{2}} \hat{r} \\
+    m_{2} \ddot{\mathbf{r}}_{2} &= \frac{Gm_{1}m_{2}}{r^{2}} \hat{r}
+\end{split}
+\end{equation}
+
+where $\mathbf{r} \equiv \mathbf{r}_{1} - \mathbf{r}_{2}$.
+
+Adding the two equations and manipulating gives:
+
+\begin{equation}
+    \mu \ddot{\mathbf{r}} = -\frac{Gm_{1}m_{2}}{r^{2}} \hat{r}
+\end{equation}
+
+where $\mu = m_{1}m_{2}/(m_{1} + m_{2})$.
+
+\subproblem{b}{}
+The coordinate of the centre of mass is given by:
+
+\begin{equation}
+    \mathbf{r}_{cm} = \frac{m_{1}\mathbf{r}_{1} + m_{2}\mathbf{r}_{2}}{m_{1} + m_{2}}
+\end{equation}
+
+In the centre of mass frame, the new coordinates are:
+
+\begin{equation}
+\begin{split}
+    \mathbf{r}_{1}' &= \mathbf{r}_{1} - \mathbf{r}_{cm} = \frac{m_{2}}{m_{1} + m_{2}} \mathbf{r} \\
+    \mathbf{r}_{2}' &= \mathbf{r}_{2} - \mathbf{r}_{cm} = -\frac{m_{1}}{m_{1} + m_{2}} \mathbf{r}
+\end{split}
+\end{equation}
+
+so that the kinetic energy is:
+
+\begin{equation}
+    T = \frac{1}{2} m_{1} \dot{\mathbf{r}}_{1}' \cdot \dot{\mathbf{r}}_{1}' + \frac{1}{2} m_{2} \dot{\mathbf{r}}_{2}' \cdot \dot{\mathbf{r}}_{2}' = \frac{1}{2} \mu \dot{\mathbf{r}} \cdot \dot{\mathbf{r}} = \frac{1}{2} \mu \dot{\mathbf{r}}^{2}
+\end{equation}
+
+\subproblem{c}{}
+In the centre of mass frame, the angular momentum is:
+
+\begin{equation}
+    \mathbf{J} = m_{1} \mathbf{r}_{1}' \times \dot{\mathbf{r}}_{1}' + m_{2} \mathbf{r}_{2}' \times \dot{\mathbf{r}}_{2}' = \left( \frac{m_{1}m_{2}^{2} + m_{2}m_{1}^{2}}{m_{1} + m_{2}} \right) \mathbf{r} \times \dot{\mathbf{r}} = \mu \mathbf{r} \times \dot{\mathbf{r}}
+\end{equation}
+
+Thus the two-body system can be reduced to a single particle of mass $\mu$ moving in a central field of strength $G(m_{1} + m_{2})/r^{2}$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Additional Questions}
+%==========
+
+
+\problem{12}{Elliptical orbit with a spring-like force}
+
+\subproblem{a}{}
+In Cartesian coordinates, the equations of motion are:
+
+\begin{equation}
+\begin{split}
+    \ddot{x} &= -kx \\
+    \ddot{y} &= -ky
+\end{split}
+\end{equation}
+
+Given the initial conditions, the solutions are:
+
+\begin{equation}
+\begin{split}
+    x(t) &= x_{0} \cos{\omega t} \\
+    y(t) &= \frac{u_{0}}{\omega} \sin{\omega t}
+\end{split}
+\end{equation}
+
+where $\omega = \sqrt{k/m}$.
+
+Note that $(x/x_{0})^{2} + (y \omega/u_{0})^{2} = 1$ for all $t$ and this demonstrates that the trajectory is an ellipse whose major axis is $2x_{0}$ and minor axis is $2u_{0}/\omega$.
+
+\subproblem{b}{}
+The effective potential is given by:
+
+\begin{equation}
+    V_{eff} = \frac{J}{2mr^{2}} + \frac{1}{2}kr^{2}
+\end{equation}
+
+which is always positive over the interval $r \in (0, \infty)$ and tends to infinity as $r \to 0$ or $r \to \infty$.
+
+Differentiating with respect to $r$ and setting the result equal to zero gives:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}r} (V_{eff}) = -\frac{J}{mr^{3}} + kr = 0
+\end{equation}
+
+so that the minimum is at $r = (J/mk)^{1/4} > 0$.
+
+This demonstrates that the effective potential is an infinite potential well so that the motion is always bound.
+\qed
+
+
+\problem{13}{Motion of a binary star}
+
+\subproblem{a}{}
+Let $r_{1}$ and $r_{2}$ be the distances of the two stars relative to the centre of mass and the following equations must be satisfied:
+
+\begin{equation}
+\begin{split}
+    r_{1} + r_{2} &= r_{0} \\
+    m_{0}r_{1} - 2m_{0}r_{2} &= 0
+\end{split}
+\end{equation}
+
+This leads to $r_{1} = 2r_{0}/3$ and $r_{2} = r_{0}/3$. Consider $r_{1}$ first. In uniform circular motion, we have the equation:
+
+\begin{equation}
+    m_{0} \omega^{2} \frac{2}{3} r_{0} = G \frac{2m_{0}^{2}}{r_{0}^{2}}
+\end{equation}
+
+so that $\omega^{2} = 3Gm_{0}/r_{0}^{3}$.
+
+This expression of angular velocity is the same for $r_{2}$ and the period is given by:
+
+\begin{equation}
+    T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{r_{0}^{3}}{3Gm_{0}}}
+\end{equation}
+
+The total energy is given by:
+
+\begin{equation}
+\begin{split}
+    E &= K - V \\
+    &= \frac{1}{2} m_{0} \omega^{2} \left( \frac{2}{3} r_{0} \right)^{2} + \frac{1}{2} 2m_{0} \omega^{2} \left( \frac{1}{3} r_{0} \right)^{2} - G\frac{2m_{0}^{2}}{r_{0}} \\
+    &= -G \frac{m_{0}^{2}}{r_{0}}
+\end{split}
+\end{equation}
+
+\subproblem{b}{}
+For the equivalent single particle problem, equation of motion is:
+
+\begin{equation}
+    \mu \ddot{\mathbf{r}} = -G \frac{2m_{0}}{r^{2}} \hat{r}
+\end{equation}
+
+where $\mu = 2m_{0}/3$.
+
+When $r = \left\lvert \mathbf{r}_{1} - \mathbf{r}_{2} \right\rvert = r_{0}$, uniform circular motion requires:
+
+\begin{equation}
+    \mu \omega^{2} r_{0} = G \frac{2m_{0}}{r_{0}^{2}}
+\end{equation}
+
+so that $\omega^{2} = 3Gm_{0}/r_{0}^{3}$ and the period is the same.
+
+The total energy is given by:
+
+\begin{equation}
+\begin{split}
+    E &= K - V \\
+    &= \frac{1}{2} \mu \omega^{2} r_{0}^{2} - G \frac{2m_{0}^{2}}{r_{0}} \\
+    &= -G \frac{m_{0}^{2}}{r_{0}}
+\end{split}
+\end{equation}
+
+which comes as no surprise.
+
+\subproblem{c}{}
+Since the explosion is spherically symmetric, the heavier star's velocity is unchanged. The total energy is now:
+
+\begin{equation}
+\begin{split}
+    E &= K - V \\
+    &= \frac{1}{2} m_{0} \omega^{2} \left( \frac{2}{3} r_{0} \right)^{2} + \frac{1}{2} m_{0} \omega^{2} \left( \frac{1}{3} r_{0} \right)^{2} - G\frac{m_{0}^{2}}{r_{0}} \\
+    &= - \frac{1}{6} G \frac{m_{0}^{2}}{r_{0}}
+\end{split}
+\end{equation}
+
+Since the energy is negative, the motion is still bound.
+\qed
+
+
+\problem{14}{}
+Conservation of energy and angular momentum gives:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} m v_{p}^{2} - G \frac{Mm}{r_{0}} &= \frac{1}{2} m v_{a}^{2} - G \frac{Mm}{r_{a}} \\
+    r_{0} v_{p} &= r_{a} v_{a}
+\end{split}
+\end{equation}
+
+Solving for $v_{p}$ leads to:
+
+\begin{equation}
+    v_{p}^{2} = \frac{GM}{r_{0}} \frac{2r_{a}}{r_{a} + r_{0}}
+\end{equation}
+
+But $v_{0}^{2} = GM/r_{0}$ for uniform circular motion, so that:
+
+\begin{equation}
+    \left( \frac{v_{p}}{v_{0}} \right)^{2} = \frac{2r_{a}}{r_{a} + r_{0}}
+\end{equation}
+
+Making $r_{a}$ the subject:
+
+\begin{equation}
+    r_{a}(k) = \frac{k^{2}}{2 - k^{2}} r_{0}
+\end{equation}
+
+where $k \equiv v_{p}/v_{0}$.
+
+The error in $k$ is related to the error in $r_{a}$ by:
+
+\begin{equation}
+\begin{split}
+    \delta r_{a} &= \left\lvert \frac{\partial r_{a}}{\partial k} \right\rvert \delta k \\
+    &= r_{0} \frac{4k}{(2 - k^{2})^{2}} \delta k \\
+    \frac{\delta r_{a}}{r_{a}} &= \frac{4r_{a}}{k^{2} r_{0}} \frac{\delta k}{k} 
+\end{split}
+\end{equation}
+
+Carrying out the calculation, we have $\delta r_{a}/r_{a} = 12.2\%$.
+\qed
+
+
+\appendix
+%==========
+\pagebreak
+\section*{Appendix}
+%==========
+
+
+\problem{A1}{Derivation of Trajectory in Central Field}
+Consider a particle of mass $m$ moving in a central field characterised by the potential $V = A/r$, where $A$ is a constant. Conservation of energy and angular momentum give:
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2} m \dot{r}^{2} + \frac{1}{2} m r^{2} \dot{\theta}^{2} + A/r \\
+    J &= m r^{2} \dot{\theta}
+\end{split}
+\end{equation}
+
+Using the angular momentum to eliminate $\dot{\theta}$ gives:
+
+\begin{equation}
+    E = \frac{1}{2} m \dot{r}^{2} + \frac{J^{2}}{2m r^{2}} + A/r
+\end{equation}
+
+Note the following identity:
+
+\begin{equation}
+    J = m r^{2} \frac{\mathrm{d}\theta}{\mathrm{d}t} = m r^{2} \frac{\mathrm{d}\theta}{\mathrm{d}r} \dot{r}
+\end{equation}
+
+Using this to eliminate $\dot{r}$ gives:
+
+\begin{equation}
+    E = \frac{J^{2}}{2mr^{4}} \left( \frac{\mathrm{d}r}{\mathrm{d}\theta} \right)^{2} + \frac{J^{2}}{2m r^{2}} + A/r
+\end{equation}
+
+This is already a separable differential equation, but we can make use of the substitution $u = 1/r$ to make it even easier:
+
+\begin{equation}
+    E = \frac{J^{2}}{2m} \left( \frac{\mathrm{d}u}{\mathrm{d}\theta} \right)^{2} + \frac{J^{2}}{2m} u^{2} + A u
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \frac{\mathrm{d}u}{\mathrm{d}\theta} = \sqrt{\frac{2mE}{J^{2}} + \frac{m^{2}A^{2}}{J^{2}} - \left( u + \frac{mA}{J} \right)^{2}}
+\end{equation}
+
+Integrating this and simplifying yields:
+
+\begin{equation}
+    \sin^{-1}{\left( \frac{J/mr + A/J}{\sqrt{2E/m + A^{2}/J^{2}}} \right)} = \theta + \theta_{0}
+\end{equation}
+
+where $\theta_{0}$ is an arbitrary constant.
+
+We may set $\theta_{0} = \pi/2$ as this is equivalent to rotating our coordinate system. Then:
+
+\begin{equation}
+    \frac{1}{r} = \frac{mA}{J^{2}}(\epsilon \cos{\theta} + 1)
+\end{equation}
+
+where:
+
+\begin{equation}
+    \epsilon = \sqrt{1 + \frac{2EJ^{2}}{mA^{2}}}
+\end{equation}
+
+is the eccentricity of the orbit.
+
+This completes the proof that the trajectory of a particle in an inverse squared field is a conics section.
+
+
+
+\end{document}

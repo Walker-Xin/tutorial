@@ -1,0 +1,216 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Special Relativity}
+\def\assignmentno{Problems 1}
+\def\assignmentname{Lorentz Transformation, Velocity Addition and Energy \& Mass}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Lorentz Transformation and Elementary Consequences}
+%==========
+
+
+\problem{1}{}
+
+In frame $S$, the two events have coordinates $(x_{0}/c, x_{0}, 0, 0)$ and $(x_{0}/2c, 2x_{0}, 0, 0)$ respectively. In frame $S'$, we demand that they have coordinates $(t', x_{1}', 0, 0)$ and $(t', x_{2}', 0, 0)$. Thus, by Lorentz transformation:
+
+\begin{equation}
+    t' = \gamma (\frac{x_{0}}{c} - \frac{v x_{0}}{c}) = \gamma (\frac{x_{0}}{2c} - \frac{2v x_{0}}{c})
+\end{equation}
+
+Hence, solving the equation yield $v = -c/2$ and $t' = \sqrt{3}x_{0}/c$.
+\qed
+
+
+\problem{2}{}
+
+\begin{equation}
+    v = \omega R \sin{\ang{30}} = \qty{3.3e8}{m s^{-1}}
+\end{equation}
+
+This does not violate the limitation of speed of light, as no new information is transmitted at a superluminal speed.
+\qed
+
+
+\problem{3}{}
+
+In frame $S_{A}$, the first signal is produced at coordinates $(t, 0, 0, 0)$, which corresponds to $(t', x', 0, 0)$ in $S_{B}$.
+
+After a time $\Delta t = \left\lvert x' \right\rvert/c$ in $S_{B}$, $B$ receives the signal and after another $2t$, the return signal is produced. This event is marked as $(t' + \Delta t + 2t, 0, 0, 0)$ in $S_{B}$, which corresponds to $(t_{A}, x_{A}, 0, 0)$ in $S_{A}$.
+
+Then the in $S_{A}$, the time $T$ when $A$ receives the return signal is given by:
+
+\begin{equation}
+    \begin{split}
+        T &= t_{A} + \frac{1}{c} \left\lvert x_{A} \right\rvert \\
+        &= \gamma (t' + \Delta t + 2t) + \frac{1}{c} \gamma v (t' + \Delta t + 2t) \\
+        &= \gamma (1 + \frac{v}{c}) (t' + \Delta t + 2t)
+    \end{split}
+\end{equation}
+
+But by Lorentz transformation, $t' = \gamma t$ and $\Delta t = \left\lvert x' \right\rvert/c = \gamma v t/c$. Hence, substituting the values, we have:
+
+\begin{equation}
+    T = (3 + 2\sqrt{3}) t
+\end{equation}
+\qed
+
+
+\problem{4}{}
+In the pilot's frame, the total distance to be travelled is $D' = D/\gamma = \qty{2.52}{ly}$ due to length contraction. Thus:
+
+\begin{equation}
+    T = \frac{D'}{v} = \frac{D}{\gamma v} = \qty{3.15}{years}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+In the Galaxy frame, the energy of the proton is given by $E = \gamma m c^{2}$. We have the equation:
+
+\begin{equation}
+    \beta = \sqrt{1 - \frac{1}{\gamma^{2}}} = \sqrt{1 - \left( \frac{m_{0} c^{2}}{E} \right)^{2}} \approx 1
+\end{equation}
+
+as the rest energy of the proton is too small compared to $E$.
+
+Hence, the time to travel across the Galaxy measured in the Galaxy frame is $T_{G} = \qty{10e5}{years}$. Then by time dilation, the time measured in the proton's frame is:
+
+\begin{equation}
+    T_{P} = \frac{1}{\gamma} T = \sqrt{1 - \beta^{2}} T_{G} = \qty{4.93}{min}
+\end{equation}
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+We have the relationship between proper time and time measured in a frame:
+
+\begin{equation}
+    \frac{\mathrm{d}\tau}{\mathrm{d}t} = \frac{1}{\gamma}
+\end{equation}
+
+Then, as measured in the rest frame:
+
+\begin{equation}
+    t = \int_{0}^{\tau} \gamma \, \mathrm{d}\tau = \gamma \tau = \qty{38}{ns}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    D = \beta c t = \qty{8.32}{m}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    D' = \beta c \tau = \qty{5.69}{m}
+\end{equation}
+\qed
+
+
+\problem{7}{}
+Assume that the 'dying' of muons follows a Poisson process, such that the time for one muon to die follows an exponential distribution with mean $\tau_{0}$. We have:
+
+\begin{equation}
+    T \sim \exp(1/\tau_{0})
+\end{equation}
+
+Since $1\%$ of the muons survive, we have:
+
+\begin{equation}
+    P(T > \tau) = 0.01
+\end{equation}
+
+where $\tau$ is the proper time for the muon to travel down to the ground.
+
+Then, from the cumulative distribution function:
+
+\begin{equation}
+    P(T \le \tau) = 1 - e^{-\tau/\tau_{0}} = 1 - 0.01
+\end{equation}
+
+Solving this equation yields $\tau = \tau_{0} \ln{100}$. The distance travelled measured in muons' frame is thus $D_{0} = v \tau = \qty{3.01e3}{m}$ and the distance travelled measured in the ground frame is $D = \gamma v \tau = \qty{2.13e4}{m}$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Addition of velocities; Energy \& Mass}
+%==========
+
+
+\problem{9}{}
+Suppose an initial velocity 4-vector $U = \gamma_{u} (c, u, 0, 0)^{\intercal}$. Two successive Lorentz transformations yield:
+
+\begin{equation}
+    \begin{split}
+        U' &= \Lambda_{v_{2}} \Lambda_{v_{1}} U \\
+        &= \Lambda_{v_{2}} \gamma_{u} \begin{pmatrix} \gamma_{v_{1}}c - \gamma_{v_{1}} \beta_{v_{1}} u \\ -\gamma_{v_{1}} \beta_{v_{1}} c + \gamma_{v_{1}} u \\ 0 \\ 0 \end{pmatrix} \\
+        &= \gamma_{u} \gamma_{v_{1}} \gamma_{v_{2}} \begin{pmatrix} (1 + \beta_{v_{1}} \beta_{v_{2}})c - (\beta_{v_{1}} + \beta_{v_{2}}) u \\ (1 - \beta_{v_{1}} \beta_{v_{2}})c - (\beta_{v_{1}} + \beta_{v_{2}}) u \\ 0 \\ 0 \end{pmatrix}
+    \end{split}
+\end{equation}
+
+On the other hand, with $v = (v_{1} + v_{2})/(1 + v_{1}v_{2}/c^{2})$:
+
+\begin{equation}
+    \begin{split}
+        \Lambda_{v} U = \gamma_{u} \gamma_{v} \begin{pmatrix} c - \beta_{v} u \\ -\beta_{v}c + u \\ 0 \\ 0 \end{pmatrix}
+    \end{split}
+\end{equation}
+
+To verify $\Lambda_{v_{2}} \Lambda_{v_{1}} = \Lambda_{v}$, we only need to show the following relationship:
+
+\begin{equation}
+    \frac{\gamma_{v_{1}} \gamma_{v_{2}}}{1 + \beta_{v_{1}} \beta_{v_{2}}} \stackrel{?}{=} \gamma_{v}
+\end{equation}
+
+For $\gamma_{v}$:
+
+\begin{equation}
+    \gamma_{v} = \frac{1}{\sqrt{1 - \frac{(v_{1} + v_{2})^{2}}{c^{2} (1 + v_{1}v_{2}/c^{2})^{2}}}} = \frac{1}{1 + \beta_{v_{1}} \beta_{v_{2}}} \frac{1 + \beta_{v_{1}} \beta_{v_{2}}}{\sqrt{\left( 1 + \frac{\beta_{v_{1}} + \beta_{v_{2}}}{1 + \beta_{v_{1}} \beta_{v_{2}}} \right) \left( 1 - \frac{\beta_{v_{1}} + \beta_{v_{2}}}{1 + \beta_{v_{1}} \beta_{v_{2}}} \right)}} = \frac{\gamma_{v_{1}} \gamma_{v_{2}}}{1 + \beta_{v_{1}} \beta_{v_{2}}}
+\end{equation}
+
+This verifies the proposed relationship.
+\qed
+
+
+\problem{10}{}
+It is known that the molar mass of trinitrotoluene (TNT) is $M_{\text{TNT}} = \qty{227}{g mol^{-1}}$. Thus:
+
+\begin{equation}
+    \Delta m = N \frac{\Delta E}{c^{2}} = N_{A} \frac{m_{\text{tot}}}{M_{\text{TNT}}} \frac{\Delta E}{c^{2}} = \qty{2.6e34}{eV c^{-2}} = \qty{47}{g}
+\end{equation}
+
+where $N_{A}$ is the Avogadro constant.
+\qed
+
+
+\problem{11}{}
+We have:
+
+\begin{equation}
+    P = 4\pi R^{2} I = \frac{\mathrm{d}E}{\mathrm{d}t}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    \frac{\mathrm{d}m}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{E}{c^{2}} \right) = \frac{P}{c^{2}} = \frac{4\pi R^{2} I}{c^{2}} = \qty{4.4e9}{kg s^{-1}}
+\end{equation}
+\qed
+
+
+\end{document}

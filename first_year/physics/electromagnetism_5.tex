@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Set 5}
+\def\assignmentname{Motion of Charged Particles \& Electro-Magnetic Fields and Maxwell's Equations}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Motion of Charged Particles}
+%==========
+
+
+\problem{0}{Background}
+The Lorentz force is given by:
+
+\begin{equation}
+    \mathbf{F} = q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+\end{equation}
+\qed
+
+
+\problem{1}{Bainbridge mass spectrometer}
+
+\subproblem{a}{}
+
+\subproblem{b}{}
+We need $Eq = Bvq$, or:
+
+\begin{equation}
+    v = \frac{E}{B} = \qty{500}{ms^{-1}}
+\end{equation}
+
+\subproblem{c}{}
+\qed
+
+
+\problem{2}{Charged particles moving in a constant magnetic field}
+
+\subproblem{a}{}
+The equation of motion is:
+
+\begin{equation}
+    m \ddot{\mathbf{r}} = q \dot{\mathbf{r}} \times \mathbf{B}
+\end{equation}
+
+where we take $\mathbf{B} = (0, 0, B)^{\intercal}$ without loss of generality as we can always align the z-axis with the magnetic field.
+
+Writing out the components:
+
+\begin{equation}
+\begin{split}
+    m \ddot{x} &= q \dot{y} B \\
+    m \ddot{y} &= -q \dot{x} B \\
+    m \ddot{z} &= 0
+\end{split}
+\end{equation}
+
+Thus the speed in the z-direction is constant and in the x-y plane, $\ddot{x}^{2} + \ddot{y}^{2} = \frac{q^{2}B^{2}}{m^{2}} (\dot{x}^{2} + \dot{y}^{2})$, which is uniform circular motion. This demonstrates that the particle moves in a helical path.
+
+\subproblem{b}{}
+Let the angle between the magnetic field and the velocity be $\delta \theta$. The velocity component parallel to the magnetic field is $v_{\parallel} = v \cos{\delta \theta}$, while the perpendicular component determines the radius of the helix:
+
+\begin{equation}
+    R = \frac{mv_{\perp}}{qB} = \frac{mv \sin{\delta \theta}}{qB}
+\end{equation}
+
+For every revolution, the time taken is $T = 2\pi R/v_{\perp} = 2\pi m/qB$. In this time, the particle has travelled a distance $d$ in the perpendicular direction given by:
+
+\begin{equation}
+    D = v_{\parallel} T = \frac{2\pi m}{qB} v \cos{\delta \theta} \approx 2\pi \frac{mv}{Be}
+\end{equation}
+
+where $q$ is taken as $e$.
+
+\subproblem{c}{}
+The total number of revolutions is:
+
+\begin{equation}
+    N = \frac{T}{2\pi m/qB} = \frac{\qty{100}{y}}{\qty{0.0357}{s}} = \qty{8.8e10}{}
+\end{equation}
+\qed
+
+
+\problem{3}{Magnetic quadrupole lens}
+
+\subproblem{a}{}
+The equations of motion are:
+
+\begin{equation}
+\begin{split}
+    m \ddot{x} &= -qAx \dot{z} \\
+    m \ddot{y} &= qAy \dot{z} \\
+    m \ddot{z} &= qA(x\dot{x} - y\dot{y})
+\end{split}
+\end{equation}
+
+Now let $\dot{x}$ and $\dot{y}$ be very small so that we ignore the z-direction acceleration and $\dot{z} = v$ is constant. We have $\ddot{x} = -\kappa^{2} x$ and $\ddot{y} = \kappa^{2} y$, where $\kappa^{2} = qA/mv$ is a positive constant.
+
+\subproblem{b}{}
+Obviously, the equation of motion in x-direction gives a harmonic oscillator (focusing), while y-direction is unstable as any small perturbation will grow exponentially (defocusing). 
+
+\subproblem{c}{}
+The period of the x-direction is $2\pi/\kappa$, so that after one quarter period, the distance travelled is:
+
+\begin{equation}
+    D = \frac{\pi}{2\kappa} v = \frac{\pi}{2} \sqrt{\frac{mv}{\left\lvert qA \right\rvert}}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Electro-Magnetic Fields and Maxwell's Equations}
+%==========
+
+
+\problem{0}{Background}
+The Maxwell equations are:
+
+\begin{equation}
+\begin{split}
+    \nabla \cdot \mathbf{E} &= \frac{\rho}{\epsilon_{0}} \\
+    \nabla \cdot \mathbf{B} &= 0 \\
+    \nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+    \nabla \times \mathbf{B} &= \mu_{0} \left( \mathbf{J} + \epsilon_{0} \frac{\partial \mathbf{E}}{\partial t} \right)
+\end{split}
+\end{equation}
+
+The first one is Gauss's law for electric field while the second one is Gauss's law for magnetic field, which implies the non-existence of magnetic monopoles. The third one is Faraday's law of induction, which implies that a changing electric field induces a magnetic field. The fourth one is Ampere's law, which implies that a current induces a magnetic field.
+\qed
+
+
+\problem{1}{Displacement current}
+
+\subproblem{a}{}
+For a long wire, Ampere's law gives:
+
+\begin{equation}
+    B = \mu_{0} \frac{I}{2\pi r}
+\end{equation}
+
+This cannot be used for a short wire because a current flowing in a short wire causes a build-up of charges at the ends, which causes a time-varying electric field that induces a magnetic field.
+
+\subproblem{b}{}
+Given a steady current $I$ flowing in a wire of length $2b$, charges accumulate at the ends according to $q = It$ (the end where the current is flowing into). Let the current be flowing in the z-direction. By symmetry, the electric field created by the charges at the centre is:
+
+\begin{equation}
+    \mathbf{E}(r) = -\frac{q}{2\pi \epsilon_{0}} \frac{b}{(r^{2} + b^{2})^{3/2}} \hat{z}
+\end{equation}
+
+The modified Ampere's law reads:
+
+\begin{equation}
+    \oint \mathbf{B} \cdot d\mathbf{l} = \mu_{0} I_{\text{encl}} + \mu_{0} \int_{S} \epsilon_{0} \frac{\partial \mathbf{E}}{\partial t} \cdot \mathrm{d}\mathbf{A}
+\end{equation}
+
+The surface integral evaluates to:
+
+\begin{equation}
+    \int_{S} \epsilon_{0} \frac{\partial \mathbf{E}}{\partial t} \cdot \mathrm{d}\mathbf{A} = - \int_{0}^{r} \frac{I}{2\pi} \frac{b}{(r^{2} + b^{2})^{3/2}} 2\pi r \mathrm{d}r = -I \left( 1 - \frac{b}{\sqrt{r^{2} + b^{2}}} \right)
+\end{equation}
+
+Combining this with the first term, we have:
+
+\begin{equation}
+    \mathbf{B}(r)= \frac{\mu_{0} I}{2\pi r} \frac{b}{\sqrt{r^{2} + b^{2}}} \hat{\phi}
+\end{equation}
+
+which agrees with the result from Biot-Savart law.
+\qed
+
+
+\problem{2}{Electro-magnetic waves in vacuo}
+
+\subproblem{a}{}
+In vacuum, we have the Maxwell equations:
+
+\begin{equation}
+\begin{split}
+    \nabla \cdot \mathbf{E} &= 0 \\
+    \nabla \cdot \mathbf{B} &= 0 \\
+    \nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+    \nabla \times \mathbf{B} &= \mu_{0} \epsilon_{0} \frac{\partial \mathbf{E}}{\partial t}
+\end{split}
+\end{equation}
+
+Taking the curl of the curl terms, we can decouple the equations into two sets:
+
+\begin{equation}
+\begin{split}
+    \nabla \times ( \nabla \times \mathbf{E} ) = \nabla (\nabla \cdot \mathbf{E}) - \nabla^{2} \mathbf{E} = -\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{E}}{\partial t^{2}} \\
+    \nabla \times ( \nabla \times \mathbf{B} ) = \nabla (\nabla \cdot \mathbf{B}) - \nabla^{2} \mathbf{B} = -\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{B}}{\partial t^{2}}
+\end{split}
+\end{equation}
+
+Since the divergence terms are zero:
+
+\begin{equation}
+\begin{split}
+    \nabla^{2} \mathbf{E} &= \mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{E}}{\partial t^{2}} \\
+    \nabla^{2} \mathbf{B} &= \mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{B}}{\partial t^{2}}
+\end{split}
+\end{equation}
+
+Written in components form in Cartesian coordinates, we have:
+
+\begin{equation}
+\begin{split}
+    \nabla^{2} E_{i} &= \mu_{0} \epsilon_{0} \frac{\partial^{2} E_{i}}{\partial t^{2}} \\
+    \nabla^{2} B_{i} &= \mu_{0} \epsilon_{0} \frac{\partial^{2} B_{i}}{\partial t^{2}}
+\end{split}
+\end{equation}
+
+which are the wave equations.
+
+\subproblem{b}{}
+We can check that the following solutions satisfy the wave equations:
+
+\begin{equation}
+\begin{split}
+    \tilde{\mathbf{E}}(z, t) = \tilde{\mathbf{E}}_{0} e^{i(kz - \omega t)} \\
+    \tilde{\mathbf{B}}(z, t) = \tilde{\mathbf{B}}_{0} e^{i(kz - \omega t)}
+\end{split}
+\end{equation}
+
+where $\tilde{\mathbf{E}}_{0}$ and $\tilde{\mathbf{B}}_{0}$ are some amplitudes, $\omega = ck$ and $c = 1/\sqrt{\mu_{0} \epsilon_{0}}$ is the speed of the wave (speed of light in vacuum).
+
+They are called plane waves for they do not have x- or y-dependence. Since the divergence of $\tilde{\mathbf{E}}$ and $\tilde{\mathbf{B}}$ are zero, we need $\tilde{E}_{0z} = \tilde{B}_{0z} = 0$. By Faraday's law, we need $\nabla \times \tilde{\mathbf{E}} = -\partial \tilde{\mathbf{B}}/\partial t$, which gives $-k \tilde{E}_{0y} = \omega \tilde{B}_{0x}$ and $k \tilde{E}_{0x} = \omega \tilde{B}_{0y}$. This implies:
+
+\begin{equation}
+    B_{0} = \frac{k}{\omega} E_{0} = \frac{1}{c} E_{0}
+\end{equation}
+
+Therefore, given an electric field of the form $\mathbf{E} = E_{0}(\sin{(kz - \omega t)}, 0, 0)^{\intercal}$, the magnetic field is given by:
+
+\begin{equation}
+    \mathbf{B} = \frac{1}{c} E_{0}(0, \sin{(kz - \omega t)}, 0)^{\intercal}
+\end{equation}
+
+\subproblem{c}{}
+The characteristic impedance of free space is just $E_{0}/B_{0} = c$.
+\qed
+
+
+\problem{3}{Poynting vector of an electro-magnetic wave}
+
+\subproblem{a}{}
+The Poynting vector in a plane electromagnetic wave is given by:
+
+\begin{equation}
+    \mathbf{S} = \frac{1}{\mu_{0}} \mathbf{E} \times \mathbf{B} = \frac{1}{\mu_{0}c} E_{0}^{2} \sin^{2}{(kz - \omega t + \phi)} \hat{z} = c \epsilon_{0} E_{0}^{2} \sin^{2}{(kz - \omega t + \phi)} \hat{z}
+\end{equation}
+
+the average magnitude of which is $c \epsilon_{0} E_{0}^{2}/2$.
+
+\subproblem{b}{}
+The distance from the sun to the earth is $cT$. The total radiative power is distributed over the sphere of radius $cT$
+\qed
+
+
+\problem{4}{Poynting vector for a long resistive rod}
+The electric field in the rod is given by:
+
+\begin{equation}
+    \mathbf{E} = \frac{V}{l} \hat{z} = \frac{IR}{l} \hat{z}
+\end{equation}
+
+where the z-direction is defined as the direction of the current.
+
+The magnetic field is given by:
+
+\begin{equation}
+    \mathbf{B}(r) = \frac{\mu_{0}I}{2\pi r} \hat{\phi}
+\end{equation}
+
+The Poynting vector (outside or on the surface of the rod) is thus given by:
+
+\begin{equation}
+    \mathbf{S} = \frac{1}{\mu_{0}} \mathbf{E} \times \mathbf{B} = -\frac{I^{2}R}{2\pi rl} \hat{r}
+\end{equation}
+
+which points radially inwards.
+
+Integrating the Poynting vector over the surface of the rod, we get:
+
+\begin{equation}
+    -\int_{S} \mathbf{S} \cdot \mathrm{d}\mathbf{A} = I^{2}R
+\end{equation}
+
+which is the power radiated by the rod as expected.
+\qed
+
+\end{document}

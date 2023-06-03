@@ -1,0 +1,326 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Calculus}
+\def\assignmentno{Problem Sheet B}
+\def\assignmentname{Integration}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Integration}
+%==========
+
+
+\problem{B1}{Practice in integration}
+All $C$ appearing in the solutions are arbitrary constants unless otherwise stated.
+
+\subproblem{a}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \int \frac{x + a}{(1 + 2ax + x^{2})^{3/2}} \, \mathrm{d}x = -\frac{1}{(1 + 2ax + x^{2})^{1/2}} + C
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \int_{0}^{\pi/2} \cos{x} e^{\sin{x}} \, \mathrm{d}x = \left[ e^{\sin{x}} \right]_{0}^{\pi/2} = e - 1
+\end{equation}
+
+\subsubproblem{iii}
+
+\begin{equation}
+    \int_{0}^{\pi/2} \cos^{3}{x} \, \mathrm{d}x = \int_{0}^{\pi/2} \cos{x} (1 - \sin^{2}{x}) \, \mathrm{d}x = \left[ \sin{x} - \frac{1}{3} \sin^{3}{x} \right]_{0}^{\pi/2} = \frac{2}{3}
+\end{equation}
+
+\subsubproblem{iv}
+
+\begin{equation}
+    \int_{-2}^{2} \left\lvert x \right\rvert \, \mathrm{d}x = 2 \int_{0}^{2} x \, \mathrm{d}x = 2 \left[ \frac{x^{2}}{2} \right]_{0}^{2} = 4
+\end{equation}
+
+\subproblem{b}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \int \frac{1}{(3 + 2x - x^{2})^{1/2}} \, \mathrm{d}x = \int \frac{1}{\left[ 4 - (x - 1)^{2} \right]^{1/2}} \, \mathrm{d}x
+\end{equation}
+
+Let $z = x - 1$ such that $\mathrm{d}x = \mathrm{d}z$:
+
+\begin{equation}
+    \int \frac{1}{\left[ 4 - (x - 1)^{2} \right]^{1/2}} \, \mathrm{d}x = \int \frac{1}{\left( 4 - z^{2} \right)^{1/2}} \, \mathrm{d}z = \sin^{-1}{\left( \frac{x - 1}{2} \right)} + C
+\end{equation}
+
+where $-1 < x < 3$.
+
+\subsubproblem{ii}
+Let $t = \tan{\theta/2}$ such that $\mathrm{d}t = \sec^{2}{(\theta/2)} \mathrm{d}\theta/2$:
+
+\begin{equation}
+    \int_{0}^{\pi} \frac{1}{5 + 3\cos{\theta}} \, \mathrm{d}\theta = \int_{0}^{\infty} \frac{2\cos^{2}{(\theta/2)}}{5 + 3\cos{\theta}} \, \mathrm{d}t = \int_{0}^{\infty} \frac{1 + \cos{\theta}}{5 + 3\cos{\theta}} \, \mathrm{d}t
+\end{equation}
+
+But $\cos{\theta} = 2/(t^{2} + 1) - 1$, thus:
+
+\begin{equation}
+    \int_{0}^{\pi} \frac{1}{5 + 3\cos{\theta}} \, \mathrm{d}\theta = \int_{0}^{\pi} \frac{\frac{2}{t^{2} + 1}}{2 + \frac{6}{t^{2} + 1}} \, \mathrm{d}t = \int_{0}^{\infty} \frac{1}{t^{2} + 4} \, \mathrm{d}t = \frac{\pi}{4}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \int \frac{1}{x(1 + x^{2})} \, \mathrm{d}x = \int \frac{1}{x} - \frac{x}{1 + x^{2}} \, \mathrm{d}x = \ln{\left\lvert x \right\rvert} - \frac{1}{2} \ln{\left\lvert 1 + x^{2} \right\rvert} + C
+\end{equation}
+
+\subproblem{d}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \int x \sin{x} \, \mathrm{d}x = -x \cos{x} + \int \cos{x} \, \mathrm{d}x = -x \cos{x} + \sin{x} + C
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \int \ln{x} \, \mathrm{d}x = x \ln{x} - \int x \frac{1}{x} \, \mathrm{d}x = x \ln{x} - x + C
+\end{equation}
+
+\subproblem{e}
+
+\begin{equation}
+    \int_{0}^{\infty} x^{n} e^{-x^{2}} \, \mathrm{d}x = \left[ \frac{x^{n + 1}}{n + 1} e^{-x^{2}} \right]_{0}^{\infty} + \int_{0}^{\infty} \frac{2}{n + 1} x^{n + 2} e^{-x^{2}} \, \mathrm{d}x
+\end{equation}
+
+Change the dummy variable from $n$ to $n - 2$ and let $I(n) = \int_{0}^{\infty} x^{n} e^{-x^{2}} \, \mathrm{d}x$:
+
+\begin{equation}
+    I(n) = \frac{n - 1}{2} I(n - 2)
+\end{equation}
+
+where $n \le 2$.
+
+Therefore:
+
+\begin{equation}
+    \begin{split}
+        I(5) = 2I(1) = 2\int_{0}^{\infty} x e^{-x^{2}} \, \mathrm{d}x = 2 \left( -\frac{1}{2} \right) \left[ e^{-x^{2}} \right]_{0}^{\infty} = 1
+    \end{split}
+\end{equation}
+
+\subproblem{f}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \begin{split}
+        \int \left( \cos^{5}{x} - \cos^{3}{x} \right) \, \mathrm{d}x &= \int -\sin^{2}{x} \cos^{3}{x} \, \mathrm{d}x \\
+        &= -\frac{1}{3} \sin^{3}{x} \cos^{2}{x} - \int \frac{2}{3} \sin^{4}{x} \cos{x} \, \mathrm{d}x \\
+        &= -\frac{1}{3} \sin^{3}{x} \cos^{2}{x} - \frac{2}{15} \sin^{5}{x} + C \\
+        &= \frac{1}{5} \sin^{5}{x} - \frac{1}{3} \sin^{3}{x} + C
+    \end{split}
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \begin{split}
+        \int \sin^{5}{x} \cos^{4}{x} \, \mathrm{d}x &= -\frac{1}{5} \sin^{4}{x} \cos^{5}{x} + \int \frac{4}{5} \sin^{3}{x} \cos^{6}{x} \, \mathrm{d}x \\
+        &= -\frac{1}{5} \sin^{4}{x} \cos^{5}{x} - \frac{4}{35} \sin^{2}{x} \cos^{7}{x} + \int \frac{8}{35} \sin{x} \cos^{8}{x} \, \mathrm{d}x \\
+        &= -\frac{1}{5} \sin^{4}{x} \cos^{5}{x} - \frac{4}{35} \sin^{2}{x} \cos^{7}{x} - \frac{8}{315} \cos^{9}{x} + C
+    \end{split}
+\end{equation}
+
+\subsubproblem{iii}
+
+\begin{equation}
+    \int \sin^{2}{x} \cos^{4}{x} \, \mathrm{d}x = \int \cos^{4}{x} - \cos^{6}{x} \, \mathrm{d}x
+\end{equation}
+
+Let $I(n) = \int \cos^{n}{x} \, \mathrm{d}x$. Have:
+
+\begin{equation}
+    I(n) = \sin{x} \cos^{n-1}{x} + (n - 1) \int (1 - \cos^{2}{x}) \cos^{n - 2}{x} \, \mathrm{d}x
+\end{equation}
+
+or:
+
+\begin{equation}
+    nI(n) = \sin{x} \cos^{n-1}{x} + (n - 1)I(n - 2)
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \begin{split}
+        I(6) = \frac{1}{6} \left[ \sin{x} \cos^{5}{x} + 5I(4) \right] \\
+        I(4) = \frac{1}{4} \left[ \sin{x} \cos^{3}{x} + 3I(2) \right] \\
+        I(2) = \frac{1}{2} (\sin{x} \cos{x} + x) + C
+    \end{split}
+\end{equation}
+
+Substituting:
+
+\begin{equation}
+    \int \sin^{2}{x} \cos^{4}{x} \, \mathrm{d}x = \mistake{-\frac{1}{6} \sin{x} \cos^{5}{x} + \frac{1}{24} \sin{x} \cos^{3}{x} + \frac{1}{6} \sin{x} \cos{x} + \frac{1}{6} x + C}
+\end{equation}
+
+\begin{correction}
+    Substituting:
+
+    \begin{equation}
+        \int \sin^{2}{x} \cos^{4}{x} \, \mathrm{d}x = -\frac{1}{192} \sin{6x} - \frac{1}{64} \sin{4x} + \frac{1}{64} \sin{2x} + \frac{1}{16} x + C
+    \end{equation}
+\end{correction}
+
+\subproblem{g}
+
+\subsubproblem{i}
+Let $x = 3\sec{\theta}$ such that $\mathrm{d}x = 3\tan{\theta} \sec{\theta} \mathrm{d}\theta$ and:
+
+\begin{equation}
+    \begin{split}
+        \int \frac{(x^{2} - 9)^{1/2}}{x} \, \mathrm{d}x &= \int \frac{3\tan{\theta}}{3\sec{\theta}} 3\tan{\theta} \sec{\theta} \, \mathrm{d}\theta \\
+        &= 3 \int \sec^{2}{\theta} - 1 \, \mathrm{d}x \\
+        &= 3 (\tan{\theta} - \theta) + C \\
+        &= \sqrt{x^{2} - 9} - 3 \cos^{-1}{\left( \frac{3}{x} \right)} + C
+    \end{split}
+\end{equation}
+
+\subsubproblem{ii}
+Let $x = 4\sin{\theta}$ such that $\mathrm{d}x = 4\cos{\theta} \mathrm{d}\theta$ and:
+
+\begin{equation}
+    \begin{split}
+        \int \frac{1}{x^{2}(16 - x^{2})^{1/2}} \, \mathrm{d}x &= \int \frac{4\cos{\theta}}{16\sin^{2}{\theta} \cdot 4\cos{\theta}} \, \mathrm{d}\theta \\
+        &= \frac{1}{16} \int \csc^{2}{\theta} \, \mathrm{d}x \\
+        &= -\frac{1}{16} \cot{\theta} + C \\
+        &= -\frac{1}{16} \sqrt{\frac{16}{x^{2}} - 1} + C
+    \end{split}
+\end{equation}
+\qed
+
+\problem{B2}{Properties of definite integrals}
+
+\subproblem{a}
+The first and the third integrals are zero because their integrands are odd functions.
+
+\subproblem{b}
+As an odd function, $f(x)$ satisfies $f(x) = -f(-x)$. Then:
+
+\begin{equation}
+    \int_{-a}^{a} f(x) \, \mathrm{d}x = \int_{0}^{a} f(x) \, \mathrm{d}x + \int_{-a}^{0} f(x) \, \mathrm{d}x = \int_{0}^{a} f(x) \, \mathrm{d}x - \int_{a}^{0} f(-y) \, \mathrm{d}y = 0
+\end{equation}
+
+where the substitution $x = -y$ has been made.
+
+\subproblem{c}
+Without loss of generality, consider the case where $y > 1$ so that $xy > x$:
+
+\begin{equation}
+    \begin{split}
+        \ln{xy} &\equiv \int_{1}^{xy} \frac{1}{t} \, \mathrm{d}t \\
+        &= \int_{1}^{x} \frac{1}{t} \, \mathrm{d}t + \int_{x}^{xy} \frac{1}{t} \, \mathrm{d}t
+    \end{split}
+\end{equation}
+
+Make the substitution $z = t/x$ in the second integral:
+
+\begin{equation}
+    \begin{split}
+        \ln{xy} &= \int_{1}^{x} \frac{1}{t} \, \mathrm{d}t + \int_{1}^{y} \frac{1}{z} \, \mathrm{d}z \\
+        &= \ln{x} + \ln{y}
+    \end{split}
+\end{equation}
+
+The case where $xy < x$ follows a similar proof.
+\qed
+
+
+\problem{B3}{Arc length and area and volume of revolution}
+
+\subproblem{a}
+
+\begin{equation}
+    L = \int_{0}^{1} \sqrt{1 + \sinh^{2}{x}} \, \mathrm{d}x = \int_{0}^{1} \cosh{x} \, \mathrm{d}x = \sinh{1} \text{ units}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    L = \int_{0}^{\pi/2} \sqrt{\sin^{2}{t} + \cos^{2}{t}} \, \mathrm{d}t = \frac{\pi}{2} \text{ units}
+\end{equation}
+
+This parametric equation is a semi-circle.
+
+\subproblem{c}
+
+\begin{equation}
+    A = \mistake{2 \int_{0}^{R}} 2\pi \sqrt{R^{2} - x^{2}} \sqrt{1 + \frac{x^{2}}{R^{2} - x^{2}}} \, \mathrm{d}x = 4\pi \int_{0}^{R} R \, \mathrm{d}x = 2\pi R^{2} \text{ unit}^{2}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        A = 2 \int_{-R}^{R} 2\pi \sqrt{R^{2} - x^{2}} \sqrt{1 + \frac{x^{2}}{R^{2} - x^{2}}} \, \mathrm{d}x = 4\pi \int_{-R}^{R} R \, \mathrm{d}x = 4\pi R^{2} \text{ unit}^{2}
+    \end{equation}
+\end{correction}
+
+\begin{equation}
+    V = 2 \int_{0}^{R} \pi (R^{2} - x^{2}) \, \mathrm{d}x = \frac{4}{3} \pi R^{3}
+\end{equation}
+
+as expected for the surface area and volume of a sphere.
+\qed
+
+
+\problem{B4}{Line integrals}
+
+\subproblem{a}
+
+\begin{equation}
+    \int_{C} x^{2} + 2y \, \mathrm{d}x = \int_{0}^{2} x^{2} + 2x + 2 \, \mathrm{d}x = \frac{32}{3}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \int_{C} xy \, \mathrm{d}x = \int_{0}^{4} \mistake{\sqrt{16 - x^{2}}} \, \mathrm{d}x = \frac{\pi}{2}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \int_{C} xy \, \mathrm{d}x = \int_{0}^{4} x\sqrt{16 - x^{2}} \, \mathrm{d}x = \frac{64}{3}
+    \end{equation}
+\end{correction}
+
+\subproblem{c}
+
+\subsubproblem{i}
+On this line, $x = y = z$. Thus:
+
+\begin{equation}
+    \int_{c} y^{2} \mathrm{d}x  + xy \mathrm{d}y + zx \mathrm{d}z = \int_{0}^{1} 3x^{2} \, \mathrm{d}x = 1
+\end{equation}
+
+\subsubproblem{ii}
+On the first segment, $x = y = \mathrm{d}x = \mathrm{d}y =  0$. On the second, $x = \mathrm{d}x = 0$ and $z = 1, \mathrm{d}z = 0$. On the third, $y = z = 1$. Thus, only the last segment contributes to the integral:
+
+\begin{equation}
+    \int_{c} y^{2} \mathrm{d}x  + xy \mathrm{d}y + zx \mathrm{d}z = \int_{0}^{1} 1 \, \mathrm{d}x = 1
+\end{equation}
+\qed
+
+
+\end{document}

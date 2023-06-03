@@ -1,0 +1,610 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Projectiles, Rocket Motion and Motion in E \& B Fields}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{More on Projectiles}
+%==========
+
+
+\problem{1}{Projectile with no air resistance}
+Let axes be parallel and perpendicular to the plane. By conservation of energy, the impact speed is $v = \sqrt{2gh}$. Resolving the velocity along the axes:
+
+\begin{equation}
+\begin{split}
+    v_{x} = v \cos{\theta} \\
+    v_{y} = -v \sin{\theta} \\
+\end{split}
+\end{equation}
+
+Given that no energy is lost, it is implied that $v_{y}$ switches direction and $v_{x}$ remains unchanged. Therefore, the ball moves off the plane at an angle $\theta$ with respect to the normal.
+
+The time taken for the next impact to occur is:
+
+\begin{equation}
+    t = 2 \frac{v \sin{\theta}}{g \sin{\theta}} = 2 \frac{v}{g}
+\end{equation}
+
+In this time, the distance travelled down the plane is:
+
+\begin{equation}
+    D = v_{x} t + \frac{1}{2} g \sin{\theta} t^{2} = 8h\sin{\theta}
+\end{equation}
+\qed
+
+
+\problem{2}{Projectiles from a rotating wheel}
+
+The vertical component of the velocity of the water drop is $v_{y} = a\omega \cos{\theta}$ and the horizontal component is $v_{x} = a\omega \sin{\theta}$. By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    mga \sin{\theta} + \frac{1}{2} m (a\omega)^{2} &= \frac{1}{2} m (a\omega \sin{\theta})^{2} + mg y_{\text{max}} \\
+    y_{\text{max}}(\theta) &= a \sin{\theta} + \frac{a^{2}\omega^{2}}{2g} \cos^{2}{\theta}
+\end{split}
+\end{equation}
+
+Differentiating $y_{\text{max}}(\theta)$ yields $\sin{\theta} = g/(a\omega)$ for maximum height. The maximum height is:
+
+\begin{equation}
+    y_{\text{max}} = \frac{g}{2\omega^{2}} + \frac{a^2 \omega^{2}}{2g} < h
+\end{equation}
+
+This leads to a quadratic inequality for $\omega^{2}$ that has the solution:
+
+\begin{equation}
+    (a\omega)^{2} < gh + g \sqrt{h^{2} - a^{2}}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Motion of Rockets}
+%==========
+
+
+\problem{3}{}
+Consider conservation of momentum before and after the detachment:
+
+\begin{equation}
+\begin{split}
+    (m + \delta m)v = m(v + \delta v) + (v - w) \delta m \\
+    m \delta v = w \delta m \\
+\end{split}
+\end{equation}
+
+For the case where the small mass is projected forwards, the sign of $w$ needs to be reversed. Since $\delta m$, being a positive quantity, change treated as the magnitude of mass loss for the rocket, we have for the rocket $-w\mathrm{d}m = m \mathrm{d}v$ or:
+
+\begin{equation}
+    m \frac{\mathrm{d}v}{\mathrm{d}t} + w \frac{\mathrm{d}m}{\mathrm{d}t} = 0
+\end{equation}
+
+This is essentially the expansion of $F = \mathrm{d}(mv)/\mathrm{d}t$ in the absence of any force. Given an external force of $F = -mg$, we have the expression:
+
+\begin{equation}
+    m \frac{\mathrm{d}v}{\mathrm{d}t} + w \frac{\mathrm{d}m}{\mathrm{d}t} + mg = 0
+\end{equation}
+\qed
+
+
+\problem{4}{}
+Consider conservation of momentum in conjunction with the impulse due to gravity:
+
+\begin{equation}
+    mv - g \delta t = (m - \alpha \delta t)(v + \delta v) + \alpha \delta t (v - V)
+\end{equation}
+
+Ignoring any second order terms and taking the limit $\delta t, \delta v \to 0$, we have:
+
+\begin{equation}
+    \frac{\mathrm{d}v}{\mathrm{d}t} = -g + \frac{\alpha V}{m} = -g + \frac{\alpha V}{M - \alpha t}
+\end{equation}
+
+Consider the acceleration of the rocket at $t = 0$, which must be positive for successful launch:
+
+\begin{equation}
+    \frac{\mathrm{d}v}{\mathrm{d}t}(0) = -g + \frac{\alpha V}{M} > 0
+\end{equation}
+
+This implies $\alpha V > Mg$. Since half of $M$ is fuel, we have $t = M/2\alpha$. The expression for speed at a time $t$ is:
+
+\begin{equation}
+    v(t) = \int_{0}^{t} \left( -g + \frac{\alpha V}{M - \alpha t} \right) \, \mathrm{d}t = V \ln{\frac{M}{M - \alpha t}} - gt
+\end{equation}
+
+Substituting $t = M/2\alpha$ yields:
+
+\begin{equation}
+    v(M/2\alpha) = V \ln{2} - \frac{gM}{2\alpha}
+\end{equation}
+
+The height achieved at burn-out is:
+
+\begin{equation}
+    h = \int_{0}^{M/2\alpha} \left( V \ln{\frac{M}{M - \alpha t}} - gt \right) \, \mathrm{d}t = -\frac{gM^{2}}{8\alpha^{2}} + \frac{MV}{2\alpha} (1 - \ln{2})
+\end{equation}
+
+and the maximum height is:
+
+\begin{equation}
+    h + \frac{v(M/2\alpha)^{2}}{2g} = (1 - 2\ln{2}) \frac{MV}{2\alpha} + \frac{(V\ln{2})^{2}}{2g}
+\end{equation}
+\qed
+
+
+\problem{5}{Two stage rocket}
+
+\subproblem{i}{}
+For a rocket, we have the mass-speed relation:
+
+\begin{equation}
+    v = u \ln{\frac{m_{i}}{m_{f}}}
+\end{equation}
+
+For the one stage rocket, mass of casing is $m_{c} = (N-1)rm$ and mass of fuel is $(N-1)(1-r)m$. Thus:
+
+\begin{equation}
+    v_{1} = u \ln{\frac{N}{N - (N-1)(1-r)}} = u \ln{\frac{N}{rN + (1-r)}}
+\end{equation}
+
+\subproblem{ii}
+For the first stage, the mass of fuel is $(N-1)(1-r)(N-n)m$ and the final speed after stage one is:
+
+\begin{equation}
+    v_{1} = u \ln{\frac{N}{N - (N-1)(1-r)(1-n)}} = u \ln{\frac{N}{rN + n(1-r)}}
+\end{equation}
+
+For the second stage, we apply the same logic as in part (i) with the substitution $N \to n$. Therefore:
+
+\begin{equation}
+    v_{2} = u \ln{\frac{N}{rN + n(1-r)}} + u \ln{\frac{n}{rn + (1-r)}}
+\end{equation}
+
+\subproblem{iii}
+
+\begin{equation}
+    \frac{\mathrm{d}v_{2}}{\mathrm{d}n} = u \left( \frac{1}{n} - \frac{r}{rn + (1-r)} - \frac{1-r}{rN + (1-r)n} \right) = 0
+\end{equation}
+
+which has a solution of $n^{2} = N$. Thus the maximum of $v_{2}$ is:
+
+\begin{equation}
+    u \ln \left[ \frac{n^{3}}{n[rn + (1-r)]} \right] = 2u \ln{\frac{n}{rN + n(1-r)}}
+\end{equation}
+
+\subproblem{iv}
+The escape velocity from Earth is approximately $\qty{11.2}{kms^{-1}}$. Given $r = 0.1$ and a large $N$ or $n$, the logarithm term approaches $\ln{(1/r)} = \ln{10}$. With $u = \qty{2.9}{kms^{-1}}$, the upper limit of $v_{1}$ is $\qty{6.7}{kms^{-1}}$ and that of $v_{2}$ is $\qty{13}{kms^{-1}}$. Thus, only the two stage rocket can reach escape velocity.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Work and Energy}
+%==========
+
+
+\problem{6}{Calculation of work along a path}
+The work done are:
+
+\begin{equation}
+\begin{split}
+    W_{a} &= \int_{0}^{1} 2xy \, \mathrm{d}x + \int_{0}^{1} x^{2} \, \mathrm{d}y = \alpha \\
+    W_{b} &= \int_{0}^{1} x^{2} \, \mathrm{d}y + \int_{0}^{1} 2xy \, \mathrm{d}x = \alpha \\
+    W_{c} &= \int_{0}^{1} 2xy \, \mathrm{d}x + x^{2} \, \mathrm{d}y = \alpha \\
+\end{split}
+\end{equation}
+
+This implies $\mathbf{F}$ is conservative. For $\mathbf{G}$:
+
+\begin{equation}
+\begin{split}
+    W_{a} &= \frac{\alpha^{3}}{3} + \alpha^{2} \\
+    W_{b} &= \frac{\alpha^{3}}{3} \\
+    W_{c} &= \alpha^{3} \\
+\end{split}
+\end{equation}
+
+This implies $\mathbf{G}$ is not conservative.
+\qed
+
+
+\problem{7}{Pendulum oscillations with large amplitude}
+
+\subproblem{a}
+Consider the simple mathematical pendulum and the torque exerted on the mass. We have the equation of motion:
+
+\begin{equation}
+    ml^{2} \alpha = -mgl \sin{\theta}
+\end{equation}
+
+or
+
+\begin{equation}
+    \ddot{\theta} = -\frac{g}{l} \sin{\theta}
+\end{equation}
+
+For small $\theta$, we have $\sin{\theta} \approx \theta$ and the motion is simple harmonic with the period $T = 2\pi/\omega = 2\pi \sqrt{l/g}$. Without this approximation, consider the substitution $\ddot{\theta} = \dot{\theta} \mathrm{d}\dot{\theta}/\mathrm{d}\theta$:
+
+\begin{equation}
+    \dot{\theta} \frac{\mathrm{d}\dot{\theta}}{\mathrm{d}\theta} = -\frac{g}{l} \sin{\theta}
+\end{equation}
+
+Integrating the equation from $\theta_{0}$ to $\theta$ leads to $\dot{\theta}^{2} = 2g(\cos{\theta} - \cos{\theta_{0}})/l$, or:
+
+\begin{equation}
+    \frac{\mathrm{d}\theta}{\mathrm{d}t} = \sqrt{\frac{2g}{l}} \sqrt{\cos{\theta} - \cos{\theta_{0}}}
+\end{equation}
+
+Integrating again leads to:
+
+\begin{equation}
+    T = 4 \sqrt{\frac{l}{2g}} \int_{0}^{\theta_{0}} \frac{1}{\sqrt{\cos{\theta} - \cos{\theta_{0}}}} \, \mathrm{d}\theta
+\end{equation}
+
+Comparing with $T = kf(\theta_{0}) \sqrt{l/g}$ gives $k = 2\sqrt{2}$ and:
+
+\begin{equation}
+    f(\theta_{0}) = \int_{0}^{\theta_{0}} \frac{1}{\sqrt{\cos{\theta} - \cos{\theta_{0}}}} \, \mathrm{d}\theta
+\end{equation}
+
+\subproblem{b}
+With the substitution $\sin{(\theta/2)} = \sin{(\theta_{0}/2)} \sin{\phi}$ and $\alpha = \sin{(\theta_{0}/2)}$, we have:
+
+\begin{equation}
+    \mathrm{d}\theta = \frac{2\alpha \cos{\phi}}{\sqrt{1 - \alpha^{2} \sin^{2}{\phi}}} \mathrm{d}\phi
+\end{equation}
+
+Making the substitution and simplifying yields a complete elliptic integral:
+
+\begin{equation}
+    f(\theta_{0}) = \int_{0}^{\sin{\phi} = 0} \sqrt{2} \frac{1}{\sqrt{1 - \alpha^{2} \sin^{2}{\phi}}} \, \mathrm{d}\phi
+\end{equation}
+
+or:
+
+\begin{equation}
+    T = 4 \sqrt{\frac{l}{g}} \int_{0}^{\pi/2} \frac{1}{\sqrt{1 - \alpha^{2} \sin^{2}{\phi}}} \, \mathrm{d}\phi
+\end{equation}
+
+\subproblem{c}
+Writing out the integrand with binomial expansion:
+
+\begin{equation}
+\begin{split}
+    \int_{0}^{\pi/2} \frac{1}{\sqrt{1 - \alpha^{2} \sin^{2}{\phi}}} \, \mathrm{d}\phi &= \int_{0}^{\pi/2} \left( 1 + \frac{1}{2} \alpha^{2} \sin^{2}{\phi} - \frac{1}{8} \alpha^{4} \sin^{4}{\phi} + \dots \right) \, \mathrm{d}\phi \\
+    &\approx \int_{0}^{\pi/2} \left( 1 + \frac{1}{2} \alpha^{2} \sin^{2}{\phi} \right) \, \mathrm{d}\phi \\
+    &= \frac{\pi}{2} + \frac{\pi}{4} \alpha^{2}
+\end{split}
+\end{equation}
+
+Thus the percentage error incurred is at least $\frac{\pi}{4} \alpha^{2}/(\frac{\pi}{2} + \frac{\pi}{4} \alpha^{2}) = 3/11 = 27\%$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Motion of Particles in E \& B Fields}
+%==========
+
+
+\problem{8}{A charged particle in magnetic field}
+The three components of $m \ddot{\mathbf{r}} = q \dot{\mathbf{r}} \cross \mathbf{B}$ are:
+
+\begin{equation}
+\begin{split}
+    m \ddot{r}_{x} &= q \left( \dot{r}_{y} B_{z} - \dot{r}_{z} B_{y} \right) \\
+    m \ddot{r}_{y} &= q \left( \dot{r}_{z} B_{x} - \dot{r}_{x} B_{z} \right) \\
+    m \ddot{r}_{z} &= q \left( \dot{r}_{x} B_{y} - \dot{r}_{y} B_{x} \right)
+\end{split}
+\end{equation}
+
+With $\mathbf{B} = (0, 0, B)^{\intercal}$, we have:
+
+\begin{equation}
+    \ddot{\mathbf{r}}
+    =
+    \frac{q}{m}
+    \begin{pmatrix}
+        0 & B & 0 \\
+        -B & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix}
+    \dot{\mathbf{r}}
+\end{equation}
+
+Diagonalising the coefficient matrix, we have $\lambda_{1} = 0$ with $\mathbf{e}_{1} = (0, 0, 1)^{\intercal}$, $\lambda_{2} = i(qB/m)$ with $\mathbf{e}_{2} = (-i, 1, 0)^{\intercal}$ and $\lambda_{3} = -i(qB/m)$ with $\mathbf{e}_{3} = (i, 1, 0)^{\intercal}$. Set $\omega \equiv (qB/m)$, we have the solution for $\dot{\mathbf{r}}$:
+
+\begin{equation}
+    \dot{\mathbf{r}}(t) = 
+    A
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        1
+    \end{pmatrix}
+    +
+    B e^{i\omega t}
+    \begin{pmatrix}
+        -i \\
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    C e^{-i\omega t}
+    \begin{pmatrix}
+        i \\
+        1 \\
+        0
+    \end{pmatrix}
+\end{equation}
+
+With the initial condition $\dot{\mathbf{r}}(0) = (0, v_{0}, w_{0})^{\intercal}$, we have $A = w_{0}$ and $B = C = v_{0}/2$. Integrating again:
+
+\begin{equation}
+    \mathbf{r}(t) = 
+    At
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        1
+    \end{pmatrix}
+    +
+    \frac{B}{i\omega} e^{i\omega t}
+    \begin{pmatrix}
+        -i \\
+        1 \\
+        0
+    \end{pmatrix}
+    -
+    \frac{C}{i\omega} e^{-i\omega t}
+    \begin{pmatrix}
+        i \\
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    \mathbf{K}
+\end{equation}
+
+With the initial condition $\mathbf{r}(0) = \mathbf{0}$, we have $\mathbf{K} = (v_{0}/\omega, 0, 0)^{\intercal}$. Thus the full solutions are:
+
+\begin{equation}
+\begin{split}
+    x(t) &= \frac{v_{0}}{\omega} (1 - \cos{\omega t}) \\
+    y(t) &= \frac{v_{0}}{\omega} \sin{\omega t} \\
+    z(t) &= w_{0} t
+\end{split}
+\end{equation}
+
+The path is an upwards helix.
+\qed
+
+
+\problem{9}{Motion in both E \& B fields}
+With the addition of $\mathbf{E} = (0, E, 0)^{\intercal}$, the equation of motion becomes:
+
+\begin{equation}
+    \ddot{\mathbf{r}}
+    =
+    \frac{q}{m}
+    \begin{pmatrix}
+        0 & B & 0 \\
+        -B & 0 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix}
+    \dot{\mathbf{r}}
+    +
+    \frac{q}{m}
+    \begin{pmatrix}
+        0 \\
+        E \\
+        0
+    \end{pmatrix}
+\end{equation}
+
+This is just an inhomogeneous version of the previous problem. Since the inhomogeneous term is constant, the solution only differs by a constant term. Thus, we still consider the general solution:
+
+\begin{equation}
+    \dot{\mathbf{r}}(t) = 
+    A
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        1
+    \end{pmatrix}
+    +
+    B \cos{\omega t}
+    \begin{pmatrix}
+        -i \\
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    C \sin{\omega t}
+    \begin{pmatrix}
+        i \\
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    \mathbf{K}_{1}
+\end{equation}
+
+Integrating again:
+
+\begin{equation}
+    \mathbf{r}(t) = 
+    At
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        1
+    \end{pmatrix}
+    +
+    \frac{B}{\omega} \sin{\omega t}
+    \begin{pmatrix}
+        -i \\
+        1 \\
+        0
+    \end{pmatrix}
+    -
+    \frac{C}{\omega} \cos{\omega t}
+    \begin{pmatrix}
+        i \\
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    \mathbf{K}_{1}t
+    +
+    \mathbf{K}_{2}
+\end{equation}
+
+With the initial condition $\mathbf{r}(0) = \mathbf{0}$ and $\dot{\mathbf{r}}(0) = (v_0, 0, 0)^{\intercal}$, we have $\mathbf{K}_{1} = (E/B, 0, -A)^{\intercal}$ and $\mathbf{K}_{2} = (v_{0}/\omega, v_{0}/\omega, 0)^{\intercal}$. Thus the full solutions are:
+
+\begin{equation}
+\begin{split}
+    x(t) &= \frac{v_{0}}{\omega} \sin{\omega t} + \frac{E}{B} t\\
+    y(t) &= \frac{v_{0}}{\omega} (1 - \cos{\omega t}) \\
+    z(t) &= 0
+\end{split}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Non-Inertial Reference Frames}
+%==========
+
+
+\problem{10}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    a = \frac{F}{M}
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    F_{\text{apparent}} = m(g + a) = m(g + \frac{F}{M})
+\end{equation}
+
+\subproblem{c}{}
+In the non-inertial lift frame:
+
+\begin{equation}
+    t = \sqrt{\frac{2h}{g + a}} = \sqrt{\frac{2h}{g + F/M}}
+\end{equation}
+
+In the inertial frame that has the same upward speed as the lift at the moment of dropping:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} gt^{2} + \frac{1}{2} at^{2} = h \\
+    t = \sqrt{\frac{2h}{g + a}} = \sqrt{\frac{2h}{g + F/M}}
+\end{split}
+\end{equation}
+
+which agrees with the result from the non-inertial frame.
+
+\subproblem{d}{}
+For no acceleration, $F = M/g$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Additional Questions}
+%==========
+
+
+\problem{11}{Curvilinear motion}
+
+\subproblem{a}{}
+For a general three-dimensional motion described by the position vector $\mathbf{r}(t)$, spherical coordinates can be used to describe the motion so that $\mathbf{r} = r \hat{r}$ and $\mathbf{v} \equiv \dot{\mathbf{r}} = \dot{r} \hat{r} + r \dot{\theta} \hat{\theta} + r \sin{\theta} \dot{\phi} \hat{\phi}$. For a uniform circular motion, we might choose the coordinate system such that the motion happens in a plane that is perpendicular to the z-axis. Then $v_{r} = v_{\theta} = 0$ for circular motion, implying that $\dot{r} = \dot{\theta} = 0$ and $r, \theta$ are constants. For uniform motion, we also require $\dot{\phi}$ to be a constant. This implies:
+
+\begin{equation}
+    \dot{\mathbf{r}} = r \sin{\theta} \dot{\phi} \hat{\phi} = (\sin{\theta} \dot{\phi} \hat{\theta}) \times \mathbf{r}
+\end{equation}
+
+\subproblem{b}{}
+Define the normal unit vector as $\hat{n} = \dot{\hat{\theta}}/ \left\lvert \dot{\hat{\theta}} \right\rvert$. We have:
+
+\begin{equation}
+    \frac{\mathrm{d}\hat{\theta}}{\mathrm{d}s} = \frac{\mathrm{d}\hat{\theta}}{\mathrm{d}t} / \frac{\mathrm{d}s}{\mathrm{d}t} = \frac{\lvert \dot{\hat{\theta}} \rvert}{v} \hat{n} = \frac{1}{\rho} \hat{n}
+\end{equation}
+
+where $\rho \equiv v/\left\lvert \dot{\hat{\theta}} \right\rvert$ is the radius of curvature.
+
+\subproblem{c}{}
+Given $\mathbf{v} = v \hat{\theta}$, differentiating with respect to $t$ gives:
+
+\begin{equation}
+    \mathbf{a} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = \dot{v} \hat{\theta} + v \dot{\hat{\theta}} = \dot{v} \hat{\theta} + \frac{v^{2}}{\rho} \hat{n}
+\end{equation}
+\qed
+
+
+\problem{12}{Projectile with resistance}
+We have two equations of motion on the x- and y-axes:
+
+\begin{equation}
+\begin{split}
+    \ddot{x} &= -k \dot{x} \\
+    \ddot{y} &= -g \mp k \dot{y}
+\end{split}
+\end{equation}
+
+where minus sign is for the upward motion and plus sign is for the downward motion.
+
+For the upward motion, we have the time to reach the maximum height given by the integral:
+
+\begin{equation}
+    T_{1} = \int_{0}^{T_{1}} \, \mathrm{d}t = -\int_{v_{0}}^{0} \frac{1}{g + k\dot{y}} \, \mathrm{d}\dot{y} = \frac{1}{k} \ln{\left( 1 + \frac{k v_{0}}{g} \right)}
+\end{equation}
+
+Using the identity $\ddot{y} = \dot{y} \mathrm{d}\dot{y}/\mathrm{d}y$, the maximum height is given by:
+
+\begin{equation}
+    H = \int_{0}^{H} \, \mathrm{d}y = -\int_{v_{0}}^{0} \frac{\dot{y}}{g + k\dot{y}} \, \mathrm{d}\dot{y} = \frac{v_{0}}{k} - \frac{g}{k^{2}} \ln{\left( 1 + \frac{k v_{0}}{g} \right)}
+\end{equation}
+
+For the downward motion:
+
+\begin{equation}
+\begin{split}
+    t &= \int_{0}^{t} \, \mathrm{d}t = -\int_{0}^{v} \frac{1}{g - k\dot{y}} \, \mathrm{d}\dot{y} = \frac{1}{k} \ln{\left( 1 - \frac{kv}{g} \right)} \\
+    v(t) &= \frac{g}{k} \left( 1 - e^{-kt} \right)
+\end{split}
+\end{equation}
+
+so that the downward flight time is given by:
+
+\begin{equation}
+    \int_{H}^{0} \, \mathrm{d}y = \int_{0}^{T_{2}} \frac{g}{k} \left( 1 - e^{-kt} \right) \, \mathrm{d}t
+\end{equation}
+
+    
+
+
+
+
+
+\end{document}

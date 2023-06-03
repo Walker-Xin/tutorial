@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Multiple Integrals \& Vector Calculus}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+\problem{1}{}
+
+\begin{equation}
+\begin{split}
+    &\frac{\partial (x, y, z)}{\partial (r, \theta, \phi)} \\
+    =& \sin{\theta} \cos{\phi} (r^{2} \sin^{2}\theta \cos{\phi}) - \sin{\theta} \sin{\phi} (-r^{2} \sin^{2}\theta \sin{\phi}) \\
+    +& \cos{\theta} (r^{2} \cos^{2}{\phi} \cos{\theta} \sin{\theta} + r^{2} \sin^{2}{\phi} \cos{\theta} \sin{\theta}) \\
+    =& r^{2} \sin{\theta}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+The volume of a sphere is given by $\{(r, \theta, \phi) \mid r \in [0 ,a], \theta \in [0, \pi/2], \phi \in [0, 2\pi]\}$
+
+\begin{equation}
+    M = \int_{V} k r^{2} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = \frac{2}{3} k \pi a^{3}
+\end{equation}
+
+By symmetry, $\bar{x} = \bar{y} = 0$. For $\bar{z}$:
+
+\begin{equation}
+    \bar{z} = \frac{\int_{V} z \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi}{M} = \frac{\int_{0}^{\pi/2} \int_{0}^{a} r^{3} \cos{\theta} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta}{\int_{0}^{\pi/2} \int_{0}^{a} r^{2} \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta} = \frac{3}{8} a
+\end{equation}
+
+so that $(\bar{x}, \bar{y}, \bar{z}) = (0, 0, \frac{3}{8} a)$.
+
+For the principal moments of inertia:
+
+\begin{equation}
+\begin{split}
+    I_{xx} &= \int_{V} k r^{4} (\sin^{2}{\theta} \cos^{2}{\phi} + \cos^{2}{\theta}) \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = \frac{4}{15} \pi k a^{5} \\
+    I_{yy} &= I_{xx} = \frac{4}{15} \pi k a^{5} \\
+    I_{zz} &= \int_{V} k r^{4} \sin^{3}{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = \frac{4}{15} \pi k a^{5}
+\end{split}
+\end{equation}
+
+For the product of inertia:
+
+\begin{equation}
+\begin{split}
+    I_{xy} &= -\int_{V} k r^{4} \sin^{3}{\theta} \cos{\phi} \sin{\phi} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = 0 \\
+    I_{yz} &= -\int_{V} k r^{4} \cos{\theta} \sin^{2}{\theta} \sin{\phi} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = 0 \\
+    I_{xz} &= -\int_{V} k r^{4} \cos{\theta} \sin^{2}{\theta} \cos{\phi} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = 0
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+
+\begin{equation}
+    \frac{\mathrm{d}V}{\mathrm{d}t} = \int_{S} \mathbf{F} \cdot \, \mathrm{d}\mathbf{S}
+\end{equation}
+
+where $\mathbf{F} = (0.4/\sqrt{3}) (-1, -1, 1)$.
+
+We can divide the surface into three parts: a triangle bound by $y = x$, $y = 0$ and $x = 1$; a triangle formed by $(0, 0,0)$, $(0, 1, 1)$ and $(1, 1, 0)$; a triangle formed by bound by $z = 1 - x$, $z = 1$ and $x = 1$. On the first triangle, the surface integral evaluates to $0.2/\sqrt{3}$. On the second triangle, which is formed by the surface $z = -x + y$
+
+\begin{equation}
+    \int_{A} \frac{0.4}{\sqrt{3}} \, \mathrm{d}y \mathrm{d}y = \frac{0.2}{\sqrt{3}}
+\end{equation}
+
+On the third triangle, the surface integral evaluates to $0.2/\sqrt{3}$. Therefore, the total volume of air flow per unit time is $0.2 \sqrt{3} \unit{m^{3}s^{-1}}$.
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    \int_{S} \mathbf{r} \cdot \mathbf{n} \, \mathrm{d}S = \int_{x=1} x \, \mathrm{d}S + \int_{y=1} y \, \mathrm{d}S + \int_{z=1} z \, \mathrm{d}S = 3
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    \int_{S} \mathbf{r} \cdot \mathbf{n} \, \mathrm{d}S = \int_{S} a \, \mathrm{d}S = 4\pi a^{3}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    \int_{S} \mathbf{A} \cdot \mathbf{n} \, \mathrm{d}S = \mistake{\int_{V} -1 \, \mathrm{d}V = -36}
+\end{equation}
+
+\begin{correction}
+    Integrating on the surface:
+
+    \begin{equation}
+        \int_{S} \mathbf{A} \cdot \mathbf{n} \, \mathrm{d}S = \int_{2x+y=6} (2x + 2y) \, \mathrm{d}x \mathrm{d}z = 108
+    \end{equation}
+\end{correction}
+
+\subproblem{b}{}
+
+\begin{equation}
+    \int_{S} \mathbf{A} \cdot \mathbf{n} \, \mathrm{d}S = -\int_{A_{1}} y^{2} \, \mathrm{d}A - \int_{A_{2}} -2x \, \mathrm{d}A + \int_{A_{3}} \frac{2x^{2} - 4xy - 2x + 12y}{2} \, \mathrm{d}A = 18
+\end{equation}
+
+where the regions are:
+
+\begin{equation}
+\begin{split}
+    A_{1} &= \{(x, y, z) \in \mathbb{R}^{3} \mid x = 0, 0 \leq y \leq 6, 0 \leq z \leq 3 - y/2 \} \\
+    A_{2} &= \{(x, y, z) \in \mathbb{R}^{3} \mid y = 0, 0 \leq x \leq 3, 0 \leq z \leq 1 - x \} \\
+    A_{3} &= \{(x, y, z) \in \mathbb{R}^{3} \mid z = 0, 0 \leq x \leq 3, 0 \leq y \leq 6 - 2x \}
+\end{split}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    \int_{S} \mathbf{A} \cdot \mathbf{n} \, \mathrm{d}S = \int_{V} 1 \, \mathrm{d}V = 18 \pi
+\end{equation}
+\qed
+
+
+\problem{6}{}
+
+\begin{equation}
+    \int_{S} \mathbf{A} \cdot \mathrm{d}\mathbf{S} = -\int_{y=0} x^{2}  \, \mathrm{d}S + \int_{z=1} yz \, \mathrm{d}S + \int_{x+y=1} (xy^{2} + x^{2}) \, \mathrm{d}S = \frac{1}{4} \ne 0
+\end{equation}
+
+\begin{equation}
+    \int_{V} \nabla \cdot \mathbf{A} \, \mathrm{d}V = \int_{V} (y^{2} + y) \, \mathrm{d}x \mathrm{d}y \mathrm{d}z = \frac{1}{4}
+\end{equation}
+
+This is a consequence of the divergence theorem.
+\qed
+
+
+\problem{7}{}
+
+\begin{equation}
+\begin{split}
+    \nabla \cdot \mathbf{A} &= 3yz^{2} + 6xy^{2} - x^{2}y \\
+    \mathbf{A} \cdot \nabla \phi &= 3xyz^{2} \times 6x + 2xy^{3} \times (-z) - x^{2}yz \times (-y) = 18x^{2}yz^{2} - 2xy^{3}z + 3x^{2}y^{2}z \\
+    \nabla \cdot (\phi \mathbf{A}) &= \phi \nabla \cdot \mathbf{A} + \mathbf{A} \cdot \nabla \phi = (3x^{2} - yz)(3yz^{2} + 6xy^{2} - x^{2}y) + 18x^{2}yz^{2} - 2xy^{3}z + 3x^{2}y^{2}z \\
+    \nabla \cdot (\nabla \phi) &= 6
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{8}{}
+In spherical coordinates, the field is given by:
+
+\begin{equation}
+    \mathbf{B} = \frac{\mu_{0}I}{2\pi} \frac{1}{r} \hat{\phi}
+\end{equation}
+
+so that the divergence is:
+
+\begin{equation}
+    \nabla \cdot \mathbf{B} = \frac{\mu_{0}I}{2\pi} \nabla \cdot (r^{-1} \hat{\phi}) = 0
+\end{equation}
+\qed
+
+
+\end{document}

@@ -1,0 +1,396 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Multiple Integrals \& Vector Calculus}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+\problem{1}{}
+
+\begin{equation}
+    \nabla (\ln{r}) = \frac{1}{r} \hat{r}
+\end{equation}
+
+\begin{equation}
+    \nabla (1/r) = -\frac{1}{r^2} \hat{r}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+At $(1, 0, -2)$:
+
+\begin{equation}
+    \nabla (F + G) = \nabla F + \nabla G =
+    \begin{pmatrix}
+        2xz - ye^{y/x}/x^{2} \\
+        e^{y/x}/x            \\
+        x^{2}
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+        -y^{2}       \\
+        2z^{2} - 2yx \\
+        4zy
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        -4 \\
+        9  \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+and
+
+\begin{equation}
+    \nabla (FG) = f \nabla G + g \nabla F =
+    \begin{pmatrix}
+        0  \\
+        -8 \\
+        0
+    \end{pmatrix}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+
+\subproblem{a}{}
+By chain rule, the total derivatives of $x$ can be expressed as
+
+\begin{equation}
+    \begin{split}
+        \mathrm{d}x &= \frac{\partial x}{\partial u} \mathrm{d}u + \frac{\partial x}{\partial v} \mathrm{d}v \\
+        &= \frac{\partial x}{\partial u} \left( \frac{\partial u}{\partial x} \mathrm{d}x + \frac{\partial u}{\partial y} \mathrm{d}y \right) + \frac{\partial x}{\partial v} \left( \frac{\partial v}{\partial x} \mathrm{d}x + \frac{\partial v}{\partial y} \mathrm{d}y \right) \\
+        &= \left( \frac{\partial x}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial x}{\partial v} \frac{\partial v}{\partial x} \right) \mathrm{d}x + \left( \frac{\partial x}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial x}{\partial v} \frac{\partial v}{\partial y} \right) \mathrm{d}y
+    \end{split}
+\end{equation}
+
+Comparing the coefficients of $\mathrm{d}x$ and $\mathrm{d}y$, we have
+
+\begin{equation}
+    \frac{\partial x}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial x}{\partial v} \frac{\partial v}{\partial x} = 1
+\end{equation}
+
+and
+
+\begin{equation}
+    \frac{\partial x}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial x}{\partial v} \frac{\partial v}{\partial y} = 0
+\end{equation}
+
+Generalising this result to the elements of the product $AB$, we have
+
+\begin{equation}
+    AB =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    =
+    I
+\end{equation}
+
+\subproblem{b}{}
+For polar coordinates, the matrices are given by:
+
+\begin{equation}
+    \begin{split}
+        A &=
+        \begin{pmatrix}
+            \cos{\theta} & -r\sin{\theta} \\
+            \sin{\theta} & r\cos{\theta}
+        \end{pmatrix} \\
+        B &=
+        \begin{pmatrix}
+            x/\sqrt{x^{2} + y^{2}} & y/\sqrt{x^{2} + y^{2}} \\
+            -y/(x^{2} + y^{2})     & -x/(x^{2} + y^{2})
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \cos{\theta}    & \sin{\theta}   \\
+            -\sin{\theta}/r & \cos{\theta}/r
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+so that $AB = I$ as expected.
+
+\subproblem{c}{}
+Since $AB = I$, $B = A^{-1}$. But $A$ is just the Jacobian matrix of the transformation from Cartesian to polar coordinates. Therefore:
+
+\begin{equation}
+    \det \frac{\partial (u, v)}{\partial (x, y)} = \det(B) = \det(A^{-1}) = 1/ \det \frac{\partial (x, y)}{\partial (u, v)}
+\end{equation}
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}{}
+We have $u = x + y$ and $v = x - y$ and \mistake{$u \in [-1, 1]$, $v \in [-3, 1]$}. The Jacobian is:
+
+\begin{equation}
+    \left\lvert \frac{\partial (u, v)}{\partial (x, y)} \right\rvert = 2
+\end{equation}
+
+The integral evaluates to:
+
+\begin{equation}
+    \begin{split}
+        &\int_{-1}^{1} \int_{-1}^{1} \left[ \frac{(u + v)^{2}}{4} + \frac{(u - v)^{2}}{4} \right] 2 \, \mathrm{d}u \mathrm{d}v \\
+        = &\int_{-1}^{1} \int_{-1}^{1} (u^{2} + v^{2}) \, \mathrm{d}u \mathrm{d}v \\
+        = &\frac{8}{3}
+    \end{split}
+\end{equation}
+
+\begin{correction}
+    We have $u = x + y$ and $v = x - y$ and $u \in [-2, 0]$, $v \in [0, 2]$.
+
+    The integral evaluates to:
+
+    \begin{equation}
+        \begin{split}
+            &\int_{0}^{2} \int_{-2}^{0} \left[ \frac{(u + v)^{2}}{4} + \frac{(u - v)^{2}}{4} \right] 2 \, \mathrm{d}u \mathrm{d}v \\
+            = &\int_{0}^{2} \int_{-2}^{0} (u^{2} + v^{2}) \, \mathrm{d}u \mathrm{d}v \\
+            = &\frac{8}{3}
+        \end{split}
+    \end{equation}
+\end{correction}
+
+\subproblem{b}{}
+
+\mistake{
+    \begin{equation}
+        \frac{\partial (u, v)}{\partial (x, y)} = y \frac{1}{x} + x \frac{y}{x^{2}} = \frac{2y}{x} = 2v
+    \end{equation}
+}
+
+The integral evaluates to:
+
+\begin{equation}
+    \int_{1/2}^{2} \int_{0}^{1} e^{-u} 2v \, \mathrm{d}u \mathrm{d}v = \frac{15}{4} (1 - e^{-1})
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \frac{\partial (x, y)}{\partial (u, v)} = \frac{1}{2v}
+    \end{equation}
+
+    The integral evaluates to:
+
+    \begin{equation}
+        \int_{1/2}^{2} \int_{0}^{1} e^{-u} \frac{1}{2v} \, \mathrm{d}u \mathrm{d}v = \ln{2} (1 - e^{-1})
+    \end{equation}
+\end{correction}
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}{}
+On the straight line from $(0, 0, 0)$ to $(1, 2, 0)$, $y = 2x$ and $z = 0$. We also have $\mathrm{d}y = 2\mathrm{d}x$. The path integral is:
+
+\begin{equation}
+    \int \mathbf{A} \cdot \mathrm{d}\mathbf{l} = \int_{0}^{1} 4x - 16x^{4} \, \mathrm{d}x + \int_{0}^{1} (-32x^{4} - 12x^{2}) 2 \, \mathrm{d}x = -22
+\end{equation}
+
+\subproblem{b}{}
+Following the suggested path, the integral evaluates to:
+
+\begin{equation}
+    \int \mathbf{A} \cdot \mathrm{d}\mathbf{l} = 4 + \int_{0}^{1} 4x \, \mathrm{d}x + \int_{0}^{2} (-4y^{3} - 3y^{2}) \, \mathrm{d}y - 4 = -22
+\end{equation}
+
+Let $V = 4z + \phi(x, y)$ for some function $\phi(x, y)$. Thee for $\mathbf{A} = \nabla V$, we need $\partial \phi/\partial x = 4x - y^{4}$, implying:
+
+\begin{equation}
+    \phi(x, y) = 2x^{2} - y^{4}x + \psi(y)
+\end{equation}
+
+for some function $\psi(y)$.
+
+Comparing with $\partial \phi/\partial y = -4xy^{3} - 3y^{2}$ gives $\psi(y) = -y^{3} + C$. Therefore, a possible choice for $V$ is:
+
+\begin{equation}
+    V = 4z + 2x^{2} - y^{4}x - y^{3} + C
+\end{equation}
+
+This proves that $\mathbf{A}$ is conservative.
+
+\begin{correction}
+    Alternatively, compute the curl of $\mathbf{A}$:
+
+    \begin{equation}
+        \nabla \times \mathbf{A}
+        =
+        \det
+        \begin{pmatrix}
+            \hat{i}                     & \hat{j}                     & \hat{k}                     \\
+            \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+            4x - y^{4}                  & -4xy^{3} - 3y^{2}           & 4
+        \end{pmatrix} \\
+        =
+        \mathbf{0}
+    \end{equation}
+
+    This proves that $\mathbf{A}$ is conservative.
+\end{correction}
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}{}
+On the suggested parametric curve, the infinitesimal element of the path is:
+
+\begin{equation}
+    \mathrm{d}\mathbf{l}
+    =
+    \begin{pmatrix}
+        \mathrm{d}x \\
+        \mathrm{d}y \\
+        \mathrm{d}z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \mathrm{d}t       \\
+        2t \, \mathrm{d}t \\
+        3t^{2} \, \mathrm{d}t
+    \end{pmatrix}
+\end{equation}
+
+and the field has the form:
+
+\begin{equation}
+    \mathbf{A}
+    =
+    \begin{pmatrix}
+        9t^{2}   \\
+        -14t^{5} \\
+        20t^{7}
+    \end{pmatrix}
+\end{equation}
+
+The path integral is thus:
+
+\begin{equation}
+    \int \mathbf{A} \cdot \mathrm{d}\mathbf{l} = \int_{0}^{1} 9t^{2} - 28t^{6} + 60t^{9} \, \mathrm{d}t = 5
+\end{equation}
+
+\subproblem{b}{}
+On the suggested path, the integral evaluates to:
+
+\begin{equation}
+    \int \mathbf{A} \cdot \mathrm{d}\mathbf{l} = \int_{0}^{1} 3x^{2} \, \mathrm{d}x + \int_{0}^{1} 20z^{2} \, \mathrm{d}z = \frac{23}{3}
+\end{equation}
+
+\subproblem{c}{}
+On the straight line from $(0, 0, 0)$ to $(1, 1, 1)$, $x = y = z$. The integral evaluates to:
+
+\begin{equation}
+    \int \mathbf{A} \cdot \mathrm{d}\mathbf{l} = \int_{0}^{1} 3x^{2} + 6x - 14x^{2} + 20x^{3} \, \mathrm{d}x = \frac{13}{3}
+\end{equation}
+
+Since the integral is path dependent, the field is not conservative.
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}{}
+A hemisphere of radius $a$ is defined over the region $\left\{ (r, \theta, \phi) \mid r = a, \theta \in [0, \pi], \phi \in [0, \pi] \right\}$. The surface area is given by the integral:
+
+\begin{equation}
+    A = \int_{0}^{\pi} \int_{0}^{\pi} a^{2} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi = 2\pi a^{2}
+\end{equation}
+
+\subproblem{b}{}
+To compute the surface area on the x-y plane, we integrate infinitesimal area elements on the region $\left\{ (r, \theta) \mid r = [0, a], \theta \in [0, 2\pi] \right\}$. The infinitesimal area element can be expressed as
+
+\begin{equation}
+    \mathrm{d}A = a^{2} \mathrm{d}\beta \mathrm{d}\theta = \frac{a^{2}}{\sqrt{a^{2} - r^{2}}} \mathrm{d}r \mathrm{d}\theta
+\end{equation}
+
+where $\cos{\beta} = r/a$ is the polar angle.
+
+Thus the surface area can be expressed as a double integral:
+
+\begin{equation}
+    A = \int_{0}^{2\pi} \int_{0}^{a} \frac{a^{2}}{\sqrt{a^{2} - r^{2}}} \mathrm{d}r \mathrm{d}\theta = 2\pi a^{2}
+\end{equation}
+\qed
+
+
+\problem{8}{}
+
+\subproblem{a}{}
+Operating in cylindrical coordinates, the surface is defined by the region:
+
+\begin{equation}
+    D = \left\{ (r\cos{\theta}, r \sin{\theta}, z) \mid r \in [0, 3], \theta \in [0, 2\pi], z = (13 - r\cos{\theta} + 2r\sin{\theta})/5 \right\}
+\end{equation}
+
+The Jacobian associated with the transformation $(x ,y) \to (r, \theta)$ is:
+
+\begin{equation}
+    J
+    =
+    \begin{pmatrix}
+        \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+        \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \cos{\theta} & -r \sin{\theta} \\
+        \sin{\theta} & r \cos{\theta}
+    \end{pmatrix}
+    =
+    r
+\end{equation}
+
+
+The surface area is given by the integral:
+
+\begin{equation}
+    A = \int_{D} \sqrt{1 + (z_{x})^{2} + (z_{y})^{2}} \, \mathrm{d}x \mathrm{d}y = \int_{D} \sqrt{\frac{6}{5}} \, \mathrm{d}x \mathrm{d}y = \int_{0}^{2\pi} \int_{0}^{3} \sqrt{\frac{6}{5}} r \, \mathrm{d}r \mathrm{d}\theta = 9 \pi \sqrt{\frac{6}{5}}
+\end{equation}
+
+\subproblem{b}{}
+
+The surface area is given by the integral:
+
+\begin{equation}
+    A = \int_{D} \sqrt{1 + (z_{x})^{2} + (z_{y})^{2}} \, \mathrm{d}x \mathrm{d}y = \int_{0}^{1} \int_{0}^{1-x} \sqrt{3} \, \mathrm{d}y \mathrm{d}x = \frac{\sqrt{3}}{2}
+\end{equation}
+
+The coordinates of the centre of mass are given by:
+
+\begin{equation}
+    \begin{split}
+        x_{CM} &= \frac{\int_{0}^{1} \int_{0}^{1-x} \sqrt{3} x \, \mathrm{d}y \mathrm{d}x}{\sqrt{3}/2} = \frac{1}{3} \\
+        y_{CM} &= \frac{\int_{0}^{1} \int_{0}^{1-x} \sqrt{3} y \, \mathrm{d}y \mathrm{d}x}{\sqrt{3}/2} = \frac{1}{3} \\
+        z_{CM} &= \frac{\int_{0}^{1} \int_{0}^{1-x} \sqrt{3} (1 - x - y) \, \mathrm{d}y \mathrm{d}x}{\sqrt{3}/2} = \frac{1}{3}
+    \end{split}
+\end{equation}
+
+The surface can also be viewed as an isosceles triangle with side length $\sqrt{2}$ so that the area is:
+
+\begin{equation}
+    A = \frac{1}{2} \sqrt{2} \frac{\sqrt{6}}{2} = \frac{\sqrt{3}}{2}
+\end{equation}
+
+The coordinates of the centre of mass are the same because in the given equation $x + y + z = 1$, we can exchange any coordinate with others, leading to a high degree of symmetry.
+\qed
+
+
+\end{document}

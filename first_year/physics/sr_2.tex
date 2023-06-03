@@ -1,0 +1,349 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Special Relativity}
+\def\assignmentno{Problems 1}
+\def\assignmentname{Collision Problems, Threshold energies, Decays, Recoils}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Collision Problems, Threshold energies, Decays, Recoils}
+%==========
+
+
+\problem{1}{}
+The energies of the mesons are given by:
+
+\begin{equation}
+    2E = 2\gamma m_{\pi} c^{2} = m_{K} c^{2}
+\end{equation}
+
+Solving for $v$ via $\gamma$ yields:
+
+\begin{equation}
+    v = \sqrt{1 - \left( \frac{2m_{\pi}}{m_{K}} \right)^{2}} c = 0.83c
+\end{equation}
+\qed
+
+
+\problem{2}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    \frac{T}{E} = 1 - \frac{1}{\gamma} = 1 - \left( \frac{mc^{2}}{E} \right) = 0.99999
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    p = \frac{1}{c} \sqrt{E^{2} - m^{2} c^{4}} = \qty{2.63e-17}{kg m s^{-1}}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    v = \sqrt{1 - \left( \frac{mc^{2}}{E} \right)^{2}} \approx \left[ 1 - \frac{1}{2} \left( \frac{mc^{2}}{E} \right)^{2} \right] = \left[ 1 - (5 \times 10^{-11}) \right]c
+\end{equation}
+\qed
+
+
+\problem{3}{}
+Let the two photons have energies $E_{1}$ and $E_{2}$ respectively. Then by conservation of energy and momentum:
+
+\begin{equation}
+\begin{split}
+    E &= m_{0}c^{2} + T = E_{1} + E_{2} \\
+    pc &= \sqrt{2m_{0}c^{2}T + T^{2}} = E_{1} - E_{2}
+\end{split}
+\end{equation}
+
+Solving for $E_{1}$ and $E_{2}$ yields:
+
+\begin{equation}
+\begin{split}
+    E_{1} &= \qty{1131}{MeV} \\
+    E_{2} &= \qty{4}{MeV}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{4}{}
+In the laboratory frame, the total energy is $m_{p}c^{2} + E$. In the CM frame:
+
+\begin{equation}
+    E_{\text{CM}}^{2} = (m_{p}c^{2} + E)^{2} - (pc)^{2} = 2m_{p}c^{2}E + 2m_{p}^{2}c^{4}
+\end{equation}
+
+For threshold energy, the products in the CM frame are at rest. Thus:
+
+\begin{equation}
+    E_{\text{CM}}^{2} = 2m_{p}c^{2}E + 2m_{p}^{2}c^{4} = (2m_{p}c^{2} + m_{\pi}c^{2})^{2}
+\end{equation}
+
+Solving for $E$ leads to a formula for the threshold kinetic energy:
+
+\begin{equation}
+    T = E - m_{p}c^{2} = \qty{289}{MeV}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+Following the above procedure, the energy in the CM frame is given by:
+
+\begin{equation}
+    E_{\text{CM}}^{2} = 2m_{e}c^{2}E + 2m_{e}^{2}c^{4} =(4m_{e}c^{2})^{2}
+\end{equation}
+
+This leads to $E = 7m_{e}c^{2}$ and $T = 6m_{e}c^{2}$.
+\qed
+
+
+\problem{6}{}
+Again, the energy in the CM frame is given by:
+
+\begin{equation}
+    E_{\text{CM}}^{2} = 2m_{p}c^{2}E + 2m_{p}^{2}c^{4} = (2E_{0})^{2}
+\end{equation}
+
+Solving for $E$ yields:
+
+\begin{equation}
+    E = \frac{2E_{0}^{2}}{m_{p}c^{2}} - m_{p}c^{2} = \qty{2.13e3}{TeV}
+\end{equation}
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}{}
+The electron cannot emit a photon as it must obey conservation of energy.
+
+\subproblem{b}{}
+This is because the electron in a hydrogen atom has orbital angular momentum.
+\qed
+
+
+\problem{8}{}
+In the lab frame, by conservation of energy and momentum, we have:
+
+\begin{equation}
+\begin{split}
+    E = Mc^{2} + Q \\
+    \gamma_{v} M v = \frac{Q}{C} 
+\end{split}
+\end{equation}
+
+where $E$ is the energy of the excited atom observed in the lab frame and $v$ is its speed in the lab frame.
+
+In the atom's frame, the energy is $Mc^{2} + Q_{0}$. By Lorentz invariant, we have:
+
+\begin{equation}
+    (Mc^{2} + Q_{0})^{2} = E^{2} - (\gamma_{v} M v c)^{2} = (Mc^{2} + Q)^{2} - Q^{2}
+\end{equation}
+
+Solving for $Q$ leads to:
+
+\begin{equation}
+    Q = Q_{0} \left( 1 + \frac{Q_{0}}{2Mc^{2}} \right)
+\end{equation}
+\qed
+
+
+\problem{9}{}
+The red light has a frequency $f_{0} ~ \qty{450}{Hz}$ and the green has a frequency $f ~ \qty{550}{Hz}$. The Doppler shift is given by:
+
+\begin{equation}
+    \frac{1 + \beta}{1 - \beta} = \frac{f^{2}}{f_{0}^{2}}
+\end{equation}
+
+This leads to $\beta \approx 0.2$. Therefore, driver must be travelling at around $\qty{6e4}{km s^{-1}}$ for him to mistake red for green. His speed is way too high for any human vehicle (alien technology).
+\qed
+
+
+%==========
+\pagebreak
+\section*{Past Prelims Questions}
+%==========
+
+
+\problem{11}{}
+Consider a stationary rod in frame $S'$ along the of proper length $L_{0}$ with one end at the origin along the x-axis. The world lines of the two ends of the rod in $S'$ are given by:
+
+\begin{equation}
+\begin{split}
+    X_{1}' &= (ct', 0, 0, 0)^{\intercal} \\
+    X_{2}' &= (ct', L_{0}, 0, 0)^{\intercal}
+\end{split}
+\end{equation}
+
+In frame $S$, the world lines are transformed according to $X_{i} = \Lambda^{-1} X_{i}'$:
+
+\begin{equation}
+\begin{split}
+    X_{1} &= \gamma_{v} (ct', \beta c t', 0, 0)^{\intercal} = (ct_{1}, x_{1}, 0, 0)^{\intercal}\\
+    X_{2} &= \gamma_{v} (ct' + \beta L_{0}, \beta c t' + L_{0}, 0, 0)^{\intercal} = (ct_{2}, x_{2}, 0, 0)^{\intercal}
+\end{split}
+\end{equation}
+
+Choose $t_{1} = t_{2}$ and compute $x_{2} - x_{1}$ yields:
+
+\begin{equation}
+    x_{2} - x_{1} = (1 - \beta^{2}) \gamma_{v} L_{0} = \frac{L_{0}}{\gamma_{v}}
+\end{equation}
+
+which is the length of the rod in frame $S$.
+
+Consider further two events $A$ and $B$ in $S'$ given by the coordinates:
+
+\begin{equation}
+\begin{split}
+    X_{A}' &= (0, 0, 0, 0)^{\intercal} \\
+    X_{B}' &= (c\Delta t, 0, 0, 0)^{\intercal}
+\end{split}
+\end{equation}
+
+In frame $S$:
+
+\begin{equation}
+\begin{split}
+    X_{A} &= \gamma_{v} (0, 0, 0, 0)^{\intercal} = (ct_{A}, x_{A}, 0, 0)^{\intercal} \\
+    X_{B} &= \gamma_{v} (c\Delta t, \beta c \Delta t, 0, 0)^{\intercal} = (ct_{B}, x_{B}, 0, 0)^{\intercal}
+\end{split}
+\end{equation}
+
+The time interval between events $A$ and $B$ in frame $S$ is given by:
+
+\begin{equation}
+    t_{B} - t_{A} = \gamma_{v} \Delta t
+\end{equation}
+
+\subproblem{a}{}
+
+\begin{equation}
+    \Delta t_{E} = \gamma \Delta t_{R} = \qty{50}{min}
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+\begin{split}
+    D_{E} &= \Delta t_{E} v = \qty{7.2e11}{m} \\
+    D_{R} &= \frac{D_{E}}{\gamma} = \qty{4.32e11}{m}
+\end{split}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    T = \Delta t_{E} + \frac{D_{E}}{c} = \qty{90}{min}
+\end{equation}
+
+\subproblem{d}{}
+In Earth's frame, the event of the signal reaching the rocket happens at:
+
+\begin{equation}
+    T + \Delta T = T + \frac{D_{E} + \frac{D_{E}}{c} 0.8 c}{0.2c} = \qty{360}{min}
+\end{equation}
+
+In rocket's frame, the time is thus:
+
+\begin{equation}
+    \qty{360}{min}/\gamma = \qty{216}{min}
+\end{equation}
+\qed
+
+
+\problem{12}{}
+
+\begin{equation}
+\begin{split}
+    p = \gamma_{v} m_{0} v \\
+    E = \gamma_{v} m_{0} c^{2}
+\end{split}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    p^{2}c^{2} + m_{0}^{2}c^{4} = m_{0}^{2}c^{2} \left( \frac{c^{2}}{1 - v^{2}/c^{2}} \right) = E^{2}
+\end{equation}
+
+\subproblem{a}{}
+Treating electrons and positrons as massless particles, the total energy-momentum 4-vector in the lab frame is:
+
+\begin{equation}
+    P = (E_{e}/c, p_{e}, 0, 0)^{\intercal} + (E/c, -p_{p}, 0, 0)^{\intercal}
+\end{equation}
+
+where $p_{e} = E_{e}/c$ is the momentum of the electron and $p_{p} = E/c$ is the (magnitude of) the momentum of the positron.
+
+In the CM frame, we demand all product to be stationary after the collision. The total energy is $E_{\text{CM}} = 2m_{B}c^{2}$. By Lorentz invariant:
+
+\begin{equation}
+    E_{\text{CM}}^{2} = (E_{e} + E)^{2} - (p_{e} - p_{p})^{2} c^{2} = (E_{e} + E)^{2} - (E_{e} - E)^{2} = 4E_{e}E = 4m_{B}^{2}c^{4}
+\end{equation}
+
+This leads to:
+
+\begin{equation}
+    E = \frac{m_{B}^{2}c^{4}}{E_{e}} = \qty{3.1}{GeV}
+\end{equation}
+
+\subproblem{b}{}
+By Lorentz transformation, we have $E + E_{e} = \gamma E_{\text{CM}}$ so that:
+
+\begin{equation}
+    \gamma = \frac{E + E_{e}}{E_{\text{CM}}}
+\end{equation}
+
+The mean distance travelled in the lab frame is given by:
+
+\begin{equation}
+    D = v \frac{\tau}{\gamma} = c \sqrt{1 - \frac{1}{\gamma^{2}}} \frac{\tau}{\gamma} = \qty{1.9e-4}{m}
+\end{equation}
+\qed
+
+
+\problem{13}{}
+In frame $S$, $X = (ct, u_{x}t, 0, 0)^{\intercal}$ and this becomes $X' = \gamma (ct - \beta u_{x}t, -\beta ct + u_{x}t, 0, 0)^{\intercal} = (ct', x', 0, 0)$ in frame $S'$. Thus, by the definition of speed:
+
+\begin{equation}
+    u_{x}' \equiv \frac{\mathrm{d}x'}{\mathrm{d}t'} = \frac{\mathrm{d}x'}{\mathrm{d}t}/\frac{\mathrm{d}t'}{\mathrm{d}t} = \frac{\gamma(-\beta c + u_{x})}{\gamma(1 - \beta u_{x}/c)} = \frac{u_{x} - v}{1 - v u_{x}/c^{2}}
+\end{equation}
+
+\subproblem{a}{}
+\begin{equation}
+\begin{split}
+    L_{1} = \frac{L_{0}}{\gamma_{1}} = \qty{71}{m} \\
+    L_{2} = \frac{L_{0}}{\gamma_{2}} = \qty{60}{m}
+\end{split}
+\end{equation}
+
+\subproblem{b}{}
+The velocity of the second spaceship as measured by the first is:
+
+\begin{equation}
+    v = \frac{-v_{2} - v_{1}}{1 + v_{1}v_{2}/c^{2}} = -0.961c
+\end{equation}
+
+so that the measured length of the second spaceship is:
+
+\begin{equation}
+    L_{2} = \frac{L_{0}}{\gamma} = \qty{27}{m}
+\end{equation}
+\qed
+
+
+\end{document}

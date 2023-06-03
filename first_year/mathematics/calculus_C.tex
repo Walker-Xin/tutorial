@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Calculus}
+\def\assignmentno{Probelm Sheet C}
+\def\assignmentname{Series and Limits}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Series and Limits}
+%==========
+
+
+\problem{C1}{Series Notation}
+
+\subproblem{a}
+
+\begin{equation}
+    \begin{split}
+        a_{n} = \left( -\frac{1}{2} \right)^{n + 1} \\
+        b_{n} = (-1)^{n} \left( \frac{1}{2} \right)^{n + 2}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \sum_{n = 1}^{\infty} \left( -\frac{1}{2} \right)^{n + 1} = \frac{1/4}{1 + 1/2} = \frac{1}{6}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \sum_{n = 1}^{\infty} \frac{(-1)^{n}}{n} = -1 + \frac{1}{2} - \frac{1}{3} + \frac{1}{4} - \dots
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \begin{split}
+        &\left( \sum a_{i} \right)^{2} \\
+        &\left( \sum a_{i} \right) \left( \sum b_{i} \right)
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{C2}{Maclaurin and Taylor series}
+
+\subproblem{a}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \begin{split}
+        e^{x} &= e^{0} + e^{0} x + \frac{1}{2!} e^{0} x^{2} + \frac{1}{3!} e^{0} x^{3} + \dots \\
+        &= 1 + x + \frac{1}{2!} x^{2} + \frac{1}{3!} x^{3} + \dots
+    \end{split}
+\end{equation}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \begin{split}
+        \sqrt{1 + x} &= \mistake{1 + \frac{1}{2} x - \frac{1}{2} \frac{1}{2!} x^{2} - \frac{3}{2} \frac{1}{3!} x^{3} - \dots} \\
+        &= 1 + \frac{1}{2} x - \frac{1}{4} x^{2} - \frac{1}{4} x^{3} - \dots
+    \end{split}
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \begin{split}
+            \sqrt{1 + x} &= 1 + \frac{1}{2} x - \frac{1}{4} \frac{1}{2!} x^{2} + \frac{3}{8} \frac{1}{3!} x^{3} - \dots \\
+            &= 1 + \frac{1}{2} x - \frac{1}{8} x^{2} + \frac{1}{16} x^{3} - \dots
+        \end{split}
+    \end{equation}
+\end{correction}
+
+\subsubproblem{iii}
+
+\begin{equation}
+    \begin{split}
+        (\tan^{-1})'(x) = \frac{1}{1 + x^{2}} \\
+        (\tan^{-1})''(x) = -\frac{2x}{(1 + x^{2})^{2}} \\
+        (\tan^{-1})'''(x) = \frac{6x^{2} - 2}{(1 + x^{2})^{3}}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \tan^{-1}{x} = x - \frac{1}{3} x^{3} + \dots
+\end{equation}
+
+\subproblem{b}
+Note that $\ang{1} = \pi/180$. Expanding $\sin{x}$ about $\pi/6$:
+
+\begin{equation}
+    \sin{\left( \pi/180 + \pi/6 \right)} \approx \sin{\pi/6} + \cos^{\pi/6} \frac{\pi}{180} - \frac{1}{2} \sin{\pi/6} \left( \frac{\pi}{180} \right)^{2} - \frac{1}{6} \cos^{\pi/6} \left( \frac{\pi}{180} \right)^{3} = 0.51504
+\end{equation}
+
+The forth term has a value around $-7 \times 10^{-7}$, so the answer is accurate up to the 5th digit.
+\qed
+
+
+\problem{C3}{Manipulation of series}
+
+\subproblem{a}
+Note that $\tan{x}$ is an odd function, so its expansion must have the form $\tan{x} = ax + bx^{3} + cx^{5} + \dots$. Using $\sin{x} = \cos{x} \tan{x}$ and comparing coefficients:
+
+\begin{equation}
+    \begin{split}
+        \sin{x} &= \cos{x} \tan{x} \\
+        \left( x - \frac{x^{3}}{6} + \frac{x^{5}}{120} - \dots \right) &= \left( 1 - \frac{x^{2}}{2} + \frac{x^{4}}{24} - \dots \right) \left( ax + bx^{3} + cx^{5} + \dots \right)
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        a &= 1 \\
+        b - \frac{a}{2} &= -\frac{1}{6} \\
+        c - \frac{b}{2} + \frac{a}{24} &= \frac{1}{120}
+    \end{split}
+\end{equation}
+
+Solving the equation yields $\tan{x} = x + x^{3}/3 + 2x^{5}/15 + \dots$.
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        e^{\ln{(1 + x)}} &= 1 + \ln{(1 + x)} + \frac{\ln{(1 + x)}^{2}}{2} + \frac{\ln{(1 + x)}^{3}}{6} + \dots \\
+        &= 1 + \left( x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \dots \right) + \frac{1}{2} \left( x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \dots \right)^{2} + \frac{1}{6} \left( x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \dots \right)^{3} + \dots \\
+        &= 1 + x - \frac{x^{2}}{2} + \frac{x^{3}}{3} + \frac{x^{2} - x^{3}}{2} + \frac{x^{3}}{6} + \dots \\
+        &= 1 + x
+    \end{split}
+\end{equation}
+
+as expected from the actual value of $e^{\ln{(1 + x)}} = 1 + x$.
+\qed
+
+
+\problem{C4}{Integration of a power series}
+
+\begin{equation}
+    \begin{split}
+        \int_{0}^{1} \frac{\sin{x}}{x} \, \mathrm{d}x &= \int_{0}^{1} 1 - \frac{x^{2}}{3!} + \frac{x^{4}}{5!} - \frac{x^{6}}{7!} + \dots \, \mathrm{d}x \\
+        &= \left[ x - \frac{x^{3}}{18} + \frac{x^{5}}{600} - \frac{x^{8}}{35280} + \dots \right]_{0}^{1} \\
+        &= 0.9461
+    \end{split}
+\end{equation}
+
+The next term yields a contribution of the value $3 \times 10^{-7}$ so it does not affect the result up to four significant digits.
+\qed
+
+
+\problem{C5}{Continuity and differentiability}
+
+\subproblem{a}
+The function is continuous but is not smooth or differentiable at $x = 0$.
+
+\subproblem{b}
+The function is continuous and smooth across the domain.
+
+\subproblem{c}
+The function is discontinuous at $x = 0$ and not differentiable.
+
+\subproblem{d}
+The function is continuous but is not smooth or differentiable at $x = 0$.
+\qed
+
+
+\problem{C6}{Limits}
+
+\subproblem{a}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{\sin{x}}{x} = \lim_{x \to 0} \left( 1 - \frac{x^{2}}{3!} + \frac{x^{4}}{5!} - \frac{x^{6}}{7!} + \dots \right) = 1
+\end{equation}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{1 - \cos^{2}{x}}{x^{2}} = \lim_{x \to 0} \left( \frac{\sin{x}}{x} \right)^{2} = 1
+\end{equation}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{\sin{x} - x}{e^{-x} - 1 + x} = \lim_{x \to 0} \frac{-\frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \dots}{\frac{x^{2}}{2!} - \frac{x^{3}}{3!} + \dots} = 0
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{\sin{x}}{x} = \lim_{x \to 0} \frac{\cos{x}}{1} = 1
+\end{equation}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{1 - \cos^{2}{x}}{x^{2}} = \lim_{x \to 0} \frac{\sin{2x}}{2x} = 1
+\end{equation}
+
+\begin{equation}
+    \lim_{x \to 0} \frac{\sin{x} - x}{e^{-x} - 1 + x} = \lim_{x \to 0} \frac{\cos{x} - 1}{-e^{-x} + 1} = \lim_{x \to 0} \frac{-\sin{x}}{e^{-x}} = 0
+\end{equation}
+
+\subproblem{c}
+For $\lim_{x \to \infty} \sin{x}/x$, the numerator is bounded while the denominator goes to infinity, so the limit is zero.
+
+For $\lim_{x \to \infty} (1 - \cos^{2}{x})/x$, the same logic applies and the limit is zero.
+
+For $\lim_{x \to \infty} (\sin{x} - x)/(e^{-x} - 1 + x)$, we may ignore all terms except for the $\pm x$ as $x$ tends to infinity, and the limit is $-1$.
+
+\subproblem{d}
+
+\begin{equation}
+    \left[ \ln{(1 + x)} \right]^{2} = \left( x - \frac{x^{2}}{2} + \frac{x^{3}}{3} + \dots \right)^{2} = x^{2} - x^{3} + \frac{11}{12} x^{4} + \dots
+\end{equation}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \begin{split}
+        \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} = \mistake{1 + \frac{x^{2}}{2} - \frac{x^{3}}{6} + x^{4} + \dots} \\
+        \frac{\mathrm{d}}{\mathrm{d}x} \left\{ \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} \right\} = x - \frac{x^{2}}{2} + 4x^{3} + \dots \\
+        \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} \left\{ \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} \right\} = 1 - x + 12x^{2} + \dots
+    \end{split}
+\end{equation}
+
+Thus, at $x = 0$, the first derivative is zero and the second derivative is \mistake{unity}. Therefore, this is a \mistake{minimum} point.
+
+\begin{correction}
+    \begin{equation}
+        \begin{split}
+            \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} = 1 - x^{2} - x^{3} + \frac{19}{12} x^{4} + \dots \\
+            \frac{\mathrm{d}}{\mathrm{d}x} \left\{ \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} \right\} = -2x - 3x^{2} + \frac{19}{3}x^{3} + \dots \\
+            \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} \left\{ \cos{2x} + \left[ \ln{(1 + x)} \right]^{2} \right\} = -2 - 6x + 19x^{2} + \dots
+        \end{split}
+    \end{equation}
+
+    Thus, at $x = 0$, the first derivative is zero and the second derivative is $-2$. Therefore, this is a maximum point.
+\end{correction}
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \frac{\left[ \ln{(1 + x)} \right]^{2}}{x(1 - \cos{x})} = \frac{x - x^{2} + \frac{11}{12} x^{3} + \dots}{\frac{x^{2}}{2} - \frac{x^{3}}{6} + \dots}
+\end{equation}
+
+This tends to positive infinity as $x \to \infty$.
+\qed
+
+
+\end{document}

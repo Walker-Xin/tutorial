@@ -1,0 +1,349 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Introductory Problems \& Collisions in One Dimension}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Introductory Problems}
+%==========
+
+
+\problem{1}{Vectors in two dimensions}
+
+\subproblem{a}
+The vector $\mathbf{r}$ makes an angle $\tan^{-1}{(3/4)}$ with the x-axis. Therefore the unit vector $\hat{\mathbf{u}}$ can make an angle $\theta = \tan^{-1}{(3/4)} + \ang{20}$ with the x-axis so that:
+
+\begin{equation}
+    \hat{\mathbf{u}} = \cos{\theta} \mathbf{i} + \sin{\theta} \mathbf{j} = 0.547 \mathbf{i} + 0.837 \mathbf{j}
+\end{equation}
+
+\subproblem{b}
+Since $\hat{\mathbf{u}}$ and $\mathbf{r}$ are linearly independent, they span the whole $\mathbb{R}^{2}$.
+
+\subproblem{c}
+The direction of the particle's velocity changes while its magnitude stays constant, so the motion is accelerated.
+
+\subproblem{d}
+
+\begin{equation}
+    \theta(t) = \frac{d(t)}{r} + \theta_{0} = \frac{vt}{r} + \tan^{-1}{(3/4)} = 3t + \qty{0.64}{rad}
+\end{equation}
+\qed
+
+
+\problem{2}{Dimensional analysis}
+
+\subproblem{a}
+Suppose a power law relationship between $T$, $l$, $m$, $g$ and $\theta_{0}$:
+
+\begin{equation}
+\begin{split}
+    T = k f(\theta_{0}) l^{a} m^{b} g^{c} \\
+    T = L^{a} M^{b} (L T^{-2})^{c}
+\end{split}
+\end{equation}
+
+where $k$ is a dimensionless constant and $f(\theta_{0})$ is an arbitrary function of $\theta_{0}$, which is also dimensionless.
+
+Solving the resulting system of linear equations yields $a = 1/2$, $b = 0$ and $c = -1/2$. Thus:
+
+\begin{equation}
+    T = k f(\theta_{0}) \sqrt{\frac{l}{g}}
+\end{equation}
+
+\subproblem{b}
+Suppose a power law relationship between $T$, $M$, $G$ and $R$. $m$ is ignored because the system is inherently kinematic so only the acceleration of the satellite is of interest. We have:
+
+\begin{equation}
+\begin{split}
+    T = k M^{a} G^{b} R^{c} \\
+    T = M^{a} (L^{3} M^{-1} T^{-2})^{b} L^{c}
+\end{split}
+\end{equation}
+
+Solving the resulting system of linear equations yields $a = b = -1/2$ and $c = 3/2$. Thus:
+
+\begin{equation}
+    T^{2} = k \frac{R^{3}}{GM}
+\end{equation}
+
+\subproblem{c}
+For vacuum permittivity:
+
+\begin{equation}
+\begin{split}
+    F_{E} &= \frac{1}{4\pi \epsilon_{0}} \frac{q_{1} q_{2}}{r^{2}} \\
+    [\epsilon_{0}] &= \frac{C^{2}}{L^{2}} \frac{1}{M L T^{-2}} = C^{2} T^{2} L^{-1} M^{-1} = I^{2} T^{4} L^{-3} M^{-1}
+\end{split}
+\end{equation}
+
+For vacuum permeability:
+
+\begin{equation}
+\begin{split}
+    F_{M} &= \frac{\mu_{0}}{4\pi} \frac{I_{1} I_{2}}{d} l \\
+    [\mu_{0}] &= M L T^{-2} \frac{L}{I^{2} L} = A^{-2} T^{-2} L M
+\end{split}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+\begin{split}
+    \left[ \sqrt{\frac{1}{\mu_{0} \epsilon_{0}}} \right] = \left( T^{2} L^{-2}\right)^{-1/2} = L T^{-1}
+\end{split}
+\end{equation}
+
+$(1/\mu_{0} \epsilon_{0})^{1/2}$ is by definition the speed of light in vacuum based on wave equations for electromagnetic waves derived from \text{Max}well's equations.
+\qed
+
+
+\problem{3}{Energy conservation}
+
+\subproblem{a}
+By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} m v^{2} &= mgl \\
+    v &= \sqrt{2gl}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    T = mg + m \frac{v^{2}}{l} = 3mg
+\end{equation}
+
+\subproblem{c}
+As the collision is inelastic:
+
+\begin{equation}
+    v = v_{2m} - v_{m}
+\end{equation}
+
+By conservation of momentum:
+
+\begin{equation}
+    mv = 2m v_{2m} + m v_{m}
+\end{equation}
+
+Solving the two linear equations yields $v_{2m} = 2v/3 = 2\sqrt{2gl}/3$ and $v_{m} = -v/3 = -\sqrt{2gl}/3$.
+
+\subproblem{d}
+By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} m v_{m}^{2} &= mgh = mgl \cos{\theta} \\
+    \theta &= \cos^{-1}{\left( \frac{v_{m}^{2}}{2gl} \right)} = \ang{27.3} 
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{4}{The simple harmonic oscillator}
+
+\subproblem{b}
+
+\begin{equation}
+    U(x) - U(0) = \frac{1}{2} k \left[ x_{\text{max}} \cos{(\omega_{0}t + \phi)} \right]^{2} = \frac{1}{2} \omega_{0}^{2} m \left[ x_{\text{max}} \cos{(\omega_{0}t + \phi)} \right]^{2}
+\end{equation}
+
+The change is always positive, meaning that as long as the particle deviates from the origin, it possesses more potential energy than at the origin.
+
+\subproblem{c}
+First note that $v = \dot{x} = -\omega_{0} x_{\text{max}} \sin{(\omega_{0}t + \phi)} $
+
+\begin{equation}
+\begin{split}
+    E &= \frac{1}{2} m v^{2} + \frac{1}{2} k x^{2} \\
+      &= \frac{1}{2} m \omega_{0}^{2} x_{\text{max}}^{2} \sin^{2}{(\omega_{0}t + \phi)} + \frac{1}{2} \omega_{0}^{2} m x_{\text{max}}^{2} \cos^{2}{(\omega_{0}t + \phi)} \\
+      &= \frac{1}{2} m \omega_{0}^{2} x_{\text{max}}^{2} = \frac{1}{2} m v_{\text{max}}^{2}
+\end{split}
+\end{equation}
+
+which is a constant.
+\qed
+
+
+\problem{5}{The potential energy function}
+
+\subproblem{a}
+By definition, $F = -\mathrm{d}U/\mathrm{d}x$:
+
+\begin{equation}
+    F = -\frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{U_{0} a^{2}}{x^{2} + a^{2}} \right) = U_{0} a^{2} \frac{2x}{(x^{2} + a^{2})^{2}}
+\end{equation}
+
+\subproblem{c}
+$F$ is always repulsive, as $F$ is positive in the +x-axis and negative in the -x-axis.
+
+\subproblem{d}
+By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    U(0) &= U(\infty) + \frac{1}{2} m v^{2} = \frac{1}{2} m v^{2} \\
+    v &= \sqrt{\frac{2U(0)}{m}} = \sqrt{\frac{2U_{0}}{m}}
+\end{split}
+\end{equation}
+
+\subproblem{e}
+For the particle to reach $+\infty$, it just needs to overcome the potential barrier at $x = 0$, i.e., have a speed slightly larger than zero at $x = 0$. By conservation of energy:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} m v_{0}^{2} &= U(0) \\
+    v_{0} &= \sqrt{\frac{2U_{0}}{m}}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{6}{A two-particle problem in 1-D - the centre of mass system}
+
+\subproblem{a}
+By Newton's second and third law:
+
+\begin{equation}
+\begin{split}
+    m_{1} \ddot{x}_{1} = F_{1} + F_{\text{int}} \\
+    m_{2} \ddot{x}_{2} = F_{2} - F_{\text{int}}
+\end{split}
+\end{equation}
+
+Adding the equations:
+
+\begin{equation}
+    m_{1} \ddot{x}_{1} + m_{2} \ddot{x}_{2} = F_{1} + F_{2}
+\end{equation}
+
+\subproblem{b}
+Given that $F_{1} = F_{2} = 0$, have:
+
+\begin{equation}
+    m_{1} \ddot{x}_{1} + m_{2} \ddot{x}_{2} = 0
+\end{equation}
+
+Integrating once with respect to time:
+
+\begin{equation}
+\begin{split}
+    m_{1} \dot{x}_{1} + m_{2} \dot{x}_{2} = P
+\end{split}
+\end{equation}
+
+where $P$ is an arbitrary constant.
+
+This implies that the total momentum of the system is a constant, i.e., the momentum of the system is conserved.
+
+\subproblem{c}
+
+\begin{equation}
+    X_{\text{CM}} = \frac{m_{1} x_{1} + m_{2} x_{2}}{m_{1} + m_{2}}
+\end{equation}
+
+Differentiating with respect to time:
+
+\begin{equation}
+\begin{split}
+    \dot{X}_{\text{CM}} &= \frac{m_{1} \dot{x_{1}} + m_{2} \dot{x_{2}}}{m_{1} + m_{2}} = \frac{P}{m_{1} + m_{2}} \\
+    (m_{1} + m_{2}) \dot{X}_{\text{CM}} &= P
+\end{split}
+\end{equation}
+
+\subproblem{d}
+
+Differentiating again with respect to time:
+
+\begin{equation}
+    (m_{1} + m_{2}) \ddot{X}_{\text{CM}} = m_{1} \ddot{x}_{1} + m_{2} \ddot{x}_{2} = F_{1} + F_{2}
+\end{equation}
+
+If there is no external force such that $F_{1} = F_{2} = 0$, then $\ddot{X}_{\text{CM}} = 0$ and $X_{\text{CM}}$ is either stationary or moving in a straight line at constant speed.
+
+\subproblem{e}
+
+Given:
+
+\begin{equation}
+\begin{split}
+    m_{1} \ddot{x}_{1} &= F_{\text{int}} \\
+    m_{2} \ddot{x}_{2} &= -F_{\text{int}}
+\end{split}
+\end{equation}
+
+Make the substitution $x_{i} = x_{i}' + X_{\text{CM}}$:
+
+\begin{equation}
+\begin{split}
+    \ddot{x}'_{1} + \ddot{X}_{\text{CM}} &= \frac{F_{\text{int}}}{m_{1}} \\
+    \ddot{x}'_{2} + \ddot{X}_{\text{CM}} &= -\frac{F_{\text{int}}}{m_{2}}
+\end{split}
+\end{equation}
+
+Subtracting:
+
+\begin{equation}
+\begin{split}
+    \ddot{x}'_{1} - \ddot{x}'_{2} &= F_{\text{int}} \left( \frac{1}{m_{1}} + \frac{1}{m_{2}} \right) \\
+    \mu \ddot{x}' &= F_{\text{int}}
+\end{split}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Additional Problems}
+%==========
+
+
+\problem{10}{Energy loss to rest}
+By conservation of energy, we have a relation between $h_{n}$ and $h_{n-1}$:
+
+\begin{equation}
+    mg h_{n} = (1 - f) mg h_{n-1}
+\end{equation}
+
+This recursive relation can be solved with the initial height $h_{0} = h$, so that:
+
+\begin{equation}
+    h_{n} = (1 - f)^{n} h
+\end{equation}
+
+The time taken from $h_{n}$ to $h_{n+1}$ is:
+
+\begin{equation}
+    t_{n} = \sqrt{\frac{2h_{n}}{g}} + \sqrt{\frac{2h_{n+1}}{g}} = \left[ (1 - f)^{n/2} + (1 - f)^{(n + 1)/2} \right] \sqrt{\frac{2h}{g}} = (1 + \sqrt{1 - f}) (1 - f)^{n/2} \sqrt{\frac{2h}{g}}
+\end{equation}
+
+This is a geometric series, so the total time is:
+
+\begin{equation}
+    T = \sum_{n = 0}^{\infty} t_{n} = \frac{1 + \sqrt{1 - f}}{1 - \sqrt{1 - f}} \sqrt{\frac{2h}{g}}
+\end{equation}
+
+Given $h = \qty{5}{m}$ and $f = 0.1$, we have $T = \qty{38.3}{s}$.
+\qed
+
+
+\problem{11}{Force and momentum - falling chain}
+ 
+
+
+\end{document}

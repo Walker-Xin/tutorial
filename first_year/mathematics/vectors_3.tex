@@ -1,0 +1,727 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vectors \& Matrices}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Scalar Products and Determinants}
+\def\name{Xin, Wenkang}
+\def\time{November 15, 2022}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Scalar products and determinants}
+%==========
+
+
+\problem{1}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \det(A) = i(1) + i(-1) = 0
+\end{equation}
+
+The matrix is antisymmetric, singular and Hermitian.
+
+\subproblem{b}
+
+\begin{equation}
+    \det(A) = \mistake{\frac{1}{\sqrt{8}}} \left[ 2(\sqrt{2} + \sqrt{18}) + 2(\sqrt{18} + \sqrt{2}) \right] = 8
+\end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \det(A) = \frac{1}{\sqrt{8}^{3}} \left[ 2(\sqrt{2} + \sqrt{18}) + 2(\sqrt{18} + \sqrt{2}) \right] = 1
+    \end{equation}
+
+    The matrix is real and orthogonal/unitary/Hermitian.
+\end{correction}
+\qed
+
+
+\problem{2}{}
+We first have:
+
+\begin{equation}
+    \mathbf{e}_{1} = \frac{\mathbf{v}_{1}}{\left\lvert \mathbf{v}_{1} \right\rvert} = \frac{1}{\sqrt{2}} (1, 1, 0)^{\intercal}
+\end{equation}
+
+Then $\mathbf{v}_{2}$ minus its component along $\mathbf{e}_{1}$ is:
+
+\begin{equation}
+    \mathbf{v}_{2}' = \mathbf{v}_{2} - (\mathbf{v}_{2} \cdot \mathbf{e}_{1}) \mathbf{e}_{1} = (1/2, -1/2, 2)^{\intercal}
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \mathbf{e}_{2} = \frac{\mathbf{v}_{2}}{\left\lvert \mathbf{v}_{2} \right\rvert} = \frac{1}{3\sqrt{2}} (1, -1, 4)^{\intercal}
+\end{equation}
+
+And:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{v}_{3}' &= \mathbf{v}_{3} - (\mathbf{v}_{3} \cdot \mathbf{e}_{1}) \mathbf{e}_{1} - (\mathbf{v}_{3} \cdot \mathbf{e}_{2}) \mathbf{e}_{2} = (-2/3, 2/3, 1/3)^{\intercal} \\
+        \mathbf{e}_{3} &= \frac{\mathbf{v}_{3}}{\left\lvert \mathbf{v}_{3} \right\rvert} = \frac{1}{3} (-2, 2, 1)^{\intercal}
+    \end{split}
+\end{equation}
+
+Note that:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{e}_{1} \cdot \mathbf{e}_{2} &= \frac{1}{\sqrt{2}} \frac{1}{3\sqrt{2}} (1, 1, 0)^{\intercal} \cdot (1, -1, 4)^{\intercal} = 0 \\
+        \mathbf{e}_{1} \cdot \mathbf{e}_{3} &= \frac{1}{\sqrt{2}} \frac{1}{3} (1, 1, 0)^{\intercal} \cdot (-2, 2, 1)^{\intercal} = 0 \\
+        \mathbf{e}_{2} \cdot \mathbf{e}_{3} &= \frac{1}{3\sqrt{2}} \frac{1}{3} (1, -1, 4)^{\intercal} \cdot (-2, 2, 1)^{\intercal} = 0
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+
+\subproblem{a}
+This is because $A^{-1} = \operatorname{adj}(A)/\det(A)$ and if $\det(A) = 0$, then $A^{-1}$ is not defined.
+
+\subproblem{b}
+
+\begin{equation}
+    \det(A) = a(ba - 1) - (a + a) = a(ab - 3)
+\end{equation}
+
+Thus, the matrix is not invertible if $a = 0$ or $ab = 3$.
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}
+Note that:
+
+\begin{equation}
+    \left\langle \mathbf{w}, \mathbf{v}_{a} \right\rangle = \sum_{i=1}^{n} w_{i} v_{ai} = \sum_{i=1}^{n} \det(\mathbf{v}_{1}, \dots, \mathbf{v}_{n-1}, \mathbf{e}_{i}) v_{ai}
+\end{equation}
+
+But the expansion of $\mathbf{v}_{a}$ is just $\mathbf{v}_{a} = \sum_{i=1}^{n}v_{ai} \mathbf{e}_{i}$. By the multilinear property of the determinant:
+
+\begin{equation}
+    \left\langle \mathbf{w}, \mathbf{v}_{a} \right\rangle = \det(\mathbf{v}_{1}, \dots, \mathbf{v}_{n-1}, \mathbf{v}_{a}) = 0
+\end{equation}
+
+for any $\mathbf{v}_{a}$.
+
+\subproblem{b}
+
+\begin{equation}
+    \begin{split}
+        \det(\mathbf{v}_{1}, \dots, \mathbf{v}_{n-1}, \mathbf{n}) &= \frac{1}{\left\lvert \mathbf{w} \right\rvert} \det(\mathbf{v}_{1}, \dots, \mathbf{v}_{n-1}, \mathbf{w}) \\
+        &= \frac{1}{\left\lvert \mathbf{w} \right\rvert} \sum_{i=1}^{n} \det(\mathbf{v}_{1}, \dots, \mathbf{v}_{n-1}, \mathbf{e}_{i}) w_{i} \\
+        &= \frac{1}{\left\lvert \mathbf{w} \right\rvert} \sum_{i=1}^{n} w_{i}^{2} \\
+        &= \left\lvert \mathbf{w} \right\rvert
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    w_{i} = \det(\mathbf{e}_{1}, \dots, \mathbf{e}_{n-1}, \mathbf{e}_{i})
+\end{equation}
+
+which is zero for $i \ne n$ and unity for $i = n$.
+
+Thus, $\mathbf{w} = \mathbf{e}_{n}$.
+
+\subproblem{d}
+Explicitly writing the components of $\mathbf{w}$:
+
+\begin{equation}
+    w_{1} = \det(\mathbf{v}_{1}, \mathbf{v}_{2}, \mathbf{e}_{1}) = \det \begin{pmatrix}
+        x_{1} & x_{2} & 1 \\
+        y_{1} & y_{2} & 0 \\
+        z_{1} & z_{2} & 0
+    \end{pmatrix} = y_{1}z_{2} - y_{2}z_{1}
+\end{equation}
+
+\begin{equation}
+    w_{2} = \det(\mathbf{v}_{1}, \mathbf{v}_{2}, \mathbf{e}_{2}) = \det \begin{pmatrix}
+        x_{1} & x_{2} & 0 \\
+        y_{1} & y_{2} & 1 \\
+        z_{1} & z_{2} & 0
+    \end{pmatrix} = z_{1}x_{2} - z_{2}x_{1}
+\end{equation}
+
+\begin{equation}
+    w_{3} = \det(\mathbf{v}_{1}, \mathbf{v}_{2}, \mathbf{e}_{3}) = \det \begin{pmatrix}
+        x_{1} & x_{2} & 0 \\
+        y_{1} & y_{2} & 0 \\
+        z_{1} & z_{2} & 1
+    \end{pmatrix} = x_{1}y_{2} - x_{2}y_{1}
+\end{equation}
+
+Hence, $\mathbf{w} = \mathbf{v}_{1} \times \mathbf{v}_{2}$.
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}
+
+\begin{equation}
+    A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A)
+    =
+    \frac{1}{2} \begin{pmatrix}
+        1  & 1  & -2 \\
+        -7 & 1  & 4  \\
+        5  & -1 & -2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1/2  & 1/2  & -1 \\
+        -7/2 & 1/2  & 2  \\
+        5/2  & -1/2 & -1
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    X = A^{-1} B
+    =
+    \begin{pmatrix}
+        1/2  & 1/2  & -1 \\
+        -7/2 & 1/2  & 2  \\
+        5/2  & -1/2 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+        2 & 4 & 6
+    \end{pmatrix}
+    =
+    (-3 , 7, -3)^{\intercal}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    x_{1}
+    =
+    \det \begin{pmatrix}
+        2 & 2 & 3 \\
+        4 & 4 & 5 \\
+        6 & 3 & 4
+    \end{pmatrix} / \det(A)
+    = -3
+\end{equation}
+
+\begin{equation}
+    x_{2}
+    =
+    \det \begin{pmatrix}
+        1 & 2 & 3 \\
+        3 & 4 & 5 \\
+        1 & 6 & 4
+    \end{pmatrix} / \det(A)
+    = 7
+\end{equation}
+
+\begin{equation}
+    x_{2}
+    =
+    \det \begin{pmatrix}
+        1 & 3 & 2 \\
+        3 & 5 & 4 \\
+        1 & 4 & 6
+    \end{pmatrix} / \det(A)
+    = -3
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \left( \begin{array}{ccc|c}
+        1 & 2 & 3 & 2 \\
+        3 & 4 & 5 & 4 \\
+        1 & 3 & 4 & 6
+    \end{array} \right)
+    \to
+    \left( \begin{array}{ccc|c}
+        1 & 4/3 & 5/3 & 4/3  \\
+        0 & 1   & 7/5 & 14/5 \\
+        0 & 0   & 1   & -3
+    \end{array} \right)
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    X = (-3 , 7, -3)^{\intercal}
+\end{equation}
+
+The row reduction method is least computationally demanding as only additional and subtraction operations are required.
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+Note that:
+
+\begin{equation}
+    \left\langle f, g \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} f(x) g(x) \, \mathrm{d}x = \int_{-\infty}^{\infty} e^{-x^{2}} g(x) f(x) \, \mathrm{d}x = \left\langle g, f \right\rangle
+\end{equation}
+
+\begin{equation}
+    \left\langle f, \alpha g + \beta h \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} f(x) \left[ \alpha g(x) + \beta h(x) \right] \, \mathrm{d}x = \alpha \left\langle f, g \right\rangle + \beta \left\langle f, h \right\rangle
+\end{equation}
+
+\begin{equation}
+    \left\langle f, f \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} f(x) f(x) \, \mathrm{d}x = \int_{-\infty}^{\infty} e^{-x^{2}} f(x)^{2} \, \mathrm{d}x \geq 0
+\end{equation}
+
+\begin{equation}
+    \left\langle f, f \right\rangle = 0 \implies f(x) = 0 \quad \forall x
+\end{equation}
+
+Therefore, $\left\langle f, g \right\rangle$ is a scalar product.
+
+\subproblem{b}
+
+\begin{equation}
+    \left\langle p_{0}, p_{1} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{2}{n_{0} n_{1}} \, \mathrm{d}x = 0
+\end{equation}
+
+as this is an odd function.
+
+Further:
+
+\begin{equation}
+    \left\langle p_{0}, p_{2} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{2}{n_{0} n_{2}} (4x^{2} - 2) \, \mathrm{d}x = \frac{2}{n_{0} n_{2}} \left[ -e^{x^{2}} x \right]_{-\infty}^{\infty} = 0
+\end{equation}
+
+and:
+
+\begin{equation}
+    \left\langle p_{1}, p_{2} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{2}{n_{1} n_{2}} 2x (4x^{2} - 2) \, \mathrm{d}x = 0
+\end{equation}
+
+as this is an odd function.
+
+Hence, $p_{i}$ are orthogonal under the defined scalar product.
+
+\subproblem{c}
+
+\begin{equation}
+    \left\langle p_{0}, p_{0} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{1}{n_{0}^{2}} \, \mathrm{d}x = \frac{1}{n_{0}^{2}} \sqrt{\pi} = 1
+\end{equation}
+
+so $n_{0} = \pi^{1/4}$.
+
+\begin{equation}
+    \left\langle p_{1}, p_{1} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{4}{n_{1}^{2}} x^{2} \, \mathrm{d}x = \frac{2}{n_{1}^{2}} \sqrt{\pi} = 1
+\end{equation}
+
+so $n_{1} = \sqrt{2} \pi^{1/4}$.
+
+\begin{equation}
+    \left\langle p_{2}, p_{2} \right\rangle = \int_{-\infty}^{\infty} e^{-x^{2}} \frac{1}{n_{2}^{2}} (4x^{2} - 2)^{2} \, \mathrm{d}x = \frac{8}{n_{2}^{2}} \sqrt{\pi} = 1
+\end{equation}
+
+so $n_{2} = 2\sqrt{2} \pi^{1/4}$.
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}
+Consider the equation $\mathbf{0} = \sum_{i}^{k} a_{i} \mathbf{w}_{i}$. Taking a scalar product of both sides with an arbitrary vector $\mathbf{v}$ gives:
+
+\begin{equation}
+    \begin{split}
+        \left\langle \mathbf{v}, \mathbf{0} \right\rangle &= \left\langle \mathbf{v}, \sum_{i}^{k} a_{i} \mathbf{w}_{i} \right\rangle \\
+        \sum_{i}^{k} a_{i} \left\langle \mathbf{v}, \mathbf{w}_{i} \right\rangle &= 0
+    \end{split}
+\end{equation}
+
+As $\mathbf{v}$ is arbitrary, we can choose $\mathbf{v} = \mathbf{w}_{j}$ for some $j$. As $\mathbf{w}_{i}$ are orthogonal and non-zero:
+
+\begin{equation}
+    \sum_{i}^{k} a_{i} \left\langle \mathbf{w}_{j}, \mathbf{w}_{i} \right\rangle = a_{j} \left\langle \mathbf{w}_{j}, \mathbf{w}_{j} \right\rangle = 0
+\end{equation}
+
+where $\left\langle \mathbf{w}_{j}, \mathbf{w}_{j} \right\rangle > 0$.
+
+This implies $a_{j} = 0$ for all $j$. There is therefore only the trivial solution to the equation, and vectors $\mathbf{w}_{i}$ are linearly independent.
+
+\subproblem{b}
+
+\begin{equation}
+    \left\langle \mathbf{e}_{i}, \mathbf{v} \right\rangle = \left\langle \mathbf{e}_{i}, v_{j} \mathbf{e}_{j} \right\rangle = v_{j} \left\langle \mathbf{e}_{i}, \mathbf{e}_{j} \right\rangle = \delta_{ij} v_{j} = v_{i}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \left\langle \mathbf{u}, \mathbf{v} \right\rangle = \left\langle \mathbf{u}, v_{i} \mathbf{e}_{i} \right\rangle = v_{i} \left\langle \mathbf{u}, \mathbf{e}_{i} \right\rangle = \left\langle \mathbf{u}, \mathbf{e}_{i} \right\rangle \left\langle \mathbf{e}_{i}, \mathbf{v} \right\rangle
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    \left\langle \mathbf{e}_{i}, \mathbf{e}_{j}' \right\rangle = \left\langle \mathbf{e}_{i}, U_{kj}\mathbf{e}_{k} \right\rangle = U_{kj} \delta_{ik} = U_{ij}
+\end{equation}
+
+Consider the product $U^{\dagger} U$:
+
+\begin{equation}
+    \left( U^{\dagger} U \right)_{ij} = U_{ik}^{\dagger} U_{kj} = U_{ki}^{*} U_{kj} = \left\langle \mathbf{e}_{k}, \mathbf{e}_{i}' \right\rangle^{*} \left\langle \mathbf{e}_{k}, \mathbf{e}_{j}' \right\rangle = \left\langle \mathbf{e}_{i}', \mathbf{e}_{k} \right\rangle \left\langle \mathbf{e}_{k}, \mathbf{e}_{j}' \right\rangle = \left\langle \mathbf{e}_{i}', \mathbf{e}_{j}' \right\rangle = \delta_{ij}
+\end{equation}
+
+This shows that $U$ is unitary.
+\qed
+
+
+\problem{8}{}
+
+\subproblem{a}
+We have:
+
+\begin{equation}
+    \left\langle R \mathbf{v}, R \mathbf{w} \right\rangle = (R \mathbf{v})^{\intercal} R \mathbf{w} = \mathbf{v}^{\intercal} R^{\intercal} R \mathbf{w} = \mathbf{v}^{\intercal} \mathbf{w}
+\end{equation}
+
+For this equation to be valid, $R^{\intercal} R = I$. Further note that:
+
+\begin{equation}
+    \det(R^{\intercal} R) = \det(R)^{2} = \det(I) = 1
+\end{equation}
+
+so $\det(R) = \pm 1$.
+
+\subproblem{b}
+
+Let the matrix have the form:
+
+\begin{equation}
+    R = \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}
+\end{equation}
+
+We have:
+
+\begin{equation}
+    \begin{split}
+        R^{\intercal}R
+        &=
+        \begin{pmatrix}
+            a^{2} + c^{2} & ab + cd       \\
+            ab + cd       & b^{2} + d^{2}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix} \\
+        a^{2} + c^{2} &= b^{2} + d^{2} = 1 \\
+        ab + cd &= 0
+    \end{split}
+\end{equation}
+
+We immediately have $c = \pm \sqrt{1 - a^{2}}$ and $d = \pm \sqrt{1 - b^{2}}$ from the first equation. Then from the second equation:
+
+\begin{equation}
+    \begin{split}
+        ab + cd &= ab \pm \sqrt{1 - a^{2}} \sqrt{1 - b^{2}} = 0 \\
+        a^{2} b^{2} &= (1 - a^{2}) (1 - b^{2}) \\
+        a^{2} + b^{2} &= 1
+    \end{split}
+\end{equation}
+
+Then we can rewrite $R$:
+
+\begin{equation}
+    R = \begin{pmatrix}
+        a                & \pm \sqrt{1 - a^{2}} \\
+        \sqrt{1 - a^{2}} & \mp a
+    \end{pmatrix}
+\end{equation}
+
+Now we make the substitution $a = \cos{\phi}$, and we have:
+
+\begin{equation}
+    R = \begin{pmatrix}
+        \cos{\phi}  & \sin{\phi} \\
+        -\sin{\phi} & \cos{\phi}
+    \end{pmatrix}
+\end{equation}
+
+The lower sign ($-\sin{\phi}$ and $+\cos{\phi}$) corresponds to two-dimensional rotations; the other sign represents the case where $\det(R) = -1$, which corresponds to a rotation followed by a reflection.
+
+\subproblem{c}
+
+\begin{equation}
+    \begin{split}
+        R(\phi_{1}) R(\phi_{2})
+        &=
+        \begin{pmatrix}
+            \cos{\phi_{1}} & -\sin{\phi_{1}} \\
+            \sin{\phi_{1}} & \cos{\phi_{1}}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos{\phi_{2}} & -\sin{\phi_{2}} \\
+            \sin{\phi_{2}} & \cos{\phi_{2}}
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            \cos{\phi_{1}} \cos{\phi_{2}} - \sin{\phi_{1}} \sin{\phi_{2}} & -\sin{\phi_{1}} \cos{\phi_{2}} - \cos{\phi_{1}} \sin{\phi_{2}} \\
+            \sin{\phi_{1}} \cos{\phi_{2}} + \cos{\phi_{1}} \sin{\phi_{2}} & \cos{\phi_{1}} \cos{\phi_{2}} + \sin{\phi_{1}} \sin{\phi_{2}}
+        \end{pmatrix} \\
+        &=
+        R(\phi_{1} + \phi_{2})
+    \end{split}
+\end{equation}
+
+\subproblem{d}
+Let $z = Ae^{i\alpha}$, then $z' = Ae^{i(\alpha + \phi)}$.
+\qed
+
+
+\problem{9}{}
+
+\subproblem{a}
+By analogy and symmetry, we have:
+
+\begin{equation}
+    R_{1}(\phi) = \begin{pmatrix}
+        1 & 0          & 0           \\
+        0 & \cos{\phi} & -\sin{\phi} \\
+        0 & \sin{\phi} & \cos{\phi}
+    \end{pmatrix}
+\end{equation}
+
+and:
+
+\begin{equation}
+    R_{2}(\phi) = \begin{pmatrix}
+        \cos{\phi}  & 0 & \sin{\phi} \\
+        0           & 1 & 0          \\
+        -\sin{\phi} & 0 & \cos{\phi}
+    \end{pmatrix}
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \begin{split}
+        R &= R_{1}(\alpha_{3}) R_{2}(-\alpha_{2}) R_{3}({\alpha_{1}}) \\
+        &=
+        \begin{pmatrix}
+            \cos{\alpha_{2}} \cos{\alpha_{3}} & \sin{\alpha_{1}} \sin{\alpha_{2}} \cos{\alpha_{3}} - \cos{\alpha_{1}} \sin{\alpha_{3}} & \cos{\alpha_{1}} \sin{\alpha_{2}} \cos{\alpha_{3}} + \sin{\alpha_{1}} \sin{\alpha_{3}} \\
+            \cos{\alpha_{2}} \sin{\alpha_{3}} & \sin{\alpha_{1}} \sin{\alpha_{2}} \sin{\alpha_{3}} + \cos{\alpha_{1}} \cos{\alpha_{3}} & \cos{\alpha_{1}} \sin{\alpha_{2}} \sin{\alpha_{3}} - \sin{\alpha_{1}} \cos{\alpha_{3}} \\
+            -\sin{\alpha_{2}}                 & \sin{\alpha_{1}} \cos{\alpha_{2}}                                                      & \cos{\alpha_{1}} \cos{\alpha_{2}}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+
+For small $\alpha_{i}$:
+
+\begin{equation}
+    R = \begin{pmatrix}
+        1           & -\alpha_{3} & \alpha_{2}  \\
+        1           & 1           & -\alpha_{1} \\
+        -\alpha_{2} & \alpha_{1}  & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    +
+    \alpha_{1} \begin{pmatrix}
+        0 & 0 & 0  \\
+        0 & 0 & -1 \\
+        0 & 1 & 0
+    \end{pmatrix}
+    +
+    \alpha_{2} \begin{pmatrix}
+        0  & 0 & 1 \\
+        0  & 0 & 0 \\
+        -1 & 0 & 0
+    \end{pmatrix}
+    +
+    \alpha_{3} \begin{pmatrix}
+        0 & -1 & 0 \\
+        1 & 0  & 0 \\
+        0 & 0  & 0
+    \end{pmatrix}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    \delta \mathbf{x} = R \mathbf{x} - \mathbf{x}
+    \approx
+    \begin{pmatrix}
+        0           & -\alpha_{3} & \alpha_{2}  \\
+        \alpha_{3}  & 0           & -\alpha_{1} \\
+        -\alpha_{2} & \alpha_{1}  & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_{1} \\
+        x_{2} \\
+        x_{3}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \alpha_{2} x_{3} - \alpha_{3} x_{2} \\
+        \alpha_{3} x_{1} - \alpha_{1} x_{3} \\
+        \alpha_{1} x_{2} - \alpha_{2} x_{1}
+    \end{pmatrix}
+    =
+    \mathbf{\alpha} \times \mathbf{x}
+\end{equation}
+\qed
+
+
+\problem{10}{}
+
+\subproblem{a}
+This is because if $\mathbf{w} = I$, then $\left\langle \mathbf{v}, \mathbf{w} \right\rangle = \mathbf{0}$ for all $\mathbf{v}$.
+
+\subproblem{b}
+We have:
+
+\begin{equation}
+    \left\langle \Lambda \mathbf{v}, \Lambda \mathbf{w} \right\rangle = (\Lambda \mathbf{v})^{\intercal} \eta \Lambda \mathbf{w} = \mathbf{v}^{\intercal} (\Lambda^{\intercal} \eta \Lambda) \mathbf{w} = \mathbf{v}^{\intercal} \eta \mathbf{w}
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \Lambda^{\intercal} \eta \Lambda = \eta
+\end{equation}
+
+Since $\det(\eta) = 1$:
+
+\begin{equation}
+    \det(\Lambda^{\intercal} \eta \Lambda) = \det(\Lambda)^{2} = 1
+\end{equation}
+
+Thus, $\det{\Lambda} = \pm 1$.
+
+\subproblem{c}
+Suppose that $\Lambda$ has the form:
+
+\begin{equation}
+    \Lambda = \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}
+\end{equation}
+
+From $\Lambda^{\intercal} \eta \Lambda = \eta$ and $\det{\Lambda} = 1$, we have:
+
+\begin{equation}
+    \begin{split}
+        a^{2} - c^{2} = d^{2} - b^{2} &= 1 \\
+        ab - cd = 0 \\
+        ac - bd = 1
+    \end{split}
+\end{equation}
+
+We immediately have $c = \pm \sqrt{a^{2} - 1}$ and $d = \pm \sqrt{b^{2} + 1}$ from the first equation. Then from the second equation:
+
+\begin{equation}
+    \begin{split}
+        ab - cd &= ab \pm \sqrt{a^{2} - 1} \sqrt{b^{2} + 1} = 0 \\
+        a^{2} b^{2} &= (a^{2} - 1) (b^{2} + 1) \\
+        a^{2} - b^{2} &= 1
+    \end{split}
+\end{equation}
+
+Then we can rewrite $\Lambda$:
+
+\begin{equation}
+    \Lambda = \begin{pmatrix}
+        a                & \sqrt{a^{2} - 1} \\
+        \sqrt{a^{2} - 1} & a
+    \end{pmatrix}
+\end{equation}
+
+Now we make the substitution $a = \cosh{\phi}$, and we have:
+
+\begin{equation}
+    \Lambda = \begin{pmatrix}
+        \cosh{\phi} & \sinh{\phi} \\
+        \sinh{\phi} & \cosh{\phi}
+    \end{pmatrix}
+    =
+    \sqrt{\frac{1}{1 - \beta^{2}}} \begin{pmatrix}
+        1     & \beta \\
+        \beta & 1
+    \end{pmatrix}
+\end{equation}
+
+where $\beta \equiv \tanh{\phi}$.
+
+\subproblem{d}
+We have:
+
+\begin{equation}
+    \begin{split}
+        \Lambda(\phi_{1}) \Lambda(\phi_{2})
+        &=
+        \begin{pmatrix}
+            \cosh{\phi_{1}} & \sinh{\phi_{1}} \\
+            \sinh{\phi_{1}} & \cosh{\phi_{1}}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cosh{\phi_{2}} & \sinh{\phi_{2}} \\
+            \sinh{\phi_{2}} & \cosh{\phi_{2}}
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            \cosh{\phi_{1}} \cosh{\phi_{2}} - \sinh{\phi_{1}} \sinh{\phi_{2}} & \cosh{\phi_{1}} \sinh{\phi_{2}} + \sinh{\phi_{1}} \cosh{\phi_{2}} \\
+            \cosh{\phi_{1}} \sinh{\phi_{2}} + \sinh{\phi_{1}} \cosh{\phi_{2}} & \cosh{\phi_{1}} \cosh{\phi_{2}} + \sinh{\phi_{1}} \sinh{\phi_{2}}
+        \end{pmatrix} \\
+        &= \Lambda(\phi_{1} + \phi_{2})
+    \end{split}
+\end{equation}
+
+This means:
+
+\begin{equation}
+    \begin{split}
+        \Lambda(\beta_{1}) \Lambda(\beta_{2}) &= \Lambda(\beta) \\
+        \frac{1}{\sqrt{1 - \beta_{1}^{2}} \sqrt{1 - \beta_{2}^{2}}} \begin{pmatrix}
+            1 + \beta_{1} \beta_{2} & \beta_{1} + \beta_{2}   \\
+            \beta_{1} + \beta_{2}   & 1 + \beta_{1} \beta_{2}
+        \end{pmatrix}
+        &=
+        \frac{1}{\sqrt{1 - \beta^{2}}} \begin{pmatrix}
+            1     & \beta \\
+            \beta & 1
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+Solving this leads to the relationship:
+
+\begin{equation}
+    \beta = \frac{\beta_{1} + \beta_{2}}{1 + \beta_{1} \beta_{2}}
+\end{equation}
+
+which is the angle sum formula for hyperbolic tangent.
+\qed
+
+
+\end{document}

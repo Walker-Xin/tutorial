@@ -1,0 +1,224 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Circuit Theory}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Response of Linear Circuits to Transients}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Response of Linear Circuits to Transients}
+%==========
+
+
+\problem{8}{}
+
+Let $q(t)$ be the (positive) charge on the upper plate of the capacitor. By KVL, we have:
+
+\begin{equation}
+\begin{split}
+    V - R \frac{\mathrm{d}q}{\mathrm{d}t} - \frac{q}{C} &= 0 \\
+    \int_{0}^{q} \frac{1}{VC - q} \, \mathrm{d}q &= \int_{0}^{t} \, \frac{1}{RC} \mathrm{d}t \\
+    q(t) &= VC (1 - e^{-t/RC}) \\
+    i(t) &= \frac{\mathrm{d}q}{\mathrm{d}t} = \frac{V}{R} e^{-t/RC}
+\end{split}
+\end{equation}
+
+For the energy dissipation:
+
+\begin{equation}
+    Q_{R} = \int P \, \mathrm{d}t = \int_{0}^{\infty} i^{2}R \, \mathrm{d}t = \frac{V^{2}}{R} \int_{0}^{\infty} e^{-2t/RC} \, \mathrm{d}t = \frac{CV^{2}}{2} = Q_{C}
+\end{equation}
+
+Thus the total energy supplied by the battery is $CV^{2}$.
+\qed
+
+
+\problem{9}{}
+Conduct a mesh analysis with the first loop on the left going clockwise and the second loop on the right going anticlockwise. We have the equations:
+
+\begin{equation}
+\begin{split}
+    V - i_{1}R_{1} - \frac{q}{C} &= 0 \\
+    -i_{2}R_{2} - \frac{q}{C} &= 0 \\
+    i_{1} + i_{2} &= \frac{\mathrm{d}q}{\mathrm{d}t}
+\end{split}
+\end{equation}
+
+Solving this system for $q(t)$ yields the equation:
+
+\begin{equation}
+    \frac{R_{2}}{R_{1} + R_{2}} V - \frac{q}{C} = \frac{R_{1} R_{2}}{R_{1} + R_{2}} \frac{\mathrm{d}q}{\mathrm{d}t}
+\end{equation}
+
+Solving this differential equation gives:
+
+\begin{equation}
+\begin{split}
+    q(t) &= CV_{0} (1 - e^{-t/\tau}) \\
+    V_{C}(t) &= V_{0} (1 - e^{-t/\tau})
+\end{split}
+\end{equation}
+
+where $V_{0} = R_{2}V/(R_{1} + R_{2}) = \qty{4.125}{V}$ and $\tau = C R_{1} R_{2}/(R_{1} + R_{2}) = \qty{137.5}{\mu s}$.
+
+At steady state, $I = V/(R_{1} + R_{2})$. Thus:
+
+\begin{equation}
+\begin{split}
+    P_{1} &= I^{2} R_{1} = \qty{3.5e-4}{W} \\
+    P_{2} &= I^{2} R_{2} = \qty{7.7e-4}{W} \\
+    Q &= \frac{1}{2} C V_{0}^{2} = \qty{1.7e-4}{J}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{10}{}
+Let $i(t)$ be the current flowing in the circuit. By KVL, we have:
+
+\begin{equation}
+    V - R i - L \frac{\mathrm{d}i}{\mathrm{d}t} = 0
+\end{equation}
+
+Solving this differential equation yields:
+
+\begin{equation}
+    i(t) = \frac{V}{R} e^{-t/\tau}
+\end{equation}
+
+where $\tau = L/R$.
+\qed
+
+
+\problem{11}{}
+
+Let $q(t)$ be the (positive) charge on the upper plate of the capacitor. By KVL, we have:
+
+\begin{equation}
+    - \dot{q}R - \ddot{q}L - \frac{q}{C} = 0
+\end{equation}
+
+or:
+
+\begin{equation}
+    \ddot{q} + \frac{R}{L} \dot{q} + \frac{1}{RC} q = 0
+\end{equation}
+
+Note that $1/(LC) \gg (R/2L)^{2}$. Thus for the characteristic equation:
+
+\begin{equation}
+    r = -\frac{R}{2L} \pm \sqrt{\frac{R^{2}}{4L^{2}} - \frac{1}{LC}} \equiv -\beta \pm i \omega
+\end{equation}
+
+where $\beta \equiv (R/2L)$ and $\omega \equiv \sqrt{1/(LC) - \beta^{2}} \approx \omega_{0} = \sqrt{1/(LC)}$
+
+Then the solution is:
+
+\begin{equation}
+\begin{split}
+    q(t) &= A e^{-\beta t} \cos{(\omega t + \phi)} \\
+    i(t) &= -A \left[ \beta e^{-\beta t} \cos{(\omega t + \phi)} + \omega e^{-\beta t} \sin{(\omega t + \phi)} \right]
+\end{split}
+\end{equation}
+
+With the initial conditions $q(0) = V_{0}/C$ and $i(0) = 0$, we have $\tan{\phi} = -\beta/\omega \ll 1$ and $A \approx V_{0}/C$.
+\qed
+
+
+\problem{12}{}
+Conduct a mesh analysis with the first loop on the left going clockwise and the second loop on the right going anticlockwise. We have the equations:
+
+\begin{equation}
+\begin{split}
+    V - i_{1}R_{1} - \frac{q}{C} &= 0 \\
+    -L \dot{i}_{2} - \frac{q}{C} &= 0 \\
+    i_{1} + i_{2} &= \dot{q}
+\end{split}
+\end{equation}
+
+Solving this system for $q(t)$ yields the equation:
+
+\begin{equation}
+    \ddot{q} + \frac{1}{RC} \dot{q} + \frac{1}{LC} q = 0
+\end{equation}
+
+Note that $\Delta = 1/(RC) - 4/(LC) < 0$ so the system is oscillatory. The solution is:
+
+\begin{equation}
+    q(t) = A e^{-\beta t} \cos{(\omega t + \phi)}
+\end{equation}
+
+where $\beta = 1/(2RC)$ and $\omega = \sqrt{1/(LC) - \beta^{2}}$.
+
+Thus the decay constant is $t_{0} = 1/\beta = 2RC$.
+
+The resonant (natural) frequency is $\omega_{0} = \sqrt{1/(LC)} = \qty{1.6e5}{rad s^{-1}}$.
+\qed
+
+
+\problem{13}{}
+Before the switch is closed, as the circuit has reached steady state, $R_{2}$ is shorted by the inductor and thus $V_{A} = V_{B} = 0$. The current in the steady state is $V_{0}/R_{1}$
+
+When the switch is closed, there is current only in the loop (clockwise) between A and B. KVL yields:
+
+\begin{equation}
+\begin{split}
+    -L \dot{i}_{2} - i_{2} R_{2} &= 0 \\
+    \int_{V_{0}/R_{1}}^{i_{2}} \frac{1}{i_{2}} \, \mathrm{d}i_{2} &= \int_{0}^{t} -\frac{R}{L} \, \mathrm{d}t
+\end{split}
+\end{equation}
+
+which leads to the solution:
+
+\begin{equation}
+    i_{2}(t) = \frac{V_{0}}{R_{1}} e^{-t/\tau}
+\end{equation}
+
+where $\tau = L/R_{2} = \qty{10}{\mu s}$.
+
+At all times, $V_{A} = V_{0} = \qty{10}{V}$. For $V_{B}$, note the relationship:
+
+\begin{equation}
+    V_{B}(t) = V_{A} + i_{2} R_{2} = V_{0} \left[ \frac{R_{2}}{R_{1}} e^{-t/\tau} + 1 \right]
+\end{equation}
+
+Thus, $V_{B}(0) = \qty{1010}{V}$ and $V_{B}(\infty) = \qty{10}{V}$.
+
+When the switch is again closed, there is an additional clockwise loop. A mesh analysis yields:
+
+\begin{equation}
+\begin{split}
+    V_{0} - i_{1} R_{1} - (i_{1} - i_{2}) R_{2} &= 0 \\
+    -L \dot{i}_{2} - (i_{1} - i_{2}) R_{2} &= 0 \\
+\end{split}
+\end{equation}
+
+Solving for $i_{1}$ yields:
+
+\begin{equation}
+    V - i_{1} R_{1} - L \frac{R_{1} + R_{2}}{R_{2}} \dot{i}_{1} = 0
+\end{equation}
+
+This differential equation has the solution:
+
+\begin{equation}
+    i_{1}(t) = \frac{V_{0}}{R_{1}} (1 - e^{-t/\kappa})
+\end{equation}
+
+where $\kappa = L(R_{1} + R_{2})/(R_{1} R_{2}) = \qty{1}{ms}$.
+
+Thus the voltage across $R_{1}$, which is $i_{1}R_{1}$, also rises exponentially.
+\qed
+
+
+\end{document}

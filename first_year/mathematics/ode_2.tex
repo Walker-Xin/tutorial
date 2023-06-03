@@ -1,0 +1,405 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Ordinary Differential Equations}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Second-Order ODEs, Part I}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Minimal Set}
+%==========
+
+
+\problem{2.1}{Homogeneous ODEs}
+
+\subproblem{i}
+
+The characteristic equation is $r^{2} + 2r - 15 = 0$ with the roots $r = 3$ and $r = -5$. Thus, the general solution is:
+
+\begin{equation}
+    y = A e^{3x} + B e^{-5x}
+\end{equation}
+
+where $A$ and $B$ are arbitrary constants.
+
+\subproblem{ii}
+
+The characteristic equation is $r^{2} - 6 + 9 = 0$ with the repeated root $r = 3$. Thus, the general solution is:
+
+\begin{equation}
+    y = A e^{3x} + B xe^{3x}
+\end{equation}
+
+where $A$ and $B$ are arbitrary constants.
+
+Then we have $y' = 3A e^{3x} + B e^{3x} (3x + 1)$. The initial conditions give us the equations:
+
+\begin{equation}
+    \begin{split}
+        A &= 3 \\
+        3A + B &= 1
+    \end{split}
+\end{equation}
+
+Thus, $A = 3$ and $B = -8$ and the solution is:
+
+\begin{equation}
+    y = 3 e^{3x} - 8 xe^{3x}
+\end{equation}
+
+\subproblem{iii}
+
+The characteristic equation is $r^{2} - 4r + 13 = 0$ with the roots $r = 2 + 3i$ and $r = 2 - 3i$. Thus, the general solution is:
+
+\begin{equation}
+    y = e^{2x} (A e^{3ix} + B e^{-3ix}) = e^{2x} (C \cos 3x + D \sin 3x)
+\end{equation}
+
+where $A$, $B$, $C$, and $D$ are arbitrary constants.
+
+\subproblem{iv}
+
+Assume a solution of the form $y = Ae^{rx}$. We have the characteristic equation $r^{3} + 7r^{2} + 7r - 15 = 0$ with the roots $r = 1$, $r = -3$ and $r = -5$. Thus, the general solution is:
+
+\begin{equation}
+    y = Ae^{x} + Be^{-3x} + Ce^{-5x}
+\end{equation}
+\qed
+
+
+\problem{2.2}{Damped Oscillator}
+By Newton's second law, we have:
+
+\begin{equation}
+    F = m \ddot{y} = -kx - \gamma \dot{x}
+\end{equation}
+
+where $m$ is the mass, $k$ is the spring constant, $\gamma$ is the damping constant.
+
+$\omega_{0} \equiv \sqrt{k/m}$ is the natural frequency of the oscillator.
+
+\subproblem{a}
+The differential equation can be simplified to:
+
+\begin{equation}
+    \ddot{y} + \gamma \dot{y} + \omega_{0}^{2} y = 0
+\end{equation}
+
+whose characteristic equation is:
+
+\begin{equation}
+    r^{2} + \gamma r + \omega_{0}^{2} = 0
+\end{equation}
+
+\subsubproblem{i}
+
+First consider the case of over-damping where $\gamma > 2 \omega_{0}$ such that there are two distinct real roots. The general solution is:
+
+\begin{equation}
+    y(t) = A e^{r_{+}t} + B e^{r_{-}t}
+\end{equation}
+
+where $r_{+} = (-\gamma + \sqrt{\gamma^{2} - 4 \omega_{0}^{2}})/2$ and $r_{-} = (-\gamma - \sqrt{\gamma^{2} - 4 \omega_{0}^{2}})/2$.
+
+The first derivative has the form:
+
+\begin{equation}
+    \dot{y}(t) = A r_{+} e^{r_{+}t} + B r_{-} e^{r_{-}t}
+\end{equation}
+
+The initial conditions give us the equations:
+
+\begin{equation}
+    \begin{split}
+        A + B &= y_{0} \\
+        A r_{+} + B r_{-} &= 0
+    \end{split}
+\end{equation}
+
+Thus, $A = y_{0}/(1 - r_{+}/r_{-})$ and $B = y_{0}/(1 - r_{-}/r_{+})$.
+
+\subsubproblem{ii}
+
+Next consider the case of critical damping where $\gamma = 2 \omega_{0}$ such that there is one repeated real root $r = -\gamma/2$. The general solution is:
+
+\begin{equation}
+    y(t) = e^{-\gamma t/2} (A + B t)
+\end{equation}
+
+The first derivative has the form:
+
+\begin{equation}
+    \dot{y}(t) = e^{-\gamma t/2}\left[ -\gamma (A + B t)/2 + B \right]
+\end{equation}
+
+The initial conditions give us the equations:
+
+\begin{equation}
+    \begin{split}
+        A &= y_{0} \\
+        B - \gamma A/2 &= 0
+    \end{split}
+\end{equation}
+
+Thus, $A = y_{0}$ and $B = \gamma y_{0}/2$.
+
+\subsubproblem{iii}
+
+Finally, consider the case of under-damping where $\gamma < 2 \omega_{0}$ such that there are two distinct complex roots. The general solution is:
+
+\begin{equation}
+    y(t) = e^{-\gamma t/2} (A e^{i \omega t} + B e^{-i \omega t})
+\end{equation}
+
+where $\omega = \sqrt{\omega_{0}^{2} - \gamma^{2}/4}$.
+
+The first derivative has the form:
+
+\begin{equation}
+    \dot{y}(t) = e^{-\gamma t/2} \left[ -\frac{\gamma}{2} (A e^{i \omega t} + B e^{-i \omega t}) + i\omega (A e^{i \omega t} - B e^{-i \omega t}) \right]
+\end{equation}
+
+The initial conditions give us the equations:
+
+\begin{equation}
+    \begin{split}
+        A + B &= y_{0} \\
+        -\frac{\gamma}{2} (A + B) + i\omega (A - B) &= 0
+    \end{split}
+\end{equation}
+
+Solving these equations yields:
+
+\begin{equation}
+    \begin{split}
+        A = (1 + \frac{\gamma}{i2 \omega}) y_{0} \\
+        B = (1 - \frac{\gamma}{i2 \omega}) y_{0}
+    \end{split}
+\end{equation}
+
+\subsubproblem{iv}
+When $\gamma = 0$, the system is un-damped and pure harmonic oscillation occurs.
+
+\subproblem{b}
+
+The energy of the system is given by $E = m(\omega^{2}y^{2} + \dot{y}^{2})/2$. Expand the expression in complex exponentials, noting that $\omega \approx \omega_{0}$ and ignoring all terms of order $\gamma^{2}$ and higher, we have:
+
+\begin{equation}
+    E \approx 2m e^{-\gamma t}AB \omega^{2}
+\end{equation}
+
+The energy lost in once period of oscillation can be approximated by:
+
+\begin{equation}
+    \Delta E \approx \frac{\mathrm{d}E}{\mathrm{d}t} \frac{2\pi}{\omega} = - \frac{2\pi}{\omega} \gamma E
+\end{equation}
+
+Thus, $Q = 2\pi E/\left\lvert \Delta E \right\rvert = \omega \gamma = \omega_{0} \gamma$
+\qed
+
+
+\problem{2.3}{}
+Substituting $y = x + 1$ into the differential equation:
+
+\begin{equation}
+    (x^{2} - 1)(0) + (x + 1)(1) - (x + 1) = 0
+\end{equation}
+
+Thus $y = x + 1$ is a solution of the differential equation.
+
+Consider a new solution of the form $y = (x + 1)\phi(x)$ where $\phi(x)$ is an unknown function we seek. Substituting this into the differential equation and simplifying yields:
+
+\begin{equation}
+    (x - 1)(x + 1)\phi'' + (3x - 1)\phi' = 0
+\end{equation}
+
+This is a separable differential equation for $\phi'(x)$:
+
+\begin{equation}
+    \frac{\mathrm{d}\phi'}{\phi'} = \frac{1 - 3x}{(x - 1)(x + 1)} \mathrm{d}x
+\end{equation}
+
+Integrating this yields:
+
+\begin{equation}
+    \phi'(x) = \frac{C}{\left\lvert x + 1 \right\rvert^{2} \left\lvert x - 1 \right\rvert}
+\end{equation}
+
+where $C$ is an arbitrary constant.
+
+Integrating again gives:
+
+\begin{equation}
+    \phi(x) = \frac{C}{4} \left( \frac{2}{x + 1} + \ln{\left\lvert \frac{x - 1}{x + 1} \right\rvert} \right) + D
+\end{equation}
+
+where $D$ is an arbitrary constant.
+
+The new solution $(x + 1)\phi(x)$ is evidently linearly independent from $(x + 1)$, so their linear combination is the general solution to the differential equation. Combining the arbitrary constants, the general solution has the form:
+
+\begin{equation}
+    y = D(x + 1) + C \left( \frac{x + 1}{4} \ln{\left\lvert \frac{x - 1}{x + 1} \right\rvert} + \frac{1}{2} \right)
+\end{equation}
+\qed
+
+
+\problem{2.4}{Nonlinear ODEs}
+
+\subproblem{a}
+Notice that $\mathrm{d}(yy')/\mathrm{d}y = yy'' + (y')^{2}$. Therefore:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}y} (yy') = -1
+\end{equation}
+
+We have $yy' = -y + C$ for some arbitrary constant $C$. This gives us a separable differential equation for $y$:
+
+\begin{equation}
+    \frac{y}{-y + C} \mathrm{d}y = \mathrm{d}x
+\end{equation}
+
+Integrating this gives us an implicit expression for $y$:
+
+\begin{equation}
+    y + C \ln{\left\lvert y - C \right\rvert} = -x + D
+\end{equation}
+
+where $D$ is an arbitrary constant.
+
+\subproblem{b}
+The present differential equation is equivalent to a separable differential equation for $y'$:
+
+\begin{equation}
+    \frac{\mathrm{d}y'}{(y')^{3} + y'} = \frac{\mathrm{d}x}{x}
+\end{equation}
+
+which has the solution of the form:
+
+\begin{equation}
+    \frac{y'}{(y')^{2} + 1} = Cx
+\end{equation}
+
+where $C$ is an arbitrary constant and $y' \ne 0$.
+
+Simplifying:
+
+\begin{equation}
+    Cx(y')^{2} - y' + Cx = 0
+\end{equation}
+
+and thus:
+
+\begin{equation}
+    y' = \frac{1 \pm \sqrt{1 - 4C^{2}x^{2}}}{2Cx}
+\end{equation}
+
+Integrating again yields the solution:
+
+\begin{equation}
+    y = \frac{1}{2C} \left( \pm \sqrt{1 - 4C^{2}x^{2}} \mp \tan^{-1} \sqrt{1 - 4C^{2}x^{2}} + \ln{x} \right) + D
+\end{equation}
+
+where $D$ is an arbitrary constant.
+
+\subproblem{c}
+Using the identity $y'' = p p'$, we have:
+
+\begin{equation}
+    p' = \frac{p - (y - 1)^{2}}{y - 1}
+\end{equation}
+
+where $p = y' \ne 0$ and $y \ne 1$.
+
+This becomes a first order differential equation for $p$:
+
+\begin{equation}
+    \frac{\mathrm{d}p}{\mathrm{d}y} - \frac{1}{y - 1}p = 1 - y
+\end{equation}
+
+Consider the integrating factor $\Lambda(x) = 1/(y - 1)$:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}y} \left( \frac{p}{y - 1} \right) = -1
+\end{equation}
+
+Integrating this gives us:
+
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = p = (y - 1) (C - y)
+\end{equation}
+
+where $C$ is an arbitrary constant.
+
+Integrating the separable differential equation for $y$ yields:
+
+\begin{equation}
+    \left\lvert \frac{y - 1}{y - C} \right\rvert = e^{(C - 1)(x + D)}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Supplementary Questions}
+%==========
+
+
+\problem{2.5}{}
+Consider the substitution $z = y'/y$. We have $z' = y''/y - z^{2}$ and, after some simplification:
+
+\begin{equation}
+    9xz' + 9x z^{2} + (6 + x)z + \lambda = 0
+\end{equation}
+
+Consider the case where $\lambda = 0$ and the equation becomes a Bernoulli's equation:
+
+\begin{equation}
+    \begin{split}
+        \frac{z'}{z^{2}} + \frac{6 + x}{9x}z &= -1 \\
+        \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{1}{z} \right) - \frac{6 + x}{9x}z &= 1
+    \end{split}
+\end{equation}
+
+Consider the integrating factor $\Lambda(x) = e^{-x/9} \left\lvert x \right\rvert^{-2/3}$:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} \left( e^{-x/9} \left\lvert x \right\rvert^{-2/3} \frac{1}{z} \right) = e^{-x/9} \left\lvert x \right\rvert^{-2/3}
+\end{equation}
+
+Let $\int \Lambda(x) = \Delta(x) + C$ for some arbitrary constant $C$. Then:
+
+\begin{equation}
+    \Lambda(x) \frac{y}{y'} = \Delta(x) + C
+\end{equation}
+
+\begin{equation}
+    \ln{\left\lvert y \right\rvert} = \int \frac{\Lambda(x)}{\Delta(x) + C} \, \mathrm{d}x = \ln{\left\lvert \Delta(x) + C \right\rvert} + D
+\end{equation}
+
+where $D$ is an arbitrary constant.
+
+Therefore:
+
+\begin{equation}
+    y(x) = D \left[ \Delta(x) + C \right] = D \left( \int e^{-x/9} \left\lvert x \right\rvert^{-2/3} \, \mathrm{d}x + C \right)
+\end{equation}
+
+To make $y(x)$ such that $y \to 0$ as $x \to \pm \infty$, we incorporate the choice of $C$ in to the limits of the integral:
+
+\begin{equation}
+    y(x) = D \int_{-\infty}^{x} e^{-x/9} \left\lvert x \right\rvert^{-2/3} \, \mathrm{d}x
+\end{equation}
+\qed
+
+
+\end{document}

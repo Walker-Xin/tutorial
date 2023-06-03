@@ -1,0 +1,214 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vacation Work}
+\def\assignmentno{Problem Sheet A}
+\def\assignmentname{Introductory Problems}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+\problem{1}{}
+
+\subproblem{a}
+Expanding the expression of $f(x)$ in terms of roots:
+
+\begin{equation}
+    \begin{split}
+        f(x) &= a_{n} (x - \alpha_{1}) (x - \alpha_{2}) \cdots (x - \alpha_{n}) \\
+        &= a_{n} [x^{2} - (\alpha_{1} + \alpha_{2})x + \alpha_{1} \alpha_{2}] (x - \alpha_{3}) \cdots \\
+        &= a_{n} [x^{3} - (\alpha_{1} + \alpha_{2} + \alpha_{3})x^{2} + (\alpha_{1} \alpha_{2} - \alpha_{1} \alpha_{3} - \alpha_{2} \alpha_{3})x - \alpha_{1} \alpha_{2} \alpha_{3}] (x - \alpha_{4}) \cdots \\
+    \end{split}
+\end{equation}
+
+Therefore, it is concluded that the coefficient of $x^{n-1}$ must be $-a_{n} \sum \alpha_{k}$, where $k$ ranges from $1$ to $n$. Hence, comparing with the coefficient expression:
+
+\begin{equation}
+    \sum_{k=1}^{n} \alpha_{k} = -\frac{a_{n-1}}{a_{n}}
+\end{equation}
+
+Further, note that the two expressions must be equal given any value of $x$. Taking $x=0$, have:
+
+\begin{equation}
+    \begin{split}
+        a_{0} = a_{n} \prod_{k=1}^{n} -\alpha_{k} \\
+        \prod_{k=1}^{n} \alpha_{k} = (-1)^{n} \frac{a_{0}}{a_{n}}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+$x = 1$ is a root for obvious reason, and the sum and product of the two other roots are $\boxed{-7/4}$ and $\boxed{1/4}$ respectively.
+\qed
+
+
+\problem{2}{}
+Employing the double angle formula:
+
+\begin{equation}
+    \begin{split}
+        \cos{(4\theta)} &= \cos^{2}{(2\theta)} - \sin^{2}{(2\theta)} \\
+        &= (\cos^{2}{\theta} - \sin^{2}{\theta})^{2} - 4 \sin^{2}{\theta} \cos^{2}{\theta} \\
+        &= \cos^{4}{\theta} + \sin^{4}{\theta} - 6 \sin^{2}{\theta} \cos^{2}{\theta} \\
+        &= (1 - \sin^{2}{\theta})^{2} + \sin^{4}{\theta} - 6 \sin^{2}{\theta} (1 - \sin^{2}{\theta}) \\
+        &= 8 \sin^{4}{\theta} - 8 \sin^{2}{\theta} + 1
+    \end{split}
+\end{equation}
+
+Since $\cos(4 \times \pi/8) = 0$, $\theta = \pi/8$ is a root of the above equation, and thus $\sin{(\pi/8)}$ is a solution to $8s^{2} - 8s + 1 = 0$.
+
+This can be regarded as a quadratic equation of $s^{2}$, with the solution:
+
+\begin{equation}
+    s^{2} = \frac{8 \pm \sqrt{64 - 32}}{16} = \frac{2 \pm \sqrt{2}}{4}
+\end{equation}
+
+But $\sin{(\pi/8)} \le 1$, so we retain the negative sign and yield:
+
+\begin{equation}
+    \sin{\frac{\pi}{8}} = \sqrt{\frac{2 - \sqrt{2}}{4}}
+\end{equation}
+
+And hence:
+
+\begin{equation}
+    \cos{\frac{\pi}{8}} = \sqrt{1 - \sin^{2}{\frac{\pi}{8}}} = \boxed{\sqrt{\frac{2 + \sqrt{2}}{4}}}
+\end{equation}
+
+\begin{equation}
+    \tan{\frac{\pi}{8}} = \sin{\frac{\pi}{8}}/\cos{\frac{\pi}{8}} = \sqrt{\frac{2 - \sqrt{2}}{2 + \sqrt{2}}} = \boxed{\sqrt{3 - 2\sqrt{2}}}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+Expanding the right hand side:
+
+\begin{equation}
+    \begin{split}
+        K \sin{(\theta + \phi)} &= K (\sin{\theta}\cos{\phi} + \cos{\theta}\sin{\phi})
+    \end{split}
+\end{equation}
+
+Comparing the coefficients, we have:
+
+\begin{equation}
+    K \cos{\phi} = a, \quad K \sin{\phi} = b
+\end{equation}
+
+Hence, $K^{2} = a^{2} + b^{2}$ and $\phi = \arctan{(b/a)}$
+\qed
+
+
+\problem{4}{}
+The equation can be rewritten as:
+
+\begin{equation}
+    f(x, y) = (x + 3)^{2} + (y + 4)^{2} - 25 = 0
+\end{equation}
+
+This represents a circle centred at $(-3, -4)$ with a radius of $5$ units.
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}
+\begin{equation}
+    \frac{2x + 1}{x^{2} + 3x - 10} = \frac{2x + 1}{(x - 2)(x + 5)} = \frac{5/7}{x - 2} + \frac{9/7}{x + 5}
+\end{equation}
+
+\subproblem{b}
+\begin{equation}
+    \frac{4}{x^{2} - 3x} = \frac{4}{x(x - 3)} = \frac{1}{x-3} - \frac{1}{x}
+\end{equation}
+
+\subproblem{c}
+\begin{equation}
+    \frac{x^{2} + x - 1}{x^{2} + x - 2} = 1 + \frac{1}{x^{2} + x - 2} = 1 + \frac{1}{(x - 1)(x + 2)} = 1 + \frac{1/3}{x - 1} - \frac{1/3}{x + 2}
+\end{equation}
+
+\subproblem{d}
+\begin{equation}
+    \frac{2x}{(x + 1)(x - 1)^2} = -\frac{1/2}{x + 1} + \frac{1/2}{x - 1} + \frac{1}{(x + 1)^{2}}
+\end{equation}
+
+\subproblem{e}
+\begin{equation}
+    \frac{2 + 4x}{(x + 2)(x^{2} + 2)} = -\frac{1}{x+2} + \frac{x + 2}{x^{2} + 2}
+\end{equation}
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+\begin{equation}
+    (1 + x)^{5} = 1 + 5x + 10x^{2} + \dots
+\end{equation}
+
+\subproblem{b}
+\begin{equation}
+    \frac{1}{1 + x} = (1 + x)^{-1} = 1 - x + x^{2} - \dots
+\end{equation}
+
+where $\lvert x \rvert < 1$.
+
+\subproblem{c}
+\begin{equation}
+    \frac{1}{\sqrt{1 + x}} = (1 + x)^{-1/2} = 1 - \frac{x}{2} + \frac{3}{8} x^{2} - \dots
+\end{equation}
+
+where $\lvert x \rvert < 1$.
+
+First note that $\sqrt{4.2} = 2 \sqrt{1.05} = 2 \sqrt{1 + 0.05}$. Then using the above result:
+
+\begin{equation}
+    \frac{1}{\sqrt{4.2}} \approx \frac{1}{2} (1 - \frac{0.05}{2} + \frac{3}{8} \times 0.05^{2}) = \boxed{0.488}
+\end{equation}
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}
+Let $P_{n}$ denote the proposition that $\sum_{r = 1}^{n} r = \frac{1}{2}n (n + 1)$ for some $n \in \mathbb{Z}$. $P_{1}$ is obviously true.
+
+Now suppose that $P_{k}$ is true for some $k \in \mathbb{Z}$, so that $\sum_{r = 1}^{k} r = \frac{1}{2}k (k + 1)$. We have:
+
+\begin{equation}
+    \sum_{r = 1}^{k + 1} r = \sum_{r = 1}^{k} r + (k + 1) = (\frac{1}{2}k + 1)(k + 1) = \frac{1}{2} (k + 1) (k + 2)
+\end{equation}
+
+Thus $P_{k + 1}$ is true if $P_{k}$ is true. Since $P_{1}$ is true and $P_{k}$ leads to $P_{k + 1}$, $P_{n}$ is true for all $n \in \mathbb{Z}$.
+
+\subproblem{b}
+Let $P_{n}$ denote the proposition that $\sum_{r = 1}^{n} r^{3} = \frac{1}{4}n^{2} (n + 1)^{2}$ for some $n \in \mathbb{Z}$. $P_{1}$ is obviously true.
+
+Now suppose that $P_{k}$ is true for some $k \in \mathbb{Z}$, so that $\sum_{r = 1}^{k} r^{3} = \frac{1}{4}k^{2} (k + 1)^{2}$. We have:
+
+\begin{equation}
+    \sum_{r = 1}^{k + 1} r^{3} = \sum_{r = 1}^{k} r^{3} + (k + 1)^{3} = (\frac{1}{4}k^{2} + k + 1) (k + 1)^{2} = \frac{1}{4} (k + 1)^{2} (k + 2)^{2}
+\end{equation}
+
+Thus $P_{k + 1}$ is true if $P_{k}$ is true. Since $P_{1}$ is true and $P_{k}$ leads to $P_{k + 1}$, $P_{n}$ is true for all $n \in \mathbb{Z}$.
+\qed
+
+
+\problem{8}{}
+\begin{equation}
+    r S_{n} = r + r^{2} + r^{3} + \dots + r^{n+1} = S_{n} + r^{n+1} - 1
+\end{equation}
+
+Solving for $S_{n}$ leads to:
+
+\begin{equation}
+    S_{n} = \frac{1 - r^{n+1}}{1 - r}
+\end{equation}
+\qed
+
+\end{document}

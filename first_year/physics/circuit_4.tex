@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Circuit Theory}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Operational Amplifier Circuits}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Operational Amplifier Circuits}
+%==========
+
+
+\problem{23}{}
+
+\subproblem{a}{}
+For an ideal op-amp, the input current is zero so that:
+
+\begin{equation}
+    \frac{V_{\text{IN}} - 0}{R_{1}} = \frac{0 - V_{\text{OUT}}}{R_{2}}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    V_{\text{OUT}} = -\frac{R_{2}}{R_{1}} V_{\text{IN}}
+\end{equation}
+
+When $R_{2} = 4R_{1}$ and $V_{\text{OUT}} = \qty{2}{V}$, we have $V_{\text{IN}} = \qty{-0.5}{V}$.
+
+\subproblem{b}{}
+We have:
+
+\begin{equation}
+    \frac{V_{\text{OUT}} - V_{\text{IN}}}{R_{2}} = \frac{V_{\text{IN}} - 0}{R_{1}}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    V_{\text{OUT}} = \frac{R_{1} + R_{2}}{R_{1}} V_{\text{IN}}
+\end{equation}
+
+When $R_{2} = 4R_{1}$ and $V_{\text{OUT}} = \qty{2}{V}$, we have $V_{\text{IN}} = \qty{0.4}{V}$.
+
+\subproblem{c}{}
+We have:
+
+\begin{equation}
+\begin{split}
+    \frac{V_{\text{ref}} - V}{R_{2}} &= \frac{V - V_{\text{OUT}}}{R_{1}} \\
+    \frac{V_{\text{IN}} - V}{R_{1}} &= \frac{V}{R_{2}}
+\end{split}
+\end{equation}
+
+where $V$ is the input voltage of the op-amp.
+
+Solving for $V_{\text{OUT}}$ yields:
+
+\begin{equation}
+    V_{\text{OUT}} = \frac{R_{2}}{R_{1}} (V_{\text{IN}} - V_{\text{ref}})
+\end{equation}
+
+When $R_{2} = 4R_{1}$ and $V_{\text{OUT}} = \qty{2}{V}$, we have $V_{\text{IN}} = \qty{1.5}{V}$.
+\qed
+
+
+\problem{24}{}
+For there to be no current through the op-amp, we have:
+
+\begin{equation}
+    \frac{V_{\text{IN}}}{R} = \frac{\mathrm{d}q}{\mathrm{d}t}
+\end{equation}
+
+where $q(t)$ is the charge on left-plate of the capacitor.
+
+Hence the output of the first op-amp satisfies $V'_{\text{OUT}} = -q/C$. Further imposing the no-current condition on the second op-amp yields:
+
+\begin{equation}
+    \frac{V'_{\text{OUT}}}{R} + \frac{V_{1}}{R} = \frac{0 - V_{\text{OUT}}}{R}
+\end{equation}
+
+This leads to:
+
+\begin{equation}
+    V_{\text{OUT}} = -V'_{\text{OUT}} - V_{1} = \frac{1}{RC} \int_{0}^{t} V_{\text{IN}} \, \mathrm{d}t - V_{1}
+\end{equation}
+
+Given that $V_{\text{IN}} = \qty{1}{V}$, we have the numerical value of $V_{\text{OUT}}$ to be $(t - 10)$. This grows arbitrarily large as $t$ tends to infinity, which is not physically possible.
+\qed
+
+
+\problem{25}{}
+Imposing the no-current condition on the op-amp yields:
+
+\begin{equation}
+    \frac{V_{\text{IN}}}{R} = \frac{\mathrm{d}q_{C}}{\mathrm{d}t} + i_{R}
+\end{equation}
+
+where $q_{c}$ is the charge on the capacitor satisfying $V_{\text{OUT}} = -q_{C}/C$ and $i_{R}$ is the current through the resistor satisfying $V_{\text{OUT}} = -i_{R}R$.
+
+This yields a differential equation for $V_{\text{OUT}}(t)$:
+
+\begin{equation}
+    \frac{\mathrm{d}V_{\text{OUT}}}{\mathrm{d}t} + \frac{V_{\text{OUT}}}{RC} + \frac{V_{\text{IN}}}{RC} = 0
+\end{equation}
+
+Now let the input voltage take the complex form $V_{\text{IN}} = \tilde{V} e^{\mathrm{i} \omega t}$, where $\omega$ is the angular frequency. Applying an integrating factor of $e^{t/CR}$ yields:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( e^{t/CR} V_{\text{OUT}} \right) &= -\frac{\tilde{V}}{CR} e^{(1/CR + i\omega)t} \\
+    V_{\text{OUT}}(t) &= -\frac{\tilde{V}}{1 + i\omega CR} e^{i\omega t} = -\frac{1}{1 + i\omega CR} V_{\text{IN}}(t)
+\end{split}
+\end{equation}
+
+Taking the ratio leads to $\left\lvert V_{\text{OUT}}/V_{\text{IN}} \right\rvert = 1/\sqrt{1 + (\omega CR)^{2}}$. This equals $1/\sqrt{2}$ when $\omega = 1/(CR)$, which is the usual definition of the resonance frequency.
+\qed
+
+
+\problem{26}{}
+First note that the current output by $V_{\text{IN}}$ is constant and does not alter when any of the switches changes. Hence we can calculate the voltages $V_{0}, V_{1}, V_{2}, V_{3}$ above the switches without ambiguity.
+
+First focus on the node above the last switch $S_{3}$. The two $2R$ resistors combine to give a $R$ resistor, which means $V_{3} = V_{2}/2$. Note that this argument can be made for every node above a switch, which means $V_{i} = V_{i-1}/2$ for $i = 1, 2, 3$. But $V_{0}$ is just the input voltage, and we thus know all the node voltages.
+
+Applying the no-current condition on the op-amp yields:
+
+\begin{equation}
+\begin{split}
+    \frac{0 - V_{\text{OUT}}}{R} = I = \sum_{i = 0}^{3} \frac{S_{i}}{2R} V_{i} \\
+\end{split}
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+    V_{\text{OUT}} = - V_{\text{IN}} \left( \frac{S_{0}}{2} + \frac{S_{1}}{4} + \frac{S_{2}}{8} + \frac{S_{3}}{16} \right)
+\end{equation}
+
+The range of the output is from $\qty{0}{V}$ to $\qty{-9.375}{V}$. To make the output non-inverting, we can use the circuit in Question 23 Part (b), replacing $R_{1}$ with the present network and $R_{2}$ with $R$. This will lead to the output expression:
+
+\begin{equation}
+    V_{\text{OUT}} = V_{\text{IN}} \left( 1 + \frac{S_{0}}{2} + \frac{S_{1}}{4} + \frac{S_{2}}{8} + \frac{S_{3}}{16} \right)
+\end{equation}
+
+(\textit{this seems weird...})
+
+
+
+\end{document}

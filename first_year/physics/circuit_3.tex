@@ -1,0 +1,396 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Circuit Theory}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Complex Impedances and Response of Linear Circuits to AC}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Complex Impedances and Response of Linear Circuits to AC}
+%==========
+
+
+\problem{14}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    V_{\text{rms}} = V_{C}
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    V_{\text{rms}} = \frac{V_{C}}{\sqrt{2}}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    V_{\text{rms}} = \frac{V_{C}}{2}
+\end{equation}
+
+(b) and (c) are different because (b) has a higher extreme absolute value.
+
+\subproblem{d}{}
+
+\begin{equation}
+    V_{\text{rms}} = \sqrt{\frac{1}{2T} \int_{-T}^{T} \left( \frac{V_{0}}{T} \right)^{2} t^{2} \, \mathrm{d}t} = \frac{V_{0}}{\sqrt{3}}
+\end{equation}
+\qed
+
+
+\problem{15}{}
+For all the networks we have $\tilde{V} = V_{0} e^{i(\omega t - \pi/2)}$
+
+\subproblem{a}{}
+
+\begin{equation}
+    Z = R - \frac{j}{\omega C}
+\end{equation}
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{\sqrt{R^{2} + (1/\omega C)^{2}}} e^{i(\omega t - \pi/2 + \phi)}
+\end{equation}
+
+where $\phi = \tan^{-1}{\left[ 1/(\omega C R) \right]} = \qty{0.016}{rad}$.
+
+The current leads the voltage by $\phi$.
+
+\begin{equation}
+    \tilde{V_{R}} = R \tilde{I} = V_{0} \frac{R}{\sqrt{R^{2} + (1/\omega C)^{2}}} e^{i(\omega t - \pi/2 + \phi)}
+\end{equation}
+
+Thus, $V_{R, \text{max}} = V_{0} R/(\sqrt{R^{2} + (1/\omega C)^{2}}) = \qty{10}{V}$.
+
+\subproblem{b}{}
+
+\begin{equation}
+    Z = j \omega L - \frac{j}{\omega C}
+\end{equation}
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{\sqrt{(\omega L)^{2} + (1/\omega C)^{2}}} e^{i(\omega t - \pi)}
+\end{equation}
+
+The current lags the voltage by $\pi/2$.
+
+\begin{equation}
+    V_{C, \text{max}} = V_{0} \frac{(1/\omega C)}{\sqrt{(\omega L)^{2} + (1/\omega C)^{2}}} = \qty{10}{V}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    Z = R + j \omega L - \frac{j}{\omega C}
+\end{equation}
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{\sqrt{R^{2} + (\omega L)^{2} + (1/\omega C)^{2}}} e^{i(\omega t - \pi/2 + \phi)}
+\end{equation}
+
+where:
+
+\begin{equation}
+    \phi = \tan^{-1}{\left( \frac{1/(\omega C) - \omega L}{R} \right)} = \qty{5.5e-3}{rad}
+\end{equation}
+
+The current leads the voltage by $\phi$.
+
+\begin{equation}
+    V_{L, \text{max}} = V_{0} \frac{\omega L}{\sqrt{R^{2} + (\omega L - 1/\omega C)^{2}}} = \qty{1.3e-3}{V}
+\end{equation}
+
+\subproblem{d}{}
+
+\begin{equation}
+    Z = \frac{1}{1/R + 1/(j \omega L)} = X e^{i\pi/2}
+\end{equation}
+
+where $X = \qty{3.95}{\Omega}$.
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{X} e^{i(\omega t - \pi)}
+\end{equation}
+
+The current lags the voltage by $\pi/2$.
+
+\begin{equation}
+    V_{R, \text{max}} = V_{0} = \qty{10}{V}
+\end{equation}
+
+\subproblem{e}{}
+
+\begin{equation}
+    Z = \frac{1}{1/(j \omega L) + j \omega C} = X e^{i\pi/2}
+\end{equation}
+
+where $X = \qty{39.5}{\Omega}$.
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{X} e^{i(\omega t - \pi)}
+\end{equation}
+
+The current lags the voltage by $\pi/2$.
+
+\begin{equation}
+    V_{C, \text{max}} = V_{0} = \qty{10}{V}
+\end{equation}
+
+\subproblem{f}{}
+
+\begin{equation}
+    Z = \frac{1}{1/R + \frac{1}{j \omega L - j/(\omega C)}} = \frac{R(\omega L - 1/(\omega C))}{\sqrt{R^{2} + (\omega L - 1/(\omega C))^{2}}} e^{i\phi} = X e^{i\phi}
+\end{equation}
+
+where:
+
+\begin{equation}
+    \phi = \tan^{-1}{\left( \frac{R}{1/(\omega C) - \omega L} \right)} = \qty{-1.54}{rad}
+\end{equation}
+
+\begin{equation}
+    \tilde{I} = \frac{\tilde{V}}{Z} = \frac{V_{0}}{X} e^{i(\omega t - \pi/2 - \phi)}
+\end{equation}
+
+The current lags the voltage by $\phi$.
+
+\begin{equation}
+    V_{L, \text{max}} = V_{0} \frac{\omega L}{\omega L - 1/(\omega C)} = \qty{10.3}{V}
+\end{equation}
+\qed
+
+
+\problem{16}{}
+For both circuits, $\tilde{V_{1}} = V_{0} e^{i(\omega t - \pi/2)}$.
+
+\subproblem{I}{}
+
+\begin{equation}
+    \tilde{V_{2}} = \tilde{V_{1}} \frac{\frac{1}{j \omega C}}{R + \frac{1}{j \omega C}} = \frac{V_{0}}{\sqrt{1 + (\omega C R)^{2}}} e^{i(\omega t - \pi/2 - \phi)}
+\end{equation}
+
+where:
+
+\begin{equation}
+    \phi = \tan^{-1}{\left( \omega C R \right)}
+\end{equation}
+
+\begin{equation}
+    \frac{V_{2, \text{max}}}{V_{1, \text{max}}} = \frac{1}{\sqrt{1 + (\omega C R)^{2}}}
+\end{equation}
+
+\subproblem{II}{}
+
+\begin{equation}
+    \tilde{V_{2}} = \tilde{V_{1}} \frac{j \omega L}{R + j \omega L} = \frac{V_{0}}{\sqrt{1 + (R/\omega L)^{2}}} e^{i(\omega t - \pi/2 + \phi)}
+\end{equation}
+
+where:
+
+\begin{equation}
+    \phi = \tan^{-1}{\left( \frac{R}{\omega L} \right)}
+\end{equation}
+
+\begin{equation}
+    \frac{V_{2, \text{max}}}{V_{1, \text{max}}} = \frac{1}{\sqrt{1 + (R/\omega L)^{2}}}
+\end{equation}
+
+For both circuits, the ratio is given by:
+
+\begin{equation}
+    \frac{1}{\sqrt{1 + (\omega/\omega_{0})^{2}}}
+\end{equation}
+
+and the phase is given by:
+
+\begin{equation}
+    \tan^{-1}{\left( \frac{\omega}{\omega_{0}} \right)}
+\end{equation}
+\qed
+
+
+\problem{17}{}
+We have $\tilde{I} = I_{0} e^{i(\omega t - \pi/2)}$.
+
+\subproblem{a}{}
+
+\begin{equation}
+    \tilde{V_{C}} = \frac{\tilde{I}}{j \omega C} = \frac{I_{0}}{\omega C} e^{i(\omega t - \pi)}
+\end{equation}
+
+where $\frac{I_{0}}{\omega C} = \qty{10}{V}$.
+
+\begin{equation}
+    \tilde{V_{L}} = \tilde{I} j \omega L = I_{0} \omega L e^{i\omega t}
+\end{equation}
+
+where $I_{0} \omega L = \qty{20}{V}$.
+
+\begin{equation}
+    \tilde{V_{R}} = \tilde{I} R = I_{0} R e^{i(\omega t - \pi/2)}
+\end{equation}
+
+where $I_{0} R = \qty{10}{V}$.
+
+\begin{equation}
+    \tilde{V} = I_{0} X e^{i(\omega t - \pi/2 + \phi)}
+\end{equation}
+
+where:
+
+\begin{equation}
+    X = \sqrt{R^{2} + (\omega L - 1/(\omega C))^{2}} = \qty{141}{\Omega}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \phi = \tan^{-1}{\left( \frac{\omega L - 1/(\omega C)}{R} \right)} = \pi/2
+\end{equation}
+
+and $I_{0} X = \qty{14.1}{V}$
+
+\subproblem{b}{}
+
+\begin{equation}
+    P = \Re(\tilde{V}) \Re(\tilde{I}) = I_{0}^{2} X \sin{(\omega t + \phi)} \sin{\omega t}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    W_{L} = \frac{1}{2} L \Re(\tilde{I})^{2} = \frac{1}{2} L I_{0}^{2} \sin^{2}{\omega t}
+\end{equation}
+
+\begin{equation}
+    W_{C} = \frac{1}{2} C \Im(\tilde{V_{C}})^{2} = \frac{1}{2} \frac{1}{\omega^{2}C} I_{0}^{2} \cos^{2}{\omega t}
+\end{equation}
+
+\subproblem{d}
+
+Their maximum values are $\frac{1}{2} L I_{0}^{2}$ and $\frac{1}{2} \frac{1}{\omega^{2}C} I_{0}^{2}$ respectively.
+
+\subproblem{f}
+
+For the sum to be constant, $L = 1/(\omega^{2} C) = \qty{0.1}{mH}$.
+\qed
+
+
+\problem{18}{}
+For this circuit:
+
+\begin{equation}
+    Z = R + j \omega L - \frac{j}{\omega C} = \sqrt{R^{2} + (\omega L - \frac{1}{\omega C})^{2}} e^{i\phi}
+\end{equation}
+
+For the amplitude to be minimum:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}\omega} \left[ \sqrt{R^{2} + (\omega L - \frac{1}{\omega C})^{2}} \right] = \frac{2(\omega L - \frac{1}{\omega C})(L + \frac{1}{\omega^{2} C})}{2\sqrt{R^{2} + (\omega L - \frac{1}{\omega C})^{2}}} = 0
+\end{equation}
+
+This happens when $\omega L - \frac{1}{\omega C} = 0$ or $\omega = \frac{1}{\sqrt{LC}}$. Then $Z = R e^{i\phi}$, and $V_{C, \text{max}} = V_{0}/(\omega C R) = \qty{3.16}{V}$.
+\qed
+
+
+\problem{19}{}
+
+\begin{equation}
+    Z = j \omega L - \frac{j}{2\omega C} + \frac{1}{j \omega C + \frac{1}{\frac{1}{2j \omega C} + j \omega L}} = j \left( \omega L - \frac{1}{2\omega C} - \frac{1}{\omega C + \frac{2\omega C}{1 - 2\omega^{2} C L}} \right) = 0
+\end{equation}
+
+Solving this equation (avoiding the asymptote) gives $\omega = \sqrt{5/(2LC)}$. The other root $\omega = \sqrt{1/(2LC)}$ is obtained by substituting the asymptote value directly into the original expression.
+\qed
+
+
+\problem{20}{}
+
+\subproblem{a}{}
+For the bridge to be balanced:
+
+\begin{equation}
+    Z_{1} \frac{1}{\frac{1}{R_{4}} + j \omega C_{4}} = \frac{1}{j \omega C_{3}} R_{2}
+\end{equation}
+
+Solving for $Z_{1}$ yields:
+
+\begin{equation}
+    Z_{1} = R_{2} \frac{C_{4}}{C_{3}} - j \frac{R_{2}}{R_{4}} \frac{1}{\omega C_{3}}
+\end{equation}
+
+\subproblem{b}{}
+For a series combination:
+
+\begin{equation}
+    R_{1} - j \frac{1}{\omega C_{1}} = R_{2} \frac{C_{4}}{C_{3}} - j \frac{R_{2}}{R_{4}} \frac{1}{\omega C_{3}}
+\end{equation}
+
+so that $R_{1} = R_{2} C_{4}/C_{3}$ and $C_{1} = C_{3} R_{4}/R_{2}$.
+
+\subproblem{c}{}
+For a parallel combination:
+
+\begin{equation}
+    \frac{1}{\frac{1}{R_{1}} + j \frac{1}{\omega C_{1}}} = R_{2} \frac{C_{4}}{C_{3}} - j \frac{R_{2}}{R_{4}} \frac{1}{\omega C_{3}}
+\end{equation}
+
+Solving this equation yields:
+
+\begin{equation}
+\begin{split}
+    R_{1} &= \frac{R_{2}\left[ 1 + (\omega C_{4} R_{4})^{2} \right]}{\omega^{2} C_{3} C_{4} R_{4}^{2}} \\
+    C_{1} &= \frac{C_{3} R_{4}}{R_{2}\left[ 1 + (\omega C_{4} R_{4})^{2} \right]}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{21}{}
+
+\subproblem{a}{}
+Note that $\omega_{0} L = 1/(\omega_{0} C) = \sqrt{3}R$
+
+\begin{equation}
+    Z = R + \frac{1}{\frac{1}{R + j \omega_{0} L} + \frac{1}{R - j/(\omega_{0} C)}} = R + \frac{(R + j\sqrt{3}R)(R - j\sqrt{3}R)}{2R} = 3R
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    \tilde{V_{AX}} = \frac{R}{3R} \tilde{V_{AB}} = \frac{\tilde{V_{AB}}}{3}
+\end{equation}
+
+\begin{equation}
+    \tilde{V_{XY}} = \frac{2}{3} \tilde{V_{AB}} \frac{R}{R + j\sqrt{3}R} = \frac{\tilde{V_{AB}}}{3} e^{i\pi/3}
+\end{equation}
+
+\begin{equation}
+    \tilde{V_{XZ}} = \frac{1}{3} \tilde{V_{AB}} \frac{R}{R - j/(\sqrt{3}R)} = \frac{\tilde{V_{AB}}}{3} e^{-i\pi/3}
+\end{equation}
+\qed
+
+
+\problem{22}{}
+We have:
+
+\begin{equation}
+    V_{xy} = \left( \frac{1}{2} - \frac{1}{1 + j\omega R C} \right) V = \frac{j\omega R C - 1}{j\omega R C + 1} \frac{V}{2}
+\end{equation}
+
+so the amplitude is $\left\lvert V_{xy} = V/2 \right\rvert$ which is independent of $R$ and the phase is $\pi - 2\phi$ where $\phi = \tan^{-1}{(\omega R C)}$.
+
+Therefore, when $R = 1/(\omega C)$, $\pi - 2\phi = \pi/2$.
+
+
+\end{document}

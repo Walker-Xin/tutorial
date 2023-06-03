@@ -1,0 +1,500 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Ordinary Differential Equations}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Second-Order ODEs, Part II}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Minimal Set}
+%==========
+
+
+\problem{3.1}{Inhomogeneous ODEs}
+Given $y'' - 3y' + 2y = f(x)$. The complementary solution has the form:
+
+\begin{equation}
+    y_{c} = \alpha e^{2x} + \beta e^{x}
+\end{equation}
+
+\subproblem{i}
+Let $y_{p} = Ax^{2} + Bx + C$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = 2A - 3(2Ax + B) + 2(Ax^{2} + Bx + C) = x^{2}
+\end{equation}
+
+This gives us $A = 1$ and $B = C = 0$. Thus, $y_{p} = x^{2}$.
+
+\subproblem{ii}
+Let $y_{p} = Ae^{4x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = 16Ae^{4x} - 3(4Ae^{4x}) + 2Ae^{4x} = e^{4x}
+\end{equation}
+
+This gives us $A = 1/6$. Thus, $y_{p} = e^{4x}/6$.
+
+\subproblem{iii}
+Let $y_{p} = Axe^{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = Ae^{x}(x + 2) - 3Ae^{x}(x + 1) + 2Axe^{x} = e^{x}
+\end{equation}
+
+This gives us $A = 1$. Thus, $y_{p} = xe^{x}$.
+
+\subproblem{iv}
+Let $\mistake{y_{p} = Ae^{x} + Be^{-x}}$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = Ae^{x} + Be^{-x} - 3(Ae^{x} - Be^{-x}) + 2(Ae^{x} + Be^{-x}) = \frac{e^{x} - e^{-x}}{2}
+\end{equation}
+
+This gives us $B = -1/12$ and $A$ can be incorporated into the complementary solution. Thus, $y_{p} = -e^{-x}/12$.
+
+\begin{correction}
+    Let $y_{p} = Axe^{x} + Be^{-x}$, so that:
+
+    \begin{equation}
+        y_{p}'' - 3y_{p}' + 2y_{p} = Ae^{x}(x + 2) + Be^{-x} - 3[Ae^{x}(x + 1) - Be^{-x}] + 2(Axe^{x} + Be^{-x}) = \frac{e^{x} - e^{-x}}{2}
+    \end{equation}
+
+    This gives us $B = -1/12$ and $A$ is free. Thus, $y_{p} = Axe^{x} - e^{-x}/12$.
+\end{correction}
+
+\subproblem{v}
+Let $y_{p} = A\sin{x} + B\cos{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = -A\sin{x} - B\cos{x} - 3(A\cos{x} - B\sin{x}) + 2(A\sin{x} + B\cos{x}) = \sin{x}
+\end{equation}
+
+This gives us $A = 1/10$ and $B = 3/10$. Thus, $y_{p} = \sin{x}/10 + 3\cos{x}/10$.
+
+\subproblem{vi}
+Let $y_{p} = Ax \sin{x} + Bx \cos{x} + C\sin{x} + D\cos{x}$, so that:
+
+\begin{equation}
+    \begin{split}
+        &y_{p}'' - 3y_{p}' + 2y_{p} \\
+        &= -(Ax + 2B)\sin{x} + (2A - Bx)\cos{x} - 3\left[ (A - Bx)\sin{x} + (Ax + B)\cos{x} \right] + 2(Ax \sin{x} + Bx \cos{x}) \\
+        &= x \sin{x}
+    \end{split}
+\end{equation}
+
+\subproblem{vii}
+Let $y_{p} = Axe^{2x} + B\cos^{2}{x} + C\sin^{2}{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 3y_{p}' + 2y_{p} = Ae^{2x} + 2B\cos^{2}{x} + 2C\sin^{2}{x} - 2(B - C)(\cos^{2}{x} - \sin^{2}{x}) + 6(B - C)\sin{x}\cos{x}
+\end{equation}
+\qed
+
+
+\problem{3.2}{Inhomogeneous ODEs}
+
+\subproblem{i}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = e^{-x/5}\left[ \alpha \cos{\left( \frac{2x}{5} \right)} + \beta \sin{\left( \frac{2x}{5} \right)} \right]
+\end{equation}
+
+where $\alpha = -1$ and $\beta = -2$
+
+Let $y_{p} = Ax + B$, so that:
+
+\begin{equation}
+    5y_{p}'' + 2y_{p}' + y_{p} = 5A  + 2A + Ax + B = x
+\end{equation}
+
+This gives us $A = 2$ and $B = -1$. Thus:
+
+\begin{equation}
+    y(x) = -e^{-x/5}\left[ \cos{\left( \frac{2x}{5} \right)} + 2\sin{\left( \frac{2x}{5} \right)} \right] + 2x - 1
+\end{equation}
+
+\subproblem{ii}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = \alpha e^{2x} + \beta e^{-x}
+\end{equation}
+
+Let $y_{p} = Axe^{2x}$, so that:
+
+\begin{equation}
+    y_{p}'' - y_{p}' - 2y_{p} = Ae^{2x}(4x + 4 - 2x - 2x - 1) = e^{2x}
+\end{equation}
+
+This gives us $A = 1/3$. Thus:
+
+\begin{equation}
+    y(x) = \alpha e^{2x} + \beta e^{-x} + \frac{1}{3} xe^{2x}
+\end{equation}
+
+\subproblem{iii}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = e^{x/2}(\alpha x + \beta)
+\end{equation}
+
+where $\alpha = 1$ and $\beta = 0$.
+
+Let $y_{p} = Ax^{2}e^{x/2}$, so that:
+
+\begin{equation}
+    4y_{p}'' - 4y_{p}' + y_{p} = Ae^{x/2}(x^{2} + x^{2} + 8x + 8 - 2x^{2} - 8x) = 8e^{x/2}
+\end{equation}
+
+This gives us $A = 1$. Thus:
+
+\begin{equation}
+    y(x) = xe^{x/2} + x^{2} e^{x/2}
+\end{equation}
+
+\subproblem{iv}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = \alpha e^{-x} + \beta e^{-2x}
+\end{equation}
+
+Let $\mistake{y_{p} = Axe^{-x}}$, so that:
+
+\begin{equation}
+    y_{p}'' + 3y_{p}' + 2y_{p} = Ae^{-x}(x - 2 - 3x + 3 + 2x) = xe^{-x}
+\end{equation}
+
+This gives us $A = 1$. Thus:
+
+\begin{equation}
+    y(x) = \alpha e^{-x} + \beta e^{-2x} + xe^{-x}
+\end{equation}
+
+\begin{correction}
+    Let $y_{p} = Axe^{-x} + Bx^{2}e^{-x}$, so that:
+
+    \begin{equation}
+        y_{p}'' + 3y_{p}' + 2y_{p} = Ae^{-x} + Be^{-x}(2x + 2) = xe^{-x}
+    \end{equation}
+
+    This gives us $A = -1$ and $B = 1/2$. Thus:
+
+    \begin{equation}
+        y(x) = \alpha e^{-x} + \beta e^{-2x} - xe^{-x} + \frac{1}{2} x^{2}e^{-x}
+    \end{equation}
+\end{correction}
+
+\subproblem{v}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = \alpha e^{x} + \beta e^{3x}
+\end{equation}
+
+Let $y_{p} = A\cos{x} + B\sin{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 4y_{p}' + 3y_{p} = 2(A - 2B) \cos{x} + 2(2A + B)\sin{x} = 10\cos{x}
+\end{equation}
+
+This gives us $A = 1$ and $B = -2$. Thus:
+
+\begin{equation}
+    y(x) = \alpha e^{x} + \beta e^{3x} + \cos{x} - 2\sin{x}
+\end{equation}
+
+\subproblem{vi}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = \alpha \sin{2x} + \beta \cos{2x}
+\end{equation}
+
+Let $y_{p} = Ax^{2} + Bx + C + Dx\cos{(2x + \phi)}$, so that:
+
+\begin{equation}
+    y_{p}'' + 4y_{p} = 2A + Ax^{2} + Bx + C + 4Dx\cos{(2x + \phi)} - 4D[2\sin{(2x + \phi)} + x\cos{(2x + \phi)}]
+\end{equation}
+
+This gives us $A = 0$, $B = 1$, $C = 0$, $D = -1/4$, and $\phi = -\pi/2$. Thus:
+
+\begin{equation}
+    y(x) = \alpha \sin{2x} + \beta \cos{2x} + x - \frac{1}{4}x\sin{2x}
+\end{equation}
+
+The initial conditions yields $\beta = 0$. Therefore:
+
+\begin{equation}
+    y(x) = \alpha \sin{2x} + x - \frac{1}{8}x\sin{2x}
+\end{equation}
+
+\subproblem{vii}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = e^{x}(\alpha \cos{x} + \beta \sin{x})
+\end{equation}
+
+Let $y_{p} = Axe^{x}\cos{(x + \phi)} + Be^{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 2y_{p}' + 2y_{p} = Be^{x} + 2Ae^{x}[-\sin{(x + \phi)}]
+\end{equation}
+
+This gives us $A = -1/2$, $B = 1$, and $\phi = 0$. Thus, with the initial conditions:
+
+\begin{equation}
+    y(x) = -e^{x}(\cos{x} + \sin{x}) - \frac{1}{2}xe^{x}\cos{x} + e^{x}
+\end{equation}
+
+\subproblem{viii}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = e^{-x}(\alpha x + \beta)
+\end{equation}
+
+Let $y_{p} = Ax^{3} + Bx^{2} + Cx + D + Ex^{2}e^{-x} + F\sin{(x + \phi)}$, so that:
+
+\begin{equation}
+    y_{p}'' + 2y_{p}' + y_{p} = Ax^{3} + (6A + B)x^{2} + (6A + 4B + C)x + (2B + 2C + D) + 2Ee^{-x} + 2F\cos{(x + \phi)}
+\end{equation}
+
+This gives us $A = 1$, $B = C = D = 0$, $E = 1$, $F = 1$, and $\phi = 0$. Thus:
+
+\begin{equation}
+    y(x) = e^{-x}(\alpha x + \beta) + x^{3} + x^{2}e^{-x} + \sin{x}
+\end{equation}
+
+\subproblem{ix}
+The complementary solution is:
+
+\begin{equation}
+    y_{c} = e^{x}(\alpha x + \beta)
+\end{equation}
+
+Let $y_{p} = Ax^{2}e^{x}$, so that:
+
+\begin{equation}
+    y_{p}'' - 2y_{p}' + y_{p} = 2Ae^{x} = 3e^{x}
+\end{equation}
+
+This gives us $A = 3/2$. Thus:
+
+\begin{equation}
+    y(x) = e^{x}(\alpha x + \beta) + \frac{3}{2}x^{2}e^{x}
+\end{equation}
+
+The initial conditions yields $\alpha = -\beta = -3$. Therefore:
+
+\begin{equation}
+    y(x) = e^{x}\left( \frac{3}{2}x^{2} - 3x + 3 \right)
+\end{equation}
+
+\subproblem{x}
+By inspection, $y_{p}(x) = x/2$ is a particular solution to the equation. For the homogeneous equation, the substitution $z = y_{c}'/y_{c}$ gives us a Riccati equation:
+
+\begin{equation}
+    z' + z^{2} + \frac{1}{x} z + \frac{1}{x^{2}} = 0
+\end{equation}
+
+Consider the substitution $g(x) = xz$. The equation becomes:
+
+\begin{equation}
+    \frac{g'}{x} + \frac{1}{x^{2}} g^{2} + \frac{1}{x^{2}} = 0
+\end{equation}
+
+which is a separable equation with the solution:
+
+\begin{equation}
+    g = xz = -\tan{[\ln{(C\left\lvert x \right\rvert)}]}
+\end{equation}
+
+This again is a separable equation for $y_{c}$:
+
+\begin{equation}
+    \frac{\mathrm{d}y_{c}}{y_{c}} = -\frac{\tan{[\ln{(C\left\lvert x \right\rvert)}]}}{x} \mathrm{d}x
+\end{equation}
+
+Making use of the substitution $u = 1/x$, the solution for $y_{c}$ is:
+
+\begin{equation}
+    y_{c}(x) = D \sec{[\ln{(C\left\lvert x \right\rvert)}]}
+\end{equation}
+
+The full solution is therefore:
+
+\begin{equation}
+    y(x) = D \sec{[\ln{(C\left\lvert x \right\rvert)}]} + \frac{x}{2}
+\end{equation}
+
+
+
+\problem{3.3}{}
+Given that $\ddot{\theta} + \omega_{0}^{2} \theta = \cos{\omega t}$, the complementary solutions has the form:
+
+\begin{equation}
+    \theta_{c}(t) = A\cos{\omega_{0} t} + B\sin{\omega_{0} t}
+\end{equation}
+
+Let the particular solution take the form $\theta_{p}(t) = C\cos{\omega t} + D\sin{\omega t}$. Substitution gives:
+
+\begin{equation}
+    -\omega^{2}(C\cos{\omega t} + D\sin{\omega t}) + \omega_{0}^{2}(C\cos{\omega t} + D\sin{\omega t}) = \cos{\omega t}
+\end{equation}
+
+so that $C = 1/(\omega_{0}^{2} - \omega^{2})$, $D = 0$ and $\theta_{p}(t) = \cos{\omega t}/(\omega_{0}^{2} - \omega^{2})$.
+
+We have:
+
+\begin{equation}
+    \begin{split}
+        \theta(t) = A\cos{\omega_{0} t} + B\sin{\omega_{0} t} + \frac{1}{\omega_{0}^{2} - \omega^{2}}\cos{\omega t} \\
+        \dot{\theta}(t) = -A\omega_{0}\sin{\omega_{0} t} + B\omega_{0}\cos{\omega_{0} t} - \frac{\omega}{\omega_{0}^{2} - \omega^{2}}\sin{\omega t}
+    \end{split}
+\end{equation}
+
+Substituting the initial conditions $\theta(0) = 0$ and $\dot{\theta}(0) = 0$ gives $A = -1/(\omega_{0}^{2} - \omega^{2})$ and $B = 0$. Thus:
+
+\begin{equation}
+    \theta(t) = \frac{\cos{\omega t} - \cos{\omega_{0} t}}{\omega_{0}^{2} - \omega^{2}}
+\end{equation}
+
+\subproblem{a}
+The rms value of $\theta(t)$ is given by:
+
+\begin{equation}
+    \begin{split}
+        \left\langle \theta^{2} \right\rangle^{1/2} &= \sqrt{\frac{1}{T}\int_{0}^{T} \left( \frac{\cos{\omega t} - \cos{\omega_{0} t}}{\omega_{0}^{2} - \omega^{2}} \right)^{2} \, \mathrm{d}t} \\
+        &= \frac{1}{\sqrt{T} \left\lvert \omega_{0}^{2} - \omega^{2} \right\rvert} \sqrt{\int_{0}^{T} (\cos^{2}{\omega t} + \cos^{2}{\omega_{0} t} - 2\cos{\omega t}\cos{\omega_{0} t}) \, \mathrm{d}t} \\
+        &= \frac{1}{\left\lvert \omega_{0}^{2} - \omega^{2} \right\rvert}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+As the driving frequency approaches the natural frequency, the amplitude of the oscillation increases. At perfect resonance, the amplitude is infinite.
+\qed
+
+
+\problem{3.4}{Forced and Damped Oscillator}
+
+\subproblem{i}
+The stationary solution is the long-term behaviour of the full solution. It is given by the driving force:
+
+\begin{equation}
+    \begin{split}
+        y(t) &= A \cos{(\omega t + \phi)} \\
+        \dot{y}(t) &= -A \omega \sin{(\omega t + \phi)} \\
+        \ddot{y}(t) &= -A \omega^{2} \cos{(\omega t + \phi)}
+    \end{split}
+\end{equation}
+
+To determine $A$ and $\phi$, substitute them back to the equation:
+
+\begin{equation}
+    -A \omega^{2} \cos{(\omega t + \phi)} - \gamma A \omega \sin{(\omega t + \phi)} + \omega_{0}^{2} A \cos{(\omega t + \phi)} = \frac{F}{m} \cos{\omega t}
+\end{equation}
+
+Solving this equation gives us:
+
+\begin{equation}
+    \begin{split}
+        A &= \frac{f}{\sqrt{(\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2} \gamma^{2}}} \\
+        \phi &= \tan^{-1}{\left( \frac{\omega \gamma}{\omega_{0}^{2} - \omega^{2}} \right)}
+    \end{split}
+\end{equation}
+
+where $f \equiv F/m$.
+
+\subproblem{iii}
+The resonant frequency is $\omega_{\text{res}} = \omega_{0}$.
+
+\subproblem{iv}
+At resonance, $A_{\text{max}} = f/(\omega_{0} \gamma)$. For $A(\omega) = f/(2\omega_{0} \gamma)$, we have the equation:
+
+\begin{equation}
+    \begin{split}
+        \frac{f}{\sqrt{(\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2} \gamma^{2}}} = \frac{f}{2\omega_{0} \gamma} \\
+    \end{split}
+\end{equation}
+
+Solving for $\omega^{2}$ yields:
+
+\begin{equation}
+    \omega^{2} = \omega_{0}^{2} + \frac{\gamma^{2}}{2} \left( \sqrt{1 + \frac{12}{\chi^{2}}} - 1 \right)
+\end{equation}
+
+where $\chi \equiv \gamma/\omega_{0}$.
+
+Take $\Delta \omega = 2 \sqrt{\omega^{2}}$. Further approximation with binomial expansion leads to:
+
+\begin{equation}
+    \frac{\Delta \omega}{\omega_{0}} \approx \sqrt{2} \left( 1 + \frac{\sqrt{12}}{2}\chi \right)
+\end{equation}
+
+\subproblem{v}
+Consider the long-term behaviour of the solution. The energy stored is given by:
+
+\begin{equation}
+    E = \frac{1}{2} m \dot{y} + \frac{1}{2} m \omega_{0}^{2} y^{2} = \frac{1}{2} m A^{2} [\omega^{2} \sin^{2}{(\omega t + \phi)} + \omega_{0}^{2} \cos^{2}{(\omega t + \phi)}] \approx \frac{1}{2} m A^{2} \omega_{0}^{2}
+\end{equation}
+
+The power supplied to the system is given by:
+
+\begin{equation}
+    P = \dot{y} F\cos{\omega t} = -F A \omega \sin{(\omega t + \phi)} \cos{\omega t} \approx -F A \omega \cos^{2}{\omega t}
+\end{equation}
+
+But at steady state, the energy lost is all supplied by the driving force and we may use the average of $P$ instead. Thus:
+
+\begin{equation}
+    Q \approx 2\pi \frac{\frac{1}{2} m A^{2} (\omega^{2} + \omega_{0}^{2}) \cos^{2}{(\omega t + \phi)}}{\left\langle -P \right\rangle \frac{2\pi}{\omega}} = \frac{\omega_{0}^{2}}{\sqrt{(\omega_{0}^{2} - \omega^{2})^{2} + \omega^{2} \gamma^{2}}} \approx \frac{\omega_{0}}{\gamma}
+\end{equation}
+
+We have that $Q = 1/\chi$, so that the a higher quality factor leads to a shaper resonance peak.
+\qed
+
+
+\problem{3.5}{}
+
+\subproblem{a}
+Given $y_{1} = 1/x$, suppose that the other solution has the form $y_{2}(x) = \phi(x)/x$, so that substitution yields:
+
+\begin{equation}
+    (x + 1)\phi'' - (x + 2)\phi' = 0
+\end{equation}
+
+Solving this leads to the solution $\phi(x) = xe^{x}$, so that the other homogeneous solution is $y_{2}(x) = e^{x}$.
+
+Consider the particular solution $y_{p} = Ax + B$, substitution yields:
+
+\begin{equation}
+    -2Ax^{2} - 2Ax - Bx + 2A - 2B = x^{2} + 2x + 1
+\end{equation}
+
+Solving this yields $A = -1/2$ and $B = -1$. Therefore, the general solution is:
+
+\begin{equation}
+    y(x) = \frac{\alpha}{x} + \beta e^{x} - \frac{x}{2} - 1
+\end{equation}
+
+\subproblem{b}
+If $y_{2}$ is known instead of $y_{1}$, we still employ the same variation of constant method and find $y_{1}$. The procedure and the outcome are the same.
+\qed
+
+
+\end{document}

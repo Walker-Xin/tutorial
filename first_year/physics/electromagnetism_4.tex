@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Electromagnetic Induction and Self-Inductance}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Electromagnetic Induction and Self-Inductance}
+%==========
+
+
+\problem{0}{Background}
+The Faraday's law states that a changing magnetic field induced an electric field such that the path integral of the induced field equals the time derivative of the magnetic flux. The Lenz law states that the induced current always flows in a direction that opposes the change that caused it. The self-inductance is the ratio of the induced emf to the rate of change of the current in the component. The mutual inductance is the ratio of the induced emf to the rate of change of the current in another component.
+\qed
+
+
+\problem{1}{Rectangular coil moving away from current-carrying wire}
+
+\subproblem{a}{}
+The motional emf is given by the integral:
+
+\begin{equation}
+    \varepsilon = \oint \mathbf{f}_{B} \cdot \mathrm{d}\mathbf{l} = \left[ v \frac{\mu_{0}I}{2\pi x} - v \frac{\mu_{0}I}{2\pi (x + b)} \right] a = \frac{\mu_{0}I}{2\pi} \frac{vab}{x(x + b)}
+\end{equation}
+
+where integration only happens on the edges parallel to the wire and $x = D$ at the beginning.
+
+Using the flux change instead:
+
+\begin{equation}
+    \varepsilon = \frac{\mathrm{d}}{\mathrm{d}t} \left( \int_{x}^{x + b} \frac{\mu_{0}I}{2\pi l} a \, \mathrm{d}l \right) = \frac{\mu_{0}I}{2\pi} a \frac{\mathrm{d}}{\mathrm{d}t} \left[ \ln{(x + b)} - \ln{x} \right] = \frac{\mu_{0}I}{2\pi} \frac{vab}{x(x + b)}
+\end{equation}
+
+which is the same as the previous result.
+
+\subproblem{b}{}
+
+\subproblem{c}{}
+The force on the coil is given by the Lorentz force:
+
+\begin{equation}
+    F = \frac{\varepsilon}{R} a \left[ \frac{\mu_{0}I}{2\pi x} - \frac{\mu_{0}I}{2\pi (x + b)} \right] = \left[ \frac{\mu_{0}I}{2\pi} \frac{ab}{x(x + b)} \right]^{2} \frac{v}{R}
+\end{equation}
+
+The power of this force is simply $Fv$. The rate of heat generation by the coil is:
+
+\begin{equation}
+    \frac{\mathrm{d}Q}{\mathrm{d}t} = \frac{\varepsilon^{2}}{R} =  \left[ \frac{\mu_{0}I}{2\pi} \frac{ab}{x(x + b)} \right]^{2} \frac{v^{2}}{R}
+\end{equation}
+
+which is the same as the power of the force $Fv$, confirming conservation of energy.
+\qed
+
+
+\problem{2}{Sliding metal rod defining the edge of a circuit}
+
+\subproblem{a}{}
+The current induced in the rod is given by:
+
+\begin{equation}
+    I = \frac{\varepsilon}{R} = \frac{vBL}{R}
+\end{equation}
+
+\subproblem{b}{}
+The force required to maintain the constant speed is given by the Lorentz force:
+
+\begin{equation}
+    F = \frac{\varepsilon}{R} BL = \frac{vB^{2}L^{2}}{R}
+\end{equation}
+
+\subproblem{c}{}
+The power supplied by the force is:
+
+\begin{equation}
+    P_{1} = Fv = \frac{(vBL)^{2}}{R}
+\end{equation}
+
+\subproblem{d}{}
+The power dissipated by the resistor is:
+
+\begin{equation}
+    P_{2} = I^{2}R = \frac{v^{2}B^{2}L^{2}}{R} = P_{1}
+\end{equation}
+
+which is anticipated in light of the conservation of energy.
+\qed
+
+
+\problem{3}{Homopolar generator}
+
+\subproblem{a}{}
+Consider the motional emf along a radius:
+
+\begin{equation}
+    \varepsilon = \int_{0}^{a} \omega x B \, \mathrm{d}x = \frac{\omega a^{2}B}{2}
+\end{equation}
+
+\subproblem{b}{}
+The initial current after connecting the load resistor is $\varepsilon/R = \qty{7.1e5}{A}$. The rate of heat dissipation in the disk is given by:
+
+\begin{equation}
+    \frac{\mathrm{d}Q}{\mathrm{d}t} = I^{2} R = \frac{\omega^{2} a^{4}B^{2}R}{4}
+\end{equation}
+
+Conservation of energy demands:
+
+\begin{equation}
+    E = E_{k} + \Delta Q = \frac{1}{2}m\omega^{2}R^{2} + \int_{0}^{t} \frac{\omega^{2} a^{4}B^{2}R}{4} \, \mathrm{d}t
+\end{equation}
+
+Differentiating with respect to time, we have:
+
+\begin{equation}
+    \frac{\omega^{2} a^{4}B^{2}R}{4} + m\omega R^{2} \frac{\mathrm{d}\omega}{\mathrm{d}t} = 0
+\end{equation}
+
+Solving this gives $\omega$ as a function of time:
+
+\begin{equation}
+    \omega(t) = \omega_{0} e^{-t/\tau}
+\end{equation}
+
+where $\tau = 4RM/a^{4}B^{2} = \qty{2.0}{s}$.
+
+For $\omega(t) = \omega_{0}/2$, we have $t = \tau \ln{2} = \qty{1.4}{s}$.
+\qed
+
+
+\problem{4}{Self-inductance of a coax-cable}
+Let us suppose that the inner and outer conductors both have uniform current densities such that the current is given by:
+
+\begin{equation}
+    I = J_{1} \pi a^{2} = J_{2} \pi (d^{2} - b^{2})
+\end{equation}
+
+The magnetic field is then a piecewise function:
+
+\begin{equation}
+    B(r) = 
+    \begin{cases}
+        \frac{\mu_{0}I}{2\pi a^{2}} r & r < a \\
+        \frac{\mu_{0}I}{2\pi r} & a \le r < b \\
+        \frac{\mu_{0}I}{2\pi r} + \frac{\mu_{0}I}{2\pi r} \frac{r^{2} - b^{2}}{d^{2} - b^{2}} & b \le r < d
+    \end{cases}
+\end{equation}
+
+The flux through the whole cable is:
+
+\begin{equation}
+    \frac{\Phi}{l} = \int_{0}^{a} \frac{\mu_{0}I}{2\pi a^{2}} x \, \mathrm{d}x + \int_{a}^{b} \frac{\mu_{0}I}{2\pi x} \, \mathrm{d}x + \int_{b}^{d} \left( \frac{\mu_{0}I}{2\pi x} + \frac{\mu_{0}I}{2\pi x} \frac{x^{2} - b^{2}}{d^{2} - b^{2}} \right) \, \mathrm{d}x = \frac{\mu_{0}I}{2\pi} \left( 1 + \ln{\frac{d}{a}} - \frac{b^{2}}{d^{2} - b^{2}} \ln{\frac{d}{b}} \right)
+\end{equation}
+
+so that the self-inductance per unit length is:
+
+\begin{equation}
+    \frac{L}{l} = \frac{\mu_{0}}{2\pi} \left( 1 + \ln{\frac{d}{a}} - \frac{b^{2}}{d^{2} - b^{2}} \ln{\frac{d}{b}} \right)
+\end{equation}
+\qed
+
+
+\problem{5}{Mutual induction between a small and a large coil}
+
+Consider instead a current $I$ passing through the large ring. The magnetic field generated by the current at a distance $d$ from the center is:
+
+\begin{equation}
+    B(d) = \frac{\mu_{0}I}{2} \frac{R^{2}}{(R^{2} + d^{2})^{3/2}}
+\end{equation}
+
+Since the coil is small, we may use this field to approximate the total flux through the coil:
+
+\begin{equation}
+    \Phi(d) \approx NB(d)A = \frac{\mu_{0}NI}{2} \frac{R^{2}}{(R^{2} + d^{2})^{3/2}} A
+\end{equation}
+
+so that the mutual inductance is:
+
+\begin{equation}
+    M = \frac{\mu_{0}N}{2} \frac{R^{2}}{(R^{2} + d^{2})^{3/2}} A
+\end{equation}
+
+Given the mutual inductance, if a current $I$ is passed through the small coil, the induced voltage is:
+
+\begin{equation}
+    \varepsilon = \frac{\mathrm{d}}{\mathrm{d}t} \left( M I \right) = \frac{3}{2} \mu_{0}NAI \omega \frac{aR^{2}d}{(R^{2} + d^{2})^{5/2}} \sin{\omega t}
+\end{equation}
+\qed
+
+
+\problem{6}{Mutual inductance of two coaxial solenoids}
+
+\subproblem{a}{}
+For a perfect long solenoid, the magnetic field inside is given by the Ampere's law:
+
+\begin{equation}
+    B = \mu_{0} nI
+\end{equation}
+
+so that the solenoid has a magnetic flux of:
+
+\begin{equation}
+    \Phi = \mu_{0} nI A
+\end{equation}
+
+where $A = \pi a^{2}$ or $A = 4\pi a^{2}$ depending on the size.
+
+\subproblem{b}{}
+For self-inductance, we have:
+
+\begin{equation}
+    L = \mu_{0} nA
+\end{equation}
+
+where $A$ again depends on the size of the solenoid.
+
+For mutual inductance, consider the magnetic flux from the inner solenoid:
+
+\begin{equation}
+    M = \Phi/I = \mu_{0} nI \pi a^{2}/I = \mu_{0} n \pi a^{2}
+\end{equation}
+
+\subproblem{c}{}
+We have $4\mu_{0} n \pi a^{2} = \qty{40}{mH}$. The emf induced is given by
+
+\begin{equation}
+    \varepsilon = M \left\lvert \frac{\mathrm{d}I}{\mathrm{d}t} \right\rvert = \mu_{0} n \pi a^{2} \left\lvert \frac{\mathrm{d}I}{\mathrm{d}t} \right\rvert = \qty{20}{mV}
+\end{equation}
+\qed
+
+
+\problem{7}{Energy of the magnetic field}
+The work done in bring the current in an inductor from zero to $I$ is:
+
+\begin{equation}
+    W = \int \varepsilon \, \mathrm{d}q = \int L \frac{\mathrm{d}i}{\mathrm{d}t} i \, \mathrm{d}t = \int_{0}^{I} L i \, \mathrm{d}i = \frac{1}{2} LI^{2}
+\end{equation}
+
+The volume of a coil is $V = A l$ while its self-inductance is $L = BA/I$. The energy density is thus:
+
+\begin{equation}
+    \frac{LI^{2}/2}{V} = \frac{1}{2} \frac{BAI^{2}}{IAl}
+\end{equation}
+
+\end{document}

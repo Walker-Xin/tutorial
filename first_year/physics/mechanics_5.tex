@@ -1,0 +1,290 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 5}
+\def\assignmentname{Angular Momentum \& Rotational Dynamics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Angular Momentum \& Rotational Dynamics}
+%==========
+
+
+\problem{1}{}
+For a uniform disk, its moment of inertia is given by:
+
+\begin{equation}
+\begin{split}
+    I = \int_{0}^{a} r^{2} m \frac{2\pi r}{\pi a^{2}} \, \mathrm{d}r = \frac{1}{2} m a^{2}
+\end{split}
+\end{equation}
+
+The angular momentum and kinetic energy of the disk are given by:
+
+\begin{equation}
+    L = I \omega = \frac{1}{2} m a^{2} \omega, \quad K = \frac{1}{2} I \omega^{2} = \frac{1}{4} m a^{2} \omega^{2}
+\end{equation}
+
+For an inelastic collision, the angular momentum is conserved, so the final angular velocity $\omega'$ is:
+
+\begin{equation}
+\begin{split}
+    I \omega = 2I \omega' \\
+    \omega' = \frac{1}{2} \omega
+\end{split}
+\end{equation}
+
+and the angular momentum as well as the kinetic energy of the assembly are:
+
+\begin{equation}
+    L' = L = \frac{1}{2} m a^{2} \omega, \quad K' = \frac{1}{2} 2I \omega'^{2} = \frac{1}{8} m a^{2} \omega^{2}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+
+\subproblem{a}{}
+If the angular deceleration $\alpha = N/I$ is fixed, we have the equation:
+
+\begin{equation}
+    N t = I (\omega_{0} - \omega_{1})
+\end{equation}
+
+where $I = Mr^{2}/2$ for a cylinder.
+
+This leads to $N = Mr^{2}(\omega_{0} - \omega_{1})/2t$.
+
+\subproblem{b}{}
+If $N = k \omega$ for some positive constant $k$, we have the equation:
+
+\begin{equation}
+    I \frac{\mathrm{d}\omega}{\mathrm{d}t} = -k \omega
+\end{equation}
+
+Integrating from $\omega_{0}$ to $\omega_{1}$, we have:
+
+\begin{equation}
+    \ln{\frac{\omega_{1}}{\omega_{0}}} = -\frac{k}{I} T
+\end{equation}
+
+so that $k = I \ln{(\omega_{0}/\omega_{1})}/T$. Then at some $t$, the angular velocity is:
+
+\begin{equation}
+    \omega(t) = \omega_{0} e^{-k t/I} = \omega_{0} \left( \frac{\omega_{1}}{\omega_{0}} \right)^{t/T}
+\end{equation}
+
+so that the torque is:
+
+\begin{equation}
+    N(t) = k \omega(t) = \omega_{0} \frac{Mr^{2}}{2T} \ln{\frac{\omega_{0}}{\omega_{1}}} \left( \frac{\omega_{1}}{\omega_{0}} \right)^{t/T}
+\end{equation}
+
+and at $t = T$, the torque evaluates to $N = \omega_{1} Mr^{2}\ln{(\omega_{0}/\omega_{1})}/2T$.
+\qed
+
+
+\problem{3}{}
+The reel experiences a tension $T$ and gravity $mg$. For linear motion, we have the equation $ma = mg - T$ and for rotational motion, we have the equation $(mr^{2}/2) \alpha = T r$. For no slipping, $a = \alpha r$. Combining these three equations, we have $T = mg/3$ and :
+
+\begin{equation}
+    a = \frac{2g}{3}
+\end{equation}
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}{}
+The angular speed of the cylinder satisfies the equation:
+
+\begin{equation}
+    g = \omega^{2} r
+\end{equation}
+
+Therefore, the necessary work done, which is just the kinetic energy, is:
+
+\begin{equation}
+    W = K = \frac{1}{2} I \omega^{2} = \frac{1}{2} Mgr
+\end{equation}
+
+\subproblem{b}{}
+By conservation of angular momentum, the final angular speed is:
+
+\begin{equation}
+    \omega' = \frac{I}{I'} \omega = \frac{M}{m + M} \omega
+\end{equation}
+
+Thus, the fractional change in kinetic energy is:
+
+\begin{equation}
+    \frac{K - K'}{K} = \frac{I\omega^{2} - I'\omega'^{2}}{I\omega^{2}} = \frac{m}{m + M}
+\end{equation}
+
+\subproblem{c}{}
+If the astronaut lets go at half-way, he travels perpendicular to the line formed by the spoke at the moment of release in the lab frame. This means that the line joining the point of contact and the centre forms a $\pi/3$ angle with the spoke at the moment of release. The distance to be travelled is $\sqrt{3}r/2$ and the linear speed is $\omega r/2$. The time taken is hence $\sqrt{3}/\omega$. In this time, the spoke travelled an additional angle $\sqrt{3}$. Therefore, the distance from the point of impact to the base of spoke is:
+
+\begin{equation}
+    \left( \sqrt{3} - \frac{\pi}{3} \right) r
+\end{equation}
+\qed
+
+
+\problem{5}{}
+Assuming that the disk is oriented such that the centre axis is in the z-axis. The moment of inertia of the disk is $I = ma^{2}/8$. The couple exerted gives rise to the equation of motion:
+
+\begin{equation}
+    I \ddot{\theta} = -c\theta
+\end{equation}
+
+which is simple harmonic with the angular frequency $\omega = \sqrt{c/I}$ and period $T = \pi a \sqrt{m/2c}$.
+
+The additional ring causes an increase in the moment of inertia to $I' = 3ma^{2}/8$. The period increases to $T' = \pi a \sqrt{3m/2c}$. If the disk is momentarily at rest at impact, the total energy is all potential energy, which is $c\Theta^{2}/2$ where $\Theta$ is the amplitude of oscillation before impact. If the disk has maximum angular speed, which is $\omega \Theta$, at impact, by conservation of angular momentum:
+
+\begin{equation}
+    \omega' = \frac{I}{I'} \omega = \frac{1}{3} \omega
+\end{equation}
+
+so that the new total energy is $c\Theta^{2}/6$, which is one third of the original energy.
+\qed
+
+
+\problem{6}{}
+By parallel axis theorem, the moment of inertia about $O'$ is $I' = m(a^{2}/2 + x^{2})$. The equation of motion is:
+
+\begin{equation}
+    I' \ddot{\theta} = -mgx \sin{\theta} \approx -mgx \theta
+\end{equation}
+
+so that the angular frequency is $\omega = \sqrt{mgx/I'}$ and the period is given by:
+
+\begin{equation}
+    T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{a^{2}/2 + x^{2}}{gx}}
+\end{equation}
+
+\begin{center}
+    \input{../plots/CM_5_6.tex}
+\end{center}
+
+The period is minimum at $2\pi \sqrt{3a/2g}$ when $x = a/2$.
+
+\qed
+
+
+\problem{7}{}
+Given the moment of inertia of an object about an axis through its centre of mass, the parallel axis theorem gives the moment of inertia about an axis parallel to the original axis at a distance $d$ from the centre of mass as:
+
+\begin{equation}
+    I' = I + md^{2}
+\end{equation}
+
+For a uniform rod, its moment of inertia about one end is given by:
+
+\begin{equation}
+    I_{1} = \int_{0}^{b} \frac{m}{b} x^{2} \, \mathrm{d}x = \frac{1}{3} mb^{2}
+\end{equation}
+
+The moment of inertia about the centre of mass is:
+
+\begin{equation}
+    I_{2} = \int_{-b/2}^{b/2} \frac{m}{b} x^2 \, \mathrm{d}x = \frac{1}{12} mb^{2}
+\end{equation}
+
+Note that $I_{1} = I_{2} + m(b/2)^2$, as expected from the parallel axis theorem. Given a force $F$ acting on the centre, the acceleration is uniform across the rod:
+
+\begin{equation}
+    a = \frac{F}{m}
+\end{equation}
+
+Given a force acting on one end, the acceleration of the other end is:
+
+\begin{equation}
+    a_{tot} = a - \frac{b}{2} \alpha = \frac{F}{m} - \frac{b}{2} \frac{F b/2}{I_{2}} = -2\frac{F}{m}
+\end{equation}
+
+For the initial acceleration to be zero:
+
+\begin{equation}
+    a = (\frac{b}{2} - d) \alpha
+\end{equation}
+
+so that $d = 2b/3$ satisfies the equation.
+\qed
+
+
+\problem{8}{}
+The moment of inertia of a spherical shell is given by the integral:
+
+\begin{equation}
+    I = \int_{0}^{2\pi} \int_{0}^{\pi} R^{2} \sin^{2}{\theta} \frac{M}{4\pi R^{2}} R^{2} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi = \frac{2}{3} MR^{2}
+\end{equation}
+
+The moment of inertia of a solid sphere is given by the integral:
+
+\begin{equation}
+    I = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{R} r^{2} \sin^{2}{\theta} \frac{3M}{4\pi R^{2}} r^2 \sin{\theta} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi = \frac{2}{5} MR^{2}
+\end{equation}
+
+For a spherical object with $I = kMR^{2}$ rolling down a plane, the final speed satisfies the energy conservation equation:
+
+\begin{equation}
+    \frac{1}{2} I \left( \frac{v}{R} \right)^2 + \frac{1}{2} M v^{2} = MgL \sin{\theta}
+\end{equation}
+
+so that $v^{2} = 2gL \sin{\theta}/(1+k)$.
+
+For a hollow sphere, $k = 2/3$ so that $v = \sqrt{6gL \sin{\theta}/5}$; for a solid sphere, $k = 2/5$ so that $v = \sqrt{10gL \sin{\theta}/7}$. Thus:
+
+\begin{equation}
+    \frac{\Delta v}{\left\langle v \right\rangle} = 2\frac{\sqrt{10/7} - \sqrt{6/5}}{\sqrt{10/7} + \sqrt{6/5}} = 8.7\%
+\end{equation}
+
+The solid sphere is faster.
+\qed
+
+
+\problem{9}{}
+Define the position vector of the centre of mass as:
+
+\begin{equation}
+    \mathbf{r}_{cm} = \frac{m_{1} \mathbf{r}_{1} + m_{2} \mathbf{r}_{2}}{m_{1} + m_{2}} = \frac{\mu}{m_{2}} \mathbf{r}_{1} + \frac{\mu}{m_{1}} \mathbf{r}_{2}
+\end{equation}
+
+The angular momentum of the system is:
+
+\begin{equation}
+    \mathbf{L} = m_{1} \mathbf{r}_{1} \times \dot{\mathbf{r}}_{1} + m_{2} \mathbf{r}_{2} \times \dot{\mathbf{r}}_{2}
+\end{equation}
+
+Consider the given expression:
+
+\begin{equation}
+\begin{split}
+    \mathbf{L} &= (m_{1} + m_{2}) \mathbf{r}_{cm} \times \dot{\mathbf{r}}_{cm} + \mu (\mathbf{r}_{1} - \mathbf{r}_{2}) \times (\dot{\mathbf{r}}_{1} - \dot{\mathbf{r}}_{2}) \\
+    &= \frac{1}{m_{1} + m_{2}} (m_{1} \mathbf{r}_{1} + m_{2} \mathbf{r}_{2}) \times (m_{1} \dot{\mathbf{r}}_{1} + m_{2} \dot{\mathbf{r}}_{2}) + \frac{m_{1} m_{2}}{m_{1} + m_{2}} (\mathbf{r}_{1} - \mathbf{r}_{2}) \times (\dot{\mathbf{r}}_{1} - \dot{\mathbf{r}}_{2}) \\
+    &= \frac{1}{m_{1} + m_{2}} \left[ (m_{1}^{2} - m_{1} m_{2}) \mathbf{r}_{1} \times \dot{\mathbf{r}}_{1} + (m_{2}^{2} - m_{1} m_{2}) \mathbf{r}_{2} \times \dot{\mathbf{r}}_{2} \right] \\
+    &= m_{1} \mathbf{r}_{1} \times \dot{\mathbf{r}}_{1} + m_{2} \mathbf{r}_{2} \times \dot{\mathbf{r}}_{2}
+\end{split}
+\end{equation}
+\qed
+
+%==========
+\pagebreak
+\section*{Additional Questions}
+%==========
+
+
+\problem{}{}
+
+
+\end{document}

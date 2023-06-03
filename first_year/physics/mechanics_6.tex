@@ -1,0 +1,498 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 6}
+\def\assignmentname{Lagrangian Dynamics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Lagrangian Dynamics}
+%==========
+
+
+\problem{1}{Fermat's principle}
+
+\subproblem{a}{}
+Suppose that the trajectory of the beam has the form $y(x)$ from $x_{0}$ to $x_{1}$. Fermat's principle means that $y(x)$ will have such a form that the time taken for the beam to travel from $x_{0}$ to $x_{1}$ is a minimum. That is, the functional of the form
+
+\begin{equation}
+    S = \int_{x_{0}}^{x_{1}} \frac{\sqrt{1 + \left( \frac{\mathrm{d}y}{\mathrm{d}x} \right)^{2}}}{c/n(y)} dx = c^{-1} \int_{x_{0}}^{x_{1}} n(y) \sqrt{1 + y'^{2}} dx
+\end{equation}
+
+is minimised.
+
+\subproblem{b}{}
+Given that $n$ is a constant, we may split the integral into two parts:
+
+\begin{equation}
+    S = S_{1} + S_{2} = \frac{n}{c} \int_{x_{0}}^{x} \sqrt{1 + y_{1}'^{2}} dx + \frac{n}{c} \int_{x}^{x_{1}} \sqrt{1 + y_{2}'^{2}} dx
+\end{equation}
+
+Now, we can assert that minimising the two separate functional integrals will give us a minimised $S$. Imposing Euler-Lagrange equation on $S_{1}$ and $S_{2}$, we get:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{y_{1, 2}'}{\sqrt{1 + y_{1, 2}'^{2}}} \right) = 0
+\end{equation}
+
+or simply, $y'_{1, 2}$ are constants.
+
+This means that both $y_{1}$ and $y_{2}$ are linear functions of $x$. We have thus proven that light moves in a straight line in a homogeneous medium.
+
+Now we seek a $x \in (x_{0}, x_{1})$ that minimises the following function:
+
+\begin{equation}
+    L = \sqrt{(x - x_{0})^{2} + y_{0}^{2}} + \sqrt{(x - x_{1})^{2} + y_{1}^{2}}
+\end{equation}
+
+Differentiating, we have the following equation:
+
+\begin{equation}
+    \frac{x - x_{0}}{\sqrt{(x - x_{0})^{2} + y_{0}^{2}}} + \frac{x - x_{1}}{\sqrt{(x - x_{1})^{2} + y_{1}^{2}}} = 0
+\end{equation}
+
+We can verify that $x = (x_{1}y_{0} + x_{0}y_{1})/(y_{0} + y_{1})$ satisfies this equation, and this is exactly the point where the incident and reflected angles are equal. Thus, we have proven the law of reflection.
+\qed
+
+
+\problem{2}{Motion in two dimensions}
+We have the Lagrangian:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m \left\lvert \dot{\mathbf{r}} \right\rvert^{2} - V(r) = \frac{1}{2} m (\dot{r}^{2} + r^{2} \dot{\theta}^{2}) - V(r)
+\end{equation}
+
+The generalised momenta are $p_{r} = \partial \mathcal{L}/\partial \dot{r} = m \dot{r}$ and $p_{\theta} = \partial \mathcal{L}/\partial \dot{\theta} = m r^{2} \dot{\theta}$. The Hamiltonian is thus:
+
+\begin{equation}
+    \mathcal{H} = p_{r} \dot{r} + p_{\theta} \dot{\theta} - \mathcal{L} = \frac{1}{2} m (\dot{r}^{2} + r^{2} \dot{\theta}^{2}) + V(r)
+\end{equation}
+
+which in this case is the usual energy.
+
+Euler-Lagrange equation gives us:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( m \dot{r} \right) &= -\frac{\partial V}{\partial r} \\
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( m r^{2} \dot{\theta} \right) &= 0
+\end{split}
+\end{equation}
+
+$\theta$ is a cyclic coordinate, so we have $p_{\theta}$ is conserved, corresponding to the conservation of angular momentum. The total time derivative of the Hamiltonian is:
+
+\begin{equation}
+    \frac{\mathrm{d}\mathcal{H}}{\mathrm{d}t} = \frac{\partial \mathcal{H}}{\partial r} \dot{r} + \frac{\partial \mathcal{H}}{\partial \dot{r}} \ddot{r} + \frac{\partial \mathcal{H}}{\partial \dot{\theta}} \ddot{\theta} = \left( \frac{\partial V}{\partial r} + mr \dot{\theta}^{2} \right) \dot{r} + m \dot{r} \ddot{r} + m r^{2} \dot{\theta} \ddot{\theta} = 0
+\end{equation}
+
+This means that the Hamiltonian or the energy is conserved.
+\qed
+
+
+\problem{3}{The simple pendulum}
+We have the Lagrangian:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m l^{2} \dot{\theta}^{2} - mgl \cos{\theta}
+\end{equation}
+
+where the zero potential is taken as the plane containing the pivot.
+
+Euler-Lagrange equation gives us:
+
+\begin{equation}
+    ml^{2} \ddot{\theta} + mgl \sin{\theta} = 0
+\end{equation}
+
+or in the small angle approximation:
+
+\begin{equation}
+    \ddot{\theta} = -\frac{g}{l} \sin{\theta} \approx -\frac{g}{l} \theta
+\end{equation}
+
+The period is thus $T = 2\pi \sqrt{l/g}$.
+
+If the system is accelerated downwards in the vertical direction at a rate $a$, the effective potential becomes $m(g - a)l \cos{\theta}$. The oscillatory behaviour vanishes when $a = g$, i.e., free fall. This is hinting at the equivalence principle.
+\qed
+
+
+\problem{4}{A sliding block}
+Following the described coordinate system, we have the Lagrangian:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m \dot{s}^{2} + \frac{1}{2} M \dot{x}^{2} + mgs \sin{\alpha}
+\end{equation}
+
+where $\alpha$ is the angle between the incline and the horizontal.
+
+However, we note that there is a constraint on the system such that the block cannot leave the incline. This can be expressed as $f(x, s) = x - s \cos{\alpha} = 0$. We include this constraint in the Lagrangian with a Lagrange multiplier $\lambda$:
+
+\begin{equation}
+    \mathcal{L}' = \frac{1}{2} m \dot{s}^{2} + \frac{1}{2} M \dot{x}^{2} + mgs \sin{\alpha} - \lambda \left( x - s\cos{\alpha} \right)
+\end{equation}
+
+We have the following equations of motion, along with the constraint:
+
+\begin{equation}
+\begin{split}
+    m \ddot{s} &= mg \sin{\alpha} + \lambda \cos{\alpha} \\
+    M \ddot{x} &= -\lambda \\
+    \ddot{x} &= \ddot{s} \cos{\alpha}
+\end{split}
+\end{equation}
+
+Solving them together, we have:
+
+\begin{equation}
+\begin{split}
+    \ddot{s} &= \frac{m \sin{\alpha}}{M \cos^{2}{\alpha}} g \\
+    \ddot{x} &= \frac{m \sin{\alpha}}{M \cos{\alpha}} g \\
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{5}{Atwood's machine}
+Let us take downwards as positive and maintain this direction throughout. Imposing conservation of string on the second pulley, we have the constraint:
+
+\begin{equation}
+    f(z_{i}) = 2z_{1} + z_{2} + z_{3} - 3L = 0
+\end{equation}
+
+This reduces the number of degrees of freedom to two, and we can write the Lagrangian as:
+
+\begin{equation}
+\begin{split}
+    \mathcal{L} &= \frac{1}{2} m (5 \dot{z}_{1}^{2} + 2 \dot{z}_{2}^{2} + 3 \dot{z}_{3}^{2}) + mg(5z_{1} + 2z_{2} + 3z_{3}) \\
+                &= \frac{1}{2} m \left[ 5 \dot{z}_{1}^{2} + 2 \dot{z}_{2}^{2} + 3 (2\dot{z}_{1} + \dot{z}_{2})^{2} \right] + mg \left[ 5z_{1} + 2z_{2} + 3(3L - 2z_{1} - z_{2}) \right] \\
+                &= \frac{1}{2} m \left( 17 \dot{z}_{1}^{2} + 5 \dot{z}_{2}^{2} + 12 \dot{z}_{1} \dot{z}_{2} \right) - mg \left( z_{1} + z_{2} \right)
+\end{split}
+\end{equation}
+
+where the constant term proportional to $mgL$ is dropped at the last step.
+
+We have the following equations of motion, along with the constraint:
+
+\begin{equation}
+\begin{split}
+    17 \ddot{z}_{1} + 6 \ddot{z}_{2} &= -g \\
+    6 \ddot{z}_{1} + 5 \ddot{z}_{2} &= -g \\
+    2\ddot{z}_{1} + \ddot{z}_{2} + \ddot{z}_{3} &= 0
+\end{split}
+\end{equation}
+
+Solving them together, we have:
+
+\begin{equation}
+\begin{split}
+    \ddot{z}_{1} &= \frac{1}{49} g \\
+    \ddot{z}_{2} &= -\frac{11}{49} g \\
+    \ddot{z}_{3} &= \frac{9}{49} g
+\end{split}
+\end{equation}
+
+The tension in the upper string is given by:
+
+\begin{equation}
+    T_{\text{upper}} = 5mg - 5m \ddot{z}_{1} = \frac{240}{49} g
+\end{equation}
+
+The tension in the lower string is given by:
+
+\begin{equation}
+    T_{\text{lower}} = 2mg - 2m \ddot{z}_{2} = \frac{120}{49} g
+\end{equation}
+
+Verify that:
+
+\begin{equation}
+    3mg - 3m \ddot{z}_{3} = T_{\text{lower}} = T_{\text{upper}}/2
+\end{equation}
+
+The system is not in equilibrium because the second pulley is not in equilibrium. Once $2m$ and $3m$ start to accelerate, the lower tension is no longer $5mg/2$ and the upper tension is no longer $5mg$. Then the system is no longer in equilibrium.
+\qed
+
+
+\problem{6}{Particle sliding on a sphere}
+
+\subproblem{a}{}
+First let $r = R$ and we have the Lagrangian:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m R^{2} \dot{\theta}^{2} - mRg \cos{\theta}
+\end{equation}
+
+which leads to the equation of motion:
+
+\begin{equation}
+    \ddot{\theta} = \frac{g}{R} \sin{\theta}
+\end{equation}
+
+\subproblem{b}{}
+If we relax the constraint $r = R$ exactly, but instead model it as an infinite potential barrier $V(r)$ satisfying:
+
+\begin{equation}
+    V(r) = \infty \text{ for } r < R, \quad 0 \text{ for } r \ge R
+\end{equation}
+
+then we have the Lagrangian:
+
+\begin{equation}
+    \mathcal{L}' = \frac{1}{2} m (\dot{r}^{2} + r^{2} \dot{\theta}^{2}) - mrg \cos{\theta} - V(r)
+\end{equation}
+
+The following modified equations of motion result:
+
+\begin{equation}
+\begin{split}
+    m\ddot{r} &= mr \dot{\theta}^{2} - mg \cos{\theta} - \frac{\mathrm{d}V}{\mathrm{d}r} \\
+    m (r^{2} \ddot{\theta} + 2r \dot{r} \dot{\theta}) &= mrg \sin{\theta}
+\end{split}
+\end{equation}
+
+We set $r = R$, and the reaction force $F_{N}$ is given by:
+
+\begin{equation}
+    F_{N} = \frac{\mathrm{d}V}{\mathrm{d}r} = mr \dot{\theta}^{2} - mg \cos{\theta}
+\end{equation}
+
+\subproblem{c}{}
+Before the particle leaves the sphere, the system can be described the original Lagrangian $\mathcal{L}$. We can use the identity $\ddot{\theta} = \dot{\theta} \mathrm{d}\dot{\theta}/\mathrm{d}\theta$ to integrate the equation:
+
+\begin{equation}
+\begin{split}
+    \dot{\theta} \frac{\mathrm{d}\dot{\theta}}{\mathrm{d}\theta} &= \frac{g}{R} \sin{\theta} \\
+    \dot{\theta}^{2} &= 2\frac{g}{R} (1 - \cos{\theta})
+\end{split}
+\end{equation}
+
+At the moment of leaving the sphere, we return to the modified equations of motion and set $r = R$, $\dot{r} = 0$ and $\mathrm{d}V/\mathrm{d}r = 0$, so that:
+
+\begin{equation}
+    m\ddot{r} = mR \dot{\theta}^{2} - mg \cos{\theta} = mg(2 - 3\cos{\theta})
+\end{equation}
+
+Now we demand that $\ddot{r} > 0$ for the particle to start leaving the sphere, this means that $\cos{\theta} < 2/3$ or $\theta > \cos^{-1}{(2/3)} \approx \ang{48.2}$.
+
+\qed
+
+
+\problem{7}{A bead on a rotating hoop}
+
+\subproblem{a}{}
+There is only one degree of motion. Accounting for both motion due to $\dot{\theta}$ and due to $\omega$, the Lagrangian is given by:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m (R^{2} \dot{\theta}^{2} + R^{2} \sin^{2}{\theta} \omega^{2}) + mRg \cos{\theta}
+\end{equation}
+
+and the equation of motion is:
+
+\begin{equation}
+    \ddot{\theta} = \omega^{2} \sin{\theta} \cos{\theta} - \frac{g}{R} \sin{\theta}
+\end{equation}
+
+\subproblem{b}{}
+The equilibrium positions are given by $\ddot{\theta} = 0$. They are $\theta_{0} = 0$ and $\theta_{\pm} = \pm \cos^{-1}{(g/R \omega^{2})}$. The first one is the trivial point at the bottom, and the remaining ones only exist if $\omega^{2} > g/R$.
+
+Let us expand $\ddot{\theta}$ around $\theta = 0$:
+
+\begin{equation}
+    \ddot{\theta} = \frac{\omega^{2}}{2} \left( 2\theta - \frac{8\theta^{3}}{6} + \dots \right) - \frac{g}{R} \left( \theta - \frac{\theta^{3}}{6} + \dots \right)
+\end{equation}
+
+so that $\mathrm{d}\ddot{\theta}/\mathrm{d}\theta \approx \omega^{2} - g/R$ in the vicinity of $\theta = 0$.
+
+This means that if the non-trivial equilibrium points exist, i.e., $\omega^{2} > g/R$, any small perturbation $\delta \theta$ will lead to an acceleration that is in the same direction as $\delta \theta$, this means that the trivial equilibrium point is unstable. The trivial equilibrium is apparently stable if $\omega^{2} < g/R$, as the particle has nowhere to go anyway.
+
+We can also expand $\mathrm{d}\ddot{\theta}/\mathrm{d}\theta$ around $\theta_{\pm}$:
+
+\begin{equation}
+    \frac{\mathrm{d}\ddot{\theta}}{\mathrm{d}\theta} \approx \omega^{2} \cos{2\theta_{\pm}} - \frac{g}{R} \cos{\theta_{\pm}} = 2 \frac{g^{2}}{R^{2}\omega^{2}} - \omega^{2} - \frac{g^{2}}{R^{2} \omega^{2}} = \frac{g^{2}}{R^{2}\omega^{2}} \left( 1 - \frac{\omega^{4}}{g^{2}/R^{2}} \right) < 0
+\end{equation}
+
+which means that any small perturbation $\delta \theta$ will lead to an acceleration that is in the opposite direction, implying that the non-trivial equilibrium points are stable.
+
+\subproblem{c}{}
+The total energy is given by:
+
+\begin{equation}
+    E = \frac{1}{2} m (R^{2} \dot{\theta}^{2} + R^{2} \sin^{2}{\theta} \omega^{2}) - mRg \cos{\theta}
+\end{equation}
+
+whereas the Hamiltonian is given by:
+
+\begin{equation}
+    \mathcal{H} = \frac{\partial \mathcal{L}}{\partial \dot{\theta}} \dot{\theta} - \mathcal{L} = \frac{1}{2} m (R^{2} \dot{\theta}^{2} - R^{2} \sin^{2}{\theta} \omega^{2}) - mRg \cos{\theta}
+\end{equation}
+
+Taking the time derivative of the energy:
+
+\begin{equation}
+    \dot{E} = mR^{2} \dot{\theta} \ddot{\theta} + mR^{2} \omega^{2} \sin{\theta} \cos{\theta} \dot{\theta} + mRg \sin{\theta} \dot{\theta} = 2mR^{2} \omega^{2} \sin{\theta} \cos{\theta} \dot{\theta}
+\end{equation}
+
+which is not always zero.
+
+On the other hand, the Hamiltonian is constant:
+
+\begin{equation}
+    \dot{\mathcal{H}} = \frac{\partial \mathcal{L}}{\partial \dot{\theta}} \ddot{\theta} + \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{\partial \mathcal{L}}{\partial \dot{\theta}} \right) \dot{\theta} - \frac{\partial \mathcal{L}}{\partial \theta} \dot{\theta} - \frac{\partial \mathcal{L}}{\partial \dot{\theta}} \ddot{\theta} = 0
+\end{equation}
+
+where the middle two terms cancel out by the Euler-Lagrange equation.
+
+We can view the Hamiltonian as the conserved generalised energy of the system, while the usual energy is not conserved as the hoop is constantly doing work on the bead.
+\qed
+
+
+\problem{8}{A pendulum with accelerated support}
+
+\subproblem{a}{}
+The total motion of the particle is a superposition of the pendulum swinging and the box moving. The Lagrangian of the whole system is given by:
+
+\begin{equation}
+\begin{split}
+    \mathcal{L} &= \frac{1}{2} M \dot{x}^{2} + \frac{1}{2} m \left[ (l \dot{\theta} \cos{\theta} + \dot{x})^{2} + (l \dot{\theta} \sin{\theta})^{2} \right] + mgl \cos{\theta} \\
+    &= \frac{1}{2} M \dot{x}^{2} + \frac{1}{2} m \left( l^{2} \dot{\theta}^{2} + 2l \dot{x} \dot{\theta} \cos{\theta} + \dot{x}^{2} \right) + mgl \cos{\theta}
+\end{split}
+\end{equation}
+
+and the equations of motion are:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left[ (M + m) \dot{x} + ml \dot{\theta} \cos{\theta} \right] &= 0 \\
+    l \ddot{\theta} + \ddot{x} \cos{\theta} &= -g \sin{\theta}
+\end{split}
+\end{equation}
+
+The first equation implies the conservation of momentum. Let us denote the quantity by $P$, such that:
+
+\begin{equation}
+    P =  (M + m) \dot{x} + ml \dot{\theta} \cos{\theta} = 0
+\end{equation}
+
+since $P$ is zero at the initial moment.
+
+\subproblem{b}{}
+In the small angle approximation, we have the equations:
+
+\begin{equation}
+\begin{split}
+    (M + m) \dot{x} + ml \dot{\theta} &= 0 \\
+    l \ddot{\theta} + \ddot{x} &= -g \theta
+\end{split}
+\end{equation}
+
+We could differentiate the first equation to yield:
+
+\begin{equation}
+    (M + m) \ddot{x} + ml \ddot{\theta} = 0
+\end{equation}
+
+so that we have a second order differential equation for $\ddot{\theta}$:
+
+\begin{equation}
+    \frac{M}{M + m} l \ddot{\theta} = -g \theta
+\end{equation}
+
+This is simple harmonic motion with the angular frequency:
+
+\begin{equation}
+    \omega = \sqrt{\frac{M + m}{M} \frac{g}{l}}
+\end{equation}
+
+On the other hand, we could integrate the first equation to yield:
+
+\begin{equation}
+    (M + m) x + ml \theta = C
+\end{equation}
+
+where $C$ is an integration constant that can be set as zero as it is equivalent to a translation of the origin.
+
+This means that (the numerical value of) $x$ is directly proportional to $\theta$, and it can be thus argued that $x$ must also undergo simple harmonic motion with the same angular frequency as $\theta$.
+\qed
+
+
+\problem{9}{Normal modes}
+
+\subproblem{a}{}
+The Lagrangian is given by:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m (\dot{x}_{1}^{2} + \dot{x}_{2}^{2}) - \frac{1}{2} k_{1} x_{1}^{2} - \frac{1}{2} k_{2} (x_{2} - x_{1})^{2}
+\end{equation}
+
+and the equations of motion are:
+
+\begin{equation}
+\begin{split}
+    m \ddot{x}_{1} &= -k_{1} x_{1} + k_{2}(x_{2} - x_{1}) \\
+    m \ddot{x}_{2} &= -k_{2}(x_{2} - x_{1})
+\end{split}
+\end{equation}
+
+\subproblem{b}{}
+Define the displacement vector $X = (x_{1}, x_{2})^{\intercal}$, we have the equations in matrix form:
+
+\begin{equation}
+    \ddot{X}
+    =
+    -\frac{1}{m}
+    \begin{pmatrix}
+        k_{1} + k_{2} & -k_{2} \\
+        -k_{2} & k_{2}
+    \end{pmatrix}
+    X
+\end{equation}
+
+so that the eigenfrequencies are:
+
+\begin{equation}
+\begin{split}
+    \Omega_{+}^{2} = \frac{1}{2m} \left( k_{1} + 2 k_{2} + \sqrt{k_{1}^2+4 k_{2}^2} \right) \\
+    \Omega_{-}^{2} = \frac{1}{2m} \left( k_{1} + 2 k_{2} - \sqrt{k_{1}^2+4 k_{2}^2} \right)
+\end{split}
+\end{equation}
+
+corresponding to the eigenvectors:
+
+\begin{equation}
+\begin{split}
+    \mathbf{e}_{+} = \left( -\frac{k_{1} + \sqrt{k_{1}^2 + 4k_{2}^2}}{2k_{2}}, 1 \right)^{\intercal} \\
+    \mathbf{e}_{-} = \left( -\frac{k_{1} - \sqrt{k_{1}^2 + 4k_{2}^2}}{2k_{2}}, 1 \right)^{\intercal}
+\end{split}
+\end{equation}
+
+The solution is given by:
+
+\begin{equation}
+    X(t) = A \mathbf{e}_{+} \cos{(\Omega_{+} t + \phi_{1})} + B \mathbf{e}_{-} \cos{(\Omega_{-} t + \phi_{2})} 
+\end{equation}
+
+where $A$, $B$, $\phi_{1}$ and $\phi_{2}$ are constants to be determined by the initial conditions.
+
+In the limit $k_{1} \ll k_{2}$, $\Omega_{+}^{2} \to 2k_{2}/m$ and $\Omega_{-}^{2} \to 0$. In the limit $k_{1} \gg k_{2}$, $\Omega_{+}^{2} \to k_{1}/m$ and $\Omega_{-}^{2} \to 0$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Additional questions}
+%==========
+
+
+\problem{}{}
+
+
+\end{document}

@@ -1,0 +1,481 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Classical Mechanics}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Collisions in two dimensions \& applications of the equation of motion}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Collisions in 2-D}
+%==========
+
+
+\problem{1}{Elastic collisions in 2D}
+
+\subproblem{a}
+Suppose $m_{1}$ has a velocity $\mathbf{v}$ in the centre of mass (CM) frame, such that $m_{2}$ has a velocity $-m_{1}\mathbf{v}/m_{2}$. Let $m_{1}$ have a velocity $\mathbf{v}_{1}$ after the collision and $m_{2}$ have a velocity $\mathbf{v}_{2}$. By conservation of momentum (COM):
+
+\begin{equation}
+    \mathbf{0} = m_{1} \mathbf{v}_{1} + m_{2} \mathbf{v}_{2}
+\end{equation}
+
+By conservation of energy(COE):
+
+\begin{equation}
+    \frac{1}{2} \left( m_{1} v^{2} + m_{2} \frac{m_{1}^{2}}{m_{2}^{2}} v^{2} \right) = \frac{1}{2} \left( 1 + \frac{m_{1}}{m_{2}} \right) m_{1} v^{2} = \frac{1}{2} (m_{1} v_{1}^{2} + m_{2} v_{2}^{2})
+\end{equation}
+
+Substitute the first equation to the second:
+
+\begin{equation}
+    \left( 1 + \frac{m_{1}}{m_{2}} \right) m_{1} v^{2} = \left( m_{1} + \frac{m_{1}^{2}}{m_{2}} \right) v_{1}^{2}
+\end{equation}
+
+Thus $\mathbf{v}_{1} = \pm \mathbf{v}$ and $\mathbf{v}_{2} = \mp \frac{m_{1}}{m_{2}} \mathbf{v}$. It is seen that the magnitude of the velocities do not change.
+
+\subproblem{b}
+By COM:
+
+\begin{equation}
+    m \mathbf{u}_{1} = m \mathbf{v}_{1} + m \mathbf{v}_{2}
+\end{equation}
+
+Squaring both sides:
+
+\begin{equation}
+    u^{2} = v_{1}^{2} + 2 \mathbf{v}_{1} \cdot \mathbf{v}_{2} + v_{2}^{2}
+\end{equation}
+
+By COE:
+
+\begin{equation}
+    \frac{1}{2} m u_{1}^{2} = \frac{1}{2} m v_{1}^{2} + \frac{1}{2} m v_{2}^{2}
+\end{equation}
+
+Substituting yields:
+
+\begin{equation}
+    v_{1}^{2} + 2 \mathbf{v}_{1} \cdot \mathbf{v}_{2} + v_{2}^{2} = v_{1}^{2} + v_{2}^{2}
+\end{equation}
+
+Hence $\mathbf{v}_{1} \cdot \mathbf{v}_{2} = 0$. This implies either $\mathbf{v}_{1} = 0$, $\mathbf{v}_{2} = 0$ or $\mathbf{v}_{1} \perp \mathbf{v}_{2}$. But if $\mathbf{v}_{2} = 0$ and $\mathbf{v}_{1} = \mathbf{u}_{1}$, there is no change to the system and thus no collision. So $\mathbf{v}_{2} = 0$ is ruled out.
+
+Taking a dot product $\mathbf{u}_{1} \cdot \mathbf{v}_{1}$ gives:
+
+\begin{equation}
+    \mathbf{u}_{1} \cdot \mathbf{v}_{1} = v_{1}^{2} + \mathbf{v}_{1} \cdot \mathbf{v}_{2} = v_{1}^{2} > 0
+\end{equation}
+
+But $\mathbf{u}_{1} \cdot \mathbf{v}_{1} = uv \cos{\theta}$ where $\theta$ is the scattering angle. Therefore, $\cos{\theta} > 0$ and $\ang{-90} \le \theta \le \ang{90}$.
+
+\subproblem{c}
+In CM frame, $P_{1}$ has an initial velocity $\mathbf{u}_{1}/2$ and $P_{2}$ has $-\mathbf{u}_{1}/2$. COM gives
+
+\begin{equation}
+    \mathbf{0} = m \mathbf{v}_{1}' + m \mathbf{v}_{2}'
+\end{equation}
+
+COE gives:
+
+\begin{equation}
+    m \frac{u_{1}^{2}}{4} = \frac{1}{2} m v_{1CM}^{'2} + \frac{1}{2} m v_{2CM}^{'2}
+\end{equation}
+
+Substitution yields $v_{1}' = v_{2}' = u_{1}/2$ and $\mathbf{v}_{1}' = -\mathbf{v}_{2}'$. Thus:
+
+\begin{equation}
+    \mathbf{v}_{1} \cdot \mathbf{v}_{2} = (\mathbf{v}_{1}' + \mathbf{u}_{1}/2) \cdot (\mathbf{v}_{2}' + \mathbf{u}_{1}/2) = (\mathbf{v}_{1}' + \mathbf{u}_{1}/2) \cdot (-\mathbf{v}_{1}' + \mathbf{u}_{1}/2) = \frac{u_{1}^{2}}{4} - v_{1}^{'2} = 0
+\end{equation}
+
+And:
+
+\begin{equation}
+    \mathbf{u}_{1} \cdot \mathbf{v}_{1} = \mathbf{u}_{1} \cdot (\mathbf{v}_{1}' + \mathbf{u}_{1}/2) = \frac{u_{1}^{2}}{2} \left( \cos{\phi} + 1 \right) \ge 0
+\end{equation}
+\qed
+
+
+\problem{2}{Collision of an alpha particle with a proton}
+Let the alpha particle have an initial velocity $\mathbf{v}$. Also let the alpha particle have a velocity $\mathbf{v}_{1}$ after the collision and the proton have $\mathbf{v}_{2}$. By COM:
+
+\begin{equation}
+    4\mathbf{v} = 4\mathbf{v}_{1} + \mathbf{v}_{2}
+\end{equation}
+
+or $4\mathbf{v} - 4\mathbf{v}_{1} = \mathbf{v}_{2}$.
+
+Squaring the equation:
+
+\begin{equation}
+    16 v^{2} - 32 \mathbf{v} \cdot \mathbf{v}_{1} + 16 v_{1}^{2} = v_{2}^{2}
+\end{equation}
+
+By COE:
+
+\begin{equation}
+    4v^{2} = 4v_{1}^{2} + v_{2}^{2}
+\end{equation}
+
+Substituting:
+
+\begin{equation}
+\begin{split}
+    4v^{2} &= 4v_{1}^{2} + 16v^{2} - 32 \mathbf{v} \cdot \mathbf{v}_{1} + 16v_{1}^{2} \\
+    3v^{2} + 5v_{1}^{2} &= 8\mathbf{v} \cdot \mathbf{v}_{1} = 8v v_{1} \cos{\theta} \\
+    \cos{\theta} &= \frac{3v^{2} + 5v_{1}^{2}}{8v v_{1}}
+\end{split}
+\end{equation}
+
+where $\theta$ is the deflection angle.
+
+Since $v$ is a constant, we can differentiate the equation with respect to $v_{1}$:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}v_{1}} \cos{\theta} = \frac{5v_{1}^{2} - 3v^{2}}{8v v_{1}^{2}}
+\end{equation}
+
+Therefore, $v_{1} = \pm \sqrt{3/5} v$ for a maximum $\cos{\theta}$. The maximum of $\theta$ is thus:
+
+\begin{equation}
+    \theta_{max} = \cos^{-1} \left( \frac{6v^{2}}{\pm 8\sqrt{3/5} v^{2}} \right) = \pm \ang{14.5}
+\end{equation}
+\qed
+
+
+\problem{3}{Inelastic collision in 2-D}
+In the CM frame, $2m$ has an initial velocity $\mathbf{u}/3$ while $m$ has an initial velocity $-2\mathbf{u}/3$. Let them have velocities $\mathbf{v}_{1CM}$ and $\mathbf{v}_{2CM}$ respectively after the collision. By COM:
+
+\begin{equation}
+    \mathbf{0} = 2\mathbf{v}_{1CM} + \mathbf{v}_{2CM}
+\end{equation}
+
+By the definition of coefficient of restitution $\alpha$:
+
+\begin{equation}
+\begin{split}
+    \left\lvert \mathbf{v}_{1CM} - \mathbf{v}_{2CM} \right\rvert &= \alpha u \\
+    \left\lvert 3\mathbf{v}_{1CM} \right\rvert &= \left\lvert 3\mathbf{v}_{2CM}/2 \right\rvert = \alpha u
+\end{split}
+\end{equation}
+
+or $v_{1CM} = \alpha u/3$ and $v_{2CM} = 2\alpha u/3$.
+
+Given $\mathbf{v}_{2} = \mathbf{v}_{2CM} + 2\mathbf{u}/3$:
+
+\begin{equation}
+\begin{split}
+    v_{2}^{2} &= v_{2CM}^{2} - \frac{4}{3} v_{2CM} u \cos{\phi} + \frac{4}{9} u^{2} \\
+              &= \frac{4}{9} u^{2} \left( \alpha^{2} + 1 - 3 \alpha \cos{\phi} \right)
+\end{split}
+\end{equation}
+
+where $\phi$ is the angle between $\mathbf{v}_{2CM}$ and $\mathbf{u}$
+
+But $v_{2CM}\sin{\phi} = v_{2}\sin{\theta}$, so:
+
+\begin{equation}
+\begin{split}
+    v_{2CM}^{2}(1 - \cos^{2}{\phi}) &= v_{2}^{2}(1 - \cos^{2}{\theta}) \\
+    \cos^{2}{\phi} &= 1 - \frac{9v_{2}^{2}}{4 \alpha^{2} u^{2}} (1 - \cos^{2}{\theta})
+\end{split}
+\end{equation}
+
+This expression can be substituted back to the equation for $v^{2}$, and \mistake{after some nasty algebra}, we get:
+
+\begin{equation}
+    v_{2} = \frac{2u}{3} \left( \cos{\theta} \pm \sqrt{\alpha^{2} - \sin^{2}{\theta}} \right)
+\end{equation}
+
+\begin{correction}
+    A geometric approach is much simpler.
+\end{correction}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Work, potential energy and conservation of energy}
+%==========
+
+
+\problem{4}{The Work Energy Theorem}
+
+\subproblem{a}
+Assuming that $m$ is a constant, by Newton's second law:
+
+\begin{equation}
+    m \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} = mv \frac{\mathrm{d}v}{\mathrm{d}x} = F(x)
+\end{equation}
+
+This has now become a separable differential equation. Integrating yields
+
+\begin{equation}
+\begin{split}
+    \int_{v_{a}}^{v_{b}} mv \mathrm{d}v \, \mathrm{d}v &= \int_{a}^{b} F(x) \, \mathrm{d}x \\
+    \frac{1}{2} m v_{b}^{2} - \frac{1}{2} m v_{a}^{2} &= W_{ab} \\
+    W_{ab} &= T(b) - T(a)
+\end{split}
+\end{equation}
+
+This expression apples to all forces.
+
+\subproblem{b}
+The term 'minimum approach' only makes sense if $x_{0} > 0$ and $u < 0$, i.e., the negative velocity points at the origin. In this case, using the work energy theorem:
+
+\begin{equation}
+\begin{split}
+    \int_{x_{0}}^{x_{\text{min}}} \frac{k}{x^{2}} \, \mathrm{d}x = 0 - \frac{1}{2} m u^{2} \\
+    k \left( \frac{1}{x_{\text{min}}} - \frac{1}{x_{0}} \right) = \frac{1}{2} m u^{2} \\
+    x_{\text{min}} = \frac{1}{mu^{2}/2k + 1/x_{0}}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{5}{Gravitational potential of two point masses}
+
+\subproblem{a}
+The y-components of the forces cancel, so we only consider the x-components:
+
+\begin{equation}
+\begin{split}
+    F(x) = -2 G \frac{Mm}{x^{2} + a^{2}} \frac{x}{\sqrt{x^{2} + a^{2}}} = -2 G \frac{Mmx}{(x^{2} + a^{2})^{3/2}}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+Treating infinity as the reference point, by the definition of potential energy:
+
+\begin{equation}
+    V(x) = \int_{\infty}^{x} 2 G \frac{Mmx}{(x^{2} + a^{2})^{3/2}} \, \mathrm{d}x = GMm \left[ -2 \frac{1}{(x^{2} + a^{2})^{1/2}} \right]_{\infty}^{x} = \frac{-2GMm}{\sqrt{x^{2} + a^{2}}}
+\end{equation}
+
+This is a symmetric potential well centred at $x = 0$. The minimum point has an energy $-2GMm/a$. Thus, for a particle trapped at the centre, it needs at least $2GMm/a$ amount of kinetic energy to be able to escape the well.
+
+\subproblem{c}
+By COE:
+
+\begin{equation}
+\begin{split}
+    \frac{-2GMm}{\sqrt{25a^{2}/16}} &= \frac{-2GMm}{\sqrt{a^{2}}} + \frac{1}{2} m v_{\text{max}}^{2} \\
+    v_{\text{max}} &= \sqrt{\frac{4GM}{5a}}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{6}{SHM about stable equilibrium}
+
+\subproblem{a}
+Differentiating $U(r)$ with respect to $r$:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}U}{\mathrm{d}r} = 12\epsilon \left( \frac{r_{0}^{6}}{r^{7}} - \frac{r_{0}^{12}}{r^{13}} \right)
+\end{split}
+\end{equation}
+
+For the minimum point, $r_{0}^{6}/r^{7} = r_{0}^{12}/r^{13}$ or $r = r_{0}$. At this point, $U(r_{0}) = -\epsilon$.
+
+\subproblem{b}
+
+\begin{equation}
+    U(r - r_{0}) \approx U(r_{0}) + U'(r_{0}) (r - r_{0}) + \frac{1}{2} U''(r_{0}) (r - r_{0})^{2} = \epsilon \left[ 36\frac{(r - r_{0})^{2}}{r_{0}^{2}} - 1 \right]
+\end{equation}
+
+\subproblem{c}
+By the definition of a force due to a potential:
+
+\begin{equation}
+    F(r - r_{0}) = -\frac{\mathrm{d}U}{\mathrm{d}(r - r_{0})} \approx -72 \epsilon \frac{r - r_{0}}{r_{0}^{2}}
+\end{equation}
+
+which shows that for small $(r - r_{0})$, the motion is simple harmonic.
+
+The frequency $\omega$ is:
+
+\begin{equation}
+    \omega = \mistake{\frac{6}{r_{0}} \sqrt{\frac{2\epsilon}{m}}}
+\end{equation}
+
+\begin{correction}
+    The frequency is $\omega = \sqrt{2k/m}$, as this is the interaction between two particles:
+
+    \begin{equation}
+        \omega = \frac{12}{r_{0}} \sqrt{\frac{\epsilon}{m}}
+    \end{equation}
+\end{correction}
+
+\subproblem{d}
+
+\begin{equation}
+    k = \omega^{2} m = \left( 2\pi f \right)^{2} m \approx \qty{1.7e6}{Nm^{-1}}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Applications of equation of motion and resistive forces}
+%==========
+
+
+\problem{7}{Projectile in 2D}
+The ball only experiences a force in the negative z-axis. The motion is restricted to the plane spanned by $-g \hat{\mathbf{z}}$ and $\mathbf{V}$. If the motion were to leave this plane, the ball must experiences a force that has a component perpendicular to the plane, which violates the first condition.
+
+\subproblem{a}
+
+\begin{equation}
+    T = \frac{2V\sin{\theta}}{g}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    h = V \sin{\theta} \frac{T}{2} - \frac{1}{2} g \frac{T^{2}}{4} = \frac{V^{2} \sin^{2}{\theta}}{2g}
+\end{equation}
+
+\subproblem{c}
+
+\begin{equation}
+    D = V \cos{\theta} T = \frac{V^{2}\sin{2\theta}}{g}
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    \frac{1}{2} m V^{2} \cos^{2}{\theta} + m g \frac{V^{2} \sin^{2}{\theta}}{2g} = \frac{1}{2} m V^{2}
+\end{equation}
+
+The computed firing angles differ from the actual angle of $\ang{45}$. This is due to possible air resistance.
+\qed
+
+
+\problem{8}{}
+
+\begin{equation}
+\begin{split}
+    mgh &= \frac{1}{2} m v^{2} + f_{\text{ave}} h \\
+    f_{\text{ave}} &= mg - \frac{1}{2h} m v^{2} = \qty{1.81}{N}
+\end{split}
+\end{equation}
+
+The 'average force' here is a constant force that would have done the same negative work on the falling body as the actual air resistance, that is:
+
+\begin{equation}
+    f_{\text{ave}} h = \int_{0}^{h} f_{\text{actual}} \, \mathrm{d}x
+\end{equation}
+\qed
+
+
+\problem{9}{}
+
+\subproblem{a}
+
+\begin{equation}
+\begin{split}
+    6\pi a \eta v_{f} &= mg \\
+    v_{f} &= \frac{mg}{6\pi a \eta} = \qty{102}{ms^{-1}}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+By Newton's second law, at speed $v$:
+
+\begin{equation}
+    m \frac{\mathrm{d}v}{\mathrm{d}t} = mg - 6\pi a \eta v
+\end{equation}
+
+or dividing by $m$:
+
+\begin{equation}
+    \frac{\mathrm{d}v}{\mathrm{d}t} = g - \frac{6\pi a \eta}{m} v
+\end{equation}
+
+This is a separable differential equation:
+
+\begin{equation}
+    \int_{0}^{v} \frac{1}{g - 6\pi a \eta v/m} \, \mathrm{d}v = \int_{0}^{t} \, \mathrm{d}t
+\end{equation}
+
+Integrating this equation yields:
+
+\begin{equation}
+    v(t) = \frac{g}{\lambda} (1 - \lambda t)
+\end{equation}
+
+where $\lambda \equiv 6\pi a \eta/m$.
+
+For $1 - \lambda t = 0.95$:
+
+\begin{equation}
+    t = \frac{0.05}{\lambda} = \qty{0.52}{s}
+\end{equation}
+
+\subproblem{c}
+Given an additional force, a quadratic equation results:
+
+\begin{equation}
+    6\pi a \eta v_{f} + 0.87 (av)^{2} = mg
+\end{equation}
+
+Solving the equation yields $v_{f} = \qty{0.50}{ms^{-1}}$. The current model is more realistic.
+\qed
+
+
+\problem{10}{}
+
+\subproblem{a}
+Taking upwards as positive, for the upward motion:
+
+\begin{equation}
+    \frac{\mathrm{d}v}{\mathrm{d}t} = -g - \frac{\alpha}{m} v^{2}
+\end{equation}
+
+For the downward motion:
+
+\begin{equation}
+    \frac{\mathrm{d}v}{\mathrm{d}t} = -g + \frac{\alpha}{m} v^{2}
+\end{equation}
+
+Focusing on the upwards equation, using the identity $\mathrm{d}v/\mathrm{d}t = v \mathrm{d}v/\mathrm{d}x$:
+
+\begin{equation}
+\begin{split}
+    v \frac{\mathrm{d}v}{\mathrm{d}x} &= -g - \frac{\alpha}{m} v^{2} \\
+    \int_{v_{0}}^{0} \frac{v}{-g - \alpha v^{2}/m} \, \mathrm{d}v &= \int_{0}^{h} \, \mathrm{d}x \\
+    h &= \frac{m}{2\alpha} \ln{\left( 1 + \frac{\alpha}{mg} v_{0}^{2} \right)} = a \ln{[1 + (v_{0}/v_{l})^{2}]}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+Applying the same method on the downwards motion:
+
+\begin{equation}
+\begin{split}
+    v \frac{\mathrm{d}v}{\mathrm{d}x} &= -g + \frac{\alpha}{m} v^{2} \\
+    \int_{0}^{-v_{r}} \frac{v}{-g + \alpha v^{2}/m} \, \mathrm{d}v &= \int_{h}^{0} \, \mathrm{d}x \\
+    v_{r}^{2} &= \frac{mg}{\alpha} [1 - \exp(-2\alpha h/m)] = v_{l}^{2}[1 - \exp(-h/a)]
+\end{split}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Additional questions}
+%==========
+
+
+
+\end{document}

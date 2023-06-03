@@ -1,0 +1,368 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Capacitance and Electric-Field Energy \& Magnetostatics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Capacitance and Electric-Field Energy}
+%==========
+
+
+\problem{0}{Background}
+Capacitance is the ratio between the charge stored in a capacitor and the potential difference between the plates. The energy stored in a capacitor is given by:
+
+\begin{equation}
+    W = \int_{0}^{Q} V \, \mathrm{d}q = \int_{0}^{Q} \frac{q}{C} \, \mathrm{d}q = \frac{1}{2} \frac{Q^{2}}{C} = \frac{1}{2} CV^{2}
+\end{equation}
+\qed
+
+
+\problem{1}{Spherical and cylindrical capacitors}
+
+\subproblem{a}{}
+The electric field between two spherical shells is given by:
+
+\begin{equation}
+    \mathbf{E}(r) = \frac{1}{4\pi \epsilon_{0}} \frac{Q}{r^{2}} \hat{r}
+\end{equation}
+
+assuming that the inner shell has positive charge.
+
+The potential difference, with the inner shell taken as the reference, is hence given by:
+
+\begin{equation}
+    V_{21} = -\int_{R_{1}}^{R_{2}} \mathbf{E} \cdot \mathrm{d}\mathbf{r} = \frac{Q}{4\pi \epsilon_{0}} \left( \frac{1}{R_{2}} - \frac{1}{R_{1}} \right)
+\end{equation}
+
+so that the capacitance is:
+
+\begin{equation}
+    C = \frac{Q}{\left\lvert V_{21} \right\rvert} = 4\pi \epsilon_{0} \frac{R_{1} R_{2}}{R_{2} - R_{1}}
+\end{equation}
+
+Let $R_{2} = R_{1} + \delta R$, we have:
+
+\begin{equation}
+    C = 4\pi \epsilon_{0} R_{1} \frac{R_{1} + \delta R}{\delta R} \approx 4\pi R_{1}^{2} \epsilon_{0} \frac{1}{\delta R}
+\end{equation}
+
+where $4\pi R_{1}^{2}$ is the surface area and $\delta R$ is the separation.
+
+\subproblem{b}{}
+The electric field between two concentric cylindrical shells is given by:
+
+\begin{equation}
+    \mathbf{E}(r) = \frac{1}{4\pi \epsilon_{0}} \frac{\lambda}{r} \hat{r}
+\end{equation}
+
+where $\lambda = Q/L$ is the linear charge density.
+
+The potential difference is hence given by:
+
+\begin{equation}
+    V_{21} = -\int_{R_{1}}^{R_{2}} \mathbf{E} \cdot \mathrm{d}\mathbf{r} = \frac{Q/L}{4\pi \epsilon_{0}} \left( \ln{\frac{R_{1}}{R_{2}}} \right)
+\end{equation}
+
+so that with $R_{2} = R_{1} + \delta R$, the capacitance is:
+
+\begin{equation}
+    C = \frac{Q}{\left\lvert V_{21} \right\rvert} = 4\pi L \epsilon_{0} \frac{1}{\ln{R_{2}} - \ln{R_{1}}} = 4\pi L \epsilon_{0} \frac{1}{\ln{(1 + \delta R/R_{1})}} \approx 4\pi R_{1} L \epsilon_{0} \frac{1}{\delta R}
+\end{equation}
+
+where $4\pi R_{1} L$ is the surface area and $\delta R$ is the separation.
+\qed
+
+
+\problem{2}{Energy stored in a capacitor}
+The electric field is a superposition between that of the parallel plates and the medium. The field strength due to the medium is given by Gauss' law:
+
+\begin{equation}
+    2EA = \frac{1}{\epsilon_{0}} A (d - 2x) \rho
+\end{equation}
+
+so that $E = (d - 2x) \rho/2\epsilon_{0}$.
+
+The field strength due to the parallel plates is simply $V/d$, and considering the direction of the two fields, the total field is:
+
+\begin{equation}
+    E_{tot} = \frac{V}{d} - \frac{\rho (d - 2x)}{2 \epsilon_{0}}
+\end{equation}
+
+The potential difference between the plates is now given by:
+
+\begin{equation}
+    V_{tot} = \int_{0}^{d} E_{tot} \, \mathrm{d}x = V + \int_{0}^{d} \left( x - \frac{d}{2} \right) \, \mathrm{d}x = V
+\end{equation}
+
+which is not changed.
+
+Therefore, the capacitance is not affected by the internal medium. For any external charge distribution, there is no net flux created between the parallel plates so that the capacitance is not affected by any external charge distribution.
+\qed
+
+
+\problem{3}{Air breakdown thresholds inside a cylindrical capacitor}
+The electric field between two concentric cylinders is given by:
+
+\begin{equation}
+    \mathbf{E}(r) = \frac{1}{2\pi \epsilon_{0}} \frac{\lambda}{r} \hat{r}
+\end{equation}
+
+where $\lambda$ is the linear charge density.
+
+Therefore, for maximum electric field, we have $E(a) = E_{b}$ and $\lambda/2\pi \epsilon_{0} = E_{b} a$.
+
+\subproblem{a}{}
+The potential difference between the plates is given by:
+
+\begin{equation}
+    V = -\int_{b}^{a} \mathbf{E} \cdot \mathrm{d}\mathbf{r} = \frac{\lambda}{2\pi \epsilon_{0}} \ln{\frac{b}{a}} = E_{b} a (\ln{b} - \ln{a})
+\end{equation}
+
+so that to maximise the potential difference, we have:
+
+\begin{equation}
+    \frac{\mathrm{d}V}{\mathrm{d}a} = E_{b} (\ln{b} - \ln{a} - 1) = 0
+\end{equation}
+
+or $a = b/e$.
+
+\subproblem{b}{}
+The energy stored in the capacitor is given by:
+
+\begin{equation}
+    W = \int_{V} \frac{\epsilon_{0}}{2} E^{2} \, \mathrm{d}V = \int_{0}^{l} \int_{0}^{2\pi} \int_{b}^{a} E_{b}^{2} a^{2} \frac{1}{r} \, \mathrm{d}r \mathrm{d}\phi \mathrm{d}z = \pi l \epsilon_{0} E_{b}^{2} a^{2} \ln{\frac{b}{a}}
+\end{equation}
+
+so that to maximise the energy stored, we have:
+
+\begin{equation}
+    \frac{\mathrm{d}W}{\mathrm{d}a} = 2\pi l \epsilon_{0} E_{b}^{2} a \left( \ln{b} - \ln{a} - 1/2 \right) = 0
+\end{equation}
+
+or $a = b/\sqrt{e}$.
+\qed
+
+
+\problem{4}{Forces between capacitor plates}
+
+\subproblem{a}{}
+The energy stored in a parallel plate capacitor can be expressed as a function of its width $d$:
+
+\begin{equation}
+    E = \frac{1}{2} C V^{2} = \frac{1}{2} \epsilon_{0} \frac{A}{d} V^{2}
+\end{equation}
+
+so that the force is given by:
+
+\begin{equation}
+    F = \left\lvert \frac{\mathrm{d}E}{\mathrm{d}d} \right\rvert = \frac{1}{2} \epsilon_{0} \frac{A}{d^{2}} V^{2} = \qty{1.59e-4}{N}
+\end{equation}
+
+\subproblem{b}{}
+Given constant $V = \qty{600}{V}$, the work done is:
+
+\begin{equation}
+    W = \int_{d}^{d'} \frac{1}{2} \epsilon_{0} \frac{A}{x^{2}} V^{2} \, \mathrm{d}x = \frac{1}{2} \epsilon_{0} A V^{2} \left( \frac{1}{d} - \frac{1}{d'} \right) = \qty{7.97e-7}{J}
+\end{equation}
+
+Given constant $q = CV$, the energy stored becomes:
+
+\begin{equation}
+    E = \frac{1}{2} \frac{q^{2}}{C} = \frac{1}{2} q^{2} \frac{d}{\epsilon_{0} A}
+\end{equation}
+
+and the force is:
+
+\begin{equation}
+    F = \left\lvert \frac{\mathrm{d}E}{\mathrm{d}d} \right\rvert = \frac{1}{2} q^{2} \frac{1}{\epsilon_{0} A}
+\end{equation}
+
+which is a constant.
+
+The work done is thus:
+
+\begin{equation}
+    W = \frac{1}{2} q^{2} \frac{1}{\epsilon_{0} A} (d' - d) = \qty{7.97e-7}{J}
+\end{equation}
+
+\subproblem{c}{}
+
+\begin{equation}
+    E(d') = \frac{1}{2} \epsilon_{0} \frac{A}{d'} V^{2} = \frac{1}{2} \epsilon_{0} \frac{A}{2d} V^{2} = \frac{E(d)}{2}
+\end{equation}
+
+
+
+%==========
+\pagebreak
+\section*{Magnetostatics}
+%==========
+
+
+\problem{0}{Background}
+Biot-Savart law can be used to calculate the magnetic field due to any general current distribution, while Ampere's law is useful if the current distribution has some symmetry.
+\qed
+
+
+\problem{1}{Magnetic fields from straight current segments and polygons}
+
+\subproblem{a}{}
+The magnetic field on the perpendicular bisector of a finite straight current segment is given by:
+
+\begin{equation}
+    \mathbf{H} = \hat{\phi} \frac{\mu_{0} I}{4\pi} \int_{-b}^{b} \frac{dx}{x^{2} + a^{2}} \frac{a}{\sqrt{x^{2} + a^{2}}} \, \mathrm{d}x = \hat{\phi} \frac{\mu_{0} I}{4\pi a} \int_{-\theta_{0}}^{\theta_{0}} \cos{\theta} \, \mathrm{d}\theta = \frac{\mu_{0} I}{2\pi a} \frac{b}{\sqrt{b^{2} + a^{2}}} \hat{\phi}
+\end{equation}
+
+where the substitution $x = a\tan{\theta}$ has been used and $\sin{\theta_{0}} = b/\sqrt{b^{2} + a^{2}}$.
+
+\subproblem{b}{}
+In the present case, we have $N$ segments of length $2b_{N} = 2a\sin{(\pi/N)}$ and perpendicular distance to the centre $a_{N} = a\cos{(\pi/N)}$. The total magnetic field is thus:
+
+\begin{equation}
+    B = N \frac{\mu_{0} I}{2\pi a_{N}} \frac{b_{N}}{\sqrt{b_{N}^{2} + a_{N}^{2}}} = \frac{\mu_{0} N I}{2\pi a} \sec{(\pi/N)} \sin{(\pi/N)}
+\end{equation}
+
+Now let $N \to \infty$ so that $\sin{(\pi/N)} \to \pi/N$ and $\sec{(\pi/N)} \to 1$. The magnetic field is thus:
+
+\begin{equation}
+    B \approx \frac{\mu_{0} I}{2a}
+\end{equation}
+
+as expected from the result for a circular current loop.
+\qed
+
+
+\problem{2}{On-axis magnetic field of a coil and of a pair of Helmholtz coils}
+
+\subproblem{a}{}
+The symmetry of the problem means that only the field component along the axis is of interest. The magnetic field is given by:
+
+\begin{equation}
+    \mathbf{H} = \hat{x} \frac{\mu_{0} N I}{4\pi} \int_{0}^{2\pi} \frac{a}{r^{2}} \frac{a}{r} \, \mathrm{d}\theta = \frac{\mu_{0} N I a^{2}}{2r^{3}} \hat{x} = \frac{\mu_{0} N I a^{3}}{2(a^{2} + x^{2})^{3/2}} \hat{x}
+\end{equation}
+
+where $r = \sqrt{a^{2} + x^{2}}$ is the distance from the edge of the coil to the point of interest.
+
+\subproblem{b}{}
+The described superposition of two identical coils produces the field:
+
+\begin{equation}
+    \mathbf{H} = \frac{\mu_{0} N I a^{3}}{2} \left\{ \left[ a^{2} + (x + a)^2 \right]^{-3/2} + \left[ a^{2} + (x - a)^2 \right]^{-3/2} \right\}
+\end{equation}
+
+where $x$ is the distance from the midpoint of the coils.
+
+The first derivative of the field strength is proportional to:
+
+\begin{equation}
+    \frac{\mathrm{d}H}{\mathrm{d}x} \propto -\frac{3}{2} \left\{ \frac{x + a}{\left[ a^{2} + (x + a)^2 \right]^{5/2}} + \frac{x - a}{\left[ a^{2} + (x - a)^2 \right]^{5/2}} \right\}
+\end{equation}
+
+which is zero at $x = 0$.
+
+The second derivative is proportional to:
+
+\begin{equation}
+    \frac{\mathrm{d}^{2}H}{\mathrm{d}x^{2}} \propto -\frac{1}{\left[ a^{2} + (x + a)^2 \right]^{5/2}} + 5 \frac{(x + a)^{2}}{\left[ a^{2} + (x + a)^2 \right]^{7/2}} - \frac{1}{\left[ a^{2} + (x - a)^2 \right]^{5/2}} + 5 \frac{(x - a)^{2}}{\left[ a^{2} + (x - a)^2 \right]^{7/2}}
+\end{equation}
+
+which is also zero at $x = 0$.
+
+This means that around the midpoint of the coils, the field is constant up to any third order small variations in $x$. This makes it possible to approximate the field as a constant in a relatively large region around the midpoint of the coils.
+\qed
+
+
+\problem{3}{In-plane magnetic field of a coil}
+Consider an infinitesimal segment $\mathrm{d}l = a \mathrm{d}\theta$ along the coil. The infinitesimal magnetic field is given by:
+
+\begin{equation}
+    \mathrm{d}H = \frac{\mu_{0}}{4\pi} NI \frac{a \mathrm{d}\theta}{r'^{2}} \sin{\alpha}
+\end{equation}
+
+where $r'^{2} = r^{2} + a^{2} - 2ra \cos{\theta}$ and $\cos{\alpha} = r\sin{\theta}/r'$.
+
+Consider the expression for $\sin{\alpha}$:
+
+\begin{equation}
+    \sin{\alpha} = \sqrt{1 - \frac{r^{2}}{r'^{2}} \sin^{2}{\theta}} = \sqrt{\frac{r^{2}\cos^{2}{\theta} + a^{2} - 2ra \cos{\theta}}{r^{2} + a^{2} - 2ra \cos{\theta}}} = r \sqrt{\frac{\cos^{2}{\theta} + (a/r)^{2} - 2(a/r) \cos{\theta}}{1 + (a/r)^{2} - 2(a/r) \cos{\theta}}}
+\end{equation}
+
+so that the total magnetic field is given by the integral:
+
+\begin{equation}
+    H = \frac{\mu_{0} NIa}{4\pi r^{2}} \int_{0}^{2\pi} \sqrt{\frac{\cos^{2}{\theta} + (a/r)^{2} - 2(a/r) \cos{\theta}}{[1 + (a/r)^{2} - 2(a/r) \cos{\theta}]^{3}}} \, \mathrm{d}\theta
+\end{equation}
+
+In the limit $r \gg a$, we may expand the integrand to retain terms up to first order in $a/r$:
+
+\begin{equation}
+    H \approx \frac{\mu_{0} NIa}{4\pi r^{2}} \int_{0}^{2\pi} \left( \cos{\theta} + 3 \frac{a}{r} \cos^{2}{\theta} - \frac{a}{r} \right) \, \mathrm{d}\theta = \frac{\mu_{0} NIa^{2}}{4 r^{3}}
+\end{equation}
+\qed
+
+
+\problem{4}{Magnetic field inside a solenoid}
+Consider an infinitesimal segment $\mathrm{d}z$ along the solenoid. This represents $nI \mathrm{d}z$ current that produces a magnetic field of strength:
+
+\begin{equation}
+    \mathrm{d}H = \frac{\mu_{0}}{4\pi} \frac{nI \mathrm{d}z}{a^{2}/\cos^{2}{\theta}} \cos{\theta}
+\end{equation}
+
+where $\theta$ is the angle between the axis of the solenoid and the direction of the magnetic field and a $\cos{\theta}$ factor is included to extract the component of the field along the axis of the solenoid.
+
+At the edge, the integration happens from $\theta_{i} = 0$ to $\theta_{f} = \sin^{-1}{(l/\sqrt{l^{2} + a^{2}})}$:
+
+\begin{equation}
+    \mathbf{H}_{e} = \hat{z} \frac{\mu_{0}nI}{4\pi a} \int_{\theta_{i}}^{\theta_{f}} \cos{\theta} \, \mathrm{d}\theta = \frac{\mu_{0}nI}{4\pi a} \frac{l}{\sqrt{l^{2} + a^{2}}} \hat{z}
+\end{equation}
+
+At the center, the integration happens from $-\theta_{0}$ to $\theta_{0}$, where $\sin{\theta_{0}} = (l/2)/\sqrt{l^2/4 + a^{2}}$:
+
+\begin{equation}
+    \mathbf{H}_{c} = \frac{\mu_{0}nI}{4\pi a} \frac{l}{\sqrt{l^{2}/4 + a^{2}}} \hat{z}
+\end{equation}
+
+so that if the ratio $H_{c}/H_{e} = \sqrt{2}$, we have $l/a = \sqrt{4/3}$.
+\qed
+
+
+\problem{5}{Magnetic field of a long cylindrical wire}
+
+\subproblem{a}{}
+Using Ampere's law, there is no magnetic field for $r < a$. For $a < r < b$, the symmetry of the problem allows us to write:
+
+\begin{equation}
+    H 2\pi r = \mu_{0} J \pi (r^{2} - b^{2})
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \mathbf{H}(r) = \mu_{0} J \frac{r^{2} - b^{2}}{2r} \hat{\phi}
+\end{equation}
+
+For $r > b$, the magnetic field is given by:
+
+\begin{equation}
+    \mathbf{H}(r) = \mu_{0} J \frac{a^{2} - b^{2}}{2r} \hat{\phi}
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{center}
+    \input{../plots/EM_3_E5_b.tex}
+\end{center}
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vacation Work}
+\def\assignmentno{Problem Sheet C}
+\def\assignmentname{Mechanics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Motion in one dimension}
+%==========
+
+
+\problem{1}{}
+The total distance travelled $d$ during this uniform acceleration is given by:
+
+\begin{equation}
+    d = \frac{1}{2} a t^{2} = \frac{1}{2} \frac{v}{t} t^{2} = \frac{1}{2} \times \left( 80 \times \frac{3600}{1000} \right) \unit{ms^{-1}} \times \qty{10}{s} = \boxed{\qty{1440}{m}}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+The final speed $v$ is given by:
+
+\begin{equation}
+    v = a t = a \sqrt{\frac{2d}{a}} = \sqrt{2d a} = \sqrt{2 \times \qty{2}{m} \times \qty{9.8}{ms^{-2}}} = \boxed{\qty{6}{ms^{-1}}}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+The final velocity $v_{f}$ is given by:
+
+\begin{equation}
+    v_{f} = \sqrt{v_{i}^2 + 2ad} = \sqrt{(\qty{6}{ms^{-1}})^{2} + 2 \times \qty{3}{ms^{-2}} \times \qty{20}{m}} = \boxed{\qty{12}{ms^{-1}}}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Work and energy}
+%==========
+
+
+\problem{4}{}
+By conservation of energy, the work done $W_{f}$ by the frictional force $f$ is:
+
+\begin{equation}
+\begin{split}
+    W_{f} &= E_{k} \\
+    f d &= \frac{1}{2} m v_{0}^{2} \\
+    f &= \frac{m v_{0}^{2}}{2d} = \frac{\qty{1000}{kg} \times (\qty{15}{ms^{-1}})^{2}}{2 \times \qty{30}{m}} = \boxed{\qty{3750}{N}}
+\end{split}
+\end{equation}
+
+After the first $\qty{15}{m}$ of the skid, the speed $v$ of the car is:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} m v^{2} &= \frac{1}{2} m v_{0}^{2} - f s \\
+    v &= \sqrt{v_{0}^{2} - \frac{2fs}{m}} = \sqrt{(\qty{15}{ms^{-1}})^{2} - \frac{2 \times \qty{3750}{N} \times \qty{15}{m}}{\qty{1000}{kg}}} = \boxed{\qty{11}{ms^{-1}}}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+Under the condition $h \ll R$ or $h/R \ll 1$, the gravitational potential energy $V$ can be approximated using the binomial expansion:
+
+\begin{equation}
+\begin{split}
+    V &= -GMm \frac{1}{R + h} \\
+      &= -\frac{GMm}{R} \left( 1 + \frac{h}{R} \right)^{-1} \\
+      &= -\frac{GMm}{R} \left[ 1 - \frac{h}{R} + \left( \frac{h}{R} \right)^{2} - \dots \right] \\
+      &\approx mgh - \frac{GMm}{R}
+\end{split}
+\end{equation}
+
+where second order terms and above are ignored and where $g \equiv GM/R^{2}$ as desired.
+\qed
+
+
+\problem{6}{}
+For an object to just escape the earth's gravity, all of its kinetic energy must be converted to gravitational potential energy at infinity. By conservation of energy
+
+\begin{equation}
+\begin{split}
+    E_{k} + V(R) &= V(\infty) \\
+    \frac{1}{2} m v_{\text{escape}}^{2} - \frac{GMm}{R} &= 0 \\
+    v_{\text{escape}} &= \sqrt{\frac{2GM}{R}}
+\end{split}
+\end{equation}
+
+If the initial velocity is $v_{\text{escape}}/2$, the maximum high is where all the kinetic energy is converted to potential energy:
+
+\begin{equation}
+\begin{split}
+    E_{k} + V(R) &= V(h) \\
+    \frac{1}{2} m \left( \frac{v_{\text{escape}}}{2} \right)^{2} - \frac{GMm}{R} &= -\frac{GMm}{r} \\
+    \frac{3}{4} \frac{GMm}{R} &= \frac{GMm}{r} \\
+    r &= \frac{4}{3} R
+\end{split}
+\end{equation}
+
+Thus the maximum height is $r - R = \boxed{R/3}$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Simple harmonic motion}
+%==========
+
+
+\problem{7}{}
+Given $x(t) = A \sin{(\omega t + \phi)}$, the velocity $v(t)$ and acceleration $a(t)$ are given by its time derivatives:
+
+\begin{equation}
+    v(t) = \frac{\mathrm{d}}{\mathrm{d}t} x(t) = A \omega \cos{(\omega t + \phi)}
+\end{equation}
+
+\begin{equation}
+    a(t) = \frac{\mathrm{d}}{\mathrm{d}t} v(t) = - A \omega^{2} \sin{(\omega t + \phi)}
+\end{equation}
+
+If $\phi = \pi/6$ and $\omega t = \pi/6$, $\boxed{x = A/2}$. For acceleration to achieve maximum in magnitude, $\sin{(\omega t + \phi)} = \pm 1$, meaning that $\boxed{x = \pm A}$.
+\qed
+
+
+\problem{8}{}
+Given $F = -kx$, the equation of motion of the particle is given by Newton's second law:
+
+\begin{equation}
+\begin{split}
+    ma = F = -kx \\
+    \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} = - \frac{k}{m} x
+\end{split}
+\end{equation}
+
+This second order differential equation has the general solution of the form $x(t) = A\cos{(\omega t + \phi)}$, because:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}} = - A \omega^{2} \cos{(\omega t + \phi)} = - \omega^{2} x
+\end{split}
+\end{equation}
+
+which shows that the form satisfies the equation of motion.
+
+If the initial conditions are such that $x(0) = x_{0}$ and $v(0) = 0$, we have the equations:
+
+\begin{equation}
+\begin{split}
+    x_{0} = A\cos{\phi}\\
+    0 = -A\sin{\phi}
+\end{split}
+\end{equation}
+
+Apparently this means $\phi = 0$ and $A = x_{0}$, and hence:
+
+\begin{equation}
+    \boxed{x(t) = x_{0}\cos{(\omega t)}}
+\end{equation}
+
+
+\end{document}

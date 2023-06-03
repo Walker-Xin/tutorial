@@ -1,0 +1,527 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Vectors \& Matrices}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Eigenvectors, Eigenvalues and Diagonalization}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Eigenvectors, Eigenvalues and Diagonalization}
+%==========
+
+
+\problem{1}{}
+The characteristic equation is given by:
+
+\begin{equation}
+    \det\begin{pmatrix}
+        1 - \lambda & 2           & 1           \\
+        2           & 1 - \lambda & 1           \\
+        1           & 1           & 2 - \lambda
+    \end{pmatrix} = (1 - \lambda)(\lambda - 4)(\lambda + 1) = 0
+\end{equation}
+
+For $\lambda_{1} = -1$, performing row reduction on $(A - \lambda_{1}I)$ yields:
+
+\begin{equation}
+    \begin{pmatrix}
+        2 & 2 & 1 \\
+        2 & 2 & 1 \\
+        1 & 1 & 3
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        1 & 1 & 3  \\
+        0 & 0 & -5 \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{equation}
+
+so $\hat{\mathbf{e}}_{1} = (1, -1, 0)^{\intercal}/\sqrt{2}$.
+
+Further, for $\lambda_{2} = 1$, performing row reduction on $(A - \lambda_{2}I)$ yields:
+
+\begin{equation}
+    \begin{pmatrix}
+        0 & 2 & 1 \\
+        2 & 0 & 1 \\
+        1 & 1 & 1
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        1 & 1  & 1  \\
+        0 & -2 & -1 \\
+        0 & 0  & 0
+    \end{pmatrix}
+\end{equation}
+
+so $\hat{\mathbf{e}}_{2} = (1, 1, -2)^{\intercal}/\sqrt{6}$.
+
+Finally, for $\lambda_{3} = 4$:
+
+\begin{equation}
+    \begin{pmatrix}
+        -3 & 2  & 1  \\
+        2  & -3 & 1  \\
+        1  & 1  & -2
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        1 & 0 & -1 \\
+        0 & 1 & -1 \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{equation}
+
+so $\hat{\mathbf{e}}_{3} = (1, 1, 1)^{\intercal}/\sqrt{3}$.
+
+Therefore we have $R^{\intercal}AR = \operatorname{diag}(-1, 1, 4)$, where:
+
+\begin{equation}
+    R =
+    \begin{pmatrix}
+        \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{6}}  & \frac{1}{\sqrt{3}} \\
+        -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{6}}  & \frac{1}{\sqrt{3}} \\
+        0                   & -\frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+    \end{pmatrix}
+\end{equation}
+\qed
+
+
+\problem{2}{}
+The characteristic equation is given by:
+
+\begin{equation}
+    \det(H - \lambda I) = (\lambda - 1)(\lambda - 11) = 0
+\end{equation}
+
+For $\lambda_{1} = 1$:
+
+\begin{equation}
+    \begin{pmatrix}
+        9   & 3i \\
+        -3i & 1
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        3 & i \\
+        0 & 0
+    \end{pmatrix}
+\end{equation}
+
+so $\hat{\mathbf{e}}_{1} = (i, -3)^{\intercal}/\sqrt{10}$.
+
+For $\lambda_{2} = 11$:
+
+\begin{equation}
+    \begin{pmatrix}
+        -1  & 3i \\
+        -3i & -9
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        1 & -3i \\
+        0 & 0
+    \end{pmatrix}
+\end{equation}
+
+so $\hat{\mathbf{e}}_{2} = (3i, 1)^{\intercal}/\sqrt{10}$.
+
+Therefore, the required unitary matrix is given by:
+
+\begin{equation}
+    U = \frac{1}{\sqrt{10}}
+    \begin{pmatrix}
+        i  & 3i \\
+        -3 & 1
+    \end{pmatrix}
+\end{equation}
+
+It is easy to verify that $U^{\dagger}U = I$.
+\qed
+
+
+\problem{3}{}
+
+\subproblem{a}{}
+Consider the equation $\mathbf{x}^{\intercal} A \mathbf{x} = x^{2} + 3y^{2} - 2xy$, where the matrix $A$ has the form:
+
+\begin{equation}
+    A = \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}
+\end{equation}
+
+Expanding the matrix product yields the equation $ax^{2} + dy^{2} + (b+c)xy = x^{2} + 3y^{2} - 2xy$. We choose $(a, b, c, d) = (1, 0, -2, 3)$ for simplicity.
+
+Performing the usual diagonalization procedure on $A$ yields $\hat{\mathbf{e}}_{1} = (1, 1)^{\intercal}/\sqrt{2}$ with $\lambda_{1} = 1$ and $\hat{\mathbf{e}}_{2} = (0, 1)^{\intercal}$ with $\lambda_{2} = 3$. Therefore we have the equation:
+
+\begin{equation}
+    \mathbf{x}^{\intercal} A \mathbf{x} = \mathbf{x}^{\intercal} P \hat{A} P^{-1} \mathbf{x}
+\end{equation}
+
+where:
+
+\begin{equation}
+    P =
+    \begin{pmatrix}
+        \frac{1}{\sqrt{2}} & 0 \\
+        \frac{1}{\sqrt{2}} & 1
+    \end{pmatrix}
+\end{equation}
+
+and $\hat{A} = \operatorname{diag}(1, 3)$.
+
+Define the new coordinates with $\mathbf{x}' = P^{-1} \mathbf{x}$. In the new coordinate system, we have the equation:
+
+\begin{equation}
+    x'^{2} + 3y'^{2} = 1
+\end{equation}
+
+which is an ellipse with semi-major axis $1$ and semi-minor axis $\sqrt{3}$.
+\qed
+
+
+\problem{4}{}
+
+\subproblem{a}{}
+The characteristic equation is given by:
+
+\begin{equation}
+    \det(R - \lambda I) = 1 - 2 \lambda \cos{\phi} + \lambda^{2} = \lambda^{2} - (e^{i\phi} + e^{-i\phi})\lambda + 1 = 0
+\end{equation}
+
+Solving the quadratic equation for $\lambda$ yields $\lambda_{1, 2} = e^{\pm i\phi}$.
+
+\subproblem{b}{}
+Performing the usual diagonalization procedure on $A$ yields $\hat{\mathbf{e}}_{1} = (-1, 1, 0)^{\intercal}/\sqrt{2}$ with the two-fold degenerate $\lambda_{1} = 0$ and $\hat{\mathbf{e}}_{2} = (1, 0, 0)^{\intercal}$ with $\lambda_{2} = 1$.
+
+\mistake{As the number of eigenvectors is less than three, the eigenvectors cannot form a basis for $\mathbb{R}^{3}$.} Therefore, $A$ is not diagonalisable.
+
+\begin{correction}
+    Performing Gram-Schmidt procedure on $\hat{\mathbf{e}}_{1}$ and $\hat{\mathbf{e}}_{2}$. We have $\hat{\mathbf{e}}_{1}' = \hat{\mathbf{e}}_{1}$ and:
+
+    \begin{equation}
+        \hat{\mathbf{e}}_{2}' = \frac{\hat{\mathbf{e}}_{2} - (\hat{\mathbf{e}}_{2} \cdot \hat{\mathbf{e}}_{1}') \hat{\mathbf{e}}_{1}'}{\left\lvert \hat{\mathbf{e}}_{2} - (\hat{\mathbf{e}}_{2} \cdot \hat{\mathbf{e}}_{1}') \hat{\mathbf{e}}_{1}' =  \right\rvert} = (1, 1, 0)^{\intercal}/\sqrt{2}
+    \end{equation}
+
+    But this is just $\hat{\mathbf{e}}_{1} + 2\hat{\mathbf{e}}_{2}$. So there are only two linearly independent eigenvectors. Therefore, $A$ is not diagonalisable.
+\end{correction}
+\qed
+
+
+\problem{5}{}
+
+\subproblem{a}{}
+Let us assume that $M$ is diagonalisable so that we have:
+
+\begin{equation}
+    \mathbf{v}^{\intercal} M \mathbf{v} = \mathbf{v}^{\intercal} P \hat{M} P^{-1} \mathbf{v} = \mathbf{v}'^{\intercal} \hat{M} \mathbf{v}' = \sum_{i=1}^{n} \lambda_{i} v_{i}'^{2}
+\end{equation}
+
+where $\mathbf{v}' = P^{-1} \mathbf{v}$ is the new coordinates.
+
+Since $v_{i}'^{2} \ge 0$, $\mathbf{v}^{\intercal} M \mathbf{v} > 0$ for all $\mathbf{v}$ if $\lambda_{i} > 0$, provided that $\mathbf{v} \ne \mathbf{0}$. Vice versa for the case where $\mathbf{v}^{\intercal} M \mathbf{v} < 0$.
+
+\subproblem{b}{}
+The characteristic polynomial is given by:
+
+\begin{equation}
+    \chi(\lambda) = \lambda^{2} - \tr(M) \lambda + \det(M)
+\end{equation}
+
+Therefore, the two solutions of $\chi(\lambda) = 0$ satisfy $\lambda_{1} + \lambda_{2} = \tr(M)$ and $\lambda_{1} \lambda_{2} = \det(M)$.
+
+Another way to see this is to note that $\tr(M) = \tr(P \hat{M} P^{-1}) = \tr(\hat{M}) = \lambda_{1} + \lambda_{2}$ and $\det(M) = \det(P \hat{M} P^{-1}) = \det(\hat{M}) = \lambda_{1} \lambda_{2}$.
+
+\subproblem{c}{}
+
+\begin{equation}
+    M \text{ is }
+    \begin{cases}
+        \text{positive definite}   & \text{if } \det(M) > 0 \text{ and } \tr(M) > 0 \\
+        \text{negative definite}   & \text{if } \det(M) > 0 \text{ and } \tr(M) < 0 \\
+        \text{negative indefinite} & \text{if } \det(M) <= 0
+    \end{cases}
+\end{equation}
+
+\subproblem{d}{}
+$M_{1}$ is positive indefinite; $M_{2}$ is indefinite; $M_{3}$ is negative definite.
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}{}
+
+\begin{equation}
+    \chi_{A}(\lambda) = \det(A - \lambda I) = (A_{11} - \lambda)(A_{22} - \lambda) - A_{12}A_{21} = \lambda^{2} - \tr(A) \lambda + \det(A)
+\end{equation}
+
+\subproblem{b}{}
+
+\begin{equation}
+    \begin{split}
+        \chi_{A}(\lambda)
+        &=
+        (A_{11} - \lambda)
+        \det\begin{pmatrix}
+            A_{22} - \lambda & A_{23}           \\
+            A_{32}           & A_{33} - \lambda
+        \end{pmatrix}
+        -
+        A_{12}
+        \det\begin{pmatrix}
+            A_{21} & A_{23}           \\
+            A_{31} & A_{33} - \lambda
+        \end{pmatrix}
+        +
+        A_{13}
+        \det\begin{pmatrix}
+            A_{21} & A_{22} - \lambda \\
+            A_{31} & A_{32}
+        \end{pmatrix} \\
+        &= -\lambda^{3} + \tr(A)\lambda^{2} - \frac{1}{2}[\tr(A)^{2} - \tr(A^{2})] \lambda + \det(A)
+    \end{split}
+\end{equation}
+
+\subproblem{c}{}
+For a general $A$, the characteristic polynomial has the form:
+
+\begin{equation}
+    \chi_{A}(\lambda) = (-1)^{n} \lambda^{n} + (-1)^{n-1} \tr(A) \lambda^{n-1} + \dots + \det(A)
+\end{equation}
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}{}
+For a given eigenvector of $P$, we have the equation $P \mathbf{v} = \lambda \mathbf{v}$. Apply $P$ on both sides:
+
+\begin{equation}
+    P^{2} \mathbf{v} = \lambda P \mathbf{v} = \lambda^{2} \mathbf{v}
+\end{equation}
+
+But $P^{2} = P$ so $\lambda^{2} \mathbf{v} = \lambda \mathbf{v}$. This shows that $\lambda$ is either zero or unity. The diagonalisation of $P$ is therefore:
+
+\begin{equation}
+    \hat{P} = \begin{pmatrix}
+        0 & 0 \\
+        0 & 1
+    \end{pmatrix}
+\end{equation}
+
+\subproblem{b}{}
+$P$ projects an arbitrary vector onto a line depending on the diagonalisation of $P$. The number of ones in $\hat{P}$ is the dimension of the space projected, and it is equal to $\tr(P)$
+
+\subproblem{c}{}
+
+\begin{equation}
+    (Q^{2})_{ij} = Q_{ik} Q_{kj} = n_{i}n_{k}n_{k}n_{j} = n_{i}n_{j} = Q_{ij}
+\end{equation}
+
+as $\sum n_{k}^{2} = 1$ for a unit vector.
+
+Therefore, $Q^{2} = Q$ and $Q$ is a projector. $\tr(Q) = Q_{ii} = n_{i}n_{i} = 1$ so it projects to a one-dimensional space.
+
+\subproblem{d}{}
+
+\begin{equation}
+    P^{2} = (I - Q)^{2} = I - 2Q + Q^{2} = I - Q = P
+\end{equation}
+
+We know that $P_{ij} = \delta_{ij} - n_{i}n_{j}$. Thus:
+
+\begin{equation}
+    \mistake{\tr(P) = \delta_{ij}(\delta_{ij} - n_{i}n_{j}) = 1 - n_{i}n_{i} = 0}
+\end{equation}
+
+Therefore, $P$ projects onto a zero-dimensional space.
+
+\begin{correction}
+    \begin{equation}
+        \tr(P) = \delta_{ij}(\delta_{ij} - n_{i}n_{j}) = n - n_{i}n_{i} = n - 1
+    \end{equation}
+
+    Therefore, $P$ projects onto a $n-1$-dimensional space.
+\end{correction}
+
+\qed
+
+
+\problem{8}{}
+
+\subproblem{a}{}
+For a given eigenvector of $U$, we have the equation $U \mathbf{v} = \lambda \mathbf{v}$. Taking the Hermitian of both sides:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{v}^{\dagger} U^{\dagger} &= \lambda^{*} \mathbf{v}^{\dagger} \\
+        \mathbf{v}^{\dagger} U^{\dagger} U \mathbf{v} &= \lambda^{*} \lambda \mathbf{v}^{\dagger} \mathbf{v} \\
+        \mathbf{v}^{\dagger} \mathbf{v} &= \left\lvert \lambda \right\rvert^{2} \mathbf{v}^{\dagger} \mathbf{v}
+    \end{split}
+\end{equation}
+
+Therefore, $\left\lvert \lambda \right\rvert = 1$.
+
+\subproblem{b}{}
+We have the equation $R \mathbf{v} = \lambda \mathbf{v}$. Taking the transpose of both sides:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{v}^{\intercal} R^{\intercal} = \lambda \mathbf{v}^{\intercal} \\
+        \mathbf{v}^{\intercal} R^{\intercal} R \mathbf{v} = \lambda \lambda \mathbf{v}^{\intercal} \mathbf{v} \\
+        \mathbf{v}^{\intercal} \mathbf{v} = \lambda^{2} \mathbf{v}^{\intercal} \mathbf{v}
+    \end{split}
+\end{equation}
+
+This implies $\lambda = \pm 1$ so $1$ is always an eigenvalue of $R$.
+
+\subproblem{c}{}
+
+\begin{equation}
+    \begin{split}
+        \hat{R}
+        &=
+        \begin{pmatrix}
+            \mathbf{u}_{1} & \mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix}^{\intercal}
+        R
+        \begin{pmatrix}
+            \mathbf{u}_{1} & \mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            \mathbf{u}_{1} & \mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix}^{\intercal}
+        \begin{pmatrix}
+            R\mathbf{u}_{1} & R\mathbf{u}_{2} & \mathbf{n}
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            (R \mathbf{u}_{1}) \cdot \mathbf{u}_{1} & (R \mathbf{u}_{2}) \cdot \mathbf{u}_{1} & \mathbf{n} \cdot \mathbf{u}_{1} \\
+            (R \mathbf{u}_{1}) \cdot \mathbf{u}_{2} & (R \mathbf{u}_{2}) \cdot \mathbf{u}_{2} & \mathbf{n} \cdot \mathbf{u}_{2} \\
+            (R \mathbf{u}_{1}) \cdot \mathbf{n}     & (R \mathbf{u}_{2}) \cdot \mathbf{n}     & \mathbf{n} \cdot \mathbf{n}
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            (R \mathbf{u}_{1}) \cdot \mathbf{u}_{1} & (R \mathbf{u}_{2}) \cdot \mathbf{u}_{1} & 0 \\
+            (R \mathbf{u}_{1}) \cdot \mathbf{u}_{2} & (R \mathbf{u}_{2}) \cdot \mathbf{u}_{2} & 0 \\
+            0                                       & 0                                       & 1
+        \end{pmatrix} \\
+        &=
+        \begin{pmatrix}
+            \cos{\phi} & -\sin{\phi} & 0 \\
+            \sin{\phi} & \cos{\phi}  & 0 \\
+            0          & 0           & 1
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+\subproblem{d}{}
+From the form of $R$, we have $\tr(\hat{R}) = \tr(R) = 2\cos{\phi} + 1$ or:
+
+\begin{equation}
+    \cos{\phi} = \frac{\tr(R) - 1}{2}
+\end{equation}
+
+\subproblem{e}{}
+Consider the determinant and the transpose of the matrix $R$:
+
+\begin{equation}
+    R = \frac{1}{3\sqrt{2}} \begin{pmatrix}
+        3         & 0         & 3          \\
+        -1        & -4        & 1          \\
+        2\sqrt{2} & -\sqrt{2} & -2\sqrt{2}
+    \end{pmatrix}
+\end{equation}
+
+We have $\det(R) = 1$ and $R^{\intercal}R = I$. Hence $R$ is a rotation matrix. The characteristic polynomial of $R$ is:
+
+\begin{equation}
+    (1/\sqrt{2} - \lambda)[(4/\sqrt{2} + \lambda)(2/3 + \lambda) + 1/3] + 1/\sqrt{2}[\sqrt{2} + 2(4/(3\sqrt{2}) + \lambda)/3] = 0
+\end{equation}
+
+Substituting $\lambda = 1$ verifies that $1$ is an eigenvalue of $R$. Further:
+
+\begin{equation}
+    R - I = \frac{1}{3\sqrt{2}} \begin{pmatrix}
+        3 - 3\sqrt{2} & 0              & 3          \\
+        -1            & -4 - 3\sqrt{2} & 1          \\
+        2\sqrt{2}     & -\sqrt{2}      & -5\sqrt{2}
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+        1 & 0 & -1 - \sqrt{2} \\
+        0 & 1 & 3 - 2\sqrt{2} \\
+        0 & 0 & 0
+    \end{pmatrix}
+\end{equation}
+
+This gives us:
+
+\begin{equation}
+    \mathbf{n} = \frac{1}{\sqrt{13 - 2\sqrt{2}}}\begin{pmatrix}
+        1 + \sqrt{2}   \\
+        -3 + 2\sqrt{2} \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+and
+
+\begin{equation}
+    \cos{\phi} = \frac{\tr(R) - 1}{2} = - \frac{5\sqrt{2} + 1}{6\sqrt{2}}
+\end{equation}
+\qed
+
+
+\problem{9}{}
+
+\subproblem{a}{}
+Suppose that $M = P \hat{M} P^{-1}$ such that $\ddot{\mathbf{x}} = P \hat{M} P^{-1} \mathbf{x}$. Then:
+
+\begin{equation}
+    \begin{split}
+        P^{-1} \ddot{\mathbf{x}} = \hat{M} P^{-1} \mathbf{x} \\
+        \ddot{(P^{-1} \mathbf{x})}_{i} = \hat{M}_{ii} (P^{-1} \mathbf{x})_{i}
+    \end{split}
+\end{equation}
+
+This is an linear second order ODE with constant coefficients for $(P^{-1} \mathbf{x})_{i}$ that can be easily solved.
+
+\subproblem{b}{}
+The eigenvalues of $M$ are $\hat{M}_{ii} = \lambda_{i}$, which are the (square of) oscillating frequencies of the transformed coordinates (normal coordinates).
+
+\subproblem{c}{}
+The coefficient matrix has the form:
+
+\begin{equation}
+    M = \begin{pmatrix}
+        -k & -l \\
+        -l & -k
+    \end{pmatrix}
+\end{equation}
+
+Consider the characteristic equation:
+
+\begin{equation}
+    \det(M - \Omega^{2} I) = (k + \Omega^{2})^{2} - l^{2} = 0
+\end{equation}
+
+Thus, the eigenfrequencies are $\Omega_{1, 2} = \sqrt{\pm l - k}$. The eigenfrequencies can be real or imaginary depending on the sign of $(\pm l - k)$. For imaginary eigenfrequencies only, the solution is oscillatory. For real eigenfrequencies, the solution is exponentially decaying. For a combination of real and imaginary eigenfrequencies, the solution is a combination of oscillatory and exponential.
+\qed
+
+\end{document}

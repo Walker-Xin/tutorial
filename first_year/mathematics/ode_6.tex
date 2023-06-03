@@ -1,0 +1,366 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Ordinary Differential Equations}
+\def\assignmentno{Problem Set 6}
+\def\assignmentname{Masses on Springs and Other Things}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Minimal Set}
+%==========
+
+
+\problem{6.1}{Coupled Pendula}
+
+\subproblem{a}{}
+Consider the vector $Y(t) = (y_{1}, y_{2})^{\intercal}$, with the following system of equations:
+
+\begin{equation}
+    \ddot{Y} =
+    -\begin{pmatrix}
+        \omega_{0}^{2} + k/m & -k/m                 \\
+        -k/m                 & \omega_{0}^{2} + k/m
+    \end{pmatrix}
+    Y
+\end{equation}
+
+Solving for the eigenvalues yields $\lambda_{1} = \omega_{0}^{2}$, $\Omega_{1} = \omega_{0}$ and $\mathbf{e}_{1} = (1, 1)^{\intercal}$; $\lambda_{2} = \omega_{0}^{2} + 2k/m$, $\Omega_{2} = \sqrt{\omega_{0}^{2} + 2k/m}$ and $\mathbf{e}_{2} = (1, -1)^{\intercal}$.
+
+The solutions are then given by:
+
+\begin{equation}
+    \begin{pmatrix}
+        y_{1} \\
+        y_{2}
+    \end{pmatrix} =
+    A \sin{(\Omega_{1}t + \phi_{1})}
+    \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix}
+    +
+    B \sin{(\Omega_{2}t + \phi_{2})}
+    \begin{pmatrix}
+        1 \\
+        -1
+    \end{pmatrix}
+\end{equation}
+
+Substituting the initial conditions yields $A = v/(2\Omega_{1})$, $A = v/(2\Omega_{2})$, $\phi_{1} = \phi_{2} = 0$. Therefore:
+
+\begin{equation}
+    \begin{split}
+        y_{1}(t) &= \frac{v}{2} \left( \frac{1}{\Omega_{1}} \sin{\Omega_{1}t} + \frac{1}{\Omega_{2}} \sin{\Omega_{2}t} \right) \\
+        y_{2}(t) &= \frac{v}{2} \left( \frac{1}{\Omega_{1}} \sin{\Omega_{1}t} - \frac{1}{\Omega_{2}} \sin{\Omega_{2}t} \right)
+    \end{split}
+\end{equation}
+
+\subproblem{b}{}
+With $k/m = 2\epsilon g/l$, we have $\Omega_{2} = \sqrt{1 + 4\epsilon} \omega_{0} \approx (1 + 2\epsilon) \Omega_{1}$, so that $\Delta = (\Omega_{2} - \Omega_{1})/2 = \epsilon \omega_{0}$
+
+\subproblem{c}{}
+Consider the $\sin{\Omega_{2}t}$ term:
+
+\begin{equation}
+    \begin{split}
+        \sin{\Omega_{2}t} &= \sin{(\Omega_{1}t + 2\epsilon \Omega_{1}t)} \\
+        &= \sin{(\Omega_{1}t)} \cos{(2\epsilon \Omega_{1}t)} + \cos{(\Omega_{1}t)} \sin{(2\epsilon \Omega_{1}t)} \\
+        &\approx \sin{(\Omega_{1}t)} + 2\epsilon \Omega_{1}t \cos{(\Omega_{1}t)}
+    \end{split}
+\end{equation}
+
+Thus the minimal amplitude is at first order of $\epsilon$.
+\qed
+
+
+\problem{6.2}{Hanging Masses}
+Let the point of contact with the wall be the origin and take downwards as positive. Let $y_{1}$ be the coordinate of the upper mass and $y_{2}$ be the coordinate of the lower mass. Let the original length of the spring be $L$. Consider the vector $Y(t) = (y_{1}, y_{2})^{\intercal}$, with the following system of equations:
+
+\begin{equation}
+    \ddot{Y} =
+    -\frac{k}{m}
+    \begin{pmatrix}
+        2  & -1 \\
+        -1 & 1
+    \end{pmatrix}
+    Y
+    +
+    \frac{kL}{m}
+    \begin{pmatrix}
+        0 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+We may disregard the constant term as it manifests as a constant offset in the solution. Define $\omega_{0} = \sqrt{k/m}$. Solving for the eigenvalues yields $\lambda_{1} = (3 + \sqrt{5})\omega_{0}^{2}/2$ and $\mathbf{e}_{1} = ((-1-\sqrt{5})/2, 1)^{\intercal}$; $\lambda_{2} = (3 - \sqrt{5})\omega_{0}^{2}/2$ and $\mathbf{e}_{2} = ((-1+\sqrt{5})/2, 1)^{\intercal}$. Thus, the normal modes are:
+
+\begin{equation}
+    q_{1} = \frac{-1-\sqrt{5}}{2} y_{1} + y_{2}
+\end{equation}
+
+corresponding to the eigenfrequency $\Omega_{1} = \sqrt{\frac{3 + \sqrt{5}}{2}} \omega_{0}$, and:
+
+\begin{equation}
+    q_{2} = \frac{-1+\sqrt{5}}{2} y_{1} + y_{2}
+\end{equation}
+
+corresponding to the eigenfrequency $\Omega_{2} = \sqrt{\frac{3 - \sqrt{5}}{2}} \omega_{0}$.
+
+The solutions are then given by:
+
+\begin{equation}
+    \begin{pmatrix}
+        y_{1} \\
+        y_{2}
+    \end{pmatrix} =
+    A \cos{(\Omega_{1}t + \phi_{1})}
+    \begin{pmatrix}
+        \frac{-1-\sqrt{5}}{2} \\
+        1
+    \end{pmatrix}
+    +
+    B \cos{(\Omega_{2}t + \phi_{2})}
+    \begin{pmatrix}
+        \frac{-1+\sqrt{5}}{2} \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+If $y_{2} = 2a$ at rest, by symmetry, for the upper mass to be at rest, $y_{1} = a$. This constitutes the initial conditions $Y(0) = (a, 2a)$ and $\dot{Y}(0) = (0, 0)$. Substituting the initial conditions yields $A = \frac{5 - 3\sqrt{5}}{10} a$, $B = \frac{5 + 3\sqrt{5}}{10} a$, $\phi_{1} = \phi_{2} = 0$. Therefore:
+
+\begin{equation}
+    \begin{split}
+        y_{1}(t) &= \frac{5 - \sqrt{5}}{10} a \cos{\Omega_{1}t} + \frac{5 + \sqrt{5}}{10} a \cos{\Omega_{2}t} \\
+        y_{2}(t) &= a \cos{\Omega_{1}t} + a \cos{\Omega_{2}t}
+    \end{split}
+\end{equation}
+
+By conservation of energy, the total energy is given by:
+
+\begin{equation}
+    E = \frac{1}{2} k y_{1}(0)^{2} + \frac{1}{2} k y_{2}(0)^{2} = ka^{2}
+\end{equation}
+
+The ratio is given by:
+
+\begin{equation}
+    E_{q_{1}}/E_{q_{2}} = \frac{\left( \frac{-1-\sqrt{5}}{2} \right)^{2} + 1}{\left( \frac{-1+\sqrt{5}}{2} \right)^{2} + 1}
+\end{equation}
+\qed
+
+
+\problem{6.3}{Sliding Masses}
+
+\subproblem{a}{}
+Let $y_{1}$ be the displacement of the left mass, with rightwards taken as positive, and let $y_{2}$ be the displacement of the right mass, with leftwards taken as positive. Consider the vector $Y(t) = (y_{1}, y_{2})^{\intercal}$, with the following system of equations:
+
+\begin{equation}
+    \ddot{Y} =
+    -\frac{1}{m}
+    \begin{pmatrix}
+        k_{0} + k_{1} & k_{1}         \\
+        k_{1}         & k_{0} + k_{1}
+    \end{pmatrix}
+    Y
+\end{equation}
+
+Define $\omega_{0} = \sqrt{k_{0}/m}$ and $\omega_{1} = \sqrt{k_{1}/m}$. Solving for the eigenvalues yields $\lambda_{1} = \omega_{0}^{2}$, $\Omega_{1} = \omega_{0}$ and $\mathbf{e}_{1} = (1, -1)^{\intercal}$; $\lambda_{2} = \omega_{0}^{2} + 2\omega_{1}^{2}$, $\Omega_{2} = \sqrt{\omega_{0}^{2} + 2\omega_{1}^{2}}$ and $\mathbf{e}_{2} = (1, 1)^{\intercal}$. We also know that $\Omega_{0} = \sqrt{(k_{0} + k_{1})/m} = \sqrt{\omega_{0}^{2} + \omega_{1}^{2}}$. Therefore:
+
+\begin{equation}
+    \Omega_{2} = \sqrt{2\Omega_{0}^{2} - \Omega_{1}^{2}}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \frac{k_{1}}{k_{0}} = \frac{\sqrt{\Omega_{0}^{2} - \Omega_{1}^{2}}}{\Omega_{0}}
+\end{equation}
+
+\subproblem{b}{}
+The normal modes are $p_{1} = y_{1} - y_{2}$ and $p_{2} = y_{1} + y_{2}$. $p_{1}$ corresponds to the masses moving in same directions with the same displacement (lower effective spring constant), and $p_{2}$ corresponds to the masses moving in the opposite direction with the same displacement (higher spring constant).
+
+\subproblem{c}{}
+With friction taken into account, the system of equations becomes:
+
+\begin{equation}
+    \ddot{Y} =
+    -\frac{1}{m}
+    \begin{pmatrix}
+        k_{0} + k_{1} & k_{1}         \\
+        k_{1}         & k_{0} + k_{1}
+    \end{pmatrix}
+    Y
+    -2\gamma
+    \dot{Y}
+\end{equation}
+
+The general solution has the form
+
+\begin{equation}
+    \begin{pmatrix}
+        y_{1} \\
+        y_{2}
+    \end{pmatrix} =
+    (Ae^{r_{1+}t} + Be^{r_{1-}t})
+    \begin{pmatrix}
+        1 \\
+        -1
+    \end{pmatrix}
+    +
+    (Ce^{r_{2+}t} + De^{r_{2-}t})
+    \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+where $r_{1,2}$ satisfy the characteristic equation:
+
+\begin{equation}
+    r_{1,2}^{2} + 2\gamma r_{1,2} + \Omega_{1,2}^{2} = 0
+\end{equation}
+
+Depending on the sign of $\gamma^{2} - \Omega_{1,2}^{2}$, the solution may be overdamped, critically damped, or underdamped.
+
+\subproblem{d}{}
+In the limit $\omega_{0} \ll \gamma \ll \omega_{1}$, we have $r_{1\pm} = -\gamma \pm w_{1}$, where $w_{1}^{2} = \gamma^{2} - \Omega_{1}^{2}$, and $r_{2\pm} = -\gamma \pm iw_{2}$, where $w_{2}^{2} = \Omega_{2}^{2} - \gamma^{2}$. The solution associated with $p_{1}$ is overdamped, and the solution associated with $p_{2}$ is underdamped. Given the initial conditions $Y(0) = (a, 0)^{\intercal}$ and $\dot{Y}(0) = (0, 0)^{\intercal}$, the solutions are:
+
+\begin{equation}
+    \begin{split}
+        y_{1}(t) = \frac{a}{4} e^{-\gamma t} \left( \frac{w_{1} + \gamma}{w_{1}} e^{w_{1}t} + \frac{w_{1} - \gamma}{w_{1}} e^{-w_{1}t} \right) + \frac{a}{2} e^{-\gamma t} \cos{w_{2}t} \\
+        y_{2}(t) = -\frac{a}{4} e^{-\gamma t} \left( \frac{w_{1} + \gamma}{w_{1}} e^{w_{1}t} + \frac{w_{1} - \gamma}{w_{1}} e^{-w_{1}t} \right) + \frac{a}{2} e^{-\gamma t} \cos{w_{2}t}
+    \end{split}
+\end{equation}
+
+Essentially, this tells us that $p_{1}$ component (moving in same directions) decays much faster than the $p_{2}$ component (moving in opposite direction). This is because in the $p_{1}$ mode, the central spring is not stretched, and the damping effect is much stronger than the spring effect.
+
+\subproblem{e}{}
+In the limit $\gamma \ll \omega_{0}$, we have $r_{1\pm} = -\gamma \pm iw_{1}$, where $w_{1}^{2} = \Omega_{1}^{2} - \gamma^{2}$, and $r_{2\pm} = -\gamma \pm iw_{2}$, where $w_{2}^{2} = \Omega_{2}^{2} - \gamma^{2}$. Both modes are underdamped. If the right wall oscillates with $y_{0} = a \sin{\Omega_{2}t}$, the equation of motion becomes:
+
+\begin{equation}
+    \ddot{Y} =
+    -\frac{1}{m}
+    \begin{pmatrix}
+        k_{0} + k_{1} & k_{1}         \\
+        k_{1}         & k_{0} + k_{1}
+    \end{pmatrix}
+    Y
+    -2\gamma
+    \dot{Y}
+    -
+    \frac{k_{0}}{m}y_{0}
+    \begin{pmatrix}
+        0 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+If we transform to the normal coordinates, the following equation results:
+
+\begin{equation}
+    \ddot{Y'} =
+    -\begin{pmatrix}
+        \lambda_{1} & 0           \\
+        0           & \lambda_{2}
+    \end{pmatrix}
+    Y'
+    -2\gamma
+    \dot{Y'}
+    -
+    \frac{k_{0}}{m}y_{0}
+    \begin{pmatrix}
+        -1 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+The long term behaviour would be the particular solution to the set of equations:
+
+\begin{equation}
+    \begin{split}
+        \ddot{p}_{1} + 2\gamma \dot{p}_{1} + \Omega_{1}^{2} p_{1} &= \omega_{0}^{2}a \sin{\Omega_{2}t} \\
+        \ddot{p}_{2} + 2\gamma \dot{p}_{2} + \Omega_{2}^{2} p_{2} &= -\omega_{0}^{2}a \sin{\Omega_{2}t}
+    \end{split}
+\end{equation}
+
+The particular solutions are of the form:
+
+\begin{equation}
+    \begin{split}
+        p_{1p}(t) &= C_{1} \sin{(\Omega_{2}t + \phi_{1})} \\
+        p_{2p}(t) &= C_{2} \sin{(\Omega_{2}t + \phi_{2})}
+    \end{split}
+\end{equation}
+
+The constants can be solved by substitution, although the algebra is too nasty to carry out. $y_{1}(t)$ and $y_{2}(t)$ can be obtained by noting $y_{1} = (p_{1} + p_{2})/2$ and $y_{2} = (p_{1} - p_{2})/2$. It is worth noting that $C_{2}$ would likely be much higher as the driving frequency is close to the eigenfrequency of $q_{2}$.
+\qed
+
+
+\problem{6.4}{Sliding Masses Unbound}
+
+Let the the coordinate of the masses be $y_{1}$ and $y_{2}$ respectively (measured in the same direction) and let the original length of the spring be $l$. The system of equations is:
+
+\begin{equation}
+    \ddot{Y} =
+    -\begin{pmatrix}
+        k/m_{1}  & -k/m_{1} \\
+        -k/m_{2} & k/m_{2}
+    \end{pmatrix}
+    Y
+    +
+    \begin{pmatrix}
+        -lk/m_{1} \\
+        lk/m_{2}
+    \end{pmatrix}
+\end{equation}
+
+Solving for the eigenvalues and eigenvectors, we have $\lambda_{1} = 0$ with eigenvector $\mathbf{e}_{1} = (1, 1)^{\intercal}$, and $\lambda_{2} = k(1/m_{1} + 1/m_{2})$ with eigenvector $\mathbf{e}_{2} = (-m_{2}/m_{1}, 1)^{\intercal}$.
+
+The normal modes are $p_{1} = y_{1} + y_{2}$ and $p_{2} = -(m_{2}/m_{1})y_{1} + y_{2}$. $p_{1}$ is the normal mode where the masses have the same displacement so that the spring is not stretched; $p_{2}$ is the normal mode where the masses have opposite displacements such that the centre of mass is stationary.
+
+Disregarding the inhomogeneous term, the general solution is:
+
+\begin{equation}
+    \begin{pmatrix}
+        y_{1} \\
+        y_{2}
+    \end{pmatrix} =
+    (A\cos{\omega t} + B\sin{\omega t})
+    \begin{pmatrix}
+        -m_{2}/m_{1} \\
+        1
+    \end{pmatrix}
+    +
+    (Ct + D)
+    \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+where $\omega = \sqrt{k(1/m_{1} + 1/m_{2})}$.
+
+Consider the initial conditions $Y(0) = (0, l)$ and $\dot{Y}(0) = (v, 0)$. The full solutions are:
+
+\begin{equation}
+    \begin{split}
+        y_{1}(t) &= \frac{m_{2}}{m_{1} + m_{2}} \left( \frac{v}{\omega} \sin{\omega t} - l\cos{\omega t} \right) + \frac{m_{1}}{m_{1} + m_{2}} vt + \frac{m_{2}}{m_{1} + m_{2}} l \\
+        y_{2}(t) &= \frac{m_{1}}{m_{1} + m_{2}} \left( l\cos{\omega t} - \frac{v}{\omega} \sin{\omega t} \right) + \frac{m_{1}}{m_{1} + m_{2}} vt + \frac{m_{2}}{m_{1} + m_{2}} l
+    \end{split}
+\end{equation}
+
+The total energy is $mv^{2}/2$.
+\qed
+
+
+\end{document}
