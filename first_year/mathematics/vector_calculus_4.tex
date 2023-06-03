@@ -110,7 +110,7 @@ It is easy to calculate that
 The curls are given by the matrix
 
 \begin{equation}
-    \nabla \cross \mathbf{A} = 
+    \nabla \times \mathbf{A} = 
     \begin{pmatrix}
         \hat{i} & \hat{j} & \hat{k} \\
         \partial_{x} & \partial_{y} & \partial_{z} \\
@@ -118,7 +118,7 @@ The curls are given by the matrix
     \end{pmatrix}
     =
     \mathbf{0}, \quad
-    \nabla \cross \mathbf{B} =
+    \nabla \times \mathbf{B} =
     \begin{pmatrix}
         \hat{i} & \hat{j} & \hat{k} \\
         \partial_{x} & \partial_{y} & \partial_{z} \\
@@ -136,7 +136,7 @@ $A$ is a curl-free vector field (like an electric field), and $B$ is a divergenc
 The curl of $\mathbf{A}$ is:
 
 \begin{equation}
-    \nabla \cross \mathbf{A} = 
+    \nabla \times \mathbf{A} = 
     \begin{pmatrix}
         \hat{i} & \hat{j} & \hat{k} \\
         \partial_{x} & \partial_{y} & \partial_{z} \\
@@ -149,7 +149,7 @@ The curl of $\mathbf{A}$ is:
 The area integral of the curl on the hemisphere is given by:
 
 \begin{equation}
-    \int_{S} (\nabla \cross \mathbf{A}) \cdot \mathrm{d}\mathbf{a} = -2\int_{S} \mathrm{d}a_{z} = -2\pi
+    \int_{S} (\nabla \times \mathbf{A}) \cdot \mathrm{d}\mathbf{a} = -2\int_{S} \mathrm{d}a_{z} = -2\pi
 \end{equation}
 
 The curve $C$ bounding the hemisphere is given by $\left\{ (r, \theta, 0) \vert r = 1, \theta \in [0, 2\pi] \right\}$. The line integral of $\mathbf{A}$ along the curve is given by:
@@ -182,7 +182,7 @@ Still using polar coordinates, the line integral is given by:
 Operating in cylindrical coordinates, a point at radius $r$ has the velocity $\mathbf{v} = \omega r \hat{\phi}$. The divergence and curl of $\mathbf{v}$ are:
 
 \begin{equation}
-    \nabla \cdot \mathbf{v} = 0, \quad \nabla \cross \mathbf{v} = 2\omega \hat{z}
+    \nabla \cdot \mathbf{v} = 0, \quad \nabla \times \mathbf{v} = 2\omega \hat{z}
 \end{equation}
 
 $\mathbf{v}$ being divergence-free means that the 'flow' is purely rotational, so a particle cannot change its $r$ as expected from a rigid body. The flow cannot be represented by a potential field, as the curl is non-zero.
@@ -320,7 +320,7 @@ The line integrals are given by:
 \end{equation}
 
 \begin{equation}
-    \nabla \cross [(\mathbf{a} \cdot \mathbf{r}) \mathbf{b}] = \epsilon_{ijk} \partial_{x_{j}} \left( \sum_{l} a_{l} x_{l} \right) b_{k} \hat{e}_{i} = \epsilon_{ijk} \delta_{lj} al b_{k} \hat{e}_{i} = \mathbf{a} \times \mathbf{b}
+    \nabla \times [(\mathbf{a} \cdot \mathbf{r}) \mathbf{b}] = \epsilon_{ijk} \partial_{x_{j}} \left( \sum_{l} a_{l} x_{l} \right) b_{k} \hat{e}_{i} = \epsilon_{ijk} \delta_{lj} al b_{k} \hat{e}_{i} = \mathbf{a} \times \mathbf{b}
 \end{equation}
 
 \subproblem{d}{}
