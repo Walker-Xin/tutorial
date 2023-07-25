@@ -1,0 +1,234 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Preliminary Examination 2023}
+\def\assignmentno{CP 1}
+\def\assignmentname{Classical Mechanics \& Special Relativity}
+\def\name{}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Section A}
+%==========
+
+
+%==========
+\pagebreak
+\section*{Section B}
+%==========
+
+
+\problem{8}{}
+
+\subproblem{a}{}
+Given the central potential of the form $V(r) = \beta/r^{2}$, the effective potential is:
+
+\begin{equation}
+    V_{\text{eff}}(r) = \frac{L^{2}}{2mr^{2}} + \frac{\beta}{r^{2}}
+\end{equation}
+
+where $L \equiv mr^{2}\dot{\theta}$ is the angular momentum of the particle.
+
+\subproblem{b}{}
+With $\beta > -L^{2}/2m$, the effective potential is always positive. We have the energy conservation equation:
+
+\begin{equation}
+    E = \frac{1}{2} m \dot{r}^{2} + \frac{L^{2}}{2mr^{2}} + \frac{\beta}{r^{2}}
+\end{equation}
+
+where $E$ is the conserved energy of the particle.
+
+Differentiating with respect to time, we have:
+
+\begin{equation}
+    0 = m \dot{r} \ddot{r} - \frac{L^{2}}{mr^{3}} \dot{r} - \frac{2\beta}{r^{3}} \dot{r}
+\end{equation}
+
+or, assuming non-zero $\dot{r}$:
+
+\begin{equation}
+    \ddot{r} = \frac{L^{2}}{mr^{3}} + \frac{2\beta}{r^{3}}
+\end{equation}
+
+Returning to Equation (2), with the substitution $\dot{r} = \dot{\theta} \mathrm{d}r/\mathrm{d}\theta$, we have:
+
+\begin{equation}
+    \dot{r} = \dot{\theta} \frac{\mathrm{d}r}{\mathrm{d}\theta} = \pm\sqrt{\frac{2}{m} \left( E - \frac{L^{2}}{2mr^{2}} - \frac{\beta}{r^{2}} \right)}
+\end{equation}
+
+But $\dot{\theta} = L/mr^{2}$, so that:
+
+\begin{equation}
+    \frac{1}{r^{2}} \frac{\mathrm{d}r}{\mathrm{d}\theta} = \pm\frac{1}{L} \sqrt{2m \left( E - \frac{L^{2}}{2mr^{2}} - \frac{\beta}{r^{2}} \right)}
+\end{equation}
+
+Now use the substitution $u = 1/r$, so that:
+
+\begin{equation}
+    -\frac{\mathrm{d}u}{\mathrm{d}\theta} = \pm\frac{1}{L} \sqrt{2mE - (L^{2} + 2m\beta)u^{2}}
+\end{equation}
+
+This is a separable differential equation with the solution:
+
+\begin{equation}
+    \frac{L}{\sqrt{L^{2} + 2m\beta}} \sin^{-1}{\left( r_{0}u \right)} = \pm\theta + \theta_{0}
+\end{equation}
+
+where $r_{0} = \sqrt{L^{2}/2mE + \beta/E}$.
+
+The plus-minus sign corresponds to clock- and counter-clockwise orbits so let us choose the positive case for simplicity. We may set $\theta_{0} = 0$ without loss of generality as this is just a rotation of the coordinate system. Further simplification gives:
+
+\begin{equation}
+    \frac{1}{r} = \frac{1}{a} \sqrt{\frac{2mE}{L^{2}}} \sin{(a\theta)}
+\end{equation}
+
+where $a^{2} = 1 + 2m\beta/L^{2}$ as expected.
+
+The minimum of $r$ is apparently $r_{\text{min}} = \sqrt{2mE/L^{2}}/a$.
+
+If $\beta = 0$, $a = 1$ and the equation becomes:
+
+\begin{equation}
+    \frac{1}{r} = \sqrt{\frac{2mE}{L^{2}}} \sin{\theta}
+\end{equation}
+
+which is a straight line as expected for a free particle.
+
+\subproblem{c}{}
+With $\beta = -L^{2}/2m$, the effective potential is zero and Equation (7) becomes:
+
+\begin{equation}
+    \frac{\mathrm{d}u}{\mathrm{d}\theta} = \pm\frac{1}{L} \sqrt{2mE}
+\end{equation}
+
+Taking the positive case, we have the solution:
+
+\begin{equation}
+    r = \frac{1}{\theta} \sqrt{\frac{L^{2}}{2mE}}
+\end{equation}
+
+Although for $r$ to reach zero, $\theta$ must approach infinity, implying an infinite number of revolutions, this is still possible in finite time. To see this, consider Equation (4):
+
+\begin{equation}
+    \ddot{r} = 0
+\end{equation}
+
+which means $\dot{r}$ is constant and if $\dot{r} <0$ initially, $r$ always reaches zero in finite time.
+\qed
+
+
+\problem{9}{}
+
+\subproblem{a}{}
+The Lagrangian of the system can be written as:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m \left( r^{2} \dot{\theta}^{2} + \dot{r}^{2} \right) + \frac{1}{2} M \dot{r}^{2} + Mg(l-r)
+\end{equation}
+
+where the constant term $Mgl$ can be ignored.
+
+The Euler-Lagrange equation gives the equations of motion:
+
+\begin{equation}
+\begin{split}
+    (m + M) \ddot{r} &= mr\dot{\theta}^{2} - Mg \\
+    L \equiv mr^{2}\dot{\theta} &= \text{constant}
+\end{split}
+\end{equation}
+
+For circular motion, we impose the conditions $\dot{r} = 0$ and $\ddot{r} = 0$ for some $r = r_{0}$ and $\dot{\theta} = \omega$. The equation for $r$ gives us:
+
+\begin{equation}
+    mr_{0}\omega^{2} - Mg = 0
+\end{equation}
+
+This means that given some initial radius $r_{0}$, $\dot{\theta}$ must satisfy the above equation for circular motion to occur. Under this circular motion, the angular momentum is:
+
+\begin{equation}
+    L = mr_{0}^{2}\omega = \sqrt{mMg r_{0}^{3}}
+\end{equation}
+
+which is a constant.
+
+Returning to the equation for $r$, we use the substitution $\dot{\theta} = L/mr_{0}^{2}$ to obtain:
+
+\begin{equation}
+    (m + M) \ddot{r} = \frac{L^{2}}{mr^{3}} - Mg
+\end{equation}
+
+We can expand the right-hand side as a Taylor series about $r = r_{0}$:
+
+\begin{equation}
+    \frac{L^{2}}{mr^{3}} - Mg = \frac{L^{2}}{m} \left[ \frac{1}{r_{0}^{3}} - \frac{3(r-r_{0})}{r_{0}^{4}} + \cdots \right] - Mg
+\end{equation}
+
+We may set the origin at $r_{0}$ so that $r' \equiv r - r_{0}$ and $\ddot{r}' = \ddot{r}$. Collecting the coefficients of $r'$ and ignoring any constant and higher-order terms, we have:
+
+\begin{equation}
+\begin{split}
+    (m + M) \ddot{r}' &= -\frac{3L^{2}}{mr_{0}^{4}} r' \\
+    \ddot{r}' &= -\frac{3M}{m} \frac{g}{r_{0}} r'
+\end{split}
+\end{equation}
+
+which is simple harmonic motion with angular frequency:
+
+\begin{equation}
+    \Omega = \sqrt{\frac{3M}{m} \frac{g}{r_{0}}}
+\end{equation}
+
+For $m \gg M$, this tends to zero as the effect of $M$ can be ignored; for $m \ll M$, small oscillation approximation is no longer true; and for $M = 2m$, this becomes $\sqrt{6g/r_{0}}$.
+
+\subproblem{b}{}
+The coordinates of the mass are $X(t) = l \sin{\theta} + A \cos{\omega t}$ and $Y(t) = -l \cos{\theta}$ so that the Lagrangian is:
+
+\begin{equation}
+    \frac{\mathcal{L}}{ml^{2}} = \frac{1}{2} \dot{\theta}^{2} + \frac{1}{2} \kappa^{2} \sin^{2}{\omega t} - \kappa \sin{\omega t} \cos{\theta} \dot{\theta} + \frac{g}{l} \cos{\theta}
+\end{equation}
+
+where $\kappa \equiv \omega A/l$.
+
+The equation of motion is:
+
+\begin{equation}
+    \ddot{\theta} = \kappa \omega \cos{\omega t} \cos{\theta} - \frac{g}{l} \sin{\theta}
+\end{equation}
+
+For small oscillations, we may approximate $\cos{\theta} \approx 1$ and $\sin{\theta} \approx \theta$ so that:
+
+\begin{equation}
+    \ddot{\theta} = \kappa \omega \cos{\omega t} - \frac{g}{l} \theta
+\end{equation}
+
+This is a forced harmonic oscillator with the complementary solution:
+
+\begin{equation}
+    \theta_{c} = C \cos{\left( \sqrt{\frac{g}{l}} t + \phi \right)}
+\end{equation}
+
+and the particular solution:
+
+\begin{equation}
+    \theta_{p} = \frac{\kappa \omega}{g/l - \omega^{2}} \cos{\omega t}
+\end{equation}
+
+Assuming that $\omega \neq \sqrt{g/l}$, the general solution is then:
+
+\begin{equation}
+    \theta(t) = C \cos{\left( \omega_{0} t + \phi \right)} + \frac{A}{l} \frac{\omega^{2}}{\omega_{0}^{2} - \omega^{2}} \cos{\omega t}
+\end{equation}
+
+where $\omega_{0} \equiv \sqrt{g/l}$ is the natural frequency and $C$ and $\phi$ are constants determined by the initial conditions.
+
+
+
+\end{document}
