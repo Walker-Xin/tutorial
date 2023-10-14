@@ -1,0 +1,591 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\usepackage{mathtools}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Sheet 1}
+\def\assignmentname{Potentials}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Potentials}
+%==========
+
+
+\problem{1.1}{Laplace's equation}
+
+Given that $\nabla^2 V = 0$ and the definition of the average:
+
+\begin{equation}
+    \overline{V}_{R} = \frac{1}{4\pi R^2} \int_{S} V \, \mathrm{d}S
+\end{equation}
+
+Since the integration is over a sphere, $\mathrm{d}S = R^{2} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi$ and the average can be written as:
+
+\begin{equation}
+    \overline{V}_{R} = \frac{1}{4\pi} \int_{\Omega} V \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi
+\end{equation}
+
+The partial derivative of $\overline{V}_{R}$ can thus be written as:
+
+\begin{equation}
+    \frac{\partial \overline{V}_{R}}{\partial R} = \frac{1}{4\pi} \int_{\Omega} \frac{\partial V}{\partial R} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi
+\end{equation}
+
+Now suppose that the sphere is centred at the origin and $\partial V/\partial R$ is just the radial component of electric field. Then the integral is proportional to the total electric flux through the sphere, which is zero since there is no charge enclosed. This means that $\partial \overline{V}_{R}/\partial R = 0$ and $\overline{V}_{R}$ is independent of $R$. We can therefore take the limit $R \to 0$ and treat $V$ as a constant over an infinitesimal sphere, so that:
+
+\begin{equation}
+    \overline{V}_{R} = \lim_{R \to 0} \frac{1}{4\pi R^2} \int_{S} V \, \mathrm{d}S = V \lim_{R \to 0} \frac{1}{4\pi R^2} \int_{S} \mathrm{d}S = V
+\end{equation}
+
+This argument can be applied to any point $\mathbf{r}'$ in the region where $\nabla^2 V = 0$ because this is just a shift of origin to $\mathbf{r}'$.
+\qed
+
+
+\problem{1.2}{Expansion in Legendre polynomials}
+Let us expand the inverse distance $\left\lvert \mathbf{r}' - \mathbf{r} \right\rvert^{-1}$:
+
+\begin{equation}
+\begin{split}
+    \left\lvert \mathbf{r}' - \mathbf{r} \right\rvert^{-1} &= \left( r'^2 + r^2 - 2rr' \cos{\theta} \right)^{-1/2} \\
+    &= \frac{1}{r} \left( 1 + \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{-1/2} \\
+    &\approx \frac{1}{r} \left[ 1 - \frac{1}{2} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right) + \frac{3}{8} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{2} - \frac{5}{16} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{3} \right] \\
+    &\approx \frac{1}{r} \left[ 1 + \frac{r'}{r} \cos{\theta} + \frac{r'^{2}}{2r^{2}} \left( 3 \cos^{2}{\theta} - 1 \right) + \frac{r'^{3}}{2r^{3}} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) \right] \\
+    &= \frac{1}{r} \sum_{n=0}^{3} \left( \frac{r'}{r} \right)^{n} P_{n}(\cos{\theta})
+\end{split}
+\end{equation}
+
+In fact, this is just the generating function of the Legendre polynomials.
+\qed
+
+
+\problem{1.3}{Dipole}
+
+\subproblem{a}
+The work done in turning the dipole by $\mathrm{d}\theta$ is:
+
+\begin{equation}
+    \mathrm{d}W = \tau \, \mathrm{d}\theta = Ep \sin{\theta} \, \mathrm{d}\theta
+\end{equation}
+
+We then define the potential energy of the dipole as the work done in turning it from $\theta = \pi/2$ to $\theta$:
+
+\begin{equation}
+    U = \int_{\pi/2}^{\theta} \, \mathrm{d}W = -Ep \cos{\theta} = -\mathbf{p} \cdot \mathbf{E}
+\end{equation}
+
+\subproblem{b}
+We know that the electric field by a dipole is:
+
+\begin{equation}
+    \mathbf{E} = \frac{1}{4\pi\epsilon_{0}} \frac{3(\mathbf{p} \cdot \mathbf{r}) \mathbf{r} - r^{2} \mathbf{p}}{r^{5}}
+\end{equation}
+
+Making use of the previous result, we can write the potential energy as:
+
+\begin{equation}
+    U_{\text{int}} = -\mathbf{p}_{1} \cdot \mathbf{E}_{2} = \frac{1}{4\pi\epsilon_{0}r^{3}} \left[ \mathbf{p}_{1} \cdot \mathbf{p}_{2} - 3(\mathbf{p}_{1} \cdot \hat{r})(\mathbf{p}_{2} \cdot \hat{r}) \right]
+\end{equation}
+
+\subproblem{c}
+
+\subsubproblem{i}
+If $\mathbf{p}_{1}$ is parallel to $\mathbf{r}$, then:
+
+\begin{equation}
+    U_{\text{int}} = -\frac{p_{1}p_{2}}{2\pi\epsilon_{0}r^{3}} \cos{\theta}
+\end{equation}
+
+which is just a sinusoidal function of $\theta$.
+
+\subsubproblem{ii}
+If $\mathbf{p}_{1}$ is perpendicular to $\mathbf{r}$, then:
+
+\begin{equation}
+    U_{\text{int}} = \frac{p_{1}p_{2}}{4\pi\epsilon_{0}r^{3}} \cos{\theta}
+\end{equation}
+\qed
+
+
+\problem{1.4}{Quadrupole}
+
+\subproblem{a}
+The potential of the system at $\mathbf{r}$ is:
+
+\begin{equation}
+    V(\mathbf{r}) = \frac{q}{4\pi\epsilon_{0}} \left( \frac{1}{r_{+}} + \frac{1}{r_{-}} - \frac{2}{r} \right)
+\end{equation}
+
+where $r_{\pm} = \left\lvert \mathbf{r} \pm \mathbf{a} \right\rvert$. We can expand $1/r_{\pm}$ as a series of Legendre polynomials:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{r_{\pm}} &= \frac{1}{r} \frac{1}{\sqrt{1 \pm 2 \cos{\theta} a/r + \left( a/r \right)^{2}}} \\
+    &= \frac{1}{r} \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} P_{n}(\mp \cos{\theta}) \\
+    &= \frac{1}{r} \left[ 1 \mp \frac{a}{r} \cos{\theta} + \frac{1}{2} \left( \frac{a}{r} \right)^{2} \left( 3 \cos^{2}{\theta} - 1 \right) \mp \frac{1}{2} \left( \frac{a}{r} \right)^{3} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) + \cdots \right]
+\end{split}
+\end{equation}
+
+where the alternating terms vanish when we add $1/r_{+}$ and $1/r_{-}$.
+
+This means that the potential can be approximated as:
+
+\begin{equation}
+    V(\mathbf{r}) \approx \frac{q}{4\pi\epsilon_{0}r} \left[ \frac{a^{2}}{r^{2}} \left( 3 \cos^{2}{\theta} - 1 \right) \right]
+\end{equation}
+
+where the leading term is now a quadrupole potential.
+
+\subproblem{b}
+In an uniform electric field $\mathbf{E}$, there is obviously no translational force on a quadrupole as the forces cancel. For torque, if we take the centre of the quadrupole as the origin, then the torque from the top and bottom positive charges cancel. Similarly if we take the top or bottom positive charge as the origin, the torque from the other positive charge and the two negative charges cancel. Therefore the net torque is zero.
+
+\subproblem{c}
+We can write the magnitude of the forces as:
+
+\begin{equation}
+    F_{\pm} = \frac{Qq}{4\pi\epsilon_{0}} \left( \frac{1}{r_{\pm}^{2}} \right)
+\end{equation}
+
+The sines of the angles between $\mathbf{F}_{\pm}$ and the z axis are given by:
+
+\begin{equation}
+    \sin{\theta_{\pm}} = \frac{r}{r_{\pm}} \sin{\theta}
+\end{equation}
+
+Thus, the torques are given by:
+
+\begin{equation}
+\begin{split}
+    \tau_{\pm} &= F_{\pm} a \sin{\theta_{\pm}} \\
+    &= \frac{Qqa}{4\pi\epsilon_{0}} \left( \frac{r}{r_{\pm}^{3}} \sin{\theta} \right) \\
+    &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp \frac{a}{r} \cos{\theta} \right)^{3} \\
+    &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp 3\frac{a}{r} \cos{\theta} \right)
+\end{split}
+\end{equation}
+
+where we have ignored the second order or higher terms in $a/r$.
+
+The net torque is therefore:
+
+\begin{equation}
+    \tau = \tau_{-} - \tau_{+} = \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 6\frac{a}{r} \cos{\theta} \right) = \frac{3Qqa^{2}\sin{2\theta}}{4\pi\epsilon_{0}r^{3}}
+\end{equation}
+
+and this points out of the page assuming positive $Q$ and $q$ and $\theta$ between $0$ and $\pi/2$.
+
+\subproblem{d}
+The torque is maximum at $\theta = \pi/4$, so the energy is given by the integral:
+
+\begin{equation}
+    U = \int_{\pi/4}^{\theta} \tau \, \mathrm{d}\theta = -\frac{3Qqa^{2}\cos{2\theta}}{8\pi\epsilon_{0}r^{3}}
+\end{equation}
+
+The torque is zero when $\theta = 0$ or $\pi$, which are unstable equilibriums, and $\theta = \pi/2$, which is the stable equilibrium that the quadrupole 'tends to rotate to'.
+\qed
+
+
+\problem{1.5}{Electric field due to a sphere with surface charge density $\propto \cos{\theta}$}
+
+\subproblem{a}
+The potential satisfies Laplace's equation for $r > R$ and $r < R$ and we have the boundary conditions:
+
+\begin{equation}
+    \frac{\partial V_{+}}{\partial r} - \frac{\partial V_{-}}{\partial r} = -\frac{\sigma}{\epsilon_{0}}
+\end{equation}
+
+where $V_{+}$ and $V_{-}$ are the potentials for $r > R$ and $r < R$ respectively and the derivatives are taken at $r = R$.
+
+Due to the apparent azimuthal symmetry, we can write the potential as:
+
+\begin{equation}
+    V(r, \theta) = \sum_{l=0}^{\infty} \left( A_{l} r^{l} + \frac{B_{l}}{r^{l+1}} \right) P_{l}(\cos{\theta})
+\end{equation}
+
+First consider $V_{+}$ for $r > R$. We can demand the potential to be zero at infinity, requiring $A_{l} = 0$ for all $l$. Similarly, $V_{-}$ for $r < R$ must be finite at the origin, so $B_{l} = 0$ for all $l$. The potential is therefore:
+
+\begin{equation}
+V =
+\begin{dcases}
+    \sum_{l=0}^{\infty} \frac{B_{l}}{r^{l+1}} P_{l}(\cos{\theta}) & \text{for } r > R \\
+    \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta}) & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+with the radial derivatives:
+
+\begin{equation}
+\frac{\partial V}{\partial r} =
+\begin{dcases}
+    \sum_{l=0}^{\infty} -\frac{l+1}{r^{l+2}} B_{l} P_{l}(\cos{\theta}) & \text{for } r > R \\
+    \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta}) & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+The boundary conditions then give:
+
+\begin{equation}
+\frac{B_{l}}{R^{l+2}} = A_{l} R^{l-1}
+\end{equation}
+
+and:
+
+\begin{equation}
+-\frac{B_{0}}{R^{2}} - \sum_{l=1}^{\infty} \left[ l A_{l} R^{l-1} + (l + 1)\frac{B_{l}}{R^{l+2}} \right] P_{l}(\cos{\theta}) = -\frac{k}{\epsilon_{0}} \cos{\theta}
+\end{equation}
+
+For this to be true for all $\theta$, we must have $A_{0} = B_{0} = 0$ and $A_{l} = B_{l} = 0$ for all $l \ge 2$. On the other hand, for $l = 1$, we have:
+
+\begin{equation}
+\begin{split}
+    -A_{1} - 2\frac{B_{1}}{R^{3}} &= -\frac{k}{\epsilon_{0}} \\
+    \frac{B_{1}}{R^{3}} &= A_{1}
+\end{split}
+\end{equation}
+
+which gives $A_{1} = B_{1}/R^{3} = k/3\epsilon_{0}$.
+
+The potential is therefore:
+
+\begin{equation}
+V =
+\begin{dcases}
+    \frac{kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{2}} & \text{for } r > R \\
+    \frac{k}{3\epsilon_{0}} r \cos{\theta} & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+\subproblem{b}
+The components of the electric field are given by:
+
+\begin{equation}
+E_{r} = 
+\begin{dcases}
+    \frac{2kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{3}} & \text{for } r > R \\
+    -\frac{k}{3\epsilon_{0}} \cos{\theta} & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+and:
+
+\begin{equation}
+E_{\theta} =
+\begin{dcases}
+    \frac{kR^{3}}{3\epsilon_{0}} \frac{\sin{\theta}}{r^{3}} & \text{for } r > R \\
+    \frac{k}{3\epsilon_{0}} \sin{\theta} & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+\subproblem{c}
+Consider the field outside the sphere. We can identify $p = 4\pi kR^{3}/3$ and $\mathbf{p} = p \hat{z}$, so the field is that of a dipole. Since the field previously calculated is not an approximation, we can conclude that in this case, there are no higher multipole terms in the field. Consider the polarisation $P$:
+
+\begin{equation}
+    P = \frac{p}{4\pi R^{3}/3} = k
+\end{equation}
+
+and the field outside the sphere is therefore:
+
+\begin{equation}
+    \mathbf{E} = \frac{PR^{3}}{3\epsilon_{0}r^{3}} \left( 2\cos{\theta} \hat{r} + \sin{\theta} \hat{\theta} \right)
+\end{equation}
+
+\subproblem{d}
+We need:
+
+\begin{equation}
+    \frac{Qd}{4\pi R^{3}/3} = k = p \frac{3}{4\pi R^{3}}
+\end{equation}
+
+or simply $Q\mathbf{d} = \mathbf{p}$.
+
+Consider a sphere of radius $R$ centred at the origin with a charge $Q$ uniformly distributed over its volume. Gauss' law gives the field inside the sphere as:
+
+\begin{equation}
+    \mathbf{E} = \frac{Q}{4\pi\epsilon_{0}} \frac{\mathbf{r}}{R^{3}}
+\end{equation}
+
+In the present case, we replace $\mathbf{r}$ with $\mathbf{r} \pm \mathbf{d}/2$ and add the two fields to get:
+
+\begin{equation}
+    \mathbf{E} = -\frac{Q}{4\pi\epsilon_{0}R^{3}} \left( \mathbf{r} + \frac{\mathbf{d}}{2} \right) + \frac{Q}{4\pi\epsilon_{0}R^{3}} \left( \mathbf{r} - \frac{\mathbf{d}}{2} \right) = -\frac{Q}{4\pi\epsilon_{0}R^{3}} \mathbf{d}
+\end{equation}
+
+But consider the previous result for $r < R$:
+
+\begin{equation}
+    \mathbf{E} = \frac{k}{3\epsilon_{0}} \left( -\cos{\theta} \hat{r} + \sin{\theta} \hat{\theta} \right) = -\frac{k}{3\epsilon_{0}} \hat{z} = -\frac{Q}{4\pi\epsilon_{0}R^{3}} \mathbf{d}
+\end{equation}
+
+as required.
+\qed
+
+
+\problem{1.6}{Metal sphere in a uniform electric field}
+
+\subproblem{a}
+The uniform field will attempt to induce a polarisation in the sphere in the $\hat{z}$ direction. This induced polarisation is similar to the one calculated in the previous problem, which then introduces a field in the opposite direction inside the sphere. The effect should be that the field inside the sphere is zero as required for electrostatic equilibrium.
+
+\subproblem{b}
+Again, let us demand that the potential is zero at $r = R$ and that it is finite near origin. We separate the potential into two parts:
+
+\begin{equation}
+V =
+\begin{dcases}
+    \sum_{l=0}^{\infty} \left( \frac{B_{l}}{r^{l+1}} + C_{l} r^{l} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
+    \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta}) & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+which immediately gives a relation between $B_{l}$ and $C_{l}$:
+
+\begin{equation}
+    B_{l} = -C_{l} R^{2l+1}
+\end{equation}
+
+and:
+
+\begin{equation}
+    A_{l} = \frac{1}{R^{l}} \left( \frac{B_{l}}{R^{l+1}} + C_{l} R^{l} \right) = 0
+\end{equation}
+
+Consider the derivatives:
+
+\begin{equation}
+\frac{\partial V}{\partial r} =
+\begin{dcases}
+    -\frac{B_{0}}{r^2} + \sum_{l=1}^{\infty} \left( -\frac{l+1}{r^{l+2}} B_{l} + l C_{l} r^{l-1} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
+    \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta}) & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+The boundary condition is that $E_{z}$, which is proportional to $\partial V/\partial r$ at $\theta = 0$, is equal to $E_{0}$ as $r \to \infty$. The finiteness of the field requires $C_{l} = 0$ for all $l \ge 2$, which also implies $B_{l} = 0$ for all $l \ge 2$. The boundary condition then gives:
+
+\begin{equation}
+    -C_{1} = E_{0}
+\end{equation}
+
+so that $B_{1} = -C_{1} R^{3} = E_{0} R^{3}$.
+
+Then we can write the potential as:
+
+\begin{equation}
+V =
+\begin{dcases}
+    C_{0} \left( 1 - \frac{R}{r} \right) + E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
+    0 & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+From the boundary condition on $\partial V/\partial r$, we have:
+
+\begin{equation}
+    -\frac{\sigma}{\epsilon_{0}} = \frac{C_{0}}{R} - 3E_{0} \cos{\theta}
+\end{equation}
+
+Now we demand the integration of $\sigma$ over the sphere to be zero, which gives:
+
+\begin{equation}
+    \int_{S} \sigma \, \mathrm{d}S = \int_{0}^{2\pi} \int_{0}^{\pi} \sigma R^{2} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi = 0
+\end{equation}
+
+This gives a condition $C_{0} = 0$. The potential is therefore:
+
+\begin{equation}
+V =
+\begin{dcases}
+    E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
+    0 & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+\subproblem{c}
+The surface charge density is given by:
+
+\begin{equation}
+    \sigma = 3\epsilon_{0} E_{0} \cos{\theta}
+\end{equation}
+
+\subproblem{d}
+Using previous results, we replace $k$ with $3\epsilon_{0} E_{0}$ to get:
+
+\begin{equation}
+    \mathbf{E} = -E_{0} \hat{z}
+\end{equation}
+
+so that the net field is zero inside the sphere as expected for electrostatic equilibrium.
+\qed
+
+
+\problem{1.7}{Separation of variables in cylindrical coordinates}
+
+\subproblem{a}
+Assuming longitudinal symmetry, we can write the potential as:
+
+\begin{equation}
+    V(r, \phi) = R(r) \Phi(\phi) 
+\end{equation}
+
+The Laplacian is then:
+
+\begin{equation}
+    \frac{\Phi}{r} \frac{\mathrm{d}}{\mathrm{d}r} \left( r \frac{\mathrm{d}R}{\mathrm{d}r} \right) + \frac{R}{r^{2}} \frac{\mathrm{d}^{2}\Phi}{\mathrm{d}\phi^{2}} = 0
+\end{equation}
+
+We can then divide by $R\Phi/r^{2}$ to get:
+
+\begin{equation}
+    \frac{r}{R} \frac{\mathrm{d}}{\mathrm{d}r} \left( r \frac{\mathrm{d}R}{\mathrm{d}r} \right) + \frac{1}{\Phi} \frac{\mathrm{d}^{2}\Phi}{\mathrm{d}\phi^{2}} = 0
+\end{equation}
+
+Now we demand that the $R$ term is a constant $n^{2}$ and the $\Phi$ term is a constant $-n^{2}$, so that:
+
+\begin{equation}
+    \Phi = e^{\pm in\phi}
+\end{equation}
+
+for some integer $n$. 
+
+The $R$ term then becomes a differential equation for $R$:
+
+\begin{equation}
+    r^{2} \frac{\mathrm{d}^{2}R}{\mathrm{d}r^{2}} + r \frac{\mathrm{d}R}{\mathrm{d}r} - n^{2} R = 0
+\end{equation}
+
+Assuming an ansatz $R = Ar^{\lambda}$, we get:
+
+\begin{equation}
+    \lambda(\lambda - 1) + \lambda - n^{2} = 0
+\end{equation}
+
+or $\lambda = \pm n$.
+
+The general solution is therefore:
+
+\begin{equation}
+    V(r, \phi) = \sum_{n \in \mathbb{Z}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{\pm in\phi}
+\end{equation}
+
+\subproblem{b}
+By Gauss' law, the field is simply:
+
+\begin{equation}
+    \mathbf{E} = \frac{\lambda}{2\pi\epsilon_{0}r} \hat{r}
+\end{equation}
+
+Take some $r_{0}$ as the reference point, the potential is then:
+
+\begin{equation}
+    V = -\int_{r_{0}}^{r} E \, \mathrm{d}r = -\frac{\lambda}{2\pi\epsilon_{0}} \ln{\frac{r}{r_{0}}}
+\end{equation}
+
+Since there is no $\phi$ dependence, we check:
+
+\begin{equation}
+    \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r} \left( r \frac{\mathrm{d}V}{\mathrm{d}r} \right) \propto \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r} \left( r \frac{\mathrm{d}\ln{r}}{\mathrm{d}r} \right) = 0
+\end{equation}
+
+as expected.
+
+\subproblem{c}
+For simplicity, let us assume that $n \in \mathbb{N}$. We write the potential as two parts:
+
+\begin{equation}
+V =
+\begin{dcases}
+    \sum_{n \in \mathbb{N}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{in\phi} & \text{for } r > R \\
+    \sum_{n \in \mathbb{N}} C_{n} r^{n} e^{in\phi} & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+where the negative powers of $r$ are absent for $r < R$ due to the finiteness of the potential at the origin.
+
+We demand that the potential is zero and continuous at $r = R$, which gives:
+
+\begin{equation}
+    A_{n} R^{n} + B_{n} R^{-n} = C_{n} R^{n} = 0
+\end{equation}
+
+or that $B_{n} = -A_{n} R^{2n}$ and $C_{n} = 0$.
+
+Focusing on $r > R$, the boundary condition is that $\partial V/\partial r = -E_{0}$ for $\phi = 0$ and $r \to \infty$. This gives:
+
+\begin{equation}
+    \lim_{r \to \infty} \sum_{n \in \mathbb{N}/0} \left( n A_{n} r^{n-1} + n B_{n} r^{-n-1} \right) = -E_{0}
+\end{equation}
+
+% Changing the indices:
+
+% \begin{equation}
+%     \lim_{r \to \infty} \sum_{n \in \mathbb{N}/0} n (A_{n} - B_{-n}) r^{n - 1} = E_{0}
+% \end{equation}
+
+This gives $A_{1} = -E_{0}$ and $A_{n} = 0$ for all $n \ge 2$, which implies $B_{1} = E_{0} R^{2}$ and $B_{n} = 0$ for all $n \ge 2$.
+
+Combining the results, we have:
+
+\begin{equation}
+V =
+\begin{dcases}
+    -E_{0} \left( r - \frac{R^{2}}{r} \right) \cos{\phi} & \text{for } r > R \\
+    0 & \text{for } r < R
+\end{dcases}
+\end{equation}
+
+where we have taken the real part of the complex exponential.
+
+To find the surface charge density, we use the relation:
+
+\begin{equation}
+    \sigma = -\epsilon_{0} \frac{\partial V}{\partial r} \bigg\rvert_{r = R} = 2\epsilon_{0} E_{0} \cos{\phi}
+\end{equation}
+\qed
+
+
+\problem{1.8}{Magnetic vector potential}
+
+\subproblem{a}
+The vector potential is given by the integral:
+
+\begin{equation}
+\begin{split}
+    \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \int_{-L}^{L} \frac{1}{\sqrt{r^{2} + {l^{2}}}} \, \mathrm{d}l \\
+    &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+In the limit $L \gg r$, we approximate the vector potential as:
+
+\begin{equation}
+\begin{split}
+    \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)} \\
+    &\approx \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{2 + r^{2}/2L^{2}}{r^{2}/2L^{2}} \right)} \\
+    &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( 4\frac{L^{2}}{r^{2}} + 1 \right)}
+\end{split}
+\end{equation}
+
+Then the magnetic field is given by:
+
+\begin{equation}
+\begin{split}
+    \mathbf{B} &= \nabla \times \mathbf{A} \\
+    &= -\frac{\partial A_{z}}{\partial r} \\
+    &= \frac{\mu_{0} I}{4\pi} \frac{8L^{2}}{4L^{2}r + r^{3}} \\
+    &= \frac{\mu_{0} I}{2\pi r} \frac{1}{1 + r^{2}/4L^{2}} \\
+    &\approx \frac{\mu_{0} I}{2\pi r}
+\end{split}
+\end{equation}
+
+as expected from Ampere's law.
+\qed
+
+
+\end{document}

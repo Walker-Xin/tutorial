@@ -20,6 +20,51 @@
 %==========
 
 
+\problem{7}{}
+
+\subproblem{a}{}
+Let us set the origin of the coordinate system at the geometric centre of the rod, with the positive pointing at the $2m$ end. The new centre of mass is given by:
+
+\begin{equation}
+    x_{\text{cm}} = \frac{2ml/2 - ml/2}{2m + m} = \frac{l}{6}
+\end{equation}
+
+The momentum of inertia about the geometric centre is:
+
+\begin{equation}
+    I = 3m \left( \frac{l}{2} \right)^{2} = \frac{3}{4} ml^{2}
+\end{equation}
+
+so that by the parallel axis theorem, the momentum of inertia about the new centre of mass is:
+
+\begin{equation}
+    I_{\text{cm}} = I - 3m \left( \frac{l}{6} \right)^{2} = \frac{2}{3} ml^{2}
+\end{equation}
+
+By conservation of angular momentum, we have:
+
+\begin{equation}
+    I_{\text{cm}} \omega = mv \left( \frac{l}{2} - \frac{l}{6} \right)
+\end{equation}
+
+so that $\omega = v/2l$.
+
+\subproblem{b}{}
+The linear speed of the centre of mass is given by conservation of momentum:
+
+\begin{equation}
+    mv = (2m + m) v_{\text{cm}}
+\end{equation}
+
+so that $v_{\text{cm}} = v/3$.
+
+After one half rotation, the linear speed due to $\omega$ is against $v_{\text{cm}}$ for the $2m$ end so that the total speed is:
+
+\begin{equation}
+    v_{\text{total}} = v_{\text{cm}} - \omega \left( \frac{l}{2} - \frac{l}{6} \right) = v/6
+\end{equation}
+
+
 %==========
 \pagebreak
 \section*{Section B}
@@ -230,5 +275,72 @@ Assuming that $\omega \neq \sqrt{g/l}$, the general solution is then:
 where $\omega_{0} \equiv \sqrt{g/l}$ is the natural frequency and $C$ and $\phi$ are constants determined by the initial conditions.
 
 
+\problem{10}{}
+
+\subproblem{a}{}
+Consider the moment when the balloon has a mass $m(t)$ and velocity $v(t)$. In a short time $\delta t$, we can write the conservation of momentum as:
+
+\begin{equation}
+    mv + (F - mg) \delta t = (m + \delta m)(v + \delta v) + (-\delta m)v \\
+\end{equation}
+
+where $F = (M + m_{0})g$ is the constant buoyancy force.
+
+Suppose $\delta m = -\alpha \delta t$ for some positive constant $\alpha$. Then, ignoring second order terms:
+
+\begin{equation}
+    \frac{F - mg}{\alpha} \delta m = m \delta v 
+\end{equation}
+
+This is a separable equation with the solution:
+
+\begin{equation}
+    v = \frac{1}{\alpha} \left[ F \ln{\left( \frac{m}{M} \right)} - g (m - M)\right]
+\end{equation}
+
+But $m(t) = M - \alpha t$, so that:
+
+\begin{equation}
+    v(t) = \frac{F}{\alpha} \ln{\left( 1 - \frac{\alpha}{M}t \right)} - gt
+\end{equation}
+
+The height as a function of time is given by:
+
+\begin{equation}
+    h(t) = \int_{0}^{t} v \, \mathrm{d}t = \frac{mF}{\alpha^{2}} \left( 1 - \frac{\alpha}{M}t \right) \left[ 1 - \ln{\left( 1 - \frac{\alpha}{M}t \right)} \right] - \frac{1}{2}gt^{2}
+\end{equation}
+
+\subproblem{b}{}
+Consider the moment when the object has a mass $m$ and velocity $v$. In a short time $\delta t$, we can write the conservation of momentum as:
+
+\begin{equation}
+    mv + mg \sin{\theta} \delta t = (m + \delta m)(v + \delta v)
+\end{equation}
+
+Ignoring any second order terms gives:
+
+\begin{equation}
+    mg \sin{\theta} \delta t = m \delta v + \delta m v
+\end{equation}
+
+By definition $\delta x = v \delta t$. We also have $m = \sigma x$ so that $\delta m = \sigma \delta x$. Substituting:
+
+\begin{equation}
+    \sigma g \sin{\theta} \frac{x}{v} \delta x = \sigma x \delta v + \sigma v \delta x
+\end{equation}
+
+Or:
+
+\begin{equation}
+\frac{\mathrm{d}v}{\mathrm{d}x} = \left( \frac{g \sin{\theta}}{v} - \frac{v}{x} \right)
+\end{equation}
+
+Consider the trial solution $x = kt^{2}/2$. Substitution leads to:
+
+\begin{equation}
+    \frac{1}{t} = \frac{1}{t} \left( \frac{g \sin{\theta}}{k} - 2 \right)
+\end{equation}
+
+which means $k = g\sin{\theta}/3$ as required.
 
 \end{document}

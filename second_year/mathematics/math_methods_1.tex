@@ -1,0 +1,490 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Mathematical Methods}
+\def\assignmentno{Problem Sheet 1}
+\def\assignmentname{Normed and Inner Product Vector Space}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Normed and Inner Product Vector Space}
+%==========
+
+
+\problem{1}{Examples of Function Vector Spaces}
+
+\subproblem{a}
+For $f$ and $g$ in $\mathcal{F}$, the vector addition can be defined as:
+
+\begin{equation}
+    (f + g)(x) = f(x) + g(x)
+\end{equation}
+
+while the scalar multiplication can be defined as:
+
+\begin{equation}
+    (\alpha f)(x) = \alpha f(x)
+\end{equation}
+
+Apparently:
+
+\begin{equation}
+    (\alpha f + \beta g)(x) = \alpha f(x) + \beta g(x)
+\end{equation}
+
+which satisfies the definition of vector space.
+
+\subproblem{b}
+
+Subspaces of $\mathcal{F}$ include:
+
+\begin{equation}
+\begin{split}
+    \mathcal{P} = \{f_{n}(x) = x^n, n \in \mathbb{N}\} \\
+    \mathcal{E} = \{f_{n}(x) = e^{nx}, n \in \mathbb{N}\} \\
+    \mathcal{S} = \{f_{n}(x) = \sin{nx}, n \in \mathbb{N}\} \\
+\end{split}
+\end{equation}
+
+\subproblem{c}
+
+A possible scalar product for $\mathcal{P}$ is:
+
+\begin{equation}
+    \left\langle f, g \right\rangle = \int_{0}^{1} f(x) g(x) \, \mathrm{d}x
+\end{equation}
+\qed
+
+
+\problem{2}{Polarisation Identities}
+
+\subproblem{a}
+Consider the following identities:
+
+\begin{equation}
+\begin{split}
+    \left\langle v + w, v + w \right\rangle &= \left\langle v + w, v \right\rangle + \left\langle v + w, w \right\rangle \\
+    &= \left\langle v, v \right\rangle + \left\langle v, w \right\rangle^{*} + \left\langle w, v \right\rangle^{*} + \left\langle w, w \right\rangle \\
+    \left\langle v - w, v - w \right\rangle &= \left\langle v - w, v \right\rangle - \left\langle v - w, w \right\rangle \\
+    &= \left\langle v, v \right\rangle - \left\langle v, w \right\rangle^{*} - \left\langle w, v \right\rangle^{*} + \left\langle w, w \right\rangle
+\end{split}
+\end{equation}
+
+Similarly
+
+\begin{equation}
+\begin{split}
+    \left\langle v + iw, v + iw \right\rangle &= \left\langle v, v \right\rangle + i \left\langle v, w \right\rangle - i \left\langle w, v \right\rangle + \left\langle w, w \right\rangle \\
+    \left\langle v - iw, v - iw \right\rangle &= \left\langle v, v \right\rangle - i \left\langle v, w \right\rangle + i \left\langle w, v \right\rangle + \left\langle w, w \right\rangle
+\end{split}
+\end{equation}
+
+Combining the above results, we have:
+
+\begin{equation}
+    \left\langle v + w, v + w \right\rangle - \left\langle v - w, v - w \right\rangle - i \left\langle v + iw, v + iw \right\rangle + i \left\langle v - iw, v - iw \right\rangle = 4 \left\langle v, w \right\rangle
+\end{equation}
+
+as required.
+
+\subproblem{b}
+If $V$ is a real inner product space, then:
+
+\begin{equation}
+\begin{split}
+    \left\langle v + w, v + w \right\rangle &= \left\langle v, v \right\rangle + 2\left\langle v, w \right\rangle + \left\langle w, w \right\rangle \\
+    \left\langle v - w, v - w \right\rangle &= \left\langle v, v \right\rangle - 2\left\langle v, w \right\rangle + \left\langle w, w \right\rangle
+\end{split}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \left\langle v + w, v + w \right\rangle - \left\langle v - w, v - w \right\rangle = 4 \left\langle v, w \right\rangle
+\end{equation}
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+\begin{split}
+    \left\langle v + w, T(v + w) \right\rangle &= \left\langle v, T(v) \right\rangle + \left\langle w, T(v) \right\rangle + \left\langle v, T(w) \right\rangle + \left\langle w, T(w) \right\rangle \\
+    \left\langle v - w, T(v - w) \right\rangle &= \left\langle v, T(v) \right\rangle - \left\langle w, T(v) \right\rangle - \left\langle v, T(w) \right\rangle + \left\langle w, T(w) \right\rangle \\
+    \left\langle v + iw, T(v + iw) \right\rangle &= \left\langle v, T(v) \right\rangle - i \left\langle w, T(v) \right\rangle + i \left\langle v, T(w) \right\rangle + \left\langle w, T(w) \right\rangle \\
+    \left\langle v - iw, T(v - iw) \right\rangle &= \left\langle v, T(v) \right\rangle + i \left\langle w, T(v) \right\rangle - i \left\langle v, T(w) \right\rangle + \left\langle w, T(w) \right\rangle
+\end{split}
+\end{equation}
+
+Combining the above results, we have:
+
+\begin{equation}
+    \left\langle v + w, T(v + w) \right\rangle - \left\langle v - w, T(v - w) \right\rangle - i \left\langle v + iw, T(v + iw) \right\rangle + i \left\langle v - iw, T(v - iw) \right\rangle = 4 \left\langle v, T(w) \right\rangle
+\end{equation}
+
+as required.
+
+\subproblem{d}
+If $\left\langle v, T(v) \right\rangle = 0$ for all $v \in V$, then:
+
+\begin{equation}
+    \left\langle 2v, 2T(v) \right\rangle - i \left\langle v + iv, T(v + iv) \right\rangle + i \left\langle v - iv, T(v - iv) \right\rangle = 0
+\end{equation}
+
+However, we have:
+
+\begin{equation}
+\begin{split}
+    \left\langle v + iv, T(v + iv) \right\rangle &= \left\langle v, T(v) \right\rangle - i \left\langle v, T(v) \right\rangle + i \left\langle v, T(v) \right\rangle + \left\langle v, T(v) \right\rangle = 2 \left\langle v, T(v) \right\rangle \\
+    \left\langle v - iv, T(v - iv) \right\rangle &= \left\langle v, T(v) \right\rangle + i \left\langle v, T(v) \right\rangle - i \left\langle v, T(v) \right\rangle + \left\langle v, T(v) \right\rangle = 2 \left\langle v, T(v) \right\rangle
+\end{split}
+\end{equation}
+
+Therefore, the following equality holds:
+
+\begin{equation}
+    (4 - 2i + 2i) \left\langle v, T(v) \right\rangle = 0
+\end{equation}
+
+which implies that $\left\langle v, T(v) \right\rangle = 0$ for all $v \in V$.
+
+This means that $T(v) = 0$ because $v$ is arbitrary.
+
+\subproblem{e}
+First suppose $T$ is hermitian, then by definition:
+
+\begin{equation}
+    \left\langle v, T(v) \right\rangle = \left\langle T^{\dagger}(v), v \right\rangle = \left\langle T(v), v \right\rangle
+\end{equation}
+
+But $\left\langle v, T(v) \right\rangle = \left\langle T(v), v \right\rangle^{*}$ for a complex inner product space. This means $\left\langle v, T(v) \right\rangle \in \mathbb{R}$.
+
+Now suppose $\left\langle v, T(v) \right\rangle \in \mathbb{R}$ for some $T$, then:
+
+\begin{equation}
+    \left\langle v, T(v) \right\rangle = \left\langle v, T(v) \right\rangle^{*} = \left\langle T(v), v \right\rangle
+\end{equation}
+
+On the other hand, we have:
+
+\begin{equation}
+    \left\langle v, T(v) \right\rangle = \left\langle T^{\dagger}(v), v \right\rangle
+\end{equation}
+
+which means:
+
+\begin{equation}
+    \left\langle v, T(v) - T^{\dagger}(v) \right\rangle = 0
+\end{equation}
+
+for all $v \in V$. Therefore, $T = T^{\dagger}$ and $T$ is hermitian.
+\qed
+
+
+\problem{3}{The Normed Vector Space and the Parallelogram Identity}
+
+\subproblem{a}
+We have:
+
+\begin{equation}
+\begin{split}
+    &\left\langle v + w, v + w \right\rangle + \left\langle v - w, v - w \right\rangle \\
+    =& \left\langle v, v \right\rangle + \left\langle w, v \right\rangle + \left\langle v, w \right\rangle + \left\langle w, w \right\rangle + \left\langle v, v \right\rangle - \left\langle w, v \right\rangle - \left\langle v, w \right\rangle + \left\langle w, w \right\rangle \\
+    =& 2 \left\langle v, v \right\rangle + 2 \left\langle w, w \right\rangle
+\end{split}
+\end{equation}
+
+as required.
+
+\subproblem{b}
+Apparently the norm is positive definite because for a sequence $(x_{i})$ not all zero. Consider the linearity condition:
+
+\begin{equation}
+    \left\lVert \alpha (x_{i}) \right\rVert = \left( \sum_{i = 1}^{\infty} \left\lvert \alpha x_{i} \right\rvert^{p} \right)^{1/p} = \left\lvert \alpha \right\rvert \left( \sum_{i = 1}^{\infty} \left\lvert x_{i} \right\rvert^{p} \right)^{1/p} = \left\lvert \alpha \right\rvert \left\lVert x_{i} \right\rVert
+\end{equation}
+
+To prove the triangle inequality, we use without proof the Holder's inequality:
+
+\begin{equation}
+    \sum_{i = 1}^{n} \left\lvert v_{i} w_{i} \right\rvert \leq \left( \sum_{i = 1}^{n} \left\lvert v_{i} \right\rvert^{p} \right)^{1/p} \left( \sum_{i = 1}^{n} \left\lvert w_{i} \right\rvert^{q} \right)^{1/q}
+\end{equation}
+
+where $1/p + 1/q = 1$.
+
+Assuming a non-zero $\left\lVert x_{i} + y_{i} \right\rVert$, we have:
+
+\begin{equation}
+\begin{split}
+    \left\lVert (x_{i} + y_{i}) \right\rVert^{p} &= \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p} \\
+    &= \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left\lvert x_{i} + y_{i} \right\rvert \\
+    &\leq \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left( \left\lvert x_{i} \right\rvert + \left\lvert y_{i} \right\rvert \right) \\
+    &= \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left\lvert x_{i} \right\rvert + \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left\lvert y_{i} \right\rvert
+\end{split}
+\end{equation}
+
+But by Holder's inequality:
+
+\begin{equation}
+\begin{split}
+    \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left\lvert x_{i} \right\rvert \leq \left( \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p} \right)^{1 - 1/p} \left( \sum_{i = 1}^{\infty} \left\lvert x_{i} \right\rvert^{p} \right)^{1/p} \\
+    \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p - 1} \left\lvert y_{i} \right\rvert \leq \left( \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p} \right)^{1 - 1/p} \left( \sum_{i = 1}^{\infty} \left\lvert y_{i} \right\rvert^{p} \right)^{1/p}
+\end{split}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \left\lVert (x_{i} + y_{i}) \right\rVert^{p} \leq \left( \sum_{i = 1}^{\infty} \left\lvert x_{i} + y_{i} \right\rvert^{p} \right)^{1 - 1/p} \left( \left\lVert x_{i} \right\rVert + \left\lVert y_{i} \right\rVert \right) = \frac{\left\lVert (x_{i} + y_{i}) \right\rVert^{p}}{\left\lVert x_{i} + y_{i} \right\rVert} \left( \left\lVert x_{i} \right\rVert + \left\lVert y_{i} \right\rVert \right)
+\end{equation}
+
+and the triangle inequality results.
+
+\subproblem{c}
+Suppose on the contrary that there exists some inner product $\left\langle \cdot, \cdot \right\rangle$ for some $p \ne 2$. Then the associated norm satisfies the parallelogram identity. With the proposed vectors, we have:
+
+\begin{equation}
+    \left\lVert v + w \right\rVert^{2} + \left\lVert v - w \right\rVert^{2} = \left( 2 \times (1^{p}) \right)^{2/p} + \left( 2 \times (1^{p}) \right)^{2/p}
+\end{equation}
+
+On the other hand:
+
+\begin{equation}
+    2 \left\lVert v \right\rVert^{2} + 2 \left\lVert w \right\rVert^{2} = 2 \times (1^{p}) + 2 \times (1^{p})
+\end{equation}
+
+These are only equal when $p = 2$, which contradicts the assumption.
+\qed
+
+
+\problem{4}{Recap of Gram-Schmidt Procedure}
+
+\subproblem{a}
+With the basis $1, x, x^{2}$, we start from $1$ and normalize it:
+
+\begin{equation}
+    \hat{p}_{1} = \frac{1}{\sqrt{\left\langle 1, 1 \right\rangle}} = \left( \int e^{-x^{2}} \, \mathrm{d}x \right)^{-1/2} = \pi^{-1/4}
+\end{equation}
+
+Then the (un-normalised) second basis is:
+
+\begin{equation}
+    p_{2} = x - \left\langle x, \hat{p}_{1} \right\rangle \hat{p}_{1} = x - \frac{1}{\sqrt{\pi}} \int x e^{-x^{2}} \, \mathrm{d}x = x
+\end{equation}
+
+Normalising it, we have:
+
+\begin{equation}
+    \hat{p}_{2} = \frac{x}{\sqrt{\left\langle x, x \right\rangle}} = x \left( \int x^{2} e^{-x^{2}} \, \mathrm{d}x \right)^{-1/2} = \left( \frac{4}{\pi} \right)^{1/4} x
+\end{equation}
+
+Finally, the (un-normalised) third basis is:
+
+\begin{equation}
+    p_{3} = x^{2} - \left\langle x^{2}, \hat{p}_{1} \right\rangle \hat{p}_{1} - \left\langle x^{2}, \hat{p}_{2} \right\rangle \hat{p}_{2} = x^{2} - \frac{1}{\sqrt{\pi}} \int x^{2} e^{-x^{2}} \, \mathrm{d}x - \frac{4}{\pi} \int x^{3} e^{-x^{2}} \, \mathrm{d}x = x^{2} - \frac{1}{2}
+\end{equation}
+
+Normalising it, we have:
+
+\begin{equation}
+    \hat{p}_{3} = \frac{x^{2} - 1/2}{\sqrt{\left\langle x^{2} - 1/2, x^{2} - 1/2 \right\rangle}} = \left( \int \left( x^{2} - \frac{1}{2} \right)^{2} e^{-x^{2}} \, \mathrm{d}x \right)^{-1/2} = \left( \frac{4}{\pi} \right)^{1/4} \left( x^{2} - \frac{1}{2} \right)
+\end{equation}
+
+\subproblem{b}
+We will have:
+
+\begin{equation}
+    q(x) = \sum_{k=0}^{2} b_{k} \hat{p}_{k}(x)
+\end{equation}
+
+where $b_{k} = \left\langle q, \hat{p}_{k} \right\rangle$.
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+    \left\langle q, q \right\rangle =  \left\langle b_{i} \hat{p}_{i}, b_{j} \hat{p}_{j} \right\rangle = b_{i} b_{j} \left\langle \hat{p}_{i}, \hat{p}_{j} \right\rangle = b_{i} b_{j} \delta_{ij} = b_{i}^{2}
+\end{equation}
+
+\subproblem{d}
+Given the linear operator, we can write the scalar product as:
+
+\begin{equation}
+    \left\langle q, T(q) \right\rangle = \int q \frac{\mathrm{d}}{\mathrm{d}x} \left( w \frac{\mathrm{d}q}{\mathrm{d}x} \right) \, \mathrm{d}x
+\end{equation}
+
+On the other hand, we have:
+
+\begin{equation}
+    \left\langle T(q), q \right\rangle = \int \frac{\mathrm{d}}{\mathrm{d}x} \left( w \frac{\mathrm{d}q}{\mathrm{d}x} \right) q \, \mathrm{d}x = \left\langle q, T(q) \right\rangle
+\end{equation}
+
+Therefore, $T$ is hermitian.
+
+We can compute the effect of $T$ on the basis vectors:
+
+\begin{equation}
+\begin{split}
+    T(\hat{p}_{1}) &= 0 \\
+    T(\hat{p}_{2}) &= \left( \frac{4}{\pi} \right)^{1/4} (-2x) = -2 \hat{p}_{2} \\
+    T(\hat{p}_{3}) &= \left( \frac{4}{\pi} \right)^{1/4} (-4x^{2} + 2) = -4 \hat{p}_{3}
+\end{split}
+\end{equation}
+
+Thus the matrix representation of $T$ is:
+
+\begin{equation}
+    T =
+    \begin{pmatrix}
+        0 & 0 & 0 \\
+        0 & -2 & 0 \\
+        0 & 0 & -4
+    \end{pmatrix}
+\end{equation}
+\qed
+
+
+\problem{5}{Orthonormal Basis}
+
+\subproblem{a}
+Any vector $v$ can be written as:
+
+\begin{equation}
+    v = \sum_{i} \braket{v}{\epsilon_{i}} \ket{\epsilon_{i}}
+\end{equation}
+
+so that the inner product between $v$ and $w$ is:
+
+\begin{equation}
+    \braket{v}{w} = \sum_{i} \sum_{j} \braket{v}{\epsilon_{i}} \braket{\epsilon_{j}}{w} = \sum_{i} \braket{v}{\epsilon_{i}} \braket{\epsilon_{i}}{w}
+\end{equation}
+
+as the basis is orthonormal.
+
+\subproblem{b}
+The entries of the hermitian conjugate of $P$ are:
+
+\begin{equation}
+    P^{\dagger}_{ij} = P_{ji}^{*} = \braket{\epsilon'_{j}}{\epsilon_{i}}^{*} = \braket{\epsilon_{i}}{\epsilon'_{j}}
+\end{equation}
+
+The matrix product $P^{\dagger} P$ is:
+
+\begin{equation}
+    (P^{\dagger} P)_{ij} = \sum_{k} P^{\dagger}_{ik} P_{kj} = \sum_{k} \braket{\epsilon_{i}}{\epsilon'_{k}} \braket{\epsilon'_{k}}{\epsilon_{j}} = \braket{\epsilon_{i}}{\epsilon_{j}} = \delta_{ij}
+\end{equation}
+
+which means $P^{\dagger} P = I$ or that $P$ is unitary.
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+    (PTP^{\dagger})_{ij} = P_{ik} T_{kl} P^{\dagger}_{lj} = \sum_{k, l} \braket{\epsilon'_{i}}{\epsilon_{k}} \braket{\epsilon_{k}}{T|\epsilon_{l}} \braket{\epsilon_{l}}{\epsilon'_{j}} = \braket{\epsilon'_{i}}{T|\epsilon'_{j}} = T'_{ij}
+\end{equation}
+\qed
+
+
+\problem{6}{Rotations and Unitary Matrices}
+
+\subproblem{a}
+Given that $R \approx I + iT$ is a rotation matrix, consider the product $R^{\intercal} R$:
+
+\begin{equation}
+    \delta_{ij} = (R^{\intercal} R)_{ij} = R^{\intercal}_{ik} R_{kj} = (\delta_{ik} + i T_{ki})(\delta_{kj} + i T_{kj}) = \delta_{ij} + i T_{ij} + i T_{ji} - T_{ki} T_{kj} \approx \delta_{ij} + i T_{ij} + i T_{ji}
+\end{equation}
+
+where at the last step we have ignored the second order terms.
+
+This equation holds only if $T_{ij} = - T_{ji}$, which means $T$ is anti-symmetric.
+
+\subproblem{b}
+
+\begin{equation}
+\begin{split}
+    [\tilde{T}_{i}, \tilde{T}_{j}]_{kl} &= \left( \tilde{T}_{i} \tilde{T}_{j} - \tilde{T}_{j} \tilde{T}_{i} \right)_{kl} \\
+    &= \left( \tilde{T}_{i} \right)_{km} \left( \tilde{T}_{j} \right)_{ml} - \left( \tilde{T}_{j} \right)_{km} \left( \tilde{T}_{i} \right)_{ml} \\
+    &= -\epsilon_{ikm} \epsilon_{jml} + \epsilon_{jkm} \epsilon_{iml} \\
+    &= -(\delta_{il} \delta_{kj} - \delta_{ij} \delta_{kl}) + (\delta_{jl} \delta_{ki} - \delta_{ji} \delta_{kl}) \\
+    &= \delta_{jl} \delta_{ki} - \delta_{il} \delta_{kj}
+\end{split}
+\end{equation}
+
+On the other hand:
+
+\begin{equation}
+    i\epsilon_{ijk} \tilde{T}_{k} = \epsilon_{ijk} \epsilon_{klm} = \delta_{il} \delta_{jm} - \delta_{im} \delta_{jl} = \delta_{jl} \delta_{ki} - \delta_{il} \delta_{kj}
+\end{equation}
+
+which means $[\tilde{T}_{i}, \tilde{T}_{j}] = i\epsilon_{ijk} \tilde{T}_{k}$.
+
+\subproblem{c}
+Given that $U \approx I + iS$ is a unitary matrix, consider the product $U^{\dagger} U$:
+
+\begin{equation}
+    \delta_{ij} = (U^{\dagger} U)_{ij} = U^{\dagger}_{ik} U_{kj} = (\delta_{ik} - i S^{\dagger}_{ik})(\delta_{kj} + i S_{kj}) = \delta_{ij} + i S_{ij} - i S^{\dagger}_{ij} - S^{\dagger}_{ik} S_{kj} \approx \delta_{ij} + i S_{ij} - i S^{\dagger}_{ij}
+\end{equation}
+
+which means $S^{\dagger}_{ij} = S_{ij}$, which means $S$ is hermitian.
+
+On the other hand, suppose that $S$ has the form:
+
+\begin{equation}
+    S = 
+    \begin{pmatrix}
+        a & b \\
+        b^{*} & c
+    \end{pmatrix}
+\end{equation}
+
+where $a$ and $c$ must be real because $S$ is hermitian.
+
+The requirement of unit determinant means:
+
+\begin{equation}
+    \det{(I + iS)} = (ia + 1)(ic + 1) + \left\lvert b \right\rvert^{2} = 1
+\end{equation}
+
+or that:
+
+\begin{equation}
+    -ac + i(a + c) + \left\lvert b \right\rvert^{2} = 0
+\end{equation}
+
+which means that $a + c =0$ or that $S$ is traceless.
+\qed
+
+
+\problem{7}{Convergence and Completeness}
+
+\subproblem{a}
+Consider the difference $x^{i} - x^{j}$, where we assume without loss of generality that $j > i$ so that this difference is positive. Let us choose $\epsilon = a^{s}$ for some $s > 0$. Consider the integer $k = \lceil s \rceil + 1 > s$. We can choose $i = k$ and $j = k + n$, where $n$ is an arbitrary positive integer. Then:
+
+\begin{equation}
+    x^{i} - x^{j} = x^{k} (1 - x^{n}) < x^{k} < a^{k} < a^{s} = \epsilon
+\end{equation}
+
+This shows that the sequence is Cauchy.
+
+To show that it converges to $0$, we still choose $\epsilon = a^{s}$ and consider the integer $k = \lceil s \rceil + 1 > s$. Then:
+
+\begin{equation}
+    x^{k} - 0 = a^{k} < a^{s} = \epsilon
+\end{equation}
+
+This shows that the sequence converges to $0$.
+
+\subproblem{b}
+Consider the difference $s_{j} - s_{i}$, where we assume without loss of generality that $j > i$. 
+
+
+
+
+\end{document}
