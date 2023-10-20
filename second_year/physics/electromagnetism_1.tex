@@ -190,6 +190,20 @@ The torque is maximum at $\theta = \pi/4$, so the energy is given by the integra
 \end{equation}
 
 The torque is zero when $\theta = 0$ or $\pi$, which are unstable equilibriums, and $\theta = \pi/2$, which is the stable equilibrium that the quadrupole 'tends to rotate to'.
+
+\begin{correction}
+    On the other hand, we could have used the potential energy $U = VQ$:
+
+    \begin{equation}
+        U = VQ = \frac{qQa^{2}}{4\pi\epsilon_{0}r^{3}} \left( 3 \cos^{2}{\theta} - 1 \right)
+    \end{equation}
+
+    so that the torque is:
+
+    \begin{equation}
+        \tau = -\frac{\partial U}{\partial \theta} = \frac{3Qqa^{2}\sin{2\theta}}{4\pi\epsilon_{0}r^{3}}
+    \end{equation}
+\end{correction}
 \qed
 
 
@@ -470,8 +484,22 @@ or $\lambda = \pm n$.
 The general solution is therefore:
 
 \begin{equation}
-    V(r, \phi) = \sum_{n \in \mathbb{Z}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{\pm in\phi}
+    \mistake{V(r, \phi) = \sum_{n \in \mathbb{Z}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{\pm in\phi}}
 \end{equation}
+
+\begin{correction}
+    If $n = 0$, we have a different equation:
+
+    \begin{equation}
+        \frac{\mathrm{d}^{2}R}{\mathrm{d}r^{2}} + \frac{1}{r} \frac{\mathrm{d}R}{\mathrm{d}r} = 0
+    \end{equation}
+
+    which has the solution $R = C\ln{r} + D$. The general solution is therefore:
+
+    \begin{equation}
+        V(r, \phi) = \sum_{n \in \mathbb{Z}/0} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{\pm in\phi} + C\ln{r} + D
+    \end{equation}
+\end{correction}
 
 \subproblem{b}
 By Gauss' law, the field is simply:
