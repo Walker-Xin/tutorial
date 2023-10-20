@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Thermodynamics}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Basic Concepts}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Terminology and Some Concepts}
+%==========
+
+
+\problem{A.1}{}
+Given that $t \propto V^{2/3}$, we have:
+
+\begin{equation}
+    t = \left[ \frac{(10^{-6})^{3}}{10^3} \right]^{2/3} \times \qty{10}{s} = \qty{1}{ms}
+\end{equation}
+\qed
+
+
+\problem{A.2}{}
+A quasistatic process is one carried out so slowly that the system stays in thermodynamic equilibrium at all times. A process that is quasistatic and has no hysteresis is said to be reversible.
+
+Osmosis and digestion may be taken as quasistatic as they happen slowly over a long period of time.
+\qed
+
+
+\problem{A.3}{}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Process & Quasistatic & Reversible & Irreversible & Isothermal \\ \hline
+        (a)     & \checkmark  & \checkmark &              &            \\ \hline
+        (b)     &             &            & \checkmark   &            \\ \hline
+        (c)     & \checkmark  &            & \checkmark   & \checkmark \\ \hline
+        (d)     & \checkmark  &            & \checkmark   & \checkmark \\ \hline
+        (e)     &             &            & \checkmark   &            \\ \hline
+    \end{tabular}
+\end{table}
+\qed
+
+
+\problem{A.4}{}
+A solid has a higher bulk modulus than a gas.
+
+Given the van der Waals equation of state:
+
+\begin{equation}
+    \left( P + \frac{a}{V^{2}} \right) (V - nb) = nRT
+\end{equation}
+
+At the limit $V \gg nb$, the equation of state reduces to:
+
+\begin{equation}
+    V = \frac{nRT}{P + an^{2}/V^{2}}
+\end{equation}
+
+so that the bulk modulus is:
+
+\begin{equation}
+    \beta = -V \left( \frac{\partial V}{\partial P} \right)_{T} = \left( P + \frac{an^{2}}{V^{2}} \right)^{-1}
+\end{equation}
+\qed
+
+
+\problem{A.5}{Function of state}
+Quantities that are functions of state are (a), (b), (c), (d) and (g).
+\qed
+
+
+\problem{A.6}{}
+(f) will be an additional function of state, as it is always zero.
+\qed
+
+
+\problem{A.7}{}
+We are given a microscopic equation of state:
+
+\begin{equation}
+    \left( P + \frac{a}{V^{2}} + \frac{d}{V^{3}} \right) \left( V - b + \frac{f}{V} \right) = RT
+\end{equation}
+
+Temperature and pressure are intensive variables that do not change if we change the number of moles of gas. However the volume does change. Consider the distinction between the ideal gas equation in its microscopic and macroscopic forms:
+
+\begin{equation}
+\begin{split}
+    PV &= RT \\
+    PV &= nRT
+\end{split}
+\end{equation}
+
+We therefore consider the change of variable $V \to V/n$, so that the equation of state becomes:
+
+\begin{equation}
+    \left( P + \frac{an^{2}}{V^{2}} + \frac{dn^{3}}{V^{3}} \right) \left( \frac{V}{n} - b + \frac{fn}{V} \right) = RT
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Partial Math}
+%==========
+
+
+\problem{B.1}{}
+
+\subproblem{a}
+Along the first path:
+
+\begin{equation}
+\begin{split}
+    \int_{(0, 0)}^{(0, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= 0 \\
+    \int_{(0, 1)}^{(1, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= \int_{0}^{1} 1 \, \mathrm{d}x = 1
+\end{split}
+\end{equation}
+
+so the integral evaluates to unity.
+
+Along the second path, we have $x = y$ so that:
+
+\begin{equation}
+    \int_{(0, 0)}^{(1, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y = \int_{0}^{1} 2x^{2} \, \mathrm{d}x = \frac{2}{3}
+\end{equation}
+
+This is expected as the integrand is not an exact differential. Check:
+
+\begin{equation}
+    \frac{\partial}{\partial y} (y^{2} + xy) = 2y + x \neq \frac{\partial}{\partial x} (y^{2} + xy) = y
+\end{equation}
+
+\subproblem{b}
+Suppose that the integral is an exact differential $\mathrm{d}\Phi$. Then we meed $\partial \Phi/\partial x = y^{2}$ so that:
+
+\begin{equation}
+    \Phi = xy^{2} + f(y)
+\end{equation}
+
+Differentiating with respect to $y$ gives:
+
+\begin{equation}
+    \frac{\partial \Phi}{\partial y} = 2xy + f'(y) = 2xy
+\end{equation}
+
+so that $f'(y) = 0$ and $f(y) = C$.
+
+The required function is thus:
+
+\begin{equation}
+    \Phi(x, y) = xy^{2} + C
+\end{equation}
+
+for some constant $C$.
+\qed
+
+
+\problem{B.2}{}
+Check:
+
+\begin{equation}
+    \frac{\partial C_{V}}{\partial V} = 0 \ne \frac{\partial (RT/V)}{\partial T} = \frac{R}{V}
+\end{equation}
+
+Consider the following quantity instead:
+
+\begin{equation}
+    \frac{C_{V}}{T} \, \mathrm{d}T + \frac{R}{V} \, \mathrm{d}V
+\end{equation}
+
+We have:
+
+\begin{equation}
+    \frac{\partial}{\partial V} \left( \frac{C_{V}}{T} \right) = 0 = \frac{\partial}{\partial T} \left( \frac{R}{V} \right)
+\end{equation}
+
+This is an exact differential of the form $\mathrm{d}\Phi$ where:
+
+\begin{equation}
+    \Phi = C_{V} \ln{T} + R \ln{V} + C
+\end{equation}
+
+for some constant $C$.
+\qed
+
+
+\problem{B.3}{}
+Consider some function $f(x, y, z) = C$ for some constant $C$. There are only two independent variables, which we can assume without loss of generality to be $x$ and $y$. Then:
+
+\begin{equation}
+\begin{split}
+    \mathrm{d}x = \left( \frac{\partial x}{\partial y} \right) \mathrm{d}y + \left( \frac{\partial x}{\partial z} \right) \mathrm{d}z \\
+    \mathrm{d}y = \left( \frac{\partial y}{\partial x} \right) \mathrm{d}x + \left( \frac{\partial y}{\partial z} \right) \mathrm{d}z \\
+\end{split}
+\end{equation}
+
+Substitute the second equation into the first:
+
+\begin{equation}
+    \mathrm{d}x = \left( \frac{\partial x}{\partial y} \right) \left[ \left( \frac{\partial y}{\partial x} \right) \mathrm{d}x + \left( \frac{\partial y}{\partial z} \right) \mathrm{d}z \right] + \left( \frac{\partial x}{\partial z} \right) \mathrm{d}z
+\end{equation}
+
+From coefficients of $\mathrm{d}x$, we have:
+
+\begin{equation}
+    1 = \left( \frac{\partial x}{\partial y} \right) \left( \frac{\partial y}{\partial x} \right)
+\end{equation}
+
+From coefficients of $\mathrm{d}z$, we have:
+
+\begin{equation}
+    0 = \left( \frac{\partial x}{\partial y} \right) \left( \frac{\partial y}{\partial z} \right) + \left( \frac{\partial x}{\partial z} \right)
+\end{equation}
+
+Coupling these two equations gives:
+
+\begin{equation}
+    \left( \frac{\partial x}{\partial y} \right) \left( \frac{\partial y}{\partial z} \right) \left( \frac{\partial z}{\partial x} \right) = -1
+\end{equation}
+\qed
+
+
+\problem{B.4}{}
+Consider a small change in $Q(x, y)$ caused by a small change in $x$ and $y$:
+
+\begin{equation}
+    \delta Q = f(x, y) \, \delta x + g(x, y) \, \delta y
+\end{equation}
+
+so that:
+
+\begin{equation}
+\begin{split}
+    \frac{\delta Q}{\delta x} = f(x, y) + g(x, y) \left( \frac{\delta y}{\delta x} \right) \\
+    \frac{\delta Q}{\delta y} = f(x, y) \left( \frac{\delta x}{\delta y} \right) + g(x, y)
+\end{split}
+\end{equation}
+
+Substitute $g(x, y)$ obtained from the second equation into the first:
+
+\begin{equation}
+\begin{split}
+    \frac{\delta Q}{\delta x} &= f(x, y) + \left[ \frac{\delta Q}{\delta y} - f(x, y) \left( \frac{\delta x}{\delta y} \right) \right] \left( \frac{\delta y}{\delta x} \right) \\
+    &= \frac{\delta Q}{\delta y} \left( \frac{\delta y}{\delta x} \right)
+\end{split}
+\end{equation}
+
+Or, changing to differentials:
+
+\begin{equation}
+    \frac{\mathrm{d}Q}{\mathrm{d}x} = \frac{\mathrm{d}Q}{\mathrm{d}y} \left( \frac{\partial y}{\partial x} \right)
+\end{equation}
+
+where everything is evaluated at constant points along the path.
+\qed
+
+
+\problem{B.5}{}
+In order for $\partial f/\partial x = f/x$ to be true, we must have:
+
+\begin{equation}
+    f(x, y, z) = g(y, z) \ln{x}
+\end{equation}
+
+for some function $g(y, z)$.
+\qed
+
+
+\problem{B.6}{}
+We are given $A = BC$ or:
+
+\begin{equation}
+    \mathrm{d}A = C \, \mathrm{d}B
+\end{equation}
+
+where we can safely assume a constant $C$ as we will do so later.
+
+Expressing the differentials in terms of variables $x$ and $y$:
+
+\begin{equation}
+    \frac{\partial A}{\partial x} \, \mathrm{d}x + \frac{\partial A}{\partial y} \, \mathrm{d}y = C \left( \frac{\partial B}{\partial x} \, \mathrm{d}x + \frac{\partial B}{\partial y} \, \mathrm{d}y \right)
+\end{equation}
+
+Collecting terms and dividing both the numerator and denominator by $A$:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}x}{\mathrm{d}y} &= \frac{\partial A/\partial y - C \partial B/\partial y}{\partial A/\partial x - C \partial B/\partial x} \\
+    &= \frac{(\partial A/\partial y)/A - (\partial B/\partial y)/B}{(\partial A/\partial x)/A - (\partial B/\partial x)/B} \\
+    &= \frac{\partial \ln{A}/\partial y - \partial \ln{B}/\partial y}{\partial \ln{A}/\partial x - \partial \ln{B}/\partial x} \\
+\end{split}
+\end{equation}
+
+as required.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Temperature}
+%==========
+
+
+\problem{C.1}{}
+Consider the van der Waals equation of state and the ideal gas equation of state, with temperature as the subject:
+
+\begin{equation}
+    \begin{split}
+        T_{v} &= \frac{V - nb}{nR} P + n^{2}a \left( \frac{1}{V} - \frac{nb}{V^{2}} \right) \\
+        T_{i} &= \frac{V}{nR} P
+    \end{split}
+\end{equation}
+
+In both cases, the temperature is a linear function of pressure, assuming a constant volume. The calibration of the thermometers is a linear transformation $P \to (kP + \epsilon)$ such that for both $T_{v}$ and $T_{i}$, the transformed temperature is zero for some $P_{0}$ and a hundred for some $P_{100}$.
+
+Once transformed, the two temperatures have exactly the same values at $P_{0}$ and $P_{100}$, and the same slope. Therefore, the two temperatures are the same for all pressures.
+\qed
+
+
+\problem{C.2}{}
+Write the equation of state as a linear function of pressure:
+
+\begin{equation}
+    V = -\kappa V_{0} P + V_{0} (1 + \alpha T)
+\end{equation}
+
+The isotherms are straight lines of the same slope $-\kappa V_{0}$ but different intercepts at the $V$-axis.
+
+
+\begin{figure}[h]
+    \centering
+    \input{../plots/thermo_1_c2.tex}
+    \caption{Isotherms of $V = -\kappa V_{0} P + C$}
+\end{figure}
+
+The slopes are small compared to those of a gas, as a solid's volume is much less sensitive to pressure than a gas.
+\qed
+
+
+\problem{C.3}{}
+Consider the following four systems: System 1 and 2 consist of the same gas, which unusually has two different isotherms of $T_{1}$ and $T_{2}$ that can intersect at some $(P, V)$ point. System 3 and 4 are reservoirs maintained at constant temperatures $T_{1}$ and $T_{2}$ respectively.
+
+Now suppose that system 1 is in thermal contact with system 3, and system 2 is in thermal contact with system 4. Further suppose that systems 1 and 2 are connected by a piston that does not allow heat flow.
+
+Let the initial state of system 1 be $(P_{1}, V_{1})$ and that of system 2 be $(P_{2}, V_{2})$. Assume that $P_{1} > P_{2}$. System 1 then expands against system 2 until the pressures are equal at the intersection point of the isotherms. This process can be made very slow so that the temperature of the gas does not change.
+
+At this point, there will be no possible flow of heat between systems 1 and 2. They are in thermodynamic equilibrium. By the Zeroth Law, we conclude that systems 2 and 4 are also in thermodynamic equilibrium.
+
+However, this is absurd because the temperatures of the two reservoirs are different. Therefore, the gas cannot have two different isotherms.
+
+\begin{figure}[h]
+    \centering
+    \input{../plots/thermo_1_c3.tex}
+    \caption{Illustration of intersecting isotherms}
+\end{figure}
+\qed
+
+
+\end{document}
