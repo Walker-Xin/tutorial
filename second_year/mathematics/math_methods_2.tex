@@ -1,0 +1,259 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Mathematical Methods}
+\def\assignmentno{Problem Sheet 2}
+\def\assignmentname{Fourier Series and Fourier Integrals}
+\def\name{Someone}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Fourier Series and Fourier Integrals}
+%==========
+
+
+\problem{1}{Fourier Series}
+
+\subproblem{a}
+We have the coefficients for the cosine series as:
+
+\begin{equation}
+    a_{r} = \frac{2}{2\pi} \int_{0}^{\pi} \sin{x} \cos{rx} \, \mathrm{d}x
+\end{equation}
+
+where apparently $a_{0} = 2/\pi$.
+
+For $r \ge 1$, the integral denoted as $I_{r}$ can be evaluated by parts:
+
+\begin{equation}
+\begin{split}
+    I_{r} &= \left[ -\cos{x} \cos{rx} \right]_{0}^{\pi} - r \int_{0}^{\pi} \cos{x} \sin{rx} \, \mathrm{d}x \\
+    &= \left[ \cos{x} \cos{rx} \right]_{\pi}^{0} - r \left\{ \left[ \sin{x} \sin{rx} \right]_{0}^{\pi} - r \int_{0}^{\pi} \sin{x} \cos{rx} \, \mathrm{d}x \right\} \\
+    &= 1 + \cos{\pi r} + r^{2} I_{r}
+\end{split}
+\end{equation}
+
+Therefore, the coefficients are:
+
+\begin{equation}
+    a_{r} = \frac{1}{\pi} \frac{1 + \cos{\pi r}}{1 - r^{2}} =
+    \begin{cases}
+        0 & \text{if } r \text{ is odd} \\
+        2/\pi(1 - r^{2}) & \text{if } r \text{ is even}
+    \end{cases}
+\end{equation}
+
+On the other hand, the coefficients for the sine series are:
+
+\begin{equation}
+    b_{r} = \frac{2}{2\pi} \int_{0}^{\pi} \sin{x} \sin{rx} \, \mathrm{d}x
+\end{equation}
+
+which are zero except for $r = 1$:
+
+\begin{equation}
+    b_{1} = \frac{1}{\pi} \int_{0}^{\pi} \sin^{2}{x} \, \mathrm{d}x = \frac{1}{2}
+\end{equation}
+
+Hence, the Fourier series is:
+
+\begin{equation}
+    f(x) = \frac{1}{2} \sin{x} + \frac{2}{\pi} \sum_{\text{even }r \ge 0}^{\infty} \frac{1}{1 - r^{2}} \cos{rx}
+\end{equation}
+
+\subproblem{b}
+Since the function is even, we only need the coefficients for the cosine series:
+
+\begin{equation}
+\begin{split}
+    a_{r} &= \frac{1}{\pi} \int_{-\pi}^{\pi} x^{2} \cos{rx} \, \mathrm{d}x \\
+    &= \frac{2}{\pi} \int_{0}^{\pi} x^{2} \cos{rx} \, \mathrm{d}x \\
+    &= \frac{2}{\pi} \left\{ \left[ x^{2} \frac{1}{r} \sin{rx} \right]_{0}^{\pi} -  \frac{2}{r} \int_{0}^{\pi} x \sin{rx} \, \mathrm{d}x \right\} \\
+    &= -\frac{4}{r\pi} \left\{ \left[ -x \frac{1}{r} \cos{rx} \right]_{0}^{\pi} + \frac{1}{r} \int_{0}^{\pi} \cos{rx} \, \mathrm{d}x \right\} \\
+    &= \frac{4}{r^{2}} \cos{r\pi} = \frac{4}{r^{2}} (-1)^{r}
+\end{split}
+\end{equation}
+
+for $r \ge 1$.
+
+Apparently, $a_{0} = 2\pi^{2}/3$ and the Fourier series is:
+
+\begin{equation}
+    f(x) = \frac{\pi^{2}}{3} + \sum_{r = 1}^{\infty} (-1)^{r} \frac{4}{r^{2}} \cos{rx}
+\end{equation}
+
+\subproblem{c}
+Consider the norm of the function $f(x) = x^{2}$ on the interval $[-\pi, \pi]$:
+
+\begin{equation}
+    \norm{f}^{2} = \int_{-\pi}^{\pi} x^{4} \, \mathrm{d}x = \frac{2\pi^{5}}{5}
+\end{equation}
+
+By Parseval's equation, we have:
+
+\begin{equation}
+    \frac{\norm{f}^{2}}{\pi} = \frac{1}{2} \left( \frac{\pi^{2}}{3} \right)^{2} + \sum_{r = 1}^{\infty} \frac{16}{r^{4}}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \sum_{r = 1}^{\infty} \frac{1}{r^{4}} = \frac{1}{16} \left( \frac{2\pi^{4}}{5} - \frac{\pi^{4}}{18} \right) = 
+\end{equation}
+
+\problem{2}{Sine and cosine Fourier series}
+
+\subproblem{a}
+The coefficients for the cosine series are:
+
+\begin{equation}
+    a_{r} = \frac{2}{\pi} \int_{0}^{\pi} x \sin{x} \cos{rx} \, \mathrm{d}x
+\end{equation}
+
+For the case $r = 0$ and $r = 1$, we have:
+
+\begin{equation}
+    a_{0} = \frac{2}{\pi} \int_{0}^{\pi} x \sin{x} \, \mathrm{d}x = \frac{2}{\pi} \left\{ \left[ -x \cos{x} \right]_{0}^{\pi} + \int_{0}^{\pi} \cos{x} \, \mathrm{d}x \right\} = 2
+\end{equation}
+
+and:
+
+\begin{equation}
+    a_{1} = \frac{2}{\pi} \int_{0}^{\pi} x \sin{x} \cos{x} \, \mathrm{d}x = \frac{1}{\pi} \int_{0}^{\pi} x \sin{2x} \, \mathrm{d}x = \frac{1}{2\pi} \left\{ \left[ -x \cos{2x} \right]_{0}^{\pi} + \int_{0}^{\pi} \cos{2x} \, \mathrm{d}x \right\} = -\frac{1}{2}
+\end{equation}
+
+For $r \ge 2$, the integral, which is denoted as $I_{r}$, can be evaluated by parts:
+
+\begin{equation}
+    I_{r} = \left[ -x \cos{x} \cos{rx} \right]_{0}^{\pi} + \int_{0}^{\pi} \cos{x} \cos{rx} \, \mathrm{d}x - r \int_{0}^{\pi} x \cos{x} \sin{rx} \, \mathrm{d}x
+\end{equation}
+
+For the middle term, the only non-zero contribution is when $r = 1$ as $\cos{rx}$ are orthogonal. Therefore we may neglect the middle term for $r \ge 2$:
+
+\begin{equation}
+\begin{split}
+    I_{r} &= \pi \cos{r\pi} - r \left\{ \left[ x \sin{x} \sin{rx} \right]_{0}^{\pi} - \int_{0}^{\pi} \sin{x} \sin{rx} \, \mathrm{d}x - r \int_{0}^{\pi} x \sin{x} \cos{rx} \, \mathrm{d}x \right\} \\
+    &= \pi \cos{r\pi} + r^{2} I_{r}
+\end{split}
+\end{equation}
+
+where in the last step we have again used the orthogonality of $\sin{rx}$.
+
+This means that for $r \ge 2$, the coefficients are:
+
+\begin{equation}
+    a_{r} = (-1)^{r} \frac{2}{1 - r^{2}}
+\end{equation}
+
+Hence the cosine Fourier series is:
+
+\begin{equation}
+    f(x) = 2 - \frac{1}{2} \cos{x} + \sum_{r = 2}^{\infty} (-1)^{r} \frac{2}{1 - r^{2}} \cos{rx}
+\end{equation}
+
+\subproblem{b}
+The coefficients for the sine series are:
+
+\begin{equation}
+    b_{r} = \frac{2}{\pi} \int_{0}^{\pi} x \sin{x} \sin{rx} \, \mathrm{d}x
+\end{equation}
+
+where $b_{1} = \pi/2$.
+
+For $r \ge 2$, the integral, which is denoted as $I_{r}$, can be evaluated as:
+
+\begin{equation}
+\begin{split}
+    I_{r} &= \frac{1}{2} \int_{0}^{\pi} x \cos{(1 + r)x} \, \mathrm{d}x - \frac{1}{2} \int_{0}^{\pi} x \cos{(1 - r)x} \, \mathrm{d}x \\
+    &= \frac{1}{2} \left[ \frac{\cos{(1 + r)\pi} - 1}{(1 + r)^{2}} - \frac{\cos{(1 - r)\pi} - 1}{(1 - r)^{2}} \right] \\
+\end{split}
+\end{equation}
+
+where we used the integral result:
+
+\begin{equation}
+    \int_{0}^{\pi} x \cos{kx} \, \mathrm{d}x = \frac{\cos{k\pi} - 1}{k^{2}}
+\end{equation}
+
+This means that the coefficients are:
+
+\begin{equation}
+    b_{r} =
+    \begin{cases}
+        0 & \text{if } r \text{ is odd} \\
+        2 \left[ (1 + r)^{-2} - (1 - r)^{-2} \right]/\pi & \text{if } r \text{ is even}
+    \end{cases}
+\end{equation}
+
+Hence the sine Fourier series is:
+
+\begin{equation}
+    f(x) = \frac{\pi}{2} \sin{x} + \sum_{\text{even }r \ge 2}^{\infty} \frac{2}{\pi} \left[ \frac{1}{(1 + r)^{2}} - \frac{1}{(1 - r)^{2}} \right] \sin{rx}
+\end{equation}
+
+\subproblem{c}
+The coefficients for the cosine series are:
+
+\begin{equation}
+    a_{r} = \frac{2}{\pi} \int_{0}^{\pi} x \cos{rx} \, \mathrm{d}x = \frac{2}{\pi} \frac{\cos{k\pi} - 1}{k^{2}} =
+    \begin{cases}
+        -4/\pi r^{2} & \text{if } r \text{ is odd} \\
+        0 & \text{if } r \text{ is even}
+    \end{cases}
+\end{equation}
+
+except for $r = 0$ where $a_{0} = \pi$.
+
+Hence the cosine Fourier series is:
+
+\begin{equation}
+    f(x) = \pi - \frac{4}{\pi} \sum_{\text{odd }r \ge 1}^{\infty} \frac{1}{r^{2}} \cos{rx}
+\end{equation}
+
+\subproblem{d}
+The coefficients for the sine series are:
+
+\begin{equation}
+    b_{r} = \frac{2}{\pi} \int_{0}^{\pi} x \sin{rx} \, \mathrm{d}x = -\frac{2}{\pi} \frac{\pi \cos{r\pi}}{r} =
+    \begin{cases}
+        2/r & \text{if } r \text{ is odd} \\
+        -2/r & \text{if } r \text{ is even}
+    \end{cases}
+\end{equation}
+
+Hence the sine Fourier series is:
+
+\begin{equation}
+    f(x) = \sum_{r = 1}^{\infty} (-1)^{r + 1} \frac{2}{r} \sin{rx}
+\end{equation}
+
+The cosine series does not converge to $f(x)$ near zero because $f(x)$ is not even, whereas the sine series converges to zero.
+
+Consider the norm of the function $f(x) = x$ on the interval $[0, \pi]$:
+
+\begin{equation}
+    \norm{f}^{2} = \int_{0}^{\pi} x^{2} \, \mathrm{d}x = \frac{\pi^{3}}{3}
+\end{equation}
+
+The Parseval's equation gives:
+
+\begin{equation}
+    \frac{2\norm{f}^{2}}{\pi} = \sum_{r = 1}^{\infty} \frac{4}{r^{2}}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \sum_{r = 1}^{\infty} \frac{1}{r^{2}} = \frac{\pi^{2}}{6}
+\end{equation}
+
+
+\end{document}
