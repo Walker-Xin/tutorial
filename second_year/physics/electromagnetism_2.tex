@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism 2}
+\def\assignmentno{Problem Sheet 2}
+\def\assignmentname{Electric and Magnetic Fields in Matter}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Electric Field in Matter}
+%==========
+
+
+\problem{2.1}{Capacitance and dielectrics}
+
+\subproblem{a}
+Using a small box-shape Gaussian surface, the field produced by a large plate carrying a uniform surface charge density $\sigma$ is $\sigma/2\epsilon_{0}$ as computed via Gauss' law. The parallel plate capacitor has two such plates, so the field between the plates is a superposition of the fields produced by each plate:
+
+\begin{equation}
+    E_{0} = \frac{Q_{0}/A}{2\epsilon_{0}} - \left( \frac{-Q_{0}/A}{2\epsilon_{0}} \right) = \frac{Q_{0}}{A\epsilon_{0}}
+\end{equation}
+
+As the field is uniform, the potential difference between the plates is simply $V_{0} = E_{0}d = Q_{0}d/A\epsilon_{0}$. The capacitance is then $C = Q_{0}/V_{0} = A\epsilon_{0}/d$.
+
+The potential energy stored in the capacitor can be computed by integrating the energy density $\epsilon_{0}E^{2}/2$ over the volume between the plates:
+
+\begin{equation}
+    U_{0} = \frac{\epsilon_{0}}{2} \int_{V} E_{0}^{2} \, \mathrm{d}V = \frac{\epsilon_{0}}{2} \frac{Q_{0}^{2}}{A^{2}\epsilon_{0}^{2}} \int_{V} \, \mathrm{d}V = \frac{Q_{0}^{2}d}{2A\epsilon_{0}}
+\end{equation}
+
+\subproblem{b}
+Consider the relationship between the potential difference and the charge on the capacitor:
+
+\begin{equation}
+    V = \frac{Qd}{\epsilon_{0}A}
+\end{equation}
+
+The dielectric material inserted causes a change in the permittivity $\epsilon_{0} \to \epsilon_{r} \epsilon_{0} > \epsilon_{0}$. Given constant $V$, the charge on the capacitor is then $Q \to \epsilon_{r}Q > Q$.
+
+Apply Gauss' law for electric displacement $\mathbf{D}$ with a small box-shape Gaussian surface:
+
+\begin{equation}
+\begin{split}
+    \oint_{S} \mathbf{D} \cdot \mathrm{d}\mathbf{S} &= Q_{f} \\
+    D \alpha &= \frac{Q\alpha}{A} \\
+    \epsilon_{0} E + P &= \frac{Q}{A}
+\end{split}
+\end{equation}
+
+which gives $E = (Q/A - P)/\epsilon_{0}$.
+
+Assuming a linear dielectric with the polarization $P = \epsilon_{0} \chi_{e} E$, the electric field is then:
+
+\begin{equation}
+    E = \frac{Q}{A\epsilon_{0}(1 + \chi_{e})}
+\end{equation}
+
+Since the potential is kept constant, the field is also constant so that $E = E_{0}$, which gives the relation:
+
+\begin{equation}
+    \frac{Q}{A\epsilon_{0}(1 + \chi_{e})} = \frac{Q_{0}}{A\epsilon_{0}}
+\end{equation}
+
+or $Q = (1 + \chi_{e}) Q_{0}$ as expected.
+
+The capacitance is then $C = Q/V_{0} = (1 + \chi_{e})C_{0}$, and the change in the potential energy is:
+
+\begin{equation}
+    \Delta U = \frac{Q^{2}d}{2A\epsilon_{r}\epsilon_{0}} - \frac{Q_{0}^{2}d}{2A\epsilon_{0}} = \chi_{e} U_{0}
+\end{equation}
+
+\subproblem{c}
+Still consider the previous relationship but keep the charge constant. The increase in permittivity causes a decrease in the potential difference $V \to V/\epsilon_{r} < V$.
+
+The capacitance is a property of geometry and material (permittivity) so it is unchanged, i.e., $C = (1 + \chi_{e})C_{0}$. The change in the potential energy is:
+
+\begin{equation}
+    \Delta U = \frac{Q_{0}^{2}d}{2A\epsilon_{r}\epsilon_{0}} - \frac{Q_{0}^{2}d}{2A\epsilon_{0}} = -\frac{\chi_{e}}{1 + \chi_{e}} U_{0}
+\end{equation}
+\qed
+
+
+\problem{2.2}{Capacitor half-filled with a dielectric}
+
+\subproblem{a}
+Label the regions from $1$ to $4$ from left to right as depicted in the figure. Apparently the electric fields and polarisations in region $1$ and $4$ are zero. Applying Gauss' law in region $2$ and $3$ gives:
+
+\begin{equation}
+\begin{split}
+    D_{2} \alpha &= \sigma \alpha = (\epsilon_{0} E_{2} + P) \alpha \\
+    D_{3} \alpha &= \sigma \alpha = \epsilon_{0} E_{3} \alpha
+\end{split}
+\end{equation}
+
+Solving the equations gives $E_{2} = \sigma/\epsilon_{0} \epsilon_{r}$, $P = (1 - 1/\epsilon_{r}) \sigma$, and $E_{3} = \sigma/\epsilon_{0}$. Thus:
+
+\begin{equation}
+\begin{split}
+    \mathbf{D}_{2} &= \mathbf{D}_{3} = \sigma \hat{x} \\
+    \mathbf{E}_{2} &= \frac{\sigma}{\epsilon_{0} \epsilon_{r}} \hat{x} \\
+    \mathbf{E}_{3} &= \frac{\sigma}{\epsilon_{0}} \hat{x} \\
+    \mathbf{P} &= \left( 1 - \frac{1}{\epsilon_{r}} \right) \sigma \hat{x}
+\end{split}
+\end{equation}
+
+where $\hat{x}$ is the unit vector pointing from the positive plate to the negative one.
+
+\subproblem{b}
+Taking the negative plate as the reference point, the potential difference between the plates is:
+
+\begin{equation}
+\begin{split}
+    V &= \int_{0}^{d} E_{2} \, \mathrm{d}x + \int_{d}^{2d} E_{3} \, \mathrm{d}x \\
+    &= \left( \frac{1}{\epsilon_{0} \epsilon_{r}} + \frac{1}{\epsilon_{0}} \right) \sigma d \\
+\end{split}
+\end{equation}
+
+The capacitance is:
+
+\begin{equation}
+    C = \frac{\sigma A}{V} = \frac{A/d}{1/\epsilon_{0} \epsilon_{r} + 1/\epsilon_{0}}
+\end{equation}
+
+Note that:
+
+\begin{equation}
+    \frac{1}{C} = \frac{d}{A} \left( \frac{1}{\epsilon_{0} \epsilon_{r}} + \frac{1}{\epsilon_{0}} \right) = \frac{1}{C_{1}} + \frac{1}{C_{2}}
+\end{equation}
+
+where $C_{1}$ is the capacitance of the left half and $C_{2}$ is the capacitance of the right half. 
+
+This is as though the capacitance of two capacitors in series.
+
+\subproblem{c}
+As the polarisation is constant, there is no volume bound density since $\nabla \cdot \mathbf{P} = 0$. On the interface between region $1$ and $2$:
+
+\begin{equation}
+    \sigma_{b} = -p = -\left( 1 - \frac{1}{\epsilon_{r}} \right) \sigma
+\end{equation}
+
+On the interface between region $2$ and $3$:
+
+\begin{equation}
+    \sigma_{b} = p = \left( 1 - \frac{1}{\epsilon_{r}} \right) \sigma
+\end{equation}
+
+Using all surface charge densities, the electric field in four regions are:
+
+\begin{equation}
+\begin{split}
+    \mathbf{E}_{1} &= \frac{\sigma}{2\epsilon_{0}} \left[ -\frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = 0 \\
+    \mathbf{E}_{2} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}\epsilon_{r}} \hat{x} \\
+    \mathbf{E}_{3} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}} \hat{x} \\
+    \mathbf{E}_{4} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) - 1 \right] \hat{x} = 0
+\end{split}
+\end{equation}
+
+which are the same as the results in part (a).
+\qed
+
+
+\problem{2.3}{Force on a dielectric}
+
+
+
+
+
+%==========
+\pagebreak
+\section*{Magnetic Field in Matter}
+%==========
+
+
+\problem{}{}
+
+
+\end{document}
