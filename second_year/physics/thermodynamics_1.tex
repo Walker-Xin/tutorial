@@ -46,10 +46,14 @@ Osmosis and digestion may be taken as quasistatic as they happen slowly over a l
         (a)     & \checkmark  & \checkmark &              &            \\ \hline
         (b)     &             &            & \checkmark   &            \\ \hline
         (c)     & \checkmark  &            & \checkmark   & \checkmark \\ \hline
-        (d)     & \checkmark  &            & \checkmark   & \checkmark \\ \hline
+        (d)     & \checkmark  &            & \mistake{\checkmark}   & \checkmark \\ \hline
         (e)     &             &            & \checkmark   &            \\ \hline
     \end{tabular}
 \end{table}
+
+\begin{correction}
+    Phase transitions are reversible processes if they happen very slowly.
+\end{correction}
 \qed
 
 
@@ -59,7 +63,7 @@ A solid has a higher bulk modulus than a gas.
 Given the van der Waals equation of state:
 
 \begin{equation}
-    \left( P + \frac{a}{V^{2}} \right) (V - nb) = nRT
+    \mistake{\left( P + \frac{a}{V^{2}} \right) (V - nb) = nRT}
 \end{equation}
 
 At the limit $V \gg nb$, the equation of state reduces to:
@@ -73,11 +77,33 @@ so that the bulk modulus is:
 \begin{equation}
     \beta = -V \left( \frac{\partial V}{\partial P} \right)_{T} = \left( P + \frac{an^{2}}{V^{2}} \right)^{-1}
 \end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \left( P + \frac{n^{2}a}{V^{2}} \right) (V - nb) = nRT
+    \end{equation}
+
+    so that in the limit $V \gg nb$:
+
+    \begin{equation}
+        P = \frac{nRT}{V} - \frac{n^{2}a}{V^{2}}
+    \end{equation}
+
+    and the bulk modulus is:
+
+    \begin{equation}
+        \beta = -V \left( \frac{\partial P}{\partial V} \right)_{T} = \frac{nRT}{V} - \frac{2n^{2}a}{V^{2}}
+    \end{equation}
+\end{correction}
 \qed
 
 
 \problem{A.5}{Function of state}
-Quantities that are functions of state are (a), (b), (c), (d) and (g).
+Quantities that are functions of state are (a), (b), \mistake{(c)}, (d) and (g).
+
+\begin{correction}
+    Quantities that are functions of state are (a), (b), (d) and (g).
+\end{correction}
 \qed
 
 
@@ -143,7 +169,7 @@ This is expected as the integrand is not an exact differential. Check:
 \end{equation}
 
 \subproblem{b}
-Suppose that the integral is an exact differential $\mathrm{d}\Phi$. Then we meed $\partial \Phi/\partial x = y^{2}$ so that:
+Suppose that the integral is an exact differential $\mathrm{d}\Phi$. Then we need $\partial \Phi/\partial x = y^{2}$ so that:
 
 \begin{equation}
     \Phi = xy^{2} + f(y)
