@@ -87,7 +87,7 @@ for $r \ge 1$.
 Apparently, $a_{0} = 2\pi^{2}/3$ and the Fourier series is:
 
 \begin{equation}
-    f(x) = \frac{\pi^{2}}{3} + \sum_{r = 1}^{\infty} (-1)^{r} \frac{4}{r^{2}} \cos{rx}
+    f(x) = \frac{2\pi^{2}}{3} + \sum_{r = 1}^{\infty} (-1)^{r} \frac{4}{r^{2}} \cos{rx}
 \end{equation}
 
 \subproblem{c}
@@ -96,18 +96,35 @@ Consider the norm of the function $f(x) = x^{2}$ on the interval $[-\pi, \pi]$:
 \begin{equation}
     \norm{f}^{2} = \int_{-\pi}^{\pi} x^{4} \, \mathrm{d}x = \frac{2\pi^{5}}{5}
 \end{equation}
-
 By Parseval's equation, we have:
 
 \begin{equation}
+    \mistake{
     \frac{\norm{f}^{2}}{\pi} = \frac{1}{2} \left( \frac{\pi^{2}}{3} \right)^{2} + \sum_{r = 1}^{\infty} \frac{16}{r^{4}}
+    }
 \end{equation}
 
 so that:
 
 \begin{equation}
-    \sum_{r = 1}^{\infty} \frac{1}{r^{4}} = \frac{1}{16} \left( \frac{2\pi^{4}}{5} - \frac{\pi^{4}}{18} \right) = 
+    \mistake{
+    \sum_{r = 1}^{\infty} \frac{1}{r^{4}} = \frac{1}{16} \left( \frac{2\pi^{4}}{5} - \frac{\pi^{4}}{18} \right)
+    }
 \end{equation}
+
+\begin{correction}
+    By Parseval's equation, we have:
+
+    \begin{equation}
+        \frac{\norm{f}^{2}}{\pi} = \frac{1}{2} \left( \frac{2\pi^{2}}{3} \right)^{2} + \sum_{r = 1}^{\infty} \frac{16}{r^{4}}
+    \end{equation}
+
+    so that:
+
+    \begin{equation}
+        \sum_{r = 1}^{\infty} \frac{1}{r^{4}} = \frac{1}{16} \left( \frac{2\pi^{4}}{5} - \frac{2\pi^{4}}{9} \right) = \frac{\pi^{4}}{90}
+    \end{equation}
+\end{correction}
 
 \problem{2}{Sine and cosine Fourier series}
 
@@ -329,6 +346,21 @@ For the given square pulse, its Fourier transform is:
 \begin{equation}
     \hat{\chi}(k) = \frac{1}{\sqrt{2\pi}} \int_{-1}^{1} e^{-ikx} \, \mathrm{d}x = \frac{1}{\sqrt{2\pi}} \frac{e^{-ik} - e^{ik}}{-ik} = \sqrt{\frac{2}{\pi}} \frac{\sin{k}}{k}
 \end{equation}
+
+\begin{correction}
+    \subproblem{b}
+    Consider the following integral:
+
+    \begin{equation}
+    \begin{split}
+        \int_{(n-1)\pi}^{n\pi} \abs{\hat{\chi}} \, \mathrm{d}k &= \sqrt{\frac{2}{\pi}} \int_{(n-1)\pi}^{n\pi} \frac{\abs{\sin{k}}}{k} \, \mathrm{d}k \\
+        &\ge \sqrt{\frac{2}{\pi}} \frac{1}{n\pi} \int_{(n-1)\pi}^{n\pi} \abs{\sin{k}} \, \mathrm{d}k \\
+        &= \sqrt{\frac{2}{\pi}} \frac{2}{n\pi}
+    \end{split}
+    \end{equation}
+
+    But this integral diverges as $n \to 0$, so that $\hat{\chi}$ is not integrable.
+\end{correction}
 
 \subproblem{c}
 The convolution is:
