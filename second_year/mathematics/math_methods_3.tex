@@ -1,0 +1,511 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Mathematical Methods}
+\def\assignmentno{Problem Sheet 3}
+\def\assignmentname{Ordinary Differential Equations and Special Functions}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Ordinary Differential Equations and Special Functions}
+%==========
+
+
+\problem{1}{Green function}
+
+\subproblem{a}
+Apparently for the given damped oscillator, we need $\omega = \sqrt{c^{2} - 1}$.
+
+\subproblem{b}
+The Wronskian is:
+
+\begin{equation}
+    W = 
+    \det \begin{pmatrix}
+        y_{1} & y_{2} \\
+        y_{1}' & y_{2}'
+    \end{pmatrix} = \omega e^{-2cx} \ne 0
+\end{equation}
+
+which means that the two solutions are linearly independent.
+
+\subproblem{c}
+The Green function is:
+
+\begin{equation}
+    G(x, t) = \frac{e^{-c(x + t)}(\cos{\omega t}\sin{\omega x} - \cos{\omega x}\sin{\omega t})}{\omega e^{-2ct}} = \frac{\sin{\omega(x - t)}}{\omega} e^{-c(x - t)}
+\end{equation}
+
+\subproblem{d}
+The general solution to the inhomogeneous equation is:
+
+\begin{equation}
+    y(x) = \int_{0}^{2\pi/\omega} G(x, t) f(t) \, \mathrm{d}t
+\end{equation}
+\qed
+
+
+\problem{2}{Hermite polynomials again}
+
+\subproblem{a}
+First consider the case $n \ne m$. We can assume $n > m$ without loss of generality so that:
+
+\begin{equation}
+\begin{split}
+    \left\langle H_{n}, H_{m} \right\rangle &= \int_{\mathbb{R}} e^{-x^{2}} H_{n}(x) H_{m}(x) \, \mathrm{d}x \\
+    &= \int_{\mathbb{R}} D^{(n)} \left( e^{-x^{2}} \right) H_{m}(x) \, \mathrm{d}x \\
+    &= \left[ D^{(n - 1)} \left( e^{-x^{2}} \right) H_{m}(x) \right]_{-\infty}^{\infty} - \int_{\mathbb{R}} D^{(n - 1)} \left( e^{-x^{2}} \right) H_{m}'(x) \, \mathrm{d}x \\
+    &= (-1)^{n} \int_{\mathbb{R}} e^{-x^{2}} H_{m}^{(n)}(x) \, \mathrm{d}x \\
+    &= 0
+\end{split}
+\end{equation}
+
+as $H_{m}^{(n)}(x)$ is a polynomial of degree $m - n$.
+
+Now consider the case $n = m$. We have:
+
+\begin{equation}
+\begin{split}
+    \left\langle H_{n}, H_{n} \right\rangle &= \int_{\mathbb{R}} e^{-x^{2}} H_{n}^{2}(x) \, \mathrm{d}x \\
+    &= \int_{\mathbb{R}} D^{(n)} \left( e^{-x^{2}} \right) H_{n}(x) \, \mathrm{d}x \\
+    &= (-1)^{n} \int_{\mathbb{R}} e^{-x^{2}} H_{n}^{(n)}(x) \, \mathrm{d}x \\
+    &= (-1)^{n} k_{n} n! \int_{\mathbb{R}} e^{-x^{2}} \, \mathrm{d}x \\
+    &= (-1)^{n} k_{n} n! \sqrt{\pi}
+\end{split}
+\end{equation}
+
+where $k_{n} = 2^{n}$ is the coefficient of $x^{n}$ in $H_{n}(x)$.
+
+This means that $H_{n}$ form an orthogonal set of functions with $\left\langle H_{n}, H_{m} \right\rangle = (-1)^{n} 2^{n} n! \sqrt{\pi} \delta_{nm}$.
+\qed
+
+
+\subproblem{b}
+Consider $H_{n+1}(x)$:
+
+\begin{equation}
+\begin{split}
+    H_{n+1}(x) &= -\left[ (-1)^{n} e^{x^{2}}  \frac{\mathrm{d}}{\mathrm{d}x} \left( D^{(n)} e^{-x^{2}} \right) \right] \\
+    &= -e^{x^{2}} \frac{\mathrm{d}}{\mathrm{d}x} \left[ \frac{H_{n}(x)}{e^{x^{2}}} \right] \\
+    &= -e^{x^{2}} \left[ \frac{H_{n}'(x)}{e^{x^{2}}} - 2x \frac{H_{n}(x)}{e^{x^{2}}} \right] \\
+    &= -H_{n}'(x) + 2x H_{n}(x)
+\end{split}
+\end{equation}
+
+On the other hand, consider the inner product between $H_{n}'(x)$ and $H_{n-1}(x)$:
+
+\begin{equation}
+\begin{split}
+    \left\langle H_{n}', H_{n-1} \right\rangle &= \int_{\mathbb{R}} H_{n}'(x) D^{(n-1)} e^{-x^{2}} \, \mathrm{d}x \\
+    &= \left[ H_{n}'(x) D^{(n-2)} e^{-x^{2}} \right]_{-\infty}^{\infty} - \int_{\mathbb{R}} H_{n}''(x) D^{(n-2)} e^{-x^{2}} \, \mathrm{d}x \\
+    &= (-1)^{n} \int_{\mathbb{R}} H_{n}^{(n)}(x) e^{-x^{2}} \, \mathrm{d}x \\
+    &= (-1)^{n} k_{n} n! \int_{\mathbb{R}} e^{-x^{2}} \, \mathrm{d}x \\
+    &= (-1)^{n} k_{n} n! \sqrt{\pi}
+\end{split}
+\end{equation}
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+    H_{n}''(x)  = D(2n H_{n-1}) = 4n(n-1) H_{n-2}
+\end{equation}
+
+and:
+
+\begin{equation}
+    H_{n-2} = \frac{2x H_{n-1} - H_{n}}{2(n-1)}
+\end{equation}
+
+Combining the results leads to:
+
+\begin{equation}
+    H_{n}''(x) - 2x H_{n}'(x) + 2n H_{n}(x) = 0
+\end{equation}
+
+which shows that $H_{n}$ satisfies the Hermite differential equation.
+
+\subproblem{d}
+Consider the power series Ansatz:
+
+\begin{equation}
+    y(x) = \sum_{k=0}^{\infty} a_{k} x^{k}
+\end{equation}
+
+Substitution into the Hermite differential equation leads to:
+
+\begin{equation}
+    \sum_{k=0}^{\infty} a_{k} \left[ (k + 2)(k + 1) - 2k + 2n \right] x^{k} = 0
+\end{equation}
+
+which leads to the recurrence relation:
+
+\begin{equation}
+    a_{k+2} = \frac{2(k - n)}{(k + 2)(k + 1)} a_{k}
+\end{equation}
+
+For $k = 1$, we need.
+
+\subproblem{e}
+Given $2x$ as a solution, consider the variation $\tilde{y}(x) = 2xu(x)$. Substituting into the Hermite differential equation leads to a new equation for $u(x)$:
+
+\begin{equation}
+    x u''(x) + 2(1 - x^{2}) u'(x) = 0
+\end{equation}
+
+or equivalently:
+
+\begin{equation}
+    z' + \frac{2(1 - x^{2})}{x} z = 0
+\end{equation}
+
+where $z(x) = u'(x)$.
+
+Solving for $z$ leads to:
+
+\begin{equation}
+    z(x) = C x^{-2} e^{x^{2}} = C \sum_{k=0}^{\infty} \frac{x^{2(k-1)}}{k!}
+\end{equation}
+
+Choosing $C = 1$ and integrating term by term leads to:
+
+\begin{equation}
+    u(x) = \sum_{k=0}^{\infty} \frac{x^{2k-1}}{(2k-1)k!}
+\end{equation}
+
+so that the second solution is:
+
+\begin{equation}
+    y(x) = \sum_{k=0}^{\infty} \frac{2x^{2k}}{(2k-1)k!}
+\end{equation}
+\qed
+
+
+\problem{3}{Hermitian and unitary operators}
+
+\subproblem{a}
+Assuming $T \circ S$ is Hermitian, we have:
+
+\begin{equation}
+    (T \circ S)^{\dagger} = S^{\dagger} \circ T^{\dagger} = S \circ T
+\end{equation}
+
+so that $T$ and $S$ commute.
+
+The other direction is trivial given the above result.
+
+\subproblem{b}
+Any operator $T$ can be written as:
+
+\begin{equation}
+    T = \frac{T + T^{\dagger}}{2} + \frac{T - T^{\dagger}}{2}
+\end{equation}
+
+where it is easy to verify that the first term is Hermitian and the second term is anti-Hermitian.
+
+\subproblem{c}
+Consider the following calculations:
+
+\begin{equation}
+    \left\langle i \frac{\mathrm{d}f}{\mathrm{d}x}, g \right\rangle = -\int_{a}^{b} i \frac{\mathrm{d}f^{*}}{\mathrm{d}x} g \, \mathrm{d}x = -\left[ i f^{*} g \right]_{a}^{b} + \int_{a}^{b} i f^{*} \frac{\mathrm{d}g}{\mathrm{d}x} \, \mathrm{d}x = \left\langle f, i \frac{\mathrm{d}g}{\mathrm{d}x} \right\rangle
+\end{equation}
+
+\begin{equation}
+    \left\langle x^{k} f, g \right\rangle = \int_{a}^{b} x^{k} f^{*} g \, \mathrm{d}x = \left\langle f, x^{k} g \right\rangle
+\end{equation}
+
+which shows that $i \mathrm{d}/\mathrm{d}x$ and $x^{k}$ are Hermitian operators.
+
+It is trivial to show that $\mathrm{d}/\mathrm{d}x$ is anti-Hermitian, so that:
+
+\begin{equation}
+    \left( \frac{\mathrm{d}}{\mathrm{d}x} + x^{2} \right)^{\dagger} = -\frac{\mathrm{d}}{\mathrm{d}x} + x^{2}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \left( i \frac{\mathrm{d}^{3}}{\mathrm{d}x^{3}} \right)^{\dagger} = -i \left[ \left( \frac{\mathrm{d}}{\mathrm{d}x} \right)^{\dagger} \right]^{3} = -i \left( -\frac{\mathrm{d}}{\mathrm{d}x} \right)^{3} = i \frac{\mathrm{d}^{3}}{\mathrm{d}x^{3}}
+\end{equation}
+
+so that the operator is Hermitian.
+
+Finally:
+
+\begin{equation}
+    \left\langle f, ix \frac{\mathrm{d}g}{\mathrm{d}x} \right\rangle = \left[ i f^{*} x g \right]_{a}^{b} - i\int_{a}^{b} \left( \frac{\mathrm{d}f^{*}}{\mathrm{d}x} g + g f^{*} \right) \, \mathrm{d}x = \left\langle i \left( \frac{\mathrm{d}}{\mathrm{d}x} + 1 \right) f, g \right\rangle
+\end{equation}
+
+so $i x \mathrm{d}/\mathrm{d}x$ has the hermitian conjugate $i (\mathrm{d}/\mathrm{d}x + 1)$.
+
+\subproblem{d}
+For a unitary operator $U$ and its eigenfunction $f$, we have:
+
+\begin{equation}
+\begin{split}
+    \left\langle Uf, Uf \right\rangle &= \left\langle f, f \right\rangle \\
+    \left\lvert \lambda \right\rvert^{2} \left\langle f, f \right\rangle &= \left\langle f, f \right\rangle
+\end{split}
+\end{equation}
+
+which means that $\left\lvert \lambda \right\rvert = 1$.
+
+\subproblem{e}
+We have:
+
+\begin{equation}
+    \left\langle f, T_{a}(g) \right\rangle = \int_{a}^{b} f^{*}(x) g(x - a) \, \mathrm{d}x = \int_{a}^{b} f^{*}(x + a) g(x) \, \mathrm{d}x = \left\langle T_{-a}(f), g \right\rangle
+\end{equation}
+
+so that $T_{a}^{\dagger} = T_{-a}$.
+
+But $T_{-a} \circ T_{a} = T_{a} \circ T_{-a} = \mathbb{I}$, so $T_{a}$ is unitary.
+\qed
+
+
+\problem{4}{Quantum harmonic oscillator}
+
+\subproblem{a}
+We have the relation:
+
+\begin{equation}
+    \frac{\mathrm{d}^{2}}{\mathrm{d}\xi^{2}} = \frac{m\omega}{\hbar} \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    H = -\frac{1}{2}h\omega \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} + \frac{1}{2} \hbar \omega x^{2}
+\end{equation}
+
+We therefore have the equation:
+
+\begin{equation}
+    \left( -\frac{1}{2} \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} + \frac{1}{2} x^{2} \right) \psi(x) = \epsilon \psi(x)
+\end{equation}
+
+The change of variable makes the independent variable dimensionless. Physically, this is equivalent to measuring the position in units of $\sqrt{\hbar / m \omega}$ and scaling the energy by $\hbar \omega$ correspondingly.
+
+\subproblem{b}
+Consider the Ansatz $\psi(x) = e^{-x^{2}/2} f(x)$. Substituting into the equation leads to:
+
+\begin{equation}
+    -e^{-x^{2}/2} \left( y'' - xy' - y - xy' + x^{2} y \right) + e^{-x^{2}/2} x^{2} y = 2 \epsilon e^{-x^{2}/2} y
+\end{equation}
+
+Simplifying:
+
+\begin{equation}
+    y'' - 2xy' + (2\epsilon - 1) y = 0
+\end{equation}
+
+which is the Hermite differential equation with $n = \epsilon - 1/2$.
+
+\subproblem{c}
+Since the above equation is the Hermite differential equation, the solutions are:
+
+\begin{equation}
+    y_{n}(x) = H_{n}(x)
+\end{equation}
+
+where $n \in \mathbb{N}$ and $\epsilon = n + 1/2$.
+
+Therefore, the solutions to the original equation are:
+
+\begin{equation}
+    \psi_{n}(x) = e^{-x^{2}/2} H_{n}(x) = h_{n}(x)
+\end{equation}
+
+where we have ignored the normalisation constant.
+
+\subproblem{d}
+We have:
+
+\begin{equation}
+\begin{split}
+    N(f) &= \frac{1}{2} \left( x - \frac{\mathrm{d}}{\mathrm{d}x} \right) \left( xf + \frac{\mathrm{d}f}{\mathrm{d}x} \right) \\
+    &= \frac{1}{2} \left( x^{2}f + x \frac{\mathrm{d}f}{\mathrm{d}x} - f - x\frac{\mathrm{d}f}{\mathrm{d}x} - \frac{\mathrm{d}^{2}f}{\mathrm{d}x^{2}} \right) \\
+    &= \mathcal{H}(f) - \frac{1}{2} f
+\end{split}
+\end{equation}
+
+\subproblem{e}
+Consider the ladder operator on $h_{n}(x) \equiv \ket{n}$:
+
+\begin{equation}
+    a^{\dagger} \ket{n} = \frac{1}{\sqrt{2}} \left[ x h_{n}(x) - h_{n}'(x) \right]
+\end{equation}
+
+On the other hand:
+
+\begin{equation}
+    h_{n}'(x) = \frac{1}{A_{n}} \left[ -x e^{-x^{2}/2} H_{n}(x) + e^{-x^{2}/2} H_{n}'(x) \right] = -x h_{n}(x) + 2n \frac{A_{n-1}}{A_{n}} h_{n-1}(x)
+\end{equation}
+
+so that:
+
+\begin{equation}
+\begin{split}
+    a^{\dagger} \ket{n} &= \frac{1}{\sqrt{2}} \left[ 2x h_{n}(x) - 2n \frac{A_{n-1}}{A_{n}} h_{n-1}(x) \right] \\
+    &= \frac{1}{\sqrt{2}} e^{-x^{2}/2} \left[ 2x \frac{1}{A_{n}} H_{n}(x) - 2n \frac{1}{A_{n}} H_{n-1}(x) \right] \\
+    &= \frac{A_{n+1}}{A_{n}} \frac{1}{\sqrt{2}} e^{-x^{2}/2} H_{n+1}(x) \\
+    &= \sqrt{n+1} \ket{n+1}
+\end{split}
+\end{equation}
+
+and:
+
+\begin{equation}
+    a \ket{n} = \frac{1}{\sqrt{2}} \left[ 2n \frac{A_{n-1}}{A_{n}} h_{n-1}(x) \right] = \sqrt{n} \ket{n-1}
+\end{equation}
+
+Further:
+
+\begin{equation}
+    N \ket{n} = a^{\dagger} \left( \sqrt{n} \ket{n-1} \right) = n \ket{n}
+\end{equation}
+
+Hence:
+
+\begin{equation}
+    \mathcal{H} \ket{n} = \left( n + \frac{1}{2} \right) \ket{n}
+\end{equation}
+\qed
+
+
+\problem{5}{Sturm-Liouville operators}
+
+\subproblem{a}
+The Sturm Liouville operator on a function $f$ can be written as:
+
+\begin{equation}
+\begin{split}
+    T_{\text{SL}} f &= \frac{1}{w(x)} \left\{ \frac{\mathrm{d}}{\mathrm{d}x} \left[ p(x) \frac{\mathrm{d}f}{\mathrm{d}x} \right] + q(x) f \right\} \\
+    &= \frac{p}{w} \frac{\mathrm{d}^{2}f}{\mathrm{d}x^{2}} + \frac{p'}{w} \frac{\mathrm{d}f}{\mathrm{d}x} + \frac{q}{w} f
+\end{split}
+\end{equation}
+
+so that for any second order differential operator $T = \alpha_{2} \mathrm{d}^{2}/\mathrm{d}x^{2} + \alpha_{1} \mathrm{d}/\mathrm{d}x + \alpha_{0}$, we have:
+
+\begin{equation}
+\begin{split}
+    p &= C \exp \left( \int \frac{\alpha_{1}}{\alpha_{2}} \, \mathrm{d}x \right) \\
+    w &= \frac{p}{\alpha_{2}} \\
+    q &= \alpha_{0} w
+\end{split}
+\end{equation}
+
+\subproblem{b}
+For the Legendre differential equation, we have:
+
+\begin{equation}
+    T_{\text{Legendre}} = (1 - x^{2}) \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} - 2x \frac{\mathrm{d}}{\mathrm{d}x} = \frac{\mathrm{d}}{\mathrm{d}x} \left[ (1 - x^{2}) \frac{\mathrm{d}}{\mathrm{d}x} \right]
+\end{equation}
+
+For the Laguerre differential equation:
+
+\begin{equation}
+    T_{\text{Laguerre}} = x \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} + (1 - x) \frac{\mathrm{d}}{\mathrm{d}x} = e^{x} \frac{\mathrm{d}}{\mathrm{d}x} \left( x e^{-x} \frac{\mathrm{d}}{\mathrm{d}x} \right)
+\end{equation}
+
+For the Hermite differential equation:
+
+\begin{equation}
+    T_{\text{Hermite}} = \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} - 2x \frac{\mathrm{d}}{\mathrm{d}x} = e^{x^{2}} \frac{\mathrm{d}}{\mathrm{d}x} \left( e^{-x^{2}} \frac{\mathrm{d}}{\mathrm{d}x} \right)
+\end{equation}
+
+\subproblem{c}
+The Legendre, Laguerre, Hermite differential equations are associated with the inner product spaces $\mathcal{L}^{2}([-1, 1])$, $\mathcal{L}^{2}([0, \infty))$, $\mathcal{L}^{2}(\mathbb{R})$ respectively.
+
+For any Sturm-Liouville operator $T_{\text{SL}}$, we have:
+
+\begin{equation}
+\begin{split}
+    \left\langle f, T_{\text{SL}} g \right\rangle &= \int_{a}^{b} f [D(p g') + q g] \, \mathrm{d}x \\
+    &= \left[ f p g' \right]_{a}^{b} - \int_{a}^{b} f' p g' \, \mathrm{d}x + \int_{a}^{b} f q g \, \mathrm{d}x \\
+    &= \left[ f p g' - f' p g \right]_{a}^{b} + \int_{a}^{b} D(f p) g + f q g \, \mathrm{d}x \\
+    &= \left[ f p g' - f' p g \right]_{a}^{b} + \left\langle T_{\text{SL}} f, g \right\rangle
+\end{split}
+\end{equation}
+
+which shows that $T_{\text{SL}}$ is Hermitian as long as $f$ and $g$ satisfy the boundary conditions $f p g' - f' p g = 0$ at $x = a, b$.
+\qed
+
+
+\problem{6}{Bessel functions}
+
+\subproblem{a}
+Consider the power series Ansatz $y(x) = \sum_{k=0}^{\infty} a_{k} x^{k + \alpha}$. Substituting into the differential equation leads to:
+
+\begin{equation}
+    \sum_{k=2}^{\infty} \left\{ \left[ (k + \alpha)(k + \alpha - 1) + (k + \alpha) - \nu^{2} \right]a_{k} + a_{k-2} \right\} x^{k + \alpha} + (1 + \alpha) a_{1} x^{1 + \alpha} = 0
+\end{equation}
+
+This leads to the recurrence relation:
+
+\begin{equation}
+    a_{k} = -\frac{1}{k^{2} + 2k\alpha} a_{k-2}
+\end{equation}
+
+and the condition $a_{1} = 0$ so that all odd terms vanish.
+
+\subproblem{b}
+
+We can rewrite the recurrence relation as:
+
+\begin{equation}
+    a_{2k} = \frac{-1}{4k(k + \alpha)} a_{2(k-1)} = \left( \frac{-1}{4} \right)^{k} \frac{\alpha!}{k! (k + \alpha)!} a_{0}
+\end{equation}
+
+With the given definition of $a_{0}$, we have:
+
+\begin{equation}
+    a_{2k} = \left( \frac{-1}{2} \right)^{2k} \frac{1}{k!\Gamma(k + \alpha + 1)} \left( \frac{1}{2} \right)^{\alpha}
+\end{equation}
+
+so that with $\alpha = \nu$, we have the series solutions:
+
+\begin{equation}
+    J_{\pm \nu} = \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k! \Gamma(k \pm \nu + 1)} \left( \frac{x}{2} \right)^{2k \pm \nu}
+\end{equation}
+
+\subproblem{c}
+We have:
+
+\begin{equation}
+    \sqrt{\frac{x}{2}} J_{1/2}(x) = \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k! \Gamma(k + 3/2)} \left( \frac{x}{2} \right)^{2k + 1}
+\end{equation}
+
+Consider $\Gamma(k + 3/2)$:
+
+\begin{equation}
+\begin{split}
+    \Gamma(k + 3/2) &= (k + 3/2) (k + 1/2) (k - 1/2) \cdots (3/2) (1/2) \Gamma(1/2) \\
+    &= \frac{(2k + 1)(2k - 1) \cdots (3)(1)}{2^{k+1}} \sqrt{\pi} \\
+    &= \frac{(2k + 1)!}{2^{k + 1} 2k (2k-2) \cdots 2} \sqrt{\pi} \\
+    &= \frac{(2k + 1)!}{2^{2k + 1} k!} \sqrt{\pi}
+\end{split}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    \sqrt{\frac{x}{2}} J_{1/2}(x) = \sqrt{\pi} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{k!} \frac{2^{2k + 1} k!}{(2k + 1)!} \left( \frac{x}{2} \right)^{2k + 1} = \sqrt{\pi} \sum_{k=0}^{\infty} \frac{(-1)^{k}}{(2k + 1)!} x^{2k + 1} = \sqrt{\pi} \sin{x}
+\end{equation}
+
+so that $J_{1/2}(x) = \sqrt{2/\pi x} \sin{x}$.
+
+The proof for $J_{-1/2}(x)$ is similar.
+\qed
+
+
+\end{document}
