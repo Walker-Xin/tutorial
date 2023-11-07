@@ -1,0 +1,351 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Quantum Mechanics}
+\def\assignmentno{Problem Sheet 1}
+\def\assignmentname{Dirac Notation, Operators \& Commutators}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Dirac Notation}
+%==========
+
+
+\problem{1}{}
+The fact that electrons interfere like waves require the use of probability amplitudes that can superpose.
+\qed
+
+
+\problem{2}{}
+Given $\ket{\psi} = e^{i\pi/5} \ket{a} + e^{i\pi/4} \ket{b}$, we have:
+
+\begin{equation}
+    \bra{\psi} = e^{-i\pi/5} \bra{a} + e^{-i\pi/4} \bra{b}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+
+\subproblem{a}
+Given $\ket{\psi} = a \ket{A} + b \ket{B}$, we need $\braket{\psi}{\psi} = 1$ or $a^2 + b^2 = 1$. With $a = i/2$, we have $P(A) = 1/4$ and $P(B) = 3/4$.
+
+\subproblem{b}
+With $b = e^{i\pi}$, we have $P(B) = 1$ and $P(A) = 0$.
+
+\subproblem{c}
+With $b = 1/3 + i/\sqrt{2}$, we have $P(B) = 1/9 + 1/2 = 11/18$ and $P(A) = 7/18$.
+\qed
+
+
+\problem{4}{}
+We have the probability of finding the particle in the state $\ket{n}$:
+
+\begin{equation}
+    P(n) = \abs{a_n}^2 = \frac{1}{2} \left( \frac{1}{3} \right)^{\abs{n}}
+\end{equation}
+
+The probability of $P(n \geq 0)$ is:
+
+\begin{equation}
+    P(n \geq 0) = \sum_{n=0}^{\infty} P(n) = \frac{1}{2} \sum_{n=0}^{\infty} \left( \frac{1}{3} \right)^n = \frac{1}{2} \frac{1}{1 - 1/3} = \frac{3}{4}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Operators}
+%==========
+
+
+\problem{5}{}
+
+\subproblem{a}
+$\braket{\psi}{Q|\psi}$ is the expectation value of the observable represented by the operator $Q$. By expectation value, we mean the average value of the observed value on a large number of identically prepared systems in the state $\ket{\psi}$.
+
+$\abs{\braket{q_{n}}{\psi}}^2$ is the probability of finding the system in the state $\ket{q_n}$ when the system is in the state $\ket{\psi}$.
+
+\subproblem{b}
+The operator $\sum_{n} \ket{q_{n}} \bra{q_{n}}$ is the identity operator expressed in the $Q$ representation.
+
+The operator $\sum_{n} q_{n} \ket{q_{n}} \bra{q_{n}}$ can be think of as the operator $Q$ expressed in the $Q$ representation. This is a diagonal matrix with the diagonal elements being the eigenvalues $q_{n}$ of $Q$.
+\qed
+
+
+\problem{6}{}
+Given $\hat{A}$ and $\hat{B}$ as Hermitian operators, we have the following:
+
+\begin{equation}
+\begin{split}
+    \left( \hat{A} + \hat{B} \right)^{\dagger} &= \left( \hat{A}^{\dagger} + \hat{B}^{\dagger} \right) = \hat{A} + \hat{B} \\
+    \left( c \hat{A} \right)^{\dagger} &= c^{*} \hat{A}^{\dagger} \\
+    \left( \hat{A} \hat{B} \right)^{\dagger} &= \hat{B}^{\dagger} \hat{A}^{\dagger} = \hat{B} \hat{A} \\
+    \left( \hat{A} \hat{B} + \hat{B} \hat{A} \right)^{\dagger} &= \left( \hat{B} \hat{A} + \hat{A} \hat{B} \right)^{\dagger} = \hat{B} \hat{A} + \hat{A} \hat{B}
+\end{split}
+\end{equation}
+
+Therefore, $\hat{A} + \hat{B}$ and $\hat{A} \hat{B}$ are Hermitian operators. $c \hat{A}$ is a Hermitian operator if and only if $c$ is real.
+
+Consider the operator $\partial /\partial x$ on function $f$:
+
+\begin{equation}
+    \braket{f}{\frac{\partial f}{\partial x}} = \int_{\mathbb{R}} f^{*} \frac{\partial f}{\partial x} \, \mathrm{d}x = \left. f^{*} f \right|_{-\infty}^{\infty} - \int_{\mathbb{R}} \frac{\partial f^{*}}{\partial x} f \, \mathrm{d}x = - \bra{\frac{\partial f}{\partial x}} \ket{f}
+\end{equation}
+
+where the boundary term vanishes because $f$ is bounded. 
+
+This shows that $\partial /\partial x$ is not Hermitian, but in fact anti-Hermitian.
+
+Consider the operator $-i\hbar \partial /\partial x$ on function $f$:
+
+\begin{equation}
+    \braket{f}{-i\hbar \frac{\partial f}{\partial x}} = -i\hbar \int_{\mathbb{R}} f^{*} \frac{\partial f}{\partial x} \, \mathrm{d}x = -i\hbar \left. f^{*} f \right|_{-\infty}^{\infty} + i\hbar \int_{\mathbb{R}} \frac{\partial f^{*}}{\partial x} f \, \mathrm{d}x = \bra{-i\hbar \frac{\partial f}{\partial x}} \ket{f}
+\end{equation}
+
+which shows that $-i\hbar \partial /\partial x$ is Hermitian.
+
+$\partial^{2}/\partial x^{2}$ is Hermitian because:
+
+\begin{equation}
+    \left( \frac{\partial^{2}}{\partial x^{2}} \right)^{\dagger} = \left( \frac{\partial}{\partial x} \right)^{\dagger} \circ \left( \frac{\partial}{\partial x} \right)^{\dagger} = \left( - \frac{\partial}{\partial x} \right) \circ \left( - \frac{\partial}{\partial x} \right) = \frac{\partial^{2}}{\partial x^{2}}
+\end{equation}
+\qed
+
+
+\problem{7}{}
+Given $\hat{A}$ and $\hat{B}$ as Hermitian operators, we have:
+
+\begin{equation}
+    \left\{ i \left[ \hat{A}, \hat{B} \right] \right\}^{\dagger} = -i \left( \hat{A} \hat{B} - \hat{B} \hat{A} \right)^{\dagger} = -i \left( \hat{B}^{\dagger} \hat{A}^{\dagger} - \hat{A}^{\dagger} \hat{B}^{\dagger} \right) = -i \left( \hat{B} \hat{A} - \hat{A} \hat{B} \right) = i \left[ \hat{A}, \hat{B} \right]
+\end{equation}
+\qed
+
+
+\problem{8}{}
+
+\begin{equation}
+    \left( \hat{A} \hat{B} \hat{C} \hat{D} \right)^{\dagger} = \hat{D}^{\dagger} \left( \hat{A} \hat{B} \hat{C} \right)^{\dagger} = \hat{D}^{\dagger} \hat{C}^{\dagger} \left( \hat{A} \hat{B} \right)^{\dagger} = \hat{D}^{\dagger} \hat{C}^{\dagger} \hat{B}^{\dagger} \hat{A}^{\dagger}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Commutators}
+%==========
+
+
+\problem{9}{}
+If $\hat{A}$ and $\hat{B}$ share a complete set of eigenkets $\ket{n}$ such that $\hat{A} \ket{n} = a_{n} \ket{n}$ and $\hat{B} \ket{n} = b_{n} \ket{n}$, we have:
+
+\begin{equation}
+\hat{A} \hat{B} \ket{n} = \hat{A} \left( b_{n} \ket{n} \right) = b_{n} \hat{A} \ket{n} = a_{n} b_{n} \ket{n}
+\end{equation}
+
+but also:
+
+\begin{equation}
+\hat{B} \hat{A} \ket{n} = \hat{B} \left( a_{n} \ket{n} \right) = a_{n} \hat{B} \ket{n} = a_{n} b_{n} \ket{n}
+\end{equation}
+
+Given non-zero eigenvalues $a_{n}$ and $b_{n}$, we must have $\hat{A} \hat{B} \ket{n} = \hat{B} \hat{A} \ket{n}$ for all $\ket{n}$, which implies $\hat{A} \hat{B} = \hat{B} \hat{A}$ or $[\hat{A}, \hat{B}] = 0$.
+
+The converse is also true but much more difficult to prove. For simplicity let us assume non-degenerate eigenvalues $a_{n}$ such that $\hat{A} \ket{n} = a_{n} \ket{n}$. Since the two operators commute, we have:
+
+\begin{equation}
+    \hat{A} \hat{B} \ket{n} = \hat{B} \hat{A} \ket{n} = a_{n} \hat{B} \ket{n}
+\end{equation}
+
+This means that $\hat{B} \ket{n}$ must be an eigenket of $\hat{A}$ with eigenvalue $a_{n}$. This means that $\hat{B} \ket{n}$ must be some multiple of $\ket{n}$, i.e. $\hat{B} \ket{n} = b_{n} \ket{n}$ for some $b_{n}$. This shows that $\ket{n}$ is also an eigenket of $\hat{B}$ with eigenvalue $b_{n}$.
+\qed
+
+
+\problem{10}{}
+This is true as long as the eigenvalues of $\hat{A}$ are non-degenerate, as argued in the previous problem.
+\qed
+
+
+\problem{11}{}
+
+\subproblem{a}
+
+\begin{equation}
+    \left[ \hat{A} \hat{B}, \hat{C} \right] = \hat{A} \hat{B} \hat{C} - \hat{C} \hat{A} \hat{B} = \hat{A} \hat{B} \hat{C} - \hat{A} \hat{C} \hat{B} + \hat{A} \hat{C} \hat{B} - \hat{C} \hat{A} \hat{B} = \hat{A} \left[ \hat{B}, \hat{C} \right] + \left[ \hat{A}, \hat{C} \right] \hat{B}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+    \left[ \hat{A} \hat{B} \hat{C}, \hat{D} \right] = \hat{A} \hat{B} \left[ \hat{C}, \hat{D} \right] + \left[ \hat{A} \hat{B}, \hat{D} \right] \hat{C} = \hat{A} \hat{B} \left[ \hat{C}, \hat{D} \right] + \left[ \hat{A}, \hat{D} \right] \hat{B} \hat{C} + \hat{A} \left[ \hat{B}, \hat{D} \right] \hat{C}
+\end{equation}
+
+This is similar to a chain rule in calculus, where $\hat{D}$ acts on there other operators `in turn'.
+
+\subproblem{c}
+
+\begin{equation}
+    \left[ \hat{x}^{n}, \hat{p} \right] = -i\hbar \left[ \hat{x}^{n}, \frac{\partial}{\partial x} \right]
+\end{equation}
+
+Consider $[\hat{x}^{n}, \partial /\partial x]$ acting on a function $f$:
+
+\begin{equation}
+    \left[ \hat{x}^{n}, \frac{\partial}{\partial x} \right] f = \hat{x}^{n} \frac{\partial f}{\partial x} - \frac{\partial}{\partial x} \left( \hat{x}^{n} f \right) = -n \hat{x}^{n-1} f
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \left[ \hat{x}^{n}, \hat{p} \right] = i\hbar n \hat{x}^{n-1}
+\end{equation}
+
+\subproblem{d}
+
+\begin{equation}
+    \left[ f(\hat{x}), \hat{p} \right] = -i\hbar \left[ \sum_{k} a_{k} \hat{x}^{k}, \frac{\partial}{\partial x} \right] = -i\hbar \sum_{k} a_{k} \left[ \hat{x}^{k}, \frac{\partial}{\partial x} \right] = i\hbar \sum_{k} a_{k} k \hat{x}^{k-1} = i\hbar f'(\hat{x})
+\end{equation}
+
+for any well-behaved function $f$ that has a power series expansion.
+\qed
+
+
+\problem{12}{}
+This is done in the previous problem.
+\qed
+
+
+\problem{13}{}
+By the term `compatible', we mean that the two observables can be measured simultaneously. This implies that for the two associated Hermitian operators $\hat{A}$ and $\hat{B}$, there exists a complete set of eigenkets $\ket{n}$ that are common to both operators such that $\hat{A} \ket{n} = a_{n} \ket{n}$ and $\hat{B} \ket{n} = b_{n} \ket{n}$. Physically, this means that given a system in the state $\ket{n}$, we can measure both $A$ and $B$ and obtain the values $a_{n}$ and $b_{n}$ respectively.
+
+From previous problems, it has already been established that this is true if and only if $[\hat{A}, \hat{B}] = 0$.
+\qed
+
+
+\problem{14}{}
+Commuting operators $\hat{A}$ and $\hat{B}$ satisfy $\hat{A} \hat{B} = \hat{B} \hat{A}$, meaning that the order of the operators does not matter. Mutually commuting operators represent observables that can be measured simultaneously.
+
+Take position and momentum as an example. Since the position and momentum operators do not commute, we cannot possibly know both the position and momentum of a particle at the same time.
+
+Given $[P, Q] = U \ne 0$ for some non-commuting operators, we have:
+
+\begin{equation}
+    [P, Q] \ket{\psi} = U \ket{\psi}
+\end{equation}
+
+which is not necessarily zero as $\ket{\psi}$ may be in the kernel of $U$.
+\qed
+
+
+\problem{15}{}
+Note that the delta function $\delta(x)$ is `defined' as:
+
+\begin{equation}
+    \delta(x) = \begin{cases}
+        \infty & x = 0 \\
+        0 & x \ne 0
+    \end{cases}
+\end{equation}
+
+with the constraint:
+
+\begin{equation}
+    \int_{-\infty}^{\infty} \delta(x) \, \mathrm{d}x = 1
+\end{equation}
+
+\subproblem{a}
+
+\begin{equation}
+    \int_{-\infty}^{\infty} \delta(cx) \, \mathrm{d}x = \frac{1}{\abs{c}} \int_{-\infty}^{\infty} \delta(u) \, \mathrm{d}u = \frac{1}{\abs{c}}
+\end{equation}
+
+so that we may write:
+
+\begin{equation}
+    \delta(cx) = \frac{1}{\abs{c}} \delta(x)
+\end{equation}
+
+This can be thought as a dilation of the delta function by a factor of $1/\abs{c}$.
+
+\subproblem{b}
+
+\begin{equation}
+    \int_{-\infty}^{\infty} \delta(x^{2} - c^{2}) \, \mathrm{d}x = \int_{-\infty}^{\infty} \delta(u - c^{2}) \frac{1}{2\sqrt{u}} \, \mathrm{d}u = \frac{1}{2\sqrt{c^{2}}} = \frac{1}{2\abs{c}}
+\end{equation}
+
+This function has two peaks at $x = \pm c$ and is symmetric about the origin, so we may write:
+
+\begin{equation}
+    \delta(x^{2} - c^{2}) = \frac{1}{2\abs{c}} \left[ \delta(x - c) + \delta(x + c) \right]
+\end{equation}
+
+\subproblem{c}
+Consider the derivative of the Fourier transform of some function $f(x)$:
+
+\begin{equation}
+\begin{split}
+    \mathcal{F}(f') &= \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \frac{\mathrm{d}f}{\mathrm{d}x} \, \mathrm{d}x \\
+    &= \frac{1}{\sqrt{2\pi}} \left. e^{-i\omega x} f(x) \right|_{-\infty}^{\infty} + \frac{i\omega}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} f(x) \, \mathrm{d}x \\
+    &= i\omega \mathcal{F}(f)
+\end{split}
+\end{equation}
+
+for $f$ that vanishes at infinity. 
+
+The Fourier transform of the translated Heaviside step function is:
+
+\begin{equation}
+    \mathcal{F}[\theta(x - c)] = \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \theta(x - c) \, \mathrm{d}x = \frac{1}{\sqrt{2\pi}} \int_{c}^{\infty} e^{-i\omega x} \, \mathrm{d}x = \frac{1}{\sqrt{2\pi}} \frac{e^{-i\omega c}}{i\omega}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \mathcal{F}\left[ \frac{\mathrm{d}}{\mathrm{d}x} \theta(x - c) \right] = \frac{1}{\sqrt{2\pi}} e^{-i\omega c}
+\end{equation}
+
+But the Fourier transform of the translated delta function is:
+
+\begin{equation}
+    \mathcal{F}[\delta(x - c)] = \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \delta(x - c) \, \mathrm{d}x = \frac{1}{\sqrt{2\pi}} e^{-i\omega c}
+\end{equation}
+
+Since the Fourier transform of a function is unique, we must have:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}x} \theta(x - c) = \delta(x - c)
+\end{equation}
+
+\subproblem{d}
+The Fourier transform of the delta function is:
+
+\begin{equation}
+    \mathcal{F}[\delta(x)] = \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \delta(x) \, \mathrm{d}x = \frac{1}{\sqrt{2\pi}}
+\end{equation}
+
+so that the delta function can be written as the inverse Fourier transform of the constant function $1/\sqrt{2\pi}$:
+
+\begin{equation}
+    \delta(x) = \frac{1}{2\pi} \int_{\mathbb{R}} e^{i\omega x} \, \mathrm{d}\omega
+\end{equation}
+
+\subproblem{e}
+
+\begin{equation}
+    \int_{-\infty}^{\infty} f(x) \delta'(x - x_{0}) \, \mathrm{d}x = \left. f(x) \delta(x - x_{0}) \right|_{-\infty}^{\infty} - \int_{-\infty}^{\infty} f'(x) \delta(x - x_{0}) \, \mathrm{d}x = -f'(x_{0})
+\end{equation}
+
+This means that the `derivative' of the delta function has the negative sampling property of the derivative of a function.
+\qed
+
+
+\end{document}
