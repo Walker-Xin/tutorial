@@ -1,0 +1,463 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Mathematical Methods}
+\def\assignmentno{Problem Sheet 3}
+\def\assignmentname{Partial Differential Equations}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Partial Differential Equations}
+%==========
+
+
+\problem{1}{Laplace eqaution in two dimensions}
+
+\subproblem{a}
+
+\subproblem{b}
+
+\subproblem{c}
+Consider the Laplacian in polar coordinates:
+
+\begin{equation}
+    \nabla^{2} = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial}{\partial r} \right) + \frac{1}{r^{2}} \frac{\partial^{2}}{\partial \phi^{2}}
+\end{equation}
+
+Assuming a solution of the form $V(r, \phi) = R(r) \Phi(\phi)$, we have the separated equations:
+
+\begin{equation}
+\begin{split}
+    \Phi'' + k^{2} \Phi &= 0 \\
+    r^{2} R'' + r R' - k^{2} R &= 0
+\end{split}
+\end{equation}
+
+First consider non-zero $k$. The first equation has the solution:
+
+\begin{equation}
+    \Phi(\phi) = A \cos{k \phi} + B \sin{k \phi}
+\end{equation}
+
+The natural boundary condition $\Phi(0) = \Phi(2 \pi)$ demands $k \in \mathbb{Z}$. The second solution can be solved with the Ansatz $R(r) = r^{\lambda}$ that leads to $\lambda = \pm k$ and the general solution:
+
+\begin{equation}
+    R(r) = C r^{k} + D r^{-k}
+\end{equation}
+
+In the case of $k = 0$, we have $\Phi$ is some constant and $R(r) = C \ln{r} + D$. The most general solution to the Laplace equation is then:
+
+\begin{equation}
+    V(r, \phi) = \frac{a_{0}}{2} + \frac{\tilde{a}_{0}}{2} \ln{r} + \sum_{k = 1}^{\infty} \left( a_{k} r^{k} + \tilde{a}_{k} r^{-k} \right) \cos{k \phi} + \sum_{k = 1}^{\infty} \left( b_{k} r^{k} + \tilde{b}_{k} r^{-k} \right) \sin{k \phi}
+\end{equation}
+
+where we have rewritten the arbitrary constants and taken the general solution as a sum of the solutions for $k \in \mathbb{Z}$.
+
+\subproblem{d}
+For the given boundary condition, we need:
+
+\begin{equation}
+    \frac{a_{0}}{2} + \frac{\tilde{a}_{0}}{2} \ln{a_{\pm}} + \sum_{k = 1}^{\infty} \left( a_{k} a_{\pm}^{k} + \tilde{a}_{k} a_{\pm}^{-k} \right) \cos{k \phi} + \sum_{k = 1}^{\infty} \left( b_{k} a_{\pm}^{k} + \tilde{b}_{k} a_{\pm}^{-k} \right) \sin{k \phi} = g_{\pm}(\phi)
+\end{equation}
+
+This is a Fourier series of $g_{\pm}(\phi)$ if we identify the coefficients:
+
+\begin{equation}
+    c_{0, \pm} + \sum_{k = 1}^{\infty} \left( c_{k, \pm} \cos{k \phi} + d_{k, \pm} \sin{k \phi} \right) = g_{\pm}(\phi)
+\end{equation}
+
+where the coefficients are given by:
+
+\begin{equation}
+    c_{k, \pm} = a_{k} a_{\pm}^{k} + \tilde{a}_{k} a_{\pm}^{-k} \quad \text{and} \quad d_{k, \pm} = b_{k} a_{\pm}^{k} + \tilde{b}_{k} a_{\pm}^{-k}
+\end{equation}
+
+The coefficients can be solved by the orthogonality of the trigonometric functions:
+
+\begin{equation}
+\begin{split}
+    c_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \cos{k \phi} \, \mathrm{d} \phi \\
+    d_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \sin{k \phi} \, \mathrm{d} \phi
+\end{split}
+\end{equation}
+
+These leads to equations that can be solved for $a_{k}$, $\tilde{a}_{k}$, $b_{k}$, and $\tilde{b}_{k}$.
+\qed
+
+
+\problem{2}{Laplace equation in three dimensions}
+
+\subproblem{a}
+Without loss of generality let the y-axis align with the vector pointing from the origin to the charge $q$ at $(0, y, 0)$. We seek another charge $q'$ at $(0, d, 0)$ such that the potential at the ball surface is zero. A direct calculation gives:
+
+\begin{equation}
+    q' = -\frac{b}{y} q
+\end{equation}
+
+and:
+
+\begin{equation}
+    d = \frac{b^{2}}{y}
+\end{equation}
+
+Let us define $\mathbf{d} = b^{2} \mathbf{y}/y^{3}$, then the solution to the Laplace equation is:
+
+\begin{equation}
+    V = q \left( \frac{1}{\left\lvert \mathbf{r} - \mathbf{y} \right\rvert} - \frac{b/y}{\left\lvert \mathbf{r} - \mathbf{d} \right\rvert} \right)
+\end{equation}
+
+Generalising to the case of $n$ charges $q_{i}$ each at $\mathbf{y}_{i}$, we introduce image charges $q'_{i} = -bq_{i}/y_{i}$ at $\mathbf{d}_{i} = b^{2} \mathbf{y}_{i}/y_{i}^{3}$ and the solution is:
+
+\begin{equation}
+    V = \sum_{i = 1}^{n} q_{i} \left( \frac{1}{\left\lvert \mathbf{r} - \mathbf{y}_{i} \right\rvert} - \frac{b/y_{i}}{\left\lvert \mathbf{r} - \mathbf{d}_{i} \right\rvert} \right)
+\end{equation}
+
+\subproblem{b}
+Consider the Laplacian in spherical coordinates:
+
+\begin{equation}
+    \nabla^{2} = \frac{1}{r^{2}} \frac{\partial}{\partial r} \left( r^{2} \frac{\partial}{\partial r} \right) + \frac{1}{r^{2} \sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \right) + \frac{1}{r^{2} \sin^{2}{\theta}} \frac{\partial^{2}}{\partial \phi^{2}}
+\end{equation}
+
+Assuming a solution of the form $V(r, \theta, \phi) = R(r) \Theta(\theta) \Phi(\phi)$, we have the separated equations:
+
+\begin{equation}
+\begin{split}
+    &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) = l(l+1)R \\
+    &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
+    &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
+\end{split}
+\end{equation}
+
+The radial solution can be solved with the Ansatz $R(r) = r^{\lambda}$ that leads to $\lambda = l$ or $\lambda = -l - 1$. The solution is then:
+
+\begin{equation}
+    R(r) = A r^{l} + B r^{-l-1}
+\end{equation}
+
+The solution to $\Phi$ is:
+
+\begin{equation}
+    \Phi(\phi) = e^{im\phi}
+\end{equation}
+
+where we have dropped the arbitrary constant and the natural boundary condition $m \in \mathbb{Z}$. 
+
+The $\Theta$ equation is the associated Legendre equation with the solution:
+
+\begin{equation}
+    \Theta(\theta) = P_{l}^{m}(\cos{\theta})
+\end{equation}
+
+Combining the solutions, we have:
+
+\begin{equation}
+    V(r, \theta, \phi) = \sum_{l = 0}^{\infty} \sum_{m = -l}^{l} \left( A_{lm} r^{l} + B_{lm} r^{-l-1} \right) Y_{lm}(\theta, \phi)
+\end{equation}
+
+where $Y_{lm}(\theta, \phi) = P_{l}^{m}(\cos{\theta}) e^{im\phi}$ are called the spherical harmonics.
+
+If azimuthal symmetry can be assumed, then $m = 0$ and the solution is:
+
+\begin{equation}
+    V(r, \theta) = \sum_{l = 0}^{\infty} \left( A_{l} r^{l} + B_{l} r^{-l-1} \right) P_{l}(\cos{\theta})
+\end{equation}
+
+\subproblem{c}
+For the boundary condition $V(a, \theta, \phi) = \phi_{0}(1 + \cos{\theta})$, we have azimuthal symmetry and may discard $B_{l}$ terms as they diverge at $r = 0$. We need:
+
+\begin{equation}
+    \sum_{l = 0}^{\infty} A_{l} r^{l}  P_{l}(\cos{\theta}) = \phi_{0}(1 + \cos{\theta})
+\end{equation}
+
+Since $P_{l}(\cos{\theta})$ are orthogonal, we have $A_{0} = \phi_{0}$, $A_{1} = \phi_{0}/a$ and $A_{l} = 0$ for $l \geq 2$. The solution is then:
+
+\begin{equation}
+    V(r, \theta) = \phi_{0} \left( 1 + \frac{r}{a} \cos{\theta} \right)
+\end{equation}
+
+\subproblem{d}
+For the boundary condition $V(a, \theta, \phi) = \phi_{0} \sin^{2}{\theta}$, we still have azimuthal symmetry and may discard $A_{l}$ terms as they diverge at $r \to \infty$. We need:
+
+\begin{equation}
+    \sum_{l = 0}^{\infty} B_{l} r^{-l-1}  P_{l}(\cos{\theta}) = \phi_{0} \sin^{2}{\theta} = \phi_{0} (1 - \cos^{2}{\theta})
+\end{equation}
+
+Comparing the coefficients, we have $B_{0} = 2\phi_{0}b/3$, $B_{1} = 0$, $B_{2} = -2\phi_{0}b^{3}/3$ and $B_{l} = 0$ for $l \geq 3$. The solution is then:
+
+\begin{equation}
+    V(r, \theta) = \phi_{0} \left[ \frac{2b}{3r} - \frac{b^{3}}{3r^{3}} (3\cos^{2}{\theta} - 1) \right]
+\end{equation}
+\qed
+
+
+\problem{3}{Multiple expansion}
+
+\subproblem{b}
+The first few spherical harmonics are:
+
+\begin{equation}
+\begin{split}
+    Y_{0}^{0} &= \sqrt{\frac{1}{4\pi}} \\
+    Y_{1}^{0} &= \sqrt{\frac{3}{4\pi}} \cos{\theta} \\
+    Y_{1}^{1} &= -\sqrt{\frac{3}{8\pi}} \sin{\theta} e^{i\phi} \\
+    Y_{1}^{-1} &= \sqrt{\frac{3}{8\pi}} \sin{\theta} e^{-i\phi} \\
+\end{split}
+\end{equation}
+
+\subproblem{c}
+First consider the case of $l = 0$. The term $q_{00}$ can be written as:
+
+\begin{equation}
+    q_{00} = \int_{\mathbb{R}^{3}} \sqrt{\frac{1}{4\pi}} \rho(\mathbf{r}') \, \mathrm{d}^{3}r' = \sqrt{\frac{1}{4\pi}} Q
+\end{equation}
+
+so that the monopole term is:
+
+\begin{equation}
+    4\pi \frac{q_{00}}{r} Y_{0}^{0} = \frac{Q}{r}
+\end{equation}
+
+Next consider the case of $l = 1$. The terms $q_{10}$, $q_{11}$, and $q_{1-1}$ can be written as:
+
+\begin{equation}
+\begin{split}
+    q_{10} &= \int_{\mathbb{R}^{3}} \sqrt{\frac{3}{4\pi}} \cos{\theta'} \mathbf{r}' \rho(\mathbf{r}') \, \mathrm{d}^{3}r'
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{4}{Strings}
+
+\subproblem{a}
+Consider the wave equation:
+
+\begin{equation}
+    \frac{\partial^{2} \psi}{\partial x^{2}} = \frac{\partial^{2} \psi}{\partial t^{2}}
+\end{equation}
+
+Assuming a solution of the form $\psi(x, t) = X(x) T(t)$, separation of variables leads to the general solution:
+
+\begin{equation}
+    \psi(t, x) = \sum_{\omega} C_{\omega} \sin{(\omega x + \phi_{x})} \sin{(\omega t + \phi_{t})}
+\end{equation}
+
+The boundary condition $\psi(t, 0) = \psi(t, a) = 0$ demands $\omega = n \pi/a$ for $n \in \mathbb{Z}$ and $\phi_{x} = 0$. Indexing via $n$, the solution is:
+
+\begin{equation}
+    \psi(t, x) = \sum_{n = 1}^{\infty} C_{n} \sin{\left( \frac{n \pi x}{a} \right)} \sin{\left( \frac{n \pi t}{a} + \phi_{n} \right)}
+\end{equation}
+
+\subproblem{b}
+Given the initial condition $\psi(0, x) = \psi_{0} \sin{(\pi x/a)}$ and $\dot{\psi}(0, x) = 0$, we need:
+
+\begin{equation}
+    \dot{\psi}(0, x) = \sum_{n = 1}^{\infty} C_{n} \frac{n \pi}{a} \sin{\left( \frac{n \pi x}{a} \right)} \cos{\phi_{n}} = 0
+\end{equation}
+
+which gives $\phi_{n} = \pi/2$.
+
+We may as well write the temporal part as cosine functions $\cos{(n \pi t/a)}$ with the same coefficients. The position initial condition gives:
+
+\begin{equation}
+    \psi(0, x) = \sum_{n = 1}^{\infty} C_{n} \sin{\left( \frac{n \pi x}{a} \right)} = \psi_{0} \sin{\left( \frac{\pi x}{a} \right)}
+\end{equation}
+
+so that $C_{n} = 0$ except for $C_{1} = \psi_{0}$.
+
+The solution is then:
+
+\begin{equation}
+    \psi(t, x) = \psi_{0} \sin{\left( \frac{\pi x}{a} \right)} \cos{\left( \frac{\pi t}{a} \right)}
+\end{equation}
+
+\subproblem{c}
+Given the initial condition $\psi(0, x) = 0$ and $\dot{\psi}(0, x) = \psi_{0} \sin{(2\pi x/a)}$, we need:
+
+\begin{equation}
+    \psi(0, x) = \sum_{n = 1}^{\infty} C_{n} \sin{\left( \frac{n \pi x}{a} \right)} \sin{\phi_{n}} = 0
+\end{equation}
+
+which gives $\phi_{n} = 0$.
+
+The velocity initial condition gives:
+
+\begin{equation}
+    \dot{\psi}(0, x) = \sum_{n = 1}^{\infty} C_{n} \frac{n \pi}{a} \sin{\left( \frac{n \pi x}{a} \right)} = \psi_{0} \sin{\left( \frac{2 \pi x}{a} \right)}
+\end{equation}
+
+so that $C_{n} = 0$ except for $C_{2} = \psi_{0}a/2\pi$.
+
+The solution is then:
+
+\begin{equation}
+    \psi(t, x) = \frac{\psi_{0} a}{2\pi} \sin{\left( \frac{2 \pi x}{a} \right)} \cos{\left( \frac{2 \pi t}{a} \right)}
+\end{equation}
+
+\subproblem{d}
+Consider the skewed triangle wave initial condition:
+
+\begin{equation}
+\psi(0, x) = \begin{cases}
+    \frac{hx}{b} & 0 \leq x \leq b \\
+    \frac{h(a-x)}{a-b} & b \leq x \leq a
+\end{cases}
+\end{equation}
+
+and $\dot{\psi}(0, x) = 0$. From the velocity initial condition, we write the temporal part as cosine functions:
+
+\begin{equation}
+    \psi(t, x) = \sum_{n = 1}^{\infty} C_{n} \sin{\left( \frac{n \pi x}{a} \right)} \cos{\left( \frac{n \pi t}{a} \right)}
+\end{equation}
+
+Then from the position initial condition, we have a Fourier sine series with the coefficients given by:
+
+\begin{equation}
+\begin{split}
+    C_{n} &= \frac{2}{a} \left[ \int_{0}^{b} \frac{hx}{b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x + \int_{b}^{a} \frac{h(a-x)}{a-b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x \right] \\
+    &= \frac{2ha^{2}}{b(a - b)(n\pi)^{2}} \sin{\left( \frac{n \pi b}{a} \right)}
+\end{split}
+\end{equation}
+
+Consider $C_{n}/h$ as a function of $(b/a) \equiv \lambda$:
+
+\begin{equation}
+    \frac{C_{n}}{h} = \frac{2}{\lambda(1 - \lambda)(n\pi)^{2}} \sin{(n \pi \lambda)}
+\end{equation}
+\qed
+
+
+\problem{5}{Membranes}
+Consider the two dimensional wave equation:
+
+\begin{equation}
+    \frac{\partial^{2} \psi}{\partial x^{2}} + \frac{\partial^{2} \psi}{\partial y^{2}} = \frac{\partial^{2} \psi}{\partial t^{2}}
+\end{equation}
+
+Separation of variables leads to the general solution:
+
+\begin{equation}
+    \psi = \sum_{\omega, k} C_{\omega, k} \sin{(\omega t + \phi_{t})} \sin{(k x + \phi_{x})} \sin{(\sqrt{\omega^{2} - k^{2}} y + \phi_{y})}
+\end{equation}
+
+where we demand $\omega^{2} > k^{2}$.
+
+For the boundary conditions, we need $\phi_{x} = 0$ and $ka = n \pi$ for $n \in \mathbb{Z}$, which means $k = n \pi/a$. We also need $\phi_{y} = 0$ and $\sqrt{\omega^{2} - k^{2}} b = m \pi$ for $m \in \mathbb{Z}$, which means $\omega^{2} = (m \pi/b)^{2} + (n \pi/a)^{2}$. Indexing via $n$ and $m$, the general solution is:
+
+\begin{equation}
+    \psi(x, y, t) = \sum_{n = 1}^{\infty} \sum_{m = 1}^{\infty} C_{m, n} \sin{\left( \frac{n \pi x}{a} \right)} \sin{\left( \frac{m \pi y}{b} \right)} \sin{\left( \omega_{m, n} t + \phi_{m, n} \right)}
+\end{equation}
+
+where we have defined the frequencies $\omega_{m, n} = \sqrt{(m \pi/b)^{2} + (n \pi/a)^{2}}$.
+
+For a square membrane with $a = b$, we have $\omega_{m, n} = \pi \sqrt{m^{2} + n^{2}}/a$. The ratio of the two lowest frequencies is:
+
+\begin{equation}
+    \frac{\omega_{1, 1}}{\omega_{0, 1}} = \sqrt{2}
+\end{equation}
+
+\subproblem{b}
+For a triangular membrane with $a = b$, we impose the further condition that $\psi = 0$ along the line $y = x$. This means $m = n$ and $\omega_{m, n} = \pi \sqrt{2} m/a$. The ratio of the two lowest frequencies is:
+
+\qed
+
+
+\problem{6}{Eigenfunctions of the Laplacian}
+
+\subproblem{a}
+Assuming a solution of the form $V(r, \theta, \phi) = R(r) \Theta(\theta) \Phi(\phi)$, with the eigenvalue problem $-\nabla^{2}V = EV$, we have the separated equations:
+
+\begin{equation}
+\begin{split}
+    &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) + E r^{2} R = l(l+1)R \\
+    &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
+    &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
+\end{split}
+\end{equation}
+
+The angular parts are the same as the homogeneous Laplace equation. The solutions are the spherical harmonics $Y_{lm}(\theta, \phi) = P_{l}^{m}(\cos{\theta}) e^{im\phi}$. The radial part satisfies the differential equation:
+
+\begin{equation}
+    r^{2} R'' + 2r R' + [E r^{2} - l(l+1)] R = 0
+\end{equation}
+
+\subproblem{b}
+Consider the change of variables $\rho = \sqrt{E} r$ and $u(\rho) = \sqrt{\rho} R(\rho)$. We have the relationships:
+
+\begin{equation}
+\begin{split}
+    R' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u}{\sqrt{\rho}} \right) = \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \\
+    R'' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) = \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}}    
+\end{split}
+\end{equation}
+
+so that the radial equation becomes:
+
+\begin{equation}
+\begin{split}
+    \frac{\rho^{2}}{E} \left( \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}} \right) + 2 \frac{\rho}{\sqrt{E}} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) + \left[ \rho^{2} - l(l+1) \right] \frac{u}{\sqrt{\rho}} &= 0 \\
+    \rho^{2} u'' + \rho u' + \left[ \rho^{2} - \left( l + \frac{1}{2} \right)^{2} \right] u &= 0
+\end{split}
+\end{equation}
+
+which is the Bessel equation of order $l + 1/2$.
+
+\subproblem{c}
+Assuming integer $l$, the solution to $R(\rho)$ is the Bessel functions:
+
+\begin{equation}
+\begin{split}
+    R(\rho) &= \frac{1}{\sqrt{\rho}} \sum_{l = 0}^{\infty} A_{l} J_{l + 1/2}(\rho) + B_{l} J_{-l - 1/2}(\rho)
+\end{split}
+\end{equation}
+
+The finiteness of $R(\rho)$ at $\rho = 0$ demands $B_{l} = 0$. We can now write the general solution as:
+
+\begin{equation}
+    V(r, \theta, \phi) = \sum_{l = 0}^{\infty} \sum_{m = -l}^{l} A_{l, m} \frac{J_{l + 1/2}(\sqrt{E}r)}{(\sqrt{E}r)^{1/2}} Y_{lm}(\theta, \phi)
+\end{equation}
+
+We further require $V(r = a) = 0$ so that:
+
+\begin{equation}
+    \sum_{l = 0}^{\infty} \sum_{m = -l}^{l} A_{l, m} J_{l + 1/2}(\sqrt{E}a) = 0
+\end{equation}
+
+We invoke without proof the Bourget's hypothesis, which says that the Bessel functions (differing by integers) do not share common zeros except at the origin. This means $A_{a, b} = 0$ except for some $a = l$ and $b = m$ such that $J_{l + 1/2}(\sqrt{E_{l}}a) = 0$. Thus given some $E_{l}$ as the eigenvalue, we can uniquely determine all $A_{l, m}$.
+
+The solution is then:
+
+\begin{equation}
+    V(r, \theta, \phi) = \sum_{m = -l}^{l} A_{l} \frac{J_{l + 1/2}(\sqrt{E_{l}}r)}{(\sqrt{E_{l}}r)^{1/2}} Y_{lm}(\theta, \phi)
+\end{equation}
+\qed
+
+
+\problem{7}{Heat equation}
+
+\subproblem{a}
+The boundary conditions and the eigenfunction relation are trivial to show. To demonstrate orthogonality, consider the inner product of $q_{k}$ and $q_{l}$:
+
+\begin{equation}
+\begin{split}
+    \left\langle q_{k}, q_{l} \right\rangle &= \frac{2}{a} \int_{0}^{a} \sin{\left[ \frac{\pi}{a} (k + 1/2) x \right]} \sin{\left[ \frac{\pi}{a} (l + 1/2) x \right]} \, \mathrm{d}x \\
+    &= \frac{2}{\pi} \int_{0}^{\pi} \sin{\left[ (k + 1/2) y \right]} \sin{\left[ (l + 1/2) y \right]} \, \mathrm{d}y \\
+    &= \delta_{kl}
+\end{split}
+\end{equation}
+
+where at the second step the substitution $y = \pi x/a$ is used and the last step follows from the orthogonality of sine functions.
+\qed
+
+
+\end{document}
