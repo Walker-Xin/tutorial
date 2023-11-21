@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Electromagnetism}
+\def\assignmentno{Problem Sheet 4}
+\def\assignmentname{Electromagnetism and Special Relativity, Transmission Lines \& Resonant Cavities}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Electromagnetism and Special Relativity}
+%==========
+
+
+\problem{1}{Electric field of a point charge moving with constant velocity}
+
+\subproblem{a}
+We know that when transforming from one inertial frame to another, the the perpendicular components of the electric field are invariant, while the parallel components of the electric field scales via the Lorentz factor $\gamma$. In the present case, the electric field in frame $F$ is given by:
+
+\begin{equation}
+    \mathbf{E} = \frac{Q}{4\pi\epsilon_0}\frac{1}{r^{2}} \begin{pmatrix} \cos{\theta} \\ 0 \\ \sin{\theta} \end{pmatrix}
+\end{equation}
+
+so that after transforming to frame $F'$, we have:
+
+\begin{equation}
+    \mathbf{E}' = \frac{Q}{4\pi\epsilon_0}\frac{1}{r^{2}} \begin{pmatrix} \cos{\theta} \\ 0 \\ \gamma\sin{\theta} \end{pmatrix} = \frac{Q}{4\pi\epsilon_0}\frac{1}{(x^{2} + y^{2} + z^{2})^{3/2}} \begin{pmatrix} x \\ 0 \\ \gamma z \end{pmatrix}
+\end{equation}
+
+We know from Lorentz transformation that $x = \gamma(x' + vt')$, $y = y' = 0$, $z = z'$, and $t = \gamma(t' + vx'/c^{2})$. But $(x' + vt', 0, z')$ is just the vector pointing from the charge to $P$ in frame $F'$. Denote this vector as $\mathbf{r}'$, we have:
+
+\begin{equation}
+\begin{split}
+    \mathbf{E}' &= \frac{Q}{4\pi\epsilon_0} \frac{1}{(\gamma^{2} r_{x}^{'2} + r_{z}^{'2})^{3/2}} \begin{pmatrix} \gamma r'_{x} \\ 0 \\ \gamma r'_{z} \end{pmatrix} \\
+    &= \frac{Q}{4\pi\epsilon_0} \frac{\gamma \mathbf{r}'}{(\gamma^{2} r^{'2} \cos^{2}{\theta'} + r^{'2} \sin^{2}{\theta'})^{3/2}} \\
+    &= \frac{Q}{4\pi\epsilon_0} \frac{1 - v^{2}/c^{2}}{[1 - (v^{2}/c^{2}) \sin^{2}{\theta'}]^{3/2}} \frac{\mathbf{r}'}{r^{'3}} \\
+\end{split}
+\end{equation}
+
+\subproblem{b}
+The flux of $\mathbf{E}'$ through the surface of a sphere of radius $a'$ centred on the charge in frame $F'$ is given by:
+
+\begin{equation}
+\begin{split}
+    \Phi &= \int \mathbf{E}' \cdot \mathrm{d}\mathbf{S}' \\
+    &= \frac{Q(1 - v^{2}/c^{2})}{4\pi\epsilon_0} \int \frac{1/a^{2}}{[1 - (v^{2}/c^{2}) \sin^{2}{\theta'}]^{3/2}} a^{2} \sin{\theta} \, \mathrm{d}\theta' \, \mathrm{d}\phi' \\
+    &= \frac{Q(1 - v^{2}/c^{2})}{2\epsilon_0} \int_{0}^{\pi} \frac{\sin{\theta}}{[1 - (v^{2}/c^{2}) \sin^{2}{\theta'}]^{3/2}} \, \mathrm{d}\theta' \\
+    &= \frac{Q(1 - v^{2}/c^{2})}{2\epsilon_0} \frac{2}{1 - v^{2}/c^{2}} \\
+    &= \frac{Q}{\epsilon_0}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{2}{Interaction between a moving charge and other moving charges}
+
+\subproblem{a}
+In frame $F$, the wire is electrically neutral so there is no electric field. The current is $I = 2\lambda v$ in the +x direction, so that the magnetic field is given by:
+
+\begin{equation}
+    \mathbf{B} = \frac{\mu_{0} I}{2\pi r} \hat{\phi} = \frac{\mu_{0} \lambda v}{\pi r} \hat{\phi}
+\end{equation}
+
+The force acting on the charge is given by:
+
+\begin{equation}
+    \mathbf{F} = q\mathbf{v} \times \mathbf{B} = \frac{\mu_{0} \lambda q vu}{\pi D} \hat{y}
+\end{equation}
+
+\subproblem{b}
+From velocity addition, we have:
+
+\begin{equation}
+    v'_{\pm} = \frac{\pm v - u}{1 \mp uv/c^{2}}
+\end{equation}
+
+We can check:
+
+\begin{equation}
+\begin{split}
+    \gamma \frac{1 \mp uv/c^{2}}{\sqrt{1 - u^{2}/c^{2}}} &= \frac{1 \mp uv/c^{2}}{\sqrt{1 - u^{2}/c^{2}} \sqrt{1 - v^{2}/c^{2}}} \\
+    &= \left[ \frac{(1 - u^{2}/c^{2})(1 - v^{2}/c^{2})}{(1 \mp uv/c^{2})^{2}} \right]^{-1/2} \\
+    &= \left[ 1 - \frac{(u^{2} + v^{2})/c^{2} \mp 2uv/c^{2}}{(1 \mp uv/c^{2})^{2}} \right]^{-1/2} \\
+    &= \left[ 1 - \frac{(v \mp u)^{2}/c^{2}}{(1 \mp uv/c^{2})^{2}} \right]^{-1/2} \\
+    &= \frac{1}{\sqrt{1 - v_{\pm}^{'2}/c^{2}}}
+\end{split}
+\end{equation}
+
+Therefore, in frame $F'$, the negative charge moves with velocity $v'_{-}$ and the positive charge moves with velocity $v'_{+}$. The measured charge densities are:
+
+\begin{equation}
+    \lambda_{\pm} = \pm \gamma_{\pm} \lambda = \pm \frac{\lambda}{\sqrt{1 - v_{\pm}^{'2}/c^{2}}} = \pm \lambda \gamma \frac{1 \mp uv/c^{2}}{\sqrt{1 - u^{2}/c^{2}}}
+\end{equation}
+
+so that the density becomes:
+
+\begin{equation}
+    \lambda = \lambda_{+} + \lambda_{-} = -2\lambda \gamma \frac{uv/c^{2}}{\sqrt{1 - u^{2}/c^{2}}}
+\end{equation}
+
+By Gauss' law, the electric field is given by:
+
+\begin{equation}
+    \mathbf{E}' = \frac{\lambda}{2\pi\epsilon_{0} r} \hat{r} = -\frac{\lambda \gamma}{\pi\epsilon_{0} r} \frac{uv/c^{2}}{\sqrt{1 - u^{2}/c^{2}}} \hat{r}
+\end{equation}
+
+But in frame $F'$, the point charge becomes $q' = q\sqrt{1 - u^{2}/c^{2}}$, so that the force acting on the charge is:
+
+\begin{equation}
+    \mathbf{F}' = q'\mathbf{E}' = -\frac{q \lambda}{\pi\epsilon_{0} D} \frac{uv}{c^{2}} \hat{r} = \frac{\mu_{0} \lambda q vu}{\pi D} \hat{y}
+\end{equation}
+
+so that we recover the same force as in frame $F$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Transmission lines}
+%==========
+
+
+\problem{3}{Practical types of transmission lines}
+
+\subproblem{a}
+The electric field in a coaxial cable is given by:
+
+\begin{equation}
+    \mathbf{E}(r) = \frac{\lambda}{2\pi\epsilon r} \hat{\mathbf{r}}
+\end{equation}
+
+leading to the potential difference between the inner and outer conductors:
+
+\begin{equation}
+    V = \frac{\lambda}{2\pi\epsilon} \ln{\left( \frac{b}{a} \right)}
+\end{equation}
+
+This means a capacitance per unit length of:
+
+\begin{equation}
+    C = \frac{\lambda}{V} = \frac{2\pi\epsilon}{\ln{(b/a)}}
+\end{equation}
+
+The magnetic field is given by:
+
+\begin{equation}
+    \mathbf{B}(r) = \frac{\mu I}{2\pi r} \hat{\phi}
+\end{equation}
+
+The magnetic flux per unit length is:
+
+\begin{equation}
+    \frac{\Phi}{l} = \int_{a}^{b} \frac{\mu I}{2\pi r} \, \mathrm{d}r = \frac{\mu I}{2\pi} \ln{\left( \frac{b}{a} \right)}
+\end{equation}
+
+leading to an inductance per unit length of:
+
+\begin{equation}
+    L = \frac{\Phi/l}{I} = \frac{\mu}{2\pi} \ln{\left( \frac{b}{a} \right)}
+\end{equation}
+
+Thus, the speed of propagation is:
+
+\begin{equation}
+    v = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{\mu\epsilon}}
+\end{equation}
+
+\subproblem{b}
+The electric field in strip line is given by:
+
+\begin{equation}
+    \mathbf{E}(x) = \frac{\sigma}{\epsilon} \hat{\mathbf{x}}
+\end{equation}
+
+leading to the potential difference between the two conductors:
+
+\begin{equation}
+    V = \frac{\sigma}{\epsilon} d
+\end{equation}
+
+This means a capacitance per unit length of:
+
+\begin{equation}
+    C = \frac{\sigma w}{V} = \epsilon \frac{w}{d}
+\end{equation}
+
+The magnetic field is given by $B = \mu K$, where $K = I/w$ is the current density. The magnetic flux per unit length is:
+
+\begin{equation}
+    \frac{\Phi}{l} = Bd = \mu \frac{I}{w} d
+\end{equation}
+
+leading to an inductance per unit length of:
+
+\begin{equation}
+    L = \frac{\Phi/l}{I} = \mu \frac{d}{w}
+\end{equation}
+
+Thus, the speed of propagation is:
+
+\begin{equation}
+    v = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{\mu\epsilon}}
+\end{equation}
+\qed
+
+
+\problem{4}{Short and open circuited transmission lines}
+Consider the incident and reflected waves on a transmission line:
+
+\begin{equation}
+\begin{split}
+    V &= V_{i} e^{i(\omega t - kz)} + V_{r} e^{i(\omega t + kz)} \\
+    I &= I_{i} e^{i(\omega t - kz)} + I_{r} e^{i(\omega t + kz)}
+\end{split}
+\end{equation}
+
+We require the conditions:
+
+\begin{equation}
+\begin{split}
+    V_{i} + V_{r} &= V_{t} \\
+    I_{i} - I_{r} &= I_{t}
+\end{split}
+\end{equation}
+
+where $I_{i} = V_{i}/Z_{0}$, $I_{r} = V_{r}/Z_{0}$, $I_{t} = V_{t}/Z_{t}$. Solving the equations, we have:
+
+\begin{equation}
+\begin{split}
+    r = \frac{V_{r}}{V_{i}} &= \frac{Z_{t} - Z_{0}}{Z_{t} + Z_{0}} \\
+    t = \frac{V_{t}}{V_{i}} &= \frac{2Z_{t}}{Z_{t} + Z_{0}}
+\end{split}
+\end{equation}
+
+In the present case, we define the input impedance as $Z_{in} = V(-L)/I(-L)$. We have:
+
+\begin{equation}
+    Z_{in} = \frac{V_{i} e^{ikL} + V_{r} e^{-ikL}}{I_{i} e^{ikL} + I_{r} e^{-ikL}} = Z_{0} \frac{Z_{t} \cos{kL} + iZ_{0} \sin{kL}}{Z_{0} \cos{kL} + iZ_{t} \sin{kL}}
+\end{equation}
+
+For an open circuit, $Z_{t} = \infty$ so that $Z_{1} = -iZ_{0} \cot{kL}$, which is a pure inductance. For a short circuit, $Z_{t} = 0$ so that $Z_{2} = iZ_{0} \tan{kL}$, which is a pure capacitance. Evidently, we have $Z_{1} Z_{2} = Z_{0}^{2}$.
+\qed
+
+
+\problem{5}{Power transmitted into a load}
+We have the relationship:
+
+\begin{equation}
+    \left\langle P \right\rangle = \left\langle VI^{*} \right\rangle = \left\langle \frac{\left\lvert V \right\rvert^{2}}{Z^{*}} \right\rangle
+\end{equation}
+
+so that the desired ratio is:
+
+\begin{equation}
+    \frac{\left\langle P_{t} \right\rangle}{\left\langle P_{i} \right\rangle} = \frac{\left\langle \left\lvert V_{t} \right\rvert^{2} \right\rangle}{\left\langle \left\lvert V_{i} \right\rvert^{2} \right\rangle} \frac{Z_{2}^{*}}{Z_{1}^{*}} = \frac{1}{\left\lvert t \right\rvert^{2}} \frac{Z_{2}^{*}}{Z_{1}^{*}}
+\end{equation}
+
+Consider $t = 2Z_{2}/(Z_{1} + Z_{2})$, we have:
+
+\begin{equation}
+    \left\lvert t \right\rvert^{2} = t t^{*} = \frac{4\left\lvert Z_{2} \right\rvert^{2}}{(Z_{1} + Z_{2})(Z_{1}^{*} + Z_{2}^{*})}
+\end{equation}
+
+and the desired ratio becomes:
+
+\begin{equation}
+    \frac{\left\lvert Z_{1} + Z_{2} \right\rvert^{2}}{4Z_{2} Z_{1}^{*}}
+\end{equation}
+\qed
+
+
+\problem{6}{Impedance matching}
+We can compute the input admittance as:
+
+\begin{equation}
+    \frac{1}{Y} = Z_{0} \frac{R \cos{\pi/3} + iZ_{0} \sin{\pi/3}}{Z_{0} \cos{\pi/3} + iR \sin{\pi/3}}
+\end{equation}
+
+Evaluating, we have:
+
+\begin{equation}
+    Y = \frac{600 - i400\sqrt{3}}{7} \unit{\Omega^{-1}}
+\end{equation}
+
+Introducing a stub of length $l$ terminated in a short circuit of admittance $Y'$, we have:
+
+\begin{equation}
+    \frac{1}{Y'} = iZ_{0} \tan{kl}
+\end{equation}
+
+We need $Y' = Y$ so that:
+
+\begin{equation}
+    \tan{kl} = \frac{1}{iZ_{0}Y} = \frac{7}{40000(2\sqrt{3} + i3)}
+\end{equation}
+
+Evaluating the complex inverse tangent, we have:
+
+\begin{equation}
+    kl = 0.0000288675 - i0.000025
+\end{equation}
+
+Taking the real part, we need $l = 4.59 \times 10^{-5} \lambda$.
+\qed
+
+
+\end{document}
