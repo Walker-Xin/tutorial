@@ -1,0 +1,224 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Thermodynamics}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Thermodynamic Potentials and Methods}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{More Practice}
+%==========
+
+
+\problem{A.1}{}
+
+\subproblem{a}
+The entropy change of the water is:
+
+\begin{equation}
+    \Delta S_{w} = \int_{T_{1}}^{T_{2}} \frac{C}{T} dT = C \ln{\frac{T_{2}}{T_{1}}}
+\end{equation}
+
+The entropy change of the $\qty{100}{\celsius}$ reservoir is:
+
+\begin{equation}
+    \Delta S_{r} = \frac{Q}{T_{2}} = C \frac{T_{1} - T_{2}}{T_{2}}
+\end{equation}
+
+The total entropy change is:
+
+\begin{equation}
+    \Delta S_{uni} = \Delta S_{w} + \Delta S_{r}
+\end{equation}
+
+\subproblem{b}
+The entropy change of the water is unchanged while the entropy change of the reservoirs is:
+
+\begin{equation}
+    \Delta S_{r} = C \frac{T_{3} - T_{1}}{T_{3}} + C \frac{T_{2} - T_{3}}{T_{2}}
+\end{equation}
+
+The total entropy change is:
+
+\begin{equation}
+    \Delta S_{uni} = \Delta S_{w} + \Delta S_{r}
+\end{equation}
+
+\subproblem{c}
+For a reversible process, the total entropy change is zero. The water obtains a heat $Q = C (T_{2} - T_{1})$ from the reservoir. The entropy change of the reservoir is:
+
+\begin{equation}
+    \Delta S_{r} = - \frac{Q}{T_{2}} = - C \frac{T_{2} - T_{1}}{T_{2}}
+\end{equation}
+
+and to have a total entropy change of zero, the entropy change of the water must be:
+
+\begin{equation}
+    \Delta S_{w} = - \Delta S_{r} = C \frac{T_{2} - T_{1}}{T_{2}}
+\end{equation}
+\qed
+
+
+\problem{A.2}{}
+Assume without loss of generality that $T_{2} > T_{1}$. Let $Q_{2}$ be the heat drawn from the hot reservoir and $Q_{1}$ be the heat released to the cold reservoir. The work done by the engine is $W = Q_{2} - Q_{1}$. At final common temperature $T_{f}$, the changes of internal energy of the two reservoirs are:
+
+\begin{equation}
+\begin{split}
+    \Delta U_{1} &= C_{p} (T_{f} - T_{1}) \\
+    \Delta U_{2} &= C_{p} (T_{f} - T_{2})
+\end{split}
+\end{equation}
+
+By first law, we have $Q_{1} = \Delta U_{1}$ and $Q_{2} = -\Delta U_{2}$. The work done by the engine is:
+
+\begin{equation}
+    W = Q_{2} - Q_{1} = -\Delta U_{2} - \Delta U_{1} = C_{p} (T_{1} + T_{2} - 2 T_{f})
+\end{equation}
+
+The efficiency of the engine is:
+
+\begin{equation}
+    \eta = \frac{W}{Q_{2}} = \frac{T_{1} + T_{2} - 2 T_{f}}{T_{2} - T_{f}}
+\end{equation}
+
+Maximising the efficiency with respect to $T_{f}$, we need:
+
+\begin{equation}
+    \frac{(T_{2} - T_{f})(-2) - (T_{1} + T_{2} - 2 T_{f})(-1)}{(T_{2} - T_{f})^{2}} = 0
+\end{equation}
+\qed
+
+
+\problem{A.3}{}
+The combustion heat of the fuel is given by:
+
+\begin{equation}
+    \Delta Q = \rho V H_{c}
+\end{equation}
+
+The total input heat has the additional potential energy term:
+
+\begin{equation}
+    Q_{in} = \Delta Q + U_{0}
+\end{equation}
+
+By first law, the work done by the engine is:
+
+\begin{equation}
+    W = Q_{in} - Q_{out} = \Delta Q + U_{0} - U_{f} = \rho V [H_{c} + c_{p} (T_{0} - T_{f})]
+\end{equation}
+
+Using a specific heat capacity $c_{p} = \qty{2.22e3}{J.kg^{-1}.K^{-1}}$ for air, we have $W = \qty{3.96e6}{J}$. The maximum height is thus:
+
+\begin{equation}
+    h = \frac{W}{m g} = \qty{40.3}{m}
+\end{equation}
+\qed
+
+
+\problem{A.4}{}
+The heat input happens during the isobaric expansion:
+
+\begin{equation}
+    Q_{in} = C_{p} (T_{3} - T_{2}) = \frac{1}{\gamma - 1} P_{2} (V_{3} - V_{2})
+\end{equation}
+
+The heat output happens during the isochroic compression:
+
+\begin{equation}
+    Q_{out} = C_{v} (T_{4} - T_{1}) = \frac{\gamma}{\gamma - 1} V_{1} (p_{4} - p_{1})
+\end{equation}
+
+The efficiency of the engine is:
+
+\begin{equation}
+    \eta = 1 - \frac{Q_{out}}{Q_{in}} = 1 - \frac{C_{v} (T_{4} - T_{1})}{C_{p} (T_{3} - T_{2})} = 1 - \frac{\gamma}{\gamma - 1} \frac{V_{1} (p_{4} - p_{1})}{p_{2} (V_{3} - V_{2})}
+\end{equation}
+
+Since the pairs $(p_{1}, V_{1})$, $(p_{2}, V_{2})$ and $(p_{2}, V_{3})$, $(p_{4}, V_{1})$ are on the same reversible adiabat, we have:
+
+\begin{equation}
+\begin{split}
+    \frac{p_{1}}{p_{2}} &= \left( \frac{V_{2}}{V_{1}} \right)^{\gamma} \\
+    \frac{p_{4}}{p_{2}} &= \left( \frac{V_{3}}{V_{1}} \right)^{\gamma}
+\end{split}
+\end{equation}
+
+Therefore, we can write:
+
+\begin{equation}
+    \eta = 1 - \frac{\gamma}{\gamma - 1} \frac{(V_{3}/V_{1})^{\gamma} - (V_{2}/V_{1})^{\gamma}}{V_{3}/V_{1} - V_{2}/V_{1}}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Potentials and Maxwell Relations}
+%==========
+
+
+\problem{B.1}{}
+We know from Gibbs-Duhem equation that $S \mathrm{d}T - V \mathrm{d}p + n \mathrm{d}\mu = 0$. Given that $\mathrm{d}T$ is zero, we have:
+
+\begin{equation}
+    n = V \frac{\mathrm{d}p}{\mathrm{d}\mu} = \frac{V}{\mathrm{d}\mu/\mathrm{d}p} = \frac{pV}{k_{B}T}
+\end{equation}
+\qed
+
+
+\problem{B.2}{}
+The change in internal energy is just $\Delta U = W$. Since the process is reversible and adiabatic, we have $Q = 0$ and $\Delta S = 0$. We will be able to know the change in enthalpy as $\mathrm{d}H = T \mathrm{d}S + V \mathrm{d}p$ and $\mathrm{d}S$ is zero so the change in enthalpy is:
+
+\begin{equation}
+    \Delta H = \int_{p_{1}}^{p_{2}} V \mathrm{d}p = p_{2} V_{2} - p_{1} V_{1} - \int_{V_{1}}^{V_{2}} p \mathrm{d}V = p_{2} V_{2} - p_{1} V_{1} + W
+\end{equation}
+
+We cannot tell the change in $F$ or $G$ since we do not know the temperature. If we do know that the temperature is kept constant, we will have $\Delta F = W$ and $\Delta G = \Delta H$.
+\qed
+
+
+\problem{B.3}{}
+Consider the equation $\mathrm{d}U = T \mathrm{d}S - p \mathrm{d}V$. We have $T = (\partial U / \partial S)_{V}$ and $p = -(\partial U / \partial V)_{S}$. Therefore, we can write:
+
+\begin{equation}
+   \left(  \frac{\partial T}{\partial V} \right)_{S} = -\left( \frac{\partial p}{\partial S} \right)_{V}
+\end{equation}
+
+Next consider $\mathrm{d}H = T \mathrm{d}S + V \mathrm{d}p$. We have $T = (\partial H / \partial S)_{p}$ and $V = (\partial H / \partial p)_{S}$. Therefore:
+
+\begin{equation}
+    \left( \frac{\partial T}{\partial p} \right)_{S} = \left( \frac{\partial V}{\partial S} \right)_{p}
+\end{equation}
+
+Then consider $\mathrm{d}F = -S \mathrm{d}T - p \mathrm{d}V$. We have $S = -(\partial F / \partial T)_{V}$ and $p = -(\partial F / \partial V)_{T}$ and:
+
+\begin{equation}
+    \left( \frac{\partial S}{\partial V} \right)_{T} = \left( \frac{\partial p}{\partial T} \right)_{V}
+\end{equation}
+
+Finally consider $\mathrm{d}G = -S \mathrm{d}T + V \mathrm{d}p$. We have $S = -(\partial G / \partial T)_{p}$ and $V = (\partial G / \partial p)_{T}$. Thus:
+
+\begin{equation}
+    \left( \frac{\partial S}{\partial p} \right)_{T} = -\left( \frac{\partial V}{\partial T} \right)_{p}
+\end{equation}
+
+%==========
+\pagebreak
+\section*{Applications (Rod, Surface, Magnetization, Solid)}
+%==========
+
+
+
+
+\end{document}
