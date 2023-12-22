@@ -1,0 +1,509 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Quantum Mechanics}
+\def\assignmentno{Problem Sheet 2}
+\def\assignmentname{Time Dependence, Schr\"odinger Equation \& Wave Mechanics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Time Dependence and the Schr\"odinger Equation}
+%==========
+
+
+\problem{2.1}{}
+The time-dependent Schr\"odinger equation (TDSE) for the position wave function $\psi(x,t) \equiv \braket{\hat{x}}{\psi(t)}$ is:
+
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \psi(x,t) = \hat{H} \psi(x,t)
+\end{equation}
+
+while the time-independent Schr\"odinger equation (TISE) for the energy eigenfunction $\psi_{n}(x)$ is:
+
+\begin{equation}
+    \hat{H} \psi_{n}(x) = E_{n} \psi_{n}(x)
+\end{equation}
+
+Any wave function $\psi(x,t)$ must satisfy the TDSE but not necessarily the TISE. A wave function that satisfies the TISE is called an energy eigenfunction that only undergoes a phase change under time evolution.
+\qed
+
+
+\problem{2.2}{}
+
+
+\problem{2.3}{}
+
+\subproblem{a}
+
+\begin{equation}
+    P(E \le 6\varepsilon, t = 0) = \sum_{n = 1, 2} P(E = n^{2}\varepsilon, t = 0) = 0.2^{2} + 0.3^{2} = 0.13
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+\begin{split}
+    \left\langle E \right\rangle &= \sum E_{n} P(E = n^{2}\varepsilon, t = 0) \\
+    &= \left( 1^{2} \times 0.2^{2} + 2^{2} \times 0.3^{2} + 3^{2} \times 0.4^{2} + 4^{2} \times 0.843^{2} \right) \varepsilon \\
+    &= 13.210 \varepsilon
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+    \left\langle E^{2} \right\rangle &= \sum E_{n}^{2} P(E = n^{2}\varepsilon, t = 0) \\
+    &= \left( 1^{4} \times 0.2^{2} + 2^{4} \times 0.3^{2} + 3^{4} \times 0.4^{2} + 4^{4} \times 0.843^{2} \right) \varepsilon^{2} \\
+    &= 196.366 \varepsilon^{2}
+\end{split}
+\end{equation}
+
+so that the rms deviation is:
+
+\begin{equation}
+    \Delta E = \sqrt{\left\langle E^{2} \right\rangle - \left\langle E \right\rangle^{2}} = 4.675 \varepsilon
+\end{equation}
+
+\subproblem{c}
+The time evolution of $\ket{\psi(0)}$ is given by:
+
+\begin{equation}
+    \ket{\psi(t)} = \hat{U}(t) \ket{\psi(0)} = \sum_{n} e^{-iE_{n}t/\hbar} c_{n} \ket{n}
+\end{equation}
+
+so that after a time $t$, the probability of finding the system in the state $\ket{j}$ is:
+
+\begin{equation}
+    P(j, t) = \left| \braket{j}{\psi(t)} \right|^{2} = \left| \sum_{n} e^{-iE_{n}t/\hbar} c_{n} \braket{j}{n} \right|^{2} = \left| c_{j} \right|^{2}
+\end{equation}
+
+which is unchanged because the time-evolution operator only changes the phase of each coefficient $c_{n}$.
+
+Thus, the previous results still hold for $t > 0$.
+
+\subproblem{d}
+If energy is measured to be $16\varepsilon$, then the system has `collapsed' to the state $\ket{\psi} = \ket{4}$. We would only obtain the energy $16\varepsilon$ in any subsequent measurement of energy.
+\qed
+
+
+\problem{2.4}{}
+Since the Hamiltonian $\hat{H}$ and momentum operator $\hat{p}$ commute, they share a common set of eigenfunctions and it is possible for a particle to have both well-defined energy and momentum. However, $\hat{H}$ and position operator $\hat{x}$ generally do not commute, so that a particle cannot have both well-defined energy and position.
+\qed
+
+
+\problem{2.5}{}
+
+\begin{equation}
+\begin{split}
+    \left\langle \hat{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x \psi(x,t) \, \mathrm{d}x \\
+    \left\langle \hat{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x^{2} \psi(x,t) \, \mathrm{d}x \\
+    \left\langle \hat{p}_{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -i\hbar \frac{\partial}{\partial x} \right) \psi(x,t) \, \mathrm{d}x \\
+    \left\langle \hat{p}_{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\hbar^{2} \frac{\partial^{2}}{\partial x^{2}} \right) \psi(x,t) \, \mathrm{d}x \\
+    \left\langle \hat{H} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\frac{\hbar^{2}}{2m} \frac{\partial^{2}}{\partial x^{2}} + V \right) \psi(x,t) \, \mathrm{d}x
+\end{split}
+\end{equation}
+
+where the expectation for energy is given by the equation with the Hamiltonian operator $\hat{H}$.
+
+The probability of finding the particle in $(x_{1}, x_{2})$ is:
+
+\begin{equation}
+    P(x_{1} < x < x_{2}) = \int_{x_{1}}^{x_{2}} \left| \psi(x,t) \right|^{2} \, \mathrm{d}x
+\end{equation}
+\qed
+
+
+\problem{2.6}{}
+Any state $\ket{\psi(t)}$ must satisfy the TDSE:
+
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \ket{\psi(t)} = \hat{H} \ket{\psi(t)}
+\end{equation}
+
+and its bra counterpart:
+
+\begin{equation}
+    -i\hbar \frac{\partial}{\partial t} \bra{\psi(t)} = \bra{\psi(t)} \hat{H}
+\end{equation}
+
+We also know that $\hat{Q} \ket{\psi(t)}$, being a state itself, satisfies the TDSE:
+
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \left( \hat{Q} \ket{\psi(t)} \right) = \hat{H} \hat{Q} \ket{\psi(t)}
+\end{equation}
+
+Assuming that $\hat{Q}$ is a time-independent operator, consider the time derivative of its expectation:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left\langle \hat{Q} \right\rangle &= \frac{\mathrm{d}}{\mathrm{d}t} \left( \bra{\psi(t)} \hat{Q} \ket{\psi(t)} \right) \\
+    &= \mel{\frac{\partial \psi}{\partial t}}{\hat{Q}}{\psi} + \mel{\psi}{\hat{Q}}{\frac{\partial \psi}{\partial t}} \\
+    &= -\frac{1}{i\hbar} \mel{\psi}{\hat{H} \hat{Q}}{\psi} + \frac{1}{i\hbar} \mel{\psi}{\hat{Q} \hat{H}}{\psi} \\
+    &= \frac{1}{i\hbar} \mel{\psi}{[\hat{Q}, \hat{H}]}{\psi}
+\end{split}
+\end{equation}
+
+which immediately gives the desired result.
+
+Now let $\hat{Q} = \hat{x}$ and $[\hat{x}, \hat{H}]$ would be non-zero, so that the expectation of position is not conserved, i.e. constant in time. However, if $\hat{Q} = \hat{p}$, then $[\hat{p}, \hat{H}] = 0$ and the expectation of momentum is conserved.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Wave Mechanics}
+%==========
+
+
+\problem{2.7}{}
+In the region $x < 0$ and $V = 0$, the TISE is:
+
+\begin{equation}
+    -\frac{\hbar^{2}}{2m} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} = E \psi
+\end{equation}
+
+with the solution:
+
+\begin{equation}
+    \psi(x) = Ae^{ikx} + Be^{-ikx}
+\end{equation}
+
+where $k \equiv \sqrt{2mE}/\hbar$.
+
+In the region $0 < x$ and $V = V_{0} < E$, the TISE is:
+
+\begin{equation}
+    -\frac{\hbar^{2}}{2m} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} + V_{0} \psi = E \psi
+\end{equation}
+
+with the solution:
+
+\begin{equation}
+    \psi(x) = Ce^{iKx} + De^{-iKx}
+\end{equation}
+
+where $K \equiv \sqrt{2m(E - V_{0})}/\hbar$.
+
+The condition of no particle incident from $+\infty$ is $D = 0$.
+
+Continuity of $\psi(x)$ and $\psi'(x)$ at $x = 0$ gives:
+
+\begin{equation}
+\begin{split}
+    A + B &= C \\
+    ik(A - B) &= iKC
+\end{split}
+\end{equation}
+
+solving which yields $B = A(k - K)/(k + K)$ and $C = 2Ak/(k + K)$.
+
+Hence, the probability of reflection is the probability of finding the particle travelling to $-\infty$ in the region $x < 0$:
+
+\begin{equation}
+    \left\lvert \frac{B^{2}}{A^{2}} \right\rvert = \left( \frac{k - K}{k + K} \right)^{2}
+\end{equation}
+
+Probability of transmission is:
+
+\begin{equation}
+    \left\lvert \frac{C^{2}}{A^{2}} \right\rvert = \frac{4kK}{(k + K)^{2}}
+\end{equation}
+
+The probability current on the left is:
+
+\begin{equation}
+    \frac{ih}{2m} \left( \psi \frac{\partial \psi^{*}}{\partial x} - \psi^{*} \frac{\partial \psi}{\partial x} \right) = \frac{h}{m} \frac{kK}{k + K} = \frac{h}{2m} \left( \frac{k - K}{k + K} \right)
+\end{equation}
+\qed
+
+
+\problem{2.8}{}
+For bound states, we have $E < V_{0}$. Outside the well, the solution is:
+
+\begin{equation}
+    \psi(x) =
+    \begin{cases}
+        De^{\kappa x} + D'e^{-\kappa x} & x < -a \\
+        Ce^{-\kappa x} + C'e^{\kappa x} & x > a
+    \end{cases}
+\end{equation}
+
+where $\kappa \equiv \sqrt{2m(V_{0} - E)}/\hbar$.
+
+and inside the well, the solution is:
+
+\begin{equation}
+\psi(x) = A\cos{(kx)} + B\sin{(kx)}
+\end{equation}
+
+where $k \equiv \sqrt{2mE}/\hbar$.
+
+For odd-parity solutions, we set $A = 0$ and $C = -D$ so that $\psi(x) = -\psi(-x)$. For the wave function to be finite, we also need $C' = D' = 0$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
+
+\begin{equation}
+\begin{split}
+    B\sin{(ka)} &= Ce^{-\kappa a} \\
+    kB\cos{(ka)} &= -KCe^{-\kappa a} \\
+    -B\sin{(ka)} &= De^{-\kappa a} = -Ce^{-\kappa a} \\
+    kB\cos{(ka)} &= KDe^{-\kappa a} = -KCe^{-\kappa a}
+\end{split}
+\end{equation}
+
+These can be solved to give:
+
+\begin{equation}
+    \cot{(ka)} = -\frac{\kappa}{k} = -\sqrt{\frac{V_{0}}{E} - 1} = -\sqrt{\frac{W^{2}}{(ka)^{2}} - 1}
+\end{equation}
+
+where $W \equiv \sqrt{2mV_{0}a^{2}}/\hbar$.
+
+For the square root to be valid, we must have $W > ka$ or $V_{0} > E$. But for the cotangent to negative, we must have $ka > \pi/2$. Hence, we require $W > \pi/2$.
+\qed
+
+
+\problem{2.9}{}
+% Consider the same potential as the previous problem and the solutions:
+
+% \begin{equation}
+% \psi(x) =
+% \begin{cases}
+%     De^{\kappa x} + re^{-\kappa x} & x < -a \\
+%     A\cos{(kx)} + B\sin{(kx)} & -a < x < a \\
+%     Ce^{-\kappa x} + te^{\kappa x} & x > a
+% \end{cases}
+% \end{equation}
+
+% where $k$ and $\kappa$ are defined as before.
+
+% Let us set $D = 1$ and $C = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
+
+Consider the potential well:
+
+\begin{equation}
+    V(x) =
+    \begin{cases}
+        -V_{0} & \left\lvert x \right\rvert < a \\
+        0 & \text{otherwise}
+    \end{cases}
+\end{equation}
+
+The solutions are:
+
+\begin{equation}
+    \psi(x) =
+    \begin{cases}
+        De^{ikx} + re^{-ikx} & x < -a \\
+        Ae^{iKx} + Be^{-iKx} & -a < x < a \\
+        Ce^{-ikx} + te^{ikx} & x > a
+    \end{cases}
+\end{equation}
+
+where $k \equiv \sqrt{2mE}/\hbar$ and $K \equiv \sqrt{2m(V_{0} + E)}/\hbar$.
+
+Let us set $D = 1$ and $C = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
+
+\begin{equation}
+\begin{split}
+    e^{-ika} + re^{ika} &= Ae^{-iKa} + Be^{iKa} \\
+    ik(e^{-ika} - re^{ika}) &= iK(Ae^{-iKa} - Be^{iKa}) \\
+    te^{ika} &= Ae^{iKa} + Be^{-iKa} \\
+    ikte^{ika} &= iK(Ae^{iKa} - Be^{-iKa})
+\end{split}
+\end{equation}
+
+These can be solved to give an expression for $r$:
+
+\begin{equation}
+    r = \frac{e^{-2ika} \left( e^{4iKa} - 1 \right) (k - K) (k + K)}{k^{2} \left( e^{4iKa} - 1 \right) - 2kK \left( 1 + e^{4iKa} \right) + K^{2} \left( e^{4iKa} - 1 \right)}
+\end{equation}
+
+Due to the factor $(e^{4iKa} - 1)$, $r = 0$ whenever $Ka = n\pi/2$ for $n \in \mathbb{Z}$. In this case, the particle is completely transmitted through the well and there is zero probability of observing a reflected particle.
+\qed
+
+
+\problem{2.10}{}
+Given the potential $V(x) = V_{\delta} \delta(x)$, the solutions are:
+
+\begin{equation}
+    \psi(x) =
+    \begin{cases}
+        Ae^{ikx} + re^{-ikx} & x < 0 \\
+        Be^{-ikx} + te^{ikx} & x > 0
+    \end{cases}
+\end{equation}
+
+where $k \equiv \sqrt{2mE}/\hbar$.
+
+Again, let $B = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ at $x = 0$ gives $A + r = t$. The continuity condition on $\psi'(x)$ is obtained by integrating the TISE around $x = 0$:
+
+\begin{equation}
+\begin{split}
+    0 &= \lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} \left[ -\frac{\hbar^{2}}{2m} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} + V_{\delta} \delta(x) \psi - E \psi \right] \, \mathrm{d}x \\
+    &= -\frac{\hbar^{2}}{2m} \left[ \psi'(0^{+}) - \psi'(0^{-}) \right] + V_{\delta} \psi(0)
+\end{split}
+\end{equation}
+
+which means:
+
+\begin{equation}
+    ik(A - r + t) = K (A + r)
+\end{equation}
+
+where $K \equiv \sqrt{2m(V_{\delta} + E)}/\hbar$.
+
+Solving the equations yields $t = 2iAk/(2ik + K)$ and the probability of transmission is:
+
+\begin{equation}
+    P_{\text{tun}} = \left\lvert \frac{t}{A} \right\rvert^{2} = \left\lvert \frac{1}{1 + K/2ik} \right\rvert^{2} = \frac{1}{1 + (K/2k)^{2}}
+\end{equation}
+\qed
+
+
+\problem{2.11}{}
+Given the definition of the probability current density:
+
+\begin{equation}
+    \mathbf{J}(\mathbf{r}, t) = \frac{i\hbar}{2m} \left( \psi \nabla \psi^{*} - \psi^{*} \nabla \psi \right)
+\end{equation}
+
+we evaluate:
+
+\begin{equation}
+\begin{split}
+    \psi &= A e^{i(kz - \omega t)} + B e^{-i(kz - \omega t)} \\
+    \psi^{*} &= A^{*} e^{-i(kz - \omega t)} + B^{*} e^{i(kz - \omega t)} \\
+    \nabla \psi &= ik \left[ A e^{i(kz - \omega t)} - B e^{-i(kz - \omega t)} \right] \hat{z} \\
+    \nabla \psi^{*} &= -ik \left[ A^{*} e^{-i(kz - \omega t)} - B^{*} e^{i(kz - \omega t)} \right] \hat{z}
+\end{split}
+\end{equation}
+
+so that:
+
+\begin{equation}
+\begin{split}
+    \mathbf{J}(\mathbf{r}, t) &= \hat{z} \frac{-\hbar k}{2m} \left( -2\left\lvert A \right\rvert^{2} + 2\left\lvert B \right\rvert^{2} \right) \\
+    &= \frac{\hbar k}{m} \left( \left\lvert A \right\rvert^{2} - \left\lvert B \right\rvert^{2} \right) \hat{z}
+\end{split}
+\end{equation}
+
+The probability is proportional to the speed of the wave packet, and the minus sign is due to opposite directions of the wave packets.
+\qed
+
+
+\problem{2.12}{}
+The momentum eigenstates, expressed in their position representation, are:
+
+\begin{equation}
+    \braket{x}{p} = \frac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}
+\end{equation}
+
+with its complex conjugate:
+
+\begin{equation}
+    \braket{p}{x} = \frac{1}{\sqrt{2\pi\hbar}} e^{-ipx/\hbar}
+\end{equation}
+
+For a wave function of the form:
+
+\begin{equation}
+    \psi(x, 0) = \braket{x}{\psi(0)} = \left( \frac{1}{2\pi \sigma^{2}} \right)^{1/4} \exp \left( -\frac{x^{2}}{4\sigma^{2}} + \frac{ip_{0}x}{\hbar} \right)
+\end{equation}
+
+its momentum representation is:
+
+\begin{equation}
+\begin{split}
+    \braket{p}{\psi(0)} &= \int \braket{p}{x} \braket{x}{\psi(0)} \, \mathrm{d}x \\
+    &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{1}{2\pi \sigma^{2}} \right)^{1/4} \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x \\
+\end{split}
+\end{equation}
+
+Consider the change of variable:
+
+\begin{equation}
+    y = \frac{x}{2\sigma} - \frac{i(p_{0} - p)\sigma}{\hbar}
+\end{equation}
+
+We have:
+
+\begin{equation}
+\begin{split}
+    \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x &= 2\sigma \int \exp \left[ -y^{2} - \left( \frac{p_{0} - p}{\hbar} \right)^{2} \sigma^{2} \right] \, \mathrm{d}y \\
+    &= \exp \left[ -\frac{(p_{0} - p)\sigma}{\hbar} \right]^{2} 2\sigma \sqrt{\pi}
+\end{split}
+\end{equation}
+
+so that the momentum representation is:
+
+\begin{equation}
+    \braket{p}{\psi(0)} = \left( \frac{2\sigma^{2}}{\pi \hbar^{2}} \right)^{1/4} \exp \left[ -\frac{(p_{0} - p)\sigma}{\hbar} \right]^{2}
+\end{equation}
+
+Note that $\braket{p}{\psi(0)}$ just the Fourier transform of $\braket{x}{\psi(0)}$:
+
+\begin{equation}
+    \braket{p}{\psi(0)} = \mathcal{F} \left[ \braket{x}{\psi(0)} \right] = \frac{1}{\sqrt{2\pi\hbar}} \int e^{-ipx/\hbar} \braket{x}{\psi(0)} \, \mathrm{d}x
+\end{equation}
+
+Consider an momentum eigenstate $\ket{p}$ that satisfies $\hat{p} \ket{p} = p \ket{p}$. Applying the Hamiltonian operator to $\ket{p}$ gives:
+
+\begin{equation}
+    \hat{H} \ket{p} = \frac{\hat{p}^{2}}{2m} \ket{p} = \frac{p^{2}}{2m} \ket{p}
+\end{equation}
+
+which means $\ket{p}$ is also an energy eigenstate with energy $p^{2}/2m$. The time-evolution of a momentum eigenstate $\ket{p}$ is given by:
+
+\begin{equation}
+    \ket{p} \to e^{-i\hat{H}t/\hbar} \ket{p} = e^{-ip^{2}t/2m\hbar} \ket{p}
+\end{equation}
+
+We may write $\ket{\psi(0)}$ as a linear combination of momentum eigenstates so that its time-evolution is:
+
+\begin{equation}
+\begin{split}
+    \ket{\psi(t)} &= e^{-i\hat{H}t/\hbar} \ket{\psi(0)} \\
+    &= \int e^{-i\hat{H}t/\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p \\
+    &= \int e^{-ip^{2}t/2m\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p
+\end{split}
+\end{equation}
+
+Then the the position representation of $\ket{\psi(t)}$ is:
+
+\begin{equation}
+\begin{split}
+    \psi(x, t) &= \braket{x}{\psi(t)} \\
+    &= \int \exp \left( -\frac{ip^{2}t}{2m\hbar} \right) \braket{x}{p} \braket{p}{\psi(0)} \, \mathrm{d}p  \\
+    &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{2\sigma^{2}}{\pi \hbar^{2}} \right)^{1/4} \int \exp \left[ -\frac{ip^{2}t}{2m\hbar} + \frac{ipx}{\hbar} - \frac{(p_{0} - p)^{2}\sigma^{2}}{\hbar^{2}} \right] \, \mathrm{d}p \\
+    &= \left( \frac{2}{\pi} \right)^{1/4} \frac{1}{\sqrt{2\sigma + i\hbar t/m\sigma}} \exp \left[ -\frac{4mp_{0} \sigma^{2} x - 2p_{0}^{2} \sigma^{2} t + i\hbar mx^{2}}{-2\hbar^{2} t + 4i\hbar m \sigma^{2}} \right]
+\end{split}
+\end{equation}
+
+where the integral can be evaluated using a substitution similar to the previous one.
+
+The square modulus of $\psi(x, t)$ is:
+
+\begin{equation}
+    \left| \psi(x, t) \right|^{2} = \frac{\sigma}{\sqrt{2\pi \hbar^{2} \left\lvert b(t) \right\rvert^{2}}} \exp \left[ -\frac{\sigma^{2} (x - p_{0}t/m)^{2}}{2\hbar^{2} \left\lvert b(t) \right\rvert^{2}} \right]
+\end{equation}
+
+where $b(t) \equiv \sigma^{2}/\hbar + it/2m$ and $\left\lvert b(t) \right\rvert^{2} = \sigma^{4}/\hbar^{2} + t^{2}/4m^{2}$.
+
+As time goes on, the wave packet moves to the right and its variance/width increases:
+
+\begin{equation}
+    \sigma^{2}(t) = \sigma^{2} \left( 1 + \frac{\hbar^{2}t^{2}}{4m^{2}\sigma^{4}} \right)
+\end{equation}
+
+The particle gets `smeared out' in space with an increasing uncertainty in its position due to an initial uncertainty in its momentum.
+\qed
+
+
+\end{document}
