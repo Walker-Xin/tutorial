@@ -86,12 +86,12 @@ The operator $\sum_{n} q_{n} \ket{q_{n}} \bra{q_{n}}$ can be think of as the ope
 Given $\hat{A}$ and $\hat{B}$ as Hermitian operators, we have the following:
 
 \begin{equation}
-\begin{split}
-    \left( \hat{A} + \hat{B} \right)^{\dagger} &= \left( \hat{A}^{\dagger} + \hat{B}^{\dagger} \right) = \hat{A} + \hat{B} \\
-    \left( c \hat{A} \right)^{\dagger} &= c^{*} \hat{A}^{\dagger} \\
-    \left( \hat{A} \hat{B} \right)^{\dagger} &= \hat{B}^{\dagger} \hat{A}^{\dagger} = \hat{B} \hat{A} \\
-    \left( \hat{A} \hat{B} + \hat{B} \hat{A} \right)^{\dagger} &= \left( \hat{B} \hat{A} + \hat{A} \hat{B} \right)^{\dagger} = \hat{B} \hat{A} + \hat{A} \hat{B}
-\end{split}
+    \begin{split}
+        \left( \hat{A} + \hat{B} \right)^{\dagger} &= \left( \hat{A}^{\dagger} + \hat{B}^{\dagger} \right) = \hat{A} + \hat{B} \\
+        \left( c \hat{A} \right)^{\dagger} &= c^{*} \hat{A}^{\dagger} \\
+        \left( \hat{A} \hat{B} \right)^{\dagger} &= \hat{B}^{\dagger} \hat{A}^{\dagger} = \hat{B} \hat{A} \\
+        \left( \hat{A} \hat{B} + \hat{B} \hat{A} \right)^{\dagger} &= \left( \hat{B} \hat{A} + \hat{A} \hat{B} \right)^{\dagger} = \hat{B} \hat{A} + \hat{A} \hat{B}
+    \end{split}
 \end{equation}
 
 Therefore, $\hat{A} + \hat{B}$ and $\hat{A} \hat{B}$ are Hermitian operators. $c \hat{A}$ is a Hermitian operator if and only if $c$ is real.
@@ -102,7 +102,7 @@ Consider the operator $\partial /\partial x$ on function $f$:
     \braket{f}{\frac{\partial f}{\partial x}} = \int_{\mathbb{R}} f^{*} \frac{\partial f}{\partial x} \, \mathrm{d}x = \left. f^{*} f \right|_{-\infty}^{\infty} - \int_{\mathbb{R}} \frac{\partial f^{*}}{\partial x} f \, \mathrm{d}x = - \bra{\frac{\partial f}{\partial x}} \ket{f}
 \end{equation}
 
-where the boundary term vanishes because $f$ is bounded. 
+where the boundary term vanishes because $f$ is bounded.
 
 This shows that $\partial /\partial x$ is not Hermitian, but in fact anti-Hermitian.
 
@@ -149,13 +149,13 @@ Given $\hat{A}$ and $\hat{B}$ as Hermitian operators, we have:
 If $\hat{A}$ and $\hat{B}$ share a complete set of eigenkets $\ket{n}$ such that $\hat{A} \ket{n} = a_{n} \ket{n}$ and $\hat{B} \ket{n} = b_{n} \ket{n}$, we have:
 
 \begin{equation}
-\hat{A} \hat{B} \ket{n} = \hat{A} \left( b_{n} \ket{n} \right) = b_{n} \hat{A} \ket{n} = a_{n} b_{n} \ket{n}
+    \hat{A} \hat{B} \ket{n} = \hat{A} \left( b_{n} \ket{n} \right) = b_{n} \hat{A} \ket{n} = a_{n} b_{n} \ket{n}
 \end{equation}
 
 but also:
 
 \begin{equation}
-\hat{B} \hat{A} \ket{n} = \hat{B} \left( a_{n} \ket{n} \right) = a_{n} \hat{B} \ket{n} = a_{n} b_{n} \ket{n}
+    \hat{B} \hat{A} \ket{n} = \hat{B} \left( a_{n} \ket{n} \right) = a_{n} \hat{B} \ket{n} = a_{n} b_{n} \ket{n}
 \end{equation}
 
 Given non-zero eigenvalues $a_{n}$ and $b_{n}$, we must have $\hat{A} \hat{B} \ket{n} = \hat{B} \hat{A} \ket{n}$ for all $\ket{n}$, which implies $\hat{A} \hat{B} = \hat{B} \hat{A}$ or $[\hat{A}, \hat{B}] = 0$.
@@ -251,8 +251,8 @@ Note that the delta function $\delta(x)$ is `defined' as:
 
 \begin{equation}
     \delta(x) = \begin{cases}
-        \infty & x = 0 \\
-        0 & x \ne 0
+        \infty & x = 0   \\
+        0      & x \ne 0
     \end{cases}
 \end{equation}
 
@@ -292,14 +292,14 @@ This function has two peaks at $x = \pm c$ and is symmetric about the origin, so
 Consider the derivative of the Fourier transform of some function $f(x)$:
 
 \begin{equation}
-\begin{split}
-    \mathcal{F}(f') &= \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \frac{\mathrm{d}f}{\mathrm{d}x} \, \mathrm{d}x \\
-    &= \frac{1}{\sqrt{2\pi}} \left. e^{-i\omega x} f(x) \right|_{-\infty}^{\infty} + \frac{i\omega}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} f(x) \, \mathrm{d}x \\
-    &= i\omega \mathcal{F}(f)
-\end{split}
+    \begin{split}
+        \mathcal{F}(f') &= \frac{1}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} \frac{\mathrm{d}f}{\mathrm{d}x} \, \mathrm{d}x \\
+        &= \frac{1}{\sqrt{2\pi}} \left. e^{-i\omega x} f(x) \right|_{-\infty}^{\infty} + \frac{i\omega}{\sqrt{2\pi}} \int_{\mathbb{R}} e^{-i\omega x} f(x) \, \mathrm{d}x \\
+        &= i\omega \mathcal{F}(f)
+    \end{split}
 \end{equation}
 
-for $f$ that vanishes at infinity. 
+for $f$ that vanishes at infinity.
 
 The Fourier transform of the translated Heaviside step function is:
 

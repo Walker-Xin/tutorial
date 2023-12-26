@@ -42,12 +42,12 @@ Osmosis and digestion may be taken as quasistatic as they happen slowly over a l
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        Process & Quasistatic & Reversible & Irreversible & Isothermal \\ \hline
-        (a)     & \checkmark  & \checkmark &              &            \\ \hline
-        (b)     &             &            & \checkmark   &            \\ \hline
-        (c)     & \checkmark  &            & \checkmark   & \checkmark \\ \hline
-        (d)     & \checkmark  &            & \mistake{\checkmark}   & \checkmark \\ \hline
-        (e)     &             &            & \checkmark   &            \\ \hline
+        Process & Quasistatic & Reversible & Irreversible         & Isothermal \\ \hline
+        (a)     & \checkmark  & \checkmark &                      &            \\ \hline
+        (b)     &             &            & \checkmark           &            \\ \hline
+        (c)     & \checkmark  &            & \checkmark           & \checkmark \\ \hline
+        (d)     & \checkmark  &            & \mistake{\checkmark} & \checkmark \\ \hline
+        (e)     &             &            & \checkmark           &            \\ \hline
     \end{tabular}
 \end{table}
 
@@ -122,10 +122,10 @@ We are given a microscopic equation of state:
 Temperature and pressure are intensive variables that do not change if we change the number of moles of gas. However the volume does change. Consider the distinction between the ideal gas equation in its microscopic and macroscopic forms:
 
 \begin{equation}
-\begin{split}
-    PV &= RT \\
-    PV &= nRT
-\end{split}
+    \begin{split}
+        PV &= RT \\
+        PV &= nRT
+    \end{split}
 \end{equation}
 
 We therefore consider the change of variable $V \to V/n$, so that the equation of state becomes:
@@ -148,10 +148,10 @@ We therefore consider the change of variable $V \to V/n$, so that the equation o
 Along the first path:
 
 \begin{equation}
-\begin{split}
-    \int_{(0, 0)}^{(0, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= 0 \\
-    \int_{(0, 1)}^{(1, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= \int_{0}^{1} 1 \, \mathrm{d}x = 1
-\end{split}
+    \begin{split}
+        \int_{(0, 0)}^{(0, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= 0 \\
+        \int_{(0, 1)}^{(1, 1)} y^{2} \, \mathrm{d}x + xy \, \mathrm{d}y &= \int_{0}^{1} 1 \, \mathrm{d}x = 1
+    \end{split}
 \end{equation}
 
 so the integral evaluates to unity.
@@ -226,10 +226,10 @@ for some constant $C$.
 Consider some function $f(x, y, z) = C$ for some constant $C$. There are only two independent variables, which we can assume without loss of generality to be $x$ and $y$. Then:
 
 \begin{equation}
-\begin{split}
-    \mathrm{d}x = \left( \frac{\partial x}{\partial y} \right) \mathrm{d}y + \left( \frac{\partial x}{\partial z} \right) \mathrm{d}z \\
-    \mathrm{d}y = \left( \frac{\partial y}{\partial x} \right) \mathrm{d}x + \left( \frac{\partial y}{\partial z} \right) \mathrm{d}z \\
-\end{split}
+    \begin{split}
+        \mathrm{d}x = \left( \frac{\partial x}{\partial y} \right) \mathrm{d}y + \left( \frac{\partial x}{\partial z} \right) \mathrm{d}z \\
+        \mathrm{d}y = \left( \frac{\partial y}{\partial x} \right) \mathrm{d}x + \left( \frac{\partial y}{\partial z} \right) \mathrm{d}z \\
+    \end{split}
 \end{equation}
 
 Substitute the second equation into the first:
@@ -268,19 +268,19 @@ Consider a small change in $Q(x, y)$ caused by a small change in $x$ and $y$:
 so that:
 
 \begin{equation}
-\begin{split}
-    \frac{\delta Q}{\delta x} = f(x, y) + g(x, y) \left( \frac{\delta y}{\delta x} \right) \\
-    \frac{\delta Q}{\delta y} = f(x, y) \left( \frac{\delta x}{\delta y} \right) + g(x, y)
-\end{split}
+    \begin{split}
+        \frac{\delta Q}{\delta x} = f(x, y) + g(x, y) \left( \frac{\delta y}{\delta x} \right) \\
+        \frac{\delta Q}{\delta y} = f(x, y) \left( \frac{\delta x}{\delta y} \right) + g(x, y)
+    \end{split}
 \end{equation}
 
 Substitute $g(x, y)$ obtained from the second equation into the first:
 
 \begin{equation}
-\begin{split}
-    \frac{\delta Q}{\delta x} &= f(x, y) + \left[ \frac{\delta Q}{\delta y} - f(x, y) \left( \frac{\delta x}{\delta y} \right) \right] \left( \frac{\delta y}{\delta x} \right) \\
-    &= \frac{\delta Q}{\delta y} \left( \frac{\delta y}{\delta x} \right)
-\end{split}
+    \begin{split}
+        \frac{\delta Q}{\delta x} &= f(x, y) + \left[ \frac{\delta Q}{\delta y} - f(x, y) \left( \frac{\delta x}{\delta y} \right) \right] \left( \frac{\delta y}{\delta x} \right) \\
+        &= \frac{\delta Q}{\delta y} \left( \frac{\delta y}{\delta x} \right)
+    \end{split}
 \end{equation}
 
 Or, changing to differentials:
@@ -322,11 +322,11 @@ Expressing the differentials in terms of variables $x$ and $y$:
 Collecting terms and dividing both the numerator and denominator by $A$:
 
 \begin{equation}
-\begin{split}
-    \frac{\mathrm{d}x}{\mathrm{d}y} &= \frac{\partial A/\partial y - C \partial B/\partial y}{\partial A/\partial x - C \partial B/\partial x} \\
-    &= \frac{(\partial A/\partial y)/A - (\partial B/\partial y)/B}{(\partial A/\partial x)/A - (\partial B/\partial x)/B} \\
-    &= \frac{\partial \ln{A}/\partial y - \partial \ln{B}/\partial y}{\partial \ln{A}/\partial x - \partial \ln{B}/\partial x} \\
-\end{split}
+    \begin{split}
+        \frac{\mathrm{d}x}{\mathrm{d}y} &= \frac{\partial A/\partial y - C \partial B/\partial y}{\partial A/\partial x - C \partial B/\partial x} \\
+        &= \frac{(\partial A/\partial y)/A - (\partial B/\partial y)/B}{(\partial A/\partial x)/A - (\partial B/\partial x)/B} \\
+        &= \frac{\partial \ln{A}/\partial y - \partial \ln{B}/\partial y}{\partial \ln{A}/\partial x - \partial \ln{B}/\partial x} \\
+    \end{split}
 \end{equation}
 
 as required.

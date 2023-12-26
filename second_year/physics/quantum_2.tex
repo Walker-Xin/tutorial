@@ -51,19 +51,19 @@ Any wave function $\psi(x,t)$ must satisfy the TDSE but not necessarily the TISE
 \subproblem{b}
 
 \begin{equation}
-\begin{split}
-    \left\langle E \right\rangle &= \sum E_{n} P(E = n^{2}\varepsilon, t = 0) \\
-    &= \left( 1^{2} \times 0.2^{2} + 2^{2} \times 0.3^{2} + 3^{2} \times 0.4^{2} + 4^{2} \times 0.843^{2} \right) \varepsilon \\
-    &= 13.210 \varepsilon
-\end{split}
+    \begin{split}
+        \left\langle E \right\rangle &= \sum E_{n} P(E = n^{2}\varepsilon, t = 0) \\
+        &= \left( 1^{2} \times 0.2^{2} + 2^{2} \times 0.3^{2} + 3^{2} \times 0.4^{2} + 4^{2} \times 0.843^{2} \right) \varepsilon \\
+        &= 13.210 \varepsilon
+    \end{split}
 \end{equation}
 
 \begin{equation}
-\begin{split}
-    \left\langle E^{2} \right\rangle &= \sum E_{n}^{2} P(E = n^{2}\varepsilon, t = 0) \\
-    &= \left( 1^{4} \times 0.2^{2} + 2^{4} \times 0.3^{2} + 3^{4} \times 0.4^{2} + 4^{4} \times 0.843^{2} \right) \varepsilon^{2} \\
-    &= 196.366 \varepsilon^{2}
-\end{split}
+    \begin{split}
+        \left\langle E^{2} \right\rangle &= \sum E_{n}^{2} P(E = n^{2}\varepsilon, t = 0) \\
+        &= \left( 1^{4} \times 0.2^{2} + 2^{4} \times 0.3^{2} + 3^{4} \times 0.4^{2} + 4^{4} \times 0.843^{2} \right) \varepsilon^{2} \\
+        &= 196.366 \varepsilon^{2}
+    \end{split}
 \end{equation}
 
 so that the rms deviation is:
@@ -102,13 +102,13 @@ Since the Hamiltonian $\hat{H}$ and momentum operator $\hat{p}$ commute, they sh
 \problem{2.5}{}
 
 \begin{equation}
-\begin{split}
-    \left\langle \hat{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x \psi(x,t) \, \mathrm{d}x \\
-    \left\langle \hat{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x^{2} \psi(x,t) \, \mathrm{d}x \\
-    \left\langle \hat{p}_{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -i\hbar \frac{\partial}{\partial x} \right) \psi(x,t) \, \mathrm{d}x \\
-    \left\langle \hat{p}_{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\hbar^{2} \frac{\partial^{2}}{\partial x^{2}} \right) \psi(x,t) \, \mathrm{d}x \\
-    \left\langle \hat{H} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\frac{\hbar^{2}}{2m} \frac{\partial^{2}}{\partial x^{2}} + V \right) \psi(x,t) \, \mathrm{d}x
-\end{split}
+    \begin{split}
+        \left\langle \hat{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x \psi(x,t) \, \mathrm{d}x \\
+        \left\langle \hat{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) x^{2} \psi(x,t) \, \mathrm{d}x \\
+        \left\langle \hat{p}_{x} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -i\hbar \frac{\partial}{\partial x} \right) \psi(x,t) \, \mathrm{d}x \\
+        \left\langle \hat{p}_{x}^{2} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\hbar^{2} \frac{\partial^{2}}{\partial x^{2}} \right) \psi(x,t) \, \mathrm{d}x \\
+        \left\langle \hat{H} \right\rangle &= \int_{-\infty}^{\infty} \psi^{*}(x,t) \left( -\frac{\hbar^{2}}{2m} \frac{\partial^{2}}{\partial x^{2}} + V \right) \psi(x,t) \, \mathrm{d}x
+    \end{split}
 \end{equation}
 
 where the expectation for energy is given by the equation with the Hamiltonian operator $\hat{H}$.
@@ -143,12 +143,12 @@ We also know that $\hat{Q} \ket{\psi(t)}$, being a state itself, satisfies the T
 Assuming that $\hat{Q}$ is a time-independent operator, consider the time derivative of its expectation:
 
 \begin{equation}
-\begin{split}
-    \frac{\mathrm{d}}{\mathrm{d}t} \left\langle \hat{Q} \right\rangle &= \frac{\mathrm{d}}{\mathrm{d}t} \left( \bra{\psi(t)} \hat{Q} \ket{\psi(t)} \right) \\
-    &= \mel{\frac{\partial \psi}{\partial t}}{\hat{Q}}{\psi} + \mel{\psi}{\hat{Q}}{\frac{\partial \psi}{\partial t}} \\
-    &= -\frac{1}{i\hbar} \mel{\psi}{\hat{H} \hat{Q}}{\psi} + \frac{1}{i\hbar} \mel{\psi}{\hat{Q} \hat{H}}{\psi} \\
-    &= \frac{1}{i\hbar} \mel{\psi}{[\hat{Q}, \hat{H}]}{\psi}
-\end{split}
+    \begin{split}
+        \frac{\mathrm{d}}{\mathrm{d}t} \left\langle \hat{Q} \right\rangle &= \frac{\mathrm{d}}{\mathrm{d}t} \left( \bra{\psi(t)} \hat{Q} \ket{\psi(t)} \right) \\
+        &= \mel{\frac{\partial \psi}{\partial t}}{\hat{Q}}{\psi} + \mel{\psi}{\hat{Q}}{\frac{\partial \psi}{\partial t}} \\
+        &= -\frac{1}{i\hbar} \mel{\psi}{\hat{H} \hat{Q}}{\psi} + \frac{1}{i\hbar} \mel{\psi}{\hat{Q} \hat{H}}{\psi} \\
+        &= \frac{1}{i\hbar} \mel{\psi}{[\hat{Q}, \hat{H}]}{\psi}
+    \end{split}
 \end{equation}
 
 which immediately gives the desired result.
@@ -197,10 +197,10 @@ The condition of no particle incident from $+\infty$ is $D = 0$.
 Continuity of $\psi(x)$ and $\psi'(x)$ at $x = 0$ gives:
 
 \begin{equation}
-\begin{split}
-    A + B &= C \\
-    ik(A - B) &= iKC
-\end{split}
+    \begin{split}
+        A + B &= C \\
+        ik(A - B) &= iKC
+    \end{split}
 \end{equation}
 
 solving which yields $B = A(k - K)/(k + K)$ and $C = 2Ak/(k + K)$.
@@ -241,7 +241,7 @@ where $\kappa \equiv \sqrt{2m(V_{0} - E)}/\hbar$.
 and inside the well, the solution is:
 
 \begin{equation}
-\psi(x) = A\cos{(kx)} + B\sin{(kx)}
+    \psi(x) = A\cos{(kx)} + B\sin{(kx)}
 \end{equation}
 
 where $k \equiv \sqrt{2mE}/\hbar$.
@@ -249,12 +249,12 @@ where $k \equiv \sqrt{2mE}/\hbar$.
 For odd-parity solutions, we set $A = 0$ and $C = -D$ so that $\psi(x) = -\psi(-x)$. For the wave function to be finite, we also need $C' = D' = 0$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
 
 \begin{equation}
-\begin{split}
-    B\sin{(ka)} &= Ce^{-\kappa a} \\
-    kB\cos{(ka)} &= -KCe^{-\kappa a} \\
-    -B\sin{(ka)} &= De^{-\kappa a} = -Ce^{-\kappa a} \\
-    kB\cos{(ka)} &= KDe^{-\kappa a} = -KCe^{-\kappa a}
-\end{split}
+    \begin{split}
+        B\sin{(ka)} &= Ce^{-\kappa a} \\
+        kB\cos{(ka)} &= -KCe^{-\kappa a} \\
+        -B\sin{(ka)} &= De^{-\kappa a} = -Ce^{-\kappa a} \\
+        kB\cos{(ka)} &= KDe^{-\kappa a} = -KCe^{-\kappa a}
+    \end{split}
 \end{equation}
 
 These can be solved to give:
@@ -276,7 +276,7 @@ Consider the potential well:
     V(x) =
     \begin{cases}
         -V_{0} & \left\lvert x \right\rvert < a \\
-        0 & \text{otherwise}
+        0      & \text{otherwise}
     \end{cases}
 \end{equation}
 
@@ -285,7 +285,7 @@ The solutions are:
 \begin{equation}
     \psi(x) =
     \begin{cases}
-        De^{ikx} + re^{-ikx} & x < -a \\
+        De^{ikx} + re^{-ikx} & x < -a     \\
         Ae^{iKx} + Be^{-iKx} & -a < x < a \\
         Ce^{-ikx} + te^{ikx} & x > a
     \end{cases}
@@ -296,12 +296,12 @@ where $k \equiv \sqrt{2mE}/\hbar$ and $K \equiv \sqrt{2m(V_{0} + E)}/\hbar$.
 Let us set $D = 1$ and $C = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
 
 \begin{equation}
-\begin{split}
-    e^{-ika} + re^{ika} &= Ae^{-iKa} + Be^{iKa} \\
-    ik(e^{-ika} - re^{ika}) &= iK(Ae^{-iKa} - Be^{iKa}) \\
-    te^{ika} &= Ae^{iKa} + Be^{-iKa} \\
-    ikt e^{ika} &= iK(Ae^{iKa} - Be^{-iKa})
-\end{split}
+    \begin{split}
+        e^{-ika} + re^{ika} &= Ae^{-iKa} + Be^{iKa} \\
+        ik(e^{-ika} - re^{ika}) &= iK(Ae^{-iKa} - Be^{iKa}) \\
+        te^{ika} &= Ae^{iKa} + Be^{-iKa} \\
+        ikt e^{ika} &= iK(Ae^{iKa} - Be^{-iKa})
+    \end{split}
 \end{equation}
 
 These can be solved to give an expression for $r$:
@@ -330,10 +330,10 @@ where $k \equiv \sqrt{2mE}/\hbar$.
 Again, let $B = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ at $x = 0$ gives $A + r = t$. The continuity condition on $\psi'(x)$ is obtained by integrating the TISE around $x = 0$:
 
 \begin{equation}
-\begin{split}
-    0 &= \lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} \left[ -\frac{\hbar^{2}}{2m} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} + V_{\delta} \delta(x) \psi - E \psi \right] \, \mathrm{d}x \\
-    &= -\frac{\hbar^{2}}{2m} \left[ \psi'(0^{+}) - \psi'(0^{-}) \right] + V_{\delta} \psi(0)
-\end{split}
+    \begin{split}
+        0 &= \lim_{\epsilon \to 0} \int_{-\epsilon}^{\epsilon} \left[ -\frac{\hbar^{2}}{2m} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} + V_{\delta} \delta(x) \psi - E \psi \right] \, \mathrm{d}x \\
+        &= -\frac{\hbar^{2}}{2m} \left[ \psi'(0^{+}) - \psi'(0^{-}) \right] + V_{\delta} \psi(0)
+    \end{split}
 \end{equation}
 
 which means:
@@ -362,21 +362,21 @@ Given the definition of the probability current density:
 we evaluate:
 
 \begin{equation}
-\begin{split}
-    \psi &= A e^{i(kz - \omega t)} + B e^{-i(kz - \omega t)} \\
-    \psi^{*} &= A^{*} e^{-i(kz - \omega t)} + B^{*} e^{i(kz - \omega t)} \\
-    \nabla \psi &= ik \left[ A e^{i(kz - \omega t)} - B e^{-i(kz - \omega t)} \right] \hat{z} \\
-    \nabla \psi^{*} &= -ik \left[ A^{*} e^{-i(kz - \omega t)} - B^{*} e^{i(kz - \omega t)} \right] \hat{z}
-\end{split}
+    \begin{split}
+        \psi &= A e^{i(kz - \omega t)} + B e^{-i(kz - \omega t)} \\
+        \psi^{*} &= A^{*} e^{-i(kz - \omega t)} + B^{*} e^{i(kz - \omega t)} \\
+        \nabla \psi &= ik \left[ A e^{i(kz - \omega t)} - B e^{-i(kz - \omega t)} \right] \hat{z} \\
+        \nabla \psi^{*} &= -ik \left[ A^{*} e^{-i(kz - \omega t)} - B^{*} e^{i(kz - \omega t)} \right] \hat{z}
+    \end{split}
 \end{equation}
 
 so that:
 
 \begin{equation}
-\begin{split}
-    \mathbf{J}(\mathbf{r}, t) &= \hat{z} \frac{-\hbar k}{2m} \left( -2\left\lvert A \right\rvert^{2} + 2\left\lvert B \right\rvert^{2} \right) \\
-    &= \frac{\hbar k}{m} \left( \left\lvert A \right\rvert^{2} - \left\lvert B \right\rvert^{2} \right) \hat{z}
-\end{split}
+    \begin{split}
+        \mathbf{J}(\mathbf{r}, t) &= \hat{z} \frac{-\hbar k}{2m} \left( -2\left\lvert A \right\rvert^{2} + 2\left\lvert B \right\rvert^{2} \right) \\
+        &= \frac{\hbar k}{m} \left( \left\lvert A \right\rvert^{2} - \left\lvert B \right\rvert^{2} \right) \hat{z}
+    \end{split}
 \end{equation}
 
 The probability is proportional to the speed of the wave packet, and the minus sign is due to opposite directions of the wave packets.
@@ -405,10 +405,10 @@ For a wave function of the form:
 its momentum representation is the integral:
 
 \begin{equation}
-\begin{split}
-    \braket{p}{\psi(0)} &= \int \braket{p}{x} \braket{x}{\psi(0)} \, \mathrm{d}x \\
-    &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{1}{2\pi \sigma^{2}} \right)^{1/4} \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x \\
-\end{split}
+    \begin{split}
+        \braket{p}{\psi(0)} &= \int \braket{p}{x} \braket{x}{\psi(0)} \, \mathrm{d}x \\
+        &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{1}{2\pi \sigma^{2}} \right)^{1/4} \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x \\
+    \end{split}
 \end{equation}
 
 Consider the change of variable:
@@ -420,10 +420,10 @@ Consider the change of variable:
 We have:
 
 \begin{equation}
-\begin{split}
-    \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x &= 2\sigma \int \exp \left[ -y^{2} - \left( \frac{p_{0} - p}{\hbar} \right)^{2} \sigma^{2} \right] \, \mathrm{d}y \\
-    &= \exp \left[ -\frac{(p_{0} - p)\sigma}{\hbar} \right]^{2} 2\sigma \sqrt{\pi}
-\end{split}
+    \begin{split}
+        \int \exp \left[ -\frac{x^{2}}{4\sigma^{2}} + \frac{i(p_{0} - p)x}{\hbar} \right] \, \mathrm{d}x &= 2\sigma \int \exp \left[ -y^{2} - \left( \frac{p_{0} - p}{\hbar} \right)^{2} \sigma^{2} \right] \, \mathrm{d}y \\
+        &= \exp \left[ -\frac{(p_{0} - p)\sigma}{\hbar} \right]^{2} 2\sigma \sqrt{\pi}
+    \end{split}
 \end{equation}
 
 so that the momentum representation is:
@@ -444,7 +444,7 @@ Consider a momentum eigenstate $\ket{p}$ that satisfies $\hat{p} \ket{p} = p \ke
     \hat{H} \ket{p} = \frac{\hat{p}^{2}}{2m} \ket{p} = \frac{p^{2}}{2m} \ket{p}
 \end{equation}
 
-which means that $\ket{p}$ is also an energy eigenstate with the eigenvalue $p^{2}/2m$. 
+which means that $\ket{p}$ is also an energy eigenstate with the eigenvalue $p^{2}/2m$.
 
 The time-evolution of a momentum eigenstate $\ket{p}$ is hence given by:
 
@@ -455,22 +455,22 @@ The time-evolution of a momentum eigenstate $\ket{p}$ is hence given by:
 We may write $\ket{\psi(0)}$ as a superposition of momentum eigenstates so that its time-evolution is:
 
 \begin{equation}
-\begin{split}
-    \ket{\psi(t)} &= e^{-i\hat{H}t/\hbar} \ket{\psi(0)} \\
-    &= \int e^{-i\hat{H}t/\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p \\
-    &= \int e^{-ip^{2}t/2m\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p
-\end{split}
+    \begin{split}
+        \ket{\psi(t)} &= e^{-i\hat{H}t/\hbar} \ket{\psi(0)} \\
+        &= \int e^{-i\hat{H}t/\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p \\
+        &= \int e^{-ip^{2}t/2m\hbar} \ket{p} \braket{p}{\psi(0)} \, \mathrm{d}p
+    \end{split}
 \end{equation}
 
 Then the position representation of $\ket{\psi(t)}$ is:
 
 \begin{equation}
-\begin{split}
-    \psi(x, t) &= \braket{x}{\psi(t)} \\
-    &= \int \exp \left( -\frac{ip^{2}t}{2m\hbar} \right) \braket{x}{p} \braket{p}{\psi(0)} \, \mathrm{d}p  \\
-    &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{2\sigma^{2}}{\pi \hbar^{2}} \right)^{1/4} \int \exp \left[ -\frac{ip^{2}t}{2m\hbar} + \frac{ipx}{\hbar} - \frac{(p_{0} - p)^{2}\sigma^{2}}{\hbar^{2}} \right] \, \mathrm{d}p \\
-    &= \left( \frac{2}{\pi} \right)^{1/4} \frac{1}{\sqrt{2\sigma + i\hbar t/m\sigma}} \exp \left[ -\frac{4mp_{0} \sigma^{2} x - 2p_{0}^{2} \sigma^{2} t + i\hbar mx^{2}}{-2\hbar^{2} t + 4i\hbar m \sigma^{2}} \right]
-\end{split}
+    \begin{split}
+        \psi(x, t) &= \braket{x}{\psi(t)} \\
+        &= \int \exp \left( -\frac{ip^{2}t}{2m\hbar} \right) \braket{x}{p} \braket{p}{\psi(0)} \, \mathrm{d}p  \\
+        &= \frac{1}{\sqrt{2\pi\hbar}} \left( \frac{2\sigma^{2}}{\pi \hbar^{2}} \right)^{1/4} \int \exp \left[ -\frac{ip^{2}t}{2m\hbar} + \frac{ipx}{\hbar} - \frac{(p_{0} - p)^{2}\sigma^{2}}{\hbar^{2}} \right] \, \mathrm{d}p \\
+        &= \left( \frac{2}{\pi} \right)^{1/4} \frac{1}{\sqrt{2\sigma + i\hbar t/m\sigma}} \exp \left[ -\frac{4mp_{0} \sigma^{2} x - 2p_{0}^{2} \sigma^{2} t + i\hbar mx^{2}}{-2\hbar^{2} t + 4i\hbar m \sigma^{2}} \right]
+    \end{split}
 \end{equation}
 
 where the integral can be evaluated using a substitution similar to the previous one.

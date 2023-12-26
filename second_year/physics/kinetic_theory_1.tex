@@ -26,17 +26,17 @@
 For a uniform distribution in the range $(0, \pi)$, the probability density function is $p(\theta) = \frac{1}{\pi}$. The expectation values are:
 
 \begin{equation}
-\begin{split}
-    \left\langle \theta \right\rangle &= \int \theta p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta \, \mathrm{d}\theta = \frac{\pi}{2} \\
-    \left\langle \theta - \frac{\pi}{2} \right\rangle &= \left\langle \theta \right\rangle - \frac{\pi}{2} = 0 \\
-    \left\langle \theta^{2} \right\rangle &= \int \theta^{2} p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta^{2} \, \mathrm{d}\theta = \frac{\pi^{2}}{3} \\
-    \left\langle \theta^{n} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \theta^{n} \, \mathrm{d}\theta = \frac{\pi^{n}}{n+1} \quad \text{for } n \ge 0 \\
-    \left\langle \cos{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \cos{\theta} \, \mathrm{d}\theta = 0 \\
-    \left\langle \sin{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \sin{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
-    \left\langle \left\lvert \cos{\theta} \right\rvert \right\rangle &= \frac{2}{\pi} \int_{0}^{\pi/2} \cos{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
-    \left\langle \cos^{2}{\theta} \right\rangle &= \left\langle \sin^{2}{\theta} \right\rangle = \frac{1}{\pi} \int_{0}^{\pi} \cos^{2}{\theta} \, \mathrm{d}\theta = \frac{1}{2} \\
-    \left\langle \cos^{2}{\theta} + \sin^{2}{\theta} \right\rangle &= 1
-\end{split}
+    \begin{split}
+        \left\langle \theta \right\rangle &= \int \theta p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta \, \mathrm{d}\theta = \frac{\pi}{2} \\
+        \left\langle \theta - \frac{\pi}{2} \right\rangle &= \left\langle \theta \right\rangle - \frac{\pi}{2} = 0 \\
+        \left\langle \theta^{2} \right\rangle &= \int \theta^{2} p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta^{2} \, \mathrm{d}\theta = \frac{\pi^{2}}{3} \\
+        \left\langle \theta^{n} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \theta^{n} \, \mathrm{d}\theta = \frac{\pi^{n}}{n+1} \quad \text{for } n \ge 0 \\
+        \left\langle \cos{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \cos{\theta} \, \mathrm{d}\theta = 0 \\
+        \left\langle \sin{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \sin{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
+        \left\langle \left\lvert \cos{\theta} \right\rvert \right\rangle &= \frac{2}{\pi} \int_{0}^{\pi/2} \cos{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
+        \left\langle \cos^{2}{\theta} \right\rangle &= \left\langle \sin^{2}{\theta} \right\rangle = \frac{1}{\pi} \int_{0}^{\pi} \cos^{2}{\theta} \, \mathrm{d}\theta = \frac{1}{2} \\
+        \left\langle \cos^{2}{\theta} + \sin^{2}{\theta} \right\rangle &= 1
+    \end{split}
 \end{equation}
 
 \subproblem{b}
@@ -64,11 +64,11 @@ which is still generally not uniformly distributed.
 The fraction of particles with the speeds $[\mathbf{v}, \mathbf{v} + \mathrm{d}\mathbf{v}]$ is given by:
 
 \begin{equation}
-\begin{split}
-    f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= f(v) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
-    &= f(v) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
-    &\equiv \tilde{f}(v) \, \mathrm{d}v
-\end{split}
+    \begin{split}
+        f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= f(v) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
+        &= f(v) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+        &\equiv \tilde{f}(v) \, \mathrm{d}v
+    \end{split}
 \end{equation}
 
 Integrating the second equality over $\theta$ and $\phi$ gives:
@@ -81,10 +81,10 @@ Integrating the second equality over $\theta$ and $\phi$ gives:
 First note that the expectation values of speeds are:
 
 \begin{equation}
-\begin{split}
-    \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = 4\pi \int v^{3} f(v) \, \mathrm{d}v \\
-    \left\langle v^{2} \right\rangle &= \int v^{2} \tilde{f}(v) \, \mathrm{d}v
-\end{split}
+    \begin{split}
+        \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = 4\pi \int v^{3} f(v) \, \mathrm{d}v \\
+        \left\langle v^{2} \right\rangle &= \int v^{2} \tilde{f}(v) \, \mathrm{d}v
+    \end{split}
 \end{equation}
 
 \subsubproblem{i}
@@ -121,10 +121,10 @@ where the normalisation constant $A$ is given by:
 The expectation values of speeds are:
 
 \begin{equation}
-\begin{split}
-    \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v^{3} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} v_{\text{th}} \\
-    \left\langle 1/v \right\rangle &= \int \frac{1}{v} \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} \frac{1}{v_{\text{th}}} \\
-\end{split}
+    \begin{split}
+        \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v^{3} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} v_{\text{th}} \\
+        \left\langle 1/v \right\rangle &= \int \frac{1}{v} \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} \frac{1}{v_{\text{th}}} \\
+    \end{split}
 \end{equation}
 
 so that $\left\langle v \right\rangle \left\langle 1/v \right\rangle = 4/\pi$.
@@ -132,12 +132,12 @@ so that $\left\langle v \right\rangle \left\langle 1/v \right\rangle = 4/\pi$.
 \subproblem{b}
 
 \begin{equation}
-\begin{split}
-    \left\langle v^{2} \right\rangle &= A \int_{0}^{\infty} v^{4} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{3}{2} v_{\text{th}}^{2} \\
-    \left\langle v^{3} \right\rangle &= A \int_{0}^{\infty} v^{5} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{4}{\sqrt{\pi}} v_{\text{th}}^{3} \\
-    \left\langle v^{4} \right\rangle &= A \int_{0}^{\infty} v^{6} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{15}{4} v_{\text{th}}^{4} \\
-    \left\langle v^{5} \right\rangle &= A \int_{0}^{\infty} v^{7} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{12}{\sqrt{\pi}} v_{\text{th}}^{5} \\
-\end{split}
+    \begin{split}
+        \left\langle v^{2} \right\rangle &= A \int_{0}^{\infty} v^{4} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{3}{2} v_{\text{th}}^{2} \\
+        \left\langle v^{3} \right\rangle &= A \int_{0}^{\infty} v^{5} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{4}{\sqrt{\pi}} v_{\text{th}}^{3} \\
+        \left\langle v^{4} \right\rangle &= A \int_{0}^{\infty} v^{6} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{15}{4} v_{\text{th}}^{4} \\
+        \left\langle v^{5} \right\rangle &= A \int_{0}^{\infty} v^{7} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{12}{\sqrt{\pi}} v_{\text{th}}^{5} \\
+    \end{split}
 \end{equation}
 
 \subproblem{c}
@@ -150,19 +150,19 @@ Consider the integral $I_{n} \equiv \int_{0}^{\infty} x^{n} e^{-ax^{2}} \, \math
 From explicit calculation, we have $I_{0} = \sqrt{\pi}/2\sqrt{a}$ and $I_{1} = 1/2a$. This recurrence relation can be solved to give any $I_{n}$:
 
 \begin{equation}
-\begin{split}
-    I_{2n} &= \frac{(2n-1)(2n-3)\cdots 1}{2^{n} a^{n}} \frac{\sqrt{\pi}}{2\sqrt{a}} = \frac{(2n)!}{2^{2n} n!} \frac{\sqrt{\pi}}{2\sqrt{a}} \\
-    I_{2n+1} &= \frac{(2n)(2n-2)\cdots 2}{2^{n} a^{n+1}} \frac{1}{2a} = \frac{(2n)!}{2^{2n+1} n!} \frac{1}{2a}
-\end{split}
+    \begin{split}
+        I_{2n} &= \frac{(2n-1)(2n-3)\cdots 1}{2^{n} a^{n}} \frac{\sqrt{\pi}}{2\sqrt{a}} = \frac{(2n)!}{2^{2n} n!} \frac{\sqrt{\pi}}{2\sqrt{a}} \\
+        I_{2n+1} &= \frac{(2n)(2n-2)\cdots 2}{2^{n} a^{n+1}} \frac{1}{2a} = \frac{(2n)!}{2^{2n+1} n!} \frac{1}{2a}
+    \end{split}
 \end{equation}
 
 Therefore, the expectation values of speeds are:
 
 \begin{equation}
-\begin{split}
-    \left\langle v^{2n} \right\rangle &= A I_{2n} = \frac{(2n)!}{2^{2n} n!} \frac{4}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2\sqrt{1/v_{\text{th}}}} \\
-    \left\langle v^{2n+1} \right\rangle &= A I_{2n+1} = \frac{(2n)!}{2^{2n+1} n!} \frac{4}{\sqrt{\pi}} v_{\text{th}}^{2n+1}  
-\end{split}
+    \begin{split}
+        \left\langle v^{2n} \right\rangle &= A I_{2n} = \frac{(2n)!}{2^{2n} n!} \frac{4}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2\sqrt{1/v_{\text{th}}}} \\
+        \left\langle v^{2n+1} \right\rangle &= A I_{2n+1} = \frac{(2n)!}{2^{2n+1} n!} \frac{4}{\sqrt{\pi}} v_{\text{th}}^{2n+1}
+    \end{split}
 \end{equation}
 \qed
 
@@ -247,10 +247,10 @@ Let us rewrite the trigonometric function as:
 so that the total pressure is:
 
 \begin{equation}
-\begin{split}
-    p &= mn \int_{0}^{\infty} \int_{0}^{\pi} v^{2} \left( \cos^{2}{\theta} \cos^{2}{\alpha} + \sin^{2}{\theta} \sin^{2}{\alpha} - \frac{1}{2} \sin{2\theta} \sin{2\alpha} \right) g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta \\
-    &= \cos^{2}\alpha p_{\parallel} + \sin^{2}\alpha p_{\perp}
-\end{split}
+    \begin{split}
+        p &= mn \int_{0}^{\infty} \int_{0}^{\pi} v^{2} \left( \cos^{2}{\theta} \cos^{2}{\alpha} + \sin^{2}{\theta} \sin^{2}{\alpha} - \frac{1}{2} \sin{2\theta} \sin{2\alpha} \right) g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta \\
+        &= \cos^{2}\alpha p_{\parallel} + \sin^{2}\alpha p_{\perp}
+    \end{split}
 \end{equation}
 
 where the $\sin{2\theta}$ term vanishes because of the symmetry of the integrand about $\theta = 0$.
@@ -332,9 +332,9 @@ where the normalisation constant is given by:
 For a screen perpendicular to the z-axis, the number of particles hitting the screen with speeds in $[v, v + \mathrm{d}v]$ at angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
 
 \begin{equation}
-\begin{split}
-    \frac{1}{2} nv g(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
-\end{split}
+    \begin{split}
+        \frac{1}{2} nv g(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
+    \end{split}
 \end{equation}
 
 In other words, these particles follow the distribution function that is proportional to $v g(v)$. The most probable speed is given by:
@@ -528,7 +528,7 @@ These particles carry an energy of $mv^{2}/2$ per molecule, so the differential 
 Integrating this leads to the total energy flux:
 
 \begin{equation}
-    A\tilde{\Phi}_{E} = \frac{1}{8} nmA \left\langle v^{3} \right\rangle = \frac{mA}{2\sqrt{\pi}} \left( \frac{2k_{B}}{m} \right)^{3/2} T^{3/2} \frac{N}{V} 
+    A\tilde{\Phi}_{E} = \frac{1}{8} nmA \left\langle v^{3} \right\rangle = \frac{mA}{2\sqrt{\pi}} \left( \frac{2k_{B}}{m} \right)^{3/2} T^{3/2} \frac{N}{V}
 \end{equation}
 
 which leads to a differential equation for the total energy:
@@ -548,10 +548,10 @@ But the total (kinetic) energy and the temperature of the gas are related by $E 
 Now we have a set of coupled differential equations for $T(t)$ and $N(t)$:
 
 \begin{equation}
-\begin{split}
-    \dot{N} = -\kappa T^{1/2} N \\
-    N\dot{T} + T\dot{N} = -\beta T^{3/2} N
-\end{split}
+    \begin{split}
+        \dot{N} = -\kappa T^{1/2} N \\
+        N\dot{T} + T\dot{N} = -\beta T^{3/2} N
+    \end{split}
 \end{equation}
 
 where $\beta \equiv 2\gamma/3k_{B} = 2\kappa/3$.
@@ -597,12 +597,12 @@ Apparently the probability of finding one particle in $V \in \mathcal{V}$ is $P 
 We can rewrite $P_{N}$ in the limit $\mathcal{N}, \mathcal{V}$ while keeping $n = \mathcal{N}/\mathcal{V}$ constant:
 
 \begin{equation}
-\begin{split}
-    P_{N} &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{V}} \right)^{N} \left( 1 - \frac{V}{\mathcal{V}} \right)^{\mathcal{N} - N} \\
-    &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{N}} \right)^{N} \left( \frac{\mathcal{N}}{\mathcal{V}} \right)^{N} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N} - N} \\
-    &= \frac{1}{N!} (nV)^{N} \frac{\mathcal{N}!/\mathcal{N}^{N}}{(\mathcal{N} - N)!} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N}} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{-N} \\
-    &\approx e^{-nV} \frac{(nV)^{N}}{N!}
-\end{split}
+    \begin{split}
+        P_{N} &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{V}} \right)^{N} \left( 1 - \frac{V}{\mathcal{V}} \right)^{\mathcal{N} - N} \\
+        &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{N}} \right)^{N} \left( \frac{\mathcal{N}}{\mathcal{V}} \right)^{N} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N} - N} \\
+        &= \frac{1}{N!} (nV)^{N} \frac{\mathcal{N}!/\mathcal{N}^{N}}{(\mathcal{N} - N)!} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N}} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{-N} \\
+        &\approx e^{-nV} \frac{(nV)^{N}}{N!}
+    \end{split}
 \end{equation}
 
 which is the Poisson distribution with mean $nV$.
@@ -642,10 +642,10 @@ The maximum of the density distribution is given by differentiation:
 For large $k$, we make use of the approximation $k! \approx \sqrt{2\pi k} (k/e)^{k}$ so that:
 
 \begin{equation}
-\begin{split}
-    \frac{\mathrm{d}}{\mathrm{d}k} \left( \frac{\lambda^{k}}{k!} e^{-\lambda} \right) &\approx \frac{e^{-\lambda}}{\sqrt{2\pi}} \frac{\mathrm{d}}{\mathrm{d}k} \left[ \frac{\lambda^{k}}{\sqrt{k} (k/e)^{k}} \right] \\
-    &\propto 2k (\ln{\lambda} - \ln{k}) - 1
-\end{split}
+    \begin{split}
+        \frac{\mathrm{d}}{\mathrm{d}k} \left( \frac{\lambda^{k}}{k!} e^{-\lambda} \right) &\approx \frac{e^{-\lambda}}{\sqrt{2\pi}} \frac{\mathrm{d}}{\mathrm{d}k} \left[ \frac{\lambda^{k}}{\sqrt{k} (k/e)^{k}} \right] \\
+        &\propto 2k (\ln{\lambda} - \ln{k}) - 1
+    \end{split}
 \end{equation}
 
 For large $k$, we ignore the constant term and the derivative is zero when $\ln{\lambda} = \ln{k}$, i.e., $k = \lambda = \left\langle N \right\rangle = nV$. Consider the logarithm of the density distribution, which we define as $h(k)$:
@@ -657,10 +657,10 @@ For large $k$, we ignore the constant term and the derivative is zero when $\ln{
 Taylor expanding this around $k = \lambda$ gives:
 
 \begin{equation}
-\begin{split}
-    h(k) &\approx h(\lambda) + (k - \lambda) h'(\lambda) + \frac{1}{2} (k - \lambda)^{2} h''(\lambda) \\
-    &= -\frac{1}{2\lambda} (k - \lambda)^{2}
-\end{split}
+    \begin{split}
+        h(k) &\approx h(\lambda) + (k - \lambda) h'(\lambda) + \frac{1}{2} (k - \lambda)^{2} h''(\lambda) \\
+        &= -\frac{1}{2\lambda} (k - \lambda)^{2}
+    \end{split}
 \end{equation}
 
 which means that we can write the density distribution as:

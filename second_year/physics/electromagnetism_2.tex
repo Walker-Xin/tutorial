@@ -49,11 +49,11 @@ The dielectric material inserted causes a change in the permittivity $\epsilon_{
 Apply Gauss' law for electric displacement $\mathbf{D}$ with a small box-shape Gaussian surface:
 
 \begin{equation}
-\begin{split}
-    \oint_{S} \mathbf{D} \cdot \mathrm{d}\mathbf{S} &= Q_{f} \\
-    D \alpha &= \frac{Q\alpha}{A} \\
-    \epsilon_{0} E + P &= \frac{Q}{A}
-\end{split}
+    \begin{split}
+        \oint_{S} \mathbf{D} \cdot \mathrm{d}\mathbf{S} &= Q_{f} \\
+        D \alpha &= \frac{Q\alpha}{A} \\
+        \epsilon_{0} E + P &= \frac{Q}{A}
+    \end{split}
 \end{equation}
 
 which gives $E = (Q/A - P)/\epsilon_{0}$.
@@ -95,21 +95,21 @@ The capacitance is a property of geometry and material (permittivity) so it is u
 Label the regions from $1$ to $4$ from left to right as depicted in the figure. Apparently the electric fields and polarisations in region $1$ and $4$ are zero. Applying Gauss' law in region $2$ and $3$ gives:
 
 \begin{equation}
-\begin{split}
-    D_{2} \alpha &= \sigma \alpha = (\epsilon_{0} E_{2} + P) \alpha \\
-    D_{3} \alpha &= \sigma \alpha = \epsilon_{0} E_{3} \alpha
-\end{split}
+    \begin{split}
+        D_{2} \alpha &= \sigma \alpha = (\epsilon_{0} E_{2} + P) \alpha \\
+        D_{3} \alpha &= \sigma \alpha = \epsilon_{0} E_{3} \alpha
+    \end{split}
 \end{equation}
 
 Solving the equations gives $E_{2} = \sigma/\epsilon_{0} \epsilon_{r}$, $P = (1 - 1/\epsilon_{r}) \sigma$, and $E_{3} = \sigma/\epsilon_{0}$. Thus:
 
 \begin{equation}
-\begin{split}
-    \mathbf{D}_{2} &= \mathbf{D}_{3} = \sigma \hat{x} \\
-    \mathbf{E}_{2} &= \frac{\sigma}{\epsilon_{0} \epsilon_{r}} \hat{x} \\
-    \mathbf{E}_{3} &= \frac{\sigma}{\epsilon_{0}} \hat{x} \\
-    \mathbf{P} &= \left( 1 - \frac{1}{\epsilon_{r}} \right) \sigma \hat{x}
-\end{split}
+    \begin{split}
+        \mathbf{D}_{2} &= \mathbf{D}_{3} = \sigma \hat{x} \\
+        \mathbf{E}_{2} &= \frac{\sigma}{\epsilon_{0} \epsilon_{r}} \hat{x} \\
+        \mathbf{E}_{3} &= \frac{\sigma}{\epsilon_{0}} \hat{x} \\
+        \mathbf{P} &= \left( 1 - \frac{1}{\epsilon_{r}} \right) \sigma \hat{x}
+    \end{split}
 \end{equation}
 
 where $\hat{x}$ is the unit vector pointing from the positive plate to the negative one.
@@ -118,10 +118,10 @@ where $\hat{x}$ is the unit vector pointing from the positive plate to the negat
 Taking the negative plate as the reference point, the potential difference between the plates is:
 
 \begin{equation}
-\begin{split}
-    V &= \int_{0}^{d} E_{2} \, \mathrm{d}x + \int_{d}^{2d} E_{3} \, \mathrm{d}x \\
-    &= \left( \frac{1}{\epsilon_{0} \epsilon_{r}} + \frac{1}{\epsilon_{0}} \right) \sigma d \\
-\end{split}
+    \begin{split}
+        V &= \int_{0}^{d} E_{2} \, \mathrm{d}x + \int_{d}^{2d} E_{3} \, \mathrm{d}x \\
+        &= \left( \frac{1}{\epsilon_{0} \epsilon_{r}} + \frac{1}{\epsilon_{0}} \right) \sigma d \\
+    \end{split}
 \end{equation}
 
 The capacitance is:
@@ -136,7 +136,7 @@ Note that:
     \frac{1}{C} = \frac{d}{A} \left( \frac{1}{\epsilon_{0} \epsilon_{r}} + \frac{1}{\epsilon_{0}} \right) = \frac{1}{C_{1}} + \frac{1}{C_{2}}
 \end{equation}
 
-where $C_{1}$ is the capacitance of the left half and $C_{2}$ is the capacitance of the right half. 
+where $C_{1}$ is the capacitance of the left half and $C_{2}$ is the capacitance of the right half.
 
 This is as though the capacitance of two capacitors in series.
 
@@ -156,12 +156,12 @@ On the interface between region $2$ and $3$:
 Using all surface charge densities, the electric field in four regions are:
 
 \begin{equation}
-\begin{split}
-    \mathbf{E}_{1} &= \frac{\sigma}{2\epsilon_{0}} \left[ -\frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = 0 \\
-    \mathbf{E}_{2} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}\epsilon_{r}} \hat{x} \\
-    \mathbf{E}_{3} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}} \hat{x} \\
-    \mathbf{E}_{4} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) - 1 \right] \hat{x} = 0
-\end{split}
+    \begin{split}
+        \mathbf{E}_{1} &= \frac{\sigma}{2\epsilon_{0}} \left[ -\frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = 0 \\
+        \mathbf{E}_{2} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} - \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}\epsilon_{r}} \hat{x} \\
+        \mathbf{E}_{3} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) + 1 \right] \hat{x} = \frac{\sigma}{\epsilon_{0}} \hat{x} \\
+        \mathbf{E}_{4} &= \frac{\sigma}{2\epsilon_{0}} \left[ \frac{1}{\epsilon_{r}} + \left( 1 - \frac{1}{\epsilon_{r}} \right) - 1 \right] \hat{x} = 0
+    \end{split}
 \end{equation}
 
 which are the same as the results in part (a).
@@ -200,12 +200,12 @@ where we have defined $s \equiv L + (\epsilon_{r} - 1)x$.
 The potential difference between the plates is just $V = E'' d$ and the potential energy stored in the capacitor consists of two parts:
 
 \begin{equation}
-\begin{split}
-    U &= \frac{\epsilon_{0}}{2} E''^{2} (L-x)wd + \frac{\epsilon_{0} \epsilon_{r}}{2} E'^{2} xwd \\
-    &= \frac{\epsilon_{0}wd}{2} \left( \frac{\sigma''}{\epsilon_{0}} \right)^{2} (L - x + \epsilon_{r} x) \\
-    &= \frac{wd}{2\epsilon_{0}} \left( \frac{Q}{sw} \right)^{2} s \\
-    &= \frac{Q^{2}d}{2w} \frac{1}{L + (\epsilon_{r} - 1)x}
-\end{split}
+    \begin{split}
+        U &= \frac{\epsilon_{0}}{2} E''^{2} (L-x)wd + \frac{\epsilon_{0} \epsilon_{r}}{2} E'^{2} xwd \\
+        &= \frac{\epsilon_{0}wd}{2} \left( \frac{\sigma''}{\epsilon_{0}} \right)^{2} (L - x + \epsilon_{r} x) \\
+        &= \frac{wd}{2\epsilon_{0}} \left( \frac{Q}{sw} \right)^{2} s \\
+        &= \frac{Q^{2}d}{2w} \frac{1}{L + (\epsilon_{r} - 1)x}
+    \end{split}
 \end{equation}
 
 Differentiating the energy with respect to $x$ gives:
@@ -232,11 +232,11 @@ If $V = E'' d$ is kept constant, we have $E''$ constant so that $\sigma''$ is co
 and the force is:
 
 \begin{equation}
-\begin{split}
-    F &= -\frac{wd\sigma''^{2}}{2\epsilon_{0}} (\epsilon_{r} - 1) \\
-    &= -\frac{wd}{2\epsilon_{0}} \left( \frac{Q}{sw} \right)^{2} (\epsilon_{r} - 1) \\
-    &= -\frac{Q^{2}d}{2w} \frac{\epsilon_{r} - 1}{[L + (\epsilon_{r} - 1)x]^{2}} < 0
-\end{split}
+    \begin{split}
+        F &= -\frac{wd\sigma''^{2}}{2\epsilon_{0}} (\epsilon_{r} - 1) \\
+        &= -\frac{wd}{2\epsilon_{0}} \left( \frac{Q}{sw} \right)^{2} (\epsilon_{r} - 1) \\
+        &= -\frac{Q^{2}d}{2w} \frac{\epsilon_{r} - 1}{[L + (\epsilon_{r} - 1)x]^{2}} < 0
+    \end{split}
 \end{equation}
 
 which has the same magnitude as the previous result but with opposite direction.
@@ -255,7 +255,7 @@ Given $\mathbf{P} = k \mathbf{r}$, the surface charge density on the sphere is:
     \sigma_{b} = \mathbf{P} \cdot \hat{r} = kR
 \end{equation}
 
-where $\mathbf{P}$ is evaluated at the surface of the sphere. 
+where $\mathbf{P}$ is evaluated at the surface of the sphere.
 
 The volume bound charge density is:
 
@@ -285,11 +285,11 @@ Outside the sphere, both surface and volume charge densities contribute to Gauss
 Thus, the electric field is given by:
 
 \begin{equation}
-\mathbf{E} =
-\begin{cases}
-    -k \mathbf{r}/\epsilon_{0} & r < R \\
-    0 & r > R
-\end{cases}
+    \mathbf{E} =
+    \begin{cases}
+        -k \mathbf{r}/\epsilon_{0} & r < R \\
+        0                          & r > R
+    \end{cases}
 \end{equation}
 
 \subproblem{c}
@@ -306,20 +306,20 @@ Inside the sphere, the electric displacement is $\mathbf{D} = \epsilon_{0} \math
 \problem{2.5}{$\mathbf{B}$, $\mathbf{H}$, and $\mathbf{M}$ in a bar magnet}
 
 \begin{tikzpicture}[scale = 2.3]
-\begin{axis}[
-    title = ,
-    xmin=-15, xmax=15,
-    ymin=-10, ymax=10,
-    grid=both,
-    grid style={line width=.1pt, draw=gray!10},
-    major grid style={line width=.2pt,draw=gray!50},
-    axis lines*=middle,
-    minor tick num=5,
-    xtick style={draw=none},ytick style={draw=none},
-    xticklabels={, ,},yticklabels={, ,},
-    axis equal image
-    ]
-\end{axis}
+    \begin{axis}[
+            title = ,
+            xmin=-15, xmax=15,
+            ymin=-10, ymax=10,
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10},
+            major grid style={line width=.2pt,draw=gray!50},
+            axis lines*=middle,
+            minor tick num=5,
+            xtick style={draw=none},ytick style={draw=none},
+            xticklabels={, ,},yticklabels={, ,},
+            axis equal image
+        ]
+    \end{axis}
 \end{tikzpicture}
 
 \qed
@@ -342,16 +342,16 @@ The volume bound current density is:
     \mathbf{J}_{b} = \nabla \times \mathbf{M} = -k \hat{\phi}
 \end{equation}
 
-Since both $\mathbf{K}_{b}$ and $\mathbf{J}_{b}$ are circumferential, we expect the magnetic field to be along the axis of the cylinder. Due to azimuthal symmetry and infinite length, it can be asserted that the field has no $z$ or $\phi$ dependence. 
+Since both $\mathbf{K}_{b}$ and $\mathbf{J}_{b}$ are circumferential, we expect the magnetic field to be along the axis of the cylinder. Due to azimuthal symmetry and infinite length, it can be asserted that the field has no $z$ or $\phi$ dependence.
 
 Consider a point $(h, 0, 0)$ on the perpendicular bisector of the cylinder. Using Biot-Savart law, we first compute the magnetic field due to the surface bound current density:
 
 \begin{equation}
-\begin{split}
-    \mathbf{B}_{1} &= \frac{\mu_{0}}{4\pi} \int_{S} \frac{\mathbf{K}_{b} \times \mathbf{r}'}{r'^{3}} \, \mathrm{d}S \\
-    &= -\frac{\mu_{0}kR^{2}}{4\pi} \int_{-\infty}^{\infty} \int_{0}^{\phi} \frac{\hat{\phi} \times [z \hat{z} + (R-h) \hat{r}]}{[z^{2} + (R-h)^{2}]^{3/2}} \, \mathrm{d}\phi \, \mathrm{d}z \\
-    &= -\frac{\mu_{0}kR^{2}}{2} \int_{-\infty}^{\infty} \frac{\hat{\phi} \times [z \hat{z} + (R-h) \hat{r}]}{[z^{2} + (R-h)^{2}]^{3/2}} \, \mathrm{d}z \\
-\end{split}
+    \begin{split}
+        \mathbf{B}_{1} &= \frac{\mu_{0}}{4\pi} \int_{S} \frac{\mathbf{K}_{b} \times \mathbf{r}'}{r'^{3}} \, \mathrm{d}S \\
+        &= -\frac{\mu_{0}kR^{2}}{4\pi} \int_{-\infty}^{\infty} \int_{0}^{\phi} \frac{\hat{\phi} \times [z \hat{z} + (R-h) \hat{r}]}{[z^{2} + (R-h)^{2}]^{3/2}} \, \mathrm{d}\phi \, \mathrm{d}z \\
+        &= -\frac{\mu_{0}kR^{2}}{2} \int_{-\infty}^{\infty} \frac{\hat{\phi} \times [z \hat{z} + (R-h) \hat{r}]}{[z^{2} + (R-h)^{2}]^{3/2}} \, \mathrm{d}z \\
+    \end{split}
 \end{equation}
 
 where $\mathbf{r}' = -z \hat{z} - (R-h) \hat{r}$ is the vector from the area element to the point of interest and $\mathrm{d}S = R \, \mathrm{d}\phi \, \mathrm{d}z$ is the area element.
@@ -365,11 +365,11 @@ Any $\phi$ component in $\mathbf{r}'$ can be ignored as it gives zero contributi
 The magnetic field due to the volume bound current density is:
 
 \begin{equation}
-\begin{split}
-    \mathbf{B}_{2} &= \frac{\mu_{0}}{4\pi} \int_{V} \frac{\mathbf{J}_{b} \times \mathbf{r}'}{r'^{3}} \, \mathrm{d}V \\
-    &= \frac{\mu_{0}k}{4\pi} \int_{-\infty}^{\infty} \int_{0}^{\phi} \int_{0}^{R} \frac{\hat{\phi} \times [z \hat{z} + (r-h) \hat{r}]}{[z^{2} + (r-h)^{2}]^{3/2}} r \, \mathrm{d}r \, \mathrm{d}\phi \, \mathrm{d}z \\
-    &= \frac{\mu_{0}k}{2} \int_{-\infty}^{\infty} \int_{0}^{R} \frac{\hat{\phi} \times [z \hat{z} + (r-h) \hat{r}]}{[z^{2} + (r-h)^{2}]^{3/2}} r \, \mathrm{d}r \, \mathrm{d}z \\
-\end{split}
+    \begin{split}
+        \mathbf{B}_{2} &= \frac{\mu_{0}}{4\pi} \int_{V} \frac{\mathbf{J}_{b} \times \mathbf{r}'}{r'^{3}} \, \mathrm{d}V \\
+        &= \frac{\mu_{0}k}{4\pi} \int_{-\infty}^{\infty} \int_{0}^{\phi} \int_{0}^{R} \frac{\hat{\phi} \times [z \hat{z} + (r-h) \hat{r}]}{[z^{2} + (r-h)^{2}]^{3/2}} r \, \mathrm{d}r \, \mathrm{d}\phi \, \mathrm{d}z \\
+        &= \frac{\mu_{0}k}{2} \int_{-\infty}^{\infty} \int_{0}^{R} \frac{\hat{\phi} \times [z \hat{z} + (r-h) \hat{r}]}{[z^{2} + (r-h)^{2}]^{3/2}} r \, \mathrm{d}r \, \mathrm{d}z \\
+    \end{split}
 \end{equation}
 
 where $\mathbf{r}'$ is defined similarly as before and $\mathrm{d}V = r \, \mathrm{d}r \, \mathrm{d}\phi \, \mathrm{d}z$ is the volume element.
@@ -377,22 +377,22 @@ where $\mathbf{r}'$ is defined similarly as before and $\mathrm{d}V = r \, \math
 The first part of the integrand can be similarly ignored and the second part requires us to change to polar coordinates. Consider the change of variables:
 
 \begin{equation}
-\begin{split}
-    r' &= r - h = \rho \cos{\theta} \\
-    z &= \rho \sin{\theta}
-\end{split}
+    \begin{split}
+        r' &= r - h = \rho \cos{\theta} \\
+        z &= \rho \sin{\theta}
+    \end{split}
 \end{equation}
 
 The integral becomes:
 
 \begin{equation}
-\begin{split}
-    &\int_{-\infty}^{\infty} \int_{-h}^{R-h} \frac{r'(r'+h)}{(z^{2} + r'^{2})^{3/2}} \, \mathrm{d}r' \, \mathrm{d}z \\
-    = &\int_{0}^{\pi} \int_{0}^{\frac{R-h}{\sin{\theta}}} \left( \frac{\cos^{2}{\theta}}{\rho} + \frac{h}{\rho^{2}} \cos{\theta} \right) \rho \, \mathrm{d}\rho \, \mathrm{d}\theta + \int_{\pi}^{2\pi} \int_{0}^{-\frac{h}{\sin{\theta}}} \left( \frac{\cos^{2}{\theta}}{\rho} - \frac{h}{\rho^{2}} \cos{\theta} \right) \rho \, \mathrm{d}\rho \, \mathrm{d}\theta \\
-    = &\int_{0}^{\pi} \left[ \frac{(R-h)^{2}}{2} \cot{\theta} + h(R - h) \cot{\theta} \right] \, \mathrm{d}\theta + \int_{\pi}^{2\pi} \left( \frac{h^{2}}{2} \cot{\theta} + h^{2} \cot{\theta} \right) \, \mathrm{d}\theta \\
-    = &\frac{(R-h)^{2}}{2} \left[ \theta + \cot{\theta} \right]_{0}^{\pi} + h(R - h) \left[ \ln{\sin{\theta}} \right]_{0}^{\pi} + \frac{h^{2}}{2} \left[ \theta + \cot{\theta} \right]_{\pi}^{2\pi} + h^{2} \left[ \ln{\sin{\theta}} \right]_{\pi}^{2\pi} \\
-    = &2\left( R + h \ln{\frac{\left\lvert R-h \right\rvert}{h}} \right)
-\end{split}
+    \begin{split}
+        &\int_{-\infty}^{\infty} \int_{-h}^{R-h} \frac{r'(r'+h)}{(z^{2} + r'^{2})^{3/2}} \, \mathrm{d}r' \, \mathrm{d}z \\
+        = &\int_{0}^{\pi} \int_{0}^{\frac{R-h}{\sin{\theta}}} \left( \frac{\cos^{2}{\theta}}{\rho} + \frac{h}{\rho^{2}} \cos{\theta} \right) \rho \, \mathrm{d}\rho \, \mathrm{d}\theta + \int_{\pi}^{2\pi} \int_{0}^{-\frac{h}{\sin{\theta}}} \left( \frac{\cos^{2}{\theta}}{\rho} - \frac{h}{\rho^{2}} \cos{\theta} \right) \rho \, \mathrm{d}\rho \, \mathrm{d}\theta \\
+        = &\int_{0}^{\pi} \left[ \frac{(R-h)^{2}}{2} \cot{\theta} + h(R - h) \cot{\theta} \right] \, \mathrm{d}\theta + \int_{\pi}^{2\pi} \left( \frac{h^{2}}{2} \cot{\theta} + h^{2} \cot{\theta} \right) \, \mathrm{d}\theta \\
+        = &\frac{(R-h)^{2}}{2} \left[ \theta + \cot{\theta} \right]_{0}^{\pi} + h(R - h) \left[ \ln{\sin{\theta}} \right]_{0}^{\pi} + \frac{h^{2}}{2} \left[ \theta + \cot{\theta} \right]_{\pi}^{2\pi} + h^{2} \left[ \ln{\sin{\theta}} \right]_{\pi}^{2\pi} \\
+        = &2\left( R + h \ln{\frac{\left\lvert R-h \right\rvert}{h}} \right)
+    \end{split}
 \end{equation}
 
 Returning to the magnetic field:
@@ -427,7 +427,7 @@ Ampere's law for the auxiliary field $\mathbf{H}$ gives:
     \oint \mathbf{H} \cdot \mathrm{d}\mathbf{l} = H 2\pi r = -I
 \end{equation}
 
-where we take the positive direction of the current to be $z$ direction. 
+where we take the positive direction of the current to be $z$ direction.
 
 This gives $\mathbf{H} = -I/(2\pi r) \hat{\phi}$ so that:
 
@@ -438,13 +438,13 @@ This gives $\mathbf{H} = -I/(2\pi r) \hat{\phi}$ so that:
 Given the auxiliary field, the magnetisation is just $\mathbf{M} = \chi_{m} \mathbf{H} = -\chi_{m} I/(2\pi r) \hat{\phi}$. This gives the bound current densities:
 
 \begin{equation}
-\begin{split}
-    \mathbf{J}_{b} &= \nabla \times \mathbf{M} = 0 \\
-    \mathbf{K}_{b,z+} &= \mathbf{M} \times \hat{z} = -\chi_{m} \frac{I}{2\pi r} \hat{r} \\
-    \mathbf{K}_{b,z-} &= \mathbf{M} \times (-\hat{z}) = \chi_{m} \frac{I}{2\pi r} \hat{r} \\
-    \mathbf{K}_{b,r+} &= \mathbf{M} \times \hat{r} = \chi_{m} \frac{I}{2\pi b} \hat{z} \\
-    \mathbf{K}_{b,r-} &= \mathbf{M} \times (-\hat{r}) = -\chi_{m} \frac{I}{2\pi a} \hat{z}
-\end{split}
+    \begin{split}
+        \mathbf{J}_{b} &= \nabla \times \mathbf{M} = 0 \\
+        \mathbf{K}_{b,z+} &= \mathbf{M} \times \hat{z} = -\chi_{m} \frac{I}{2\pi r} \hat{r} \\
+        \mathbf{K}_{b,z-} &= \mathbf{M} \times (-\hat{z}) = \chi_{m} \frac{I}{2\pi r} \hat{r} \\
+        \mathbf{K}_{b,r+} &= \mathbf{M} \times \hat{r} = \chi_{m} \frac{I}{2\pi b} \hat{z} \\
+        \mathbf{K}_{b,r-} &= \mathbf{M} \times (-\hat{r}) = -\chi_{m} \frac{I}{2\pi a} \hat{z}
+    \end{split}
 \end{equation}
 
 The surface current densities at the top and bottom surfaces do not contribute to the magnetic field and are ignored. Ampere's law for the magnetic field gives:
@@ -492,11 +492,11 @@ If the current exceeds $I_{1}$, the magnetic material is no longer linear. This 
 As the magnetic field is constant in its perpendicular component across a boundary, we have a uniform magnetic field throughout the loop. The auxilary field, however, is discontinuous. We have the set of equations:
 
 \begin{equation}
-\begin{split}
-    H_{\text{in}} (2\pi R - w) + H_{\text{out}} w &= N'I \\
-    \mu_{0} \mu_{r} H_{\text{in}} &= B \\
-    \mu_{0} H_{\text{out}} &= B
-\end{split}
+    \begin{split}
+        H_{\text{in}} (2\pi R - w) + H_{\text{out}} w &= N'I \\
+        \mu_{0} \mu_{r} H_{\text{in}} &= B \\
+        \mu_{0} H_{\text{out}} &= B
+    \end{split}
 \end{equation}
 
 Solving for $B$ yields:
