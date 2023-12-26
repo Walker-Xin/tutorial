@@ -1,0 +1,682 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Kinetic Theory}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Particle Distributions}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Calculating Averages}
+%==========
+
+
+\problem{3.1}{}
+
+\subproblem{a}
+For a uniform distribution in the range $(0, \pi)$, the probability density function is $p(\theta) = \frac{1}{\pi}$. The expectation values are:
+
+\begin{equation}
+\begin{split}
+    \left\langle \theta \right\rangle &= \int \theta p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta \, \mathrm{d}\theta = \frac{\pi}{2} \\
+    \left\langle \theta - \frac{\pi}{2} \right\rangle &= \left\langle \theta \right\rangle - \frac{\pi}{2} = 0 \\
+    \left\langle \theta^{2} \right\rangle &= \int \theta^{2} p(\theta) \, \mathrm{d}\theta = \frac{1}{\pi} \int_{0}^{\pi} \theta^{2} \, \mathrm{d}\theta = \frac{\pi^{2}}{3} \\
+    \left\langle \theta^{n} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \theta^{n} \, \mathrm{d}\theta = \frac{\pi^{n}}{n+1} \quad \text{for } n \ge 0 \\
+    \left\langle \cos{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \cos{\theta} \, \mathrm{d}\theta = 0 \\
+    \left\langle \sin{\theta} \right\rangle &= \frac{1}{\pi} \int_{0}^{\pi} \sin{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
+    \left\langle \left\lvert \cos{\theta} \right\rvert \right\rangle &= \frac{2}{\pi} \int_{0}^{\pi/2} \cos{\theta} \, \mathrm{d}\theta = \frac{2}{\pi} \\
+    \left\langle \cos^{2}{\theta} \right\rangle &= \left\langle \sin^{2}{\theta} \right\rangle = \frac{1}{\pi} \int_{0}^{\pi} \cos^{2}{\theta} \, \mathrm{d}\theta = \frac{1}{2} \\
+    \left\langle \cos^{2}{\theta} + \sin^{2}{\theta} \right\rangle &= 1
+\end{split}
+\end{equation}
+
+\subproblem{b}
+First consider three-dimensional world. For an isotropic velocity distribution, we expect the angles $\theta$ and $\phi$ to be uniformly distributed in the range $(0, \pi)$ and $(0, 2\pi)$ respectively. Given some chosen direction $\hat{n}$, the angle between a velocity vector $\mathbf{v}$ and $\hat{n}$ is given by:
+
+\begin{equation}
+    \cos{\alpha} = \hat{n} \cdot \hat{v} = a \sin{\theta} \cos{\phi} + b \sin{\theta} \sin{\phi} + c \cos{\theta}
+\end{equation}
+
+meaning that $\alpha$ is apparently not uniformly distributed for a general set of $(a, b, c)$.
+
+For a two-dimensional world, the velocity vector $\mathbf{v}$ is confined to a plane, i.e., we can set $\theta = \pi/2$ and $\cos{\theta} = 0$. The angle $\alpha$ is then given by:
+
+\begin{equation}
+    \cos{\alpha} = \hat{n} \cdot \hat{v} = a \sin{\theta} \cos{\phi} + b \sin{\theta} \sin{\phi} = a \cos{\phi} + b \sin{\phi}
+\end{equation}
+
+which is still generally not uniformly distributed.
+\qed
+
+
+\problem{3.2}{}
+
+\subproblem{a}
+The fraction of particles with the speeds $[\mathbf{v}, \mathbf{v} + \mathrm{d}\mathbf{v}]$ is given by:
+
+\begin{equation}
+\begin{split}
+    f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= f(v) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
+    &= f(v) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+    &\equiv \tilde{f}(v) \, \mathrm{d}v
+\end{split}
+\end{equation}
+
+Integrating the second equality over $\theta$ and $\phi$ gives:
+
+\begin{equation}
+    \tilde{f}(v) = 4\pi v^{2} f(v)
+\end{equation}
+
+\subproblem{b}
+First note that the expectation values of speeds are:
+
+\begin{equation}
+\begin{split}
+    \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = 4\pi \int v^{3} f(v) \, \mathrm{d}v \\
+    \left\langle v^{2} \right\rangle &= \int v^{2} \tilde{f}(v) \, \mathrm{d}v
+\end{split}
+\end{equation}
+
+\subsubproblem{i}
+
+\begin{equation}
+    \left\langle v_{x} \right\rangle = \left\langle v_{y} \right\rangle = \left\langle v_{z} \right\rangle = \int v f(v) \, \mathrm{d}v = 0
+\end{equation}
+
+which must hold true for any isotropic distribution.
+
+\subsubproblem{ii}
+
+\begin{equation}
+    \left\langle \left\lvert v_{i} \right\rvert \right\rangle = 2 \int_{0}^{\infty} v f(v) \, \mathrm{d}v = 2 \left\langle v \right\rangle
+\end{equation}
+\qed
+
+
+\problem{3.3}{}
+
+\subproblem{a}
+The speed distribution is:
+
+\begin{equation}
+    \tilde{f}(v) = A v^{2} e^{-v^{2}/v_{\text{th}}^{2}}
+\end{equation}
+
+where the normalisation constant $A$ is given by:
+
+\begin{equation}
+    A = 4\pi \left( \frac{m}{2\pi k_{B}T} \right)^{3/2} = \frac{4}{\sqrt{\pi}} v_{\text{th}}^{-3}
+\end{equation}
+
+The expectation values of speeds are:
+
+\begin{equation}
+\begin{split}
+    \left\langle v \right\rangle &= \int v \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v^{3} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} v_{\text{th}} \\
+    \left\langle 1/v \right\rangle &= \int \frac{1}{v} \tilde{f}(v) \, \mathrm{d}v = A \int_{0}^{\infty} v e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{\sqrt{\pi}} \frac{1}{v_{\text{th}}} \\
+\end{split}
+\end{equation}
+
+so that $\left\langle v \right\rangle \left\langle 1/v \right\rangle = 4/\pi$.
+
+\subproblem{b}
+
+\begin{equation}
+\begin{split}
+    \left\langle v^{2} \right\rangle &= A \int_{0}^{\infty} v^{4} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{3}{2} v_{\text{th}}^{2} \\
+    \left\langle v^{3} \right\rangle &= A \int_{0}^{\infty} v^{5} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{4}{\sqrt{\pi}} v_{\text{th}}^{3} \\
+    \left\langle v^{4} \right\rangle &= A \int_{0}^{\infty} v^{6} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{15}{4} v_{\text{th}}^{4} \\
+    \left\langle v^{5} \right\rangle &= A \int_{0}^{\infty} v^{7} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{12}{\sqrt{\pi}} v_{\text{th}}^{5} \\
+\end{split}
+\end{equation}
+
+\subproblem{c}
+Consider the integral $I_{n} \equiv \int_{0}^{\infty} x^{n} e^{-ax^{2}} \, \mathrm{d}x$. Integrating by parts gives:
+
+\begin{equation}
+    I_{n} = \int_{0}^{\infty} x^{n} e^{-ax^{2}} \, \mathrm{d}x = \left[ -\frac{1}{2a} x^{n-1} e^{-ax^{2}} \right]_{0}^{\infty} + \frac{n-1}{2a} \int_{0}^{\infty} x^{n-2} e^{-ax^{2}} \, \mathrm{d}x = \frac{n-1}{2a} I_{n-2}
+\end{equation}
+
+From explicit calculation, we have $I_{0} = \sqrt{\pi}/2\sqrt{a}$ and $I_{1} = 1/2a$. This recurrence relation can be solved to give any $I_{n}$:
+
+\begin{equation}
+\begin{split}
+    I_{2n} &= \frac{(2n-1)(2n-3)\cdots 1}{2^{n} a^{n}} \frac{\sqrt{\pi}}{2\sqrt{a}} = \frac{(2n)!}{2^{2n} n!} \frac{\sqrt{\pi}}{2\sqrt{a}} \\
+    I_{2n+1} &= \frac{(2n)(2n-2)\cdots 2}{2^{n} a^{n+1}} \frac{1}{2a} = \frac{(2n)!}{2^{2n+1} n!} \frac{1}{2a}
+\end{split}
+\end{equation}
+
+Therefore, the expectation values of speeds are:
+
+\begin{equation}
+\begin{split}
+    \left\langle v^{2n} \right\rangle &= A I_{2n} = \frac{(2n)!}{2^{2n} n!} \frac{4}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2\sqrt{1/v_{\text{th}}}} \\
+    \left\langle v^{2n+1} \right\rangle &= A I_{2n+1} = \frac{(2n)!}{2^{2n+1} n!} \frac{4}{\sqrt{\pi}} v_{\text{th}}^{2n+1}  
+\end{split}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Pressure}
+%==========
+
+
+\problem{3.4}{}
+
+\subproblem{a}
+Since there is only one special direction, the system must be rotationally invariant about this direction. We can express the distribution function in spherical coordinates and demand that it is independent of $\phi$. We define the fraction of particles with velocities in the range $[\mathbf{v}, \mathbf{v} + \mathrm{d}\mathbf{v}]$ as:
+
+\begin{equation}
+    f(v, \theta) \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi
+\end{equation}
+
+and the additional distribution function $g(\theta)$ as the fraction of particles with speeds in the range $[v, v + \mathrm{d}v]$ and angles in the range $[\theta, \theta + \mathrm{d}\theta]$:
+
+\begin{equation}
+    g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta = \int_{0}^{2\pi} f(v, \theta) \, \mathrm{d}\phi = 2\pi f(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+\subproblem{b}
+Consider a wall perpendicular to the special direction. The number of particles with speeds in $[v, v + \mathrm{d}v]$ hitting the wall at angles angles (relative to the normal of the wall) in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+    \mathrm{d}\Phi(v, \theta) = \frac{\mathrm{d}N}{At} = \frac{nAvt \cos{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta}{At} = nv \cos{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+The z-component of the momentum transferred to the wall per collision is $2mv \cos{\theta}$, so the pressure contribution by these particles is:
+
+\begin{equation}
+    \mathrm{d}p_{\parallel}(v, \theta) = 2mnv^{2} \cos^{2}{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+so that the total pressure is:
+
+\begin{equation}
+    p_{\parallel} = mn \int_{0}^{\infty} \int_{0}^{\pi/2} 2v^{2} \cos^{2}{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+where the integration for $\theta$ is restricted to $\pi/2$ because only particles with $\theta \le \pi/2$ can hit the wall. Let us assume that $g(v, \theta) = g(v, -\theta)$, i.e., the distribution function is symmetric about $\theta = 0$. Then we can extend the integration range to $[0, \pi]$ and multiply the integrand by $1/2$ to get:
+
+\begin{equation}
+    p_{\parallel} = mn \int_{0}^{\infty} \int_{0}^{\pi} v^{2} \cos^{2}{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta = mn \left\langle v^{2} \cos^{2}{\theta} \right\rangle
+\end{equation}
+
+For a wall parallel to the special direction, the number of particles with speeds in $[v, v + \mathrm{d}v]$ hitting the wall at angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+    nv \sin{(-\theta)} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+A similar calculation gives:
+
+\begin{equation}
+    p_{\perp} = mn \int_{0}^{\infty} \int_{0}^{\pi} v^{2} \sin^{2}{\theta} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta = mn \left\langle v^{2} \sin^{2}{\theta} \right\rangle
+\end{equation}
+
+\subproblem{c}
+For a wall with normal $\hat{n}$ that satisfies $\hat{n} \cdot \hat{z} = \cos{\alpha}$, the number of particles with speeds in $[v, v + \mathrm{d}v]$ hitting the wall at angles angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+    nv \cos{(\theta + \alpha)} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+and the pressure contribution by these particles is:
+
+\begin{equation}
+    \mathrm{d}p(v, \theta) = 2mnv^{2} \cos^{2}{(\theta + \alpha)} g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+Let us rewrite the trigonometric function as:
+
+\begin{equation}
+    \cos^{2}{(\theta + \alpha)} = \left( \cos{\theta} \cos{\alpha} - \sin{\theta} \sin{\alpha} \right)^{2} = \cos^{2}{\theta} \cos^{2}{\alpha} + \sin^{2}{\theta} \sin^{2}{\alpha} - \frac{1}{2} \sin{2\theta} \sin{2\alpha}
+\end{equation}
+
+so that the total pressure is:
+
+\begin{equation}
+\begin{split}
+    p &= mn \int_{0}^{\infty} \int_{0}^{\pi} v^{2} \left( \cos^{2}{\theta} \cos^{2}{\alpha} + \sin^{2}{\theta} \sin^{2}{\alpha} - \frac{1}{2} \sin{2\theta} \sin{2\alpha} \right) g(v, \theta) \, \mathrm{d}v \mathrm{d}\theta \\
+    &= \cos^{2}\alpha p_{\parallel} + \sin^{2}\alpha p_{\perp}
+\end{split}
+\end{equation}
+
+where the $\sin{2\theta}$ term vanishes because of the symmetry of the integrand about $\theta = 0$.
+\qed
+
+
+%==========
+\pagebreak
+\section*{Effusion}
+%==========
+
+
+\problem{3.5}{}
+
+\subproblem{a}
+The number of particles hitting a wall with velocities in $[\mathbf{v}, \mathbf{v} + \mathrm{d}\mathbf{v}]$ per unit area per unit time is given by:
+
+\begin{equation}
+    nv_{z} f(\mathbf{v}) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z}
+\end{equation}
+
+With isotropy, we have $v_{z} = v\cos{\theta}$ and $\mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} = v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi$, so the number of particles hitting the wall with speeds in $[v, v + \mathrm{d}v]$ and angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+    \int_{0}^{2\pi} nv^{3} \cos{\theta} \sin{\theta} f(v) \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi = 2\pi nv^{3} f(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta = \frac{1}{2} nv \tilde{f}(v) \, \mathrm{d}v \cos{\theta} \sin{\theta} \, \mathrm{d}\theta
+\end{equation}
+
+where we have used the relation $\tilde{f}(v) = 4\pi v^{2} f(v)$.
+
+\subproblem{b}
+The average of $\cos{\theta}$ for these molecules can be evaluated as the integration of $\cos{\theta}$ over the angular part of the flux distribution:
+
+\begin{equation}
+    \left\langle \cos{\theta} \right\rangle = \int_{0}^{\pi} \cos{\theta} \cos{\theta} \sin{\theta} \, \mathrm{d}\theta = \frac{2}{3}
+\end{equation}
+
+\subproblem{c}
+For a Maxwellian distribution, the average energy of the molecules is:
+
+\begin{equation}
+    \left\langle \frac{1}{2} m v^{2} \right\rangle = \frac{m}{2} \left\langle v^{2} \right\rangle = \frac{3}{4} m v_{\text{th}}^{2} = \frac{3}{2} k_{B} T
+\end{equation}
+
+However, for the particles hitting the wall, the total energy is:
+
+\begin{equation}
+    \frac{m}{2} \int_{0}^{\pi/2} \int_{0}^{\infty} v^{2} \frac{1}{2} nv \tilde{f}(v) \, \mathrm{d}v \cos{\theta} \sin{\theta} \, \mathrm{d}\theta = \frac{nm}{8} \left\langle v^{3} \right\rangle = \frac{nm}{2\sqrt{\pi}} v_{\text{th}}^{3}
+\end{equation}
+
+We need to divide by the number of particles:
+
+\begin{equation}
+    \int_{0}^{\pi/2} \int_{0}^{\infty} \frac{1}{2} nv \tilde{f}(v) \, \mathrm{d}v \cos{\theta} \sin{\theta} \, \mathrm{d}\theta = \frac{1}{4} n \left\langle v \right\rangle = \frac{n}{2\sqrt{\pi}} v_{\text{th}}
+\end{equation}
+
+and the average energy for the particles hitting the wall is:
+
+\begin{equation}
+    mv_{\text{th}}^{2} = 2k_{B} T
+\end{equation}
+\qed
+
+
+\problem{3.6}{}
+
+\subproblem{a}
+The distribution of the effused particles follow the distribution function:
+
+\begin{equation}
+    g(v) \, \mathrm{d}v \propto v^{3} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v
+\end{equation}
+
+where the normalisation constant is given by:
+
+\begin{equation}
+    K = \frac{1}{\int_{0}^{\infty} v^{3} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v} = \frac{2}{v_{\text{th}}^{4}}
+\end{equation}
+
+For a screen perpendicular to the z-axis, the number of particles hitting the screen with speeds in $[v, v + \mathrm{d}v]$ at angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+\begin{split}
+    \frac{1}{2} nv g(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
+\end{split}
+\end{equation}
+
+In other words, these particles follow the distribution function that is proportional to $v g(v)$. The most probable speed is given by:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}v} \left[ v g(v) \right] = 0 \quad \Rightarrow \quad v_{1} = \sqrt{2} v_{\text{th}}
+\end{equation}
+
+But for all effused particles, the most probable speed is given by:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}v} \left[ g(v) \right] = 0 \quad \Rightarrow \quad v_{2} = \sqrt{\frac{3}{2}} v_{\text{th}}
+\end{equation}
+
+which is less than that of the particles hitting the screen.
+
+This is because the particles hitting the screen must tend to have a higher speed than the average speed of all effused particles.
+
+\subproblem{b}
+The mean speed of the effused particles is given by:
+
+\begin{equation}
+    \left\langle v \right\rangle = K \int_{0}^{\infty} v^{4} e^{-v^{2}/v_{\text{th}}^{2}} \, \mathrm{d}v = \frac{2}{v_{\text{th}}^{4}} \frac{3}{8} \sqrt{\pi} v_{\text{th}}^{5} = \frac{3\sqrt{\pi}}{4} v_{\text{th}}
+\end{equation}
+
+which is slightly lower than $v_{1}$ but higher than $v_{2}$.
+\qed
+
+
+\problem{3.7}{}
+The mean kinetic energy of a monoatomic gas is $3k_{B}T/2$ whereas that of the effused particles is $2k_{B}T$ as previously shown. Suppose that after some time, the box catches $N$ effused particles, representing a total energy of $2Nk_{B}T$ assuming that $N$ is large enough.
+
+In the new gas in the box, the new temperature satisfies:
+
+\begin{equation}
+    \frac{3}{2} Nk_{B}T' = 2Nk_{B}T
+\end{equation}
+
+which implies $T' = 4T/3$.
+
+The box has a higher temperature because the effused particles tend to have a higher speed and kinetic energy than the average particle.
+\qed
+
+
+\problem{3.8}{}
+
+\subproblem{a}
+We define $\alpha$ as the angle between the central axis and a line connecting the centre of the first hole and the perimeter of the second. For the effused particle to pass through the second hole, it must be travelling at a polar angle $\theta \le \alpha$. Since we have established the flux distribution:
+
+\begin{equation}
+    \mathrm{d}\tilde{\Phi}(v, \theta) = \frac{1}{2} nv \tilde{f}(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+we integrate this to obtain the number of particles passing through the second hole per unit time:
+
+\begin{equation}
+    \frac{1}{2} nA \int_{0}^{\alpha} \cos{\theta} \sin{\theta} \, \mathrm{d}\theta \int_{0}^{\infty} v \tilde{f}(v) \, \mathrm{d}v = \frac{1}{4} nA \left\langle v \right\rangle \frac{1 - \cos{2\alpha}}{2}
+\end{equation}
+
+In the small angle limit, we have $\cos{2\alpha} \approx 1 - 2\alpha^{2} \approx 1 - 2(a^{2}/d^{2})$ so the number of particles passing through the second hole per unit time is $nA \left\langle v \right\rangle (a^{2}/d^{2})/4$.
+
+\subproblem{b}
+Without loss of generality, let the hole of the sphere be set on the z-axis and consider the distance from the hole to an arbitrary point on the surface of the sphere:
+
+\begin{equation}
+    d = R \sqrt{2 - 2\cos{\alpha}}
+\end{equation}
+
+where $\alpha$ is the angle between the central axis and a line connecting the centre of the hole and the point on the surface.
+
+We can see that $\alpha = 2\theta$ where $\theta$ is the angle of the effused particle with respect to the central axis. Thus:
+
+\begin{equation}
+    d = \sqrt{2}R \sqrt{1 - \cos{2\theta}} = 2R \sin{\theta}
+\end{equation}
+
+On average, the flux hitting an element ring defined by angle $\alpha$ should be inversely proportional to $d$, as it takes a longer time for the particles to travel from the hole to the ring. If we divide out the sine factor from the flux distribution, the function becomes an isotropic Maxwellian distribution. This means that the coating will be uniform.
+\qed
+
+
+\problem{3.9}{}
+We treat the space not filled by liquid mercury as an ideal gas with temperature $T$. The particle mass of mercury is $m = 200.59u = \qty{333.08e-27}{kg}$ so that the total number of effused particles is:
+
+\begin{equation}
+    \Delta N = \frac{\Delta M}{m} = 7.21 \times 10^{19}
+\end{equation}
+
+The effusion rate is given by integrating the flux distribution:
+
+\begin{equation}
+    A\tilde{\Phi} = \frac{1}{4} nA \left\langle v \right\rangle = \frac{1}{2\sqrt{\pi}} nA \sqrt{\frac{2k_{B}T}{m}}
+\end{equation}
+
+This must be equal to the total number of effused particles divided by the time taken for the effusion. We can thus solve for $n$:
+
+\begin{equation}
+    n = \sqrt{\frac{2\pi m}{k_{B}T}} \frac{\Delta N}{A \Delta t}
+\end{equation}
+
+On the other hand, we know that for an ideal gas, its pressure satisfies:
+
+\begin{equation}
+    p = nk_{B}T = \sqrt{2\pi m k_{B} T} \frac{\Delta N}{A \Delta t} = \qty{0.025}{Pa}
+\end{equation}
+\qed
+
+
+\problem{3.10}{}
+
+Suppose that initially, there are $N_{0}$ HD particles and $7000N_{0}$ H2 particles. The initial pressure is given by:
+
+\begin{equation}
+    p = 7001 \frac{k_{B}TN_{0}}{V}
+\end{equation}
+
+where $V$ is the volume of the container.
+
+Consider the effusion of HD particles:
+
+\begin{equation}
+    A\tilde{\Phi}_{\text{HD}} = A\sqrt{\frac{k_{B}T}{2\pi m_{\text{HD}}}} \frac{N_{\text{HD}}}{V}
+\end{equation}
+
+This represents a differential equation for the number of particles:
+
+\begin{equation}
+    \frac{\mathrm{d}N_{\text{HD}}}{\mathrm{d}t} = -\frac{\kappa}{\sqrt{m_{\text{HD}}}} N_{\text{HD}}
+\end{equation}
+
+where $\kappa \equiv (A/V) \sqrt{k_{B}T/2\pi}$.
+
+The solution is:
+
+\begin{equation}
+    N_{\text{HD}}(t) = N_{0} e^{-\kappa t/\sqrt{m_{\text{HD}}}}
+\end{equation}
+
+and similarly for H2:
+
+\begin{equation}
+    N_{\text{H2}}(t) = 7000N_{0} e^{-\kappa t/\sqrt{m_{\text{H2}}}}
+\end{equation}
+
+Now demand $N_{\text{H2}} = 700N_{\text{HD}}$ and solve for $t$:
+
+\begin{equation}
+    \Delta t = \frac{\ln{10}}{\kappa(1/\sqrt{m_{\text{H2}}} - 1/\sqrt{m_{\text{HD}}})}
+\end{equation}
+
+The new pressure is:
+
+\begin{equation}
+    p' = k_{B}T \frac{N_{\text{HD}}(\Delta t) + N_{\text{H2}}(\Delta t)}{V} = \frac{k_{B}TN_{0}}{V} \left( e^{-\kappa \Delta t/\sqrt{m_{\text{HD}}}} + 7000 e^{-\kappa \Delta t/\sqrt{m_{\text{H2}}}} \right)
+\end{equation}
+
+so that the ratio of the new pressure to the old pressure is:
+
+\begin{equation}
+    \frac{p'}{p} = \frac{1}{7001} \left( e^{-\kappa \Delta t/\sqrt{m_{\text{HD}}}} + 7000 e^{-\kappa \Delta t/\sqrt{m_{\text{H2}}}} \right) = 3.6 \times 10^{-6}
+\end{equation}
+\qed
+
+
+\problem{3.11}{}
+At some time $t$, the temperature of the gas is $T(t)$ and the number density is $n(t) = N(t)/V$ where $N(t)$ is the number of particles in the gas. The effusion rate is given by:
+
+\begin{equation}
+    A\tilde{\Phi} = A \sqrt{\frac{k_{B}T(t)}{2\pi m}} \frac{N(t)}{V}
+\end{equation}
+
+This is a coupled differential equation for $T(t)$ and $N(t)$:
+
+\begin{equation}
+    \frac{\mathrm{d}N}{\mathrm{d}t} = -\kappa \sqrt{T(t)} N(t)
+\end{equation}
+
+where $\kappa \equiv (A/V) \sqrt{k_{B}/2\pi m}$.
+
+On the other hand, consider the energy flux through the hole. The number of molecules hitting a wall with speeds in $[v, v + \mathrm{d}v]$ at angles in $[\theta, \theta + \mathrm{d}\theta]$ per unit area per unit time is given by:
+
+\begin{equation}
+    \frac{1}{2} nv \tilde{f}(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+These particles carry an energy of $mv^{2}/2$ per molecule, so the differential energy flux is:
+
+\begin{equation}
+    \mathrm{d}\tilde{\Phi}_{E} = \frac{1}{4} nmv^{3} \tilde{f}(v) \cos{\theta} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta
+\end{equation}
+
+Integrating this leads to the total energy flux:
+
+\begin{equation}
+    A\tilde{\Phi}_{E} = \frac{1}{8} nmA \left\langle v^{3} \right\rangle = \frac{mA}{2\sqrt{\pi}} \left( \frac{2k_{B}}{m} \right)^{3/2} T^{3/2} \frac{N}{V} 
+\end{equation}
+
+which leads to a differential equation for the total energy:
+
+\begin{equation}
+    \frac{\mathrm{d}E}{\mathrm{d}t} = -\gamma T^{3/2} N
+\end{equation}
+
+where $\gamma \equiv (mA/2V\sqrt{\pi}) (2k_{B}/m)^{3/2}$.
+
+But the total (kinetic) energy and the temperature of the gas are related by $E = 3Nk_{B}T/2$, so that:
+
+\begin{equation}
+    \frac{\mathrm{d}E}{\mathrm{d}t} = \frac{3k_{B}}{2} \left( \frac{\mathrm{d}T}{\mathrm{d}t} N + T \frac{\mathrm{d}N}{\mathrm{d}t} \right)
+\end{equation}
+
+Now we have a set of coupled differential equations for $T(t)$ and $N(t)$:
+
+\begin{equation}
+\begin{split}
+    \dot{N} = -\kappa T^{1/2} N \\
+    N\dot{T} + T\dot{N} = -\beta T^{3/2} N
+\end{split}
+\end{equation}
+
+where $\beta \equiv 2\gamma/3k_{B} = 2\kappa/3$.
+
+Substituting the first equation into the second decouples the equations:
+
+\begin{equation}
+    \dot{T} = (\kappa - \beta) T^{3/2}
+\end{equation}
+
+solving which gives:
+
+\begin{equation}
+    T(t) = \left[ \frac{1}{1/\sqrt{t_{0}} - 2(\kappa - \beta) t} \right]^{2}
+\end{equation}
+
+Substituting this back into the first equation gives:
+
+\begin{equation}
+    \dot{N} = -\kappa \left[ \frac{1}{1/\sqrt{t_{0}} - 2(\kappa - \beta) t} \right] N
+\end{equation}
+
+which can be solved to give:
+
+\begin{equation}
+    N(t) = N_{0} \left[ 1 - 2(\kappa - \beta) t \sqrt{t_{0}} \right]^{\kappa/2(\kappa - \beta)}
+\end{equation}
+
+%==========
+\pagebreak
+\section*{Thermodynamic Limit}
+%==========
+
+
+\problem{3.12}{}
+Apparently the probability of finding one particle in $V \in \mathcal{V}$ is $P = V/\mathcal{V}$. The probability of finding $N$ particles in $V$ is thus a binomial distribution, i.e., choosing $N$ particles out of $\mathcal{N}$ particles to be in $V$:
+
+\begin{equation}
+    P_{N} = \binom{\mathcal{N}}{N} \left( \frac{V}{\mathcal{V}} \right)^{N} \left( 1 - \frac{V}{\mathcal{V}} \right)^{\mathcal{N} - N}
+\end{equation}
+
+\subproblem{a}
+We can rewrite $P_{N}$ in the limit $\mathcal{N}, \mathcal{V}$ while keeping $n = \mathcal{N}/\mathcal{V}$ constant:
+
+\begin{equation}
+\begin{split}
+    P_{N} &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{V}} \right)^{N} \left( 1 - \frac{V}{\mathcal{V}} \right)^{\mathcal{N} - N} \\
+    &= \frac{\mathcal{N}!}{(\mathcal{N} - N)! N!} \left( \frac{V}{\mathcal{N}} \right)^{N} \left( \frac{\mathcal{N}}{\mathcal{V}} \right)^{N} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N} - N} \\
+    &= \frac{1}{N!} (nV)^{N} \frac{\mathcal{N}!/\mathcal{N}^{N}}{(\mathcal{N} - N)!} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{\mathcal{N}} \left( 1 - \frac{nV}{\mathcal{N}} \right)^{-N} \\
+    &\approx e^{-nV} \frac{(nV)^{N}}{N!}
+\end{split}
+\end{equation}
+
+which is the Poisson distribution with mean $nV$.
+
+\subproblem{b}
+Let us denote $\lambda \equiv nV$. Formally, we say that $N$ is a random variable with Poisson distribution of mean $\lambda$:
+
+\begin{equation}
+    P(N = k) = \frac{\lambda^{k}}{k!} e^{-\lambda}
+\end{equation}
+
+The average of $N$ is:
+
+\begin{equation}
+    \left\langle N \right\rangle = \sum_{k=1}^{\infty} k \frac{\lambda^{k}}{k!} e^{-\lambda} = \lambda e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k!} = \lambda
+\end{equation}
+
+Additionally:
+
+\begin{equation}
+    \left\langle N^{2} \right\rangle = \sum_{k=1}^{\infty} k^{2} \frac{\lambda^{k}}{k!} e^{-\lambda} = \lambda e^{-\lambda} \left( \sum_{k=0}^{\infty} k \frac{\lambda^{k}}{k!} + \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k!} \right) = \lambda^{2} + \lambda
+\end{equation}
+
+This means that the variance is $\sigma^{2} = \lambda$ and thus:
+
+\begin{equation}
+    \frac{\left\langle (N - \left\langle N \right\rangle)^{2} \right\rangle^{1/2}}{\left\langle N \right\rangle} = \frac{1}{\sqrt{\lambda}} = \frac{1}{\sqrt{\left\langle N \right\rangle}}
+\end{equation}
+
+\subproblem{c}
+The maximum of the density distribution is given by differentiation:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}k} \left( \frac{\lambda^{k}}{k!} e^{-\lambda} \right)
+\end{equation}
+
+For large $k$, we make use of the approximation $k! \approx \sqrt{2\pi k} (k/e)^{k}$ so that:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}k} \left( \frac{\lambda^{k}}{k!} e^{-\lambda} \right) &\approx \frac{e^{-\lambda}}{\sqrt{2\pi}} \frac{\mathrm{d}}{\mathrm{d}k} \left[ \frac{\lambda^{k}}{\sqrt{k} (k/e)^{k}} \right] \\
+    &\propto 2k (\ln{\lambda} - \ln{k}) - 1
+\end{split}
+\end{equation}
+
+For large $k$, we ignore the constant term and the derivative is zero when $\ln{\lambda} = \ln{k}$, i.e., $k = \lambda = \left\langle N \right\rangle = nV$. Consider the logarithm of the density distribution, which we define as $h(k)$:
+
+\begin{equation}
+    h(k) = \ln{P(N = k)} = k \ln{\lambda} - \ln{k!} - \lambda \approx k (\ln{\lambda} - \ln{k}) + k - \lambda
+\end{equation}
+
+Taylor expanding this around $k = \lambda$ gives:
+
+\begin{equation}
+\begin{split}
+    h(k) &\approx h(\lambda) + (k - \lambda) h'(\lambda) + \frac{1}{2} (k - \lambda)^{2} h''(\lambda) \\
+    &= -\frac{1}{2\lambda} (k - \lambda)^{2}
+\end{split}
+\end{equation}
+
+which means that we can write the density distribution as:
+
+\begin{equation}
+    P(N = k) \approx e^{-\frac{1}{2\lambda} (k - \lambda)^{2}}
+\end{equation}
+
+This is a normal distribution without the normalisation constant. The mean and variance are both $\lambda$ so the normalisation constant is $1/\sqrt{2\pi\lambda}$. We can thus write:
+
+\begin{equation}
+    P(N = k) \approx \frac{1}{\sqrt{2\pi\lambda}} e^{-\frac{1}{2\lambda} (k - \lambda)^{2}}
+\end{equation}
+
+This is a manifestation of the central limit theorem.
+\qed
+
+
+\end{document}
