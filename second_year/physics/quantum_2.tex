@@ -270,21 +270,6 @@ For the square root to be valid, we must have $W > ka$ or $V_{0} > E$. But for t
 
 
 \problem{2.9}{}
-% Consider the same potential as the previous problem and the solutions:
-
-% \begin{equation}
-% \psi(x) =
-% \begin{cases}
-%     De^{\kappa x} + re^{-\kappa x} & x < -a \\
-%     A\cos{(kx)} + B\sin{(kx)} & -a < x < a \\
-%     Ce^{-\kappa x} + te^{\kappa x} & x > a
-% \end{cases}
-% \end{equation}
-
-% where $k$ and $\kappa$ are defined as before.
-
-% Let us set $D = 1$ and $C = 0$ so that there is no particle incident from $+\infty$. Continuity of $\psi(x)$ and $\psi'(x)$ at $x = \pm a$ gives:
-
 Consider the potential well:
 
 \begin{equation}
@@ -315,7 +300,7 @@ Let us set $D = 1$ and $C = 0$ so that there is no particle incident from $+\inf
     e^{-ika} + re^{ika} &= Ae^{-iKa} + Be^{iKa} \\
     ik(e^{-ika} - re^{ika}) &= iK(Ae^{-iKa} - Be^{iKa}) \\
     te^{ika} &= Ae^{iKa} + Be^{-iKa} \\
-    ikte^{ika} &= iK(Ae^{iKa} - Be^{-iKa})
+    ikt e^{ika} &= iK(Ae^{iKa} - Be^{-iKa})
 \end{split}
 \end{equation}
 
@@ -399,7 +384,7 @@ The probability is proportional to the speed of the wave packet, and the minus s
 
 
 \problem{2.12}{}
-The momentum eigenstates, expressed in their position representation, are:
+A momentum eigenstate, expressed in its position representation, is:
 
 \begin{equation}
     \braket{x}{p} = \frac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}
@@ -417,7 +402,7 @@ For a wave function of the form:
     \psi(x, 0) = \braket{x}{\psi(0)} = \left( \frac{1}{2\pi \sigma^{2}} \right)^{1/4} \exp \left( -\frac{x^{2}}{4\sigma^{2}} + \frac{ip_{0}x}{\hbar} \right)
 \end{equation}
 
-its momentum representation is:
+its momentum representation is the integral:
 
 \begin{equation}
 \begin{split}
@@ -453,19 +438,21 @@ Note that $\braket{p}{\psi(0)}$ just the Fourier transform of $\braket{x}{\psi(0
     \braket{p}{\psi(0)} = \mathcal{F} \left[ \braket{x}{\psi(0)} \right] = \frac{1}{\sqrt{2\pi\hbar}} \int e^{-ipx/\hbar} \braket{x}{\psi(0)} \, \mathrm{d}x
 \end{equation}
 
-Consider an momentum eigenstate $\ket{p}$ that satisfies $\hat{p} \ket{p} = p \ket{p}$. Applying the Hamiltonian operator to $\ket{p}$ gives:
+Consider a momentum eigenstate $\ket{p}$ that satisfies $\hat{p} \ket{p} = p \ket{p}$. Applying the Hamiltonian operator to $\ket{p}$ gives:
 
 \begin{equation}
     \hat{H} \ket{p} = \frac{\hat{p}^{2}}{2m} \ket{p} = \frac{p^{2}}{2m} \ket{p}
 \end{equation}
 
-which means $\ket{p}$ is also an energy eigenstate with energy $p^{2}/2m$. The time-evolution of a momentum eigenstate $\ket{p}$ is given by:
+which means that $\ket{p}$ is also an energy eigenstate with the eigenvalue $p^{2}/2m$. 
+
+The time-evolution of a momentum eigenstate $\ket{p}$ is hence given by:
 
 \begin{equation}
     \ket{p} \to e^{-i\hat{H}t/\hbar} \ket{p} = e^{-ip^{2}t/2m\hbar} \ket{p}
 \end{equation}
 
-We may write $\ket{\psi(0)}$ as a linear combination of momentum eigenstates so that its time-evolution is:
+We may write $\ket{\psi(0)}$ as a superposition of momentum eigenstates so that its time-evolution is:
 
 \begin{equation}
 \begin{split}
@@ -475,7 +462,7 @@ We may write $\ket{\psi(0)}$ as a linear combination of momentum eigenstates so 
 \end{split}
 \end{equation}
 
-Then the the position representation of $\ket{\psi(t)}$ is:
+Then the position representation of $\ket{\psi(t)}$ is:
 
 \begin{equation}
 \begin{split}
