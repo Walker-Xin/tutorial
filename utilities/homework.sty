@@ -1,0 +1,81 @@
+\ProvidesPackage{homework}[5/5/22 homework package]
+
+% packages
+\RequirePackage{fancyhdr}
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{physics}
+\RequirePackage[separate-uncertainty = true,multi-part-units=single]{siunitx}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{tcolorbox}
+\AtBeginDocument{\RenewCommandCopy\qty\SI} % resolve conflict in \qty between siunitx and physics
+
+\RequirePackage{tikz}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\pgfplotsset{compat=newest}
+
+% add "Detected the "physics" package" to latex-workshop.message.latexlog.exclude to suppress latexworkshop warning.
+
+% font setting
+\RequirePackage{fontenc} % Font encoding https://texfaq.org/FAQ-why-inp-font
+% \usepackage[default]{opensans}
+
+% margins and spacing
+\usepackage[parfill]{parskip} % no indentation at new lines
+\RequirePackage[margin=0.75in]{geometry} % Set Margins
+\usepackage{setspace}
+\setstretch{1.1} % 1.1 line spacing
+
+% headers
+\title{\assignment}
+\author{\name}
+
+\fancyhf{}
+\lhead{
+    \name % author name
+}
+\chead{%
+    \assignmentno % assignment number
+}
+\rhead{
+	\course
+}
+\rfoot{
+    \thepage
+}
+
+\setlength{\headheight}{15pt}
+
+% custom commands
+% math operations
+\newcommand{\diff}[1]{\, \mathrm{d} #1}
+\newcommand{\deri}[3][]{\frac{\mathrm{d}^{#1} #2}{\mathrm{d} #3^{#1}}}
+\newcommand{\unitvec}[1]{\, \hat{\mathbf{#1}}}
+\newcommand{\pderi}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\ave}[1]{\langle #1 \rangle}
+
+% sectioning
+\newcommand{\problem}[2]{\subsection*{#1 #2}}
+\newcommand{\subproblem}[1]{\paragraph{(#1)}}
+\newcommand{\subsubproblem}[1]{\subparagraph{#1}}
+\renewcommand{\qed}{\ \newline \null\hfill $\bullet$}
+
+% marking and highlighting
+\newcommand{\mistake}[1]{\textcolor{red!85!black}{#1}}
+\newenvironment{correction}[1][]
+    {\begin{tcolorbox}[colframe=green!40!black, title=#1]
+    }
+    { 
+    \end{tcolorbox}
+    }
+\newenvironment{statement}[1][]
+    {\begin{tcolorbox}[sharp corners, title=#1]
+    }
+    { 
+    \end{tcolorbox}
+    }
