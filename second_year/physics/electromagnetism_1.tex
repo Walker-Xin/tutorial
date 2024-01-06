@@ -55,13 +55,13 @@ This argument can be applied to any point $\mathbf{r}'$ in the region where $\na
 Let us expand the inverse distance $\left\lvert \mathbf{r}' - \mathbf{r} \right\rvert^{-1}$:
 
 \begin{equation}
-\begin{split}
-    \left\lvert \mathbf{r}' - \mathbf{r} \right\rvert^{-1} &= \left( r'^2 + r^2 - 2rr' \cos{\theta} \right)^{-1/2} \\
-    &= \frac{1}{r} \left( 1 + \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{-1/2} \\
-    &\approx \frac{1}{r} \left[ 1 - \frac{1}{2} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right) + \frac{3}{8} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{2} - \frac{5}{16} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{3} \right] \\
-    &\approx \frac{1}{r} \left[ 1 + \frac{r'}{r} \cos{\theta} + \frac{r'^{2}}{2r^{2}} \left( 3 \cos^{2}{\theta} - 1 \right) + \frac{r'^{3}}{2r^{3}} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) \right] \\
-    &= \frac{1}{r} \sum_{n=0}^{3} \left( \frac{r'}{r} \right)^{n} P_{n}(\cos{\theta})
-\end{split}
+    \begin{split}
+        \left\lvert \mathbf{r}' - \mathbf{r} \right\rvert^{-1} &= \left( r'^2 + r^2 - 2rr' \cos{\theta} \right)^{-1/2} \\
+        &= \frac{1}{r} \left( 1 + \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{-1/2} \\
+        &\approx \frac{1}{r} \left[ 1 - \frac{1}{2} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right) + \frac{3}{8} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{2} - \frac{5}{16} \left( \frac{r'^{2}}{r^{2}}  - 2 \frac{r'}{r} \cos{\theta} \right)^{3} \right] \\
+        &\approx \frac{1}{r} \left[ 1 + \frac{r'}{r} \cos{\theta} + \frac{r'^{2}}{2r^{2}} \left( 3 \cos^{2}{\theta} - 1 \right) + \frac{r'^{3}}{2r^{3}} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) \right] \\
+        &= \frac{1}{r} \sum_{n=0}^{3} \left( \frac{r'}{r} \right)^{n} P_{n}(\cos{\theta})
+    \end{split}
 \end{equation}
 
 In fact, this is just the generating function of the Legendre polynomials.
@@ -128,11 +128,11 @@ The potential of the system at $\mathbf{r}$ is:
 where $r_{\pm} = \left\lvert \mathbf{r} \pm \mathbf{a} \right\rvert$. We can expand $1/r_{\pm}$ as a series of Legendre polynomials:
 
 \begin{equation}
-\begin{split}
-    \frac{1}{r_{\pm}} &= \frac{1}{r} \frac{1}{\sqrt{1 \pm 2 \cos{\theta} a/r + \left( a/r \right)^{2}}} \\
-    &= \frac{1}{r} \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} P_{n}(\mp \cos{\theta}) \\
-    &= \frac{1}{r} \left[ 1 \mp \frac{a}{r} \cos{\theta} + \frac{1}{2} \left( \frac{a}{r} \right)^{2} \left( 3 \cos^{2}{\theta} - 1 \right) \mp \frac{1}{2} \left( \frac{a}{r} \right)^{3} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) + \cdots \right]
-\end{split}
+    \begin{split}
+        \frac{1}{r_{\pm}} &= \frac{1}{r} \frac{1}{\sqrt{1 \pm 2 \cos{\theta} a/r + \left( a/r \right)^{2}}} \\
+        &= \frac{1}{r} \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} P_{n}(\mp \cos{\theta}) \\
+        &= \frac{1}{r} \left[ 1 \mp \frac{a}{r} \cos{\theta} + \frac{1}{2} \left( \frac{a}{r} \right)^{2} \left( 3 \cos^{2}{\theta} - 1 \right) \mp \frac{1}{2} \left( \frac{a}{r} \right)^{3} \left( 5 \cos^{3}{\theta} - 3 \cos{\theta} \right) + \cdots \right]
+    \end{split}
 \end{equation}
 
 where the alternating terms vanish when we add $1/r_{+}$ and $1/r_{-}$.
@@ -164,12 +164,12 @@ The sines of the angles between $\mathbf{F}_{\pm}$ and the z axis are given by:
 Thus, the torques are given by:
 
 \begin{equation}
-\begin{split}
-    \tau_{\pm} &= F_{\pm} a \sin{\theta_{\pm}} \\
-    &= \frac{Qqa}{4\pi\epsilon_{0}} \left( \frac{r}{r_{\pm}^{3}} \sin{\theta} \right) \\
-    &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp \frac{a}{r} \cos{\theta} \right)^{3} \\
-    &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp 3\frac{a}{r} \cos{\theta} \right)
-\end{split}
+    \begin{split}
+        \tau_{\pm} &= F_{\pm} a \sin{\theta_{\pm}} \\
+        &= \frac{Qqa}{4\pi\epsilon_{0}} \left( \frac{r}{r_{\pm}^{3}} \sin{\theta} \right) \\
+        &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp \frac{a}{r} \cos{\theta} \right)^{3} \\
+        &\approx \frac{Qqa\sin{\theta}}{4\pi\epsilon_{0}r^{2}} \left( 1 \mp 3\frac{a}{r} \cos{\theta} \right)
+    \end{split}
 \end{equation}
 
 where we have ignored the second order or higher terms in $a/r$.
@@ -227,42 +227,42 @@ Due to the apparent azimuthal symmetry, we can write the potential as:
 First consider $V_{+}$ for $r > R$. We can demand the potential to be zero at infinity, requiring $A_{l} = 0$ for all $l$. Similarly, $V_{-}$ for $r < R$ must be finite at the origin, so $B_{l} = 0$ for all $l$. The potential is therefore:
 
 \begin{equation}
-V =
-\begin{dcases}
-    \sum_{l=0}^{\infty} \frac{B_{l}}{r^{l+1}} P_{l}(\cos{\theta}) & \text{for } r > R \\
-    \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta}) & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        \sum_{l=0}^{\infty} \frac{B_{l}}{r^{l+1}} P_{l}(\cos{\theta}) & \text{for } r > R \\
+        \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta})           & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 with the radial derivatives:
 
 \begin{equation}
-\frac{\partial V}{\partial r} =
-\begin{dcases}
-    \sum_{l=0}^{\infty} -\frac{l+1}{r^{l+2}} B_{l} P_{l}(\cos{\theta}) & \text{for } r > R \\
-    \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta}) & \text{for } r < R
-\end{dcases}
+    \frac{\partial V}{\partial r} =
+    \begin{dcases}
+        \sum_{l=0}^{\infty} -\frac{l+1}{r^{l+2}} B_{l} P_{l}(\cos{\theta}) & \text{for } r > R \\
+        \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta})            & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 The boundary conditions then give:
 
 \begin{equation}
-\frac{B_{l}}{R^{l+2}} = A_{l} R^{l-1}
+    \frac{B_{l}}{R^{l+2}} = A_{l} R^{l-1}
 \end{equation}
 
 and:
 
 \begin{equation}
--\frac{B_{0}}{R^{2}} - \sum_{l=1}^{\infty} \left[ l A_{l} R^{l-1} + (l + 1)\frac{B_{l}}{R^{l+2}} \right] P_{l}(\cos{\theta}) = -\frac{k}{\epsilon_{0}} \cos{\theta}
+    -\frac{B_{0}}{R^{2}} - \sum_{l=1}^{\infty} \left[ l A_{l} R^{l-1} + (l + 1)\frac{B_{l}}{R^{l+2}} \right] P_{l}(\cos{\theta}) = -\frac{k}{\epsilon_{0}} \cos{\theta}
 \end{equation}
 
 For this to be true for all $\theta$, we must have $A_{0} = B_{0} = 0$ and $A_{l} = B_{l} = 0$ for all $l \ge 2$. On the other hand, for $l = 1$, we have:
 
 \begin{equation}
-\begin{split}
-    -A_{1} - 2\frac{B_{1}}{R^{3}} &= -\frac{k}{\epsilon_{0}} \\
-    \frac{B_{1}}{R^{3}} &= A_{1}
-\end{split}
+    \begin{split}
+        -A_{1} - 2\frac{B_{1}}{R^{3}} &= -\frac{k}{\epsilon_{0}} \\
+        \frac{B_{1}}{R^{3}} &= A_{1}
+    \end{split}
 \end{equation}
 
 which gives $A_{1} = B_{1}/R^{3} = k/3\epsilon_{0}$.
@@ -270,32 +270,32 @@ which gives $A_{1} = B_{1}/R^{3} = k/3\epsilon_{0}$.
 The potential is therefore:
 
 \begin{equation}
-V =
-\begin{dcases}
-    \frac{kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{2}} & \text{for } r > R \\
-    \frac{k}{3\epsilon_{0}} r \cos{\theta} & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        \frac{kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{2}} & \text{for } r > R \\
+        \frac{k}{3\epsilon_{0}} r \cos{\theta}                  & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 \subproblem{b}
 The components of the electric field are given by:
 
 \begin{equation}
-E_{r} = 
-\begin{dcases}
-    \frac{2kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{3}} & \text{for } r > R \\
-    -\frac{k}{3\epsilon_{0}} \cos{\theta} & \text{for } r < R
-\end{dcases}
+    E_{r} =
+    \begin{dcases}
+        \frac{2kR^{3}}{3\epsilon_{0}} \frac{\cos{\theta}}{r^{3}} & \text{for } r > R \\
+        -\frac{k}{3\epsilon_{0}} \cos{\theta}                    & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 and:
 
 \begin{equation}
-E_{\theta} =
-\begin{dcases}
-    \frac{kR^{3}}{3\epsilon_{0}} \frac{\sin{\theta}}{r^{3}} & \text{for } r > R \\
-    \frac{k}{3\epsilon_{0}} \sin{\theta} & \text{for } r < R
-\end{dcases}
+    E_{\theta} =
+    \begin{dcases}
+        \frac{kR^{3}}{3\epsilon_{0}} \frac{\sin{\theta}}{r^{3}} & \text{for } r > R \\
+        \frac{k}{3\epsilon_{0}} \sin{\theta}                    & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 \subproblem{c}
@@ -351,11 +351,11 @@ The uniform field will attempt to induce a polarisation in the sphere in the $\h
 Again, let us demand that the potential is zero at $r = R$ and that it is finite near origin. We separate the potential into two parts:
 
 \begin{equation}
-V =
-\begin{dcases}
-    \sum_{l=0}^{\infty} \left( \frac{B_{l}}{r^{l+1}} + C_{l} r^{l} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
-    \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta}) & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        \sum_{l=0}^{\infty} \left( \frac{B_{l}}{r^{l+1}} + C_{l} r^{l} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
+        \sum_{l=0}^{\infty} A_{l} r^{l} P_{l}(\cos{\theta})                                        & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 which immediately gives a relation between $B_{l}$ and $C_{l}$:
@@ -373,11 +373,11 @@ and:
 Consider the derivatives:
 
 \begin{equation}
-\frac{\partial V}{\partial r} =
-\begin{dcases}
-    -\frac{B_{0}}{r^2} + \sum_{l=1}^{\infty} \left( -\frac{l+1}{r^{l+2}} B_{l} + l C_{l} r^{l-1} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
-    \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta}) & \text{for } r < R
-\end{dcases}
+    \frac{\partial V}{\partial r} =
+    \begin{dcases}
+        -\frac{B_{0}}{r^2} + \sum_{l=1}^{\infty} \left( -\frac{l+1}{r^{l+2}} B_{l} + l C_{l} r^{l-1} \right) P_{l}(\cos{\theta}) & \text{for } r > R \\
+        \sum_{l=1}^{\infty} l A_{l} r^{l-1} P_{l}(\cos{\theta})                                                                  & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 The boundary condition is that $E_{z}$, which is proportional to $\partial V/\partial r$ at $\theta = 0$, is equal to $E_{0}$ as $r \to \infty$. The finiteness of the field requires $C_{l} = 0$ for all $l \ge 2$, which also implies $B_{l} = 0$ for all $l \ge 2$. The boundary condition then gives:
@@ -391,11 +391,11 @@ so that $B_{1} = -C_{1} R^{3} = E_{0} R^{3}$.
 Then we can write the potential as:
 
 \begin{equation}
-V =
-\begin{dcases}
-    C_{0} \left( 1 - \frac{R}{r} \right) + E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
-    0 & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        C_{0} \left( 1 - \frac{R}{r} \right) + E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
+        0                                                                                                & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 From the boundary condition on $\partial V/\partial r$, we have:
@@ -413,11 +413,11 @@ Now we demand the integration of $\sigma$ over the sphere to be zero, which give
 This gives a condition $C_{0} = 0$. The potential is therefore:
 
 \begin{equation}
-V =
-\begin{dcases}
-    E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
-    0 & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        E_{0} \left( \frac{R^{3}}{r^{2}} - r \right) \cos{\theta} & \text{for } r > R \\
+        0                                                         & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 \subproblem{c}
@@ -444,7 +444,7 @@ so that the net field is zero inside the sphere as expected for electrostatic eq
 Assuming longitudinal symmetry, we can write the potential as:
 
 \begin{equation}
-    V(r, \phi) = R(r) \Phi(\phi) 
+    V(r, \phi) = R(r) \Phi(\phi)
 \end{equation}
 
 The Laplacian is then:
@@ -465,7 +465,7 @@ Now we demand that the $R$ term is a constant $n^{2}$ and the $\Phi$ term is a c
     \Phi = e^{\pm in\phi}
 \end{equation}
 
-for some integer $n$. 
+for some integer $n$.
 
 The $R$ term then becomes a differential equation for $R$:
 
@@ -526,11 +526,11 @@ as expected.
 For simplicity, let us assume that $n \in \mathbb{N}$. We write the potential as two parts:
 
 \begin{equation}
-V =
-\begin{dcases}
-    \sum_{n \in \mathbb{N}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{in\phi} & \text{for } r > R \\
-    \sum_{n \in \mathbb{N}} C_{n} r^{n} e^{in\phi} & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        \sum_{n \in \mathbb{N}} \left( A_{n} r^{n} + B_{n} r^{-n} \right) e^{in\phi} & \text{for } r > R \\
+        \sum_{n \in \mathbb{N}} C_{n} r^{n} e^{in\phi}                               & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 where the negative powers of $r$ are absent for $r < R$ due to the finiteness of the potential at the origin.
@@ -560,11 +560,11 @@ This gives $A_{1} = -E_{0}$ and $A_{n} = 0$ for all $n \ge 2$, which implies $B_
 Combining the results, we have:
 
 \begin{equation}
-V =
-\begin{dcases}
-    -E_{0} \left( r - \frac{R^{2}}{r} \right) \cos{\phi} & \text{for } r > R \\
-    0 & \text{for } r < R
-\end{dcases}
+    V =
+    \begin{dcases}
+        -E_{0} \left( r - \frac{R^{2}}{r} \right) \cos{\phi} & \text{for } r > R \\
+        0                                                    & \text{for } r < R
+    \end{dcases}
 \end{equation}
 
 where we have taken the real part of the complex exponential.
@@ -583,33 +583,33 @@ To find the surface charge density, we use the relation:
 The vector potential is given by the integral:
 
 \begin{equation}
-\begin{split}
-    \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \int_{-L}^{L} \frac{1}{\sqrt{r^{2} + {l^{2}}}} \, \mathrm{d}l \\
-    &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)}
-\end{split}
+    \begin{split}
+        \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \int_{-L}^{L} \frac{1}{\sqrt{r^{2} + {l^{2}}}} \, \mathrm{d}l \\
+        &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)}
+    \end{split}
 \end{equation}
 
 \subproblem{b}
 In the limit $L \gg r$, we approximate the vector potential as:
 
 \begin{equation}
-\begin{split}
-    \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)} \\
-    &\approx \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{2 + r^{2}/2L^{2}}{r^{2}/2L^{2}} \right)} \\
-    &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( 4\frac{L^{2}}{r^{2}} + 1 \right)}
-\end{split}
+    \begin{split}
+        \mathbf{A} &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{\sqrt{r^{2} + L^{2}} + L}{\sqrt{r^{2} + L^{2}} - L} \right)} \\
+        &\approx \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( \frac{2 + r^{2}/2L^{2}}{r^{2}/2L^{2}} \right)} \\
+        &= \hat{z} \frac{\mu_{0} I}{4\pi} \ln{\left( 4\frac{L^{2}}{r^{2}} + 1 \right)}
+    \end{split}
 \end{equation}
 
 Then the magnetic field is given by:
 
 \begin{equation}
-\begin{split}
-    \mathbf{B} &= \nabla \times \mathbf{A} \\
-    &= -\frac{\partial A_{z}}{\partial r} \\
-    &= \frac{\mu_{0} I}{4\pi} \frac{8L^{2}}{4L^{2}r + r^{3}} \\
-    &= \frac{\mu_{0} I}{2\pi r} \frac{1}{1 + r^{2}/4L^{2}} \\
-    &\approx \frac{\mu_{0} I}{2\pi r}
-\end{split}
+    \begin{split}
+        \mathbf{B} &= \nabla \times \mathbf{A} \\
+        &= -\frac{\partial A_{z}}{\partial r} \\
+        &= \frac{\mu_{0} I}{4\pi} \frac{8L^{2}}{4L^{2}r + r^{3}} \\
+        &= \frac{\mu_{0} I}{2\pi r} \frac{1}{1 + r^{2}/4L^{2}} \\
+        &\approx \frac{\mu_{0} I}{2\pi r}
+    \end{split}
 \end{equation}
 
 as expected from Ampere's law.
