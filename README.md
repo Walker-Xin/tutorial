@@ -22,7 +22,7 @@ The course is split into 4 years.
 
 ## Utilities
 
-I provide `homework.sty` as a template for type setting tutorial work. While some mathematical commands are defined, I rarely use them and instead rely on snippets configured in VSCode for fast typing. Several sectioning commands such as `\problem` and `\subproblem` are defined to help structure the document. Two environments, `\mistake` and `\correction`, are used for reviewing tutorial work.
+Under `utilities` folder I provide `homework.sty` as a template for type setting tutorial work. While some mathematical commands are defined, I rarely use them and instead rely on snippets configured in VSCode for fast typing. Several sectioning commands such as `\problem` and `\subproblem` are defined to help structure the document. Two environments, `\mistake` and `\correction`, are used for reviewing tutorial work.
 
 The template was inspired by the [resume template](https://github.com/TimmyChan/data-science-tech-resume-template) by Timmy Chan.
 
