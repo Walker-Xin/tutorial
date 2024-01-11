@@ -2,6 +2,12 @@
 
 This repository contains the tutorial work for my Physics Course at Oxford.
 
+## Potential Error
+
+Please note that the solutions here are not official and may (and probably will) contain errors.
+
+If any error is spotted, I would be very grateful if you could let me know by opening an issue.
+
 ## Course Structure
 
 The course is split into 4 years.
