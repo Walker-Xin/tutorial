@@ -1,0 +1,433 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Kinetic Theory}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Collisions and Transport}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Mean Free Path}
+%==========
+
+\problem{4.1}{}
+
+\subproblem{a}
+The rms speed of the two species are:
+
+\begin{equation}
+\begin{aligned}
+    v_{\text{rms},1} &= \sqrt{\frac{3kT}{m_1}} \\
+    v_{\text{rms},2} &= \sqrt{\frac{3kT}{m_2}}
+\end{aligned}
+\end{equation}
+
+\subproblem{b}
+Consider type 1 particles moving with z-velocities between $v_{z}$ and $v_{z} + dv_{z}$ with momentum $m_{1}v_{z}$. The pressure exerted by these particles on the wall is:
+
+\begin{equation}
+    \mathrm{d}P_{1} = 2m_{1}v_{z}^{2}n_{1}f_{1}(v_{z}) \, \mathrm{d}v_{z}
+\end{equation}
+
+where we have the expression for the distribution function:
+
+\begin{equation}
+    f_{1}(v_{z}) \, \mathrm{d}v_{z} = \left( \frac{m_{1}}{2\pi k_{B}T} \right)^{1/2} e^{-v_{z}^{2}/v_{\text{th},1}^{2}} \, \mathrm{d}v_{z}
+\end{equation}
+
+The partial pressure exerted by type 1 particles is:
+
+\begin{equation}
+    P_{1} = \int_{0}^{\infty} \mathrm{d}P_{1} = n_{1}m_{1} \left\langle v_{z, 1}^{2} \right\rangle
+\end{equation}
+
+Similarly, the partial pressure exerted by type 2 particles is:
+
+\begin{equation}
+    P_{2} = \int_{0}^{\infty} \mathrm{d}P_{2} = n_{2}m_{2} \left\langle v_{z, 2}^{2} \right\rangle
+\end{equation}
+
+But we know that for an isotropic gas, the average velocity in any direction is realted to the average speed by:
+
+\begin{equation}
+    \left\langle v_{z}^{2} \right\rangle = \frac{1}{3} \left\langle v^{2} \right\rangle = \frac{1}{3} v_{\text{rms}}^{2}
+\end{equation}
+
+Using this, the mass factors cancel out and we have:
+
+\begin{equation}
+    P_{1, 2} = n_{1, 2} k_{B} T
+\end{equation}
+
+which means that the total pressure is:
+
+\begin{equation}
+    P = P_{1} + P_{2} = n_{1} k_{B} T + n_{2} k_{B} T = n k_{B} T
+\end{equation}
+
+where $n = n_{1} + n_{2}$ is the total number density.
+
+\subproblem{c}
+The cross-section between two species is:
+
+\begin{equation}
+    \sigma_{12} = \pi (r_{1} + r_{2})^{2}
+\end{equation}
+
+\subproblem{d}
+Assuming independent collisions, the average relative speed is:
+
+\begin{equation}
+\begin{split}
+    \left\langle v_{r} \right\rangle &= \int \left\lvert \mathbf{v}_{1} - \mathbf{v}_{2} \right\rvert f_{1}(\mathbf{v}_{1}) f_{2}(\mathbf{v}_{2}) \, \mathrm{d}^{3} \mathbf{v}_{1} \mathrm{d}^{3} \mathbf{v}_{2} \\
+    &= \int \left\lvert \mathbf{v}_{1} - \mathbf{v}_{2} \right\rvert \left( \frac{\sqrt{m_{1}m_{2}}}{2\pi k_{B}T} \right) \exp\left( -\frac{m_{1}v_{1}^{2} + m_{2}v_{2}^{2}}{2k_{B}T} \right) \, \mathrm{d}^{3} \mathbf{v}_{1} \mathrm{d}^{3} \mathbf{v}_{2}
+\end{split}
+\end{equation}
+
+To solve this, we make use of the substitution $\mathbf{v}_{r} \equiv \mathbf{v}_{1} - \mathbf{v}_{2}$ and $\mathbf{V} \equiv \frac{m_{1}\mathbf{v}_{1} + m_{2}\mathbf{v}_{2}}{m_{1} + m_{2}}$ so that $\mathrm{d}^{3} \mathbf{v}_{1} \mathrm{d}^{3} \mathbf{v}_{2} = \mathrm{d}^{3} \mathbf{v}_{r} \mathrm{d}^{3} \mathbf{V}$. Note the following equality:
+
+\begin{equation}
+    (m_{1} + m_{2}) V^{2} + \frac{m_{1}m_{2}}{m_{1} + m_{2}} v_{r}^{2} = m_{1}v_{1}^{2} + m_{2}v_{2}^{2}
+\end{equation}
+
+Let us define $M \equiv m_{1} + m_{2}$ and $\mu \equiv \frac{m_{1}m_{2}}{m_{1} + m_{2}}$. Using this, we can rewrite the integral as:
+
+\begin{equation}
+\begin{split}
+    \left\langle v_{r} \right\rangle &= \left( \frac{\sqrt{M\mu}}{2\pi k_{B}T} \right) \int v_{r} \exp\left( -\frac{MV^{2} + \mu v_{r}^{2}}{2k_{B}T} \right) \, \mathrm{d}^{3} \mathbf{v}_{r} \mathrm{d}^{3} \mathbf{V} \\
+    &= \left( \frac{\sqrt{\mu}}{2\pi k_{B}T} \right) \int v_{r} \exp\left( -\frac{\mu v_{r}^{2}}{2k_{B}T} \right) \, \mathrm{d}^{3} \mathbf{v}_{r} \\
+    &= \left( \frac{\sqrt{\mu}}{2\pi k_{B}T} \right) \int v_{r} \exp\left( -\frac{\mu v_{r}^{2}}{2k_{B}T} \right) 4\pi v_{r}^{2} \, \mathrm{d}v_{r} \\
+    &= \sqrt{\frac{8k_{B}T}{\pi \mu}}
+\end{split}
+\end{equation}
+
+which reduces to $4\sqrt{k_{B}T/\pi m}$ for equal masses as expected.
+
+The mean collision rate of type 1 particles colliding with type 2 particles is:
+
+\begin{equation}
+    \nu_{12} = n_{2} \left\langle v_{r} \right\rangle \sigma_{12}
+\end{equation}
+
+and vice versa for type 2 particles colliding with type 1.
+\qed
+
+
+\problem{4.2}{}
+
+\subproblem{a}
+For a particle to not collide in a short time interval $\delta t$, we require that there is no particle present in a cylinder of volume $\sigma v \delta t$ around the particle. The probability of this happening is:
+
+\begin{equation}
+    1 - n \sigma v \delta t
+\end{equation}
+
+Consider the equation:
+
+\begin{equation}
+    P(t + \delta t) = P(t) \left( 1 - n \sigma v \delta t \right)
+\end{equation}
+
+solving which yields:
+
+\begin{equation}
+    P(t) = e^{-n \sigma v t}
+\end{equation}
+
+\subproblem{b}
+For a particle to not collide after travelling a short distance $\delta x$, the probability of this happening is:
+
+\begin{equation}
+    1 - n \sigma \delta x
+\end{equation}
+
+Consider the equation:
+
+\begin{equation}
+    P(x + \delta x) = P(x) \left( 1 - n \sigma \delta x \right)
+\end{equation}
+
+and the solution is:
+
+\begin{equation}
+    P(x) = n \sigma e^{-n \sigma x}
+\end{equation}
+
+The mean of this distribution is:
+
+\begin{equation}
+    \left\langle x \right\rangle = n \sigma \int_{0}^{\infty} x e^{-n \sigma x} \, \mathrm{d}x = \frac{1}{n \sigma}
+\end{equation}
+
+which is the mean free path.
+
+The rms of this distribution is:
+
+\begin{equation}
+    \left\langle x^{2} \right\rangle^{1/2} = \left( n \sigma \int_{0}^{\infty} x^{2} e^{-n \sigma x} \, \mathrm{d}x \right)^{1/2} = \frac{\sqrt{2}}{n \sigma} = \sqrt{2} \left\langle x \right\rangle
+\end{equation}
+
+\subproblem{c}
+The most probable distance travelled is zero.
+
+\subproblem{d}
+
+\begin{equation}
+\begin{split}
+    P(x > \lambda) &= \int_{\lambda}^{\infty} e^{-n \sigma x} \, \mathrm{d}x = \frac{1}{e} \\
+    P(x > 2\lambda) &= \int_{2\lambda}^{\infty} e^{-n \sigma x} \, \mathrm{d}x = \frac{1}{e^{2}} \\
+    P(x > 5\lambda) &= \int_{5\lambda}^{\infty} e^{-n \sigma x} \, \mathrm{d}x = \frac{1}{e^{5}}
+\end{split}
+\end{equation}
+
+which demonstrates the memoryless property of an exponential distribution.
+\qed
+
+
+\problem{4.3}{}
+
+We have the approximation:
+
+\begin{equation}
+    \frac{1}{n\sigma} = \frac{1}{n 4\pi r^{2}} \approx 10^{3} r
+\end{equation}
+
+
+\problem{4.4}{}
+Attenuation by a factor of $2.72$ means that a fraction $1/2.72$ of the particles have not undergone a collision. We need:
+
+\begin{equation}
+    P(x > \qty{e-2}{m}) = e^{-n\sigma d} = \frac{1}{2.72}
+\end{equation}
+
+which gives:
+
+\begin{equation}
+    \lambda = \frac{1}{n\sigma} = \frac{d}{\ln{2.72}} \approx \qty{e-2}{m}
+\end{equation}
+
+The number density is given by:
+
+\begin{equation}
+    n = \frac{p}{k_{B}T} = \frac{\qty{1}{Nm^{-2}}}{\qty{2.07e-23}{JK^{-1}} \times \qty{273}{K}} = \qty{1.77e20}{m^{-3}}
+\end{equation}
+
+so that the effective collision radius is:
+
+\begin{equation}
+    r = \sqrt{\frac{\sigma}{4\pi}} = \frac{1}{\sqrt{4\pi n\lambda}} = \qty{1.41e-10}{m}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Conductivity, Viscosity, Diffusion}
+%==========
+
+\problem{4.6}{}
+
+\subproblem{a}
+Consider the molecules travelling in z-direction. An average distance $\lambda\cos{\theta}$ is travelled in this direction before a collision occurs, leading to a deficit in thermal energy:
+
+\begin{equation}
+    C \Delta T = C \frac{\partial T}{\partial z} \lambda \cos{\theta}
+\end{equation}
+
+The total thermal energy transported via this process is:
+
+\begin{equation}
+\begin{split}
+    J_{z} &= -\int C \frac{\partial T}{\partial z} \lambda \cos{\theta} n v_{z} g(\mathbf{v}) \, \mathrm{d}^{3} \mathbf{v} \\
+    &= -C \lambda n \frac{\partial T}{\partial z} \int \cos{\theta} v \cos{\theta} g(v) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+    &= -C \lambda n \frac{\partial T}{\partial z} \int_{0}^{\infty} \int_{0}^{\pi} \frac{1}{2} \sin{\theta} \cos^{2}{\theta} v f(v) \, \mathrm{d}v \mathrm{d}\theta \\
+    &= -\frac{1}{3} C_{V} \lambda \left\langle v \right\rangle \frac{\partial T}{\partial z} 
+\end{split}
+\end{equation}
+
+where we have used the change of variables $\mathrm{d}^{3} \mathbf{v} = v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi$.
+
+We therefore identify the thermal conductivity as:
+
+\begin{equation}
+    \kappa = \frac{1}{3} C_{V} \lambda \left\langle v \right\rangle = \frac{2}{3\pi d^{2}} C \left( \frac{k_{B}T}{\pi m} \right)^{1/2}
+\end{equation}
+
+\subproblem{b}
+
+We have:
+
+\begin{equation}
+    \lambda = \frac{3\kappa}{C_{V}} \left( \frac{8k_{B}T}{\pi m} \right)^{-1/2}
+\end{equation}
+
+Treating the argon gas as ideal, we have $C_{V} = \frac{3}{2} R$ so that $\lambda = \qty{1.0e-5}{m}$. On the other hand, we have:
+
+\begin{equation}
+    \lambda = \frac{1}{\pi d^{2} n} = \frac{k_{B}T}{\pi d^{2} p}
+\end{equation}
+
+which gives $d^{2} = k_{B}T/p\lambda$ or $r = d/2 = \qty{3.0e-11}{m}$.
+
+On the other hand, considering close packed solid argon in a $N\times N\times N$ cube, we have:
+
+\begin{equation}
+    \rho = 0.74 \frac{N^{3}m}{(Nd)^{3}} = 0.74 \frac{m}{d^{3}}
+\end{equation}
+
+which leads to $r = d/2 = \qty{1.6e-10}{m}$, more than five times larger than the value obtained from the kinetic theory of gases.
+
+This is because the kinetic theory ignored any intermolecular forces between the particles so the estimated radius is bound to be an underestimation.
+\qed
+
+
+\problem{4.7}{}
+
+\subproblem{a}
+Following the same procedure as in the calculation of thermal conductivity, consider the momentum deficit due to a particle travelling in z-direction and colliding with another particle:
+
+\begin{equation}
+    m \Delta \left\langle v_{z} \right\rangle = m \frac{\partial \left\langle v_{z} \right\rangle}{\partial z} \lambda \cos{\theta}
+\end{equation}
+
+The total momentum transported via this process is:
+
+\begin{equation}
+\begin{split}
+    \Pi_{z} &= -\int m \frac{\partial \left\langle v_{z} \right\rangle}{\partial z} \lambda \cos{\theta} n v_{z} g(\mathbf{v}) \, \mathrm{d}^{3} \mathbf{v} \\
+    &= -\frac{1}{3} n m \lambda \left\langle v \right\rangle \frac{\partial \left\langle v_{z} \right\rangle}{\partial z}
+\end{split}
+\end{equation}
+
+where we identify the viscosity as:
+
+\begin{equation}
+    \eta = \frac{1}{3} n m \lambda \left\langle v \right\rangle = \frac{1}{3} N \rho \lambda \left\langle v \right\rangle
+\end{equation}
+
+\subproblem{b}
+The viscosity of an ideal gas doe not depend on the pressure of the gas. Since the damping of the pendulum's motion is due to air resistance, pumping the air out of the vessel does not affect the rate of damping.
+
+When pressure decreases, the number density of the gas decreases. However, the mean free path increases, and the net effect is that the viscosity remains constant.
+\qed
+
+
+\problem{4.8}{}
+We can treat the gas inside as infinitesimal layers each rotating with a angular velocity $\omega(z)$. Let the bottom disk be the one rotating at $\omega_{0} = \qty{10}{rad s^{-1}}$, we expect $\omega(0) = \omega_{0}$ and $\omega(h) = 0$. Now consider layers along the radial direction. At a point specified by $(r, z)$, the velocity is $v = \omega(z) r$. The velocity gradient in the z-direction is:
+
+\begin{equation}
+    \frac{\partial v}{\partial z} = \frac{\partial \omega}{\partial z} r
+\end{equation}
+
+The viscous shearing stress is thus $\eta r (\partial \omega/\partial z)$. The infinitesimal torque on a ring of radius $r$ and thickness $\delta r$ is:
+
+\begin{equation}
+    \delta \tau = r \delta F = r \eta \frac{\partial \omega}{\partial z} r (2\pi r \delta r) = 2\pi \eta r^{3} \frac{\partial \omega}{\partial z} \delta r
+\end{equation}
+
+which means that the total torque acting on the disk is:
+
+\begin{equation}
+    \tau = \int_{0}^{R} 2\pi \eta r^{3} \frac{\partial \omega}{\partial z} \, \mathrm{d}r = \frac{\pi \eta R^{4}}{2} \frac{\partial \omega}{\partial z}
+\end{equation}
+
+In steady state, this torque does not change at different heights because if there were, angular acceleration would be induced and the system is not in steady state. We therefore require $\partial \omega/\partial z = \omega_{0}/h$ to be a constant. Hence, we have $\tau = \omega_{0}\pi \eta R^{4}/(2h) = \qty{2.1e-6}{Nm^{-1}}$.
+\qed
+
+
+\problem{4.9}{}
+From kinetic theory, $\eta \propto \left\langle v \right\rangle \propto T^{1/2}$. We check:
+
+\begin{equation}
+    \frac{\eta_{1}}{\eta_{2}} = 2.29 \qquad \sqrt{\frac{T_{1}}{T_{2}}} = 2
+\end{equation}
+
+which is a somewhat acceptable agreement.
+
+
+%==========
+\pagebreak
+\section*{Heat Diffusion Equation}
+%==========
+
+
+\problem{4.11}{}
+
+\subproblem{a}
+Assume that the wire is perfectly uniform such that the power generated $P = I^{2}R$ is distributed uniformly along the wire. The power per unit volume is thus:
+
+\begin{equation}
+    H = \frac{P}{V} = \frac{I^{2}R}{\pi a^{2}L} = \frac{\rho I^{2}}{\pi^{2} a^{4}}
+\end{equation}
+
+At steady state, we have:
+
+\begin{equation}
+    \nabla^{2} T = -\frac{H}{\kappa}
+\end{equation}
+
+Due to the apparent azimuthal and longitudinal symmetry, we can write $T = T(r)$ and the equation reduces to:
+
+\begin{equation}
+    \frac{1}{r} \frac{\mathrm{d}}{\mathrm{d}r} \left( r \frac{\mathrm{d}T}{\mathrm{d}r} \right) = -\frac{H}{\kappa}
+\end{equation}
+
+subject to the boundary condition $T(a) = T_{0}$.
+
+Integrating once yields:
+
+\begin{equation}
+    r \frac{\mathrm{d}T}{\mathrm{d}r} = -\frac{H}{2\kappa} r^{2} + C_{1}
+\end{equation}
+
+Integrating again yields:
+
+\begin{equation}
+    T(r) = -\frac{H}{4\kappa} r^{2} + C_{1} \ln{r} + C_{2}
+\end{equation}
+
+For finite $T$ at $r = 0$, we require $C_{1} = 0$. For $T(a) = T_{0}$, we require $C_{2} = T_{0} + \frac{H}{4\kappa} a^{2}$. Hence, the temperature distribution is:
+
+\begin{equation}
+    T(r) = T_{0} + \frac{H}{4\kappa} \left( a^{2} - r^{2} \right)
+\end{equation}
+
+\subproblem{b}
+
+We have the new diffusion equation:
+
+\begin{equation}
+    \nabla^{2} T = -\frac{H}{\kappa} + \frac{A\alpha[T(a) - T_{\text{air}}]}{\kappa} 
+\end{equation}
+
+where $A = 2\pi a L$ is the side surface area of the wire.
+
+Since $T(a)$ is a constant, this is formally the same as the previous equation with the replacement $H \rightarrow H - A\alpha[T(a) - T_{\text{air}}]$. The solution is thus of the form:
+
+\begin{equation}
+    T(r) = -\frac{H - A\alpha[T(a) - T_{\text{air}}]}{4\kappa} r^{2} + D
+\end{equation}
+
+To fix the constant $D$, we substitute $r = a$ and $T = T(a)$:
+
+\begin{equation}
+    T(r) = T(a) + \frac{H - A\alpha[T(a) - T_{\text{air}}]}{4\kappa} \left( a^{2} - r^{2} \right)
+\end{equation}
+\qed
+
+
+\problem{4.12}{}
+
+
+
+
+\end{document}
