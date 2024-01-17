@@ -426,8 +426,147 @@ To fix the constant $D$, we substitute $r = a$ and $T = T(a)$:
 
 
 \problem{4.12}{}
+Consider an infinitesimal segment $(x, x + \delta x)$ of the rod. The internal energy contained here is $\epsilon \delta x$ and its rate of change is:
+
+\begin{equation}
+    S\rho c_{m} \delta x \frac{\partial T}{\partial t}
+\end{equation}
+
+where $S = \pi a^{2}$ is the cross-sectional area of the rod.
+
+On the one hand, this is partly due to the heat flux from the rest of the rod:
+
+\begin{equation}
+    S[J(x) - J(x + \delta x)] = -S \frac{\partial J}{\partial x} \delta x = S\kappa \frac{\partial^{2} T}{\partial x^{2}} \delta x
+\end{equation}
+
+On the other hand, some of the heat is dissipated due to Newton's law of cooling:
+
+\begin{equation}
+    -A(T - T_{0}) 2\pi a \delta x
+\end{equation}
+
+Combining these into one equation and dividing by $S \delta x$, we have:
+
+\begin{equation}
+    \rho c_{m} \frac{\partial T}{\partial t} = \kappa \frac{\partial^{2} T}{\partial x^{2}} - \frac{2A}{a} (T - T_{0})
+\end{equation}
+
+\subproblem{a}
+Consider the steady state equation:
+
+\begin{equation}
+    \frac{\partial^{2} T}{\partial x^{2}} = \frac{2A}{a\kappa} (T - T_{0})
+\end{equation}
+
+Suppose that $T(0) = T_{m}$ and assume solutions of the form $T(x) = C e^{kx} + D e^{-kx} + T_{0}$. We have $k = \sqrt{2A/(a\kappa)}$, $D = T_{m} - T_{0}$ and $C = 0$ for finiteness as the rod extends to infinity. Hence, the solution is:
+
+\begin{equation}
+    T(x) = (T_{m} - T_{0}) e^{-kx} + T_{0}
+\end{equation}
+
+\subproblem{b}
+Consider the heat flow to positive x-direction at $x = 0$:
+
+\begin{equation}
+    J(0) = -\kappa \left. \frac{\partial T}{\partial x} \right|_{x = 0} = (T_{m} - T_{0}) k\kappa = \sqrt{\frac{2A\kappa}{a}} (T_{m} - T_{0})
+\end{equation}
+
+The power dissipated at $x = 0$ is:
+
+\begin{equation}
+    P = J(0) \pi a^{2} = \sqrt{2A\kappa} (T_{m} - T_{0}) a^{3/2}
+\end{equation}
+
+For a finite rod, the solution has the form:
+
+\begin{equation}
+    T(x) = (T_{m} - T_{0}) e^{kx} + D (e^{-kx} - e^{kx}) + T_{0}
+\end{equation}
+
+where the constant $D$ is determined by the boundary condition $T(L) = T_{1}$.
+
+The heat flow can still be calculated:
+
+\begin{equation}
+    J(0) = -\kappa \left. \frac{\partial T}{\partial x} \right|_{x = 0} = -(T_{m} - T_{0}) k\kappa + 2Dk\kappa = \sqrt{\frac{2A\kappa}{a}} (2D - T_{m} + T_{0})
+\end{equation}
+\qed
 
 
+\problem{4.13}{}
+In one dimension, the heat diffusion equation is:
+
+\begin{equation}
+    \frac{\partial T}{\partial t} = D \frac{\partial^{2} T}{\partial x^{2}}
+\end{equation}
+
+where $D = \kappa/\rho c$ is the thermal diffusivity.
+
+We seek wave-like solutions of the form:
+
+\begin{equation}
+    T(x, t) = A e^{i(kx - \omega t)}
+\end{equation}
+
+which immediately yields a relation between $\omega$ and $k$:
+
+\begin{equation}
+    i\omega = D k^{2}
+\end{equation}
+
+so that we can solve for $k$:
+
+\begin{equation}
+    k = \pm \sqrt{\frac{\omega}{2D}} (1 + i)
+\end{equation}
+
+We choose the positive root so that the solution does not blow up as $x \rightarrow \infty$. The solution is thus:
+
+\begin{equation}
+    T(x, t) = \sum_{\omega} A_{\omega} \exp\left( -\sqrt{\frac{\omega}{2D}}x \right) \exp\left[ i \left( \sqrt{\frac{\omega}{2D}}x - \omega t \right) \right]
+\end{equation}
+
+Suppose that at $x = 0$, the temperature variation obeys:
+
+\begin{equation}
+    T(0, t) = T_{0} + \Delta T \cos{\omega_{0} t} = T_{0} + \Delta T \frac{e^{i\omega_{0} t} + e^{-i\omega_{0} t}}{2}
+\end{equation}
+
+This implies that only $\pm \omega_{0}$ modes are excited, along with a constant term:
+
+\begin{equation}
+    T(x, t) = T_{0} + \Delta T \exp\left( -\sqrt{\frac{\omega_{0}}{2D}}x \right) \cos{\left( \sqrt{\frac{\omega_{0}}{2D}}x - \omega_{0} t \right)}
+\end{equation}
+
+where we could define the skin depth $\delta = \sqrt{2D/\omega_{0}}$.
+
+Now consider a boundary variation of the form:
+
+\begin{equation}
+    T(x, 0) = T_{0} + T_{1} \cos{\omega_{1}t} + T_{2} \cos{\omega_{2}t}
+\end{equation}
+
+where $\omega_{1}$ represents the daily variation and $\omega_{2}$ represents the annual variation.
+
+The solution is a linear combination of the solutions for each frequency:
+
+\begin{equation}
+    T(x, t) = T_{0} + \sum_{i = 1, 2} T_{i} \exp\left( -\sqrt{\frac{\omega_{i}}{2D}}x \right) \cos{\left( \sqrt{\frac{\omega_{i}}{2D}}x - \omega_{i} t \right)}
+\end{equation}
+
+At $x = \qty{3}{m}$, the magnitude of daily variation is given by:
+
+\begin{equation}
+    T_{1} \exp\left( -\sqrt{\frac{\omega_{1}}{2D}}x \right) = 
+\end{equation}
+
+while that for annual variation is given by:
+
+\begin{equation}
+    T_{2} \exp\left( -\sqrt{\frac{\omega_{2}}{2D}}x \right) =
+\end{equation}
+\qed
 
 
 \end{document}
