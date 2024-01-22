@@ -142,7 +142,7 @@ which is equal to its time average as it does not have a time dependence.
 \subproblem{e}
 There is no surface charge on the conductor as there is no discontinuity in the electric field in the perpendicular direction (zero in both regions).
 
-Consider the displacement current caused by the incident electric field:
+\mistake{Consider the displacement current caused by the incident electric field:}
 
 \begin{equation}
     \mathbf{J}_{D} = \left. \epsilon_{0} \frac{\partial \tilde{\mathbf{E}_{i}}}{\partial t} \right|_{z=0} = -i\omega \epsilon_{0} E_{0} e^{-i\omega t} \hat{x}
@@ -158,6 +158,29 @@ so that the magnetic field due to the displacement current is:
 
 \begin{equation}
     -i\omega \epsilon_{0} E_{0} e^{-i\omega t} \delta y \frac{\mu_{0}}{2} \hat{y}
+\end{equation}
+
+\begin{correction}
+    However, there is a discontinuity in the magnetic field in the y-direction. In the $z>0$ region, the magnetic field is given by:
+
+    \begin{equation}
+        \tilde{\mathbf{B}} = B_{0, T} e^{i(kz - \omega t)} \hat{y}
+    \end{equation}
+
+    where $B_{0, T} = \mu_{0} \epsilon_{0} \omega E_{0, T} = 2\mu_{0} \epsilon_{0} \omega E_{0} / (1 - \mu_{0}c/\mu v)$. The magnetic field due to the displacement current is then:
+\end{correction}
+
+\subproblem{f}
+If $\mathbf{K} = -B_{i, 0} e^{i(kz - \omega t)} \hat{x}/\mu_{0}$, the magnetic force (due to the incident magnetic wave) acting on the surface current is given by:
+
+\begin{equation}
+    \mathrm{d}\mathbf{F} = (\mathbf{K} \times \tilde{\mathbf{B}}_{i}) \, \mathrm{d}A
+\end{equation}
+
+so that the magnitude of the pressure is:
+
+\begin{equation}
+    P = \left\lvert \mathbf{K} \times \tilde{\mathbf{B}}_{i} \right\rvert = \frac{|\tilde{\mathbf{B}}_{i}^{2}|}{\mu_{0}} = \epsilon_{0} \tilde{E_{i}}^{2}
 \end{equation}
 \qed
 
