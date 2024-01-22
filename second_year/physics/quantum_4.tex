@@ -1,0 +1,242 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Quantum Mechanics}
+\def\assignmentno{Problem Sheet 4}
+\def\assignmentname{Transformations \& Orbital Angular Momentum}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Transformations}
+%==========
+
+
+\problem{4.1}{Reflection symmetry around a point $\mathbf{x}_{0}$}
+Let $\ket{\mathbf{x}_{0} + \mathbf{x}}$ be a position eigenstate that yields $\mathbf{x}_{0} + \mathbf{x}$ upon measurement of position. On physical grounds, reflecting the eigenstate about the point $\mathbf{x}_{0}$ should yield the eigenstate $\ket{\mathbf{x}_{0} - \mathbf{x}}$:
+
+\begin{equation}
+    \hat{P}_{\mathbf{x}_{0}} \ket{\mathbf{x}_{0} + \mathbf{x}} = \ket{\mathbf{x}_{0} - \mathbf{x}}
+\end{equation}
+
+With this, consider the effect of $\hat{P}_{\mathbf{x}_{0}} \hat{x} \hat{P}_{\mathbf{x}_{0}}$ on a position eigenstate:
+
+\begin{equation}
+\begin{split}
+    \hat{P}_{\mathbf{x}_{0}} \hat{x} \hat{P}_{\mathbf{x}_{0}}\ket{\mathbf{x}_{0} + \mathbf{x}} &= \hat{P}_{\mathbf{x}_{0}} \hat{x} \ket{\mathbf{x}_{0} - \mathbf{x}} \\
+    &= (\mathbf{x}_{0} - \mathbf{x}) \hat{P}_{\mathbf{x}_{0}} \ket{\mathbf{x}_{0} - \mathbf{x}} \\
+    &= (\mathbf{x}_{0} - \mathbf{x}) \ket{\mathbf{x}_{0} + \mathbf{x}} \\
+    &= (2\mathbf{x}_{0} - \mathbf{x}_{0} - \mathbf{x}) \ket{\mathbf{x}_{0} + \mathbf{x}} \\
+    &= (2\mathbf{x}_{0} \mathbb{I} - \hat{x}) \ket{\mathbf{x}_{0} + \mathbf{x}}
+\end{split}
+\end{equation}
+
+Further consider $\hat{P}_{\mathbf{x}_{0}} \hat{p} \hat{P}_{\mathbf{x}_{0}}$. Apparently $\hat{p}$ anticommutes with $\hat{P}_{\mathbf{x}_{0}}$ so that $\hat{p} \hat{P}_{\mathbf{x}_{0}} = -\hat{P}_{\mathbf{x}_{0}} \hat{p}$. Thus:
+
+\begin{equation}
+\begin{split}
+    \hat{P}_{\mathbf{x}_{0}} \hat{p} \hat{P}_{\mathbf{x}_{0}} &= -\hat{P}_{\mathbf{x}_{0}} \hat{P}_{\mathbf{x}_{0}} \hat{p} \\
+    &= -\hat{p}
+\end{split}
+\end{equation}
+
+since two successive reflections about the same point is equivalent to no reflection at all.
+
+Consider the position wave function after the reflection:
+
+\begin{equation}
+\begin{split}
+    \psi'(\mathbf{x}) &\equiv \mel{\hat{x}}{\hat{P}_{\mathbf{x}_{0}}}{\psi} \\
+    &= \int \mel{\hat{x}}{\hat{P}_{\mathbf{x}_{0}}}{\mathbf{x}_{0} + \mathbf{x}'} \braket{\mathbf{x}_{0} + \mathbf{x}'}{\psi} \, \mathrm{d}^{3}x' \\
+    &= \int \braket{\hat{x}}{\mathbf{x}_{0} - \mathbf{x}'} \psi(\mathbf{x}_{0} + \mathbf{x}') \, \mathrm{d}^{3}x' \\
+    &= \int (\mathbf{x}_{0} - \mathbf{x}') \psi(\mathbf{x}_{0} + \mathbf{x}') \, \mathrm{d}^{3}x' \\
+\end{split}
+\end{equation}
+
+Consider the change of variable $\mathbf{x}' \to \mathbf{x}_{0} - \mathbf{x}'$:
+
+\begin{equation}
+    \psi'(\mathbf{x}) = \int \mathbf{x}' \psi(2\mathbf{x}_{0} - \mathbf{x}') \, \mathrm{d}^{3}x' = \psi(2\mathbf{x}_{0} - \mathbf{x})
+\end{equation}
+\qed
+
+
+\problem{4.2}{}
+For translation invariance, $\hat{H}$ must commute with $\hat{p}$. Since $\hat{x}$ and $\hat{p}$ generally do not commute, the only form $V(\hat{x})$ can take is a constant.
+\qed
+
+
+\problem{4.3}{}
+We define the orbital angular momentum operator $\hat{L}_{i}$ as:
+
+\begin{equation}
+    \hat{L}_{i} \equiv \epsilon_{ijk} \hat{x}_{j} \hat{p}_{k}
+\end{equation}
+
+Its Hermitian conjugate is:
+
+\begin{equation}
+    \hat{L}_{i}^{\dagger} = \epsilon_{ijk} \hat{p}_{k}^{\dagger} \hat{x}_{j}^{\dagger} = \epsilon_{ijk} \hat{p}_{k} \hat{x}_{j}
+\end{equation}
+
+On the other hand, from the canonical commutation relation:
+
+\begin{equation}
+    [\hat{x}_{j}, \hat{p}_{k}] = i\hbar \delta_{jk} \mathbb{I}
+\end{equation}
+
+which implies that $\hat{x}_{j}$ and $\hat{p}_{k}$ commute if $j \neq k$. 
+
+Therefore:
+
+\begin{equation}
+    \hat{L}_{i}^{\dagger} = \epsilon_{ijk} \hat{p}_{k} \hat{x}_{j} = \epsilon_{ijk} \hat{x}_{j} \hat{p}_{k} = \hat{L}_{i}
+\end{equation}
+\qed
+
+
+\problem{4.4}{}
+For a central potential, we write the Hamiltonian as:
+
+\begin{equation}
+    \hat{H} = \frac{\hat{p}^{2}}{2m} + V(\hat{r}^{2})
+\end{equation}
+
+where we define the radial position operator $\hat{r}^{2}$ as:
+
+\begin{equation}
+    \hat{r}^{2} \equiv \hat{x}_{1}^{2} + \hat{x}_{2}^{2} + \hat{x}_{3}^{2}
+\end{equation}
+
+Let us write the potential as an expansion in terms of $\hat{r}^{2}$:
+
+\begin{equation}
+    V(\hat{r}^{2}) = \sum_{n=0}^{\infty} a_{n} \hat{r}^{2n}
+\end{equation}
+
+Consider the commutator $[\hat{H}, \hat{L}_{i}]$:
+
+\begin{equation}
+\begin{split}
+    [\hat{H}, \hat{L}_{i}] &= \frac{1}{2m} [\hat{p}^{2}, \hat{L}_{i}] + \sum_{n = 0}^{\infty} a_{n} [\hat{r}^{2n}, \hat{L}_{i}] \\
+    &= \frac{1}{2m} \sum_{j = 1, 2, 3} [\hat{p}_{j}^{2}, \hat{L}_{i}] + \sum_{n = 0}^{\infty} a_{n} \sum_{j = 1, 2, 3} [\hat{x}_{j}^{2n}, \hat{L}_{i}] \\
+    &= \frac{1}{2m} \epsilon_{ikl} \sum_{j = 1, 2, 3} [\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}] + \sum_{n = 0}^{\infty} a_{n} \epsilon_{ikl} \sum_{j = 1, 2, 3} [\hat{x}_{j}^{2n}, \hat{x}_{k} \hat{p}_{l}] \\
+\end{split}
+\end{equation}
+
+Let us consider the commutators separately. Note the following commutation relations:
+
+\begin{equation}
+\begin{split}
+    [AB, C] &= A[B, C] + [A, C]B \\
+    [A, BC] &= [A, B]C + B[A, C]
+\end{split}
+\end{equation}
+
+For $[\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}]$:
+
+\begin{equation}
+\begin{split}
+    [\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}] &= \hat{p}_{j} [\hat{p}_{j}, \hat{x}_{k} \hat{p}_{l}] + [\hat{p}_{j}, \hat{x}_{k} \hat{p}_{l}] \hat{p}_{j} \\
+    &= \hat{p}_{j} [\hat{p}_{j}, \hat{x}_{k}] \hat{p}_{l} + \hat{p}_{j} \hat{x}_{k} [\hat{p}_{j}, \hat{p}_{l}] + [\hat{p}_{j}, \hat{x}_{k}] \hat{p}_{l} \hat{p}_{j} + \hat{x}_{k} [\hat{p}_{j}, \hat{p}_{l}] \hat{p}_{j} \\
+    &= \hat{p}_{j} [\hat{p}_{j}, \hat{x}_{k}] \hat{p}_{l} + [\hat{p}_{j}, \hat{x}_{k}] \hat{p}_{l} \hat{p}_{j}
+\end{split}
+\end{equation}
+
+where we have used the fact that $\hat{p}_{j}$ and $\hat{p}_{l}$ commute.
+
+This commutator is nonzero only when $k = j$, in which case:
+
+\begin{equation}
+    [\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}] = -2i\hbar \hat{p}_{j} \hat{p}_{l}
+\end{equation}
+
+Then the first term in the commutator $[\hat{H}, \hat{L}_{i}]$ becomes:
+
+\begin{equation}
+    \frac{1}{2m} \epsilon_{ijl} \sum_{j = 1, 2, 3} (-2i\hbar \hat{p}_{j} \hat{p}_{l}) = \frac{1}{im} \epsilon_{ijl} \hat{p}_{j} \hat{p}_{l}
+\end{equation}
+
+This is zero since $\hat{p}_{j}$ and $\hat{p}_{l}$ commute. We then consider the second commutator $[\hat{x}_{j}^{2n}, \hat{x}_{k} \hat{p}_{l}]$:
+
+\begin{equation}
+    [\hat{x}_{j}^{2n}, \hat{x}_{k} \hat{p}_{l}] = [\hat{x}_{j}^{2n}, \hat{x}_{k}] \hat{p}_{l} + \hat{x}_{k} [\hat{x}_{j}^{2n}, \hat{p}_{l}]
+\end{equation}
+
+where the first term is always zero since $\hat{x}_{j}^{2n}$ and $\hat{x}_{k}$ commute and the second term is nonzero only when $l = j$, in which case:
+
+\begin{equation}
+\begin{split}
+    [\hat{x}_{j}^{2n}, \hat{p}_{l}] &= \hat{x}_{k} [\hat{x}_{j}^{2n}, \hat{p}_{j}] \\
+    &= \hat{x}_{k} \left\{ \hat{x}_{j}^{2n-1} [\hat{x}_{j}, \hat{p}_{j}] + [\hat{x}_{j}^{2n-1}, \hat{p}_{j}] \hat{x}_{j} \right\} \\
+    &= \hat{x}_{k} \left\{ \hat{x}_{j}^{2n-1} [\hat{x}_{j}, \hat{p}_{j}] + x_{j}^{2n-2} [\hat{x}_{j}, \hat{p}_{j}] \hat{x}_{j} + \cdots + [\hat{x}_{j}, \hat{p}_{j}] \hat{x}_{j}^{2n-1} \right\} \\
+    &= i \hbar (2n) \hat{x}_{k} \hat{x}_{j}^{2n-1}
+\end{split}
+\end{equation}
+
+Therefore the second term in the commutator $[\hat{H}, \hat{L}_{i}]$ becomes:
+
+\begin{equation}
+    \sum_{n = 0}^{\infty} a_{n} \epsilon_{ikj} \sum_{j = 1, 2, 3} i \hbar (2n) \hat{x}_{k} \hat{x}_{j}^{2n-1}
+\end{equation}
+
+which is always zero since $\hat{x}_{k}$ and $\hat{x}_{j}^{2n-1}$ commute.
+
+Therefore $[\hat{H}, \hat{L}_{i}] = 0$ for a central potential and the angular momentum is conserved.
+
+Furthermore, consider a potential that has azimuthal symmetry, i.e. $V(\mathbf{x}) = V(\hat{x}_{1}^{2} + \hat{x}_{2}^{2})$. In this case, we can write the potential as:
+
+\begin{equation}
+    V = \sum_{n=0}^{\infty} a_{n} (\hat{x}_{1}^{2} + \hat{x}_{2}^{2})^{n}
+\end{equation}
+
+The change from previous results occurs on the second term, where we only let $j$ run over $1$ and $2$. Due to the presence of the $\epsilon_{ikj}$ term, the sum is zero only for $i = 3$, since for the other two cases we will miss one term in the sum due to $j = 3$ missing. Therefore, the Hamiltonian only commutes with $\hat{L}_{3}$, which is the $z$-component of the angular momentum. The $x$- and $y$-components of the angular momentum are not conserved.
+\qed
+
+
+\problem{4.5}{}
+Let us expand the expression using binomial theorem:
+
+\begin{equation}
+\begin{split}
+    \lim_{N \to \infty} \left( 1 + \frac{x}{N} \right)^{N} &= \lim_{N \to \infty} \sum_{n = 0}^{N} \binom{N}{n} \left( \frac{x}{N} \right)^{n} \\
+    &= \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{N!}{n!(N-n)!} \frac{1}{N^{n}} x^{n} \\
+    &= \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{N(N-1)(N-2) \cdots (N-n+1)}{N^{n}} \frac{1}{n!} x^{n} \\
+    &= \lim_{N \to \infty} \sum_{n = 0}^{N} \frac{1}{n!} x^{n} \\
+    &= e^{x}
+\end{split}
+\end{equation}
+
+where at the last step we have used the fact that the sum is the Taylor series of $e^{x}$.
+
+This can in some way be viewed as a definition of $e^{x}$. Indeed, the definition of exponential for an operator is just this limit:
+
+\begin{equation}
+    \exp(\hat{A}) \equiv \lim_{N \to \infty} \left( 1 + \frac{\hat{A}}{N} \right)^{N} = \left( 1 + \frac{\hat{A}}{N} \right) \left( 1 + \frac{\hat{A}}{N} \right) \cdots \left( 1 + \frac{\hat{A}}{N} \right)
+\end{equation}
+
+which can be viewed as applying the operator $(1 + \hat{A}/N)$ to the state $N$ times.
+\qed
+
+
+\problem{4.6}{Heisenberg equations of motion for the SHO}
+
+
+
+
+%==========
+\pagebreak
+\section*{Orbital Angular Momentum}
+%==========
+
+
+
+\end{document}
