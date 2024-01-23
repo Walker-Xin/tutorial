@@ -65,11 +65,23 @@ The fraction of particles with the speeds $[\mathbf{v}, \mathbf{v} + \mathrm{d}\
 
 \begin{equation}
     \begin{split}
-        f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= f(v) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
-        &= f(v) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+        f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= \mistake{f(v)} \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
+        &= \mistake{f(v)} v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
         &\equiv \tilde{f}(v) \, \mathrm{d}v
     \end{split}
 \end{equation}
+
+\begin{correction}
+    This is abuse of notation. It would be better to write:
+
+    \begin{equation}
+        \begin{split}
+            f(\mathbf{v}) \, \mathrm{d}\mathbf{v} &= f(\mathbf{v}) \, \mathrm{d}v_{x} \mathrm{d}v_{y} \mathrm{d}v_{z} \\
+            &= f(\mathbf{v}) v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+            &\equiv \tilde{f}(v) \, \mathrm{d}v
+        \end{split}
+    \end{equation}
+\end{correction}
 
 Integrating the second equality over $\theta$ and $\phi$ gives:
 
@@ -98,8 +110,23 @@ which must hold true for any isotropic distribution.
 \subsubproblem{ii}
 
 \begin{equation}
-    \left\langle \left\lvert v_{i} \right\rvert \right\rangle = 2 \int_{0}^{\infty} v f(v) \, \mathrm{d}v = 2 \left\langle v \right\rangle
+    \left\langle \left\lvert v_{i} \right\rvert \right\rangle = \mistake{2\int_{0}^{\infty} v f(v) \, \mathrm{d}v = 2 \left\langle v \right\rangle}
 \end{equation}
+
+\begin{correction}
+    Take $\left\lvert v_{z} \right\rvert$ as an example:
+
+    \begin{equation}
+        \begin{split}
+            \left\langle \left\lvert v_{z} \right\rvert \right\rangle &= \int \left\lvert v_{z} \right\rvert f(v) \, \mathrm{d}^{3}v \\
+            &= \int \left\lvert v \cos{\theta} \right\rvert \frac{\tilde{f}(v)}{4\pi v^{2}} v^{2} \sin{\theta} \, \mathrm{d}v \mathrm{d}\theta \mathrm{d}\phi \\
+            &= \int_{0}^{\infty} \frac{v}{2} \tilde{f}(v) \, \mathrm{d}v \int_{0}^{\pi} \left\lvert \cos{\theta} \right\rvert \sin{\theta} \, \mathrm{d}\theta \\
+            &= \frac{\left\langle v \right\rangle}{2}
+        \end{split}
+    \end{equation}
+
+    By symmetry, the same result holds for $\left\langle \left\lvert v_{x} \right\rvert \right\rangle$ and $\left\langle \left\lvert v_{y} \right\rvert \right\rangle$.
+\end{correction}
 
 \subsubproblem{iii}
 
@@ -171,8 +198,8 @@ From explicit calculation, we have $I_{0} = \sqrt{\pi}/2\sqrt{a}$ and $I_{1} = 1
 
 \begin{equation}
     \begin{split}
-        I_{2n} &= \frac{(2n-1)(2n-3)\cdots 1}{2^{n} a^{n}} \frac{\sqrt{\pi}}{2\sqrt{a}} = \frac{(2n)!}{2^{2n} n!} \frac{\sqrt{\pi}}{2\sqrt{a}} \\
-        I_{2n+1} &= \frac{(2n)(2n-2)\cdots 2}{2^{n} a^{n+1}} \frac{1}{2a} = \frac{(2n)!}{2^{2n+1} n!} \frac{1}{2a}
+        I_{2n} &= \frac{(2n-1)(2n-3)\cdots 1}{2^{n} a^{n}} \frac{\sqrt{\pi}}{2\sqrt{a}} = \frac{(2n)!}{2^{2n} n!} \frac{\sqrt{\pi}}{2\sqrt{a}} a^{-n} \\
+        I_{2n+1} &= \frac{(2n)(2n-2)\cdots 2}{2^{n} a^{n+1}} \frac{1}{2a} = \frac{(2n)!}{2^{2n+1} n!} \frac{1}{2a} a^{-n-1}
     \end{split}
 \end{equation}
 
@@ -180,10 +207,19 @@ Therefore, the expectation values of speeds are:
 
 \begin{equation}
     \begin{split}
-        \left\langle v^{2n} \right\rangle &= A I_{2n} = \frac{(2n)!}{2^{2n} n!} \frac{4}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2\sqrt{1/v_{\text{th}}}} \\
-        \left\langle v^{2n+1} \right\rangle &= A I_{2n+1} = \frac{(2n)!}{2^{2n+1} n!} \frac{4}{\sqrt{\pi}} v_{\text{th}}^{2n+1}
+        \left\langle v^{2n} \right\rangle &= \mistake{A I_{2n}} = \frac{(2n)!}{2^{2n} n!} \frac{4}{\sqrt{\pi}} \frac{\sqrt{\pi}}{2\sqrt{1/v_{\text{th}}}} \\
+        \left\langle v^{2n+1} \right\rangle &= \mistake{A I_{2n+1}} = \frac{(2n)!}{2^{2n+1} n!} \frac{4}{\sqrt{\pi}} v_{\text{th}}^{2n+1}
     \end{split}
 \end{equation}
+
+\begin{correction}
+    \begin{equation}
+        \begin{split}
+            \left\langle v^{2n} \right\rangle &= A I_{2n + 2} = A I_{2(n + 1)} = \frac{[2(n + 1)]!}{2^{2n}(n + 1)!} v_{\text{th}}^{2n} \\
+            \left\langle v^{2n + 1} \right\rangle &= A I_{2n + 3} = A I_{2(n + 1) + 1} = \frac{[2(n + 1)]!}{2^{2(n + 1)}(n + 1)!} \frac{v_{\text{th}}^{2n + 1}}{\sqrt{\pi}}
+        \end{split}
+    \end{equation}
+\end{correction}
 \qed
 
 
@@ -360,16 +396,20 @@ For a screen perpendicular to the z-axis, the number of particles hitting the sc
 In other words, these particles follow the distribution function that is proportional to $v g(v)$. The most probable speed is given by:
 
 \begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}v} \left[ v g(v) \right] = 0 \quad \Rightarrow \quad v_{1} = \sqrt{2} v_{\text{th}}
+    \mistake{\frac{\mathrm{d}}{\mathrm{d}v} \left[ v g(v) \right] = 0 \quad \Rightarrow \quad v_{1} = \sqrt{2} v_{\text{th}}}
 \end{equation}
 
 But for all effused particles, the most probable speed is given by:
 
 \begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}v} \left[ g(v) \right] = 0 \quad \Rightarrow \quad v_{2} = \sqrt{\frac{3}{2}} v_{\text{th}}
+    \mistake{\frac{\mathrm{d}}{\mathrm{d}v} \left[ g(v) \right] = 0 \quad \Rightarrow \quad v_{2} = \sqrt{\frac{3}{2}} v_{\text{th}}}
 \end{equation}
 
 which is less than that of the particles hitting the screen.
+
+\begin{correction}
+    Pending.
+\end{correction}
 
 This is because the particles hitting the screen must tend to have a higher speed than the average speed of all effused particles.
 
