@@ -24,7 +24,8 @@ The course is split into 4 years.
 - A1: Thermodynamics, Statistical Mechanics.
 - A2: Electromagnetism, Optics.
 - A3: Quantum Mechanics.
-- Mathematical Methods
+- Mathematical Methods.
+- Presentation on topic of choice.
 
 ## Utilities
 
