@@ -238,5 +238,202 @@ which can be viewed as applying the operator $(1 + \hat{A}/N)$ to the state $N$ 
 %==========
 
 
+\problem{4.7}{}
+
+\subproblem{a}
+
+\begin{equation}
+\begin{split}
+    [\hat{L}_{i}, \hat{x}_{j}] &= \epsilon_{ikl} [\hat{x}_{k} \hat{p}_{l}, \hat{x}_{j}] \\
+    &= \epsilon_{ikl} \hat{x}_{k} [\hat{p}_{l}, \hat{x}_{j}] + \epsilon_{ikl} [\hat{x}_{k}, \hat{x}_{j}] \hat{p}_{l} \\
+    &= -i\hbar \epsilon_{ikl} \hat{x}_{k} \\
+    &= i\hbar \epsilon_{ijk} \hat{x}_{k} \\
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+    [\hat{L}_{i}, \hat{p}_{j}] &= \epsilon_{ikl} [\hat{x}_{k} \hat{p}_{l}, \hat{p}_{j}] \\
+    &= \epsilon_{ikl} \hat{x}_{k} [\hat{p}_{l}, \hat{p}_{j}] + \epsilon_{ikl} [\hat{x}_{k}, \hat{p}_{j}] \hat{p}_{l} \\
+    &= i\hbar \epsilon_{ijl} \hat{p}_{l} \\
+    &= i\hbar \epsilon_{ijk} \hat{p}_{k} \\
+\end{split}
+\end{equation}
+
+\subproblem{b}
+
+\begin{equation}
+\begin{split}
+    [\hat{L}_{x}, \hat{L}_{y}] &= [\hat{L}_{x}, \hat{z} \hat{p}_{x} - \hat{x} \hat{p}_{z}] \\
+    &= [\hat{L}_{x}, \hat{z} \hat{p}_{x}] - [\hat{L}_{x}, \hat{x} \hat{p}_{z}] \\
+    &= [\hat{L}_{x}, \hat{z}] \hat{p}_{x} + \hat{z} [\hat{L}_{x}, \hat{p}_{x}] - [\hat{L}_{x}, \hat{x}] \hat{p}_{z} - \hat{x} [\hat{L}_{x}, \hat{p}_{z}] \\
+    &= i\hbar (\hat{x} \hat{p}_{y} - \hat{y} \hat{p}_{x}) \\
+    &= i\hbar \hat{L}_{z}
+\end{split}
+\end{equation}
+
+which can be generalised to:
+
+\begin{equation}
+    [\hat{L}_{i}, \hat{L}_{j}] = i\hbar \epsilon_{ijk} \hat{L}_{k}
+\end{equation}
+
+\subproblem{c}
+In position representation, the angular momentum operator have the form:
+
+\begin{equation}
+\begin{split}
+    \mel{\mathbf{x}}{\hat{L}_{i}}{\psi} &= \epsilon_{ijk} \mel{\mathbf{x}}{\hat{x}_{j} \hat{p}_{k}}{\psi} \\
+    &= \epsilon_{ijk} x_{j} \mel{\mathbf{x}}{\hat{p}_{k}}{\psi} \\
+    &= -i\hbar \epsilon_{ijk} x_{j} \frac{\partial}{\partial x_{k}} \psi(\mathbf{x})
+\end{split}
+\end{equation}
+
+\subproblem{d}
+Consider the commutator $[\hat{L}_{i}, \hat{L}^{2}]$:
+
+\begin{equation}
+\begin{split}
+    [\hat{L}_{i}, \hat{L}^{2}] &= \sum_{r = 1, 2, 3} [\hat{L}_{i}, \hat{L}_{r}^{2}] \\
+    &= \sum_{r = 1, 2, 3} \left( [\hat{L}_{i}, \hat{L}_{r}] \hat{L}_{r} + \hat{L}_{r} [\hat{L}_{i}, \hat{L}_{r}] \right) \\
+    &= i\hbar \epsilon_{jir} (\hat{L}_{j} \hat{L}_{r} + \hat{L}_{r} \hat{L}_{j}) \\
+    &= 0
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{4.8}{}
+We have the expression of $\hat{L}^{2}$ in spherical coordinates:
+
+\begin{equation}
+    \hat{L}^{2} = -\hbar^{2} \left[ \frac{1}{\sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^{2} \theta} \frac{\partial^{2}}{\partial \phi^{2}} \right]
+\end{equation}
+
+\subproblem{a}
+
+The following calculations follow:
+
+\begin{equation}
+\begin{split}
+    \hat{L}^{2} (\cos{\theta}) &= -\hbar^{2} \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( -\sin^{2}{\theta} \right) \\
+    &= 2\hbar^{2} \cos{\theta} \\
+    \hat{L}^{2} \left( \sin{\theta} e^{\pm i\phi} \right) &= -\hbar^{2} \left[ \frac{e^{\pm i\phi}}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \sin{\theta} \right) + \frac{1}{\sin{\theta}} \frac{\partial}{\partial \phi} \left( \frac{\partial}{\partial \phi} e^{\pm i\phi} \right) \right] \\
+    &= -\hbar^{2} \left[ \frac{e^{\pm i\phi}}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \cos{\theta} \right) + \frac{1}{\sin{\theta}} \frac{\partial}{\partial \phi} \left( \pm i e^{\pm i\phi} \right) \right] \\
+    &= -\hbar^{2} \left[ \frac{e^{\pm i\phi}}{\sin{\theta}} \left( \cos^{2}{\theta} - \sin^{2}{\theta} \right) - \frac{1}{\sin{\theta}} e^{\pm i\phi} \right] \\
+    &= 2\hbar^{2} e^{\pm i\phi}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+    \hat{L}_{z} (\cos{\theta}) &= -i \cos{\theta} \\
+    \hat{L}_{z} \left( \sin{\theta} e^{\pm i\phi} \right) &= \mp i \sin{\theta} e^{\pm i\phi}
+\end{split}
+\end{equation}
+
+\subproblem{b}
+For $Y_{1}^{0}$, the normalisation condition is:
+
+\begin{equation}
+    \left\lvert N \right\rvert^{2} \int_{0}^{2\pi} \int_{0}^{\pi} \cos^{2}{\theta} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi = 1
+\end{equation}
+
+which gives $N = \pm \sqrt{3/4\pi}$. 
+
+For $Y_{1}^{\pm 1}$, the normalisation condition is:
+
+\begin{equation}
+    \left\lvert N \right\rvert^{2} \int_{0}^{2\pi} \int_{0}^{\pi} \sin^{2}{\theta} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi = 1
+\end{equation}
+
+which gives $N = \pm \sqrt{3/8\pi}$.
+
+\subproblem{c}
+In Cartesian coordinates, the above spherical harmonics are:
+
+\begin{equation}
+\begin{split}
+    Y_{1}^{0} &= \sqrt{\frac{3}{4\pi}} \frac{z}{\sqrt{x^{2} + y^{2} + z^{2}}} \\
+    Y_{1}^{\pm 1} &= \mp \sqrt{\frac{3}{8\pi}} \frac{\sqrt{x^{2} + y^{2}}}{\sqrt{x^{2} + y^{2} + z^{2}}} \exp \left[ \pm i \tan^{-1}{\left( \frac{y}{x} \right)} \right]
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{4.9}{}
+The wave function cna be identified as:
+
+\begin{equation}
+    \braket{\theta, \phi}{\psi} \propto \sqrt{2} \sqrt{\frac{4\pi}{3}} Y_{1}^{0} + \sqrt{\frac{8\pi}{3}} Y_{1}^{1} + \sqrt{\frac{8\pi}{3}} Y_{1}^{-1}
+\end{equation}
+
+so that $\hat{L}^{2}$ always yields $2\hbar^{2}$ and $\hat{L}_{z}$ yields zero with probability $1/3$ and $\pm \hbar$ with probability $1/3$.
+
+The expectation of $\hat{L}_{z}$ is zero.
+\qed
+
+
+\problem{4.10}{}
+We recognise $\sin^{2}{\theta} e^{2i\phi}$ as $Y_{2}^{2}$ up to a constant factor. Therefore, $\hat{L}^{2}$ yields $6\hbar^{2}$ and $\hat{L}_{z}$ yields $2\hbar$ each with probability $1$.
+\qed
+
+
+\problem{4.11}{}
+Consider the the wave function $\braket{\theta, \phi}{\psi} = A \sin^{2}{\theta}$:
+
+\begin{equation}
+\begin{split}
+    \braket{\theta, \phi}{\psi} &= A \sin^{2}{\theta} \\
+    &= A (1 - \cos^{2}{\theta}) \\
+    &= A \left( 1 - \frac{\sqrt{16\pi/5}Y_{2}^{0} + 1}{3} \right) \\
+    &= A \left( - \sqrt{\frac{16\pi}{45}} Y_{2}^{0} + \frac{2}{3} \right) \\
+    &= A \left( - \sqrt{\frac{16\pi}{45}} Y_{2}^{0} + \frac{2\sqrt{4\pi}}{3} Y_{0}^{0} \right) \\
+\end{split}
+\end{equation}
+
+where we have made use of the following spherical harmonics:
+
+\begin{equation}
+\begin{split}
+    Y_{2}^{0} &= \sqrt{\frac{5}{16\pi}} (3\cos^{2}{\theta} - 1) \\
+    Y_{0}^{0} &= \frac{1}{\sqrt{4\pi}}
+\end{split}
+\end{equation}
+
+Therefore, measurement with $\hat{L}_{z}$ always yields $0$ and measurement with $\hat{L}^{2}$ yields $6\hbar^{2}$ with probability $1$.
+\qed
+
+
+\problem{4.12}{}
+
+\subproblem{a}
+The term $-e\varepsilon \hat{x}$ in the Hamiltonian suggests some kind of position dependent (linear) potential. In light of the charge factor, this can be interpreted as the potential due to a uniform electric field of strength $\varepsilon$ in the x-direction.
+
+\subproblem{b}
+The Hamiltonian of the form:
+
+\begin{equation}
+    \hat{H} = -\frac{\hbar^{2}}{2m} \nabla^{2} - \frac{e^{2}}{4\pi \epsilon_{0}r} - e\varepsilon \hat{x}
+\end{equation}
+
+is spherically symmetrical if $\varepsilon = 0$ and symmetrical only about the x-axis if $\varepsilon \neq 0$.
+
+Therefore, in the case of $\varepsilon = 0$, $\hat{L}^{2}$ and $\hat{L}_{i}$ are conserved. In the case of $\varepsilon \neq 0$, only $\hat{L}_{x}$ is conserved.
+\qed
+
+
+\problem{4.13}{}
+
+\begin{equation}
+\begin{split}
+    [\hat{L}_{i}, \hat{x} \cdot \hat{p}] &= \sum_{r = 1, 2, 3} [\hat{L}_{i}, \hat{x}_{r} \hat{p}_{r}] \\
+    &= \sum_{r = 1, 2, 3} \left( [\hat{L}_{i}, \hat{x}_{r}] \hat{p}_{r} + \hat{x}_{r} [\hat{L}_{i}, \hat{p}_{r}] \right) \\
+    &= i\hbar \sum_{r = 1, 2, 3} \left( \epsilon_{irl} \hat{x}_{l} \hat{p}_{r} + \epsilon_{irl} \hat{x}_{r} \hat{p}_{l} \right) \\
+    &= 0
+\end{split}
+\end{equation}
+\qed
+
 
 \end{document}
