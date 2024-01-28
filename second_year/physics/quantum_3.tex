@@ -24,12 +24,12 @@
 Given that $\hat{H} = (\hat{p}^2 + \hat{x}^2)/2$ and $[\hat{x}, \hat{p}] = i$ and an energy eigenstate $\ket{\psi}$ with energy $E$, we have:
 
 \begin{equation}
-\begin{split}
-    \hat{H} (\hat{x} \mp i \hat{p}) \ket{\psi} &= \frac{1}{2} (\hat{p}^2 + \hat{x}^2) (\hat{x} \mp i \hat{p}) \ket{\psi} \\
-    &= \frac{1}{2} (\hat{p}^2 \hat{x} \mp i \hat{p}^3 + \hat{x}^3 \mp i \hat{x} \hat{p}^2) \ket{\psi} \\
-    &= \frac{1}{2} [\hat{p} (\hat{x} \hat{p} - [\hat{x}, \hat{p}]) \mp i \hat{p}^3 + \hat{x}^3 \mp i (\hat{p} \hat{x} + [\hat{x}, \hat{p}]) \hat{p}] \ket{\psi} \\
-    &= \frac{1}{2} [\hat{p} \hat{x} \hat{p} - i\hat{p} \mp i \hat{p}^3 + \hat{x}^3 \mp i \hat{p} \hat{x} \hat{p} \pm  \hat{p}^2] \ket{\psi} \\
-\end{split}
+    \begin{split}
+        (E \pm 1) (\hat{x} \mp i\hat{p}) \ket{\psi} &= (\hat{x} \mp i\hat{p}) (\hat{H} \pm \mathbb{I}) \ket{\psi} \\
+        &= (\hat{x} \mp i\hat{p}) \left( \frac{\hat{p}^{2} + \hat{x}^{2}}{2} \pm \mathbb{I} \right) \ket{\psi} \\
+        &= \frac{1}{2} \left( \hat{x} \hat{p}^{2} + \hat{x}^{3} \pm 2\hat{x} \mp i \hat{p}^{3} \mp i\hat{p} \hat{x}^{2} \mp 2i\hat{p} \right) \ket{\psi} \\
+        &= \frac{1}{2} \left[ (\hat{p} \hat{x} + i) \hat{p} + \hat{x}^{3} \pm 2\hat{x} \mp i \hat{p}^{3} \mp i\hat{p} \hat{x} \mp 2i\hat{p} \right] \ket{\psi} \\
+    \end{split}
 \end{equation}
 
 
@@ -37,7 +37,7 @@ Given that $\hat{H} = (\hat{p}^2 + \hat{x}^2)/2$ and $[\hat{x}, \hat{p}] = i$ an
 Consider the Hermitian conjugate of the annihilation operator $\hat{a}$:
 
 \begin{equation}
-\hat{a}^{\dagger} = \frac{m\omega \hat{x} - i \hat{p}}{\sqrt{2m\omega \hbar}}
+    \hat{a}^{\dagger} = \frac{m\omega \hat{x} - i \hat{p}}{\sqrt{2m\omega \hbar}}
 \end{equation}
 
 We have:
@@ -52,7 +52,7 @@ This allows us to calculate:
     \left\lvert \hat{a}\ket{n} \right\rvert = \mel{n}{\hat{a}^{\dagger} \hat{a}}{n} = \frac{E_{n}}{\hbar \omega} - \frac{1}{2} = n
 \end{equation}
 
-On the other hand, this is just $\left\lvert \alpha \ket{n - 1} \right\rvert^{2} = \alpha^{2}$, which gives us $\alpha = \sqrt{n}$.
+On the other hand, this is just $\left\lvert \alpha \ket{n - 1} \right\rvert^{2} = \alpha^{2}$, which implies $\alpha = \sqrt{n}$.
 \qed
 
 
@@ -77,11 +77,11 @@ solving which gives the enormous energy level $n = \qty{5.5e30}{}$.
 We minimise the function $E(p, x) = p^{2}/2m + m\omega^{2} x^{2}/2$ under the constraint $xp = \hbar/2$. Consider the function $f(p, x, \lambda) = E(p, x) + \lambda (xp - \hbar/2)$, we have need:
 
 \begin{equation}
-\begin{split}
-    \frac{\partial f}{\partial p} = \frac{p}{m} + \lambda x &= 0 \\
-    \frac{\partial f}{\partial x} = m\omega^{2} x + \lambda p &= 0 \\
-    \frac{\partial f}{\partial \lambda} = xp - \frac{\hbar}{2} &= 0
-\end{split}
+    \begin{split}
+        \frac{\partial f}{\partial p} = \frac{p}{m} + \lambda x &= 0 \\
+        \frac{\partial f}{\partial x} = m\omega^{2} x + \lambda p &= 0 \\
+        \frac{\partial f}{\partial \lambda} = xp - \frac{\hbar}{2} &= 0
+    \end{split}
 \end{equation}
 
 Solving which gives us $E_{\text{min}} = \hbar \omega / 2$, which is indeed the ground state energy of the harmonic oscillator.
@@ -105,22 +105,31 @@ The nodes of the function are due to the Hermite polynomial $H_{n}(\xi)$, which 
 The ground state wave function of the harmonic oscillator is given by:
 
 \begin{equation}
-    \psi_{0}(x) = A_{0} e^{-\xi^{2}/2}
+    \psi_{0}(x) = A_{0} e^{-m\omega x^{2}/2\hbar} = A_{0} e^{-x^{2}/4l^{2}}
 \end{equation}
 
 To obtain wave functions of higher energy states, we can apply the raising operator $\hat{a}^{\dagger}$ to the ground state wave function. Consider:
 
 \begin{equation}
-\begin{split}
-    \mel{x}{\hat{a}^{\dagger}}{0} &= \frac{1}{\sqrt{2m\omega \hbar}} \mel{x}{m\omega \hat{x} - i \hat{p}}{0} \\
-    &= \left( \frac{x}{2l} - l \frac{\mathrm{d}}{\mathrm{d}x} \right) \psi_{0}(x) 
-\end{split}
+    \begin{split}
+        \mel{x}{\hat{a}^{\dagger}}{0} &= \frac{1}{\sqrt{2m\omega \hbar}} \mel{x}{m\omega \hat{x} - i \hat{p}}{0} \\
+        &= \left( \frac{x}{2l} - l \frac{\mathrm{d}}{\mathrm{d}x} \right) \psi_{0}(x)
+    \end{split}
 \end{equation}
 
 or, raising the state again:
 
 \begin{equation}
-    \psi_{2} = \left( \frac{x}{2l} - l \frac{\mathrm{d}}{\mathrm{d}x} \right)^{2} \psi_{0}(x)
+    \begin{split}
+        \psi_{2} &= \left( \frac{x}{2l} - l \frac{\mathrm{d}}{\mathrm{d}x} \right)^{2} \psi_{0}(x) \\
+        &= A_{0} \left( \frac{x^{2}}{l^{2}} - 1 \right) e^{-x^{2}/2l^{2}}
+    \end{split}
+\end{equation}
+
+The normalisation constant is given by:
+
+\begin{equation}
+    A_{0} = \frac{1}{\int e^{-x^{2}/2l^{2}} \, \mathrm{d}x} = \left( \frac{l}{\sqrt{2\pi}} \right)^{1/2}
 \end{equation}
 \qed
 
@@ -129,12 +138,12 @@ or, raising the state again:
 Consider the matrix element $\hat{x}_{jk} \equiv \mel{j}{\hat{x}}{k}$:
 
 \begin{equation}
-\begin{split}
-    \hat{x}_{jk} &= \mel{j}{\hat{x}}{k} \\
-    &= l \mel{j}{\hat{a}^{\dagger} + \hat{a}}{k} \\
-    &= l (\sqrt{j}\braket{j}{k - 1} + \sqrt{j + 1} \braket{j}{k + 1}) \\
-    &= l (\delta_{j, k - 1} \sqrt{j} + \delta_{j, k + 1} \sqrt{j + 1})
-\end{split}
+    \begin{split}
+        \hat{x}_{jk} &= \mel{j}{\hat{x}}{k} \\
+        &= l \mel{j}{\hat{a}^{\dagger} + \hat{a}}{k} \\
+        &= l (\sqrt{j}\braket{j}{k - 1} + \sqrt{j + 1} \braket{j}{k + 1}) \\
+        &= l (\delta_{j, k - 1} \sqrt{j} + \delta_{j, k + 1} \sqrt{j + 1})
+    \end{split}
 \end{equation}
 
 Thus, $\hat{x}_{jk}$ is non-zero only when $k = j \pm 1$, i,e., $\hat{x}$ is a tridiagonal matrix with the diagonal elements being zero.
@@ -148,11 +157,11 @@ For $\hat{p}$, we have the identity:
 which gives us:
 
 \begin{equation}
-\begin{split}
-    \hat{p}_{jk} &= \mel{j}{\hat{p}}{k} \\
-    &= i \sqrt{\frac{m\omega \hbar}{2}} (\sqrt{j + 1} \braket{j}{k + 1} - \sqrt{j} \braket{j}{k - 1}) \\
-    &= i \sqrt{\frac{m\omega \hbar}{2}} (\delta_{j, k + 1} \sqrt{j + 1} - \delta_{j, k - 1} \sqrt{j})
-\end{split}
+    \begin{split}
+        \hat{p}_{jk} &= \mel{j}{\hat{p}}{k} \\
+        &= i \sqrt{\frac{m\omega \hbar}{2}} (\sqrt{j + 1} \braket{j}{k + 1} - \sqrt{j} \braket{j}{k - 1}) \\
+        &= i \sqrt{\frac{m\omega \hbar}{2}} (\delta_{j, k + 1} \sqrt{j + 1} - \delta_{j, k - 1} \sqrt{j})
+    \end{split}
 \end{equation}
 
 which is also a tridiagonal matrix with the upper 'diagonal' elements switching their signs.
@@ -163,10 +172,10 @@ which is also a tridiagonal matrix with the upper 'diagonal' elements switching 
 Since $\hat{x}$ and $\hat{H}$ commute and the Hamiltonian of a harmonic oscillator is time independent, we have by Ehrenfest's theorem that the expectation value of $\hat{x}$ is time independent. We can evaluate the ket $\hat{x} \ket{\psi}$:
 
 \begin{equation}
-\begin{split}
-    \hat{x} \ket{\psi} &= l(\hat{a} + \hat{a}^{\dagger}) \left( \frac{1}{2} \ket{N - 1} + \frac{1}{\sqrt{2}} \ket{N} + \frac{1}{2} \ket{N + 1} \right) \\
-    &= l \left( \frac{1}{2} \sqrt{N} \ket{N} + \frac{1}{\sqrt{2}} \sqrt{N} \ket{N - 1} + \frac{1}{\sqrt{2}} \sqrt{N + 1} \ket{N + 1} + \frac{1}{2} \sqrt{N + 1} \ket{N} \right) \\
-\end{split}
+    \begin{split}
+        \hat{x} \ket{\psi} &= l(\hat{a} + \hat{a}^{\dagger}) \left( \frac{1}{2} \ket{N - 1} + \frac{1}{\sqrt{2}} \ket{N} + \frac{1}{2} \ket{N + 1} \right) \\
+        &= l \left( \frac{1}{2} \sqrt{N} \ket{N} + \frac{1}{\sqrt{2}} \sqrt{N} \ket{N - 1} + \frac{1}{\sqrt{2}} \sqrt{N + 1} \ket{N + 1} + \frac{1}{2} \sqrt{N + 1} \ket{N} \right) \\
+    \end{split}
 \end{equation}
 
 where we have ignored $\ket{N - 2}$ and $\ket{N + 2}$ since they are orthogonal to $\ket{\psi}$.
@@ -190,54 +199,54 @@ This shows that while the position expectation of a single `pure' state $\ket{N}
 
 
 \problem{3.9}{}
-$\hat{H}$ is obviously Hermitian since its complex conjugate is itself. $\hat{B}$ is not for the same reason. 
+$\hat{H}$ is obviously Hermitian since its complex conjugate is itself. $\hat{B}$ is not for the same reason.
 
 Apparently the eigenvalues of $\hat{H}$ are $\hbar \omega$ and $-\hbar \omega$, with the former having the eigenstate $\ket{1}$ and the latter (degenerate) corresponding to $\ket{2}$ and $\ket{3}$. It is trivial to show that the eigenvalues of $\hat{B}$ are $1$ and $-1$. The former has the eigenstate $\ket{1}$ and $\ket{2} + \ket{3}$, while the latter has the eigenstate $\ket{2} - \ket{3}$.
 
 Both $\hat{H}$ and $\hat{B}$ have degenerate eigenvalues so they cannot uniquely specify the eigenstates. Consider the commutator $[\hat{H}, \hat{B}]$:
 
 \begin{equation}
-\begin{split}
-    [\hat{H}, \hat{B}] &= \hat{H} \hat{B} - \hat{B} \hat{H} \\
-    &= 
-    \hbar \omega b
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & -1 & 0 \\
-        0 & 0 & -1
-    \end{pmatrix}
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 0 & 1 \\
-        0 & 1 & 0
-    \end{pmatrix}
-    -
-    \hbar \omega b
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 0 & 1 \\
-        0 & 1 & 0
-    \end{pmatrix}
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & -1 & 0 \\
-        0 & 0 & -1
-    \end{pmatrix} \\
-    &= \hbar \omega b
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 0 & -1 \\
-        0 & -1 & 0
-    \end{pmatrix}
-    -
-    \hbar \omega b
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 0 & -1 \\
-        0 & -1 & 0
-    \end{pmatrix} \\
-    &= 0    
-\end{split}
+    \begin{split}
+        [\hat{H}, \hat{B}] &= \hat{H} \hat{B} - \hat{B} \hat{H} \\
+        &=
+        \hbar \omega b
+        \begin{pmatrix}
+            1 & 0  & 0  \\
+            0 & -1 & 0  \\
+            0 & 0  & -1
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 0 & 1 \\
+            0 & 1 & 0
+        \end{pmatrix}
+        -
+        \hbar \omega b
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 0 & 1 \\
+            0 & 1 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 0  & 0  \\
+            0 & -1 & 0  \\
+            0 & 0  & -1
+        \end{pmatrix} \\
+        &= \hbar \omega b
+        \begin{pmatrix}
+            1 & 0  & 0  \\
+            0 & 0  & -1 \\
+            0 & -1 & 0
+        \end{pmatrix}
+        -
+        \hbar \omega b
+        \begin{pmatrix}
+            1 & 0  & 0  \\
+            0 & 0  & -1 \\
+            0 & -1 & 0
+        \end{pmatrix} \\
+        &= 0
+    \end{split}
 \end{equation}
 
 Since $[\hat{H}, \hat{B}] = 0$, the two operators share a common set of eigenstates. It is easy to see that the eigenstates of $\hat{B}$ are just linear combinations of those of $\hat{H}$, so we choose $\ket{1}$, $\ket{2} + \ket{3}$ and $\ket{2} - \ket{3}$ as the shared eigenstates.
@@ -269,6 +278,20 @@ The expectation value of $A_{k}$ is thus:
     \mel{\psi}{A_{k}}{\psi} = \braket{\psi}{k} \braket{k}{\psi} = \left\lvert \braket{k}{\psi} \right\rvert^{2}
 \end{equation}
 
+Consider the commutator $[\hat{H}, A_{k}]$ acting on $\ket{\psi}$:
+
+\begin{equation}
+\begin{split}
+    \hat{H} A_{k} \ket{\psi} - A_{k} \hat{H} \ket{\psi} &= \hat{H} \ket{k} \braket{k}{\psi} - \ket{k} \mel{k}{\hat{H}}{\psi} \\
+    &= E_{k} \ket{k} \braket{k}{\psi} - \ket{k} \sum_{r} \mel{k}{\hat{H}}{r} \braket{r}{\psi} \\
+    &= E_{k} \ket{k} \braket{k}{\psi} - \ket{k} \sum_{r} E_{r} \braket{k}{r} \braket{r}{\psi} \\
+    &= E_{k} \ket{k} \braket{k}{\psi} - E_{k} \ket{k} \braket{k}{\psi} \\
+    &= 0
+\end{split}
+\end{equation}
+
+where at the second step we expand $\ket{\psi}$ in terms of energy eigenstates and at the fourth step we have used the orthogonality relation $\braket{k}{r} = \delta_{k, r}$.
+
 Since the projection operator commutes with the Hamiltonian, we have:
 
 \begin{equation}
@@ -287,12 +310,12 @@ The probability of measuring $q_{r}$ is given by:
 The summation of all probabilities is:
 
 \begin{equation}
-\begin{split}
-    \sum_{r} P(q_{r} | \psi) &= \sum_{r} \left\lvert \braket{q_{r}}{\psi} \right\rvert^{2} \\
-    &= \sum_{r} \braket{\psi}{q_{r}} \braket{q_{r}}{\psi} \\
-    &= \braket{\psi}{\psi} \\
-    &= 1
-\end{split}
+    \begin{split}
+        \sum_{r} P(q_{r} | \psi) &= \sum_{r} \left\lvert \braket{q_{r}}{\psi} \right\rvert^{2} \\
+        &= \sum_{r} \braket{\psi}{q_{r}} \braket{q_{r}}{\psi} \\
+        &= \braket{\psi}{\psi} \\
+        &= 1
+    \end{split}
 \end{equation}
 
 where we have used the completeness relation $\sum_{r} \ket{q_{r}} \bra{q_{r}} = \mathbb{I}$.
@@ -308,10 +331,10 @@ where $\psi(x) \equiv \braket{x}{\psi}$ is the wave function.
 The expectation value of $\hat{Q}$ is given by:
 
 \begin{equation}
-\begin{split}
-    \mel{\psi}{\hat{Q}}{\psi} &= \int \int \braket{\psi}{x'} \bra{x'} \hat{Q} \ket{x} \braket{x}{\psi} \, \mathrm{d}x \, \mathrm{d}x' \\
-    &= \int \psi^{*}(x) \hat{Q} \psi(x) \, \mathrm{d}x
-\end{split}
+    \begin{split}
+        \mel{\psi}{\hat{Q}}{\psi} &= \int \int \braket{\psi}{x'} \bra{x'} \hat{Q} \ket{x} \braket{x}{\psi} \, \mathrm{d}x \, \mathrm{d}x' \\
+        &= \int \psi^{*}(x) \hat{Q} \psi(x) \, \mathrm{d}x
+    \end{split}
 \end{equation}
 \qed
 
@@ -352,13 +375,12 @@ which gives us $A = \sqrt{2/a}$.
 The expectation value of the position is given by:
 
 \begin{equation}
-\begin{split}
-    \mel{\psi}{\hat{x}}{\psi} &= \int_{0}^{a} \psi^{*}(x) x \psi(x) \, \mathrm{d}x \\
-    &= \frac{2}{a} \int_{0}^{a} x \sin^{2} \frac{n\pi x}{a} \, \mathrm{d}x \\
-    &= \frac{a}{2}
-\end{split}
+    \begin{split}
+        \mel{\psi}{\hat{x}}{\psi} &= \int_{0}^{a} \psi^{*}(x) x \psi(x) \, \mathrm{d}x \\
+        &= \frac{2}{a} \int_{0}^{a} x \sin^{2} \frac{n\pi x}{a} \, \mathrm{d}x \\
+        &= \frac{a}{2}
+    \end{split}
 \end{equation}
-
 
 \subproblem{c}
 The variance of the position is given by:
@@ -372,11 +394,11 @@ where we treat $\left\langle x \right\rangle$ as a constant.
 We evaluate $\left\langle x^{2} \right\rangle$:
 
 \begin{equation}
-\begin{split}
-    \left\langle x^{2} \right\rangle &= \int_{0}^{a} \psi^{*}(x) x^{2} \psi(x) \, \mathrm{d}x \\
-    &= \frac{2}{a} \int_{0}^{a} x^{2} \sin^{2} \frac{n\pi x}{a} \, \mathrm{d}x \\
-    &= a^{2} \left( \frac{1}{3} - \frac{1}{2n^{2}\pi^{2}} \right)
-\end{split}
+    \begin{split}
+        \left\langle x^{2} \right\rangle &= \int_{0}^{a} \psi^{*}(x) x^{2} \psi(x) \, \mathrm{d}x \\
+        &= \frac{2}{a} \int_{0}^{a} x^{2} \sin^{2} \frac{n\pi x}{a} \, \mathrm{d}x \\
+        &= a^{2} \left( \frac{1}{3} - \frac{1}{2n^{2}\pi^{2}} \right)
+    \end{split}
 \end{equation}
 
 which gives us the variance:
@@ -389,9 +411,9 @@ which gives us the variance:
 Consider a particle undergoing elastic collisions with the walls of the box. Suppose that the particle starts from $x = 0$ with a velocity $v$ at $t = 0$. The position of the particle at time $t$ is given by:
 
 \begin{equation}
-    x(t) = 
+    x(t) =
     \begin{cases}
-        vt & 2na/v \leq t \leq (2n + 1)a/v \\
+        vt     & 2na/v \leq t \leq (2n + 1)a/v       \\
         a - vt & (2n + 1)a/v \leq t \leq (2n + 2)a/v
     \end{cases}
 \end{equation}
@@ -399,36 +421,85 @@ Consider a particle undergoing elastic collisions with the walls of the box. Sup
 The average position of the particle is given by the integral:
 
 \begin{equation}
-\begin{split}
-    \left\langle x \right\rangle &= \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{2na/v}^{(2n + 1)a/v} vt \, \mathrm{d}t + \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{(2n + 1)a/v}^{(2n + 2)a/v} (a - vt) \, \mathrm{d}t \\
-    &= \frac{a}{2} \sum_{n = 0}^{\infty} \left[ (2n + 1)^{2} - (2n)^{2} \right] + \frac{a}{2} \sum_{n = 0}^{\infty} \left[ 2 - (2n + 2)^{2} + (2n + 1)^{2} \right] \\
-    &= 0
-\end{split}
+    \begin{split}
+        \left\langle x \right\rangle &= \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{2na/v}^{(2n + 1)a/v} vt \, \mathrm{d}t + \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{(2n + 1)a/v}^{(2n + 2)a/v} (a - vt) \, \mathrm{d}t \\
+        &= \frac{a}{2} \sum_{n = 0}^{\infty} \left[ (2n + 1)^{2} - (2n)^{2} \right] + \frac{a}{2} \sum_{n = 0}^{\infty} \left[ 2 - (2n + 2)^{2} + (2n + 1)^{2} \right] \\
+        &= 0
+    \end{split}
 \end{equation}
 
 where as the variance is given by:
 
 \begin{equation}
-\begin{split}
-    \left\langle (x - \left\langle x \right\rangle)^{2} \right\rangle &= \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{2na/v}^{(2n + 1)a/v} (vt)^{2} \, \mathrm{d}t + \sum_{n = 0}^{\infty} \frac{1}{a/v} \int_{(2n + 1)a/v}^{(2n + 2)a/v} (a - vt)^{2} \, \mathrm{d}t \\
-    &= \frac{a^{2}}{3} \sum_{n = 0}^{\infty} \left[ (2n + 1)^{3} - (2n)^{3} \right] + \frac{a^{2}}{3} \sum_{n = 0}^{\infty} \left[ (2n + 1)^{3} - (2n)^{3} \right] \\
-    &= \frac{2a^{2}}{3} \sum_{n = 0}^{\infty} \left[ (2n + 1)^{3} - (2n)^{3} \right]
-\end{split}
+    \begin{split}
+        \left\langle (x - \left\langle x \right\rangle)^{2} \right\rangle &= \lim_{N \to \infty} \frac{v}{Na} \int_{0}^{Na/v} x^{2} \, \mathrm{d}t \\
+        &= \lim_{N \to \infty} \frac{v}{2Na} \left( \sum_{n = 0}^{N - 1} \int_{2na/v}^{(2n + 1)a/v} (vt)^{2} \, \mathrm{d}t + \sum_{n = 0}^{N - 1} \int_{(2n + 1)a/v}^{(2n + 2)a/v} (a - vt)^{2} \, \mathrm{d}t \right) \\
+        &= \lim_{N \to \infty} \frac{a^{2}}{2Nv} \left( \sum_{n = 0}^{N - 1} \frac{1 + 6n + 12n^{2}}{3} + \sum_{n = 0}^{N - 1} \frac{(a - vt)^{2}}{a^{2}} \right) \\
+        &= \lim_{N \to \infty} \frac{a^{2}(4N^{2} - 3N + 3) - 6avt + 3vt^{2}}{6} \\
+        &\approx \left( \frac{2}{3} N^{2} - \frac{1}{2} N \right) a^{2}
+    \end{split}
 \end{equation}
+\qed
 
-For the moment let $n$ tend to a finite value $N$. We have:
+
+\problem{3.13}{}
+Consider $\hat{H}^{2}$:
 
 \begin{equation}
 \begin{split}
-    \sum_{n = 0}^{N} \left[ (2n + 1)^{3} - (2n)^{3} \right] &= \sum_{n = 0}^{N} \left( 12n^{2} + 6n + 1 \right) \\
-    &= 12 \frac{N(N + 1)(2N + 1)}{6} + 6 \frac{N(N + 1)}{2} + (N + 1) \\
+    \hat{H}^{2} &= \hat{f}^{\dagger} \hat{f} \hat{f}^{\dagger} \hat{f} \\
+    &= \hat{f}^{\dagger} (\mathbb{I} - \hat{f}^{\dagger} \hat{f}) \hat{f} \\
+    &= \hat{f}^{\dagger} \hat{f} \\
+    &= \hat{H}
 \end{split}
 \end{equation}
 
+where the second term of the second equality is zero since $\hat{f}^{2} = 0$.
 
+Suppose that $\hat{H} \ket{\psi} = \lambda \ket{\psi}$, applying $\hat{H}$ to both sides of the equation gives us:
 
+\begin{equation}
+    \hat{H}^{2} \ket{\psi} = \lambda^{2} \ket{\psi} = \hat{H} \ket{\psi} = \lambda \ket{\psi}
+\end{equation}
 
+which implies that $\lambda$ is either zero or unity.
 
+Suppose that $\hat{H} \ket{0} = 0$ and $\braket{0}{0} = 1$. We have two cases. Either $\hat{f}^{\dagger} (\hat{f} \ket{0}) = 0$, which means that $\hat{f} \ket{0}$ is in the null space of $\hat{f}^{\dagger}$; or $\hat{f} \ket{0} = 0$, which means that $\ket{0}$ is in the null space of $\hat{f}$. Consider the condition $\hat{f} \hat{f}^{\dagger} + \hat{f}^{\dagger} \hat{f} = \mathbb{I}$ acting on $\ket{0}$:
+
+\begin{equation}
+\begin{split}
+    (\hat{f} \hat{f}^{\dagger} + \hat{H}) \ket{0} &= \ket{0} \\
+    \hat{f} \hat{f}^{\dagger} \ket{0} &= \ket{0} \\
+    \hat{f} \hat{f} \hat{f}^{\dagger} \ket{0} &= \hat{f} \ket{0} \\
+    0 &= \hat{f} \ket{0}
+\end{split}
+\end{equation}
+
+where at the third step we apply $\hat{f}$ to both sides of the equation and at the last step we use the fact that $\hat{f}^{2} = 0$.
+
+This implies that the second case is true. Thus $\ket{a} = \hat{f} \ket{0}$ is just zero. Now let us consider the other eigenstate $\ket{1}$ that satisfies $\hat{H} \ket{1} = \ket{1}$. We consider:
+
+\begin{equation}
+\begin{split}
+    \hat{f}^{\dagger} \hat{f} \ket{1} &= (\hat{f}^{\dagger} \hat{f} + \hat{f} \hat{f}^{\dagger}) \ket{1} \\
+    \ket{1} &= \ket{1} + \hat{f} \hat{f}^{\dagger} \ket{1} \\
+\end{split}
+\end{equation}
+
+which implies that $\hat{f} \hat{f}^{\dagger} \ket{1} = 0$.
+
+There are still two possibilities. Either $\hat{f} (\hat{f}^{\dagger} \ket{1}) = 0$ or $\hat{f}^{\dagger} \ket{1} = 0$. We take the second case and view $\hat{f}^{\dagger}$ as the `raising' operator and $\hat{f}$ as the `lowering' operator. Suppose that $\hat{f}^{\dagger} \ket{0} = A \ket{1}$ and $\hat{f} \ket{1} = B \ket{0}$ for some constants $A$ and $B$. We have:
+
+\begin{equation}
+\begin{split}
+    \hat{H} \ket{1} &= \ket{1} \\
+    \hat{f}^{\dagger} \hat{f} \ket{1} &= \ket{1} \\
+    AB \ket{1} &= \ket{1}
+\end{split}
+\end{equation}
+
+This implies that $AB = 1$. Therefore, $\hat{f}^{\dagger} \ket{0} = A \ket{1}$ is just some constant multiple of $\ket{1}$.
+\qed
 
 
 \end{document}
