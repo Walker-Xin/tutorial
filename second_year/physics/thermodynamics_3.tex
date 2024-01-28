@@ -212,11 +212,134 @@ Finally consider $\mathrm{d}G = -S \mathrm{d}T + V \mathrm{d}p$. We have $S = -(
 \begin{equation}
     \left( \frac{\partial S}{\partial p} \right)_{T} = -\left( \frac{\partial V}{\partial T} \right)_{p}
 \end{equation}
+\qed
+
+
+\problem{B.4}{}
+
+\begin{tikzpicture}[scale = 2.3]
+\begin{axis}[
+    title = ,
+    xmin=-15, xmax=15,
+    ymin=-10, ymax=10,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis lines*=middle,
+    minor tick num=5,
+    xtick style={draw=none},ytick style={draw=none},
+    xticklabels={, ,},yticklabels={, ,},
+    axis equal image
+    ]
+\end{axis}
+\end{tikzpicture}
+
+For an isotherm, $p = T/V$ where $T$ is constant. For an adiabat, $p = C/V^{\gamma}$ where $C$ is constant. The two curves intersect at some $(p_{0}, V_{0})$. The area under graph for the isotherm is apparently larger than that for the adiabat. The extra work done comes from the heat transfer from the hot reservoir.
+\qed
+
+
+\problem{B.5}{}
+A chemical reaction that happens slowly and exposed to the atmosphere (e.g. rusting) is isobaric and isothermal. Since $\mathrm{d}G = V\mathrm{d}p - S\mathrm{d}T$, we have $\mathrm{d}G = 0$ and the Gibbs free energy is constant for this process.
+\qed
+
+
+\problem{B.6}{}
+
+\subproblem{i}
+Consider the ordinary internal energy $\mathrm{d}U = T \mathrm{d}S - p \mathrm{d}V$. There is extra work done by the external force $f$ on the rubber so that we modify the equation to:
+
+\begin{equation}
+    \mathrm{d}U = T\mathrm{d}S - p\mathrm{d}V + f\mathrm{d}L
+\end{equation}
+
+where the sign for $f$ is positive as the external force is doing positive work.
+
+\subproblem{ii}
+Consider $\mathrm{d}U - \mathrm{d}(fL)$, which we define as $\mathrm{d}X$:
+
+\begin{equation}
+    \mathrm{d}X = T\mathrm{d}S - p\mathrm{d}V - L\mathrm{d}f
+\end{equation}
+
+Next, consider $\mathrm{d}X + \mathrm{d}(pV)$, which we define as $\mathrm{d}Y$:
+
+\begin{equation}
+    \mathrm{d}Y = T\mathrm{d}S + V\mathrm{d}p - L\mathrm{d}f
+\end{equation}
+
+\subproblem{ii}
+Let us further define $\mathrm{d}Z = \mathrm{d}U - \mathrm{d}(TS) + \mathrm{d}(pV)$:
+
+\begin{equation}
+    \mathrm{d}Z = -S\mathrm{d}T + V\mathrm{d}p + f\mathrm{d}L
+\end{equation}
+
+Since $\mathrm{d}Z$ is an exact differential, we must have $Z_{T, L} = Z_{L, T}$. Noting this, we have:
+
+\begin{equation}
+\begin{split}
+    \left( \frac{\partial S}{\partial L} \right)_{T, p} &= - \frac{\partial }{\partial L} \left( \frac{\partial Z}{\partial T} \right) \\
+    &= - \frac{\partial }{\partial T} \left( \frac{\partial Z}{\partial L} \right) \\
+    &= - \left( \frac{\partial f}{\partial T} \right)_{p, L}
+\end{split}
+\end{equation}
+\qed
+
 
 %==========
 \pagebreak
 \section*{Applications (Rod, Surface, Magnetization, Solid)}
 %==========
+
+
+\problem{C.1}{}
+For an elastic rod, we have the expression for the internal energy:
+
+\begin{equation}
+    \mathrm{d}U = T\mathrm{d}S + f\mathrm{d}L
+\end{equation}
+
+The heat capacity at constant length is defined as:
+
+\begin{equation}
+    C_{L} = T \left( \frac{\partial S}{\partial T} \right)_{L}
+\end{equation}
+
+Let us define the `Helmholtz free energy' as $\mathrm{d}\tilde{F} = -S\mathrm{d}T + f\mathrm{d}L$. We have the Maxwell relation:
+
+\begin{equation}
+    \left( \frac{\partial S}{\partial L} \right)_{T} = -\left( \frac{\partial f}{\partial T} \right)_{L}
+\end{equation}
+
+This implies:
+
+\begin{equation}
+\begin{split}
+    \left( \frac{\partial C_{L}}{\partial L} \right)_{T} &= T \left( \frac{\partial^{2} S}{\partial L \partial T} \right)_{L} \\
+    &= -T \left( \frac{\partial^{2} f}{\partial T^{2}} \right)_{L} \\
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{C.2}{}
+For a liquid, we have:
+
+\begin{equation}
+    \mathrm{d}U = T\mathrm{d}S + \sigma\mathrm{d}A
+\end{equation}
+
+where $\sigma$ is surface tension as a function of temperature.
+
+Consider the quantity:
+
+\begin{equation}
+    \mathrm{d}X = T\mathrm{d}S - A\mathrm{d}\sigma
+\end{equation}
+
+where $\mathrm{d}\sigma/\mathrm{d}T = -1.28\sigma_{0}(1 - T/T_{c})^{0.28}/T_{0}$
+
+
 
 
 
