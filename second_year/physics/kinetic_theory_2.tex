@@ -201,6 +201,14 @@ We have the approximation:
     \frac{1}{n\sigma} = \frac{1}{n 4\pi r^{2}} \approx 10^{3} r
 \end{equation}
 
+where, assuming an ideal gas, the number density is given by:
+
+\begin{equation}
+    n = \frac{p}{k_{B}T} = \frac{\qty{1.0e5}{Nm^{-2}}}{\qty{1.38e-23}{JK^{-1}} \times \qty{273}{K}} = \qty{2.7e25}{m^{-3}}
+\end{equation}
+
+This gives an approximation $r \approx \qty{1.4e-9}{m}$.
+
 
 \problem{4.4}{}
 Attenuation by a factor of $2.72$ means that a fraction $1/2.72$ of the particles have not undergone a collision. We need:
@@ -226,6 +234,37 @@ so that the effective collision radius is:
 \begin{equation}
     r = \sqrt{\frac{\sigma}{4\pi}} = \frac{1}{\sqrt{4\pi n\lambda}} = \qty{1.41e-10}{m}
 \end{equation}
+\qed
+
+
+\problem{4.5}{}
+Let an air molecule of mass $m$ move with some initial speed $v$. A random electron of mass $m_{e}$ appears at a far distance $R$. Let us fix the origin at the position of the electron and the air molecule has a position vector $\mathbf{r}$. Further suppose that the electron keeps stationary. The air molecule then undergoes a circular motion due to the gravitational force:
+
+\begin{equation}
+    F = \frac{Gm_{e}m}{r^{2}} = m \frac{v^{2}}{r}
+\end{equation}
+
+which gives $r = Gm_{e}/v^{2}$.
+
+We have the expression for angular velocity in terms of speed:
+
+\begin{equation}
+    \omega = \frac{v}{r} = \frac{v^{3}}{Gm_{e}}
+\end{equation}
+
+For the molecule to turn an angle $\pi/2$, we require need a time:
+
+\begin{equation}
+    T = \frac{\pi}{2\omega} = \frac{Gm_{e}}{v^{3}} \frac{\pi}{2}
+\end{equation}
+
+Using $v = v_{\text{th}} = \sqrt{2k_{B}T/m}$, we have:
+
+\begin{equation}
+    T \approx \qty{1.5e-48}{s}
+\end{equation}
+
+which is much smaller than the mean free time of an air molecule.
 \qed
 
 
