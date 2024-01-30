@@ -153,7 +153,7 @@ For $[\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}]$:
 
 where we have used the fact that $\hat{p}_{j}$ and $\hat{p}_{l}$ commute.
 
-This commutator is nonzero only when $k = j$, in which case:
+This commutator is not zero only when $k = j$, in which case:
 
 \begin{equation}
     [\hat{p}_{j}^{2}, \hat{x}_{k} \hat{p}_{l}] = -2i\hbar \hat{p}_{j} \hat{p}_{l}
@@ -171,7 +171,7 @@ This is zero since $\hat{p}_{j}$ and $\hat{p}_{l}$ commute. We then consider the
     [\hat{x}_{j}^{2n}, \hat{x}_{k} \hat{p}_{l}] = [\hat{x}_{j}^{2n}, \hat{x}_{k}] \hat{p}_{l} + \hat{x}_{k} [\hat{x}_{j}^{2n}, \hat{p}_{l}]
 \end{equation}
 
-where the first term is always zero since $\hat{x}_{j}^{2n}$ and $\hat{x}_{k}$ commute and the second term is nonzero only when $l = j$, in which case:
+where the first term is always zero since $\hat{x}_{j}^{2n}$ and $\hat{x}_{k}$ commute and the second term is not zero only when $l = j$, in which case:
 
 \begin{equation}
 \begin{split}
@@ -228,8 +228,86 @@ which can be viewed as applying the operator $(1 + \hat{A}/N)$ to the state $N$ 
 
 
 \problem{4.6}{Heisenberg equations of motion for the SHO}
+In Heisenberg picture, we replace an operator $\hat{A}_{S}$ in Schr\"{o}dinger picture with:
 
+\begin{equation}
+    \hat{A}_{H}(t) = \hat{U}^{\dagger}(t) \hat{A}_{S} \hat{U}(t)
+\end{equation}
 
+where $\hat{U} = e^{-i\hat{H}t/\hbar}$ is the time evolution operator.
+
+For the creation and annihilation operators, we have:
+
+\begin{equation}
+\begin{split}
+\hat{a}(t) &= \sqrt{\frac{2\hbar}{m\omega}} \hat{U}^{\dagger}(t) \left( \hat{x}_{S} + \frac{i}{m\omega} \hat{p}_{S} \right) \hat{U}(t) \\
+\hat{a}^{\dagger}(t) &= \sqrt{\frac{2\hbar}{m\omega}} \hat{U}^{\dagger}(t) \left( \hat{x}_{S} - \frac{i}{m\omega} \hat{p}_{S} \right) \hat{U}(t)
+\end{split}
+\end{equation}
+
+The Heisenberg equations of motion for the annihilation operator is:
+
+\begin{equation}
+\begin{split}
+\frac{\mathrm{d}}{\mathrm{d}t} \hat{a}(t) &= \frac{i}{\hbar} [\hat{H}, U^{\dagger}(t) \hat{a}_{S} U(t)] \\
+&= \frac{i}{\hbar} \hat{U}^{\dagger}(t) [\hat{H}, \hat{a}_{S}] \hat{U}(t) \\
+&= i \omega \hat{U}^{\dagger}(t) [\hat{a}_{S}^{\dagger} \hat{a}_{S}, \hat{a}_{S}] \hat{U}(t) \\
+&= i \omega \hat{U}^{\dagger}(t) \left( \hat{a}_{S}^{\dagger} [\hat{a}_{S}, \hat{a}_{S}] + [\hat{a}_{S}^{\dagger}, \hat{a}_{S}] \hat{a}_{S} \right) \hat{U}(t) \\
+&= -i \omega \hat{U}^{\dagger}(t) \hat{a}_{S} \hat{U}(t) \\
+&= -i \omega \hat{a}(t)
+\end{split}
+\end{equation}
+
+This is a differential equation with the solution:
+
+\begin{equation}
+    \hat{a}(t) = \hat{a}(0) e^{-i\omega t}
+\end{equation}
+
+Similarly for the creation operator, we have an equation $\mathrm{d}\hat{a}^{\dagger}/\mathrm{d}t = i\omega \hat{a}^{\dagger}(t)$ with the solution:
+
+\begin{equation}
+    \hat{a}^{\dagger}(t) = \hat{a}^{\dagger}(0) e^{i\omega t}
+\end{equation}
+
+Consider the following:
+
+\begin{equation}
+\begin{split}
+    \hat{a}(t) &= \sqrt{\frac{2\hbar}{m\omega}} \left[ \hat{x}(t) + \frac{i}{m\omega} \hat{p}(t) \right] \\
+    \hat{a}^{\dagger}(t) &= \sqrt{\frac{2\hbar}{m\omega}} \left[ \hat{x}(t) - \frac{i}{m\omega} \hat{p}(t) \right]
+\end{split}
+\end{equation}
+
+which allow us to solve for $\hat{x}(t)$ and $\hat{p}(t)$:
+
+\begin{equation}
+\begin{split}
+    \hat{x}(t) &= \frac{1}{2} \sqrt{\frac{m\omega}{2\hbar}} \left[ \hat{a}(t) + \hat{a}^{\dagger}(t) \right] \\
+    \hat{p}(t) &= \frac{m\omega}{2i} \sqrt{\frac{m\omega}{2\hbar}} \left[ \hat{a}(t) - \hat{a}^{\dagger}(t) \right]
+\end{split}
+\end{equation}
+
+Focus on the equation for $\hat{x}(t)$. We can take the time derivative of both sides:
+
+\begin{equation}
+\begin{split}
+    \frac{\mathrm{d}}{\mathrm{d}t} \hat{x}(t) &= \frac{1}{2} \sqrt{\frac{m\omega}{2\hbar}} \left[ \frac{\mathrm{d}}{\mathrm{d}t} \hat{a}(t) + \frac{\mathrm{d}}{\mathrm{d}t} \hat{a}^{\dagger}(t) \right] \\
+    &= -\frac{i\omega}{2} \sqrt{\frac{m\omega}{2\hbar}} \left[ \hat{a}(t) - \hat{a}^{\dagger}(t) \right] \\
+    &= \frac{\hat{p}(t)}{m}
+\end{split}
+\end{equation}
+
+which is the Heisenberg equation of motion for $\hat{x}(t)$.
+
+Similarly, we can take the time derivative of the equation for $\hat{p}(t)$ and obtain:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t} \hat{p}(t) = -m\omega^{2} \hat{x}(t)
+\end{equation}
+
+These are exactly the classical equations of motion for a harmonic oscillator, which demonstrates the correspondence between classical and quantum mechanics, i.e., Ehrenfest's theorem.
+\qed
 
 
 %==========
@@ -362,7 +440,7 @@ In Cartesian coordinates, the above spherical harmonics are:
 
 
 \problem{4.9}{}
-The wave function cna be identified as:
+The wave function can be identified as:
 
 \begin{equation}
     \braket{\theta, \phi}{\psi} \propto \sqrt{2} \sqrt{\frac{4\pi}{3}} Y_{1}^{0} + \sqrt{\frac{8\pi}{3}} Y_{1}^{1} + \sqrt{\frac{8\pi}{3}} Y_{1}^{-1}
