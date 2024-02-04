@@ -4,8 +4,8 @@
 
 % assignment information
 \def\course{Statistical Mechanics}
-\def\assignmentno{Problem Set 5}
-\def\assignmentname{Foundations of Statistical Mechanics}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Probability, Statistics and Fluctuations}
 \def\name{Xin, Wenkang}
 \def\time{\today}
 
@@ -16,11 +16,80 @@
 
 %==========
 \pagebreak
-\section*{Maximum Entropy Inference}
+\section*{Probability, statistics and fluctuations}
 %==========
 
 
-\problem{5.1}{Factorials}
+\problem{1.4}{}
+We have the probabilities $P(\text{boy}) = P(\text{girl}) = 1/2$. Consider the conditional probability:
+
+\begin{equation}
+    P(\text{at least one girl} | \text{at least one boy}) = \frac{P(\text{at least one girl} \cap \text{at least one boy})}{P(\text{at least one boy})}
+\end{equation}
+
+This is a combinatorial problem. The number of ways to have at least one boy and one girl is $2^2 - 2 = 2$. The number of ways to have at least one boy out of the two children is $2^2 - 1 = 3$. Therefore, the conditional probability is $2/3$.
+
+On the other hand, if we are informed that \textbf{a particular child} (in this case the taller one) is a boy, then the conditional probability is:
+
+\begin{equation}
+    P(\text{at least one girl} | \text{the taller one is a boy}) = \frac{P(\text{at least one girl} \cap \text{the taller one is boy})}{P(\text{the taller one is a boy)}}
+\end{equation}
+
+There is only one way to have one girl and one taller boy, and there are two ways to have the taller one to be a boy. Therefore, the conditional probability is $1/2$.
+\qed
+
+
+\problem{1.5}{}
+The number of ways to achieve $N/2$ heads and $N/2$ tails out of $N$ coin tosses is given by the binomial coefficient:
+
+\begin{equation}
+    \binom{N}{N/2} = \frac{N!}{(N/2)!(N/2)!}
+\end{equation}
+
+The number of ways to have $N/2 - m$ heads and $N/2 + m$ tails is given by:
+
+\begin{equation}
+    \binom{N}{N/2 - m} = \frac{N!}{(N/2 - m)!(N/2 + m)!}
+\end{equation}
+
+For this to be half of the previous number, we must have:
+
+\begin{equation}
+    \left( \frac{N}{2} - m \right)! \left( \frac{N}{2} + m \right)! = 2 \left( \frac{N}{2}! \right)^{2}
+\end{equation}
+
+Consider the expansion of the denominator:
+
+\begin{equation}
+\begin{split}
+    \left( \frac{N}{2} - m \right)! \left( \frac{N}{2} + m \right)! &= \left( \frac{N}{2}! \right)^{2} \frac{(N/2 + 1)(N/2 + 2) \cdots (N/2 + m)}{(N/2 - m + 1)(N/2 - m + 2) \cdots (N/2)} \\
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{1.6}{}
+We divide each molar heat capacity by $R$ and obtain:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|l|c|l|}
+\hline
+Al                       & 2.93 & Pb                      & 3.18 \\ \hline
+Ar                       & 2.50 & Ne                      & 2.50 \\ \hline
+Au                       & 3.06 & N2                      & 3.50 \\ \hline
+Cu                       & 2.94 & O2                      & 3.53 \\ \hline
+He                       & 2.50 & Ag                      & 3.07 \\ \hline
+H2                       & 3.47 & Xe                      & 2.50 \\ \hline
+\multicolumn{1}{|l|}{Fe} & 3.02 & \multicolumn{1}{l|}{Zn} & 3.01 \\ \hline
+\end{tabular}
+\end{table}
+
+There is a trend that gaseous substances have a higher molar heat capacity than solid substances. This is because the heat capacity of a solid is dominated by the lattice vibrations whereas the heat capacity of a gas is dominated by the translational and rotational degrees of freedom.
+\qed
+
+
+\problem{1.7}{}
 From direct calculation, we have $\ln{15!} = 27.8993$. Stirling's approximation gives:
 
 \begin{equation}
@@ -39,473 +108,106 @@ For this to be less than $0.02$, we need $N > 282.1$.
 \qed
 
 
-\problem{5.2}{Tossing coins and assigning probabilities}
-
-\subproblem{a}
-Out of the total $\mathcal{N}$ tosses, we choose $\mathcal{N}_1$ to be heads and the rest to be tails. Thus the total number of ways of assigning is:
+\problem{1.8}{}
+There exists only one microstate where all particles have the same energy $\epsilon$. The given macrostate of three zero energy particle, one $\epsilon$ energy particle and one $2\epsilon$ energy particle has the degeneracy:
 
 \begin{equation}
-    W(\mathcal{N}_{1}) = C_{\mathcal{N}_{1}}^{\mathcal{N}} = \frac{\mathcal{N}!}{\mathcal{N}_{1}!(\mathcal{N} - \mathcal{N}_{1})!}
+    \binom{5}{1} \times \binom{4}{1} \times \binom{3}{3} = 20
 \end{equation}
 
-\subproblem{b}
-Extremising $W(\mathcal{N}_{1})$ is equivalent to extremising the numerator $f(\mathcal{N}_{1}) \equiv \mathcal{N}_{1}!(\mathcal{N} - \mathcal{N}_{1})!$, as the denominator is a constant. Taking the logarithm of $f$:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$0$ & $\epsilon$ & $2\epsilon$ & $3\epsilon$ & $4\epsilon$ & $5\epsilon$ & Number \\ \hline
+4 &   &   &   &   & 1 & 5      \\ \hline
+3 & 1 &   &   & 1 &   & 20     \\ \hline
+3 &   & 1 & 1 &   &   & 20     \\ \hline
+2 & 2 &   & 1 &   &   & 30     \\ \hline
+2 & 1 & 2 &   &   &   & 30     \\ \hline
+1 & 3 & 1 &   &   &   & 20     \\ \hline
+  & 5 &   &   &   &   & 1      \\ \hline
+\end{tabular}
+\end{table}
+\qed
+
+
+\problem{1.9}{}
+The number of microstates for the given macrostate is:
 
 \begin{equation}
-    \begin{split}
-        \ln{f} &= \ln{\mathcal{N}_{1}!} + \ln{(\mathcal{N} - \mathcal{N}_{1})!} \\
-        &\approx \mathcal{N}_{1} \ln{\mathcal{N}_{1}} - \mathcal{N}_{1} + (\mathcal{N} - \mathcal{N}_{1}) \ln{(\mathcal{N} - \mathcal{N}_{1})} - (\mathcal{N} - \mathcal{N}_{1}) \\
-        &= \mathcal{N}_{1} \ln{\mathcal{N}_{1}} - \mathcal{N}_{1} \ln{(\mathcal{N} - \mathcal{N}_{1})} + \mathcal{N} \ln{(\mathcal{N} - \mathcal{N}_{1})} - \mathcal{N}
-    \end{split}
+    \binom{16}{1} \times \binom{15}{2} \times \binom{13}{2} \times \binom{11}{4} \times \binom{7}{7} = 43243200
 \end{equation}
 
-Differentiating with respect to $\mathcal{N}_{1}$:
+The entropy is:
 
 \begin{equation}
-    \begin{split}
-        \deri{f}{\mathcal{N}_{1}} &= 1 + \ln{\mathcal{N}_{1}} + \frac{\mathcal{N}_{1}}{\mathcal{N} - \mathcal{N}_{1}} - \ln{(\mathcal{N} - \mathcal{N}_{1})} - \frac{\mathcal{N}}{\mathcal{N} - \mathcal{N}_{1}} \\
-        &= \ln{\frac{\mathcal{N}_{1}}{\mathcal{N} - \mathcal{N}_{1}}}
-    \end{split}
+    S = \ln{\Omega} = 17.58
 \end{equation}
 
-Demanding this to be zero gives $\mathcal{N}_{1} = \mathcal{N}_{2} = \mathcal{N}/2$. This implies that maximising $W$ leads to the probabilities $p_{1} = p_{2} = 1/2$. The Gibbs entropy is given by:
+The temperature can be approximated by:
 
 \begin{equation}
-    S_{G} = -p_{1} \ln{p_{1}} - p_{2} \ln{p_{2}} = \ln{2}
+    T = \frac{E}{k_{B}\ln{\Omega}}
 \end{equation}
 
-\subproblem{c}
-The expressions for $W(0)$ and $W(m)$ are:
+so that in terms of $\epsilon/k_{B}$, the temperature is:
 
 \begin{equation}
-    W(0)  = \frac{\mathcal{N}!}{(\mathcal{N}/2)!^{2}} \quad W(m) = \frac{\mathcal{N}!}{(\mathcal{N}/2 - m)!(\mathcal{N}/2 + m)!}
-\end{equation}
-
-Taking the logarithm of their ratio:
-
-\begin{equation}
-    \begin{split}
-        \ln{\frac{W(m)}{W(0)}} &= (\frac{\mathcal{N}}{2} \ln{\frac{\mathcal{N}}{2}} - \frac{\mathcal{N}}{2}) \times 2 - \left[ (\frac{\mathcal{N}}{2} - m) \ln{(\frac{\mathcal{N}}{2} - m)} - (\frac{\mathcal{N}}{2} - m) \right] \\
-        &- \left[ (\frac{\mathcal{N}}{2} + m) \ln{(\frac{\mathcal{N}}{2} + m)} - (\frac{\mathcal{N}}{2} + m) \right] \\
-        &= \mathcal{N} \ln{\frac{\mathcal{N}}{2}} - \frac{\mathcal{N}}{2} \ln{\left[ (\frac{\mathcal{N}}{2})^{2} - m^{2} \right]} + m \ln{\frac{\mathcal{N}/2 - m}{\mathcal{N}/2 + m}} \\
-        &= \mathcal{N} \ln{\frac{\mathcal{N}}{2}} - \frac{\mathcal{N}}{2} \ln{\mathcal{N}^{2} \left[ \frac{1}{4} - (\frac{m}{\mathcal{N}})^{2} \right]} + m \ln{\frac{(1/2 - m/\mathcal{N})^{2}}{(1/2)^{2} - (m/\mathcal{N})^{2}}}
-    \end{split}
-\end{equation}
-
-At the limit $m \ll \mathcal{N}$, the following approximation can be made:
-
-\begin{equation}
-    \begin{split}
-        \ln{\frac{W(m)}{W(0)}} &\approx \mathcal{N} \ln{\frac{\mathcal{N}}{2}} - \frac{\mathcal{N}}{2} \ln{\frac{\mathcal{N}^{2}}{4}} + m \ln{\left( 1 - \frac{4m}{\mathcal{N}} \right)} \\
-        &= m \ln{\left( 1 - \frac{4m}{\mathcal{N}} \right)} \\
-        &\approx -m \left( \frac{4m}{\mathcal{N}} \right)
-    \end{split}
-\end{equation}
-
-Thus:
-
-\begin{equation}
-    \frac{W(m)}{W(0)} \approx \exp{-\frac{4m^{2}}{\mathcal{N}}}
+    \frac{18}{\ln{43243200}} = 1.02
 \end{equation}
 \qed
 
 
-\problem{5.3}{Loaded die.}
-
-\subproblem{a}
-We expect $p_{\alpha} = 1/6$ for all cases and the expectation $\ave{\alpha}$ is apparently $3.5$.
-
-\subproblem{b}
-Given $\ave{\alpha} \equiv \sum_{\alpha} p_{\alpha} \alpha = 3.667$, this is a maximisation problem similar to the derivation of canonical distribution. We wish to find a set $\{p_{\alpha}\}$ of probabilities that extremises the Gibbs entropy $S_{G}$ given by:
+\problem{Extra}{}
+Consider a system of $N$ particles in an isolated system, such that the total energy $U$ is fixed. The entropy of the system is given by (up to a constant):
 
 \begin{equation}
-    S_{G} = - \sum p_{\alpha} \ln{p_{\alpha}}
+    S = -\sum_{i} P_{i}\ln{P_{i}}
 \end{equation}
 
-under the constraints:
+where $P_{i}$ is the probability of the system being in the $i$-th microstate.
+
+On the other hand, to fulfil the constraint of fixed energy, we require:
 
 \begin{equation}
-    \sum p_{\alpha} - 1 = 0
+    \sum_{i} P_{i}E_{i} = U
 \end{equation}
 
-and:
+where $E_{i}$ is the energy of the $i$-th microstate.
+
+To maximise the entropy, we use the method of Lagrange multipliers. Consider the modified entropy:
 
 \begin{equation}
-    \sum p_{\alpha} \alpha = \ave{\alpha}
+    S' = -\sum_{i} P_{i}\ln{P_{i}} + \beta\left( \sum_{i} P_{i}E_{i} - U \right)
 \end{equation}
 
-Following the usual procedure of Lagrangian multipliers, we find $p_{\alpha}$ to follow the distribution:
+The extremum of $S'$ is given by the conditions:
 
 \begin{equation}
-    p_{\alpha} = \frac{e^{-\beta \alpha}}{Z(\beta)}
+\begin{split}
+    \frac{\partial S'}{\partial P_{i}} &= -\ln{P_{i}} - 1 - \beta E_{i} = 0 \\
+    \frac{\partial S'}{\partial \lambda} &= U - \sum_{i} P_{i}E_{i} = 0
+\end{split}
 \end{equation}
 
-where $Z(\beta)$ is the normalisation function defined as:
+The first equation gives the Boltzmann distribution:
 
 \begin{equation}
-    Z(\beta) = \sum_{\alpha} e^{-\beta \alpha}
+    P_{i} = \frac{1}{Z}e^{-\beta E_{i}}
 \end{equation}
 
-Then $\beta$ is determined by the equation (derived from the second constant):
+where $Z$ is a normalisation constant given by:
 
 \begin{equation}
-    - \pderi{\ln{Z}}{\beta} = \ave{\alpha} = 3.667
+    Z = \sum_{i} e^{-\beta E_{i}}
 \end{equation}
 
-which can be solved numerically to find $\beta$ and thus all $p_{\alpha}$.
-\qed
-
-
-%==========
-\pagebreak
-\section*{Canonical Ensemble}
-%==========
-
-
-\problem{5.4}{Heat Capacity, Thermal Stability and Fluctuations.}
-
-\subproblem{a}
-By definition, the constant volume heat capacity is given by:
+The $\beta$ factor is determined by the equation:
 
 \begin{equation}
-    \begin{split}
-        C_{V} &\equiv \left( \pderi{U}{T} \right)_{V} \\
-        &= \left( \pderi{U}{\beta} \pderi{\beta}{T} \right)_{V} \\
-        &= \left[ (-\pderi[2]{\ln{Z}}{\beta}) (-\frac{1}{k_{B} T^2}) \right]_{V} \\
-        &= \left( k_{B} \beta^{2} \pderi[2]{\ln{Z}}{\beta} \right)_{V}
-    \end{split}
+    -\frac{\partial \ln{Z}}{\partial \beta} = U
 \end{equation}
-
-\subproblem{b}
-The partition function of a classical monatomic ideal gas is given by:
-
-\begin{equation}
-    Z = \frac{1}{N!} \left( \frac{V}{\lambda_{\text{th}}^{3}} \right)^{N}
-\end{equation}
-
-where $\lambda_{\text{th}} = \hbar \sqrt{\frac{2\pi}{m}} \sqrt{\beta}$.
-
-Hence the log of the partition function is:
-
-\begin{equation}
-    \begin{split}
-        \ln{Z} &= N (\ln{V} - 3\ln{\lambda_{\text{th}}}) - \ln{N!} \\
-        &\approx N (\ln{N} - \ln{n} - 3\ln{\lambda_{\text{th}}}) - N \ln{N!} + N \\
-        &= N \left( -\frac{3}{2} \ln{\beta} + \text{constant} \right)
-    \end{split}
-\end{equation}
-
-Substituting into the expression in (a), we have:
-
-\begin{equation}
-    C_{V} = \frac{3}{2} k_{B} N
-\end{equation}
-
-\subproblem{c}
-The expression for $C_{V}$ can be rewritten as:
-
-\begin{equation}
-    \begin{split}
-        C_{V} &= \pderi{U}{\beta} \pderi{\beta}{T} \\
-        &= \left[ -\frac{1}{Z} \sum E_{\alpha}^{2} e^{-\beta E_{\alpha}} - \frac{1}{Z} \pderi{Z}{\beta} \sum E_{\alpha} e^{-\beta E_{\alpha}} \right] (-k_{B} \beta^{2}) \\
-        &= k_{B} \beta^{2} \left[ \frac{1}{Z} \sum E_{\alpha}^{2} e^{-\beta E_{\alpha}} - \left( \frac{1}{Z} \sum E_{\alpha} e^{-\beta E_{\alpha}} \right)^{2} \right] \\
-        &= k_{B} \beta^{2} (\ave{E^{2}} - \ave{E}^{2})
-    \end{split}
-\end{equation}
-
-which is greater than or equal to zero by the definition of variance.
-
-\subproblem{d}
-We can rewrite $\ave{\Delta E^{2}}/U^{2}$ as:
-
-\begin{equation}
-    \begin{split}
-        \frac{\ave{\Delta E^{2}}}{U^{2}} &= \frac{\ave{E^{2}} - \ave{E}^{2}}{U^{2}} \\
-        &= \frac{C_{V}}{k_{B} \beta^{2} U^{2}} \\
-        &= \frac{3k_{B} N}{2k_{B} (k_{B}T)^{-2} (3Nk_{B}T/2)^{2}} \\
-        &\propto \frac{1}{N}
-    \end{split}
-\end{equation}
-
-which goes to zero as $N \rightarrow \infty$, i.e., the size of the system increases to infinity.
-\qed
-
-
-\problem{5.5}{Elastic chain}
-
-\subproblem{a}
-Denote the vertical single-segment state by $+$ and the horizontal single-segment state by $-$. The microstate of the whole chain is determined by the number $m$ of segments in $+$ state, where the integer $m$ ranges from zero to $N$.
-
-The single-segment partition function $Z_{1}$ is given by:
-
-\begin{equation}
-    Z_{1} = e^{-\beta E_{-}} + e^{-\beta E_{+}} = 1 + e^{-\beta E_{0}}
-\end{equation}
-
-where $E_{0} \equiv \gamma a$ is the energy of the $+$ state and the $-$ state has zero energy.
-
-The energy $E_{m}$ of the microstate $m$ is given by:
-
-\begin{equation}
-    E_{m} = m \gamma a
-\end{equation}
-
-Thus the partition function $Z$ of the whole chain is:
-
-\begin{equation}
-    Z = \sum_{m=0}^{N} e^{-\beta E_{m}} = \frac{1 - e^{-(N+1)\beta E_{0}}}{1 - e^{-\beta E_{0}}}
-\end{equation}
-
-\subproblem{b}
-The lengths $L_{m}$ of the microstates are:
-
-\begin{equation}
-    L_{m} = (N - m)a = Na - \frac{E_{m}}{\gamma}
-\end{equation}
-
-Thus the mean length $L$ is:
-
-\begin{equation}
-    L = \sum p_{m} L_{m} = \sum p_{m} (Na - \frac{E_{m}}{\gamma}) = Na - \frac{U}{\gamma} = N \left( a - \frac{3}{2} \frac{k_{B} T}{\gamma} \right)
-\end{equation}
-
-We have the relation:
-
-\begin{equation}
-    \gamma = \frac{3k_{B} T}{2(a - L/N)}
-\end{equation}
-
-For large $N$, we have $L/N \ll a$, so that we have the approximation:
-
-\begin{equation}
-    \gamma \approx \frac{3k_{B} T}{2a} (1 + \frac{L}{Na}) = \frac{3k_{B} T}{2Na^{2}} (L + Na)
-\end{equation}
-
-\subproblem{d}
-Restricting $U$ as a given effectively turns the system into an isolated system with energy $U$, i.e., a microcanonical ensemble. Out of all the $2^{N}$ possible states, only a part of them satisfy the condition $U = E_{m} = m \gamma a$. Thus, the number $\Omega$ of possible states is given by:
-
-\begin{equation}
-    \Omega(U) = C_{m}^{N} = \frac{N!}{m!(N-m)!}
-\end{equation}
-
-where $m(U) = U/(\gamma a)$ is a function of the mean energy. Now, the mean energy is no longer a constraint that the probability distribution must satisfy, and thus maximisation of the thermodynamic entropy means that all states are equiprobable:
-
-\begin{equation}
-    p(U) = \frac{1}{\Omega}
-\end{equation}
-
-with the thermodynamic entropy given by:
-
-\begin{equation}
-    S(U) = k_{B} \ln{\Omega}
-\end{equation}
-
-Then, by definition and using the Stirling's formula, the temperature is given by:
-
-\begin{equation}
-    \begin{split}
-        \frac{1}{T} &= \pderi{S}{U} \\
-        &= \pderi{S}{m} \pderi{m}{U} \\
-        &= \frac{k_{B}}{\gamma a} \pderi{}{m} [\ln{N!} - \ln{m!} - ln{(N-m)!}] \\
-        &\approx \frac{k_{B}}{\gamma a} \ln{\frac{N-m}{m}} \\
-        &= \frac{k_{B}}{\gamma a} \ln{\left( \frac{N \gamma a}{U} - 1 \right)}
-    \end{split}
-\end{equation}
-
-Thus the temperature is given by:
-
-\begin{equation}
-    T = \frac{\gamma a}{k_{B}} \frac{1}{\ln{\left( \frac{N \gamma a}{U} - 1 \right)}}
-\end{equation}
-
-Note that the temperature is positive for $U < N \gamma a/2$ and negative for $U > N \gamma a/2$. A vertical asymptote exists at $U = N \gamma a/2$.
-
-The dynamical stability arguments do not apply as the model does not take the motion of the chain segments into consideration, which is also the reason why the model differs from the ideal gas model.
-\qed
-
-
-%==========
-\pagebreak
-\section*{Classical Monatomic Ideal Gas}
-%==========
-
-
-\problem{5.6}{}
-
-\subproblem{a}
-Particles in the ideal gas model behave like free particles of mass $m$ in a box of volume $V = L_{x}L_{y}L_{z}$. The single-particle wave function (in position representation)is given by:
-
-\begin{equation}
-    \psi(x, y, z) = A \sin{(k_{x}x)} \sin{(k_{y}y)} \sin{(k_{z}z)}
-\end{equation}
-
-where $A$ is the normalisation constant.
-
-The components of the wave vector $\mathbf{k} = (k_{x}, k_{y}, k_{z})^{T}$ satisfy the condition $k_{i} = 2\pi n_{i}/L_{i}$. On the other hand, the momentum of the particle is given by $\mathbf{P} = \hbar \mathbf{k}$, so the energy levels of a single particle are:
-
-\begin{equation}
-    E_{k} = \frac{\hbar^{2} k^{2}}{2m}
-\end{equation}
-
-Then the single-particle partition function $Z_{1}$ is:
-
-\begin{equation}
-    \begin{split}
-        Z_{1} &= \sum_{k} e^{-\beta E_{k}} \\
-        &= \sum_{k} e^{-\beta \hbar^{2} k^{2}/2m} \\
-        &\approx \frac{V}{(2\pi)^{3}} \int_{0}^{\infty} e^{-\beta \hbar^{2} k^{2}/2m} 4\pi k^{2} \diff{k} \\
-        &= \frac{V}{\lambda_{\text{th}}^3}
-    \end{split}
-\end{equation}
-
-where $\lambda_{\text{th}} \equiv \hbar \sqrt{(2\pi)/(m k_{B} T)}$ is the thermal wavelength.
-
-If we assume the particles to be distinguishable, the total partition function $Z$ is simply:
-
-\begin{equation}
-    Z = Z_{1}^{N} = \left( \frac{V}{\lambda_{\text{th}}^3} \right)^{N}
-\end{equation}
-
-so that its log is given by:
-
-\begin{equation}
-    \ln{Z} = N \left(\ln{V} + \frac{1}{2} \ln{\frac{m}{2\pi \hbar^{2}}} - \frac{1}{2} \ln{\beta}\right)
-\end{equation}
-
-This leads to the entropy:
-
-\begin{equation}
-    \begin{split}
-        S &= - \left( \pderi{F}{T} \right)_{V} \\
-        &= k_{B} \left( \pderi{(T \ln{Z})}{T} \right)_{V} \\
-        &= k_{B} \left( \ln{Z} + T \pderi{\ln{Z}}{\beta} \pderi{\beta}{T} \right)_{V} \\
-        &= k_{B} N \left( \ln{V} - 3\ln{\lambda_{\text{th}}} + \frac{1}{2} \right) \\
-    \end{split}
-\end{equation}
-
-This expression of entropy is not additive, as if we consider two systems with identical temperature (that sets $\ln{\lambda_{\text{th}}}$ zero), number of particle and volume, then they have the same individual entropy:
-
-\begin{equation}
-    S_{0} = k_{B} N \left( \ln{V} + \frac{1}{2} \right)
-\end{equation}
-
-If we combine the two system, the number of particles and the volume doubles, but the temperature remains the same, and the new entropy is:
-
-\begin{equation}
-    S_{1} = 2 k_{B} N \left( \ln{2V} + \frac{1}{2} \right) = k_{B} N \left( \ln{4V^2} + 1 \right)
-\end{equation}
-
-But this new entropy does not equal the sum of the individual entropies, which is given by:
-
-\begin{equation}
-    2S_{0} = k_{B} N \left( \ln{V^2} + 1 \right)
-\end{equation}
-
-Thus this expression of entropy is non-additive and thus invalid. To account for the indistinguishability of the gas particles, we recognise that the state of the system is given by the set of occupation numbers $\{n_{i}\}$ for all the single-particle states enumerated by $i$. If the numbers of available single-particle states are much greater than the number of particles, then the probability of a particle occupying any single-particle state is very small and the probability of more than one particle occupying the same single-particle state is thus negligible. Therefore, we assume that for any single-particle state, its occupation number is either zero or unity. Thus the new partition function is:
-
-\begin{equation}
-    Z = \frac{1}{N!} Z_{1}^{N} = \frac{1}{N!} \left( \frac{V}{\lambda_{\text{th}}^3} \right)^{N}
-\end{equation}
-
-This expression of the partition function leads to the entropy of the form:
-
-\begin{equation}
-    S = k_{B} N \left[ \frac{5}{2} - \ln{(n \lambda_{\text{th}}^3)} \right]
-\end{equation}
-
-where $n = N/V$ is the overall particle density.
-
-\subproblem{b}
-
-Given:
-
-\begin{equation}
-    S = k_{B} N \left[ \frac{5}{2} - \ln{(n \lambda_{\text{th}}^3)} \right]
-\end{equation}
-\qed
-
-
-\problem{5.7}{Relativistic Ideal Gas.}
-
-\subproblem{a}
-At relativistic speeds, the energy levels of a single particle become:
-
-\begin{equation}
-    E_{k} = \sqrt{m^{2} c^{4} + \hbar^{2} k^{2} c^{2}} = m c^{2} \sqrt{1 + \frac{\hbar^{2}}{m^{2} c^{2}} k^{2}}
-\end{equation}
-
-so that the single-particle partition function $Z_{1}$ now becomes:
-
-\begin{equation}
-    Z_{1} = \frac{V}{2\pi^{2}} \int_{0}^{\infty} k^{2} e^{-\beta m c^{2} \sqrt{1 + \hbar^{2}k^{2}/m^{2}c^{2}}} \diff{k} = \frac{V}{2\pi^{2}} I(k, T)
-\end{equation}
-
-where $I$ represents the integral as a function of $k$ and $T$ only.
-
-The total partition function $Z$ thus is:
-
-\begin{equation}
-    Z = \frac{1}{N!} Z_{1}^{N} = \frac{1}{N!} \left( \frac{V}{2\pi^{2}} \right)^{N} I^{N}
-\end{equation}
-
-Since the equation of state is given by:
-
-\begin{equation}
-    P = -\left( \pderi{F}{V} \right)_{T} = k_{B} T \left( \pderi{\ln{Z}}{V} \right)_{T}
-\end{equation}
-
-The change in the form of the integral does not affect the equation of state, and we still obtain $PV = Nk_{B}T$.
-
-\subproblem{b}
-Returning to the integral $I$, at ultra-relativistic limits where $pc = \hbar k c \gg mc^{2}$:
-
-\begin{equation}
-    \begin{split}
-        I &= \int_{0}^{\infty} k^{2} e^{-\beta m c^{2} \sqrt{1 + \hbar^{2}k^{2}/m^{2}c^{2}}} \diff{k} \\
-        &\approx \int_{0}^{\infty} k^{2} e^{-\beta m c^{2}  (\hbar k/mc)} \diff{k} \\
-        &=\int_{0}^{\infty} k^{2} e^{-\beta \hbar k/c} \diff{k} \\
-        &= 2 \left( \frac{c}{\beta \hbar} \right)^3
-    \end{split}
-\end{equation}
-
-where the approximation is made using the condition $\hbar k/mc \gg 1$.
-
-Then the log of the total partition function is:
-
-\begin{equation}
-    \begin{split}
-        \ln{Z} &= \ln{\left[ \frac{1}{N!} \left( \frac{c^3}{\pi \hbar^{3}} \frac{V}{\beta^3} \right)^{N} \right]} \\
-        &\approx N (\ln{V} - \ln{N} + 3\ln{T} + \kappa)
-    \end{split}
-\end{equation}
-
-where Stirling formula has been used and $\kappa$ is a constant.
-
-Then from Question 5.6 Part (a), the entropy is:
-
-\begin{equation}
-    \begin{split}
-        S &= k_{B} \left( \ln{Z} + T \pderi{\ln{Z}}{T} \right)_{V} \\
-        &= k_{B} N (\ln{V} - \ln{N} + 3\ln{T} + \kappa + 3)
-    \end{split}
-\end{equation}
-
-and thus in an adiabatic process:
-
-\begin{equation}
-    \diff{S} = \pderi{S}{V} \diff{V} + \pderi{S}{T} \diff{T} = \frac{1}{V} \diff{V} + \frac{3}{T} \diff{T} = 0
-\end{equation}
-
-Integrating and using the equation of state leads to the desired relation $PV^{4/3} = \text{constant}$.
-
-\subproblem{c}
-The internal energy density is given by:
-
-\begin{equation}
-    \varepsilon = \frac{U}{V} = - \frac{1}{V} \pderi{\ln{Z}}{\beta} = \frac{1}{V} \frac{3N}{\beta}
-\end{equation}
-
-Coupled with the equation of state, we obtain $P = \varepsilon/3$. The ratio depends on the coefficient of $N\ln{\beta}$ in the expression of $\ln{Z}$, and it is the same for both ultra-relativistic and non-relativistic cases. Thus there is no difference.
 \qed
 
 \end{document}
