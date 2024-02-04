@@ -58,13 +58,49 @@ For this to be half of the previous number, we must have:
     \left( \frac{N}{2} - m \right)! \left( \frac{N}{2} + m \right)! = 2 \left( \frac{N}{2}! \right)^{2}
 \end{equation}
 
-Consider the expansion of the denominator:
+Consider the expansion of the left hand side:
 
 \begin{equation}
-\begin{split}
-    \left( \frac{N}{2} - m \right)! \left( \frac{N}{2} + m \right)! &= \left( \frac{N}{2}! \right)^{2} \frac{(N/2 + 1)(N/2 + 2) \cdots (N/2 + m)}{(N/2 - m + 1)(N/2 - m + 2) \cdots (N/2)} \\
-\end{split}
+    \left( \frac{N}{2} - m \right)! \left( \frac{N}{2} + m \right)! = \left( \frac{N}{2}! \right)^{2} \frac{(N/2 + 1)(N/2 + 2) \cdots (N/2 + m)}{(N/2 - m + 1)(N/2 - m + 2) \cdots (N/2)}
 \end{equation}
+
+We can thus cancel the $(N/2)!$ term and obtain:
+
+\begin{equation}
+    \begin{split}
+        \left( \frac{N}{2} + 1 \right) \left( \frac{N}{2} + 2 \right) \cdots \left( \frac{N}{2} + m \right) &= 2 \left( \frac{N}{2} - m + 1 \right) \left( \frac{N}{2} - m + 2 \right) \cdots \left( \frac{N}{2} \right) \\
+    \end{split}
+\end{equation}
+
+Retaining only terms of order $m$ and $m - 1$ in $N$, we have:
+
+\begin{equation}
+    \left( \frac{N}{2} \right)^{m} + \left( \sum_{r = 1}^{m} r \right) \left( \frac{N}{2} \right)^{m - 1} \approx 2 \left[ \left( \frac{N}{2} \right)^{m} + \left( \sum_{r = 1}^{m} r - m \right) \left( \frac{N}{2} \right)^{m - 1} \right]
+\end{equation}
+
+But the second sum is just $-m$ through to $-1$, so the equation becomes:
+
+\begin{equation}
+    \left( \frac{N}{2} \right)^{m} + \left( \sum_{r = 1}^{m} r \right) \left( \frac{N}{2} \right)^{m - 1} \approx 2 \left( \frac{N}{2} \right)^{m} - 2 \left( \sum_{r = 1}^{m} r \right) \left( \frac{N}{2} \right)^{m - 1}
+\end{equation}
+
+For large $m$, the sums can be approximated as:
+
+\begin{equation}
+    \sum_{r = 1}^{m} r = \frac{m(m + 1)}{2} \approx \frac{m^{2}}{2}
+\end{equation}
+
+leading to:
+
+\begin{equation}
+    \begin{split}
+        \left( \frac{N}{2} \right)^{m} + \frac{m^{2}}{2} \left( \frac{N}{2} \right)^{m - 1} &\approx 2 \left( \frac{N}{2} \right)^{m} - m^{2} \left( \frac{N}{2} \right)^{m - 1} \\
+        \frac{3}{2} m^{2} &\approx \left( \frac{N}{2} \right) \\
+        m &\approx \sqrt{\frac{3N}{2}}
+    \end{split}
+\end{equation}
+
+For $N$ of the order $10^{23}$, we have $m \approx 10^{11.5}$, which is very small compared to $N$. This means that the peak around $N/2$ is very sharp.
 \qed
 
 
@@ -72,17 +108,17 @@ Consider the expansion of the denominator:
 We divide each molar heat capacity by $R$ and obtain:
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|c|l|c|l|}
-\hline
-Al                       & 2.93 & Pb                      & 3.18 \\ \hline
-Ar                       & 2.50 & Ne                      & 2.50 \\ \hline
-Au                       & 3.06 & N2                      & 3.50 \\ \hline
-Cu                       & 2.94 & O2                      & 3.53 \\ \hline
-He                       & 2.50 & Ag                      & 3.07 \\ \hline
-H2                       & 3.47 & Xe                      & 2.50 \\ \hline
-\multicolumn{1}{|l|}{Fe} & 3.02 & \multicolumn{1}{l|}{Zn} & 3.01 \\ \hline
-\end{tabular}
+    \centering
+    \begin{tabular}{|c|l|c|l|}
+        \hline
+        Al                       & 2.93 & Pb                      & 3.18 \\ \hline
+        Ar                       & 2.50 & Ne                      & 2.50 \\ \hline
+        Au                       & 3.06 & N2                      & 3.50 \\ \hline
+        Cu                       & 2.94 & O2                      & 3.53 \\ \hline
+        He                       & 2.50 & Ag                      & 3.07 \\ \hline
+        H2                       & 3.47 & Xe                      & 2.50 \\ \hline
+        \multicolumn{1}{|l|}{Fe} & 3.02 & \multicolumn{1}{l|}{Zn} & 3.01 \\ \hline
+    \end{tabular}
 \end{table}
 
 There is a trend that gaseous substances have a higher molar heat capacity than solid substances. This is because the heat capacity of a solid is dominated by the lattice vibrations whereas the heat capacity of a gas is dominated by the translational and rotational degrees of freedom.
@@ -116,18 +152,18 @@ There exists only one microstate where all particles have the same energy $\epsi
 \end{equation}
 
 \begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-$0$ & $\epsilon$ & $2\epsilon$ & $3\epsilon$ & $4\epsilon$ & $5\epsilon$ & Number \\ \hline
-4 &   &   &   &   & 1 & 5      \\ \hline
-3 & 1 &   &   & 1 &   & 20     \\ \hline
-3 &   & 1 & 1 &   &   & 20     \\ \hline
-2 & 2 &   & 1 &   &   & 30     \\ \hline
-2 & 1 & 2 &   &   &   & 30     \\ \hline
-1 & 3 & 1 &   &   &   & 20     \\ \hline
-  & 5 &   &   &   &   & 1      \\ \hline
-\end{tabular}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        $0$ & $\epsilon$ & $2\epsilon$ & $3\epsilon$ & $4\epsilon$ & $5\epsilon$ & Number \\ \hline
+        4   &            &             &             &             & 1           & 5      \\ \hline
+        3   & 1          &             &             & 1           &             & 20     \\ \hline
+        3   &            & 1           & 1           &             &             & 20     \\ \hline
+        2   & 2          &             & 1           &             &             & 30     \\ \hline
+        2   & 1          & 2           &             &             &             & 30     \\ \hline
+        1   & 3          & 1           &             &             &             & 20     \\ \hline
+            & 5          &             &             &             &             & 1      \\ \hline
+    \end{tabular}
 \end{table}
 \qed
 
@@ -185,10 +221,10 @@ To maximise the entropy, we use the method of Lagrange multipliers. Consider the
 The extremum of $S'$ is given by the conditions:
 
 \begin{equation}
-\begin{split}
-    \frac{\partial S'}{\partial P_{i}} &= -\ln{P_{i}} - 1 - \beta E_{i} = 0 \\
-    \frac{\partial S'}{\partial \lambda} &= U - \sum_{i} P_{i}E_{i} = 0
-\end{split}
+    \begin{split}
+        \frac{\partial S'}{\partial P_{i}} &= -\ln{P_{i}} - 1 - \beta E_{i} = 0 \\
+        \frac{\partial S'}{\partial \lambda} &= U - \sum_{i} P_{i}E_{i} = 0
+    \end{split}
 \end{equation}
 
 The first equation gives the Boltzmann distribution:
@@ -209,5 +245,6 @@ The $\beta$ factor is determined by the equation:
     -\frac{\partial \ln{Z}}{\partial \beta} = U
 \end{equation}
 \qed
+
 
 \end{document}
