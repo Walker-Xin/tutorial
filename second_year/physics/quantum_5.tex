@@ -1,0 +1,359 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Quantum Mechanics}
+\def\assignmentno{Problem Sheet 5}
+\def\assignmentname{Spin and $S > 1$ Systems \& Composite Systems}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Spin and $S > 1$ Systems}
+%==========
+
+
+\problem{5.1}{}
+It is trivial to verify that Pauli matrices satisfy the commutation relation:
+
+\begin{equation}
+    [\sigma_{i}, \sigma_{j}] = 2i\epsilon_{ijk} \sigma_{k}
+\end{equation}
+
+Consider the anti-commutator:
+
+\begin{equation}
+\begin{split}
+    \{ \sigma_{1}, \sigma_{2} \} &= \sigma_{1}\sigma_{2} + \sigma_{2}\sigma_{1} \\
+    &=
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        i & 0 \\
+        0 & -i
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        -i & 0 \\
+        0 & i
+    \end{bmatrix} \\
+    &= 0
+\end{split}
+\end{equation}
+
+It is also trivial to verify that $\{ \sigma_{i}, \sigma_{j} \} = 0$ for other combinations of $i \neq j$. We also know that $\sigma_{i}^{2} = I$ for $i = 1, 2, 3$. Therefore, we have:
+
+\begin{equation}
+    \{ \sigma_{i}, \sigma_{j} \} = 2\delta_{ij} \mathbb{I}
+\end{equation}
+\qed
+
+
+\problem{5.2}{}
+The condition $(\mathbf{n} \cdot \mathbf{\sigma})^2 = \mathbb{I}$ is required for normalisation of the state vector. Suppose a unit vector $\mathbf{m}$ perpendicular to $\mathbf{n}$ so that $\mathbf{m} \cdot \mathbf{n} = 0$.
+
+Consider the triple product $(\mathbf{m} \times \mathbf{n}) \cdot \mathbf{\sigma}$:
+
+\begin{equation}
+\begin{split}
+    (\mathbf{m} \times \mathbf{n}) \cdot \mathbf{\sigma} &= \epsilon_{ijk} m_{j} n_{k} \sigma_{i} \\
+    &= \epsilon_{jki} \sigma_{i} m_{j} n_{k} \\
+    &= \frac{1}{2i} [\sigma_{j}, \sigma_{k}] m_{j} n_{k} \\
+    &= \frac{1}{2i} (\sigma_{j}\sigma_{k} - \sigma_{k}\sigma_{j}) m_{j} n_{k} \\
+    &= \frac{1}{2i} [m_{j} \sigma_{j}, n_{k} \sigma_{k}]
+\end{split}
+\end{equation}
+
+which gives the desired result.
+\qed
+
+
+\problem{5.3}{}
+We have the matrix representation of $\mathbf{n} \cdot \mathbf{\sigma}$:
+
+\begin{equation}
+    \mathbf{n} \cdot \mathbf{\sigma} =
+    \begin{bmatrix}
+        \cos{\theta} & \sin{\theta} e^{-i\phi} \\
+        \sin{\theta} e^{i\phi} & -\cos{\theta}
+    \end{bmatrix}
+\end{equation}
+
+which has the eigenvalues $\pm 1$ with the corresponding eigenvectors:
+
+\begin{equation}
+    \ket{+, \mathbf{n}} =
+    \begin{bmatrix}
+        \cos{(\theta/2)} e^{-i\phi/2} \\
+        \sin{(\theta/2)} e^{i\phi/2}
+    \end{bmatrix}
+    \quad
+    \ket{-, \mathbf{n}} =
+    \begin{bmatrix}
+        \sin{(\theta/2)} e^{-i\phi/2} \\
+        -\cos{(\theta/2)} e^{i\phi/2}
+    \end{bmatrix}
+\end{equation}
+
+When $\theta = \pi/2$, the amplitudes of the coefficients of the eigenvectors are both $1/\sqrt{2}$. This means that for a measurement on the xy-plane, the probability of obtaining either eigenvalue is $1/2$.
+
+
+\problem{5.4}{}
+For a stationary spin-half particle, its total angular momentum operator is just its spin operator. The rotation operator is given by:
+
+\begin{equation}
+    \hat{R}(\alpha, \hat{n}) = \exp \left( -\frac{i\alpha}{\hbar} \hat{n} \cdot \mathbf{S} \right) = \exp \left( -\frac{i\alpha}{2} \hat{n} \cdot \sigma \right)
+\end{equation}
+
+where $\hat{n} \cdot \sigma$ is a $2 \times 2$ matrix. The exponential of a matrix is given by:
+
+
+\problem{5.5}{}
+For a spinning particle, its magnetic moment is proportional to its spin angular momentum:
+
+\begin{equation}
+    \mathbf{\mu} = \gamma \mathbf{S}
+\end{equation}
+
+where the constant of proportionality $\gamma$ is called the gyromagnetic ratio.
+
+We have the Hamiltonian:
+
+\begin{equation}
+    \hat{H} = -\gamma B \hat{S}_{z}
+\end{equation}
+
+and the initial state:
+
+\begin{equation}
+    \ket{\psi(0)} = \ket{+, x} = \frac{1}{\sqrt{2}} (\ket{+} + \ket{-})
+\end{equation}
+
+The time evolution of the state vector is given by:
+
+\begin{equation}
+\begin{split}
+    \ket{\psi(t)} &= e^{-i\hat{H}t/\hbar} \ket{\psi(0)} \\
+    &= \frac{1}{\sqrt{2}} e^{i\gamma B \hat{S}_{z} t/\hbar} (\ket{+} + \ket{-}) \\
+    &= \frac{1}{\sqrt{2}} (e^{i\gamma B t} \ket{+} + e^{-i\gamma B t} \ket{-})
+\end{split}
+\end{equation}
+
+The expectation value of $\hat{S}_{x}$ is given by:
+
+\begin{equation}
+\begin{split}
+    \mel{\psi(t)}{\hat{S}_{x}}{\psi(t)} &= \frac{1}{2} \left( e^{-i\gamma B t} \bra{+} + e^{i\gamma B t} \bra{-}  \right) \hat{S}_{x} \left( e^{i\gamma B t} \ket{+} + e^{-i\gamma B t} \ket{-} \right) \\
+    &= \frac{\hbar}{4} \left( e^{-i\gamma B t} \bra{+} + e^{i\gamma B t} \bra{-} \right) \left( e^{i\gamma B t} \ket{-} + e^{-i\gamma B t} \ket{+} \right) \\
+    &= \frac{\hbar}{4} (e^{2i\gamma B t} + e^{-2i\gamma B t}) \\
+    &= \frac{\hbar}{2} \cos{(2\gamma B t)}
+\end{split}
+\end{equation}
+
+Similarly for $\hat{S}_{y}$:
+
+\begin{equation}
+\begin{split}
+    \mel{\psi(t)}{\hat{S}_{y}}{\psi(t)} &= \frac{1}{2} \left( e^{-i\gamma B t} \bra{+} + e^{i\gamma B t} \bra{-}  \right) \hat{S}_{y} \left( e^{i\gamma B t} \ket{+} + e^{-i\gamma B t} \ket{-} \right) \\
+    &= \frac{\hbar}{4} \left( e^{-i\gamma B t} \bra{+} + e^{i\gamma B t} \bra{-} \right) \left( e^{i\gamma B t} \ket{-} - e^{-i\gamma B t} \ket{+} \right) \\
+    &= \frac{\hbar}{4} (e^{2i\gamma B t} - e^{-2i\gamma B t}) \\
+    &= \frac{\hbar}{2} \sin{(2\gamma B t)}
+\end{split}
+\end{equation}
+\qed
+
+
+\problem{5.6}{}
+For a spin-one system, the matrix for $\hat{S}_{x}$ is:
+
+\begin{equation}
+    \hat{S}_{x} = \frac{\hbar}{\sqrt{2}}
+    \begin{bmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 0
+    \end{bmatrix}
+\end{equation}
+
+Consider a random ket $\ket{\psi}$. The probability of it passing through the first filter is just $1/3$, after which it collapses to the state $\ket{+1, z}$. Let us expand this state in terms of the eigenstates of $\hat{S}_{x}$. The eigenstates of $\hat{S}_{x}$, expressed in the z-basis, are:
+
+\begin{equation}
+\begin{split}
+    \ket{+1, x} &= \frac{1}{2} \ket{+1, z} + \frac{1}{\sqrt{2}} \ket{0, z} + \frac{1}{2} \ket{-1, z} \\
+    \ket{0, x} &= \frac{1}{\sqrt{2}} \ket{+1, z} - \frac{1}{\sqrt{2}} \ket{-1, z} \\
+    \ket{-1, x} &= \frac{1}{2} \ket{+1, z} - \frac{1}{\sqrt{2}} \ket{0, z} + \frac{1}{2} \ket{-1, z}
+\end{split}
+\end{equation}
+
+which means that we can expand $\ket{+1, z}$ as:
+
+\begin{equation}
+    \ket{+1, z} = \frac{1}{2} \ket{+1, x} + \frac{1}{\sqrt{2}} \ket{0, x} + \frac{1}{2} \ket{-1, x}
+\end{equation}
+
+This means that the probability of passing the second filter is $1/4$, after which it collapses to the state $\ket{+1, x}$. The probability of passing the third filter is $1/4$. The probability of passing all three filters is $1/3 \times 1/4 \times 1/4 = 1/48$.
+\qed
+
+
+\problem{5.7}{}
+We know that the rotation operator generated by $\hat{S}_{z}$ is:
+
+\begin{equation}
+    \hat{D}(R_{z}(\phi)) = e^{-i\hat{S}_{z}\phi/\hbar}
+\end{equation}
+
+For a system with spin angular momentum $S = \sqrt{6}\hbar$, the index is $j = 2$. Consider the matrix elements of $\hat{D}$ in the eigenket basis of $\hat{S}_{z}$:
+
+\begin{equation}
+\begin{split}
+    \mel{k}{\hat{D}}{l} &= \mel{k}{e^{-i\hat{S}_{z}\phi/\hbar}}{l} \\
+    &= e^{-im_{k}\phi/\hbar} \delta_{kl} \\
+    &= e^{-ik\phi} \delta_{kl}
+\end{split}
+\end{equation}
+
+which can be written explicitly as:
+
+\begin{equation}
+    \hat{D} =
+    \begin{bmatrix}
+        e^{-2i\phi} & 0 & 0 & 0 & 0 \\
+        0 & e^{-i\phi} & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & e^{i\phi} & 0 \\
+        0 & 0 & 0 & 0 & e^{2i\phi}
+    \end{bmatrix}
+\end{equation}
+\qed
+
+
+%==========
+\pagebreak
+\section*{Composite Systems}
+%==========
+
+
+\problem{5.10}{}
+The ket describing the composite system is $\ket{\psi} = \ket{a} \otimes \ket{b}$. The TDSE for the composite system is:
+
+\begin{equation}
+\begin{split}
+    i\hbar \frac{\partial}{\partial t} \ket{\psi} &= \hat{H} \ket{\psi} \\
+    i\hbar \frac{\partial}{\partial t} (\ket{a} \otimes \ket{b}) &= (\hat{H}_{A} \otimes \mathbb{I} + \mathbb{I} \otimes \hat{H}_{B}) (\ket{a} \otimes \ket{b}) \\
+    i\hbar \left( \frac{\partial}{\partial t} \ket{a} \right) \otimes \ket{b} + i\hbar \ket{a} \otimes \left( \frac{\partial}{\partial t} \ket{b} \right) &= (\hat{H}_{A} \ket{a}) \otimes \ket{b} + \ket{a} \otimes (\hat{H}_{B} \ket{b}) \\
+    \left( i\hbar \frac{\partial}{\partial t} \ket{a} - \hat{H}_{A} \ket{a} \right) \otimes \ket{b} &= \ket{a} \otimes \left( \hat{H}_{B} \ket{b} - i\hbar \frac{\partial}{\partial t} \ket{b} \right)
+\end{split}
+\end{equation}
+
+where the equality must hold since we have assumed that $\ket{a}$ and $\ket{b}$ are independent and already satisfy the TDSE.
+
+The TDSE changes if there is an interaction term in the Hamiltonian. Consider two harmonic oscillators, with the individual Hamiltonians:
+
+\begin{equation}
+    \hat{H}_{i} = \frac{\hat{p}_{i}^{2}}{2m} + \frac{1}{2} m\omega_{i}^{2} \hat{x}_{i}
+\end{equation}
+
+for $i = A, B$.
+
+If the systems are connected with a weak spring, we may propose the interaction Hamiltonian:
+
+\begin{equation}
+    \hat{H}_{\text{int}} = \frac{1}{2} k (\hat{x}_{A} - \hat{x}_{B})^{2} = \frac{1}{2} k (\hat{x}_{A}^{2} \otimes \mathbb{I} - 2\hat{x}_{A} \otimes \hat{x}_{B} + \mathbb{I} \otimes \hat{x}_{B}^{2})
+\end{equation}
+
+so that the full Hamiltonian is:
+
+\begin{equation}
+    \hat{H} = \hat{H}_{A} \otimes \mathbb{I} + \mathbb{I} \otimes \hat{H}_{B} + \hat{H}_{\text{int}}
+\end{equation}
+\qed
+
+
+\problem{5.11}{}
+By the term 'correlated' we mean that the state of one system is dependent on the state of the other. Any state $\ket{\psi}$ of a composite system that cannot be written as a product of two states $\ket{a}$ and $\ket{b}$ is a correlated state. Intuitively, this means that measurement of one system will affect the state, and hence the subsequent measurement, of the other system.
+
+On a very crowded road like the M25 motorway, the speed/momentum of one car is heavily dependent on that of the cars around it. This means that the state of one car is at least correlated with the states of the cars in its immediate vicinity.
+
+On a very quiet road, the distance between cars is large enough that the state of one car is independent of the states of the others.
+
+
+\problem{5.12}{}
+The Hamiltonian for the composite system is:
+
+\begin{equation}
+    \hat{H} = \hat{H}_{x} \otimes \mathbb{I} + \mathbb{I} \otimes \hat{H}_{y} + \hat{H}_{\text{int}}
+\end{equation}
+
+For the given interaction, we suppose that the interaction Hamiltonian is:
+
+\begin{equation}
+    \hat{H}_{\text{int}} = \frac{1}{2} C (\hat{x} - \hat{y})^{2} = \frac{1}{2} C (\hat{x}^{2} \otimes \mathbb{I} - 2\hat{x} \otimes \hat{y} + \mathbb{I} \otimes \hat{y}^{2})
+\end{equation}
+
+Now we add another potential term to the Hamiltonian:
+
+\begin{equation}
+    \hat{H}_{\text{pot}} = \frac{1}{2} C (\hat{x} + \hat{y})^{2} = \frac{1}{2} C (\hat{x}^{2} \otimes \mathbb{I} + 2\hat{x} \otimes \hat{y} + \mathbb{I} \otimes \hat{y}^{2})
+\end{equation}
+
+The superposition of the two potentials is:
+
+\begin{equation}
+    \hat{H}_{\text{int}} + \hat{H}_{\text{pot}} = C \hat{x}^{2} \otimes \mathbb{I} + C \mathbb{I} \otimes \hat{y}^{2}
+\end{equation}
+
+which we can interpret as a single potential of the form $\Phi(x, y) = C(x^{2} + y^{2})$.
+\qed
+
+
+\problem{5.13}{}
+Consider the state:
+
+\begin{equation}
+    \ket{\psi} = \frac{1}{\sqrt{2}} (\ket{+} \otimes \ket{-} - \ket{-} \otimes \ket{+}) = \frac{1}{\sqrt{2}} (\ket{+,-} - \ket{-,+})
+\end{equation}
+
+If Alice measures $+1/2$ for her particle, the system collapses to the state $\ket{+,-}$. Now Bob conducts a measurement along an axis at an angle $\theta$ to the z-axis. Consider the expressions:
+
+\begin{equation}
+\begin{split}
+    \ket{-, b} &= \cos{(\theta/2)} e^{i\phi/2} \ket{-} - \sin{(\theta/2)} e^{-i\phi/2} \ket{+}
+\end{split}
+\end{equation}
+
+The component of $\ket{-}$ along $\ket{-, b}$ is $\cos{(\theta/2)} e^{i\phi/2}$. We can thus write the system as:
+
+\begin{equation}
+    \ket{\psi} = \ket{+} \otimes \ket{-} = \ket{+} \otimes \left[ \cos{(\theta/2)} e^{i\phi/2} \ket{-, b} + C \ket{+, b} \right]
+\end{equation}
+
+where $C$ is some constant that we are not interested in. 
+
+This means that the probability of Bob measuring $-1/2$ is $\cos^{2}{(\theta/2)}$.
+\qed
+
+
+\end{document}
