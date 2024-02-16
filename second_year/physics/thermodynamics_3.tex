@@ -73,10 +73,10 @@ and to have a total entropy change of zero, the entropy change of the water must
 Assume without loss of generality that $T_{2} > T_{1}$. Let $Q_{2}$ be the heat drawn from the hot reservoir and $Q_{1}$ be the heat released to the cold reservoir. The work done by the engine is $W = Q_{2} - Q_{1}$. At final common temperature $T_{f}$, the changes of internal energy of the two reservoirs are:
 
 \begin{equation}
-\begin{split}
-    \Delta U_{1} &= C_{p} (T_{f} - T_{1}) \\
-    \Delta U_{2} &= C_{p} (T_{f} - T_{2})
-\end{split}
+    \begin{split}
+        \Delta U_{1} &= C_{p} (T_{f} - T_{1}) \\
+        \Delta U_{2} &= C_{p} (T_{f} - T_{2})
+    \end{split}
 \end{equation}
 
 By first law, we have $Q_{1} = \Delta U_{1}$ and $Q_{2} = -\Delta U_{2}$. The work done by the engine is:
@@ -91,11 +91,21 @@ The efficiency of the engine is:
     \eta = \frac{W}{Q_{2}} = \frac{T_{1} + T_{2} - 2 T_{f}}{T_{2} - T_{f}}
 \end{equation}
 
-Maximising the efficiency with respect to $T_{f}$, we need:
+\mistake{Maximising the efficiency with respect to $T_{f}$}, we need:
 
 \begin{equation}
     \frac{(T_{2} - T_{f})(-2) - (T_{1} + T_{2} - 2 T_{f})(-1)}{(T_{2} - T_{f})^{2}} = 0
 \end{equation}
+
+\begin{correction}
+    Maximum efficiency is obtained when the process is reversible, i.e. $\Delta S = 0$ and the engines is Carnot. For a carnot engine, the temperatures satisfy:
+
+    \begin{equation}
+        \frac{T_{2}}{T_{f}} = \frac{T_{f}}{T_{1}}
+    \end{equation}
+
+    which immediately gives $T_{f}^{2} = T_{1}T_{2}$ for maximum efficiency.
+\end{correction}
 \qed
 
 
@@ -130,28 +140,28 @@ Using a specific heat capacity $c_{p} = \qty{2.22e3}{J.kg^{-1}.K^{-1}}$ for air,
 The heat input happens during the isobaric expansion:
 
 \begin{equation}
-    Q_{in} = C_{p} (T_{3} - T_{2}) = \frac{1}{\gamma - 1} P_{2} (V_{3} - V_{2})
+    Q_{in} = C_{p} (T_{3} - T_{2}) = \mistake{\frac{1}{\gamma - 1}} P_{2} (V_{3} - V_{2})
 \end{equation}
 
 The heat output happens during the isochroic compression:
 
 \begin{equation}
-    Q_{out} = C_{v} (T_{4} - T_{1}) = \frac{\gamma}{\gamma - 1} V_{1} (p_{4} - p_{1})
+    Q_{out} = C_{v} (T_{4} - T_{1}) = \mistake{\frac{\gamma}{\gamma - 1}} V_{1} (p_{4} - p_{1})
 \end{equation}
 
 The efficiency of the engine is:
 
 \begin{equation}
-    \eta = 1 - \frac{Q_{out}}{Q_{in}} = 1 - \frac{C_{v} (T_{4} - T_{1})}{C_{p} (T_{3} - T_{2})} = 1 - \frac{\gamma}{\gamma - 1} \frac{V_{1} (p_{4} - p_{1})}{p_{2} (V_{3} - V_{2})}
+    \eta = 1 - \frac{Q_{out}}{Q_{in}} = 1 - \frac{C_{v} (T_{4} - T_{1})}{C_{p} (T_{3} - T_{2})} = 1 - \mistake{\frac{\gamma}{\gamma - 1}} \frac{V_{1} (p_{4} - p_{1})}{p_{2} (V_{3} - V_{2})}
 \end{equation}
 
 Since the pairs $(p_{1}, V_{1})$, $(p_{2}, V_{2})$ and $(p_{2}, V_{3})$, $(p_{4}, V_{1})$ are on the same reversible adiabat, we have:
 
 \begin{equation}
-\begin{split}
-    \frac{p_{1}}{p_{2}} &= \left( \frac{V_{2}}{V_{1}} \right)^{\gamma} \\
-    \frac{p_{4}}{p_{2}} &= \left( \frac{V_{3}}{V_{1}} \right)^{\gamma}
-\end{split}
+    \begin{split}
+        \frac{p_{1}}{p_{2}} &= \left( \frac{V_{2}}{V_{1}} \right)^{\gamma} \\
+        \frac{p_{4}}{p_{2}} &= \left( \frac{V_{3}}{V_{1}} \right)^{\gamma}
+    \end{split}
 \end{equation}
 
 Therefore, we can write:
@@ -159,6 +169,41 @@ Therefore, we can write:
 \begin{equation}
     \eta = 1 - \frac{\gamma}{\gamma - 1} \frac{(V_{3}/V_{1})^{\gamma} - (V_{2}/V_{1})^{\gamma}}{V_{3}/V_{1} - V_{2}/V_{1}}
 \end{equation}
+
+\begin{correction}
+    The heat input during the isobaric expansion is:
+
+    \begin{equation}
+        Q_{in} = C_{p} (T_{3} - T_{2})
+    \end{equation}
+
+    The heat output during the isochoric compression is:
+
+    \begin{equation}
+        Q_{out} = C_{v} (T_{4} - T_{1})
+    \end{equation}
+
+    Noting that $C_{p} = \gamma C_{v}$, the efficiency of the engine is:
+
+    \begin{equation}
+        \eta = 1 - \frac{Q_{out}}{Q_{in}} = 1 - \frac{C_{v} (T_{4} - T_{1})}{C_{p} (T_{3} - T_{2})} = 1 - \frac{1}{\gamma} \frac{V_{1} (p_{4} - p_{1})}{P_{2} (V_{3} - V_{2})}
+    \end{equation}
+
+    With:
+
+    \begin{equation}
+        \begin{split}
+            \frac{p_{1}}{p_{2}} &= \left( \frac{V_{2}}{V_{1}} \right)^{\gamma} \\
+            \frac{p_{4}}{p_{2}} &= \left( \frac{V_{3}}{V_{1}} \right)^{\gamma}
+        \end{split}
+    \end{equation}
+
+    we can write:
+
+    \begin{equation}
+        \eta = 1 - \frac{1}{\gamma} \frac{(V_{3}/V_{1})^{\gamma} - (V_{2}/V_{1})^{\gamma}}{V_{3}/V_{1} - V_{2}/V_{1}}
+    \end{equation}
+\end{correction}
 \qed
 
 
@@ -181,8 +226,12 @@ We know from Gibbs-Duhem equation that $S \mathrm{d}T - V \mathrm{d}p + n \mathr
 The change in internal energy is just $\Delta U = W$. Since the process is reversible and adiabatic, we have $Q = 0$ and $\Delta S = 0$. We will be able to know the change in enthalpy as $\mathrm{d}H = T \mathrm{d}S + V \mathrm{d}p$ and $\mathrm{d}S$ is zero so the change in enthalpy is:
 
 \begin{equation}
-    \Delta H = \int_{p_{1}}^{p_{2}} V \mathrm{d}p = p_{2} V_{2} - p_{1} V_{1} - \int_{V_{1}}^{V_{2}} p \mathrm{d}V = p_{2} V_{2} - p_{1} V_{1} + W
+    \Delta H = \int_{p_{1}}^{p_{2}} V \mathrm{d}p = p_{2} V_{2} - p_{1} V_{1} - \int_{V_{1}}^{V_{2}} p \mathrm{d}V = \mistake{p_{2} V_{2} - p_{1} V_{1}} + W
 \end{equation}
+
+\begin{correction}
+    $p_{2} V_{2} - p_{1} V_{1}$ is not known.
+\end{correction}
 
 We cannot tell the change in $F$ or $G$ since we do not know the temperature. If we do know that the temperature is kept constant, we will have $\Delta F = W$ and $\Delta G = \Delta H$.
 \qed
@@ -192,7 +241,7 @@ We cannot tell the change in $F$ or $G$ since we do not know the temperature. If
 Consider the equation $\mathrm{d}U = T \mathrm{d}S - p \mathrm{d}V$. We have $T = (\partial U / \partial S)_{V}$ and $p = -(\partial U / \partial V)_{S}$. Therefore, we can write:
 
 \begin{equation}
-   \left(  \frac{\partial T}{\partial V} \right)_{S} = -\left( \frac{\partial p}{\partial S} \right)_{V}
+    \left(  \frac{\partial T}{\partial V} \right)_{S} = -\left( \frac{\partial p}{\partial S} \right)_{V}
 \end{equation}
 
 Next consider $\mathrm{d}H = T \mathrm{d}S + V \mathrm{d}p$. We have $T = (\partial H / \partial S)_{p}$ and $V = (\partial H / \partial p)_{S}$. Therefore:
@@ -218,20 +267,20 @@ Finally consider $\mathrm{d}G = -S \mathrm{d}T + V \mathrm{d}p$. We have $S = -(
 \problem{B.4}{}
 
 \begin{tikzpicture}[scale = 2.3]
-\begin{axis}[
-    title = ,
-    xmin=-15, xmax=15,
-    ymin=-10, ymax=10,
-    grid=both,
-    grid style={line width=.1pt, draw=gray!10},
-    major grid style={line width=.2pt,draw=gray!50},
-    axis lines*=middle,
-    minor tick num=5,
-    xtick style={draw=none},ytick style={draw=none},
-    xticklabels={, ,},yticklabels={, ,},
-    axis equal image
-    ]
-\end{axis}
+    \begin{axis}[
+            title = ,
+            xmin=-15, xmax=15,
+            ymin=-10, ymax=10,
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10},
+            major grid style={line width=.2pt,draw=gray!50},
+            axis lines*=middle,
+            minor tick num=5,
+            xtick style={draw=none},ytick style={draw=none},
+            xticklabels={, ,},yticklabels={, ,},
+            axis equal image
+        ]
+    \end{axis}
 \end{tikzpicture}
 
 For an isotherm, $p = T/V$ where $T$ is constant. For an adiabat, $p = C/V^{\gamma}$ where $C$ is constant. The two curves intersect at some $(p_{0}, V_{0})$. The area under graph for the isotherm is apparently larger than that for the adiabat. The extra work done comes from the heat transfer from the hot reservoir.
@@ -277,11 +326,11 @@ Let us further define $\mathrm{d}Z = \mathrm{d}U - \mathrm{d}(TS) + \mathrm{d}(p
 Since $\mathrm{d}Z$ is an exact differential, we must have $Z_{T, L} = Z_{L, T}$. Noting this, we have:
 
 \begin{equation}
-\begin{split}
-    \left( \frac{\partial S}{\partial L} \right)_{T, p} &= - \frac{\partial }{\partial L} \left( \frac{\partial Z}{\partial T} \right) \\
-    &= - \frac{\partial }{\partial T} \left( \frac{\partial Z}{\partial L} \right) \\
-    &= - \left( \frac{\partial f}{\partial T} \right)_{p, L}
-\end{split}
+    \begin{split}
+        \left( \frac{\partial S}{\partial L} \right)_{T, p} &= - \frac{\partial }{\partial L} \left( \frac{\partial Z}{\partial T} \right) \\
+        &= - \frac{\partial }{\partial T} \left( \frac{\partial Z}{\partial L} \right) \\
+        &= - \left( \frac{\partial f}{\partial T} \right)_{p, L}
+    \end{split}
 \end{equation}
 \qed
 
@@ -314,10 +363,10 @@ Let us define the `Helmholtz free energy' as $\mathrm{d}\tilde{F} = -S\mathrm{d}
 This implies:
 
 \begin{equation}
-\begin{split}
-    \left( \frac{\partial C_{L}}{\partial L} \right)_{T} &= T \left( \frac{\partial^{2} S}{\partial L \partial T} \right)_{L} \\
-    &= -T \left( \frac{\partial^{2} f}{\partial T^{2}} \right)_{L} \\
-\end{split}
+    \begin{split}
+        \left( \frac{\partial C_{L}}{\partial L} \right)_{T} &= T \left( \frac{\partial^{2} S}{\partial L \partial T} \right)_{L} \\
+        &= -T \left( \frac{\partial^{2} f}{\partial T^{2}} \right)_{L} \\
+    \end{split}
 \end{equation}
 \qed
 
@@ -334,10 +383,69 @@ where $\sigma$ is surface tension as a function of temperature.
 Consider the quantity:
 
 \begin{equation}
-    \mathrm{d}X = T\mathrm{d}S - A\mathrm{d}\sigma
+    \mistake{\mathrm{d}X = T\mathrm{d}S - A\mathrm{d}\sigma}
 \end{equation}
 
 where $\mathrm{d}\sigma/\mathrm{d}T = -1.28\sigma_{0}(1 - T/T_{c})^{0.28}/T_{0}$
+
+\begin{correction}
+    Consider the free energy:
+
+    \begin{equation}
+        \mathrm{d}F = -S\mathrm{d}T + \sigma\mathrm{d}A
+    \end{equation}
+
+    The Maxwell relation reads:
+
+    \begin{equation}
+        \left( \frac{\partial S}{\partial A} \right)_{T} = -\left( \frac{\partial \sigma}{\partial T} \right)_{A} = 1.28 \frac{\sigma_{0}}{T_{0}} \left( 1 - \frac{T}{T_{c}} \right)^{0.28}
+    \end{equation}
+
+    Substituting the values yields the entropy per unit area:
+
+    \begin{equation}
+        \left( \frac{\partial S}{\partial A} \right)_{T} = \qty{2.58e-4}{JK^{-1}m^{-2}}
+    \end{equation}
+\end{correction}
+\qed
+
+
+\problem{C.3}{}
+Given the free energy $\mathrm{d}F = -S\mathrm{d}T - m\mathrm{d}B$, we consider the change in $F$ under constant temperature:
+
+\begin{equation}
+    \begin{split}
+        F(T, B) - F(T, 0) &= \int_{0}^{B} \left( \frac{\partial F}{\partial B} \right)_{T} \mathrm{d}B \\
+        &= -mB \\
+        &= -\frac{1}{\mu_{0}} \chi V B^{2} \\
+        &= -\frac{a}{\mu_{0}} \frac{1}{T - T_{c}} V B^{2}
+    \end{split}
+\end{equation}
+
+On the other hand, note that $S = -(\partial F/\partial T)_{B}$ so that:
+
+\begin{equation}
+    \begin{split}
+        S(T, B) - S(T, 0) &= -\frac{\partial }{\partial T} \left[ F(T, B) - F(T, 0) \right] \\
+        &= -\frac{aV}{\mu_{0}} \frac{B^{2}}{(T - T_{c})^{2}}
+    \end{split}
+\end{equation}
+
+For an adiabatic process, we have $\mathrm{d}S = 0$ so that:
+
+\begin{equation}
+    \frac{B_{0}^{2}}{(T_{f} - T_{c})^{2}} = \frac{B^{2}}{(T_{i} - T_{c})^{2}}
+\end{equation}
+
+which gives:
+
+\begin{equation}
+    \frac{T_{f} - T_{c}}{T_{i} - T_{c}} = \frac{B_{0}}{B}
+\end{equation}
+\qed
+
+
+\problem{C.4}{}
 
 
 
