@@ -34,9 +34,23 @@ We see that the naive Euler method has at least two drawbacks: its error is of t
 
 ### Adaptive Step Size
 
-## Forage into General Relativity
+## Black Hole, Accretion, and Photon Trajectories
 
-Instead of a spacecraft travelling under the influence of a sun, let us consider a photon travelling under the influence of a black hole. The entities we consider now are beyond the scope of classical mechanics, and we need to use the machinery of general relativity.
+### Idea of Black Hole
+
+The question now becomes: how does a black hole deform spacetime, and how does this affect the motion of photons? To answer this, we first need to understand what a black hole is.
+
+The idea of a physical entity with a gravity so strong that light cannot escape from it was proposed as early as 1783 by John Michell. The idea was that the escape velocity from such an object is only dependent on its mass and radius, and there is nothing stopping us to extend the escape velocity to the speed of light. However, there was little interest in the idea as physicists of that time lacked the mathematical machinery to deal with such an object. In fact, the idea was so far ahead of its time that only more than a century later did scientists start to understand the implications of such an object.
+
+In 1915, Einstein published his theory of general relativity along with the Einstein field equations. In the subsequent year, Karl Schwarzschild found the first exact solution to the field equations, known as the Schwarzschild metric. From the structure of the metric, the idea of a black hole naturally emerged. It was soon realised that despite the lengthy development of such a complex theory, black holes are very simple objects characterised by only three parameters: mass, charge, and spin. This is known as the no-hair theorem. It is then theorised that black holes should have negligible charge as our universe is electrically neutral, and that they should be spinning due to conservation of angular momentum.
+
+### Accretion Disk
+
+Often, black holes are found in binary systems consisting of a BH and another object which is often a star. The star's mass can be 'sucked' into the BH in a process call accretion. Due to angular momentum conservation, the matter does not fall directly into the BH, but instead forms a disk around it and gradually spirals in. The immense gravitational potential energy gets converted to heat and the disk material gets so hot ($\sim 10^{7}K$) that it emits some of the most energetic radiation in the universe in the form of X-rays. In fact, the efficiency of this energy radiation is about ten times that of nuclear fusion. This is how we can 'see' black holes.
+
+## Numerical Modelling of Photon Trajectories
+
+Going back to our central theme, the natural question to ask is: how do we model the motion of photons around a black hole? If we can simulate the full motion of photons, we can then find out how photons from a accretion disk would travel to an observer at a distant location. This will then tell us how this observer would 'see' the black hole.
 
 ### Spacetime Metric
 
@@ -52,6 +66,12 @@ $$
 ds^2 = -\left(1 - \frac{2GM}{c^2r}\right)c^2dt^2 + \left(1 - \frac{2GM}{c^2r}\right)^{-1}dr^2 + r^2d\theta^2 + r^2\sin^2\theta d\phi^2
 $$
 
-Given some metric,
+Given some metric, the motion of a photon is described by the geodesic equation:
 
-## Black Hole, Accretion, and Photon Trajectories
+$$
+\frac{d^2x^\mu}{d\lambda^2} + \Gamma^\mu_{\nu\sigma}\frac{dx^\nu}{d\lambda}\frac{dx^\sigma}{d\lambda} = 0
+$$
+
+Let us explain this equation in lay man's terms. Here $\lambda$ is called an affine parameter that 'plays the role of time'. The $\Gamma$ terms are a set of very complicated functions that depend on the metric. The equation then says that the second derivative of one coordinate is determined by the first derivatives of the other coordinates. Compare this to Newton's second law, we see that GR is a much more complicated theory.
+
+That is, the trajectory of a photon some spacetime is determined by the a set of coupled second order differential equations. This is then, in principle, a problem that can be solved by a computer. However, several other pieces of information are needed to solve this equation, such as the initial position and energy of the photon. Such information is actually not within the scope of GR, but is determined by the accretion disk model that eventually boils down to atomic physics of the disk material.
