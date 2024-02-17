@@ -1,0 +1,292 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Quantum Mechanics}
+\def\assignmentno{Problem Sheet 6}
+\def\assignmentname{The Hydrogen Atom}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{The Hydrogen Atom}
+%==========
+
+
+\problem{6.1}{}
+The gross structure of the hydrogen atom is characterised by three quantum numbers: $n$, $l$, and $m$. The principal quantum number $n$ determines the energy of the state, and the orbital angular momentum quantum number $l$ determines the magnitude of the angular momentum. The magnetic quantum number $m$ determines the projection of the angular momentum on the $z$-axis.
+
+We require $n \in \mathbb{Z}^+$, $0 \leq l \leq n - 1$, and $-l \leq m \leq l$. The energy of a state is given by:
+
+\begin{equation}
+    E = - \frac{m_{e} e^{4}}{2 (4 \pi \epsilon_{0})^{2} \hbar^{2}} \frac{1}{n^{2}} \equiv - \frac{E_{R}}{n^{2}}
+\end{equation}
+
+where we define the Rydberg energy $E_{R} = m_{e} e^{4}/[2 (4 \pi \epsilon_{0})^{2} \hbar^{2}]= \qty{13.6}{eV}$.
+
+For $n = 2$, i.e. the first excited state, there are two possible $l = 0, 1$ and three possible $m = 0, \pm 1$ so that the total degeneracy is $1 + 3 = 4$. For $n = 3$, there are three possible $l = 0, 1, 2$ and five possible $m = 0, \pm 1, \pm 2$ so that the total degeneracy is $1 + 3 + 5 = 9$. In general, for any $n$, the total degeneracy is $n^{2}$.
+
+We write the ground state in position representation as:
+
+\begin{equation}
+    \psi_{100} = R_{10}(r) Y_{00}(\theta, \phi) = \frac{1}{\sqrt{\pi a_{0}^{3}}} e^{-r/a_{0}}
+\end{equation}
+
+where $a_{0} = 4 \pi \epsilon_{0} \hbar^{2}/m_{e} e^{2}$ is the Bohr radius.
+
+The reduced mass of the hydrogen atom is given by:
+
+\begin{equation}
+    \mu = \frac{m_{e} m_{p}}{m_{e} + m_{p}} \approx m_{e}
+\end{equation}
+
+For a hydrogen-like atom with $Z$ protons, we replace $m_{e}$ with $\mu = Zm_{e} m_{p} /(m_{e} + Z m_{p})$. The energy levels are given by:
+
+\begin{equation}
+    E_{n} = - \frac{E_{R}}{n^{2}} \frac{\mu Z^{2}}{m_{e}}
+\end{equation}
+
+We also have the new Bohr radius:
+
+\begin{equation}
+    a_{Z} = \frac{4 \pi \epsilon_{0} \hbar^{2}}{\mu Z e^{2}} = \frac{m_{e}}{\mu Z} a_{0} \approx \frac{a_{0}}{Z}
+\end{equation}
+\qed
+
+
+\problem{6.2}{}
+We have the ground state wave function:
+
+\begin{equation}
+    \psi_{100} = \frac{1}{\sqrt{\pi a_{Z}^{3}}} e^{-r/a_{Z}}
+\end{equation}
+
+where $a_{Z} \approx a_{0}/Z$ is the Bohr radius for a hydrogen-like atom with $Z$ protons.
+
+\subproblem{a}{}
+The average value of the radius is given by:
+
+\begin{equation}
+    \begin{split}
+        \left\langle r \right\rangle &= \iiint r \abs{\psi_{100}}^{2} r^{2} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi \\
+        &= \int_{0}^{\infty} 4 \pi r^{3} \abs{\psi_{100}}^{2} \, \mathrm{d}r \\
+        &= \frac{3}{2} a_{Z}
+    \end{split}
+\end{equation}
+
+\subproblem{b}{}
+The probability amplitude has the form:
+
+\begin{equation}
+    \begin{split}
+        \frac{1}{\pi a_{Z}^{3}} e^{-2r/a_{Z}}
+    \end{split}
+\end{equation}
+
+whose maximum is at $r = 0$ where the electron is most likely to be found.
+
+\subproblem{c}{}
+The potential energy is given by the function:
+
+\begin{equation}
+    V(r) = - \frac{Ze^{2}}{4 \pi \epsilon_{0} r}
+\end{equation}
+
+Its expectation value is given by:
+
+\begin{equation}
+    \begin{split}
+        \left\langle V \right\rangle &= \iiint \psi_{100}^{*} V \psi_{100} r^{2} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi \\
+        &= \int_{0}^{\infty} 4 \pi r^{2} \abs{\psi_{100}}^{2} V \, \mathrm{d}r \\
+        &= - \frac{Ze^{2}}{4 \pi \epsilon_{0} a_{Z}}
+    \end{split}
+\end{equation}
+
+which agrees with Bohr's model of the hydrogen atom.
+
+\subproblem{d}{}
+The `kinetic energy' is given the expectation of the operator:
+
+\begin{equation}
+    \hat{T} = - \frac{\hbar^{2}}{2m_{e}} \nabla^{2}
+\end{equation}
+
+The expectation value is given by:
+
+\begin{equation}
+    \begin{split}
+        \left\langle \hat{T} \right\rangle &= \iiint \psi_{100}^{*} T \psi_{100} r^{2} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi \\
+        &= - 2\pi \frac{\hbar^{2}}{m_{e}} \int_{0}^{\infty} \psi_{100} \frac{\mathrm{d}^{2}}{\mathrm{d}r^{2}} \left( r\psi_{100} \right) r \, \mathrm{d}r \\
+        &= \frac{\hbar^{2}}{2m_{e} a_{Z}^{2}} \\
+        &\approx Z^{2} \qty{13.6}{eV}
+    \end{split}
+\end{equation}
+
+On the other hand, the combination given by Bohr model is:
+
+\begin{equation}
+    \frac{Ze^{2}}{8 \pi \epsilon_{0} a_{Z}} = Z^{2} \qty{13.6}{eV}
+\end{equation}
+
+which numerically agrees with the expectation value of the kinetic energy, but the underlying physics is completely different.
+
+\subproblem{e}{}
+Since both expectation values of the kinetic and potential energies both agree with Bohr's model, the total energy also agrees.
+\qed
+
+
+\problem{6.3}{}
+In Bohr's model, the quantisation condition reads:
+
+\begin{equation}
+    2 \pi r = n \frac{h}{p}
+\end{equation}
+
+so that the angular momentum is quantised as:
+
+\begin{equation}
+    L = pr = n \hbar
+\end{equation}
+
+where $p$ and $r$ also satisfy the relation:
+
+\begin{equation}
+    \frac{p^{2}}{m_{e}r} = \frac{e^{2}}{4 \pi \epsilon_{0} r^{2}}
+\end{equation}
+
+Putting $n = 1$ and solving for $v = p/m_{e}$, we find:
+
+\begin{equation}
+    v = \frac{e^{2}}{4 \pi \epsilon_{0} \hbar} = \alpha c
+\end{equation}
+
+For a hydrogen-like ion with $Z = 26$, we replace $e^{2}$ with $Ze^{2}$ and find:
+
+\begin{equation}
+    v = \frac{Ze^{2}}{4 \pi \epsilon_{0} \hbar} = Z\alpha c
+\end{equation}
+
+This means that the electron moves at a fraction $Z\alpha \approx Z/137$ of the speed of light. By ignoring relativistic effects, we must have incurred a fractional error at least of the order $\gamma - 1$, which is given by:
+
+\begin{equation}
+    \gamma - 1 = \frac{1}{\sqrt{1 - (Z\alpha)^{2}}} - 1 \approx \frac{1}{2} (Z\alpha)^{2}
+\end{equation}
+\qed
+
+
+\problem{6.4}{}
+The expected electric field experienced by an electron in the ground state is:
+
+\begin{equation}
+    \begin{split}
+        \left\langle E \right\rangle &= \frac{1}{4\pi \epsilon_{0}} \iiint \psi_{100}^{*} \frac{1}{r^{2}} \psi_{100} r^{2} \, \mathrm{d}r \mathrm{d}\theta \mathrm{d}\phi \\
+        &= \frac{1}{2\pi\epsilon_{0} a_{0}^{2}}
+    \end{split}
+\end{equation}
+
+Treating an ideal laser as monochromatic plane wave, the intensity is given by:
+
+\begin{equation}
+    I = \frac{1}{2} \epsilon_{0} c E^{2}
+\end{equation}
+
+which gives the approximation:
+
+\begin{equation}
+    E \approx \sqrt{2I\epsilon_{0}c}
+\end{equation}
+\qed
+
+
+\problem{6.5}{}
+We use the reduced mass:
+
+\begin{equation}
+    \mu = \frac{m_{e} m_{e}}{m_{e} + m_{e}} = \frac{m_{e}}{2}
+\end{equation}
+
+with $Z = 1$.
+
+The energy levels are given by:
+
+\begin{equation}
+    E_{n} = - \frac{E_{R}}{n^{2}} \frac{\mu Z^{2}}{m_{e}} = - \frac{E_{R}}{2n^{2}}
+\end{equation}
+
+The characteristic length scale is given by:
+
+\begin{equation}
+    a_{Z} = \frac{m_{e}}{\mu Z} a_{0} = 2 a_{0}
+\end{equation}
+
+which suggests that the size of the atom is twice that of the hydrogen atom.
+\qed
+
+
+\problem{6.6}{}
+We have the reduced mass:
+
+\begin{equation}
+    \mu = \frac{m_{e} m_{\mu}}{m_{e} + m_{\mu}} \approx 0.995 m_{e}
+\end{equation}
+
+Following the same procedure, we have the energy levels:
+
+\begin{equation}
+    E_{n} = -0.995 \frac{E_{R}}{n^{2}}
+\end{equation}
+
+and the characteristic length scale:
+
+\begin{equation}
+    a_{Z} = 1.005 a_{0}
+\end{equation}
+\qed
+
+
+\problem{6.7}{}
+The Pickering series is given by transitions to the $n = 4$ state in a Helium cation. The energy levels of this ion are given by:
+
+\begin{equation}
+    E_{n} = -\frac{E_{R}}{n^{2}} \frac{\mu Z^{2}}{m_{e}} = -\frac{4E_{R}}{n^{2}}
+\end{equation}
+
+Note that we can rewrite the energy levels as:
+
+\begin{equation}
+    E_{n} = -\frac{E_{R}}{(n/2)^{2}}
+\end{equation}
+
+which follows the same form as the hydrogen atom of energy levels $n/2$.
+
+This suggests that the Pickering series characterised by $n = 4$ is equivalent to the Balmer series of the hydrogen atom characterised by $n = 2$. The small discrepancies are due to the approximation of the reduced mass. We should have used:
+
+\begin{equation}
+    \begin{split}
+        E_{n, He} = -\frac{4E_{R}}{n^{2}} \frac{2m_{p}}{m_{e} + 2m_{p}} \approx -0.999728 \frac{4E_{R}}{n^{2}} \\
+        E_{n, H} = -\frac{E_{R}}{n^{2}} \frac{m_{p}}{m_{e} + m_{p}} \approx -0.999456 \frac{E_{R}}{n^{2}}
+    \end{split}
+\end{equation}
+
+We can check the ratios:
+
+\begin{equation}
+    \begin{split}
+        \frac{0.999728}{0.999456} &\approx 1.00027 \\
+        \frac{0.456987}{0.456806} &\approx 1.00040 \\
+        \frac{0.616933}{0.616682} &\approx 1.00041 \\
+    \end{split}
+\end{equation}
+
+which suggests that the approximation used in reduced mass partially accounts for the discrepancy.
+\qed
+
+
+\end{document}
