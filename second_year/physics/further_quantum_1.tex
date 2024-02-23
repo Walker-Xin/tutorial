@@ -1,0 +1,288 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Further Quantum Mechanics}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{}
+The TDSE reads:
+
+\begin{equation}
+    \frac{1}{2m} \left( -i\hbar \nabla - q\mathbf{A} \right)^{2} \psi = i\hbar \frac{\partial \psi}{\partial t}
+\end{equation}
+
+Consider the right-hand side of the equation, we have:
+
+\begin{equation}
+    \begin{split}
+        \left( -i\hbar \nabla - q\mathbf{A} \right)^{2} \psi &=
+        \left( i\hbar \nabla + q\mathbf{A} \right) \left( i\hbar \nabla \psi + q\mathbf{A}\psi \right) \\
+        &= -\hbar^{2} \nabla^{2} \psi + i\hbar q \nabla \cdot \left( \mathbf{A}\psi \right) + i\hbar q \mathbf{A} \cdot \nabla \psi + q^{2} \mathbf{A}^{2} \psi
+    \end{split}
+\end{equation}
+
+so that the TDSE becomes:
+
+\begin{equation}
+    \begin{split}
+        \frac{1}{2m} \left[ i\hbar \nabla^{2} \psi + q \psi (\nabla \cdot \mathbf{A}) + 2q \mathbf{A} \cdot \nabla \psi + \frac{q^{2}}{i\hbar} \mathbf{A}^{2} \psi \right] &= \frac{\partial \psi}{\partial t} \\
+    \end{split}
+\end{equation}
+
+On the other hand, consider the time derivative of the probability density $\rho = \psi^{*}\psi$, we have:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \rho}{\partial t} &= \frac{\partial}{\partial t} \left( \psi^{*}\psi \right) \\
+        &= \psi^{*} \frac{\partial \psi}{\partial t} + \psi \frac{\partial \psi^{*}}{\partial t}
+    \end{split}
+\end{equation}
+
+Combining the two results, we have:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \rho}{\partial t} &= \frac{\psi^{*}}{2m} \left[ i\hbar \nabla^{2} \psi + q \psi (\nabla \cdot \mathbf{A}) + 2q \mathbf{A} \cdot \nabla \psi + \frac{q^{2}}{i\hbar} \mathbf{A}^{2} \psi \right] \\
+        &+ \frac{\psi}{2m} \left[ -i\hbar \nabla^{2} \psi^{*} + q \psi^{*} (\nabla \cdot \mathbf{A}) + 2q \mathbf{A} \cdot \nabla \psi^{*} - \frac{q^{2}}{i\hbar} \mathbf{A}^{2} \psi^{*} \right] \\
+        &= \frac{1}{2m} \left[ i\hbar \left( \psi^{*} \nabla^{2} \psi + \psi \nabla^{2} \psi^{*} \right) + 2q \left( \psi^{*}\psi \right) (\nabla \cdot \mathbf{A}) + 2q \mathbf{A} \cdot \nabla \left( \psi^{*}\psi \right) \right] \\
+        &= \frac{\hbar}{2im} \left( \psi^{*} \nabla^{2} \psi + \psi \nabla^{2} \psi^{*} \right) + \frac{q}{m} \left[ \psi^{*}\psi (\nabla \cdot \mathbf{A}) + \mathbf{A} \cdot \nabla \left( \psi^{*}\psi \right) \right] \\
+        &= -\nabla \cdot \mathbf{j}
+    \end{split}
+\end{equation}
+
+where we identify the probability current density $\mathbf{j}$ as:
+
+\begin{equation}
+    \mathbf{j} = \frac{\hbar}{2im} \left( \psi^{*} \nabla \psi - \psi \nabla \psi^{*} \right) - \frac{q}{m} \mathbf{A} \psi^{*}\psi
+\end{equation}
+
+Consider the TISE for an energy eigenfunction $\psi$:
+
+\begin{equation}
+    \frac{1}{2m} \left( -i\hbar \nabla - q\mathbf{A} \right)^{2} \psi = E\psi
+\end{equation}
+
+Given the trial function $\psi(x, y) = \exp [-(x^{2} + y^{2})/4l_{B}^{2}]$, we have:
+
+\begin{equation}
+    \begin{split}
+        \left( -i\hbar \nabla - q\mathbf{A} \right)^{2} \psi &= -\hbar^{2} \nabla^{2} \psi + i\hbar q \psi \left( \nabla \cdot \mathbf{A} \right) + 2i\hbar q \mathbf{A} \cdot \nabla \psi + q^{2} \mathbf{A}^{2} \psi \\
+        &= -\hbar^{2} \frac{x^{2} + y^{2} - 4l_{B}^{2}}{4l_{B}^{4}} \psi + \frac{B^{2}(x^{2} + y^{2})}{4} \psi
+    \end{split}
+\end{equation}
+
+where the middle two terms vanish.
+
+We can then solve the TISE:
+
+\begin{equation}
+    \frac{B^{2}l_{B}^{4}(x^{2} + y^{2}) - \hbar^{2}(x^{2} + y^{2} - 4l_{B}^{2})}{4l_{B}^{4}} \psi = E\psi
+\end{equation}
+
+We require that the coefficient for $x$ and $y$ to be zero, so that:
+
+\begin{equation}
+    l_{B} = \sqrt{\frac{\hbar}{B}}
+\end{equation}
+
+and the energy eigenvalue is:
+
+\begin{equation}
+    E = 4\hbar^{2}l_{B}^{2} = 4 \frac{\hbar^{3}}{B}
+\end{equation}
+
+Since the eigenfunction is real, only the second term in $\mathbf{j}$ contributes:
+
+\begin{equation}
+    \mathbf{j} = -\frac{qB}{2m} \exp \left( -\frac{x^{2} + y^{2}}{2l_{B}^{2}} \right) (-y, x, 0)^{\intercal}
+\end{equation}
+
+which is in the same direction as the magnetic field $\mathbf{B}$.
+
+This describes the ground state of a charged particle in a magnetic field, which follows a helix trajectory around $\mathbf{B}$. The direction of $\mathbf{j}$ confirms this.
+\qed
+
+
+\problem{2}{}
+
+Consider the Hamiltonian:
+
+\begin{equation}
+    \hat{H} = \hat{H}_{0} + \epsilon \hat{V}
+    =
+    \begin{pmatrix}
+        A_{1} & 0     \\
+        0     & A_{2}
+    \end{pmatrix}
+    +
+    \epsilon
+    \begin{pmatrix}
+        B_{1} & B_{2} \\
+        B_{2} & 0
+    \end{pmatrix}
+\end{equation}
+
+where the first term is a simple Hamiltonian and the second term is a perturbation.
+
+If $A_{1} \ne A_{2}$, the energy eigenvalues of the unperturbed system are non-degenerate. The first-order correction to the energy eigenvalues is:
+
+\begin{equation}
+    E_{n}^{(1)} = \mel{n}{\hat{V}}{n}
+\end{equation}
+
+where $\ket{n}$ are the energy eigenstates of $\hat{H}_{0}$ given by:
+
+\begin{equation}
+    \ket{1} = (1, 0)^{\intercal} \qquad \ket{2} = (0, 1)^{\intercal}
+\end{equation}
+
+Then the first-order corrections are:
+
+\begin{equation}
+    \begin{split}
+        E_{1}^{(1)} &= \mel{1}{\hat{V}}{1} = B_{1} \\
+        E_{2}^{(1)} &= \mel{2}{\hat{V}}{2} = 0
+    \end{split}
+\end{equation}
+
+If $A_{1} = A_{2}$, the energy eigenvalues of the unperturbed system are degenerate. We can diagonalise $\hat{V}$ to find the perturbation matrix in the basis of the degenerate energy eigenstates:
+
+\begin{equation}
+    \hat{V} \to
+    \frac{1}{2}
+    \begin{pmatrix}
+        B_{1} - \sqrt{B_{1}^{2} + 4B_{2}^{2}} & 0                                     \\
+        0                                     & B_{1} + \sqrt{B_{1}^{2} + 4B_{2}^{2}}
+    \end{pmatrix}
+\end{equation}
+
+so that the first-order corrections are:
+
+\begin{equation}
+    \begin{split}
+        E_{1}^{(1)} &= \frac{1}{2} \left( B_{1} - \sqrt{B_{1}^{2} + 4B_{2}^{2}} \right) \\
+        E_{2}^{(1)} &= \frac{1}{2} \left( B_{1} + \sqrt{B_{1}^{2} + 4B_{2}^{2}} \right)
+    \end{split}
+\end{equation}
+
+We can also find the energy eigenstates from the Hamiltonian directly:
+
+
+
+\problem{3}{}
+
+\subproblem{a}{}
+We have the perturbed Hamiltonian:
+
+\begin{equation}
+    \hat{H} = \hat{H}_{0} + \epsilon \hat{V} = \frac{1}{2} m \omega^{2} \hat{x}^{2} + \epsilon \hat{x}^{2}
+\end{equation}
+
+But the perturbed system is still a harmonic oscillator, so the energy eigenstates change exactly to:
+
+\begin{equation}
+    E'_{n} = \hbar (\kappa \omega)^{2} \left( n + \frac{1}{2} \right)
+\end{equation}
+
+where $\kappa = \sqrt{1 + 2\epsilon/m\omega^{2}}$.
+
+We could expand $\kappa$ in terms of $\epsilon$ to second order:
+
+\begin{equation}
+    \kappa \approx 1 + \frac{\epsilon}{m\omega^{2}} - \frac{\epsilon^{2}}{2m^{2}\omega^{4}}
+\end{equation}
+
+so that the change in energy eigenvalues in the ground state is:
+
+\begin{equation}
+    \Delta E_{0} = E'_{0} - E_{0} = \frac{1}{2} \hbar \omega \left( \frac{\epsilon}{m\omega^{2}} - \frac{\epsilon^{2}}{2m^{2}\omega^{4}} \right)
+\end{equation}
+
+\subproblem{b}{}
+Treating this as a perturbation problem, we have the ground state wave function of the unperturbed system:
+
+\begin{equation}
+    \psi_{0}(x) = \braket{x}{0} = \left( \frac{m\omega}{\pi\hbar} \right)^{1/4} \exp \left( -\frac{m\omega x^{2}}{2\hbar} \right)
+\end{equation}
+
+The first-order correction to the ground state energy is:
+
+\begin{equation}
+    \begin{split}
+        E_{0}^{(1)} &= \mel{0}{\hat{V}}{0} \\
+        &= \int \braket{0}{x} \mel{x}{\hat{V}}{0} \, \mathrm{d}x \\
+        &= \int \psi_{0} x^{2} \psi_{0} \, \mathrm{d}x \\
+        &= \frac{\hbar}{2m\omega}
+    \end{split}
+\end{equation}
+
+which indeed agrees with the previous result up to first order.
+
+\subproblem{c}{}
+The first-order correction to the ground state is:
+
+\begin{equation}
+    \ket{0^{(1)}} = \sum_{m \ne 0} \frac{\mel{m}{\hat{V}}{0}}{E_{0} - E_{m}} \ket{m}
+\end{equation}
+
+Let us focus on the matrix element $\mel{m}{\hat{V}}{0}$:
+
+\begin{equation}
+    \begin{split}
+        \mel{m}{\hat{V}}{0} &= \int \braket{m}{x} \mel{x}{\hat{V}}{0} \, \mathrm{d}x \\
+        &= \int \psi_{m} x^{2} \psi_{0} \, \mathrm{d}x
+    \end{split}
+\end{equation}
+
+We know that the energy eigenfunctions of a harmonic oscillator are Hermite polynomials of order $n$, so this integral is non-zero only when $m = 2$:
+
+\begin{equation}
+    \mel{2}{\hat{V}}{0} = \int \psi_{2} x^{2} \psi_{0} \, \mathrm{d}x = \frac{\hbar}{\sqrt{2}m\omega}
+\end{equation}
+
+which gives us the first-order correction to the ground state:
+
+\begin{equation}
+    \ket{0^{(1)}} = \frac{\mel{2}{\hat{V}}{0}}{E_{0} - E_{2}} \ket{2} = \frac{\hbar}{\sqrt{2}m\omega} \frac{1}{-2\hbar\omega} \ket{2} = -\frac{l^{2}}{\sqrt{2}\hbar \omega} \ket{2}
+\end{equation}
+
+where $l = \sqrt{\hbar/2m\omega}$ is the characteristic length scale of the harmonic oscillator.
+
+\subproblem{d}{}
+The second-order correction to the ground state energy is:
+
+\begin{equation}
+    E_{0}^{(2)} = \sum_{m \ne 0} \frac{\mel{0}{\hat{V}}{m} \mel{m}{\hat{V}}{0}}{E_{0} - E_{m}}
+\end{equation}
+
+Again, this sum is non-zero only when $m = 2$:
+
+\begin{equation}
+    E_{0}^{(2)} = \frac{\mel{0}{\hat{V}}{2} \mel{2}{\hat{V}}{0}}{E_{0} - E_{2}} = -\frac{\hbar}{4m^{2}\omega^{3}}
+\end{equation}
+
+which also agrees with the previous result up to second order.
+\qed
+
+
+\problem{4}{}
+
+
+
+\end{document}
