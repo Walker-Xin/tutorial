@@ -26,13 +26,29 @@ What is the 'principle' we are talking about? Newton's laws of motion. Let us th
 
 ### Euler's Method and Error
 
+Imagine a rocket moving through space under the influence of gravity. It state of motion is determined by the vector containing its position and velocity. In a very small time interval, the rocket will update its position via its current velocity $\delta x = v\delta t$. It will also update its velocity via the force acting on it $\delta v = F\delta t/m$. This force, of course, is a function of the current position. This is the idea of the Euler method. It is a very simple method, and it is not very accurate. Consider the Euler method used in solving the following equation:
+
+$$
+y' = -15y \quad y(0) = 1
+$$
+
+We know the theorectical solution is $y = e^{-15x}$. If we choose a step size of $1/8$, the computed solution becomes oscillatory. This is because the error of the Euler method is of the order of the step size, which is often too large for practical purposes.
+
 ## Numerical Methods
 
 We see that the naive Euler method has at least two drawbacks: its error is of the order of the step size, and it is not very stable. We can improve on both of these by using the Runge-Kutta methods coupled with adaptive step size.
 
 ### Higher Order Methods
 
+A apparent flaw of Euler's method is that it is in some way too 'naive' or too 'local'.
+
+An immediate improvement is to go forward one step and see what the force is there, and then use the average of the next force and the current force. This is the second order method. We can then 'scout' ahead even further and use the average of the forces at each step. By adjusting carefully the weights of the forces, we can get a fourth order method called the Runge-Kutta method.
+
 ### Adaptive Step Size
+
+Another issue with the Euler method is that the step size is fixed. This is not very efficient. For example, we do not want to use a very small step size when the rocket is far away from the Earth, but we do want to use a small step size when the rocket is near the Earth. When the force varies a lot, we want to use a small step size to capture the features of the force. This is the idea of adaptive step size. To implement an algorithm, we would need a criterion, often an error estimate, to determine when to change the step size by how much.
+
+In practice, when using the 4th order Runge-Kutta method, we can use the difference between the 4th order and 5th order Runge-Kutta methods as an error estimate. This is a very good estimate, as the 5th order method is very accurate. There are a variety of other methods to estimate the error, but the idea is the same.
 
 ## Black Hole, Accretion, and Photon Trajectories
 
@@ -75,3 +91,7 @@ $$
 Let us explain this equation in lay man's terms. Here $\lambda$ is called an affine parameter that 'plays the role of time'. The $\Gamma$ terms are a set of very complicated functions that depend on the metric. The equation then says that the second derivative of one coordinate is determined by the first derivatives of the other coordinates. Compare this to Newton's second law, we see that GR is a much more complicated theory.
 
 That is, the trajectory of a photon some spacetime is determined by the a set of coupled second order differential equations. This is then, in principle, a problem that can be solved by a computer. However, several other pieces of information are needed to solve this equation, such as the initial position and energy of the photon. Such information is actually not within the scope of GR, but is determined by the accretion disk model that eventually boils down to atomic physics of the disk material.
+
+### Ray Tracing
+
+What comes next is technically all computation and zero physics. To simulate the look of a black hole, or really its accretion disk, we need to solve the geodesic equation for photons emitted by the disk. Simulating all of the photons emitted by the disk wastes a lot of resource, as not all of them will reach the observer. Instead, we trace photons backwards from the observer to the disk. If we are only interested in the shape of the image, we can imagine a uniform disk emitting photons of the same energy. This is a simplification, but it is a good starting point.
