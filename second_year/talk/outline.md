@@ -14,7 +14,11 @@ A short demonstration of the ray-tracing code will be given. A simple simulated 
 
 ## Introduction
 
-One of the greatest achievements of science is the ability to 'predict the future'. This is especially true in mechanics, where the Newton's laws set out the evolution of all physical systems, at least within the realm of classical mechanics. While the laws demonstrate the simplicity of physics, solving for useful information from them is often a very involved process. In this talk, we will embark on a journey that starts with classical mechanics and the art of solving differential equations. We will see how the study of lowly everyday objects can enable us to model and simulate some of the most exotic heavenly objects in universe.
+One of the greatest achievements of science is the ability to 'predict the future'. Consideration of the future, or in psychology terms, foresight, is a very human trait. We as a species worries about survival, and individual members worry about their own future, such as job prospects, health, and being able to graduate. We are mesmerised by the idea of looking beyond the present, that we have developed a whole field of science to theorise how our physical world evolves.
+
+This is especially true in mechanics, where the Newton's laws set out the evolution of all physical systems, at least within the realm of classical mechanics. While the laws demonstrate the simplicity of physics, solving for useful information from them is often a very involved process.
+
+In this talk, we will embark on a journey that starts with prediction using classical mechanics and the art of solving differential equations. We will see how the study of ordinary everyday objects can enable us to model and simulate some of the most exotic heavenly objects in universe.
 
 ## Newton's Laws
 
@@ -54,7 +58,7 @@ In practice, when using the 4th order Runge-Kutta method, we can use the differe
 
 ### Idea of Black Hole
 
-The question now becomes: how does a black hole deform spacetime, and how does this affect the motion of photons? To answer this, we first need to understand what a black hole is.
+The question now becomes: how does a black hole deform spacetime, and how does this affect the motion of photons? To answer this, we first need to take a detour to understand what a black hole is.
 
 The idea of a physical entity with a gravity so strong that light cannot escape from it was proposed as early as 1783 by John Michell. The idea was that the escape velocity from such an object is only dependent on its mass and radius, and there is nothing stopping us to extend the escape velocity to the speed of light. However, there was little interest in the idea as physicists of that time lacked the mathematical machinery to deal with such an object. In fact, the idea was so far ahead of its time that only more than a century later did scientists start to understand the implications of such an object.
 
@@ -94,4 +98,12 @@ That is, the trajectory of a photon some spacetime is determined by the a set of
 
 ### Ray Tracing
 
-What comes next is technically all computation and zero physics. To simulate the look of a black hole, or really its accretion disk, we need to solve the geodesic equation for photons emitted by the disk. Simulating all of the photons emitted by the disk wastes a lot of resource, as not all of them will reach the observer. Instead, we trace photons backwards from the observer to the disk. If we are only interested in the shape of the image, we can imagine a uniform disk emitting photons of the same energy. This is a simplification, but it is a good starting point.
+What comes next is technically all computation and zero physics. To simulate the look of a black hole, or really its accretion disk, we need to solve the geodesic equation for photons emitted by the disk. Simulating all of the photons emitted by the disk wastes a lot of resource, as not all of them will reach the observer. Instead, we trace photons backwards from the observer to the disk. If we are only interested in the shape of the image, we can imagine a uniform disk emitting photons of the same energy. The observer can be treated as a plane at a large distance away that is perpendicular to the vector pointing from the observer to the black hole. We then fire photons from different locations on the plane and see if they hit the disk. By collecting the photons that hit the disk, we can then form an image of the disk.
+
+## Scientific Value
+
+But you ask what is the point of all this? Beside the coolness of simulating a literal black hole on your personal computer, there are a lot of scientific value in modelling space time and ray tracing photons. Instead of visualising the BH, we could generate a simulated spectrum of the photons and compare this with what we observe from telescopes. The shape of the spectrum is affected by the gravitational redshift, which ultimately depends on the parameters of the BH. The spectrum hence serves as a tool to measure the properties of the BH.
+
+## Concluding Remarks
+
+We have undergone a journey that started with the simple Newton's laws and Euler methods and progressed all the way to simulating some of the most extreme objects in the universe. There are two key messages that unpin this journey. The first one, being the more philosophical, is that physical theories often share common features where similar mathematical structures are observed. The second one, being more practical, is the interplay between the power of computation and the power of human wisdom. While the computer can solve some of the immediate problems by brute force, ingenuity of us scientists is often what prevails in solving the most difficult problems. We have seen ChatGPTs excelling in casual conversation, but it scientific reasoning is still lackluster. Perhaps what we discussed today is a good example of how human wisdom is still essential, and it is certainly my hope that this will remain true for a long time to come.

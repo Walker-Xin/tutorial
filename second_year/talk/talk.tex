@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{lesson}
+\usepackage{amsmath}
 
 \title{From Newton's Laws to Modelling Black Holes}
 \subtitle{The Power of Numerical Methods}
@@ -9,12 +10,276 @@
 
 \frame{\titlepage}
 
+
+\begin{frame}{Introduction}
+    \begin{center}
+        {\Large What is the \textbf{greatest} achievement of science?}
+
+        \vspace{3cm}
+
+        Quantum mechanics? General relativity? The standard model?
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{Introduction}
+    \begin{center}
+        {\Large What is the \textbf{greatest} achievement of science?}
+
+        \vspace{3cm}
+
+        \textbf{Ability to predict the future,}
+
+        \vspace{0.5cm}
+
+        using, for example, Newton's laws.
+    \end{center}
+\end{frame}
+
+
 \begin{frame}{Contents}
     \tableofcontents
 \end{frame}
 
 
-\section{Introduction}
+\section{Newton's Laws}
+
+
+\begin{frame}{Newton's Laws}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{asset/landau_lifshitz.jpeg}
+    \end{center}
+
+    \begin{quote}
+        If all the co-ordinates and velocities (of a system) are simultaneously specified, it is known from experience that the state of the system is completely determined and that its subsequent motion can, \textbf{in principle}, be calculated.
+    \end{quote}
+
+    \footnotetext{L.D. Landau and E.M. Lifshitz.}
+\end{frame}
+
+
+\begin{frame}{Newton's Laws}
+    \textbf{In principle}, we can predict the future using Newton's second law:
+
+    \vspace{0.5cm}
+
+    \begin{equation}
+        \mathbf{F} = m \mathbf{a} = m \frac{\mathrm{d}^{2} \mathbf{r}}{\mathrm{d}t^{2}}
+    \end{equation}
+
+    \vspace{0.5cm}
+
+    Once we know the force, we can solve the differential equation.
+\end{frame}
+
+
+\begin{frame}{Newton's Laws}
+    Imagine you are a rocket moving in space towards Mother Earth. Your dynamics is a constant updating of the state vector:
+
+    \vspace{0.5cm}
+
+    \begin{equation}
+        \begin{pmatrix}
+            x \\
+            v
+        \end{pmatrix}
+        \xrightarrow{\delta t}
+        \begin{pmatrix}
+            x + v \delta t \\
+            v + a \delta t
+        \end{pmatrix}
+    \end{equation}
+
+    \vspace{0.5cm}
+
+    How do we know the acceleration $a$?
+\end{frame}
+
+
+\section{Numerical Methods}
+
+
+\begin{frame}{Numerical Methods}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{asset/euler.jpg}
+        \column{0.5\textwidth}
+        \centering
+        What we just did is called the \textbf{Euler's method}.
+
+        \vspace{0.5cm}
+
+        It is a general method of solving ordinary differential equations.
+    \end{columns}
+
+    \footnotetext{Leonhard Euler (1707-1783).}
+\end{frame}
+
+
+\begin{frame}{Numerical Methods}
+    Consider the following differential equation:
+
+    \vspace{0.5cm}
+
+    \begin{equation}
+        \frac{\mathrm{d}y}{\mathrm{d}t} = -15y \quad y(0) = 1
+    \end{equation}
+
+    \vspace{0.5cm}
+
+    We know the solution is:
+
+    \vspace{0.5cm}
+
+    \begin{equation}
+        y(t) = e^{-15t}
+    \end{equation}
+
+    \vspace{0.5cm}
+
+    Let's see how Euler's method performs with different step sizes.
+\end{frame}
+
+
+\begin{frame}{Numerical Methods}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{asset/euler_method.png}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{Numerical Methods}
+    There are at least two problems with the naive Euler's method:
+
+    \vspace{0.5cm}
+
+    \begin{enumerate}
+        \item It is (very) \textbf{inaccurate} for large step sizes.
+        \item It becomes (very) \textbf{slow} for small step sizes.
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Numerical Methods - Go to Higher Orders}
+    The Euler's method is naive in a sense that it is too `local'.
+
+    \vspace{0.5cm}
+
+    We could have 'scouted' ahead a bit and use the average of acceleration there and our current position.
+
+    \vspace{0.5cm}
+
+    If we use the immediate future, we make the error $\mathcal{O}(\delta t^{2})$ instead of $\mathcal{O}(\delta t)$.
+\end{frame}
+
+
+\begin{frame}{Numerical Methods - Go to Higher Orders}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{asset/runge.jpg}
+        \column{0.5\textwidth}
+        \centering
+        Let us go as far as four steps ahead!
+
+        \vspace{0.5cm}
+
+        \textbf{Runge-Kutta methods} are a family of numerical methods for solving ordinary differential equations.
+
+        \vspace{0.5cm}
+
+        The most famous is the RK4 method.
+    \end{columns}
+
+    \footnotetext{Carl David Tolmé Runge (1856-1927).}
+\end{frame}
+
+
+\section{Foraging to Black Holes}
+
+
+\begin{frame}{Foraging to Black Holes}
+    Instead of a rocket, what if we are photons travelling towards a black hole?
+
+    \vspace{0.5cm}
+
+    \begin{center}
+        {\Large What even is a black hole?}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{asset/michell.jpg}
+        \column{0.5\textwidth}
+        \centering
+        \textbf{John Michell} first to proposed the existence of `black holes'.
+
+        \vspace{0.5cm}
+
+        Alas, he was too far ahead of his time.
+
+        \vspace{0.5cm}
+
+        Scientists then did not have the tools to investigate his ideas.
+    \end{columns}
+
+    \footnotetext{John Michell (1724-1793).}
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{asset/schwarzschild.jpg}
+        \column{0.5\textwidth}
+        \centering
+        \textbf{Albert Einstein} published the general theory of relativity in 1915 along with his field equations.
+
+        \vspace{0.5cm}
+
+        \textbf{Karl Schwarzschild} found the first solution to the equations in 1916.
+
+        \vspace{0.5cm}
+
+        From his solutions, the concept of a black hole emerged.
+    \end{columns}
+
+    \footnotetext{Karl Schwarzschild (1873-1916).}
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes}
+    It was soon realised that BHs are very simple objects with only three properties:
+
+    \vspace{0.5cm}
+
+    \begin{enumerate}
+        \item Mass $M$
+        \item Charge $Q$ (theorised to be zero)
+        \item Spin $J$
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes}
+    BHs are often found in binary systems and a process called \textbf{accretion} occurs to give rise to \textbf{accretion disks}.
+
+    \vspace{0.5cm}
+
+    These disks get so hot that they emit some of the most energetic radiation (photons!) in the universe.
+\end{frame}
+
+
+\section{Exciting Science}
+
+
+\section{Concluding Remarks}
 
 
 
