@@ -153,7 +153,7 @@ It is easy to verify that $U^{\dagger}U = I$.
 
 \problem{3}{}
 
-\subproblem{a}{}
+\subproblem{a}
 Consider the equation $\mathbf{x}^{\intercal} A \mathbf{x} = x^{2} + 3y^{2} - 2xy$, where the matrix $A$ has the form:
 
 \begin{equation}
@@ -195,7 +195,7 @@ which is an ellipse with semi-major axis $1$ and semi-minor axis $\sqrt{3}$.
 
 \problem{4}{}
 
-\subproblem{a}{}
+\subproblem{a}
 The characteristic equation is given by:
 
 \begin{equation}
@@ -204,7 +204,7 @@ The characteristic equation is given by:
 
 Solving the quadratic equation for $\lambda$ yields $\lambda_{1, 2} = e^{\pm i\phi}$.
 
-\subproblem{b}{}
+\subproblem{b}
 Performing the usual diagonalization procedure on $A$ yields $\hat{\mathbf{e}}_{1} = (-1, 1, 0)^{\intercal}/\sqrt{2}$ with the two-fold degenerate $\lambda_{1} = 0$ and $\hat{\mathbf{e}}_{2} = (1, 0, 0)^{\intercal}$ with $\lambda_{2} = 1$.
 
 \mistake{As the number of eigenvectors is less than three, the eigenvectors cannot form a basis for $\mathbb{R}^{3}$.} Therefore, $A$ is not diagonalisable.
@@ -223,7 +223,7 @@ Performing the usual diagonalization procedure on $A$ yields $\hat{\mathbf{e}}_{
 
 \problem{5}{}
 
-\subproblem{a}{}
+\subproblem{a}
 Let us assume that $M$ is diagonalisable so that we have:
 
 \begin{equation}
@@ -234,7 +234,7 @@ where $\mathbf{v}' = P^{-1} \mathbf{v}$ is the new coordinates.
 
 Since $v_{i}'^{2} \ge 0$, $\mathbf{v}^{\intercal} M \mathbf{v} > 0$ for all $\mathbf{v}$ if $\lambda_{i} > 0$, provided that $\mathbf{v} \ne \mathbf{0}$. Vice versa for the case where $\mathbf{v}^{\intercal} M \mathbf{v} < 0$.
 
-\subproblem{b}{}
+\subproblem{b}
 The characteristic polynomial is given by:
 
 \begin{equation}
@@ -245,7 +245,7 @@ Therefore, the two solutions of $\chi(\lambda) = 0$ satisfy $\lambda_{1} + \lamb
 
 Another way to see this is to note that $\tr(M) = \tr(P \hat{M} P^{-1}) = \tr(\hat{M}) = \lambda_{1} + \lambda_{2}$ and $\det(M) = \det(P \hat{M} P^{-1}) = \det(\hat{M}) = \lambda_{1} \lambda_{2}$.
 
-\subproblem{c}{}
+\subproblem{c}
 
 \begin{equation}
     M \text{ is }
@@ -256,20 +256,20 @@ Another way to see this is to note that $\tr(M) = \tr(P \hat{M} P^{-1}) = \tr(\h
     \end{cases}
 \end{equation}
 
-\subproblem{d}{}
+\subproblem{d}
 $M_{1}$ is positive indefinite; $M_{2}$ is indefinite; $M_{3}$ is negative definite.
 \qed
 
 
 \problem{6}{}
 
-\subproblem{a}{}
+\subproblem{a}
 
 \begin{equation}
     \chi_{A}(\lambda) = \det(A - \lambda I) = (A_{11} - \lambda)(A_{22} - \lambda) - A_{12}A_{21} = \lambda^{2} - \tr(A) \lambda + \det(A)
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 
 \begin{equation}
     \begin{split}
@@ -296,7 +296,7 @@ $M_{1}$ is positive indefinite; $M_{2}$ is indefinite; $M_{3}$ is negative defin
     \end{split}
 \end{equation}
 
-\subproblem{c}{}
+\subproblem{c}
 For a general $A$, the characteristic polynomial has the form:
 
 \begin{equation}
@@ -307,7 +307,7 @@ For a general $A$, the characteristic polynomial has the form:
 
 \problem{7}{}
 
-\subproblem{a}{}
+\subproblem{a}
 For a given eigenvector of $P$, we have the equation $P \mathbf{v} = \lambda \mathbf{v}$. Apply $P$ on both sides:
 
 \begin{equation}
@@ -323,10 +323,10 @@ But $P^{2} = P$ so $\lambda^{2} \mathbf{v} = \lambda \mathbf{v}$. This shows tha
     \end{pmatrix}
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 $P$ projects an arbitrary vector onto a line depending on the diagonalisation of $P$. The number of ones in $\hat{P}$ is the dimension of the space projected, and it is equal to $\tr(P)$
 
-\subproblem{c}{}
+\subproblem{c}
 
 \begin{equation}
     (Q^{2})_{ij} = Q_{ik} Q_{kj} = n_{i}n_{k}n_{k}n_{j} = n_{i}n_{j} = Q_{ij}
@@ -336,7 +336,7 @@ as $\sum n_{k}^{2} = 1$ for a unit vector.
 
 Therefore, $Q^{2} = Q$ and $Q$ is a projector. $\tr(Q) = Q_{ii} = n_{i}n_{i} = 1$ so it projects to a one-dimensional space.
 
-\subproblem{d}{}
+\subproblem{d}
 
 \begin{equation}
     P^{2} = (I - Q)^{2} = I - 2Q + Q^{2} = I - Q = P
@@ -363,7 +363,7 @@ Therefore, $P$ projects onto a zero-dimensional space.
 
 \problem{8}{}
 
-\subproblem{a}{}
+\subproblem{a}
 For a given eigenvector of $U$, we have the equation $U \mathbf{v} = \lambda \mathbf{v}$. Taking the Hermitian of both sides:
 
 \begin{equation}
@@ -376,7 +376,7 @@ For a given eigenvector of $U$, we have the equation $U \mathbf{v} = \lambda \ma
 
 Therefore, $\left\lvert \lambda \right\rvert = 1$.
 
-\subproblem{b}{}
+\subproblem{b}
 We have the equation $R \mathbf{v} = \lambda \mathbf{v}$. Taking the transpose of both sides:
 
 \begin{equation}
@@ -389,7 +389,7 @@ We have the equation $R \mathbf{v} = \lambda \mathbf{v}$. Taking the transpose o
 
 This implies $\lambda = \pm 1$ so $1$ is always an eigenvalue of $R$.
 
-\subproblem{c}{}
+\subproblem{c}
 
 \begin{equation}
     \begin{split}
@@ -430,14 +430,14 @@ This implies $\lambda = \pm 1$ so $1$ is always an eigenvalue of $R$.
     \end{split}
 \end{equation}
 
-\subproblem{d}{}
+\subproblem{d}
 From the form of $R$, we have $\tr(\hat{R}) = \tr(R) = 2\cos{\phi} + 1$ or:
 
 \begin{equation}
     \cos{\phi} = \frac{\tr(R) - 1}{2}
 \end{equation}
 
-\subproblem{e}{}
+\subproblem{e}
 Consider the determinant and the transpose of the matrix $R$:
 
 \begin{equation}
@@ -490,7 +490,7 @@ and
 
 \problem{9}{}
 
-\subproblem{a}{}
+\subproblem{a}
 Suppose that $M = P \hat{M} P^{-1}$ such that $\ddot{\mathbf{x}} = P \hat{M} P^{-1} \mathbf{x}$. Then:
 
 \begin{equation}
@@ -502,10 +502,10 @@ Suppose that $M = P \hat{M} P^{-1}$ such that $\ddot{\mathbf{x}} = P \hat{M} P^{
 
 This is an linear second order ODE with constant coefficients for $(P^{-1} \mathbf{x})_{i}$ that can be easily solved.
 
-\subproblem{b}{}
+\subproblem{b}
 The eigenvalues of $M$ are $\hat{M}_{ii} = \lambda_{i}$, which are the (square of) oscillating frequencies of the transformed coordinates (normal coordinates).
 
-\subproblem{c}{}
+\subproblem{c}
 The coefficient matrix has the form:
 
 \begin{equation}

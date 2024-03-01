@@ -22,7 +22,7 @@
 
 \problem{6.1}{Coupled Pendula}
 
-\subproblem{a}{}
+\subproblem{a}
 Consider the vector $Y(t) = (y_{1}, y_{2})^{\intercal}$, with the following system of equations:
 
 \begin{equation}
@@ -65,10 +65,10 @@ Substituting the initial conditions yields $A = v/(2\Omega_{1})$, $A = v/(2\Omeg
     \end{split}
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 With $k/m = 2\epsilon g/l$, we have $\Omega_{2} = \sqrt{1 + 4\epsilon} \omega_{0} \approx (1 + 2\epsilon) \Omega_{1}$, so that $\Delta = (\Omega_{2} - \Omega_{1})/2 = \epsilon \omega_{0}$
 
-\subproblem{c}{}
+\subproblem{c}
 Consider the $\sin{\Omega_{2}t}$ term:
 
 \begin{equation}
@@ -161,7 +161,7 @@ The ratio is given by:
 
 \problem{6.3}{Sliding Masses}
 
-\subproblem{a}{}
+\subproblem{a}
 Let $y_{1}$ be the displacement of the left mass, with rightwards taken as positive, and let $y_{2}$ be the displacement of the right mass, with leftwards taken as positive. Consider the vector $Y(t) = (y_{1}, y_{2})^{\intercal}$, with the following system of equations:
 
 \begin{equation}
@@ -186,10 +186,10 @@ and:
     \frac{k_{1}}{k_{0}} = \frac{\sqrt{\Omega_{0}^{2} - \Omega_{1}^{2}}}{\Omega_{0}}
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 The normal modes are $p_{1} = y_{1} - y_{2}$ and $p_{2} = y_{1} + y_{2}$. $p_{1}$ corresponds to the masses moving in same directions with the same displacement (lower effective spring constant), and $p_{2}$ corresponds to the masses moving in the opposite direction with the same displacement (higher spring constant).
 
-\subproblem{c}{}
+\subproblem{c}
 With friction taken into account, the system of equations becomes:
 
 \begin{equation}
@@ -232,7 +232,7 @@ where $r_{1,2}$ satisfy the characteristic equation:
 
 Depending on the sign of $\gamma^{2} - \Omega_{1,2}^{2}$, the solution may be overdamped, critically damped, or underdamped.
 
-\subproblem{d}{}
+\subproblem{d}
 In the limit $\omega_{0} \ll \gamma \ll \omega_{1}$, we have $r_{1\pm} = -\gamma \pm w_{1}$, where $w_{1}^{2} = \gamma^{2} - \Omega_{1}^{2}$, and $r_{2\pm} = -\gamma \pm iw_{2}$, where $w_{2}^{2} = \Omega_{2}^{2} - \gamma^{2}$. The solution associated with $p_{1}$ is overdamped, and the solution associated with $p_{2}$ is underdamped. Given the initial conditions $Y(0) = (a, 0)^{\intercal}$ and $\dot{Y}(0) = (0, 0)^{\intercal}$, the solutions are:
 
 \begin{equation}
@@ -244,7 +244,7 @@ In the limit $\omega_{0} \ll \gamma \ll \omega_{1}$, we have $r_{1\pm} = -\gamma
 
 Essentially, this tells us that $p_{1}$ component (moving in same directions) decays much faster than the $p_{2}$ component (moving in opposite direction). This is because in the $p_{1}$ mode, the central spring is not stretched, and the damping effect is much stronger than the spring effect.
 
-\subproblem{e}{}
+\subproblem{e}
 In the limit $\gamma \ll \omega_{0}$, we have $r_{1\pm} = -\gamma \pm iw_{1}$, where $w_{1}^{2} = \Omega_{1}^{2} - \gamma^{2}$, and $r_{2\pm} = -\gamma \pm iw_{2}$, where $w_{2}^{2} = \Omega_{2}^{2} - \gamma^{2}$. Both modes are underdamped. If the right wall oscillates with $y_{0} = a \sin{\Omega_{2}t}$, the equation of motion becomes:
 
 \begin{equation}

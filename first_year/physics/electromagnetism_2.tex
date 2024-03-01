@@ -27,21 +27,21 @@ Near a conductor, the parallel component of the electric field is continuous and
 
 \problem{1}{Charge monopole near a flat metal surface}
 
-\subproblem{a}{}
+\subproblem{a}
 Using the method of image charges, the radial component of the field cancels out so that the electric field is only in the polar direction:
 
 \begin{equation}
     \mathbf{E} = -2 \frac{1}{4\pi \epsilon_{0}} \frac{q}{d^{2} + r^{2}} \frac{d}{\sqrt{d^{2} + r^{2}}} \hat{z} = - \frac{qd}{2\pi \epsilon_{0} (d^{2} + r^{2})^{3/2}} \hat{z}
 \end{equation}
 
-\subproblem{c}{}
+\subproblem{c}
 We have the surface charge density $\sigma = E_{+} - E_{-}$, so that the total charge is:
 
 \begin{equation}
     Q = \int_{0}^{\infty} \sigma 2\pi r \, \mathrm{d}r = -\int_{0}^{\infty} \frac{qd}{2\pi \epsilon_{0} (d^{2} + r^{2})^{3/2}} 2\pi r \, \mathrm{d}r = -q
 \end{equation}
 
-\subproblem{d}{}
+\subproblem{d}
 The force exerted on the charge is:
 
 \begin{equation}
@@ -83,10 +83,10 @@ By symmetry, the force on the negative charge is:
 \problem{3}{Charge monopole near two orthogonal metal surfaces}
 Let us orient the coordinate axis such that $Q$ is situated at $(a, 0, a)$ Consider two negative charges at $(a, 0, -a)$ and $(-a, 0, a)$, and a positive charge at $(-a, 0, -a)$.
 
-\subproblem{a}{}
+\subproblem{a}
 Along the join, which is the y-axis, the electric field produced by the charges are diagonally pair-wise equal and opposite, so that the net electric field is zero.
 
-\subproblem{b}{}
+\subproblem{b}
 Just above the point $(a, 0, 0)$, we have the approximation $z \ll a$. The electric potential is given by:
 
 \begin{equation}
@@ -105,7 +105,7 @@ For the other plate, by symmetry, we have:
     \mathbf{E} = -\frac{Q}{2\pi \epsilon_{0}} \left( 1 - \frac{2}{5\sqrt{5}} \right) \hat{x}
 \end{equation}
 
-\subproblem{d}{}
+\subproblem{d}
 The surface charge density is given by:
 
 \begin{equation}
@@ -136,7 +136,7 @@ Gauss' law states that the electric flux through a closed surface is proportiona
 
 \problem{1}{Uniformly charged sphere}
 
-\subproblem{a}{}
+\subproblem{a}
 For $r \le a$, the field and potential are trivial. For $0 < r < a$, since the charge is uniformly distributed, by Gauss' law, the electric field satisfies:
 
 \begin{equation}
@@ -149,7 +149,7 @@ so that $\mathbf{E} = qr/(4\pi \epsilon_{0} a^{3}) \hat{r}$ for $0 < r < a$. The
     V(r) = -\int_{\infty}^{r} E(r) \, \mathrm{d}r = -\int_{\infty}^{a} \frac{q}{4\pi \epsilon_{0} r^{2}} \, \mathrm{d}r - \int_{a}^{r} \frac{qr}{4\pi \epsilon_{0} a^{3}} \, \mathrm{d}r = \frac{q}{4\pi \epsilon_{0} a^{3}} \left( \frac{3a^{2}}{2} - \frac{r^{2}}{2} \right)
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 For a surface charge distribution over a sphere, the electric field is given by Gauss' law
 
 \begin{equation}
@@ -198,14 +198,14 @@ If the charge is distributed over the surface instead, then $\phi$ is a constant
 
 \problem{3}{Electron in a hydrogen atom}
 
-\subproblem{a}{}
+\subproblem{a}
 $V(r)$ has a horizontal asymptote as $r \to \infty$ and has a minimum at $r = 0$.
 
 \begin{center}
     \input{../plots/EM_2_C3_a.tex}
 \end{center}
 
-\subproblem{b}{}
+\subproblem{b}
 In the limit $r \ll a$, we have the approximation:
 
 \begin{equation}
@@ -224,7 +224,7 @@ Therefore, the electric field is given by:
     E(r) = -\frac{\partial V}{\partial r} \approx -\frac{qr}{3\pi \epsilon_{0} a^{3}}
 \end{equation}
 
-\subproblem{c}{}
+\subproblem{c}
 We need $E(d) + E_{ext} = 0$, leading to:
 
 \begin{equation}
@@ -233,7 +233,7 @@ We need $E(d) + E_{ext} = 0$, leading to:
 
 Taking $p = qd$, we have $p/E_{ext} = 3\pi \epsilon_{0} a^{3}$
 
-\subproblem{d}{}
+\subproblem{d}
 We have:
 
 \begin{equation}
@@ -242,7 +242,7 @@ We have:
 
 which is much less than $a$.
 
-\subproblem{e}{}
+\subproblem{e}
 We know that $\rho = -\epsilon_{0} \nabla^{2} V$, so the charge density is given by:
 
 \begin{equation}
