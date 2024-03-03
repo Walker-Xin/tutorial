@@ -187,7 +187,7 @@ We can also find the energy eigenstates from the Hamiltonian directly:
 
 \problem{3}{}
 
-\subproblem{a}{}
+\subproblem{a}
 We have the perturbed Hamiltonian:
 
 \begin{equation}
@@ -214,7 +214,7 @@ so that the change in energy eigenvalues in the ground state is:
     \Delta E_{0} = E'_{0} - E_{0} = \frac{1}{2} \hbar \omega \left( \frac{\epsilon}{m\omega^{2}} - \frac{\epsilon^{2}}{2m^{2}\omega^{4}} \right)
 \end{equation}
 
-\subproblem{b}{}
+\subproblem{b}
 Treating this as a perturbation problem, we have the ground state wave function of the unperturbed system:
 
 \begin{equation}
@@ -234,7 +234,7 @@ The first-order correction to the ground state energy is:
 
 which indeed agrees with the previous result up to first order.
 
-\subproblem{c}{}
+\subproblem{c}
 The first-order correction to the ground state is:
 
 \begin{equation}
@@ -264,7 +264,7 @@ which gives us the first-order correction to the ground state:
 
 where $l = \sqrt{\hbar/2m\omega}$ is the characteristic length scale of the harmonic oscillator.
 
-\subproblem{d}{}
+\subproblem{d}
 The second-order correction to the ground state energy is:
 
 \begin{equation}
@@ -393,6 +393,93 @@ It follows that the first-order correction is:
 
 
 \problem{6}{}
+The unperturbed Hamiltonian is an infinite square well of width $2a$ centred at the origin. Its even-parity energy eigenstates have the position representation:
+
+\begin{equation}
+    \psi_{n}(x) = \sqrt{\frac{1}{a}} \cos{\left( \frac{n\pi x}{2a} \right)}
+\end{equation}
+
+where $n$ is an odd integer.
+
+We also have the odd-parity energy eigenstates:
+
+\begin{equation}
+    \psi_{n}(x) = \sqrt{\frac{1}{a}} \sin{\left( \frac{n\pi x}{2a} \right)}
+\end{equation}
+
+where $n$ is an even integer.
+
+In any case, the energy eigenvalues are:
+
+\begin{equation}
+    E_{n} = \frac{\hbar^{2} \pi^{2} n^{2}}{8ma^{2}} = n^{2} E_{1}
+\end{equation}
+
+Note that the ground state has even parity with the label $n = 1$:
+
+\begin{equation}
+    \psi_{1}(x) = \sqrt{\frac{1}{a}} \cos{\left( \frac{\pi x}{2a} \right)}
+\end{equation}
+
+Consider a perturbation of the form $\hat{V} = (\epsilon/a) \hat{x}$. The first-order correction to the energy eigenvalues is:
+
+\begin{equation}
+    E_{n}^{(1)} = \mel{n}{\hat{V}}{n} = \frac{\epsilon}{a} \mel{n}{\hat{x}}{n} = 0
+\end{equation}
+
+as the position expectation of the energy eigenstates of the infinite square well is zero.
+
+The first-order correction to the ground state is given by:
+
+\begin{equation}
+    \begin{split}
+        \ket{1^{(1)}} &= \sum_{j \ne 1} \frac{\mel{j}{\hat{V}}{1}}{E_{1} - E_{j}} \ket{j} \\
+        &= \frac{\epsilon}{a} \frac{1}{E_{1}} \sum_{j \ne 1} \frac{\mel{j}{\hat{x}}{0}}{1 - j^{2}} \ket{j}
+    \end{split}
+\end{equation}
+
+Let us consider the matrix element $\mel{j}{\hat{x}}{0}$. For odd $j = 1, 3, 5, \ldots$, representing the even-parity energy eigenstates, we have:
+
+\begin{equation}
+    \begin{split}
+        \mel{j}{\hat{x}}{0} &= \int_{-a}^{a} \sqrt{\frac{1}{a}} \cos{\left( \frac{j\pi x}{2a} \right)} x \sqrt{\frac{1}{a}} \cos{\left( \frac{\pi x}{2a} \right)} \, \mathrm{d}x \\
+        &= \frac{1}{a} \int_{-a}^{a} \cos{\left( \frac{j\pi x}{2a} \right)} x \cos{\left( \frac{\pi x}{2a} \right)} \, \mathrm{d}x \\
+        &= \frac{4a}{\pi^{2}} \int_{-\pi/2}^{\pi/2} \cos{(ju)} u \cos{u} \, \mathrm{d}u \\
+        &= 0
+    \end{split}
+\end{equation}
+
+where we use the substitution $u = \pi x/2a$ and the fact that the integrand is odd.
+
+On the other hand, for even $j = 2, 4, 6, \ldots$, representing the odd-parity energy eigenstates, we finally have:
+
+\begin{equation}
+    \begin{split}
+        \mel{j}{\hat{x}}{0} &= \frac{4a}{\pi^{2}} \int_{-\pi/2}^{\pi/2} \sin{(ju)} u \cos{u} \, \mathrm{d}u \\
+    \end{split}
+\end{equation}
+
+Denoting the integral as $I_{j}$, we have, after two integrations by parts:
+
+\begin{equation}
+    \begin{split}
+        I_{j} &= -\int_{-\pi/2}^{\pi/2} \sin{(ju)} \sin{u} \, \mathrm{d}u - j \int_{-\pi/2}^{\pi/2} \cos{(ju)} \cos{u} \, \mathrm{d}u + j^{2} I_{j} \\
+        (j^{2} - 1) I_{j} &= \int_{-\pi/2}^{\pi/2} \sin{(ju)} \sin{u} \, \mathrm{d}u + j \int_{-\pi/2}^{\pi/2} \cos{(ju)} \cos{u} \, \mathrm{d}u \\
+        (j^{2} - 1) I_{j} &= -\frac{4j}{j^{2} - 1} (-1)^{j/2}
+    \end{split}
+\end{equation}
+
+Combining the results, we have:
+
+\begin{equation}
+    \ket{1^{(1)}} = \frac{16\epsilon}{\pi^{2} E_{1}} \sum_{\text{even } j} (-1)^{j/2} \frac{j}{(j^{2} - 1)^{3}} \ket{j}
+\end{equation}
+
+In position representation, the perturbed ground state wave function is therefore:
+
+\begin{equation}
+    \psi'_{1}(x) = \sqrt{\frac{1}{a}} \cos{\left( \frac{\pi x}{2a} \right)} + \frac{16\epsilon}{\pi^{2} E_{1}} \sum_{\text{even } j} (-1)^{j/2} \frac{j}{(j^{2} - 1)^{3}} \sqrt{\frac{1}{a}} \sin{\left( \frac{j\pi x}{2a} \right)}
+\end{equation}
 
 \qed
 
