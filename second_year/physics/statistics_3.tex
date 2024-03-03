@@ -124,8 +124,38 @@ Treating the nitrogen gas as an ideal diatomic gas, we have the single-particle 
 By equipartition theorem, the heat capacity of the gas approaches $C_{V} = 7k_{B}/2$ at high temperature. In the temperature range $T_{r} < T < T_{v}$, the heat capacity increases from $5k_{B}/2$ to $7k_{B}/2$ as the vibrational modes become excited. From the data given, we have approximately $T_{r} = \qty{170}{K}$. In this range, the increase in $C_{V}$ is mostly explained by the vibrational modes, which gives the heat capacity:
 
 \begin{equation}
-    C_{V,\text{vib}} = k_{B} \left( \frac{\hbar \omega}{k_{B}T} \right)^{2} \frac{\exp\left( \beta \hbar \omega \right)}{\left[ \exp\left( \beta \hbar \omega \right) - 1 \right]^{2}}
+    C_{V,\text{vib}} = k_{B} \left( \frac{\hbar \omega}{k_{B}T} \right)^{2} \frac{\exp\left( \hbar \omega/k_{B}T \right)}{\left[ \exp\left( \hbar \omega/k_{B}T \right) - 1 \right]^{2}}
 \end{equation}
+
+We may fit the given data (with $C/Nk_{B}$ off set by $5/2$) to the function of the form:
+
+\begin{equation}
+    \left( A/T^{2} \right) \frac{\exp\left( A/T \right)}{\left[ \exp\left( A/T \right) - 1 \right]^{2}}
+\end{equation}
+
+where $A$ is a fitting parameter evaluated to be $\qty{3196.93}{K}$.
+
+This gives an estimate for the vibrational frequency of nitrogen gas:
+
+\begin{equation}
+    \omega = \frac{k_{B}A}{\hbar} = \qty{4.19e14}{rads^{-1}}
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../plots/statistics_3_2_a.png}
+    \caption{Data with fitted curve for the heat capacity of nitrogen gas.}
+\end{figure}
+
+\subproblem{ii}
+The bond length of nitrogen molecule is of unity order in angstroms, that is, $\qty{1}{\angstrom} = \qty{1e-10}{m}$. This means that the characteristic temperature for the rotational modes is:
+
+\begin{equation}
+    \theta_{\text{rot}} = \frac{\hbar^{2}}{2I k_{B}} = \frac{\hbar^{2}}{4mR^{2} k_{B}} = \frac{\hbar^{2}}{mD^{2} k_{B}} \approx \qty{3.5}{K}
+\end{equation}
+
+This means that it is possible to freeze out rotational and vibrational modes of nitrogen gas as long as the temperature can be lowered to unity order, which is easily attainable in a laboratory setting. In fact, the space has a temperature around $\qty{2.7}{K}$.
+\qed
 
 
 \problem{3.3}{}
