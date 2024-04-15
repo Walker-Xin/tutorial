@@ -394,11 +394,25 @@ But the temperature is defined via the entropy as:
     \begin{split}
         T &= -\left( \frac{\partial U}{\partial S} \right)_{V} \\
         &= -\left( \frac{\partial U}{\partial r} \right)_{V} \left( \frac{\partial r}{\partial S} \right)_{V} \\
-        &= \frac{E_{+} - E_{-}}{k_{B} [\ln{r} - \ln{(1-r)}]}
+        &= \frac{N(E_{+} - E_{-})}{k_{B} [\ln{r} - \ln{(1-r)}]}
     \end{split}
 \end{equation}
 
-Since $r > 1 - r$ and both quantities are less than unity, we have $\ln{r} - \ln{(1-r)} < 0$. Therefore, the effective temperature is negative, which shows that the system cannot be in equilibrium.
+Since $r > 1 - r$ and both quantities are less than unity, we have $\ln{r} - \ln{(1-r)} < 0$. Therefore, the effective temperature is negative, which shows that the system \mistake{cannot be in equilibrium}.
+
+\begin{correction}
+    Note the second derivative of the entropy with respect to $U$:
+
+    \begin{equation}
+        \begin{split}
+            \left( \frac{\partial^{2} S}{\partial U^{2}} \right)_{V} &= -\left[ \frac{\partial (1/T)}{\partial U} \right]_{V} \\
+            &= -\left[ \frac{\partial (1/T)}{\partial r} \right]_{V} \left( \frac{\partial r}{\partial U} \right)_{V} \\
+            &= -\frac{k_{B}}{N^{2}(E_{+} - E_{-})^{2}} \left( \frac{1}{r} + \frac{1}{1 - r} \right)
+        \end{split}
+    \end{equation}
+
+    Since this is a negative quantity, the system is still in equilibrium, i.e., $C_{V} > 0$.
+\end{correction}
 
 \subproblem{ii}{}
 The swapping operation is equivalent to the exchange of the ratios $r$ and $1-r$, i.e., the substitution $r \to 1-r$. The entropy is invariant under this operation, but the temperature changes sign:
