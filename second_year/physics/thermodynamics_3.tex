@@ -446,10 +446,62 @@ which gives:
 
 
 \problem{C.4}{}
+We define the isothermal bulk modulus as a partial derivative:
 
+\begin{equation}
+    B_{T} = -V \left( \frac{\partial p}{\partial V} \right)_{T}
+\end{equation}
 
+and the cubic expansion coefficient as:
 
+\begin{equation}
+    \alpha = \left( \frac{\partial V}{\partial T} \right)_{p}
+\end{equation}
 
+\subproblem{i}
+In the given isothermal compression, the argon gas satisfy the equation $pV = RT$. We may write the work done on the gas as:
+
+\begin{equation}
+    \begin{split}
+        W_{g} &= -\int_{V_{g0}}^{V_{g1}} p \, \mathrm{d}V \\
+        &= -\int_{V_{g0}}^{V_{g1}} \frac{RT_{0}}{V} \, \mathrm{d}V \\
+        &= -RT_{0} \ln{\left( \frac{V_{g1}}{V_{g0}} \right)} \\
+        &= RT_{0} \ln{\left( \frac{p_{1}}{p_{0}} \right)}
+    \end{split}
+\end{equation}
+
+Let us assume that the isothermal bulk modulus of the sodium metal is approximately constant and the change in its volume is very small. The work done on the sodium is then:
+
+\begin{equation}
+    \begin{split}
+        W_{s} &= -\int p \, \mathrm{d}V \\
+        &= -\int p \left( -\frac{V}{B_{T}} \right) \, \mathrm{d}p \\
+        &\approx \frac{V_{s0}}{B_{T}} \int_{p_{0}}^{p_{1}} p \, \mathrm{d}p \\
+        &= \frac{V_{s0}}{2B_{T}} (p_{1}^{2} - p_{0}^{2})
+    \end{split}
+\end{equation}
+
+\subproblem{ii}
+In the given isobaric expansion, we may write the work done on the gas as:
+
+\begin{equation}
+    \begin{split}
+        W_{g} &= -\int_{V_{g0}}^{V_{g1}} p \, \mathrm{d}V \\
+        &= -p_{0} (V_{g1} - V_{g0}) \\
+        &= R(T_{0} - T_{1})
+    \end{split}
+\end{equation}
+
+Assuming an approximately constant cubic expansion coefficient, the work done on the sodium is:
+
+\begin{equation}
+    \begin{split}
+        W_{s} &= -\int p \, \mathrm{d}V \\
+        &= -p_{0} \Delta V_{s} \\
+        &\approx p_{0} \alpha (T_{0} - T_{1})
+    \end{split}
+\end{equation}
+\qed
 
 
 \end{document}
