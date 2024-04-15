@@ -82,15 +82,23 @@ The average value of the radius is given by:
 \end{equation}
 
 \subproblem{b}
-The probability amplitude has the form:
+\mistake{The probability amplitude has the form:}
 
 \begin{equation}
-    \begin{split}
-        \frac{1}{\pi a_{Z}^{3}} e^{-2r/a_{Z}}
-    \end{split}
+    \frac{1}{\pi a_{Z}^{3}} e^{-2r/a_{Z}}
 \end{equation}
 
 whose maximum is at $r = 0$ where the electron is most likely to be found.
+
+\begin{correction}
+    We differentiate the following function:
+
+    \begin{equation}
+        \left\lvert \psi \right\rvert^{2} r^{2} \propto e^{-2r/a_{Z}} r^{2}
+    \end{equation}
+
+    and find the maximum at $r = a_{Z}$.
+\end{correction}
 
 \subproblem{c}
 The potential energy is given by the function:
