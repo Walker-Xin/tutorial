@@ -1,0 +1,543 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Statistical Mechanics}
+\def\assignmentno{Problem Sheet 4}
+\def\assignmentname{Relativistic and Fermi Gases}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Relativistic and Fermi gases}
+%==========
+
+
+\problem{4.1}{}
+
+\subproblem{i}
+For relativistic gas, the energy of a particle is given by:
+
+\begin{equation}
+    E = \sqrt{p^{2} c^{2} + m^{2} c^{4}} = \sqrt{\hbar^{2} k^{2} c^{2} + m^{2} c^{4}}
+\end{equation}
+
+where $k_{i} = \pi n_{i} / L$ are quantised wave numbers.
+
+Proceeding as in the ordinary ideal gas case, we have the single particle partition function:
+
+\begin{equation}
+    \begin{split}
+        Z_{1} &= \sum_{n} e^{-\beta E_{n}} \\
+        &\approx \int e^{-\beta \sqrt{\hbar^{2} k^{2} c^{2} + m^{2} c^{4}}} g(k) \, \mathrm{d}k
+    \end{split}
+\end{equation}
+
+where $g(k) = Vk^{2}/2\pi^{2}$ is the usual density of states.
+
+The overall partition function is still $Z = Z_{1}^{N}/N!$ such that its logarithm is:
+
+\begin{equation}
+    \begin{split}
+        \ln{Z} &= N \ln{Z_{1}} - \ln{N!} \\
+        &\approx N \left( \ln{Z_{1}} - \ln{N} - 1 \right) \\
+    \end{split}
+\end{equation}
+
+We may compute the pressure from the free energy:
+
+\begin{equation}
+    \begin{split}
+        P &= -\left( \frac{\partial F}{\partial V} \right)_{T, N} \\
+        &= k_{B} T \left( \frac{\partial \ln{Z}}{\partial V} \right)_{T, N} \\
+        &= N k_{B} T \left( \frac{\partial \ln{Z_{1}}}{\partial V} \right)_{T, N} \\
+        &= \frac{N k_{B} T}{V}
+    \end{split}
+\end{equation}
+
+where the last equality follows because $Z_{1}$ is proportional to $V$.
+
+We see that the equation of state $PV = Nk_{B}T$ is the same as for the non-relativistic case.
+
+\subproblem{ii}
+
+\qed
+
+
+\problem{4.2}{}
+We have the expression for Fermi energy:
+
+\begin{equation}
+    \varepsilon_{F} = \frac{\hbar^{2} k_{F}^{2}}{2m} = \frac{\hbar^{2}}{2m} \left( \frac{6\pi^{2} n}{2s + 1} \right)^{2/3}
+\end{equation}
+
+and we define the Fermi temperature as:
+
+\begin{equation}
+    T_{F} = \frac{\varepsilon_{F}}{k_{B}}
+\end{equation}
+
+\subproblem{a}
+For liquid helium, we have $m = 3u$, $s = 1/2$ and $n = \rho/m$. Thus:
+
+\begin{equation}
+    \varepsilon_{F} = \frac{\hbar^{2}}{2m} \left( \frac{6\pi^{2} \rho}{2m} \right)^{2/3} = \qty{6.87e-27}{J}
+\end{equation}
+
+and:
+
+\begin{equation}
+    T_{F} = \frac{\varepsilon_{F}}{k_{B}} = \qty{4.98e-4}{K}
+\end{equation}
+
+\subproblem{b}
+For electrons in aluminium, we have $m = \qty{9.11e-31}{kg}$, $s = 1/2$ and $n = \rho/m$:
+
+\begin{equation}
+    \varepsilon_{F} = \qty{1.66e-19}{J}
+\end{equation}
+\qed
+
+
+\problem{4.3}{}
+
+\subproblem{i}
+Consider the Fermi-Dirac distribution:
+
+\begin{equation}
+    \bar{n}_{i} = \frac{1}{e^{\beta (\varepsilon_{i} - \mu)} + 1}
+\end{equation}
+
+At absolute zero, the distribution function is a step function that is zero for $\varepsilon_{i} > \mu$ and unity for $\varepsilon_{i} < \mu$. We define the Fermi energy as $\varepsilon_{F} = \mu(T = 0)$. The total energy is then:
+
+\begin{equation}
+    \begin{split}
+        U &= \sum_{i} \varepsilon_{i} \bar{n}_{i} \\
+        &\approx \int g(\varepsilon) \frac{\varepsilon}{e^{\beta (\varepsilon - \mu)} + 1} \, \mathrm{d}\varepsilon \\
+        &= \int_{0}^{\varepsilon_{F}} g(\varepsilon) \varepsilon \, \mathrm{d}\varepsilon
+    \end{split}
+\end{equation}
+
+The mean energy per particle is then:
+
+\begin{equation}
+    \begin{split}
+        u &= \frac{U}{N} \\
+        &= \frac{\int_{0}^{\varepsilon_{F}} g(\varepsilon) \varepsilon \, \mathrm{d}\varepsilon}{\int_{0}^{\varepsilon_{F}} g(\varepsilon) \, \mathrm{d}\varepsilon} \\
+        &= \frac{3}{5} \varepsilon_{F}
+    \end{split}
+\end{equation}
+
+since $g(\varepsilon) \propto \varepsilon^{1/2}$.
+
+Thus the total energy is just $U = 3N \varepsilon_{F}/5$.
+
+\subproblem{ii}
+The partition function of a Fermi gas is:
+
+\begin{equation}
+    \ln{\mathcal{Z}} = \sum_{i} \ln{\left[ 1 \pm e^{-\beta (\varepsilon_{i} - \mu)} \right]}
+\end{equation}
+
+
+
+We could compute the grand potential $\Phi$ from the partition function $\mathcal{Z}$:
+
+\begin{equation}
+    \begin{split}
+        \Phi &= -k_{B}T \ln{\mathcal{Z}} \\
+        &= -\frac{1}{\beta} \sum_{i} \ln{\left[ 1 + e^{-\beta (\varepsilon_{i} - \mu)} \right]} \\
+        &= -\frac{1}{\beta} \int_{0}^{\infty} g(\varepsilon) \ln{\left[ 1 + e^{-\beta (\varepsilon - \mu)} \right]} \, \mathrm{d}\varepsilon \\
+        &= -\frac{2(2s+1)}{\sqrt{\pi}} \frac{V}{\lambda_{\text{th}}^3} \sqrt{\beta} \int_{0}^{\infty} \sqrt{\varepsilon} \ln{\left[ 1 + e^{-\beta (\varepsilon - \mu)} \right]} \, \mathrm{d}\varepsilon
+    \end{split}
+\end{equation}
+
+The integral can be solved by parts:
+
+\begin{equation}
+    \begin{split}
+        \int_{0}^{\infty} \sqrt{x} \ln{\left[ 1 + e^{-x + \mu} \right]} \, \mathrm{d}x &= \left[ \frac{2}{3} x^{3/2} \ln{\left[ 1 + e^{-x + \mu} \right]} \right]_{0}^{\infty} - \int_{0}^{\infty} \frac{2}{3} x^{3/2} \frac{-e^{-x + \mu}}{1 + e^{-x + \mu}} \, \mathrm{d}x \\
+        &= \frac{2}{3} \int_{0}^{\infty} x^{3/2} \frac{e^{-x + \mu}}{1 + e^{-x + \mu}} \, \mathrm{d}x \\
+        &= \frac{2}{3} \int_{0}^{\infty} x^{3/2} \frac{1}{e^{x - \mu} + 1} \, \mathrm{d}x
+    \end{split}
+\end{equation}
+
+so that we finally obtain:
+
+\begin{equation}
+    \Phi = -\frac{2}{3} \frac{2(2s+1)}{\sqrt{\pi}} \frac{V}{\lambda_{\text{th}}^3} \frac{1}{\beta} \int_{0}^{\infty} \frac{x^{3/2}}{e^{x - \beta \mu} \pm 1} \, \mathrm{d}x
+\end{equation}
+
+This turns out to be simply $-2U/3$. Since pressure is grand potential per unit volume, we have:
+
+\begin{equation}
+    P = -\frac{\Phi}{V} = \frac{2U}{3V} = \frac{2}{3} \frac{N \varepsilon_{F}}{V}
+\end{equation}
+\qed
+
+
+\problem{4.4}{}
+
+\subproblem{i}
+For non-relativistic gas, the energy of a particle is given by:
+
+\begin{equation}
+    E = \frac{p^{2}}{2m} = \frac{\hbar^{2} k^{2}}{2m}
+\end{equation}
+
+where for each energy, the degeneracy is $(2s + 1)$ due to the spin.
+
+The sum over single particle states can be approximated by an integral:
+
+\begin{equation}
+    \begin{split}
+        \sum_{i} &= (2s + 1) \sum_{k} \\
+        &\approx (2s + 1) \frac{V}{(2\pi)^{3}} \int \, \mathrm{d}^{3}k \\
+        &= (2s + 1) \frac{V}{(2\pi)^{3}} \int_{0}^{\infty} 4\pi k^{2} \, \mathrm{d}k \\
+        &= \int_{0}^{\infty} g(k) \, \mathrm{d}k
+    \end{split}
+\end{equation}
+
+where we define:
+
+\begin{equation}
+    g(k) \equiv (2s + 1) \frac{Vk^{2}}{2\pi^{2}}
+\end{equation}
+
+For electrons, we have $s = 1/2$ and $g(k) \, \mathrm{d}k = 2 \times Vk^{2} \, \mathrm{d}k / 2\pi^{2}$.
+
+If we instead consider a two-dimensional gas, the approximation becomes:
+
+\begin{equation}
+    \begin{split}
+        \sum_{i} &= (2s + 1) \sum_{k} \\
+        &\approx (2s + 1) \frac{A}{(2\pi)^{2}} \int \, \mathrm{d}^{2}k \\
+        &= (2s + 1) \frac{A}{(2\pi)^{2}} \int k \, \mathrm{d}k \mathrm{d}\theta \\
+        &= \int h(k) \, \mathrm{d}k
+    \end{split}
+\end{equation}
+
+where the new density of states is:
+
+\begin{equation}
+    h(k) \equiv (2s + 1) \frac{Ak}{2\pi}
+\end{equation}
+
+Consider the change of variable from $k$ to $\epsilon = \hbar^{2} k^{2}/2m$:
+
+\begin{equation}
+    h(k) \, \mathrm{d}k = \tilde{h}(k) \, \mathrm{d}\epsilon
+\end{equation}
+
+where:
+
+\begin{equation}
+    \tilde{h}(\epsilon) = (2s + 1) \frac{Am}{2\pi\hbar^{2}}
+\end{equation}
+
+For this two-dimensional gas, we can compute the total particle number:
+
+\begin{equation}
+    \begin{split}
+        N &= \int \bar{n} \tilde{h}(\epsilon) \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{Am}{2\pi\hbar^{2}} \int_{0}^{\epsilon_{F}} \frac{1}{e^{\beta (\epsilon - \mu)} + 1} \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{Am}{2\pi\hbar^{2}} \epsilon_{F}
+    \end{split}
+\end{equation}
+
+which gives the Fermi energy for a two-dimensional electron gas with spin $s = 1/2$:
+
+\begin{equation}
+    \epsilon_{F} = \frac{\pi\hbar^{2} N}{m A}
+\end{equation}
+
+\subproblem{ii}
+With $n = \qty{4e17}{m^{-2}}$ and $m = 0.15 \times \qty{9.11e-31}{kg}$, we have the Fermi energy:
+
+\begin{equation}
+    \epsilon_{F} = \qty{1.01e-19}{J}
+\end{equation}
+
+\subproblem{iii}
+For an one-dimensional gas, the approximation becomes:
+
+\begin{equation}
+    \begin{split}
+        \sum_{i} &= (2s + 1) \sum_{k} \\
+        &\approx (2s + 1) \frac{L}{2\pi} \int \, \mathrm{d}k \\
+        &= \int u(k) \, \mathrm{d}k
+    \end{split}
+\end{equation}
+
+where the density of state is $u(k) = (2s + 1) L / 2\pi$.
+
+Changing variable to $\epsilon = \hbar^{2} k^{2}/2m$, we have:
+
+\begin{equation}
+    \tilde{u}(\epsilon) = (2s + 1) \frac{L \sqrt{2m}}{4\pi \hbar} \epsilon^{-1/2}
+\end{equation}
+
+so that the total particle number is:
+
+\begin{equation}
+    \begin{split}
+        N &= \int \bar{n} \tilde{u}(\epsilon) \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{L \sqrt{2m}}{4\pi \hbar} \int_{0}^{\epsilon_{F}} \frac{1}{e^{\beta (\epsilon - \mu)} + 1} \epsilon^{-1/2} \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{L \sqrt{2m}}{2\pi \hbar} \epsilon_{F}^{1/2}
+    \end{split}
+\end{equation}
+
+which gives the Fermi energy for a one-dimensional electron gas:
+
+\begin{equation}
+    \epsilon_{F} = \frac{\pi^{2} \hbar^{2} }{2m} \left( \frac{N}{L} \right)^{2}
+\end{equation}
+
+\subproblem{iv}
+For the given long-chain molecule, we have $n = 0.5/\qty{1e-10}{m} = \qty{5e9}{m^{-1}}$. Thus the Fermi energy is:
+
+\begin{equation}
+    \epsilon_{F} = \qty{9.95e-18}{J}
+\end{equation}
+\qed
+
+
+\problem{4.5}{}
+
+\subproblem{i}
+If most of the particles are ultra-relativistic, we change the energy of a particle to:
+
+\begin{equation}
+    \epsilon = pc = \hbar k c
+\end{equation}
+
+The density of states in $k$-space is still $g(k) = (2s + 1) V k^{2} / 2\pi^{2}$, but the switch to $\epsilon$-space is altered:
+
+\begin{equation}
+    \tilde{g}(\epsilon) = (2s + 1) \frac{V}{2\pi^{2}(\hbar c)^{3}} \epsilon^{2}
+\end{equation}
+
+The total number of particles is:
+
+\begin{equation}
+    \begin{split}
+        N &= \int \bar{n} \tilde{g}(\epsilon) \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{V}{2\pi^{2}(\hbar c)^{3}} \int_{0}^{\epsilon_{F}} \frac{\epsilon^{2}}{e^{\beta (\epsilon - \mu)} + 1} \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{V}{2\pi^{2}(\hbar c)^{3}} \frac{1}{3} \epsilon_{F}^{3}
+    \end{split}
+\end{equation}
+
+so that the Fermi energy for an ultra-relativistic electron gas is:
+
+\begin{equation}
+    \epsilon_{F} = \hbar c (3n \pi^{2})^{1/3} = hc \left( \frac{3n}{8\pi} \right)^{1/3}
+\end{equation}
+
+\subproblem{ii}
+The total energy is:
+
+\begin{equation}
+    \begin{split}
+        U &= \int \epsilon \bar{n} \tilde{g}(\epsilon) \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{V}{2\pi^{2}(\hbar c)^{3}} \int_{0}^{\epsilon_{F}} \frac{\epsilon^{3}}{e^{\beta (\epsilon - \mu)} + 1} \, \mathrm{d}\epsilon \\
+        &= (2s + 1) \frac{V}{2\pi^{2}(\hbar c)^{3}} \frac{1}{4} \epsilon_{F}^{4}
+    \end{split}
+\end{equation}
+
+which means that the energy per particle is:
+
+\begin{equation}
+    u = \frac{U}{N} = \frac{3}{4} \epsilon_{F}
+\end{equation}
+
+and the energy density is just $3n \epsilon_{F}/4$.
+\qed
+
+
+\problem{4.6}{}
+
+\subproblem{i}
+For a sphere of mass $M$ and radius $R$, the gravitational field inside the sphere is linear due to Gauss' law:
+
+\begin{equation}
+    g = -\frac{GM}{R^{3}} r
+\end{equation}
+
+whereas outside the sphere, the field is:
+
+\begin{equation}
+    g = -\frac{GM}{r^{2}}
+\end{equation}
+
+The potential energy of the star is found by integrating the energy density $u = -g^{2}/8\pi G$ over the entire space:
+
+\begin{equation}
+    \begin{split}
+        U_{\text{grav}} &= \int_{\text{all space}} u \, \mathrm{d}V \\
+        &= -\frac{1}{8\pi G} \left[ \int_{0}^{R} \left( \frac{GM}{R^{3}} \right)^{2} r^{2} 4\pi r^{2} \, \mathrm{d}r + \int_{R}^{\infty} \left( \frac{GM}{r^{2}} \right)^{2} 4\pi r^{2} \, \mathrm{d}r \right] \\
+        &= -\frac{3}{5} \frac{GM^{2}}{R}
+    \end{split}
+\end{equation}
+
+\subproblem{ii}
+Suppose that in a white dwarf star, there are $N$ electrons, $N$ protons and $N$ neutrons. The total mass of the star is $M = 2Nm_{p}$ as we neglect the mass of the electrons. The total Fermi energy of the electrons is:
+
+\begin{equation}
+    \begin{split}
+        \frac{3}{5} N \varepsilon_{F} &= \frac{3}{5} N \left[ \frac{\hbar^{2}}{2m_{e}} \left( 3\pi^{2} n \right)^{2/3} \right] \\
+        &= \frac{3}{5} N \left[ \frac{\hbar^{2}}{2m_{e}} \left( \frac{9\pi^{2} N}{4\pi R^{3}} \right)^{2/3} \right] \\
+        &= 0.0088 \frac{h^{2}M^{5/3}}{m_{e}m_{p}^{5/3}R^{2}}
+    \end{split}
+\end{equation}
+
+\subproblem{iii}
+The total energy of the star is an inverse square function of the radius $R$ minus an inverse function:
+
+\begin{equation}
+    U_{\text{tot}} = 0.0088 \frac{h^{2}M^{5/3}}{m_{e}m_{p}^{5/3}R^{2}} - \frac{3}{5} \frac{GM^{2}}{R}
+\end{equation}
+
+To minimise the energy, we differentiate with respect to $R$ and set the result to zero:
+
+\begin{equation}
+    R_{\text{min}} = 0.0088 \times \frac{10h^{2}}{3m_{e}m_{p}^{5/3}G} M^{-1/3}
+\end{equation}
+
+\subproblem{iv}
+With $M = \qty{2e30}{kg}$, we have $R = \qty{2.34e3}{km}$ which is of the same order as the radius of Earth $\qty{6.37e3}{km}$.
+
+\subproblem{v}
+At $R_{\text{min}}$, the Fermi energy is $\varepsilon_{F} = \qty{1e44}{J}$ which is too large for the non-relativistic approximation to be valid. Rather, the ultra-relativistic approximation would be more appropriate.
+\qed
+
+
+\problem{4.7}{}
+
+\subproblem{i}
+In the ultra-relativistic case, the Fermi energy is:
+
+\begin{equation}
+    \begin{split}
+        \varepsilon_{F} &= h c \left( \frac{3n}{8\pi} \right)^{1/3} \\
+        &= hc \left( \frac{9N}{32\pi^{2} R^{3}} \right)^{1/3} \\
+    \end{split}
+\end{equation}
+
+which scales as $R^{-1}$.
+
+\subproblem{ii}
+If the Fermi energy is the same order as the rest energy of an electron, we need:
+
+\begin{equation}
+    \begin{split}
+        \varepsilon_{F} &= m_{e} c^{2} \\
+        hc \left( \frac{9M}{64\pi^{2} m_{p} R^{3}} \right)^{1/3} &= m_{e} c^{2} \\
+        M &= \frac{64\pi^{2} m_{p} R^{3}}{9} \left( \frac{m_{e} c}{h} \right)^{3}
+    \end{split}
+\end{equation}
+
+Taking $R \approx \qty{2000}{km}$, we have $M \approx \qty{e30}{kg}$, which is of the same order as the mass of the Sun.
+\qed
+
+
+\problem{4.8}{}
+
+\subproblem{i}
+Consider a neutron star with mass $M$, radius $R$ and $N = M/m_{n}$ neutrons. The gravitational potential energy of the star is:
+
+\begin{equation}
+    U_{\text{grav}} = -\frac{3}{5} \frac{GM^{2}}{R}
+\end{equation}
+
+The total Fermi energy of the neutrons, assuming non-relativistic behaviour, is:
+
+\begin{equation}
+    \begin{split}
+        \frac{3}{5} N \varepsilon_{F} &= \frac{3}{5} N \left[ \frac{\hbar^{2}}{2m_{n}} \left( 3\pi^{2} n \right)^{2/3} \right] \\
+        &= \frac{3}{5} N \left[ \frac{\hbar^{2}}{2m_{n}} \left( \frac{9\pi^{2} N}{4\pi R^{3}} \right)^{2/3} \right] \\
+        &= 0.0088 (2)^{5/3} \frac{h^{2}M^{5/3}}{m_{n}^{8/3}R^{2}}
+    \end{split}
+\end{equation}
+
+where the only difference from the white dwarf case is the $2^{5/3}$ factor.
+
+We see that the results from the white dwarf star carries over to the neutron star with scaling $M \to 2M$. Thus, the radius-mass relation for a neutron star is:
+
+\begin{equation}
+    R_{\text{min}} = 0.0088 \times \frac{10h^{2}}{3m_{n}^{8/3}G} M^{-1/3} \times (2)^{-1/3}
+\end{equation}
+
+\subproblem{ii}
+With $M = \qty{2e30}{kg}$, we have $R = \qty{1034}{m}$ which is very small for a celestial body.
+\qed
+
+
+\problem{4.9}{}
+Fermi energy is the chemical potential of a Fermi gas at zero temperature, that is, it is the energy cost of adding one more Fermion to the system. Consider a three-dimensional harmonic oscillator with energy levels:
+
+\begin{equation}
+    \varepsilon_{n} = \hbar \omega \left( n_{x} + n_{y} + n_{z} + \frac{3}{2} \right)
+\end{equation}
+
+where each energy level has total degeneracy $(2s + 1)(n + 1)(n + 2)/2$ due to the spin and the three-dimensional nature of the oscillator.
+
+For a Fermi gas of $N$ non-interacting particles, the particles fill up the energy levels from the lowest to the highest, with each level allowing at most $(n + 1)(n + 2)$ particles. Therefore, for $1 \leq N \leq 50$, the Fermi energy is a piecewise function:
+
+\begin{equation}
+    \frac{\varepsilon_{F}}{\hbar \omega} = \begin{cases}
+        3/2  & \text{if } N = 1             \\
+        4/2  & \text{if } 2 \leq N \leq 5   \\
+        7/2  & \text{if } 6 \leq N \leq 11  \\
+        9/2  & \text{if } 12 \leq N \leq 19 \\
+        11/2 & \text{if } 20 \leq N \leq 29 \\
+        13/2 & \text{if } 30 \leq N \leq 41 \\
+        15/2 & \text{if } 42 \leq N \leq 50 \\
+    \end{cases}
+\end{equation}
+
+Consider the sum of states denoted by $n \equiv (n_{x} + n_{y} + n_{z})$:
+
+\begin{equation}
+    \begin{split}
+        \sum_{\text{states}} &= \sum_{n} (2s + 1) \frac{(n + 1)(n + 2)}{2} \\
+        &= \sum_{n} (2s + 1) \frac{(n + 1)(n + 2)}{2} \Delta n \\
+        &\approx \int (n + 1)(n + 2) \, \mathrm{d}n
+    \end{split}
+\end{equation}
+
+such that the density of states in the $n$-space is $g(n) = (n + 1)(n + 2)$. We may switch to the energy space by changing variable to $\varepsilon = \hbar \omega (n + 3/2)$:
+
+\begin{equation}
+    \begin{split}
+        \tilde{g}(\varepsilon) &= \frac{1}{\hbar \omega} \left( \frac{\varepsilon}{\hbar \omega} - \frac{1}{2} \right) \left( \frac{\varepsilon}{\hbar \omega} + \frac{1}{2} \right) \\
+        &\approx \frac{\varepsilon^{2}}{(\hbar \omega)^{3}}
+    \end{split}
+\end{equation}
+
+in the limit $\varepsilon \gg \hbar \omega$.
+
+The total number of particles is:
+
+\begin{equation}
+    \begin{split}
+        N &= \int \bar{n} \tilde{g}(\varepsilon) \, \mathrm{d}\varepsilon \\
+        &= \int_{0}^{\varepsilon_{F}} \frac{\varepsilon^{2}}{(\hbar \omega)^{3}} \, \mathrm{d}\varepsilon \\
+        &= \frac{\varepsilon_{F}^{3}}{3(\hbar \omega)^{3}}
+    \end{split}
+\end{equation}
+
+which gives the Fermi energy:
+
+\begin{equation}
+    \varepsilon_{F} = (3N)^{1/3} \hbar \omega = \qty{9.51e-27}{J}
+\end{equation}
+
+
+\end{document}

@@ -1,0 +1,206 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Optics}
+\def\assignmentno{Problem Set III}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{9}{}
+
+
+\problem{10}{}
+
+\subproblem{a}
+The order of the interference pattern is related to the path difference by:
+
+\begin{equation}
+    2kt\cos{\theta} = p \pi
+\end{equation}
+
+At $\theta = 0$, the equation becomes:
+
+\begin{equation}
+    2kt = p_{0} \pi
+\end{equation}
+
+\subproblem{b}
+The condition $\alpha$ must fulfil is the above equation with $\theta = \alpha$.
+
+\subproblem{c}
+At angle $\alpha$, the order of interference is given by:
+
+\begin{equation}
+    p = \frac{2kt\cos{\alpha}}{\pi} = p_{0} \cos{\alpha} \le p_{0}
+\end{equation}
+
+\subproblem{d}
+The radius of $p$th order ring is given by:
+
+\begin{equation}
+    r_{p} = f \tan{\theta_{p}} \approx f \theta_{p}
+\end{equation}
+
+On the other hand, we have:
+
+\begin{equation}
+    \frac{p \pi}{2kt} = \cos{\theta_{p}} \approx 1 - \frac{\theta_{p}^{2}}{2}
+\end{equation}
+
+which leads to:
+
+\begin{equation}
+    r_{p} \approx f \sqrt{2 - \frac{p\pi}{kt}}
+\end{equation}
+
+This leads to the difference:
+
+\begin{equation}
+    r_{p}^{2} - r_{p+1}^{2} = \frac{\lambda f^{2}}{2t}
+\end{equation}
+
+\subproblem{e}
+As $t$ decreases, the rings become farther apart and no rings will be seen when $t = 0$. If the path difference continues to decrease, the rings will reappear, repeating the pattern.
+\qed
+
+
+\problem{11}{}
+
+\subproblem{a}
+The reflection if the light from the horizontal arm to output 1 experiences a phase change of $\pi$ due to the reflection at a glass-air interface. The reflection from the vertical arm to output 2 does not experience a phase change. This means that there is a phase difference of $\pi$ between the two beams so when output 1 is bright, output 2 is dark.
+
+\subproblem{b}
+Suppose that the input amplitude is $u_{0}$. Each traversal through the beamsplitter leads to a factor of $1/\sqrt{2}$. Output 1 has the amplitude:
+
+\begin{equation}
+    u_{1} = \frac{1}{2} u_{0} - \frac{1}{2} u_{0} e^{i \delta}
+\end{equation}
+
+where the second term, representing contribution from the horizontal arm, has a phase change of $\pi$ due to internal reflection.
+
+Output 2 has the amplitude:
+
+\begin{equation}
+    u_{2} = \frac{1}{2} u_{0} + \frac{1}{2} u_{0} e^{i \delta}
+\end{equation}
+
+The intensities are:
+
+\begin{equation}
+    \begin{split}
+        I_{1} = \frac{1}{2} u_{0}^{2} (1 - \cos{\delta}) \\
+        I_{2} = \frac{1}{2} u_{0}^{2} (1 + \cos{\delta})
+    \end{split}
+\end{equation}
+
+so that $I_{1} + I_{2} = u_{0}^{2}$ as required by conservation of energy.
+\qed
+
+
+\problem{12}{}
+We have the angle sum formula:
+
+\begin{equation}
+    \begin{split}
+        3\cos{(K_{1} x)} \cos{(K_{2} x)} - \sin{(K_{1} x)} \sin{(K_{2} x)} &= \frac{3}{2} \left[ \cos{[(K_{1} + K_{2})x]} + \cos{[(K_{1} - K_{2})x]} \right] \\
+        &- \frac{1}{2} \left[ \cos{[(K_{1} + K_{2})x]} - \cos{[(K_{1} - K_{2})x]} \right] \\
+        &= \cos{[(K_{1} + K_{2})x]} + 2 \cos{[(K_{1} - K_{2})x]}
+    \end{split}
+\end{equation}
+
+that is:
+
+\begin{equation}
+    \begin{split}
+        3 + 3\cos{(K_{1} x)} \cos{(K_{2} x)} - \sin{(K_{1} x)} \sin{(K_{2} x)} &= 1 + \cos{[(K_{1} + K_{2})x]} \\
+        &+ 2 \left\{ 1 + \cos{[(K_{1} - K_{2})x]} \right\}
+    \end{split}
+\end{equation}
+
+Therefore, we interpret the intensity pattern as the sum of two patterns, one with intensity $I_{0}$ of wave number $K_{1} + K_{2}$ and the other with intensity $2I_{0}$ of wave number $K_{1} - K_{2}$. The mean wave number is $K_{1}$ and the difference in wave numbers is $K_{2}$.
+
+If the actual pattern is enveloped by a Gaussian of the form $\exp (-K_{3} x^{2})$, this indicates that there may be some Gaussian aperture limiting the pattern (a Gaussian retains form under Fourier transform). This may be due to the design of the detector or the source.
+\qed
+
+
+\problem{13}{}
+
+\subproblem{a}
+The output amplitudes in an etalon have the form:
+
+\begin{equation}
+    u_{0} (t_{1} t_{2}) (r_{1} r_{2} e^{i \delta})^{n}
+\end{equation}
+
+where $t_{i}$ and $r_{i}$ are the transmission and reflection coefficients and $\delta = 2kd \cos{\theta}$.
+
+The total amplitude is then:
+
+\begin{equation}
+    u = u_{0} (t_{1} t_{2}) \sum_{n = 0}^{\infty} (r_{1} r_{2} e^{i \delta})^{n} = \frac{u_{0} (t_{1} t_{2})}{1 - r_{1} r_{2} e^{i \delta}}
+\end{equation}
+
+The intensity is then:
+
+\begin{equation}
+    \begin{split}
+        I &= \abs{u}^{2} = \abs{\frac{u_{0} (t_{1} t_{2})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} \\
+        &= \frac{u_{0}^{2} (t_{1} t_{2})^{2}}{\abs{1 - r_{1} r_{2} e^{i \delta}}^{2}} \\
+        &= \frac{u_{0}^{2} (t_{1} t_{2})^{2}}{1 + r_{1}^{2} r_{2}^{2} - 2 r_{1} r_{2} \cos{\delta}} \\
+        &= \frac{u_{0}^{2} (t_{1} t_{2})^{2}}{1 + r_{1}^{2} r_{2}^{2} - 2 r_{1} r_{2} (1 - 2 \sin^{2}{(\delta/2)})} \\
+        &\propto \frac{1}{1 + A \sin^{2}{(\delta/2)}}
+    \end{split}
+\end{equation}
+
+where $A = 4R/(1 - R)^{2}$.
+
+We define the finesse as:
+
+\begin{equation}
+    F = \frac{\pi}{2} \sqrt{A} = \frac{\pi \sqrt{R}}{1 - R}
+\end{equation}
+
+\subproblem{b}
+For the reflection function, the amplitude are similar:
+
+\begin{equation}
+    u_{0} (t_{1} t_{2} r_{2}) (r_{1} r_{2} e^{i \delta})^{n}
+\end{equation}
+
+but there is an additional first reflection:
+
+\begin{equation}
+    u_{0}r_{1}
+\end{equation}
+
+In total, the amplitude is:
+
+\begin{equation}
+    u = u_{0} r_{1} + u_{0} (t_{1} t_{2} r_{2}) \sum_{n = 0}^{\infty} (r_{1} r_{2} e^{i \delta})^{n} = u_{0} \frac{t_{1} t_{2} r_{2} + r_{1}(1 - r_{1} r_{2} e^{i \delta})}{1 - r_{1} r_{2} e^{i \delta}}
+\end{equation}
+
+The sum of the intensities is then:
+
+\begin{equation}
+    \begin{split}
+        \frac{I}{u_{0}^{2}} = \abs{\frac{(t_{1} t_{2})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} + \abs{\frac{t_{1} t_{2} r_{2} + r_{1}(1 - r_{1} r_{2} e^{i \delta})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} \\
+        &= \frac{(t_{1} t_{2})^{2} + (t_{1} t_{2} r_{2})^{2}}{1 + r_{1}^{2} r_{2}^{2} - 2 r_{1} r_{2} \cos{\delta}} \\
+    \end{split}
+\end{equation}
+
+
+\end{document}
