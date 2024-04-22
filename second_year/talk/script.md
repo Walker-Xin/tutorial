@@ -28,27 +28,27 @@ What is the 'principle' we are talking about? Newton's laws of motion. Let us th
 
 Let us consider a very simple example.
 
-Imagine a rocket moving through space under the influence of gravity. Its motion is determined by the vector containing its position and velocity. In a very small time interval, the rocket will update its position via its current velocity $\delta x = v\delta t$. It will also update its velocity via the force acting on it $\delta v = F\delta t/m$. This force, of course, is a function of the current position. 
+Imagine a rocket moving through space under the influence of gravity. Its motion is determined by the vector containing its position and velocity. In a very small time interval, the rocket will update its position via its current velocity $\delta x = v\delta t$. It will also update its velocity via the force acting on it $\delta v = F\delta t/m$. This force, of course, is a function of the current position.
 
 ## Slide 8
 
-This is the idea of the Euler method. I put here a picture of him for fun. It is a very simple method that is not very accurate.
+This is the idea of the Euler method. I put here a picture of Euler for fun. His method is very simple but not very accurate.
 
 ## Slide 9
 
-Consider the Euler method used in solving the following equation. We know the theorectical solution, which is just an exponential decay. Let us see how Euler's method performs
+To see how Euler's method is flawed, consider the following equation. We know the theoretical solution, which is just an exponential decay. Let us see how Euler's method performs.
 
 ## Slide 10
 
-Here I have used Python to simulte the solutions with different step sizes. The red line shows the actual solution.
+Here I have used Python to simulate the solutions with different step sizes. The red line shows the actual solution.
 
-Unsurprisingly, choosing $dt = 0.01$ gives us the best solution that closely follows the theroretical one. If we increase the step size however, the solution gets very funky.
+Unsurprisingly, choosing $dt = 0.01$ gives us the best solution that closely follows the theoretical one. If we increase the step size however, the solution gets very funky.
 
 If we choose a step size of $1/8$, the computed solution becomes very oscillatory. This is because the error of the Euler method is of the order of the step size, which is often too large for practical purposes. Therefore we run into the problem of overshooting at every step, and the result is a mess.
 
 ## Slide 11
 
-We see that the naive Euler method has two contradicting drawbacks: It is very inaccurate when the step size is large, but becomes very slow if step size is small. We can improve on both of these by using the Runge-Kutta methods coupled with adaptive step size.
+We see that the naive Euler method has two contradicting drawbacks: It is very inaccurate when the step size is large, but becomes very slow if step size is small. We can improve on both of these by using the Runge-Kutta methods coupled with adaptive step size. I will now explain them in detail.
 
 ## Slide 12
 
@@ -56,17 +56,19 @@ A apparent flaw of Euler's method is that it is in some way too 'naive' or too '
 
 ## Slide 13
 
-We can 'scout' ahead even further and use an weighted average of the forces at each step. By adjusting carefully the weights of the forces, we can get a fourth order method called the Runge-Kutta method.
+We can 'scout' ahead even further and use an weighted average of the forces at each step. By adjusting carefully the weights of the forces, we can get a fourth order method called the Runge-Kutta 4 method. Here I also include a picture of Runge, who was a German mathematician.
 
 ## Slide 14
 
 Another problem of the method is that it is too 'dumb' because it only knows a fixed step size. This is very inefficient. For example, consider this extreme potential.
 
-At large distances, the potential is almost uniform so the force does not vary a lot. This is when we want to increase our step size. When the potential (and thus the force) varies a lot, we better use a small step size to capture the features of the force. This is the idea of adaptive step size. 
+At large distances, the potential is almost uniform so the force does not vary a lot. This is when we want to increase our step size. When the potential (and thus the force) varies a lot, we better use a small step size to capture the features of the force.
+
+Therefore, using a fixed step size is dumb in two ways: it is too slow when the force is smooth, and too inaccurate when the force is not smooth. We should therefore consider how we should change the step size at each iteration.
 
 ## Slide 15
 
-To implement an algorithm, we would need a criterion, often an error estimate, to determine when to change the step size by how much. In practice, when using the 4th order Runge-Kutta method, we can use the difference between the 4th order and 5th order Runge-Kutta methods as an error estimate. This is a very good estimate, as the 5th order method is very accurate. There are a variety of other methods to estimate the error, but the idea is the same.
+To implement an algorithm, we would need a criterion, often an error estimate, to determine when to change the step size by how much. In practice, when using the 4th order Runge-Kutta method, we can use the difference between the 4th order and 5th order Runge-Kutta methods as an error estimate. This is a very good estimate, as the 5th order method is very accurate. There are a variety of other methods to estimate the error, but the idea is the same. Then, at each step, if the error is too large, we decrease the step size and redo the step. If the error is too small, we increase the step size.
 
 ## Slide 16
 
@@ -80,7 +82,7 @@ However, there was little interest in the idea as physicists of that time lacked
 
 ## Slide 18
 
-In 1915, Einstein published his theory of general relativity along with the Einstein field equations. In the subsequent year, Karl Schwarzschild found the first exact solution to the field equations, known as the Schwarzschild metric. From the structure of the metric, the idea of a black hole naturally emerged. 
+In 1915, Einstein published his theory of general relativity along with the Einstein field equations. In the subsequent year, Karl Schwarzschild found the first exact solution to the field equations, known as the Schwarzschild metric. From the structure of the metric, the idea of a black hole naturally emerged.
 
 ## Slide 19
 
@@ -88,7 +90,7 @@ It was soon realised that despite the lengthy development of such a complex theo
 
 ## Slide 20
 
-Often, black holes are found in binary systems consisting of a BH and another object which is often a star. The star's mass can be 'sucked' into the BH in a process call accretion. Due to angular momentum conservation, the matter does not fall directly into the BH, but instead forms a disk around it and gradually spirals in. The immense gravitational potential energy gets converted to heat and the disk material gets so hot ($\sim 10^{7}K$) that it emits some of the most energetic radiation in the universe in the form of X-rays. In fact, the efficiency of this energy radiation is about ten times that of nuclear fusion. This is how we can 'see' black holes.
+Often, black holes are found in binary systems consisted of a BH and another object which is often a star. The star's mass can be 'sucked' into the BH in a process call accretion. Due to angular momentum conservation, the matter does not fall directly into the BH, but instead forms a disk around it and gradually spirals in. The immense gravitational potential energy gets converted to heat and the disk material gets so hot ($\sim 10^{7}K$) that it emits some of the most energetic radiation in the universe in the form of X-rays. In fact, the efficiency of this energy radiation is about ten times that of nuclear fusion. This is how we can 'see' black holes.
 
 ## Slide 21
 
@@ -112,7 +114,7 @@ Still, this a set of coupled second order differential equations. In principle, 
 
 ## Slide 23
 
-What comes next is technically all computation and zero physics. To simulate the look of a black hole, or really its accretion disk, we need to solve the geodesic equation for photons emitted by the disk. Simulating all of the photons emitted by the disk wastes a lot of resource, as not all of them will reach the observer. Instead, we trace photons backwards from the observer to the disk. If we are only interested in the shape of the image, we can imagine a uniform disk emitting photons of the same energy. The observer can be treated as a plane at a large distance away that is perpendicular to the vector pointing from the observer to the black hole. We then fire photons from different locations on the plane and see if they hit the disk. By collecting the photons that hit the disk, we can then form an image of the disk.
+What comes next is technically all computation and zero physics. To simulate the look of a black hole, or really its accretion disk, we need to solve the geodesic equation for photons emitted by the disk. Simulating all of the photons emitted by the disk wastes a lot of resource, as not all of them will reach the observer. Instead, we trace photons backwards from the observer to the disk. If we are only interested in the shape of the image, we can imagine a uniform disk emitting photons of the same energy. The observer can be treated as a plane at a large distance away. We then fire photons from different locations on the plane and see if they hit the disk. By collecting the photons that hit the disk, we can then form an image of the disk.
 
 ## Slide 24
 
@@ -120,4 +122,4 @@ But you ask what is the point of all this? Beside the coolness of simulating a l
 
 ## Slide 25
 
-We have undergone a journey that started with the simple Newton's laws and Euler methods and progressed all the way to simulating some of the most extreme objects in the universe. There are two key messages that unpin this journey. The first one, being the more philosophical, is that physical theories often share common features where similar mathematical structures are observed. The second one, being more practical, is the interplay between the power of computation and the power of human wisdom. While the computer can solve some of the immediate problems by brute force, ingenuity of us scientists is often what prevails in solving the most difficult problems. We have seen ChatGPTs excelling in casual conversation, but it scientific reasoning is still lackluster. Perhaps what we discussed today is a good example of how human wisdom is still essential, and it is certainly my hope that this will remain true for a long time to come.
+We have undergone a journey that started with the simple Newton's laws and Euler methods and progressed all the way to simulating some of the most extreme objects in the universe. There are two key messages that unpin this journey. The first one, being the more philosophical, is that physical theories often share common features where similar mathematical structures are observed. The second one, being more practical, is the interplay between the power of computation and the power of human wisdom. While the computer can solve some of the immediate problems by brute force, ingenuity of us scientists is often what prevails in solving the most difficult problems. We have seen ChatGPTs excelling in casual conversation, but it scientific reasoning is still lacklustre. Perhaps what we discussed today is a good example of how human wisdom is still essential, and it is certainly my hope that this will remain true for a long time to come.

@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{lesson}
 \usepackage{amsmath}
+% \setbeamertemplate{footline}[frame number]
 
 \title{From Newton's Laws to Modelling Black Holes}
 \subtitle{The Power of Numerical Methods}
@@ -167,10 +168,6 @@
     \vspace{0.5cm}
 
     We could have 'scouted' ahead a bit and use the average of acceleration there and our current position.
-
-    \vspace{0.5cm}
-
-    If we use the immediate future, we make the error $\mathcal{O}(\delta t^{2})$ instead of $\mathcal{O}(\delta t)$.
 \end{frame}
 
 
@@ -185,7 +182,7 @@
 
         \vspace{0.5cm}
 
-        \textbf{Runge-Kutta methods} are a family of numerical methods for solving ordinary differential equations.
+        \textbf{Runge-Kutta methods} are a family of numerical methods for ODEs.
 
         \vspace{0.5cm}
 
@@ -193,6 +190,23 @@
     \end{columns}
 
     \footnotetext{Carl David Tolmé Runge (1856-1927).}
+\end{frame}
+
+
+\begin{frame}{Numerical Methods - Adapt Your Step}
+    The Euler's method is also too 'dumb' because it only knows a \textbf{fixed step size}.
+
+    \centering
+    \includegraphics[width=\textwidth]{asset/func.png}
+\end{frame}
+
+
+\begin{frame}{Numerical Methods - Adapt Your Step}
+    To know when and how to adapt the step size, we require a rough \textbf{estimate of the error}.
+
+    \vspace{0.5cm}
+
+    RK(F)45 method is a viable choice, which uses both 4th and 5th order results to estimate the error.
 \end{frame}
 
 
@@ -272,16 +286,79 @@
 
     \vspace{0.5cm}
 
-    These disks get so hot that they emit some of the most energetic radiation (photons!) in the universe.
+    These disks get so hot ($\sim 10^{7}K$) that they emit some of the most energetic radiation in the universe.
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes - Some GR}
+    You have probably heard of mass 'bending' space in GR. How do we quantify this effect? Using a metric!
+
+    \vspace{0.5cm}
+
+    \begin{equation*}
+        \begin{pmatrix} -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \to \begin{pmatrix} -\left( 1 - \frac{r_{s}}{r} \right) & 0 & 0 & 0 \\ 0 & \frac{1}{\left( 1 - \frac{r_{s}}{r} \right)} & 0 & 0 \\ 0 & 0 & r^{2} & 0 \\ 0 & 0 & 0 & r^{2}\sin^{2}{\theta} \end{pmatrix}
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}{Foraging to Black Holes - Some GR}
+    The motion of a photon is governed by the geodesic equation:
+
+    \vspace{0.5cm}
+
+    \begin{equation*}
+        \frac{\mathrm{d}^{2}x^{\mu}}{\mathrm{d}\lambda^{2}} + \Gamma^{\mu}_{\nu\sigma}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\sigma}}{\mathrm{d}\lambda} = 0
+    \end{equation*}
+
+    \vspace{0.5cm}
+
+    This can be numerically integrated!
 \end{frame}
 
 
 \section{Exciting Science}
 
 
+\begin{frame}{Exciting Science - Ray Tracing}
+    We can use C++ (for its speed) to \textbf{simulate} how photons from an accretion disk travel to an observer.
+
+    \vspace{0.5cm}
+
+    \centering
+    \includegraphics[width=0.90\textwidth]{asset/bh_alt.png}
+
+    \footnotetext{spin = 0.95, inclination = 20 deg}
+\end{frame}
+
+
+\begin{frame}{Exciting Science - Actual Value}
+    Besides simulating a BH on your PC, the algorithm also gives us a \textbf{spectrum} that contains key information about the BH.
+\end{frame}
+
+
 \section{Concluding Remarks}
 
 
+\begin{frame}{Concluding Remarks}
+    What have we learnt?
+\end{frame}
+
+
+\begin{frame}{Concluding Remarks}
+    Similar mathematical ideas arise from distinct physical principles.
+\end{frame}
+
+
+\begin{frame}{Concluding Remarks}
+    In tackling the most difficult questions, human ingenuity prevails over computational brute force.
+\end{frame}
+
+
+\begin{frame}{}
+    \begin{center}
+        {\Huge Thank you!}
+    \end{center}
+\end{frame}
 
 
 \end{document}
