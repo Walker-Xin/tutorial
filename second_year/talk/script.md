@@ -1,5 +1,9 @@
 # Slide by Slide Script
 
+## Slide 1
+
+Good afternoon everyone. Welcome to my talk, titled "From Newton's Laws to Modelling Black Holes". While my aim today is to show you how powerful numerical methods can be, I would like to start with a more philosophical question.
+
 ## Slide 2
 
 What do you think is the greatest achievement of science? People may say its mechanics, quantum physics. But in my opinion, the single most important result from science is that science has bestowed upon us the ability to predict the future.
@@ -8,17 +12,17 @@ What do you think is the greatest achievement of science? People may say its mec
 
 Consideration of the future is a very human trait. We as a species worries about survival. Individual members worry about their own future, their job prospects, health, and whether they can graduate. We humans are so mesmerised by the idea of looking beyond the present, that we have developed a whole field of science to theorise how our physical world evolves.
 
-This is especially true in mechanics, where Newton's laws dictate the evolution of all physical systems, at least within the realm of classical mechanics. While the laws have the beauty of simplicity, extracting information from them is an involved process.
+This is especially true in mechanics, where Newton's laws dictate the evolution of all physical systems, at least within the realm of classical mechanics. While the laws have the beauty of simplicity, extracting information from them is an involved process. This is where numerical methods come in.
 
 ## Slide 4
 
-In this talk, let us embark on a journey that starts with classical mechanics and the art of solving differential equations. We will see how the study of everyday objects can enable us to model some of the most exotic heavenly objects in the universe.
+In this talk, let us embark on a journey that starts with classical mechanics and the art of solving differential equations. We will see how the study of everyday objects can enable us to model some of the most exotic heavenly objects in the universe. Finally, I will demonstrate how our discussion today can be applied to study some of the most extreme phenomena in the universe. Before that, let us start from Newton's laws.
 
 ## Slide 5
 
 Here I give you a quote from the renowned physicists Laudau and Lifshitz in their mechanics book.
 
-Let us consider the significance of this statement. It is saying that, within classical mechanics, our universe evolves in such a way that we only need to know the position and velocity of an object at **some time**, and we would in principle be able to determine its complete past, present, and future. This is a very powerful statement.
+Let us consider the significance of this statement. It is saying that, within classical mechanics, our universe evolves in such a way that we only need to know the position and velocity of an object at **some time**, and we would in principle be able to determine its complete past, present, and future. This is a very powerful statement, as it allows us to not only predict the future, but also to understand the past.
 
 ## Slide 6
 
@@ -32,7 +36,7 @@ Imagine a rocket moving through space under the influence of gravity. Its motion
 
 ## Slide 8
 
-This is the idea of the Euler method. I put here a picture of Euler for fun. His method is very simple but not very accurate.
+This is the idea of the Euler method. I put here a picture of Euler for fun. This is perhaps the simplest method that every physics student learns. It is simple, but it is not very accurate.
 
 ## Slide 9
 
@@ -122,4 +126,8 @@ But you ask what is the point of all this? Beside the coolness of simulating a l
 
 ## Slide 25
 
-We have undergone a journey that started with the simple Newton's laws and Euler methods and progressed all the way to simulating some of the most extreme objects in the universe. There are two key messages that unpin this journey. The first one, being the more philosophical, is that physical theories often share common features where similar mathematical structures are observed. The second one, being more practical, is the interplay between the power of computation and the power of human wisdom. While the computer can solve some of the immediate problems by brute force, ingenuity of us scientists is often what prevails in solving the most difficult problems. We have seen ChatGPTs excelling in casual conversation, but it scientific reasoning is still lacklustre. Perhaps what we discussed today is a good example of how human wisdom is still essential, and it is certainly my hope that this will remain true for a long time to come.
+We have undergone a journey that started with the simple Newton's laws and Euler methods and progressed all the way to simulating some of the most extreme objects in the universe. Beyond the details of my talk, I hope you can take away two important points.
+
+The first one is that physical theories often share common features where similar mathematical structures are observed. We have seen how ODEs apply to all sorts of physical systems, and how the same numerical methods can be used to simulate vastly different objects. However, numerical simulation does not necessarily imply understanding of the science. The interplay between the two is what makes physics so fascinating.
+
+The second one, is the dynamics between the power of computation and the power of human wisdom. While the computer can solve some of the immediate problems by brute force, ingenuity of us scientists is often what prevails in solving the most difficult problems. We have seen ChatGPTs excelling in casual conversation, but it scientific reasoning is still lacklustre. Perhaps what we discussed today is a good example of how human wisdom is still essential, and it is certainly my hope that this will remain true for a long time to come.
