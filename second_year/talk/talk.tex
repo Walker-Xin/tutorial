@@ -231,73 +231,19 @@
         \includegraphics[width=\textwidth]{asset/michell.jpg}
         \column{0.5\textwidth}
         \centering
-        \textbf{John Michell} first to proposed the existence of `black holes'.
-
-        \vspace{0.5cm}
-
-        Alas, he was too far ahead of his time.
-
-        \vspace{0.5cm}
-
-        Scientists then did not have the tools to investigate his ideas.
-    \end{columns}
-
-    \footnotetext{John Michell (1724-1793).}
-\end{frame}
-
-
-\begin{frame}{Foraging to Black Holes}
-    \begin{columns}
-        \column{0.5\textwidth}
-        \centering
         \includegraphics[width=\textwidth]{asset/schwarzschild.jpg}
-        \column{0.5\textwidth}
-        \centering
-        \textbf{Albert Einstein} published the general theory of relativity in 1915 along with his field equations.
-
-        \vspace{0.5cm}
-
-        \textbf{Karl Schwarzschild} found the first solution to the equations in 1916.
-
-        \vspace{0.5cm}
-
-        From his solutions, the concept of a black hole emerged.
     \end{columns}
 
-    \footnotetext{Karl Schwarzschild (1873-1916).}
+    \footnotetext{John Michell and Karl Schwarzschild.}
 \end{frame}
 
 
 \begin{frame}{Foraging to Black Holes}
-    It was soon realised that BHs are very simple objects with only three properties:
+    Black holes are very simple objects with two (three) parameters: mass and spin (charge).
 
     \vspace{0.5cm}
 
-    \begin{enumerate}
-        \item Mass $M$
-        \item Charge $Q$ (theorised to be zero)
-        \item Spin $J$
-    \end{enumerate}
-\end{frame}
-
-
-\begin{frame}{Foraging to Black Holes}
-    BHs are often found in binary systems and a process called \textbf{accretion} occurs to give rise to \textbf{accretion disks}.
-
-    \vspace{0.5cm}
-
-    These disks get so hot ($\sim 10^{7}K$) that they emit some of the most energetic radiation in the universe.
-\end{frame}
-
-
-\begin{frame}{Foraging to Black Holes - Some GR}
-    You have probably heard of mass 'bending' space in GR. How do we quantify this effect? Using a metric!
-
-    \vspace{0.5cm}
-
-    \begin{equation*}
-        \begin{pmatrix} -1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \to \begin{pmatrix} -\left( 1 - \frac{r_{s}}{r} \right) & 0 & 0 & 0 \\ 0 & \frac{1}{\left( 1 - \frac{r_{s}}{r} \right)} & 0 & 0 \\ 0 & 0 & r^{2} & 0 \\ 0 & 0 & 0 & r^{2}\sin^{2}{\theta} \end{pmatrix}
-    \end{equation*}
+    They are often accompanied by an accretion disk that emits high-energy radiation.
 \end{frame}
 
 
@@ -307,7 +253,7 @@
     \vspace{0.5cm}
 
     \begin{equation*}
-        \frac{\mathrm{d}^{2}x^{\mu}}{\mathrm{d}\lambda^{2}} + \Gamma^{\mu}_{\nu\sigma}\frac{\mathrm{d}x^{\nu}}{\mathrm{d}\lambda}\frac{\mathrm{d}x^{\sigma}}{\mathrm{d}\lambda} = 0
+        \frac{\mathrm{d}x^{a}}{\mathrm{d}\lambda} + \Gamma^{a}_{bc} \frac{\mathrm{d}x^{b}}{\mathrm{d}\lambda} \frac{\mathrm{d}x^{c}}{\mathrm{d}\lambda} = 0
     \end{equation*}
 
     \vspace{0.5cm}
@@ -366,6 +312,11 @@
     \begin{center}
         {\Huge Thank you!}
     \end{center}
+\end{frame}
+
+
+\begin{frame}{References}
+    A. Abdikamalov et al. (2019), \textit{Public Release of RELXILL NK: a Relativistic Reflection Model for Testing Einstein's Gravity}
 \end{frame}
 
 
@@ -454,6 +405,34 @@
     \includegraphics[width=0.8\textwidth]{asset/bh_0.95_45.png}
 
     \footnotetext{spin = 0.95, inclination = 45 deg}
+\end{frame}
+
+
+\begin{frame}{}
+    \centering
+
+    \includegraphics[width=0.8\textwidth]{asset/rk4.png}
+\end{frame}
+
+
+\begin{frame}{}
+    \centering
+
+    \includegraphics[width=0.75\textwidth]{asset/rk45_constants.png}
+\end{frame}
+
+
+\begin{frame}{}
+    \centering
+
+    \includegraphics[width=0.8\textwidth]{asset/rk45_a.png}
+\end{frame}
+
+
+\begin{frame}{}
+    \centering
+
+    \includegraphics[width=\textwidth]{asset/rk45_b.png}
 \end{frame}
 
 
