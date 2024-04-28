@@ -21,6 +21,8 @@
 
 
 \problem{9}{}
+Given a fixed path difference, the intensity pattern of a Michelson interferometer is a series of bright and dark rings if the source is collimated. If the path difference is small enough, there will be few enough rings in the output plane that the fringes are almost straight. The fringes are localised at infinity as the output beams are parallel.
+\qed
 
 
 \problem{10}{}
@@ -197,10 +199,99 @@ The sum of the intensities is then:
 
 \begin{equation}
     \begin{split}
-        \frac{I}{u_{0}^{2}} = \abs{\frac{(t_{1} t_{2})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} + \abs{\frac{t_{1} t_{2} r_{2} + r_{1}(1 - r_{1} r_{2} e^{i \delta})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} \\
+        \frac{I}{u_{0}^{2}} &= \abs{\frac{(t_{1} t_{2})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} + \abs{\frac{t_{1} t_{2} r_{2} + r_{1}(1 - r_{1} r_{2} e^{i \delta})}{1 - r_{1} r_{2} e^{i \delta}}}^{2} \\
         &= \frac{(t_{1} t_{2})^{2} + (t_{1} t_{2} r_{2})^{2}}{1 + r_{1}^{2} r_{2}^{2} - 2 r_{1} r_{2} \cos{\delta}} \\
+        &= 1
     \end{split}
 \end{equation}
 
+which proves that energy is conserved.
+\qed
+
+
+\problem{14}{}
+Consider the intensity pattern of a Fabry-Perot etalon:
+
+\begin{equation}
+    I = \frac{I_{0}}{1 + A \sin^{2}{(\delta/2)}}
+\end{equation}
+
+where $A = 4R/(1 - R)^{2}$ and $\delta = 2kd \cos{\theta}$.
+
+For maxima in $I$, we require $kd \cos{\theta} = p \pi$ or:
+
+\begin{equation}
+    1 - \frac{\theta_{p}^{2}}{2} = \frac{p \pi}{kd} = \frac{p}{2\nu d}
+\end{equation}
+
+where we have used the small angle approximation.
+
+This leads to the expression for the diameter of the $p$-order ring:
+
+\begin{equation}
+    d_{p} = 2\theta_{p} L = 2L \sqrt{2 - \frac{p}{\nu d}}
+\end{equation}
+
+Suppose that the two components in the input beam are $\nu_{1} = \bar{\nu} + \Delta \nu/2$ and $\nu_{2} = \bar{\nu} - \Delta \nu/2$. Let us consider the lowest-order ring (largest), which has to belong to $\nu_{1}$ since $\nu_{1} > \nu_{2}$. We have:
+
+\begin{equation}
+    2L \sqrt{2 - \frac{p_{min, 1}}{\nu_{1} d}} = \qty{7.15}{mm}
+\end{equation}
+
+Now consider the next largest ring of diameter $\qty{6.60}{mm}$. There are two possibilities: it could be the next ring of $\nu_{1}$, in which case:
+
+\begin{equation}
+    2L \sqrt{2 - \frac{p_{min, 1} + 1}{\nu_{1} d}} = \qty{6.60}{mm}
+\end{equation}
+
+or it could be the first ring of $\nu_{2}$, in which case:
+
+\begin{equation}
+    2L \sqrt{2 - \frac{p_{min, 2}}{\nu_{2} d}} = \qty{6.60}{mm}
+\end{equation}
+
+
+\qed
+
+
+\problem{15}{}
+Assuming normal incidence, we have the expression for the phase difference:
+
+\begin{equation}
+    \delta = 2kd = 4\pi n d \nu
+\end{equation}
+
+For FWHM (full width at half maximum), we require $A \sin^{2}{(\delta/2)} = 1$ or:
+
+\begin{equation}
+    \sin^{2}{(\delta/2)} = \frac{1}{A} = \frac{4 \mathcal{F}^{2}}{\pi^{2}}
+\end{equation}
+
+In small angle approximation, we have:
+
+\begin{equation}
+    \Delta \delta_{\text{FWHM}} = \frac{2\pi}{\mathcal{F}}
+\end{equation}
+
+The free spectral range in $\delta$ is just the distance between two adjacent maxima, $2\pi$. Transforming to frequency via $\Delta \delta = 4\pi n d \Delta \nu$:
+
+\begin{equation}
+    \Delta \nu_{\text{FSR}} = \frac{1}{2d}
+\end{equation}
+
+We then transform the FWHM to frequency to obtain the instrument width:
+
+\begin{equation}
+    \Delta \nu_{\text{FWHM}} = \frac{1}{2d \mathcal{F}}
+\end{equation}
+
+The resolving power is then:
+
+\begin{equation}
+    RP = \frac{\nu}{\Delta \nu_{\text{FWHM}}} = \frac{p/2d}{1/2d \mathcal{F}} = \mathcal{F} p
+\end{equation}
+
+Since the resolving power does not depend on $n$, changing the medium will not affect the resolving power.
+\qed
 
 \end{document}
