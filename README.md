@@ -37,6 +37,6 @@ I also provide a 'tikz_plot.py' script for plotting simple functions using Pytho
 
 ## Complimentary Notes
 
-I plan to upload my self-made notes (written in markdown) once every academic year. The notes are often reproduced (almost verbatim) from standard textbooks recommended by the Oxford Physics course, although I try to maintain a consistent style of notation and level of detail across all subjects.
+I plan to upload my self-made notes (written in markdown) once every academic year. The notes are often reproduced (almost verbatim) from standard textbooks recommended by the Oxford Physics course. However, I try to maintain a consistent style of notation and level of detail across all subjects.
 
 Although the notes should be much less error-prone, please take them with a grain of salt and notify me of any mistakes.
