@@ -21,7 +21,7 @@ The course is split into 4 years.
 
 ### Second Year
 
-- A1: Thermodynamics, Statistical Mechanics.
+- A1: Thermodynamics, Kinetic Theory, Statistical Mechanics.
 - A2: Electromagnetism, Optics.
 - A3: Quantum Mechanics.
 - Mathematical Methods.
@@ -34,3 +34,9 @@ Under `utilities` folder I provide `homework.sty` as a template for type setting
 The template was inspired by the [resume template](https://github.com/TimmyChan/data-science-tech-resume-template) by Timmy Chan.
 
 I also provide a 'tikz_plot.py' script for plotting simple functions using Python and TikZ. Please refer to [tikzplotlib](https://pypi.org/project/tikzplotlib/) for more information.
+
+## Complimentary Notes
+
+I plan to upload my self-made notes (written in markdown) once every academic year. The notes are often reproduced (almost verbatim) from standard textbooks recommended by the Oxford Physics course. However, I try to maintain a consistent style of notation and level of detail across all subjects.
+
+Although the notes should be much less error-prone, please take them with a grain of salt and notify me of any mistakes.
