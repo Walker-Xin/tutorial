@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Further Quantum Mechanics}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{}
+
+\subproblem{i}
+If the particles are distinguishable, the number of many-particle states is that of the single-particle states raised to power $p$, i.e., $n^{p}$.
+
+\subproblem{ii}
+If the particles are identical Fermions with $n = p$, we demand that each particle occupies a different state. The number of many-particle states is the number of permutations of $n$ objects, i.e., $n!$. But since the particles are identical, we must divide by the number of permutations of $p$ identical particles, i.e., $p!$. Therefore, the number of many-particle states is just unity.
+
+\subproblem{iii}
+If the particles are identical Bosons with $n = p = 2$, we have two cases. If both particles occupy the same state, there is only one state. If the particles occupy different states, the number is unity. If both are in the same state, we have two additional states. In total, we have three states.
+
+\subproblem{iv}
+If we have $n = p = 3$, we have three cases. If all particles occupy the same state, there is only one state. If two particles occupy the same state, we first choose two out of the three single-particle states to be occupied, and multiply this by two since we can exchange the duplet with the remaining particle. This gives us six states. If all particles occupy different states, we have one state. In total, we have eight states.
+\qed
+
+
+\problem{2}{}
+We have the particle-in-box wave function:
+
+\begin{equation}
+    \phi_{n}(x) = \sqrt{\frac{2}{L}} \sin{\left(\frac{n\pi x}{L}\right)}
+\end{equation}
+
+with the energy eigenvalue:
+
+\begin{equation}
+    E_{n} = \frac{\pi^{2}\hbar^{2}}{2mL^{2}} n^{2} \equiv E_{0}n^{2}
+\end{equation}
+
+For identical spin-zero bosons, their spin wave function is symmetric, demanding that the spatial wave function be also symmetric of the form:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}\left[\psi_{1}(x_{1})\psi_{2}(x_{2}) + \psi_{2}(x_{1})\psi_{1}(x_{2})\right]
+\end{equation}
+
+Now, for a total energy $2E_{0}$, we have $n_{1} = n_{2} = 1$. The spatial wave function is then:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}\left[\phi_{1}(x_{1})\phi_{1}(x_{2}) + \phi_{1}(x_{2})\phi_{1}(x_{1})\right]
+\end{equation}
+
+or, with the correct normalisation:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \phi_{1}(x_{1})\phi_{1}(x_{2})
+\end{equation}
+
+For a total energy $5E_{0}$, we have $n_{1} = 1$ and $n_{2} = 2$. The reverse case gives the same spatial wave function. The spatial wave function is then:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}\left[\phi_{1}(x_{1})\phi_{2}(x_{2}) + \phi_{2}(x_{1})\phi_{1}(x_{2})\right]
+\end{equation}
+
+For Fermions with triplet (symmetric) spin part, the spatial wave function must be antisymmetric. We cannot have $n_{1} = n_{2} = 1$, but we can have $n_{1} = 1$ and $n_{2} = 2$:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}\left[\phi_{1}(x_{1})\phi_{2}(x_{2}) - \phi_{2}(x_{1})\phi_{1}(x_{2})\right] \otimes
+    \begin{pmatrix}
+        \chi(\uparrow \uparrow)     \\
+        \chi(\downarrow \downarrow) \\
+        [\chi(\uparrow \downarrow) + \chi(\downarrow \uparrow)]/\sqrt{2}
+    \end{pmatrix}
+\end{equation}
+
+For Fermions with the singlet (antisymmetric) spin part, we have:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \phi_{1}(x_{1})\phi_{1}(x_{2}) \otimes [\chi(\uparrow \downarrow) - \chi(\downarrow \uparrow)]/\sqrt{2}
+\end{equation}
+
+or:
+
+\begin{equation}
+    \psi(x_{1}, x_{2}) = \frac{1}{\sqrt{2}}\left[\phi_{1}(x_{1})\phi_{2}(x_{2}) + \phi_{2}(x_{1})\phi_{1}(x_{2})\right] \otimes [\chi(\uparrow \downarrow) - \chi(\downarrow \uparrow)]/\sqrt{2}
+\end{equation}
+\qed
+
+
+\problem{3}{}
+If we ignore any electron-electron interactions, the Helium atom can be thought of as two electrons in a hydrogenic atom with $Z = 2$. The total energy of the ground state is:
+
+\begin{equation}
+    E_{0} = -2 \times \left( Z^{2} E_{R} \right) = -8E_{R} = \qty{-108.08}{eV}
+\end{equation}
+
+The ionisation energy is the energy of a single electron, i.e., $4E_{R} = \qty{54.04}{eV}$. To remove the second electron, the same amount of energy is required.
+
+Consider the trial wave function:
+
+\begin{equation}
+    \psi_{1s} = \sqrt{\frac{Z^{3}}{\pi a_{0}^{3}}} e^{-Zr/a_{0}}
+\end{equation}
+
+The expectation value of $1/r_{1} + 1/r_{2}$ is:
+
+\begin{equation}
+    \begin{split}
+        \left\langle \frac{1}{r_{1}} + \frac{1}{r_{2}} \right\rangle &= \int \psi_{1s}^{*}(r_{1}) \psi_{1s}^{*}(r_{2}) \left( \frac{1}{r_{1}} + \frac{1}{r_{2}} \right) \psi_{1s}(r_{1}) \psi_{1s}(r_{2}) \, \mathrm{d}^{3}r_{1} \mathrm{d}^{3}r_{2} \\
+        &= \int \left\lvert \psi_{1s}(r_{1}) \right\rvert^{2} \left\lvert \psi_{1s}(r_{2}) \right\rvert^{2} \frac{1}{r_{1}} \, \mathrm{d}^{3}r_{1} \mathrm{d}^{3}r_{2} + \int \left\lvert \psi_{1s}(r_{1}) \right\rvert^{2} \left\lvert \psi_{1s}(r_{2}) \right\rvert^{2} \frac{1}{r_{2}} \, \mathrm{d}^{3}r_{1} \mathrm{d}^{3}r_{2} \\
+        &= 2 \int \left\lvert \psi_{1s}(r) \right\rvert^{2} \frac{1}{r} \, \mathrm{d}^{3}r \\
+        &= \frac{2Z}{a_{0}}
+    \end{split}
+\end{equation}
+
+We have:
+
+\begin{equation}
+    \begin{split}
+        E(Z) &= -\frac{Ze^{2}}{4\pi\epsilon_{0}} \left\langle \frac{1}{r_{1}} + \frac{1}{r_{2}} \right\rangle + \frac{1}{m} \left\langle \frac{p_{1}^{2}}{2} + \frac{p_{2}^{2}}{2} \right\rangle - \frac{e^{2}}{4\pi\epsilon_{0}} \left\langle \frac{1}{r_{12}} \right\rangle \\
+        &= -2R(4Z - Z^{2} - 5Z/8)
+    \end{split}
+\end{equation}
+
+Now we minimise $E(Z)$ with respect to to obtain $E_{\text{min}} = -729R/128 = -\qty{77.5}{eV}$. Then, the lower bound of the ionisation energy is $-E_{\text{min}} - 4E_{R} = \qty{23.1}{eV}$.
+\qed
+
+
+\problem{4}{}
+Take $1s2s^{1}S_{0}$ as an example. The first two terms indicate that one of the electron is in the $1s$ state ($n = 1$, $l = 0$) and the other is in the $2s$ state ($n = 2$, $l = 0$). In $^{1}S_{0}$, the superscript indicates that the total spin is satisfies $2S + 1 = 1$ so $S = 0$. The orbital angular momentum is zero represented by capital $S$. The subscript $0$ indicates that the total angular momentum is zero. Zero total spin implies that the electrons are in the singlet state and the spatial wave function is symmetric.
+
+The notation $1s2s^{3}S_{1}$ says that the electrons are in the $1s$ and $2s$ states, the total spin is $S = 1$, orbital angular momentum is zero, and the total angular momentum is one. This implies that the electrons are in the triplet state and the spatial wave function is antisymmetric.
+\qed
+
+
+\problem{5}{}
+When measuring the spin in $z$-direction, a collection of $x$-polarised atoms are no different from a collection from unpolarised atoms. The probability of measuring spin-up is $1/2$ in both cases.
+\qed
+
+
+
+
+\end{document}

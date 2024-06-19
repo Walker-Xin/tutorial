@@ -1,0 +1,260 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Further Quantum Mechanics}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{}
+
+\subproblem{a}
+The first term in the Hamiltonian describes kinetic energy of the electron whereas the second term describes the electrostatic potential energy of the electron in the field of the nucleus. The quantum number $n$ describes the (radial) energy level of the electron, $l$ describes the angular momentum of the electron, and $m$ describes the projection of the angular momentum along the $z$-axis. For $n = 2$, $l = 0$ with $m = 0$ or $l = 1$ with $m = -1, 0, 1$.
+
+\subproblem{b}
+The non-zero terms in the matrix $\mel{2,l',m'}{\hat{z}}{2,l,m}$ are $\mel{2,1,0}{\hat{z}}{2,0,0} = \mel{2,0,0}{\hat{z}}{2,1,0}$. To see this, we need only to consider the integration about the angular part of the wave function:
+
+\begin{equation}
+    \int Y_{l'm'}^{*} Y_{lm} \cos{\theta} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi
+\end{equation}
+
+where the extra $\cos{\theta}$ factor comes from $z = r \cos{\theta}$.
+
+Consider integration about $\phi$ first. Since only $m = \pm 1$ contributes a $e^{\pm i \phi}$ factor, the integration is zero unless $m = m'$. Next, we consider $\cos{\theta} \sin{\theta} = \sin{(2\theta)}/2$. Integrating this with $\cos^{2}{\theta}$, $\sin^{2}{\theta}$ or unity gives zero. This means that the integration is zero unless $l \ne l'$. Therefore, the only non-zero terms are $\mel{2,1,0}{\hat{z}}{2,0,0}$ and $\mel{2,0,0}{\hat{z}}{2,1,0}$.
+
+\subproblem{c}
+The perturbation is $\hat{V} = \epsilon \hat{z}$. The only non-zero terms in the matrix are:
+
+\begin{equation}
+    \begin{split}
+        \mel{2,1,0}{\hat{V}}{2,0,0} &= \mel{2,0,0}{\hat{V}}{2,1,0} \\
+        &= \epsilon \mel{2,1,0}{\hat{z}}{2,0,0} \\
+        &= \epsilon \int_{0}^{\infty} R_{21}(r) R_{20}(r) r \, \mathrm{d}r \int Y_{10}^{*} Y_{00} \cos{\theta} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi \\
+        &= -3 \epsilon a_{0}
+    \end{split}
+\end{equation}
+
+We may write the matrix representation of the perturbation as:
+
+\begin{equation}
+    \hat{V} = -3 \epsilon a_{0}
+    \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+\end{equation}
+
+Diagonalising the matrix, we have the eigenvalues $\lambda = 0$, which is twice degenerate, and $\lambda = \pm 3 \epsilon a_{0}$. For the zero eigenvalue, the eigenvectors are $(0, 0, 1, 0)^{\intercal}$ and $(0, 0, 0, 1)^{\intercal}$. For $\pm 3 \epsilon a_{0}$, the eigenvectors are $(1, \pm 1, 0, 0)^{\intercal}$. This implies that only the $l = 0$ states are affected by the perturbation. Denote the eigenkets as $\ket{\pm} = (\ket{2,0,0} \pm \ket{2,1,0})/\sqrt{2}$, the energies shifts are $\pm 3 \epsilon a_{0}$.
+
+We see that this perturbation does not completely lift the degeneracy, since the $m = \pm 1$ states are still degenerate.
+\qed
+
+
+\problem{2}{}
+The variational theorem states that given a Hamiltonian $\hat{H}$ and a trial wave function $\ket{\psi}$, the expectation value of $\mel{\psi}{\hat{H}}{\psi}$ establishes an upper bound for the ground state energy of the system. To see this, we express the trial wave function as a linear combination of the energy eigenstates:
+
+\begin{equation}
+    \ket{\psi} = \sum_{n} c_{n} \ket{n}
+\end{equation}
+
+Consider the expectation value of the Hamiltonian:
+
+\begin{equation}
+    \begin{split}
+        \mel{\psi}{\hat{H}}{\psi} &= \sum_{n} \sum_{m} c_{n}^{*} c_{m} \mel{n}{\hat{H}}{m} \\
+        &= \sum_{n} c_{n}^{*} c_{n} E_{n} \\
+        &\geq \sum_{n} c_{n}^{*} c_{n} E_{0} \\
+        &= E_{0}
+    \end{split}
+\end{equation}
+
+since by convention, $E_{0}$ is the lowest energy eigenvalue.
+
+With the given trial wave function, we have:
+
+\begin{equation}
+    \begin{split}
+        C\left\langle H \right\rangle &= \int \psi^{*} \hat{H} \psi \, \mathrm{d}x \\
+        &= -\frac{\hbar^{2}}{2m} \int \psi^{*} \frac{\mathrm{d}^{2} \psi}{\mathrm{d}x^{2}} \, \mathrm{d}x + \int \psi^{*} V \psi \, \mathrm{d}x \\
+        &= \frac{\hbar^{2}}{2m} \int \left\lvert \frac{\mathrm{d} \psi}{\mathrm{d}x} \right\rvert^{2} \, \mathrm{d}x + \int V \left\lvert \psi \right\rvert^{2} \, \mathrm{d}x
+    \end{split}
+\end{equation}
+
+Since we have defined $\psi(x) = f(x/\lambda)$, we switch to the variable $y = x/\lambda$:
+
+\begin{equation}
+    \begin{split}
+        C\left\langle H \right\rangle &= \lambda \left[ \frac{\hbar^{2}}{2m} \int \left\lvert \frac{\mathrm{d} f}{\mathrm{d}y} \right\rvert^{2} \, \mathrm{d}y + \int V \left\lvert f \right\rvert^{2} \, \mathrm{d}y \right] \\
+        &= \lambda \left[ \frac{\hbar^{2}}{2m} + \int_{-a}^{a} V(\lambda y) \left\lvert f(y) \right\rvert^{2} \, \mathrm{d}y \right]
+    \end{split}
+\end{equation}
+
+Now consider the normalisation constant $C$:
+
+\begin{equation}
+    C = \int \left\lvert \psi \right\rvert^{2} \, \mathrm{d}x = \lambda \int \left\lvert f \right\rvert^{2} \, \mathrm{d}y = \lambda
+\end{equation}
+
+so that:
+
+\begin{equation}
+    \left\langle H \right\rangle = \frac{\hbar^{2}}{2m} + \int_{-a/\lambda}^{a/\lambda} V(\lambda y) \left\lvert f(y) \right\rvert^{2} \, \mathrm{d}y
+\end{equation}
+
+By making $\lambda$ as large as possible, we can make the second term dominate and overall, $\left\langle H \right\rangle$ would be a negative quantity.
+\qed
+
+
+\problem{3}{}
+Initially the system is in the state $\ket{1, 0, 0}_{0}$ with the position representation:
+
+\begin{equation}
+    \psi_{0} = \frac{1}{\sqrt{\pi a_{0}^{3}}} e^{-r/a_{0}}
+\end{equation}
+
+After the sudden perturbation, the new ground state has the position representation:
+
+\begin{equation}
+    \psi_{0}' = \frac{1}{\sqrt{\pi (a_{0}/2)^{3}}} e^{-r/(a_{0}/2)}
+\end{equation}
+
+The probability of still finding the system in the ground state is given by:
+
+\begin{equation}
+    P = \left\lvert \int \psi_{0}'^{*} \psi_{0} \, \mathrm{d}^{3}r \right\rvert^{2} = 2^{3} \left( \frac{2}{3} \right)^{6} \approx 0.7
+\end{equation}
+\qed
+
+
+\problem{4}{}
+The transition coefficient to $n = 2$ is given by:
+
+\begin{equation}
+    \begin{split}
+        c_{2}(t) &= -\frac{i}{\hbar} \int_{0}^{t} \mel{2}{\delta \hat{H}}{0} e^{i(E_{2} - E_{0})t'/\hbar} \, \mathrm{d}t' \\
+        &\propto \mel{2}{\hat{x}}{0} = 0
+    \end{split}
+\end{equation}
+
+since $\hat{x} = \sqrt{2} l (\hat{A} + \hat{A}^{\dagger})$ where $l = \sqrt{\hbar/(m\omega)}$ is the length scale of the oscillator.
+
+Thus there is zero probability for the system to be in the $n = 2$ state at any time. However, the system may be found in the $n = 1$ state:
+
+\begin{equation}
+    \begin{split}
+        c_{1}(t) &= -\frac{i}{\hbar} \int_{0}^{t} \mel{1}{\delta \hat{H}}{0} e^{i(E_{1} - E_{0})t'/\hbar} \, \mathrm{d}t' \\
+        &= -\frac{i}{\hbar} \epsilon \mel{1}{\hat{x}}{0} \int_{0}^{t} e^{i\omega t'} e^{-t'^{2}/\tau^{2}} \, \mathrm{d}t' \\
+    \end{split}
+\end{equation}
+
+We evaluate the position matrix element:
+
+\begin{equation}
+    \mel{1}{\hat{x}}{0} = \sqrt{2}l \mel{1}{\hat{a} + \hat{a}^{\dagger}}{0} = \sqrt{2} l
+\end{equation}
+
+and the integral, taking the upper limit to infinity:
+
+\begin{equation}
+    \int_{0}^{\infty} e^{i\omega t'} e^{-t'^{2}/\tau^{2}} \, \mathrm{d}t' = \frac{\sqrt{\pi}}{2} \tau e^{-\omega^{2} \tau^{2}/4}
+\end{equation}
+
+The probability of finding the system in the $n = 1$ state is then:
+
+\begin{equation}
+    P = \left\lvert c_{1}(t) \right\rvert^{2} = \frac{\pi \epsilon^{2} \tau^{2}}{2m\hbar \omega} e^{-\omega^{2} \tau^{2}/2}
+\end{equation}
+\qed
+
+
+\problem{5}{}
+The selection rules in radiative transitions are $\Delta l = \pm 1$ and $\Delta m = 0, \pm 1$ but $\Delta m = \pm 1$ if the photon of interest is travelling in $z$ direction.
+\qed
+
+
+\problem{6}{}
+First note that the spherical harmonic $Y_{lm}$ has parity $(-1)^{l}$. We see that the element $\mel{n'l'm'}{\hat{z}}{nlm}$ has parity $(-1)^{l + l' + 1}$, where the extra $+1$ comes from the $\cos{\theta}$ factor in the position operator. Thus, the element is non-zero only if $l + l' + 1$ is odd or $l + l'$ is even. Thus, for $\hat{z}$ elements, the only non-zero elements are $\mel{100}{\hat{z}}{200}$, $\mel{100}{\hat{z}}{300}$ and $\mel{100}{\hat{z}}{320}$.
+
+For the element $\mel{n'l'm'}{\hat{x}}{nlm}$, the parity is $(-1)^{l + l'}$. Then we require $l + l'$ to be odd. Thus, the only non-zero elements are $\mel{100}{\hat{x}}{210}$ and $\mel{100}{\hat{x}}{211}$.
+\qed
+
+
+\problem{7}{}
+Consider the operator $\hat{x} - i\hat{y}$ in spherical coordinates:
+
+\begin{equation}
+    x - iy = r \sin{\theta} \cos{\phi} - i r \sin{\theta} \sin{\phi} = r \sin{\theta} e^{-i\phi}
+\end{equation}
+
+Note:
+
+\begin{equation}
+    \begin{split}
+        \int Y_{00} Y_{11} \sin{\theta} e^{-i\phi} \, \mathrm{d}\Omega &= -\int \sqrt{\frac{3}{8\pi}} \sin^{2}{\theta} \, \mathrm{d}\Omega \\
+        &= -\sqrt{\frac{3}{8\pi}} \int_{0}^{2\pi} \int_{0}^{\pi} \sin^{2}{\theta} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi \\
+        &= -\sqrt{\frac{3}{8\pi}} \frac{8}{3} \pi
+    \end{split}
+\end{equation}
+
+and:
+
+\begin{equation}
+    \begin{split}
+        \int Y_{00} Y_{10} \cos{\theta} \, \mathrm{d}\Omega &= \sqrt{\frac{6}{8}} \int \cos^{2}{\theta} \, \mathrm{d}\Omega \\
+        &= \sqrt{\frac{6}{8\pi}} \int_{0}^{2\pi} \int_{0}^{\pi} \cos^{2}{\theta} \sin{\theta} \, \mathrm{d}\theta \mathrm{d}\phi \\
+        &= \sqrt{\frac{6}{8\pi}} \frac{4}{3} \pi
+    \end{split}
+\end{equation}
+
+and we conclude that $\mel{110}{\hat{x} - i\hat{y}}{211} = -\sqrt{2} \mel{110}{\hat{z}}{210}$.
+
+$\mel{110}{\hat{x} - i\hat{y}}{21-1}$ is zero due to the presence of a $e^{-i\phi}$ factor. Similarly, $\mel{110}{\hat{x} + i\hat{y}}{21-1}$ is the same as $\mel{110}{\hat{x} - i\hat{y}}{211}$ and $\mel{110}{\hat{x} + i\hat{y}}{211}$ is zero.
+
+Consider the state:
+
+\begin{equation}
+    \psi = \frac{1}{\sqrt{2}} \left( \ket{211} - \ket{21-1} \right)
+\end{equation}
+
+We have:
+
+\begin{equation}
+    \begin{split}
+        \mel{100}{\hat{x}}{\psi} &= \frac{1}{2} \left[ \mel{100}{\hat{x} + i\hat{y}}{\psi} + \mel{100}{\hat{x} - i\hat{y}}{\psi} \right] \\
+        &= \frac{1}{2} \left[ \frac{\mel{100}{\hat{x} + i\hat{y}}{211} - \mel{100}{\hat{x} + i\hat{y}}{21-1}}{\sqrt{2}} + \frac{\mel{100}{\hat{x} - i\hat{y}}{211} - \mel{100}{\hat{x} - i\hat{y}}{21-1}}{\sqrt{2}} \right] \\
+        &= -\mel{100}{\hat{z}}{210}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{8}{}
+Still, we consider the operators $x_{\pm} = x \pm iy = r \sin{\theta} e^{\pm i\phi}$. Let us focus on the $\phi$ integration in the matrix element $\mel{n'l'm'}{x_{\pm}}{nlm}$:
+
+\begin{equation}
+    \begin{split}
+        \mel{n'l'm'}{x_{\pm}}{nlm} \propto \int e^{-im'\phi} e^{\pm i\phi} e^{im\phi} \, \mathrm{d}\phi
+    \end{split}
+\end{equation}
+
+This integral is zero unless $-m' + m \pm 1 = 0$. That is, for $x_{+}$, the element is zero unless $m' = m + 1$ and for $x_{-}$, the element is zero unless $m' = m - 1$.
+
+
+
+\end{document}
