@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Optics}
+\def\assignmentno{Problem Set II}
+\def\assignmentname{}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{5}{}
+
+\subproblem{a}
+Since the magnification of a telescope is given by:
+
+\begin{equation}
+    M = -\frac{f_{o}}{f_{s}}
+\end{equation}
+
+we choose $f_{s} = \qty{18}{mm}$ for a better magnification.
+
+\subproblem{b}
+The magnification obtained is:
+
+\begin{equation}
+    M = -\frac{30}{18} = -\frac{5}{3}
+\end{equation}
+
+\subproblem{c}
+
+\subproblem{d}
+The angular resolution is limited by diffraction via the objective lens:
+
+\begin{equation}
+    \theta = 1.22 \frac{\lambda}{D}
+\end{equation}
+
+Taking $\lambda = \qty{500}{nm}$ for typical visible light, we have:
+
+\begin{equation}
+    \theta = \qty{1.22e-5}{rad}
+\end{equation}
+
+The size of the diffraction pattern is thus:
+
+\begin{equation}
+    \pi [\theta (f_{o} + f_{s})]^{2} = \pi (\qty{3.66e-6}{m})^{2} = \qty{4.20e-11}{m^{2}}
+\end{equation}
+
+Note that $\qty{3.66e-6}{m}$ is around twice of the spacing between two photoreceptors in the human eye, so the diffraction pattern is not resolved by the human eye.
+
+\subproblem{e}
+Diffraction by the human pupil has the angular resolution:
+
+\begin{equation}
+    \theta = 1.22 \frac{\lambda}{D_{p}} = \qty{6.1e-4}{rad}
+\end{equation}
+
+where we take $D_{p} = \qty{1}{mm}$ for the diameter of the pupil.
+
+The size of the diffraction pattern is thus:
+
+\begin{equation}
+    \pi [\theta (f_{e})]^{2} = \pi (\qty{1.83e-5}{m})^{2} = \qty{3.35e-10}{m^{2}}
+\end{equation}
+
+where we take $f_{e} = \qty{3}{cm}$ for the focal length of the eye.
+\qed
+
+
+\problem{6}{}
+
+\subproblem{a}
+From geometry, the path difference between a ray hitting location $x$ and the ray hitting the centre of the glass is:
+
+\begin{equation}
+    \delta = x(\sin{\theta_{i}} - \sin{\theta})
+\end{equation}
+
+The diffraction pattern is then the Fourier transform of a constant transmission function:
+
+\begin{equation}
+    \begin{split}
+        u(x) &= \int_{-D/2}^{D/2} u_{0} e^{i k \delta} \, \mathrm{d}x \\
+        &= u_{0} \int_{-D/2}^{D/2} e^{i k x (\sin{\theta_{i}} - \sin{\theta})} \, \mathrm{d}x \\
+        &= u_{0} \frac{1}{k (\sin{\theta_{i}} - \sin{\theta})} 2 \sin{[kD (\sin{\theta_{i}} - \sin{\theta})/2]} \\
+        &= u_{0}D \operatorname{sinc}{\left[ kD (\sin{\theta_{i}} - \sin{\theta})/2 \right]}
+    \end{split}
+\end{equation}
+
+The intensity of the diffraction pattern is then:
+
+\begin{equation}
+    I(x) = I_{0}D^{2} \operatorname{sinc}^{2}{\left[ kD (\sin{\theta_{i}} - \sin{\theta})/2 \right]}
+\end{equation}
+
+\subproblem{b}
+The sinc function has its maximum when the argument is zero, i.e., $\sin{\theta_{i}} = \sin{\theta}$ which agrees with law of reflection.
+
+\subproblem{c}
+The angular displacement of the first minimum satisfies:
+
+\begin{equation}
+    \sin{\theta} - \sin{\theta_{i}} = \frac{2\pi}{kD} = \frac{\lambda}{D}
+\end{equation}
+
+Consider $\lambda = \qty{500}{nm}$ and $D = \qty{5}{cm}$, which gives:
+
+\begin{equation}
+    \Delta \theta \approx \frac{\lambda}{D} = \qty{1e-5}{rad}
+\end{equation}
+
+which is too small an angle to be resolved by the human eye.
+\qed
+
+
+\problem{7}{}
+
+\subproblem{a}
+The transmission function of the grating is:
+
+\begin{equation}
+    u_{0} \sum_{r = 0}^{N/2 - 1} \delta[x - (r + \frac{1}{2})d] + \delta[x + (r + \frac{1}{2})d]
+\end{equation}
+
+The diffraction pattern is then:
+
+\begin{equation}
+    \begin{split}
+        u(x) &= u_{0} \int \sum_{r = 0}^{N/2 - 1} \delta[x - (r + \frac{1}{2})d] + \delta[x + (r + \frac{1}{2})d] e^{i k x\sin{\theta}} \, \mathrm{d}x \\
+        &= u_{0} \sum_{r = 0}^{N/2 - 1} \left[ e^{i k (r + \frac{1}{2})d \sin{\theta}} + e^{-i k (r + \frac{1}{2})d \sin{\theta}} \right] \\
+        &= 2 u_{0} \sum_{r = 0}^{N/2 - 1} \cos{\left[ (r + \frac{1}{2}) \delta \right]} \\
+        &= u_{0} \frac{\sin{(N\delta/2)}}{\sin{(\delta/2)}} \\
+    \end{split}
+\end{equation}
+
+so that the intensity pattern is:
+
+\begin{equation}
+    I(\delta) = \frac{I_{0}}{N^{2}} \frac{\sin^{2}{(N\delta/2)}}{\sin^{2}{(\delta/2)}}
+\end{equation}
+
+\subproblem{b}
+The maxima satisfy:
+
+\begin{equation}
+    \sin{\theta_{p}} = \left( n + \frac{1}{2} \right) \frac{\lambda}{Nd}
+\end{equation}
+
+whereas the minima satisfy:
+
+\begin{equation}
+    \sin{\theta_{m}} = n \frac{\lambda}{Nd}
+\end{equation}
+
+This implies that the distance between adjacent maximum and minimum satisfies:
+
+\begin{equation}
+    \sin{(\theta_{p} + \Delta \theta)} - \sin{\theta_{p}} = \frac{\lambda}{Nd}
+\end{equation}
+
+Assuming small $\Delta \theta$, we have:
+
+\begin{equation}
+    \Delta \theta = \frac{\lambda}{Nd \cos{\theta_{p}}}
+\end{equation}
+
+\subproblem{c}
+Compare this with the width from the previous problem $\lambda/D$, the extra factor of $1/N$ ensures that the central maximum is much smaller.
+
+\subproblem{d}
+
+
+\problem{8}{}
+
+\subproblem{a}
+For a reflection grating of distance $d$ between lines, the path difference is given by:
+
+\begin{equation}
+    d (\cos{\theta_{i}} - \cos{\theta_{r}})
+\end{equation}
+
+where $\theta_{i}$ and $\theta_{r}$ are the incident and reflected angles, respectively.
+
+Second order maxima satisfy:
+
+\begin{equation}
+    d (\cos{\theta_{i}} - \cos{\theta_{r}}) = \lambda
+\end{equation}
+
+so that the reflected angle is:
+
+\begin{equation}
+    \cos{\theta_{r}} = \cos{\theta_{i}} - \frac{\lambda}{d}
+\end{equation}
+
+\subproblem{b}
+If the diffracting elements are inclined at an angle $\theta_{B}$, the reflection angle becomes $\theta_{i} - \theta_{B}$, so that the path difference becomes:
+
+\begin{equation}
+    d [\cos{\theta_{i}} - \cos{(\theta_{i} - \theta_{B})}]
+\end{equation}
+
+The second order maxima satisfy:
+
+\begin{equation}
+    d [\cos{\theta_{i}} - \cos{(\theta_{i} - \theta_{B})}] = \lambda
+\end{equation}
+
+\subproblem{c}
+The maximum range of $\theta_{i}$ is $\pi/2$, so that the maximum range of the reflected angle is $\pi/2 - \theta_{B}$. The longest wavelength that can be measured in the second order is then:
+
+\begin{equation}
+    \lambda_{\text{max}} = -d \cos{(\pi/2 - \theta_{B})} = d \sin{\theta_{B}}
+\end{equation}
+
+
+
+\end{document}
