@@ -55,7 +55,7 @@ We may compute the pressure from the free energy:
 
 \begin{equation}
     \begin{split}
-        P &= -\left( \frac{\partial F}{\partial V} \right)_{T, N} \\
+        p &= -\left( \frac{\partial F}{\partial V} \right)_{T, N} \\
         &= k_{B} T \left( \frac{\partial \ln{Z}}{\partial V} \right)_{T, N} \\
         &= N k_{B} T \left( \frac{\partial \ln{Z_{1}}}{\partial V} \right)_{T, N} \\
         &= \frac{N k_{B} T}{V}
@@ -64,9 +64,32 @@ We may compute the pressure from the free energy:
 
 where the last equality follows because $Z_{1}$ is proportional to $V$.
 
-We see that the equation of state $PV = Nk_{B}T$ is the same as for the non-relativistic case.
+We see that the equation of state $pV = Nk_{B}T$ is the same as for the non-relativistic case.
 
 \subproblem{ii}
+From thermodynamic arguments, we have the general result that during an adiabatic process, $pV^{\gamma} = \text{const}$ where $\gamma = C_{p}/C_{V}$. Note also the following relation:
+
+\begin{equation}
+    C_{p} - C_{V} = \left[ \left( \frac{\partial U}{\partial V} \right)_{T} + p \right] \left( \frac{\partial V}{\partial T} \right)_{p} = \frac{U}{T} + Nk_{B}
+\end{equation}
+
+Let us write the internal energy explicitly:
+
+\begin{equation}
+    U = \frac{N}{Z_{1}} \int E(k) e^{-\beta E(k)} g(k) \, \mathrm{d}k
+\end{equation}
+
+where $E(k) = \sqrt{\hbar^{2} k^{2} c^{2} + m^{2} c^{4}}$.
+
+We may compute $C_{V}$ from the internal energy:
+
+\begin{equation}
+    \begin{split}
+        C_{V} &= \left( \frac{\partial U}{\partial T} \right)_{V} \\
+        &= \left( \frac{\partial U}{\partial \beta} \right)_{V} \left( \frac{-1}{k_{B}T^{2}} \right) \\
+        &= \frac{N}{k_{B} T^{2} Z_{1}} \int E(k)^{2} e^{-\beta E(k)} g(k) \, \mathrm{d}k - \frac{N}{k_{B} T^{2} Z_{1}^{2}} \left[ \int E(k) e^{-\beta E(k)} g(k) \, \mathrm{d}k \right]^{2}
+    \end{split}
+\end{equation}
 
 \qed
 
@@ -145,8 +168,6 @@ The partition function of a Fermi gas is:
 \begin{equation}
     \ln{\mathcal{Z}} = \sum_{i} \ln{\left[ 1 \pm e^{-\beta (\varepsilon_{i} - \mu)} \right]}
 \end{equation}
-
-
 
 We could compute the grand potential $\Phi$ from the partition function $\mathcal{Z}$:
 
