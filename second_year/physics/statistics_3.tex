@@ -4,7 +4,7 @@
 
 % assignment information
 \def\course{Statistical Mechanics}
-\def\assignmentno{Problem Sheet 2}
+\def\assignmentno{Problem Sheet 3}
 \def\assignmentname{Gases and Black Body Radiation}
 \def\name{Xin, Wenkang}
 \def\time{\today}
@@ -55,11 +55,15 @@ We may write the partition function for a single particle as:
 
 where we have defined the density of states $g(k) \equiv Vk^{2}/2\pi^{2}$ and the thermal wavelength $\lambda_{\text{th}} \equiv \sqrt{2\pi\hbar^{2}/m k_{B}T}$.
 
-For a system of $N$ non-interacting, indistinguishable particles that sparsely populate the energy levels (i.e., each energy level is occupied by at most one particle), the partition function of the system is:
+For a system of $N$ \mistake{non-interacting}, indistinguishable particles that sparsely populate the energy levels (i.e., each energy level is occupied by at most one particle), the partition function of the system is:
 
 \begin{equation}
     Z = \frac{Z_{1}^{N}}{N!} = \frac{V^{N}}{\lambda_{\text{th}}^{3N} N!}
 \end{equation}
+
+\begin{correction}
+    The expression is true for a system of weakly-interacting, indistinguishable particles at a high temperature so that energy levels are sparsely populated.
+\end{correction}
 
 Using Stirling's approximation, we have:
 
@@ -70,7 +74,7 @@ Using Stirling's approximation, we have:
 which leads to the entropy:
 
 \begin{equation}
-    S = \left( \frac{\partial F}{\partial T} \right)_{V, N} = Nk_{B} \left[ \frac{5}{2} - \ln{\left( \frac{V}{N\lambda_{\text{th}}^{3}} \right)} \right]
+    S = -\left( \frac{\partial F}{\partial T} \right)_{V, N} = Nk_{B} \left[ \frac{5}{2} + \ln{\left( \frac{V}{N\lambda_{\text{th}}^{3}} \right)} \right]
 \end{equation}
 
 Also note the equation of state:
@@ -82,13 +86,13 @@ Also note the equation of state:
 Consider two gases of equal temperature, volume and pressure. By the equation of state, the number of particles in each gas must be equal. Suppose that the they are made of particles of masses $m_{1}$ and $m_{2}$, and that the thermal wavelength of the first gas is $\lambda_{\text{th}, 1}$ and that of the second gas is $\lambda_{\text{th}, 2}$. Then we have the expression for their entropies:
 
 \begin{equation}
-    S_{i} = Nk_{B} \left[ \frac{5}{2} - \ln{\left( \frac{V}{N\lambda_{\text{th}, i}^{3}} \right)} \right]
+    S_{i} = Nk_{B} \left[ \frac{5}{2} + \ln{\left( \frac{V}{N\lambda_{\text{th}, i}^{3}} \right)} \right]
 \end{equation}
 
-The action of mixing the two gases is to increase the volume of the system to $2V$, and the number of particles to $2N$. The entropy of the mixed system becomes:
+The action of mixing the two gases is to increase the volume of the system to $2V$, and the number of particles to $2N$. \mistake{The entropy of the mixed system becomes:}
 
 \begin{equation}
-    S_{\text{mix}} = 2Nk_{B} \left[ \frac{5}{2} - \ln{\left( \frac{V}{N\lambda_{\text{th}, f}^{3}} \right)} \right]
+    S_{\text{mix}} = 2Nk_{B} \left[ \frac{5}{2} + \ln{\left( \frac{V}{N\lambda_{\text{th}, f}^{3}} \right)} \right]
 \end{equation}
 
 where we define the thermal wavelength of the final system via an average particle mass:
@@ -97,7 +101,7 @@ where we define the thermal wavelength of the final system via an average partic
     \lambda_{\text{th}, f} = \sqrt{\frac{2\pi\hbar^{2}}{(m_{1} + m_{2}) k_{B}T/2}}
 \end{equation}
 
-Apparently, if $m_{1} = m_{2}$, i.e., the two gases are identical (at least in term of their thermal properties), then $S_{\text{mix}} = S_{1} + S_{2}$ so that there is no entropy change upon mixing. If, however, $m_{1} \neq m_{2}$, we need to compare:
+Apparently, if $m_{1} = m_{2}$, i.e., the two gases are identical (at least in term of their thermal properties), then $S_{\text{mix}} = S_{1} + S_{2}$ so that there is no entropy change upon mixing. \mistake{If, however, $m_{1} \neq m_{2}$, we need to compare:}
 
 \begin{equation}
     \begin{split}
@@ -109,6 +113,26 @@ Apparently, if $m_{1} = m_{2}$, i.e., the two gases are identical (at least in t
 \end{equation}
 
 The function inside the logarithm has maximum of unity along the line $m_{1} = m_{2}$, so that $\Delta S \geq 0$ for any $m_{1} \neq m_{2}$. There is an increase in entropy upon mixing two gases of different masses since information about the identity of the particles is lost in the process.
+
+\begin{correction}
+    The entropy of the mixed system becomes:
+
+    \begin{equation}
+        S_{\text{mix}} = Nk_{B} \left[ \frac{5}{2} + \ln{\left( \frac{2V}{N\lambda_{\text{th}, 1}^{3}} \right)} \right] + Nk_{B} \left[ \frac{5}{2} + \ln{\left( \frac{2V}{N\lambda_{\text{th}, 2}^{3}} \right)} \right]
+    \end{equation}
+
+    If $m_{1} \neq m_{2}$, we need to compare:
+
+    \begin{equation}
+        \begin{split}
+            \Delta S &= S_{\text{mix}} - S_{1} - S_{2} \\
+            &= Nk_{B} \left[ \ln{\left( \frac{2V}{N\lambda_{\text{th}, 1}^{3}} \right)} + \ln{\left( \frac{2V}{N\lambda_{\text{th}, 2}^{3}} \right)} - \ln{\left( \frac{V}{N\lambda_{\text{th}, 1}^{3}} \right)} - \ln{\left( \frac{V}{N\lambda_{\text{th}, 2}^{3}} \right)} \right] \\
+            &= 2Nk_{B} \ln{2}
+        \end{split}
+    \end{equation}
+
+    which agrees with results from Joule expansion.
+\end{correction}
 \qed
 
 
@@ -154,7 +178,11 @@ The bond length of nitrogen molecule is of unity order in angstroms, that is, $\
     \theta_{\text{rot}} = \frac{\hbar^{2}}{2I k_{B}} = \frac{\hbar^{2}}{4mR^{2} k_{B}} = \frac{\hbar^{2}}{mD^{2} k_{B}} \approx \qty{3.5}{K}
 \end{equation}
 
-This means that it is possible to freeze out rotational and vibrational modes of nitrogen gas as long as the temperature can be lowered to unity order, which is easily attainable in a laboratory setting. In fact, the space has a temperature around $\qty{2.7}{K}$.
+This means that it is possible to freeze out rotational and vibrational modes of nitrogen gas as long as the temperature can be lowered to unity order, which is easily attainable in a laboratory setting. \mistake{In fact, the space has a temperature around $\qty{2.7}{K}$}.
+
+\begin{correction}
+    But at this temperature, nitrogen already exists as a liquid, so it is not possible to freeze out the rotational and vibrational modes.
+\end{correction}
 \qed
 
 
