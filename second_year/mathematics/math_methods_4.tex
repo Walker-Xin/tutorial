@@ -36,10 +36,10 @@ Consider the Laplacian in polar coordinates:
 Assuming a solution of the form $V(r, \phi) = R(r) \Phi(\phi)$, we have the separated equations:
 
 \begin{equation}
-\begin{split}
-    \Phi'' + k^{2} \Phi &= 0 \\
-    r^{2} R'' + r R' - k^{2} R &= 0
-\end{split}
+    \begin{split}
+        \Phi'' + k^{2} \Phi &= 0 \\
+        r^{2} R'' + r R' - k^{2} R &= 0
+    \end{split}
 \end{equation}
 
 First consider non-zero $k$. The first equation has the solution:
@@ -84,10 +84,10 @@ where the coefficients are given by:
 The coefficients can be solved by the orthogonality of the trigonometric functions:
 
 \begin{equation}
-\begin{split}
-    c_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \cos{k \phi} \, \mathrm{d} \phi \\
-    d_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \sin{k \phi} \, \mathrm{d} \phi
-\end{split}
+    \begin{split}
+        c_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \cos{k \phi} \, \mathrm{d} \phi \\
+        d_{k, \pm} &= \frac{1}{\pi} \int_{0}^{2 \pi} g_{\pm}(\phi) \sin{k \phi} \, \mathrm{d} \phi
+    \end{split}
 \end{equation}
 
 These leads to equations that can be solved for $a_{k}$, $\tilde{a}_{k}$, $b_{k}$, and $\tilde{b}_{k}$.
@@ -131,11 +131,11 @@ Consider the Laplacian in spherical coordinates:
 Assuming a solution of the form $V(r, \theta, \phi) = R(r) \Theta(\theta) \Phi(\phi)$, we have the separated equations:
 
 \begin{equation}
-\begin{split}
-    &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) = l(l+1)R \\
-    &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
-    &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
-\end{split}
+    \begin{split}
+        &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) = l(l+1)R \\
+        &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
+        &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
+    \end{split}
 \end{equation}
 
 The radial solution can be solved with the Ansatz $R(r) = r^{\lambda}$ that leads to $\lambda = l$ or $\lambda = -l - 1$. The solution is then:
@@ -150,7 +150,7 @@ The solution to $\Phi$ is:
     \Phi(\phi) = e^{im\phi}
 \end{equation}
 
-where we have dropped the arbitrary constant and the natural boundary condition $m \in \mathbb{Z}$. 
+where we have dropped the arbitrary constant and the natural boundary condition $m \in \mathbb{Z}$.
 
 The $\Theta$ equation is the associated Legendre equation with the solution:
 
@@ -206,12 +206,12 @@ Comparing the coefficients, we have $B_{0} = 2\phi_{0}b/3$, $B_{1} = 0$, $B_{2} 
 The first few spherical harmonics are:
 
 \begin{equation}
-\begin{split}
-    Y_{0}^{0} &= \sqrt{\frac{1}{4\pi}} \\
-    Y_{1}^{0} &= \sqrt{\frac{3}{4\pi}} \cos{\theta} \\
-    Y_{1}^{1} &= -\sqrt{\frac{3}{8\pi}} \sin{\theta} e^{i\phi} \\
-    Y_{1}^{-1} &= \sqrt{\frac{3}{8\pi}} \sin{\theta} e^{-i\phi} \\
-\end{split}
+    \begin{split}
+        Y_{0}^{0} &= \sqrt{\frac{1}{4\pi}} \\
+        Y_{1}^{0} &= \sqrt{\frac{3}{4\pi}} \cos{\theta} \\
+        Y_{1}^{1} &= -\sqrt{\frac{3}{8\pi}} \sin{\theta} e^{i\phi} \\
+        Y_{1}^{-1} &= \sqrt{\frac{3}{8\pi}} \sin{\theta} e^{-i\phi} \\
+    \end{split}
 \end{equation}
 
 \subproblem{c}
@@ -230,9 +230,9 @@ so that the monopole term is:
 Next consider the case of $l = 1$. The terms $q_{10}$, $q_{11}$, and $q_{1-1}$ can be written as:
 
 \begin{equation}
-\begin{split}
-    q_{10} &= \int_{\mathbb{R}^{3}} \sqrt{\frac{3}{4\pi}} \cos{\theta'} \mathbf{r}' \rho(\mathbf{r}') \, \mathrm{d}^{3}r'
-\end{split}
+    \begin{split}
+        q_{10} &= \int_{\mathbb{R}^{3}} \sqrt{\frac{3}{4\pi}} \cos{\theta'} \mathbf{r}' \rho(\mathbf{r}') \, \mathrm{d}^{3}r'
+    \end{split}
 \end{equation}
 \qed
 
@@ -308,10 +308,10 @@ The solution is then:
 Consider the skewed triangle wave initial condition:
 
 \begin{equation}
-\psi(0, x) = \begin{cases}
-    \frac{hx}{b} & 0 \leq x \leq b \\
-    \frac{h(a-x)}{a-b} & b \leq x \leq a
-\end{cases}
+    \psi(0, x) = \begin{cases}
+        \frac{hx}{b}       & 0 \leq x \leq b \\
+        \frac{h(a-x)}{a-b} & b \leq x \leq a
+    \end{cases}
 \end{equation}
 
 and $\dot{\psi}(0, x) = 0$. From the velocity initial condition, we write the temporal part as cosine functions:
@@ -323,10 +323,10 @@ and $\dot{\psi}(0, x) = 0$. From the velocity initial condition, we write the te
 Then from the position initial condition, we have a Fourier sine series with the coefficients given by:
 
 \begin{equation}
-\begin{split}
-    C_{n} &= \frac{2}{a} \left[ \int_{0}^{b} \frac{hx}{b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x + \int_{b}^{a} \frac{h(a-x)}{a-b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x \right] \\
-    &= \frac{2ha^{2}}{b(a - b)(n\pi)^{2}} \sin{\left( \frac{n \pi b}{a} \right)}
-\end{split}
+    \begin{split}
+        C_{n} &= \frac{2}{a} \left[ \int_{0}^{b} \frac{hx}{b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x + \int_{b}^{a} \frac{h(a-x)}{a-b} \sin{\left( \frac{n \pi x}{a} \right)} \, \mathrm{d}x \right] \\
+        &= \frac{2ha^{2}}{b(a - b)(n\pi)^{2}} \sin{\left( \frac{n \pi b}{a} \right)}
+    \end{split}
 \end{equation}
 
 Consider $C_{n}/h$ as a function of $(b/a) \equiv \lambda$:
@@ -378,11 +378,11 @@ For a triangular membrane with $a = b$, we impose the further condition that $\p
 Assuming a solution of the form $V(r, \theta, \phi) = R(r) \Theta(\theta) \Phi(\phi)$, with the eigenvalue problem $-\nabla^{2}V = EV$, we have the separated equations:
 
 \begin{equation}
-\begin{split}
-    &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) + E r^{2} R = l(l+1)R \\
-    &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
-    &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
-\end{split}
+    \begin{split}
+        &\frac{\mathrm{d}}{\mathrm{d}r} \left( r^2 \frac{\mathrm{d}R}{\mathrm{d}r} \right) + E r^{2} R = l(l+1)R \\
+        &\frac{\mathrm{d}^{2} \Phi}{\mathrm{d} \phi^2} = -m^2 \Phi \\
+        &\frac{1}{\sin{\theta}} \frac{\mathrm{d}}{\mathrm{d} \theta} \left( \sin{\theta} \frac{\mathrm{d} \Theta}{\mathrm{d} \theta} \right) + \left[ l(l+1) - \frac{m^2}{\sin^{2}{\theta}} \right] \Theta = 0
+    \end{split}
 \end{equation}
 
 The angular parts are the same as the homogeneous Laplace equation. The solutions are the spherical harmonics $Y_{lm}(\theta, \phi) = P_{l}^{m}(\cos{\theta}) e^{im\phi}$. The radial part satisfies the differential equation:
@@ -395,19 +395,19 @@ The angular parts are the same as the homogeneous Laplace equation. The solution
 Consider the change of variables $\rho = \sqrt{E} r$ and $u(\rho) = \sqrt{\rho} R(\rho)$. We have the relationships:
 
 \begin{equation}
-\begin{split}
-    R' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u}{\sqrt{\rho}} \right) = \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \\
-    R'' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) = \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}}    
-\end{split}
+    \begin{split}
+        R' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u}{\sqrt{\rho}} \right) = \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \\
+        R'' &= \frac{\mathrm{d}}{\mathrm{d}\rho} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) = \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}}
+    \end{split}
 \end{equation}
 
 so that the radial equation becomes:
 
 \begin{equation}
-\begin{split}
-    \frac{\rho^{2}}{E} \left( \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}} \right) + 2 \frac{\rho}{\sqrt{E}} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) + \left[ \rho^{2} - l(l+1) \right] \frac{u}{\sqrt{\rho}} &= 0 \\
-    \rho^{2} u'' + \rho u' + \left[ \rho^{2} - \left( l + \frac{1}{2} \right)^{2} \right] u &= 0
-\end{split}
+    \begin{split}
+        \frac{\rho^{2}}{E} \left( \frac{u''}{\sqrt{\rho}} - \frac{u'}{\rho^{3/2}} + \frac{3u}{4\rho^{5/2}} \right) + 2 \frac{\rho}{\sqrt{E}} \left( \frac{u'}{\sqrt{\rho}} - \frac{u}{2\rho^{3/2}} \right) + \left[ \rho^{2} - l(l+1) \right] \frac{u}{\sqrt{\rho}} &= 0 \\
+        \rho^{2} u'' + \rho u' + \left[ \rho^{2} - \left( l + \frac{1}{2} \right)^{2} \right] u &= 0
+    \end{split}
 \end{equation}
 
 which is the Bessel equation of order $l + 1/2$.
@@ -416,9 +416,9 @@ which is the Bessel equation of order $l + 1/2$.
 Assuming integer $l$, the solution to $R(\rho)$ is the Bessel functions:
 
 \begin{equation}
-\begin{split}
-    R(\rho) &= \frac{1}{\sqrt{\rho}} \sum_{l = 0}^{\infty} A_{l} J_{l + 1/2}(\rho) + B_{l} J_{-l - 1/2}(\rho)
-\end{split}
+    \begin{split}
+        R(\rho) &= \frac{1}{\sqrt{\rho}} \sum_{l = 0}^{\infty} A_{l} J_{l + 1/2}(\rho) + B_{l} J_{-l - 1/2}(\rho)
+    \end{split}
 \end{equation}
 
 The finiteness of $R(\rho)$ at $\rho = 0$ demands $B_{l} = 0$. We can now write the general solution as:
@@ -449,14 +449,18 @@ The solution is then:
 The boundary conditions and the eigenfunction relation are trivial to show. To demonstrate orthogonality, consider the inner product of $q_{k}$ and $q_{l}$:
 
 \begin{equation}
-\begin{split}
-    \left\langle q_{k}, q_{l} \right\rangle &= \frac{2}{a} \int_{0}^{a} \sin{\left[ \frac{\pi}{a} (k + 1/2) x \right]} \sin{\left[ \frac{\pi}{a} (l + 1/2) x \right]} \, \mathrm{d}x \\
-    &= \frac{2}{\pi} \int_{0}^{\pi} \sin{\left[ (k + 1/2) y \right]} \sin{\left[ (l + 1/2) y \right]} \, \mathrm{d}y \\
-    &= \delta_{kl}
-\end{split}
+    \begin{split}
+        \left\langle q_{k}, q_{l} \right\rangle &= \frac{2}{a} \int_{0}^{a} \sin{\left[ \frac{\pi}{a} (k + 1/2) x \right]} \sin{\left[ \frac{\pi}{a} (l + 1/2) x \right]} \, \mathrm{d}x \\
+        &= \frac{2}{\pi} \int_{0}^{\pi} \sin{\left[ (k + 1/2) y \right]} \sin{\left[ (l + 1/2) y \right]} \, \mathrm{d}y \\
+        &= \delta_{kl}
+    \end{split}
 \end{equation}
 
 where at the second step the substitution $y = \pi x/a$ is used and the last step follows from the orthogonality of sine functions.
+
+\subproblem{c}
+We write the general solution as:
+
 \qed
 
 
