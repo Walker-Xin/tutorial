@@ -4,9 +4,7 @@ This repository contains the tutorial work for my Physics Course at Oxford.
 
 ## Potential Error
 
-Please note that the solutions here are not official and may (and probably will) contain errors.
-
-If any error is spotted, I would be very grateful if you could let me know by opening an issue.
+Please note that the solutions here are not official and may (and most likely will) contain errors.
 
 ## Course Structure
 
@@ -27,6 +25,16 @@ The course is split into 4 years.
 - Mathematical Methods.
 - Presentation on topic of choice.
 
+### Third Year
+
+- B1: Fluids.
+- B2: Symmetry and Relativity.
+- B3: Atomic and Laser Physics. (not taken by me)
+- B4: Particle and Nuclear Physics.
+- B5: General Relativity.
+- B6: Condensed Matter Physics.
+- Mini project.
+
 ## Utilities
 
 Under `utilities` folder I provide `homework.sty` as a template for type setting tutorial work. While some mathematical commands are defined, I rarely use them and instead rely on snippets configured in VSCode for fast typing. Several sectioning commands such as `\problem` and `\subproblem` are defined to help structure the document. Two environments, `\mistake` and `\correction`, are used for reviewing tutorial work.
@@ -35,7 +43,7 @@ The template was inspired by the [resume template](https://github.com/TimmyChan/
 
 I also provide a 'tikz_plot.py' script for plotting simple functions using Python and TikZ. Please refer to [tikzplotlib](https://pypi.org/project/tikzplotlib/) for more information.
 
-## Complimentary Notes
+## Complementary Notes
 
 I plan to upload my self-made notes (written in markdown) once every academic year. The notes are often reproduced (almost verbatim) from standard textbooks recommended by the Oxford Physics course. However, I try to maintain a consistent style of notation and level of detail across all subjects.
 
