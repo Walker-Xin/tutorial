@@ -1,0 +1,430 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Condensed Matter Physics}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Einstein, Debye, Drude, and Free Electron Models}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1.1}{Einstein solid}
+
+
+\subproblem{a}
+Given $H = p^{2}/2m + kx^{2}/2$, we have the classical partition function:
+\begin{equation}
+    \begin{split}
+        Z &= \frac{1}{(2\pi \hbar)^{3}} \int e^{-\beta H} \, \mathrm{d}^{3}x \, \mathrm{d}^{3}p \\
+        &= \frac{1}{(2\pi \hbar)^{3}} \int e^{-\beta p^{2}/2m} \, \mathrm{d}^{3}p \int e^{-\beta kx^{2}/2} \, \mathrm{d}^{3}x \\
+        &= \frac{1}{(2\pi \hbar)^{3}} (4\pi)^{2} \int_{0}^{\infty} e^{-\beta p^{2}/2m} p^{2} \, \mathrm{d}p \int_{0}^{\infty} e^{-\beta kx^{2}/2} x^{2} \, \mathrm{d}x \\
+        &= \frac{2}{\pi \hbar^{3}} \frac{\pi}{16} \left( \frac{\beta}{2m} \right)^{-3/2} \left( \frac{k\beta}{2} \right)^{-3/2} \\
+        &= \frac{1}{\hbar^{3}} \left( \frac{m}{k} \right)^{3/2} \beta^{-3}
+    \end{split}
+\end{equation}
+
+The internal energy is given by:
+\begin{equation}
+    \begin{split}
+        U &= -\frac{\partial}{\partial \beta} \ln Z \\
+        &= -\frac{\partial}{\partial \beta} (\ln{\beta^{-3}}) \\
+        &= 3\beta^{-1} \\
+        &= 3k_{B}T
+    \end{split}
+\end{equation}
+which gives a heat capacity of $C_{V} = 3k_{B}$.
+
+If we consider a solid of $N$ atoms, the partition function becomes:
+\begin{equation}
+    Z_{N} = Z^{N}
+\end{equation}
+since in a solid, the atoms are distinguishable (by their positions).
+
+The internal energy is then:
+\begin{equation}
+    \begin{split}
+        U_{N} &= -\frac{\partial}{\partial \beta} \ln Z_{N} \\
+        &= 3Nk_{B}T
+    \end{split}
+\end{equation}
+leading to a heat capacity of $C_{V} = 3Nk_{B} = 3R$.
+
+\subproblem{b}
+For a quantum mechanical harmonic oscillator, the energy levels are quantized as:
+
+\begin{equation}
+    E_{j} = \hbar \omega \left( j + \frac{1}{2} \right)
+\end{equation}
+
+This gives the partition function:
+\begin{equation}
+    Z = \sum_{j=0}^{\infty} e^{-\beta \hbar \omega (j + 1/2)} = \frac{e^{-\beta \hbar \omega / 2}}{1 - e^{-\beta \hbar \omega}} = \frac{e^{\beta \hbar \omega / 2}}{e^{\beta \hbar \omega} - 1}
+\end{equation}
+which can be related to the Bose-Einstein statistics:
+\begin{equation}
+    Z = e^{-\beta \hbar \omega / 2} n_{B}(\beta \hbar \omega)
+\end{equation}
+
+This implies that a quantum harmonic oscillator can be treated as a Bose-Einstein gas with a single quantum state.
+
+The internal energy is given by:
+
+\begin{equation}
+    \begin{split}
+        U &= -\frac{\partial}{\partial \beta} \ln Z \\
+        &= \frac{\hbar \omega}{2} + \hbar \omega \frac{1}{e^{\beta \hbar \omega} - 1}
+    \end{split}
+\end{equation}
+where we should discard the zero-point energy $\hbar \omega / 2$.
+
+The heat capacity is then:
+
+\begin{equation}
+    \begin{split}
+        C_{V} &= \frac{\partial U}{\partial T} \\
+        &= \frac{\partial U}{\partial \beta} \frac{\partial \beta}{\partial T} \\
+        &= \frac{\hbar^{2} \omega^{2}}{k_{B}T^{2}} \frac{e^{\beta \hbar \omega}}{(e^{\beta \hbar \omega} - 1)^{2}}
+    \end{split}
+\end{equation}
+
+At high temperatures, $\beta \hbar \omega \ll 1$, we have $e^{\beta \hbar \omega} \approx 1 + \beta \hbar \omega$, and the internal energy becomes:
+
+\begin{equation}
+    U = \frac{\hbar \omega}{2} + \frac{\hbar \omega}{e^{\beta \hbar \omega} - 1} \approx \frac{\hbar \omega}{2} + k_{B}T
+\end{equation}
+
+leading to a constant heat capacity of $C_{V} = k_{B}$ as expected from the equipartition theorem.
+\qed
+
+
+\problem{1.2}{Debye Theory}
+
+
+\subproblem{a}
+In Debye theory, we assume the following:
+
+\begin{itemize}
+    \item The solid is isotropic and homogeneous.
+    \item Atoms behave as quantum harmonic oscillators that do not interact with each other.
+    \item Size of the solid is large enough for continuum approximation to be valid.
+\end{itemize}
+
+We know the density of states in $k$-space $g(k) \, \mathrm{d}k = 3 \times Vk^{2}/(2\pi^{2})$ where the factor $3$ accounts for the three modes of vibration. Transforming to $\omega$-space using the relation $\omega = vk$:
+
+\begin{equation}
+    \tilde{g}(\omega) = g(k) \frac{\mathrm{d}k}{\mathrm{d}\omega} = \frac{3V}{2\pi^{2}} \frac{\omega^{2}}{v^{3}}
+\end{equation}
+
+We can then write the internal energy as:
+
+\begin{equation}
+    \begin{split}
+        U &= \int_{0}^{\omega^{*}} \hbar \omega \tilde{g}(\omega) \left( \frac{1}{e^{\beta \hbar \omega} - 1} \right) \, \mathrm{d}\omega \\
+        &= \frac{3V\hbar}{2\pi^{2}v^{3}} \int_{0}^{\omega^{*}} \frac{\omega^{3}}{e^{\beta \hbar \omega} - 1} \, \mathrm{d}\omega \\
+        &= \frac{9n\hbar}{\omega_{d}^{3}} \int_{0}^{\omega^{*}} \frac{\omega^{3}}{e^{\beta \hbar \omega} - 1} \, \mathrm{d}\omega
+    \end{split}
+\end{equation}
+
+where we define $\omega_{d} \equiv 6\pi^{2}nv^{3}$ as the Debye frequency and the upper limit of the integral is given by the condition:
+
+\begin{equation}
+    \int_{0}^{\omega^{*}} \tilde{g}(\omega) \, \mathrm{d}\omega = 3N
+\end{equation}
+
+At low temperatures, $\beta \hbar \omega \gg 1$, we can approximate the integrand as:
+
+\begin{equation}
+    \begin{split}
+        U &\approx \frac{9n\hbar}{\omega_{d}^{3}} \int_{0}^{\omega^{*}} \omega^{3} e^{-\beta \hbar \omega} \, \mathrm{d}\omega \\
+        &= \frac{9n\hbar}{\omega_{d}^{3}} e^{-\beta \hbar \omega} \frac{sx   }{}
+    \end{split}
+\end{equation}
+
+
+At high temperatures, $\beta \hbar \omega \ll 1$, we can expand the integrand as:
+
+\begin{equation}
+    U \approx \frac{9n\hbar}{\omega_{d}^{3}} \int_{0}^{\omega^{*}} \omega^{2} \frac{1}{\beta \hbar \omega} \, \mathrm{d}\omega = \frac{9n\hbar}{\omega_{d}^{3}} \frac{(\omega^{*})^{3} k_{B}}{3\hbar} T
+\end{equation}
+
+which leads to a constant heat capacity.
+
+\subproblem{b}
+
+
+\qed
+
+
+\problem{1.3}{Drude Theory of Transport in Metals}
+
+\subproblem{a}
+Given a scattering time $\tau$, we have the differential equation:
+
+\begin{equation}
+    \mathrm{d}p = F \, \mathrm{d}t -\frac{p}{\tau} \, \mathrm{d}t
+\end{equation}
+
+This means that in equilibrium, the average momentum is $F\tau$. Now let $F = -eE$ and $p = mv$, we have the drift velocity:
+
+\begin{equation}
+    \mathbf{v} = -\frac{e\tau}{m} \mathbf{E}
+\end{equation}
+
+The current density is then:
+
+\begin{equation}
+    \mathbf{J} = -ne\mathbf{v} = \frac{ne^{2}\tau}{m} \mathbf{E}
+\end{equation}
+
+so that the conductivity is $\sigma_{0} = ne^{2}\tau/m$.
+
+\subproblem{b}
+Now we include magnetic effects in the Lorentz force, leading to:
+
+\begin{equation}
+    \mathbf{v} = -\frac{\tau e}{m} \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+\end{equation}
+
+Working in index notation and solving for $E_{i}$:
+
+\begin{equation}
+    \begin{split}
+        E_{i} &= -\frac{m}{\tau e} v_{i} - \epsilon_{ijk} v_{j} B_{k} \\
+        &= \frac{m}{\tau n e^{2}} J_{i} + \frac{1}{ne} \epsilon_{ijk} J_{j} B_{k} \\
+        &= \left( \frac{m}{\tau n e^{2}} \delta_{ij} + \frac{1}{ne} \epsilon_{ijk} B_{k} \right) J_{j}
+    \end{split}
+\end{equation}
+
+Defining the resistivity matrix via $\mathbf{E} = \mathbf{\rho} \mathbf{J}$, we have $\rho_{ij}$:
+
+\begin{equation}
+    \rho_{ij} = \frac{m}{\tau n e^{2}} \delta_{ij} + \frac{1}{ne} \epsilon_{ijk} B_{k}
+\end{equation}
+
+Consider the simple case where $B$ only has a $z$-component, then $\rho_{ij}$ becomes:
+
+\begin{equation}
+    \mathbf{\rho} =
+    \begin{pmatrix}
+        \rho_{0}  & \rho_{H} & 0        \\
+        -\rho_{H} & \rho_{0} & 0        \\
+        0         & 0        & \rho_{0}
+    \end{pmatrix}
+\end{equation}
+
+where $\rho_{0} = m/\tau ne^{2}$ and $\rho_{H} = B/ne$.
+
+The inverse of this matrix is:
+
+\begin{equation}
+    \mathbf{\sigma} =
+    \begin{pmatrix}
+        \frac{\rho_{0}}{\rho_{0}^{2} + \rho_{H}^{2}} & -\frac{\rho_{H}}{\rho_{0}^{2} + \rho_{H}^{2}} & 0                  \\
+        \frac{\rho_{H}}{\rho_{0}^{2} + \rho_{H}^{2}} & \frac{\rho_{0}}{\rho_{0}^{2} + \rho_{H}^{2}}  & 0                  \\
+        0                                            & 0                                             & \frac{1}{\rho_{0}}
+    \end{pmatrix}
+\end{equation}
+
+\subproblem{c}
+The Hall effect is defined by the second term in the resistivity tensor:
+
+\begin{equation}
+    R_{H} \equiv -\frac{1}{ne}
+\end{equation}
+
+We have the estimate of the Hall coefficient:
+
+\begin{equation}
+    R_{H} = -\frac{1}{ne} = -\frac{M}{\rho e}
+\end{equation}
+
+and a current density $J = I/d^{2}$, leading to a Hall voltage:
+
+\begin{equation}
+    V_{H} = \frac{JB}{ned}
+\end{equation}
+
+\subproblem{d}
+
+\subproblem{e}
+Now consider AC field where $E_{i} = E_{0, i} e^{i\omega t}$ and $B_{i} = B_{0, i} e^{i\omega t}$ where $B_{0, i}$ satisfies:
+
+\begin{equation}
+    B_{0, i} = \frac{\epsilon_{ijk} \kappa_{j} E_{0, k}}{\omega}
+\end{equation}
+
+where $\kappa_{j}$ is the wave vector.
+
+Consider the conductivity equation:
+
+\begin{equation}
+    E_{i} = \left( \frac{m}{\tau n e^{2}} \delta_{ij} + \frac{1}{ne} \epsilon_{ijk} B_{k} \right) J_{j}
+\end{equation}
+
+In the limit of $\tau \to \infty$, we have the $x$-component of the equation:
+
+\begin{equation}
+    E_{0, x} e^{i\omega t} = \frac{1}{ne} B_{z} J_{y} = \frac{1}{ne} c E_{0, x} e^{i\omega t} J_{y}
+\end{equation}
+
+which gives $J_{y} = \frac{ne}{c}$ as a constant.
+
+This implies that even if $E_{0, x} \to 0$, the current $J_{y}$ is still finite, indicating a diverging conductivity.
+\qed
+
+
+\problem{1.4}{Fermi surface in the free electron (Sommerfeld) theory of metals}
+
+
+\subproblem{a}
+The Fermi energy is defined as the energy of the highest occupied state at zero temperature in a system of fermions. It is the chemical potential at zero temperature. Given the Fermi energy $E_{F}$, we define Fermi temperature $T_{F} = E_{F}/k_{B}$. The Fermi surface is the boundary in the phase space that separates the filled states from the empty states at zero temperature.
+
+\subproblem{b}
+Given the density of states $g(k) = 2 \times Vk^{2}/(2\pi^{2})$, where the factor $2$ accounts for the two spin states, we can calculate the Fermi wave vector $k_{F}$:
+
+\begin{equation}
+    N = \int_{0}^{k_{F}} g(k) \, \mathrm{d}k = \frac{Vk_{F}^{3}}{3\pi^{2}}
+\end{equation}
+
+which gives $k_{F} = (3\pi^{2}n)^{1/3}$.
+
+The Fermi energy is then:
+
+\begin{equation}
+    E_{F} = \frac{\hbar^{2}k_{F}^{2}}{2m} = \frac{\hbar^{2}(3\pi^{2}n)^{2/3}}{2m}
+\end{equation}
+
+Consider the derivative $\mathrm{d}E_{F}/\mathrm{d}N$:
+
+\begin{equation}
+    \frac{\mathrm{d}E_{F}}{\mathrm{d}N} = \frac{2}{3} \frac{\hbar^{2}(3\pi^{2}V^{-1})^{2/3}}{2m} N^{-1/3} = \frac{2}{3} \frac{E_{F}}{N}
+\end{equation}
+
+so that $\mathrm{d}N/\mathrm{d}E_{F} = 3N/(2E_{F})$.
+
+\subproblem{c}
+For sodium with $\rho = 10^{3}$ kg/m$^{3}$ and $M = 23u$, we have $n = \rho/M$ so that the Fermi energy is:
+
+\begin{equation}
+    E_{F} = 5.11 \times 10^{-19} \, \mathrm{J}
+\end{equation}
+
+\subproblem{d}
+For a 2D gas, we have $g(k) = Ak/2\pi$ so that:
+
+\begin{equation}
+    N = \int_{0}^{k_{F}} g(k) \, \mathrm{d}k = \frac{Ak_{F}^{2}}{4\pi}
+\end{equation}
+
+and:
+
+\begin{equation}
+    E_{F} = \frac{\hbar^{2}k_{F}^{2}}{2m} = \frac{2\hbar^{2}\pi n}{m}
+\end{equation}
+\qed
+
+
+\problem{1.5}{Velocities in the free electron theory}
+
+
+\subproblem{a}
+Given the Fermi wave vector $k_{F}$, we have the Fermi velocity:
+
+\begin{equation}
+    v_{F} = \frac{\hbar k_{F}}{m} = \frac{\hbar}{m} (3\pi^{2}n)^{1/3}
+\end{equation}
+
+\subproblem{b}
+We know that $J = \sigma E$ and $J = \left\lvert nev_{F} \right\rvert$, so that:
+
+\begin{equation}
+    v_{d} = \left\lvert \frac{\sigma E}{ne} \right\rvert
+\end{equation}
+
+From the scattering time analysis, we have $mv_{d} = eE\tau$ so that:
+
+\begin{equation}
+    \begin{split}
+        m \frac{\sigma E}{ne} &= eE\tau \\
+        \sigma &= \frac{ne^{2}\tau}{m} \\
+        &= \frac{ne^{2}\lambda}{mv_{F}}
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+In the given scenario, we have $v_{d} = 4.36 \times 10^{-3} \, \mathrm{m/s}$ and $v_{F} = 2.92 \times 10^{-18} \, \mathrm{m/s}$. The drift velocity is much larger than the Fermi velocity, indicating that the electrical effects overwhelm the quantum mechanical effects. The mean free path is then $\lambda = 8.4 \times 10^{-28} \, \mathrm{m}$, which is too small to be true. In fact, from $n = 1/d^3$, we have $d = 2.3 \times 10^{-10} \, \mathrm{m}$ which is the lattice spacing of copper.
+\qed
+
+
+\problem{1.6}{Physical properties of the free electron gas}
+
+
+\subproblem{a}
+We attempt to give an estimate of the integral:
+
+\begin{equation}
+    U = \frac{V}{2\pi^{2}} \left( \frac{2m}{\hbar^{2}} \right)^{3/2} \int_{0}^{\infty} \frac{\epsilon^{3/2}}{e^{\beta(\epsilon - \mu)} + 1} \, \mathrm{d}\epsilon
+\end{equation}
+
+We argue that this can be expanded into a series in $T$:
+
+\begin{equation}
+    U = U(T = 0) + C_{V} T + \mathcal{O}(T^{2})
+\end{equation}
+
+To determine $C_{V}$, note the fact that the deviation of the Fermi statistics from a step function is approximately symmetric about $\mu$ and the smeared region is of width $k_{B}T$. Then the excited electrons contribute to the energy by the amount:
+
+\begin{equation}
+    C_{V} T = \gamma V \tilde{g}(E_{F}) k_{B}T T
+\end{equation}
+
+which suggests tha the heat capacity is proportional to $T$.
+
+\subproblem{b}
+The electron in a magnetic field has energy:
+
+\begin{equation}
+    \epsilon = \frac{\hbar^{2}k^{2}}{2m} \pm \mu_{B} B
+\end{equation}
+
+and we have the magnetisation:
+
+\begin{equation}
+    M = -\frac{1}{V} \frac{\partial U}{\partial B}
+\end{equation}
+
+When magnetic field is applied, spin-up electrons are are more energetically expensive by $\mu_{B} B$ so that the number decrease by $\tilde{g}(E_{F}) \mu_{B} B/2$, which is compensated by the increase in the number of spin-down electrons. The magnetisation is then:
+
+\begin{equation}
+    M = \tilde{g}(E_{F}) \mu_{B}^{2} B
+\end{equation}
+
+which leads to the magnetic susceptibility:
+
+\begin{equation}
+    \chi = \mu_{0} \mu_{B}^{2} \tilde{g}(E_{F}) = \mu_{0} \mu_{B}^{2} \frac{3n}{2E_{F}}
+\end{equation}
+
+\subproblem{c}
+Classically, the heat capacity of a gas is constant at high temperatures and the susceptibility is inverse proportional to temperature (Curie's law). The above results differ from the classical results.
+
+\subproblem{d}
+For the heat capacity of the form $C = \gamma T + \alpha T^{3}$, the first term is explained by our previous analysis. The second term is the next order $T^{2}$ in the energy expansion.
+\qed
+
+
+
+
+\end{document}

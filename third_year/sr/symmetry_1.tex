@@ -1,0 +1,340 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Symmetries}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Conserved quantity under a Galilean transformation}
+
+
+\subproblem{a}
+With the transformation $r \to r' = r + \epsilon v t$, the variation in the action is:
+\begin{equation}
+    \begin{split}
+        \delta S &= \int \left( \frac{\partial L}{\partial r} \delta r + \frac{\partial L}{\partial \dot{r}} \delta \dot{r} \right) \, \mathrm{d}t \\
+        &= \int \epsilon \left( \frac{\partial L}{\partial r} vt + \frac{\partial L}{\partial \dot{r}} v \right) \, \mathrm{d}t \\
+        &= \int \epsilon v \left[ \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{\partial L}{\partial \dot{r}} \right) t + \frac{\partial L}{\partial \dot{r}} \right] \, \mathrm{d}t \\
+        &= \left[ \epsilon v \frac{\partial L}{\partial \dot{r}} t \right]_{t_{1}}^{t_{2}} + \epsilon v \int \frac{\partial L}{\partial \dot{r}} - \frac{\partial L}{\partial \dot{r}} \, \mathrm{d}t \\
+        &= \epsilon v \left[ \frac{\partial L}{\partial \dot{r}} t \right]_{t_{1}}^{t_{2}} \\
+    \end{split}
+\end{equation}
+which is in general not zero.
+
+But this demonstrates that the variation in $L$ is a total time derivative:
+\begin{equation}
+    \begin{split}
+        \int \delta L \, \mathrm{d}t &= \epsilon v \left[ \frac{\partial L}{\partial \dot{r}} t \right]_{t_{1}}^{t_{2}} \\
+        &= \int \frac{\mathrm{d}}{\mathrm{d}t} \left( \epsilon v \frac{\partial L}{\partial \dot{r}} t \right) \, \mathrm{d}t \\
+    \end{split}
+\end{equation}
+which means that the equations of motion are invariant and the transformation is a symmetry.
+
+\subproblem{b}
+Consider the transformation $q \to q' = q + \epsilon \eta(q, t)$. We demand that the variation in $L$ is some total time derivative:
+\begin{equation}
+    \delta L = \epsilon \left( \frac{\partial L}{\partial q} \eta + \frac{\partial L}{\partial \dot{q}} \dot{\eta} \right) = \epsilon \frac{\mathrm{d}f}{\mathrm{d}t}
+\end{equation}
+
+For this to happen, consider integrating the equation:
+\begin{equation}
+    \begin{split}
+        f &= \int \left( \frac{\partial L}{\partial q} \eta + \frac{\partial L}{\partial \dot{q}} \dot{\eta} \right) \, \mathrm{d}t \\
+        &= \frac{\partial L}{\partial \dot{q}} \eta + \text{constant} \\
+    \end{split}
+\end{equation}
+
+We may change $q$ to $q_{i}$ and $\eta$ to $\eta_{i}$ without loss of generality. The equation becomes:
+\begin{equation}
+    \sum_{i} \frac{\partial L}{\partial \dot{q}_{i}} \eta_{i} - f = \text{constant}
+\end{equation}
+which is the Noether's theorem.
+
+\subproblem{c}
+Applying the theorem to the Galilean transformation, we identify $\eta = vt$ and $f = v (\partial L / \partial \dot{q}_{i}) t$. The conserved quantity is:
+\begin{equation}
+    \begin{split}
+        Q &= \sum_{i} \frac{\partial L}{\partial \dot{q}_{i}} vt - v \frac{\partial L}{\partial \dot{q}_{i}} t \\
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{2}{Conservation of the Laplace-Runge-Lenz vector}
+
+
+\subproblem{a}
+In the potential $V = -k/r$, the angular momentum can be written as $\mathbf{L} = \mathbf{r} \times \mathbf{p}$. Consider the transformation $\mathbf{r} \to \mathbf{r}' = \mathbf{r} + \mathbf{a} \times \mathbf{L}$, where $\mathbf{a}$ is a constant vector. We have:
+\begin{equation}
+    \delta \mathbf{r} = \mathbf{a} \times \mathbf{L}
+\end{equation}
+and:
+\begin{equation}
+    \delta \dot{\mathbf{r}} = \mathbf{a} \times \dot{\mathbf{L}} = \mathbf{a} \times (\mathbf{r} \times \mathbf{F}) + \mathbf{a} \times (\dot{\mathbf{r}} \times \mathbf{p}) = -\mathbf{a} \times (\mathbf{r} \times \nabla V) = \mathbf{0}
+\end{equation}
+since $\nabla V = -k \mathbf{r}/r^{3}$.
+
+The variation in the Lagrangian is:
+\begin{equation}
+    \begin{split}
+        \delta L &= \frac{\partial L}{\partial \mathbf{r}} \cdot \delta \mathbf{r} + \frac{\partial L}{\partial \dot{\mathbf{r}}} \cdot \delta \dot{\mathbf{r}} \\
+        &= -\nabla V \cdot (\mathbf{a} \times \mathbf{L}) \\
+        &= -\frac{mk}{r^{3}} \mathbf{r} \cdot \left[ \mathbf{a} \times (\mathbf{r} \times \dot{\mathbf{r}}) \right] \\
+        &= -\frac{mk}{r^{3}} \mathbf{r} \cdot \left[ (\mathbf{a} \cdot \dot{\mathbf{r}}) \mathbf{r} - (\mathbf{a} \cdot \mathbf{r}) \dot{\mathbf{r}} \right] \\
+    \end{split}
+\end{equation}
+
+Consider the quantity:
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t} \frac{\mathbf{r}}{r} = \frac{\dot{\mathbf{r}} r - \mathbf{r} \dot{r}}{r^{2}} = \frac{\dot{\mathbf{r}} r^{2} - r\mathbf{r} \dot{r}}{r^{3}}
+\end{equation}
+
+Comparing with the variation in the Lagrangian, we have:
+\begin{equation}
+    \delta L = \frac{\mathrm{d}}{\mathrm{d}t} \left( -mk \mathbf{a} \cdot \frac{\mathbf{r}}{r} \right)
+\end{equation}
+
+\subproblem{b}
+By Noether's theorem, the conserved quantity is:
+\begin{equation}
+    \begin{split}
+        \mathbf{A} &= \frac{\partial L}{\partial \dot{\mathbf{r}}} \times \mathbf{\eta} + mk \frac{\mathbf{r}}{r} \\
+        &= \mathbf{p} \times \mathbf{L} + mk \hat{r}
+    \end{split}
+\end{equation}
+\qed
+
+% \begin{equation}
+%     \begin{split}
+%         \delta r_{i} &= \epsilon_{ijk} a_{j} L_{k} \\
+%         &= m \epsilon_{kij} a_{j} \epsilon_{klm} r_{l} \dot{r}_{m} \\
+%         &= m (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) a_{j} r_{l} \dot{r}_{m} \\
+%         &= m (a_{j} r_{i} \dot{r}_{j} - a_{j} r_{j} \dot{r}_{i}) \\
+%     \end{split}
+% \end{equation}
+
+% and:
+% \begin{equation}
+%     \begin{split}
+%         \delta \dot{r}_{i} &= \frac{\mathrm{d}}{\mathrm{d}t} \delta r_{i} \\
+%         &= m (a_{j} \dot{r}_{i} \dot{r}_{j} + a_{j} r_{i} \ddot{r}_{j} - a_{j} \dot{r}_{j} \dot{r}_{i} - a_{j} r_{j} \ddot{r}_{i})
+%     \end{split}
+% \end{equation}
+
+% On the other hand, from the Euler-Lagrange equation:
+% \begin{equation}
+%     \begin{split}
+%         m \ddot{r}_{i} &= -\frac{\partial V}{\partial r_{i}} \\
+%         &= k \frac{\partial}{\partial r_{i}} \frac{1}{(\delta_{jk} r_{j} r_{k})^{1/2}} \\
+%         &= k \left[ -\frac{1}{2} \frac{\delta_{jk} \delta_{ij} r_{k} + \delta_{jk} \delta_{ik} r_{j}}{(\delta_{jk} r_{j} r_{k})^{3/2}} \right] \\
+%         &= -k \frac{r_{i}}{r^{3}} \\
+%     \end{split}
+% \end{equation}
+
+% Therefore:
+% \begin{equation}
+%     \delta \dot{r}_{i} = m (a_{j} \dot{r}_{i} \dot{r}_{j} - a_{j} \dot{r}_{j} \dot{r}_{i}) + (a_{j} r_{j} r_{i} - a_{j} r_{i} r_{j}) \frac{k}{r^{3}}
+% \end{equation}
+
+% The variation in the Lagrangian is:
+% \begin{equation}
+%     \begin{split}
+%         \delta \mathcal{L} &= \frac{\partial \mathcal{L}}{\partial r_{i}} \delta r_{i} + \frac{\partial \mathcal{L}}{\partial \dot{r}_{i}} \delta \dot{r}_{i} \\
+%         &= \left( -k \frac{r_{i}}{r^{3}} \right) m (a_{j} r_{i} \dot{r}_{j} - a_{j} r_{j} \dot{r}_{i}) + m \dot{r}_{i} \left[ m (a_{j} \dot{r}_{i} \dot{r}_{j} - a_{j} \dot{r}_{j} \dot{r}_{i}) + (a_{j} r_{j} r_{i} - a_{j} r_{i} r_{j}) \frac{k}{r^{3}} \right] \\
+%     \end{split}
+% \end{equation}
+
+
+\problem{3}{Conservation of energy for fields}
+
+\subproblem{a}
+Consider the time translation $t \to t' = t + \epsilon$. The variation in $\mathcal{L}$ is:
+\begin{equation}
+    \delta \mathcal{L} = \epsilon \frac{\partial \mathcal{L}}{\partial t} = \epsilon \left[ \frac{\partial \mathcal{L}}{\partial \phi} \frac{\partial \phi}{\partial t} + \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial^{2} \phi}{\partial^{2} t} + \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi)} \frac{\partial^{2} \phi}{\partial t \partial r_{i}} \right]
+\end{equation}
+
+Consider on the other hand the given expression:
+\begin{equation}
+    \begin{split}
+        0 &= \frac{\partial }{\partial t} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial \phi}{\partial t} - \mathcal{L} \right] + \frac{\partial }{\partial r_{i}} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi)} \frac{\partial \phi}{\partial t} \right] \\
+        &= \frac{\partial^{2} \mathcal{L}}{\partial (\partial_{t} \phi) \partial t} \frac{\partial \phi}{\partial t} + \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial^{2} \phi}{\partial^{2} t} - \frac{\partial \mathcal{L}}{\partial t} + \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi) \partial t} \frac{\partial^{2} \phi}{\partial t \partial r_{i}}
+    \end{split}
+\end{equation}
+which is exactly the equation for $\delta \mathcal{L}$.
+
+\subproblem{b}
+Let us integrate the equation over space:
+\begin{equation}
+    \begin{split}
+        \text{constant} &= \int \frac{\partial }{\partial t} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial \phi}{\partial t} - \mathcal{L} \right] + \frac{\partial }{\partial r_{i}} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi)} \frac{\partial \phi}{\partial t} \right] \, \mathrm{d}^{3}r \\
+        &= \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi)} \frac{\partial \phi}{\partial t} \right] + \int \frac{\partial }{\partial t} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial \phi}{\partial t} - \mathcal{L} \right] \, \mathrm{d}^{3}r \\
+    \end{split}
+\end{equation}
+
+The boundary term vanishes because the fields vanish at infinity. The conserved quantity is then:
+\begin{equation}
+    H \equiv \int \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} \frac{\partial \phi}{\partial t} - \mathcal{L} \right] \, \mathrm{d}^{3}r
+\end{equation}
+
+Then the Noether's theorem is a statement on the rate of change of the Hamiltonian of the field.
+
+\subproblem{c}
+Consider the Lagrangian density
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} \rho (\partial_{t} \phi)^{2} - \frac{1}{2} T (\partial_{x} \phi)^{2} - \mathcal{V}(\phi)
+\end{equation}
+
+Then the Hamiltonian is trivially:
+\begin{equation}
+    H = \int \left[ \frac{1}{2} \rho (\partial_{t} \phi)^{2} + \frac{1}{2} T (\partial_{x} \phi)^{2} + \mathcal{V}(\phi) \right] \, \mathrm{d}x
+\end{equation}
+\qed
+
+
+\problem{4}{Lagrangian for the electromagnetic field}
+
+\subproblem{a}
+Consider the Lagrangian density:
+\begin{equation}
+    \mathcal{L} = \frac{\epsilon_{0}}{2} \mathbf{E}^{2} - \frac{1}{2\mu_{0}} \mathbf{B}^{2}
+\end{equation}
+
+Let us write the fields in terms of the potentials, using index notation. The electric term is:
+\begin{equation}
+    \mathbf{E}^{2} = (-\partial_{i} \phi - \partial_{t} A_{i})^{2}
+\end{equation}
+
+The magnetic term is:
+\begin{equation}
+    \begin{split}
+        \mathbf{B}^{2} &= \epsilon_{ijk} \partial_{j} A_{k} \epsilon_{ilm} \partial_{l} A_{m} \\
+        &= (\delta_{jl} \delta_{km} - \delta_{jm} \delta_{kl}) \partial_{j} A_{k} \partial_{l} A_{m} \\
+        &= \partial_{j} A_{k} \partial_{j} A_{k} - \partial_{j} A_{k} \partial_{k} A_{j} \\
+    \end{split}
+\end{equation}
+
+The Euler-Lagrange equations are:
+\begin{equation}
+    \begin{split}
+        \frac{\partial \mathcal{L}}{\partial \phi} &= \frac{\partial}{\partial t} \frac{\partial \mathcal{L}}{\partial (\partial_{t} \phi)} + \frac{\partial}{\partial x_{i}} \frac{\partial \mathcal{L}}{\partial (\partial_{i} \phi)} \\
+        \frac{\partial \mathcal{L}}{\partial A_{j}} &= \frac{\partial}{\partial t} \frac{\partial \mathcal{L}}{\partial (\partial_{t} A_{j})} + \frac{\partial}{\partial x_{i}} \frac{\partial \mathcal{L}}{\partial (\partial_{i} A_{j})} \\
+    \end{split}
+\end{equation}
+
+For $\phi$, we have:
+\begin{equation}
+    \begin{split}
+        0 &= \frac{\epsilon_{0}}{2} \frac{\partial}{\partial x_{i}} \left[ \frac{\partial}{\partial (\partial_{i} \phi)} (\partial_{i} \phi + \partial_{t} A_{i})^{2} \right] \\
+        &= \epsilon_{0} \partial_{i} (\partial_{i} \phi + \partial_{t} A_{i}) \\
+        &=-\epsilon_{0} \nabla \cdot \mathbf{E} \\
+    \end{split}
+\end{equation}
+which is the Gauss' law in vacuum.
+
+For $A_{j}$, we have:
+\begin{equation}
+    \begin{split}
+        0 &= \frac{1}{2} \left\{ \epsilon_{0} \frac{\partial}{\partial t} \left[ \frac{\partial}{\partial (\partial_{t} A_{j})} (\partial_{i} \phi + \partial_{t} A_{i})^{2} \right] + \frac{1}{\mu_{0}} \frac{\partial}{\partial x_{i}} \left[ \frac{\partial}{\partial (\partial_{i} A_{j})} (\partial_{l} A_{m} \partial_{l} A_{m} - \partial_{l} A_{m} \partial_{m} A_{l}) \right] \right\} \\
+        &= -\epsilon_{0} \frac{\partial \mathbf{E}}{\partial t} + \frac{1}{2\mu_{0}} \frac{\partial }{\partial x_{i}} \left[ 2 \partial_{i} A_{j} - 2\partial_{j} A_{i} \right] \\
+        &= -\epsilon_{0} \frac{\partial \mathbf{E}}{\partial t} + \frac{1}{\mu_{0}} \nabla \times \mathbf{B} \\
+    \end{split}
+\end{equation}
+which is the Faraday's law.
+
+The other two Maxwell's equations have to be derived from continuity equations.
+
+\subproblem{b}
+Consider the gauge transformation:
+\begin{equation}
+    \begin{split}
+        \phi &\to \tilde{\phi} = \phi - \partial_{t} \Gamma \\
+        A_{i} &\to \tilde{A}_{i} = A_{i} + \partial_{i} \Gamma
+    \end{split}
+\end{equation}
+
+We choose $\Gamma$ such that $\partial_{t} \Gamma = \phi$ and $\tilde{\phi} = 0$. The new electric field is:
+\begin{equation}
+    \tilde{\mathbf{E}} = -\partial_{t} \tilde{\mathbf{A}} = -\partial_{t} A_{i} - \partial_{t} \partial_{i} \Gamma = -\partial_{t} A_{i} - \partial_{i} \phi = \mathbf{E}
+\end{equation}
+
+The new magnetic field is:
+\begin{equation}
+    \tilde{\mathbf{B}} = \nabla \times \tilde{\mathbf{A}} = \nabla \times \mathbf{A} + \nabla \times \nabla \Gamma = \mathbf{B}
+\end{equation}
+
+Thus the fields are invariant under the gauge transformation.
+
+We now remove the tildes and use the new gauge and its fields without loss of generality. The energy density is:
+\begin{equation}
+    \begin{split}
+        \varepsilon &= \frac{\partial \mathcal{L}}{\partial (\partial_{t} A_{j})} \partial_{t} A_{j} - \mathcal{L} \\
+        &= \frac{\partial}{\partial (\partial_{t} A_{j})} \left[ \frac{\epsilon_{0}}{2} (\partial_{t} A_{k})^{2} \right] \partial_{t} A_{j} - \mathcal{L} \\
+        &= \epsilon_{0} \mathbf{E}^{2} - \mathcal{L} \\
+        &= \frac{\epsilon_{0}}{2} \mathbf{E}^{2} + \frac{1}{2\mu_{0}} \mathbf{B}^{2} \\
+    \end{split}
+\end{equation}
+
+Then:
+\begin{equation}
+    \begin{split}
+        S_{i} &= \frac{\partial \mathcal{L}}{\partial (\partial_{i} A_{j})} \partial_{t} A_{j} \\
+        &= \frac{\partial}{\partial (\partial_{i} A_{j})} \left[ -\frac{1}{2\mu_{0}} \epsilon_{klm} \partial_{l} A_{m} \epsilon_{kno} \partial_{n} A_{o} \right] \partial_{t} A_{j} \\
+        &= \frac{\partial}{\partial (\partial_{i} A_{j})} \left[ -\frac{1}{2\mu_{0}} (\partial_{l} A_{m} \partial_{l} A_{m} - \partial_{l} A_{m} \partial_{m} A_{l}) \right] \partial_{t} A_{j} \\
+        &= -\frac{1}{2\mu_{0}} \left( 2\delta_{il} \delta_{jm} \partial_{l} A_{m} - \delta_{il} \delta_{jm} \partial_{m} A_{l} - \delta_{im} \delta_{jl} \partial_{l} A_{m} \right) \partial_{t} A_{j} \\
+        &= -\frac{1}{\mu_{0}} (\partial_{i} A_{j} - \partial_{j} A_{i}) \partial_{t} A_{j}
+    \end{split}
+\end{equation}
+
+But this is just $\mathbf{E} \times \mathbf{B}$, so:
+\begin{equation}
+    \mathbf{S} = \frac{1}{\mu_{0}}\mathbf{E} \times \mathbf{B}
+\end{equation}
+\qed
+
+
+\problem{5}{Lagrangian for the Schrodinger equation}
+
+
+Consider components of the Euler-Lagrange equation for $\psi$:
+\begin{equation}
+    \begin{split}
+        \partial_{t} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{t} \psi)} \right] &= -\frac{i\hbar}{4\pi} \partial_{t} \psi^{*} \\
+        \partial_{i} \left[ \frac{\partial \mathcal{L}}{\partial (\partial_{i} \psi)} \right] &= \partial_{i} \left[ \frac{\hbar^{2}}{8\pi m} \nabla \psi^{*} \right] \\
+        \frac{\partial L}{\partial \psi} = V \psi^{*}
+    \end{split}
+\end{equation}
+which leads to the equation:
+\begin{equation}
+    -\frac{\hbar^{2}}{8\pi m} \nabla^{2} \psi^{*} + V \psi^{*} = -i\frac{\hbar}{4\pi} \partial_{t} \psi^{*}
+\end{equation}
+
+Taking the complex conjugate of the equation, we obtain the Schrodinger equation.
+
+The energy density is:
+\begin{equation}
+    \begin{split}
+        \varepsilon &= \frac{\partial \mathcal{L}}{\partial (\partial_{t} \psi)} \partial_{t} \psi + \frac{\partial \mathcal{L}}{\partial (\partial_{t} \psi^{*})} \partial_{t} \psi^{*} - \mathcal{L} \\
+        &= \frac{i\hbar}{4\pi} (\psi \partial_{t} \psi^{*} - \psi^{*} \partial_{t} \psi) - \mathcal{L} \\
+        &= -\frac{\hbar^{2}}{8\pi m} \nabla \psi \cdot \nabla \psi^{*} - V \psi^{*} \psi \\
+    \end{split}
+\end{equation}
+\qed
+
+
+\end{document}

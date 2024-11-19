@@ -1,0 +1,530 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Symmetries}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Derivation of the rotation formula}
+Given that:
+
+\begin{equation}
+    \hat{\mathbf{u}} \cdot \mathbf{J} =
+    \begin{bmatrix}
+        0      & -u_{z} & u_{y}  \\
+        u_{z}  & 0      & -u_{x} \\
+        -u_{y} & u_{x}  & 0
+    \end{bmatrix}
+\end{equation}
+
+we have its square:
+
+\begin{equation}
+    \begin{split}
+        (\hat{\mathbf{u}} \cdot \mathbf{J})^{2} &=
+        \begin{bmatrix}
+            0      & -u_{z} & u_{y}  \\
+            u_{z}  & 0      & -u_{x} \\
+            -u_{y} & u_{x}  & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            0      & -u_{z} & u_{y}  \\
+            u_{z}  & 0      & -u_{x} \\
+            -u_{y} & u_{x}  & 0
+        \end{bmatrix} \\
+        &=
+        \begin{bmatrix}
+            -u_{y}^{2} - u_{z}^{2} & u_{x}u_{y}             & u_{x}u_{z}             \\
+            u_{x}u_{y}             & -u_{x}^{2} - u_{z}^{2} & u_{y}u_{z}             \\
+            u_{x}u_{z}             & u_{y}u_{z}             & -u_{x}^{2} - u_{y}^{2}
+        \end{bmatrix} \\
+    \end{split}
+\end{equation}
+
+Let us explicitly check:
+
+\begin{equation}
+    (\hat{\mathbf{u}} \cdot \mathbf{J}) \mathbf{v} =
+    \begin{bmatrix}
+        u_{y}v_{z} - u_{z}v_{y} \\
+        u_{z}v_{x} - u_{x}v_{z} \\
+        u_{x}v_{y} - u_{y}v_{x}
+    \end{bmatrix}
+    =
+    \mathbf{u} \times \mathbf{v}
+\end{equation}
+
+and thus:
+
+\begin{equation}
+    (\hat{\mathbf{u}} \cdot \mathbf{J})^{2} \mathbf{v} = \mathbf{u} \times (\mathbf{u} \times \mathbf{v}) = \mathbf{u} (\mathbf{u} \cdot \mathbf{v}) - \mathbf{u}^{2} \mathbf{v} = \mathbf{u} (\mathbf{u} \cdot \mathbf{v}) - \mathbf{v}
+\end{equation}
+
+This means:
+
+\begin{equation}
+    \begin{split}
+        R \mathbf{v} &= \mathbf{v} + (1 - \cos{\theta}) (\hat{\mathbf{u}} \cdot \mathbf{J})^{2} \mathbf{v} + \sin{\theta} \hat{\mathbf{u}} \cdot \mathbf{J} \mathbf{v} \\
+        &= \mathbf{v} + (1 - \cos{\theta}) (\mathbf{u} (\mathbf{u} \cdot \mathbf{v}) - \mathbf{v}) + \sin{\theta} (\mathbf{u} \times \mathbf{v}) \\
+        &= \cos{\theta} \mathbf{v} + \sin{\theta} (\mathbf{u} \times \mathbf{v}) + (1 - \cos{\theta}) \mathbf{u} (\mathbf{u} \cdot \mathbf{v})
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{2}{Lorentz transformation for a boost in an arbitrary direction}
+
+
+\subproblem{a}
+Consider the form of $\hat{\mathbf{u}} \cdot \mathbf{K}$:
+
+\begin{equation}
+    \hat{\mathbf{u}} \cdot \mathbf{K} =
+    \begin{bmatrix}
+        0     & n_{x} & n_{y} & n_{z} \\
+        n_{x} & 0     & 0     & 0     \\
+        n_{y} & 0     & 0     & 0     \\
+        n_{z} & 0     & 0     & 0
+    \end{bmatrix}
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \begin{split}
+        (\hat{\mathbf{u}} \cdot \mathbf{K})^{3} &=
+        \begin{bmatrix}
+            0     & n_{x} & n_{y} & n_{z} \\
+            n_{x} & 0     & 0     & 0     \\
+            n_{y} & 0     & 0     & 0     \\
+            n_{z} & 0     & 0     & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & 0          & 0          & 0          \\
+            0 & n_{x}^{2}  & n_{x}n_{y} & n_{x}n_{z} \\
+            0 & n_{x}n_{y} & n_{y}^{2}  & n_{y}n_{z} \\
+            0 & n_{x}n_{z} & n_{y}n_{z} & n_{z}^{2}
+        \end{bmatrix} \\
+        &=
+        \begin{bmatrix}
+            0     & n_{x} & n_{y} & n_{z} \\
+            n_{x} & 0     & 0     & 0     \\
+            n_{y} & 0     & 0     & 0     \\
+            n_{z} & 0     & 0     & 0
+        \end{bmatrix} \\
+        &= \hat{\mathbf{u}} \cdot \mathbf{K}
+    \end{split}
+\end{equation}
+
+Thus all odd powers of $\hat{\mathbf{u}} \cdot \mathbf{K}$ are identical to the first power, and all even powers are identical to the second power. This means that:
+
+\begin{equation}
+    \begin{split}
+        \Lambda &= \exp{-\zeta \hat{\mathbf{u}} \cdot \mathbf{K}} \\
+        &= \sum_{n = 0}^{\infty} \frac{(-\zeta)^{n}}{n!} (\hat{\mathbf{u}} \cdot \mathbf{K})^{n} \\
+        &= \mathbb{I} - \sum_{\text{odd } n} \frac{\zeta^{n}}{n!} (\hat{\mathbf{u}} \cdot \mathbf{K}) + \sum_{\text{even } n} \frac{\zeta^{n}}{n!} (\hat{\mathbf{u}} \cdot \mathbf{K})^{2} \\
+        &= \mathbb{I} - (\sinh{\zeta}) \hat{\mathbf{u}} \cdot \mathbf{K} + (\cosh{\zeta} - 1) (\hat{\mathbf{u}} \cdot \mathbf{K})^{2}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+Suppose $\mathbf{r} = \mathbf{v} t$ and $\mathbf{r}' = \mathbf{0}$. We demand that $\Lambda \mathbf{r} = \mathbf{r}'$ so that:
+
+\begin{equation}
+    \begin{bmatrix}
+        ct' \\
+        0   \\
+        0   \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        ct \\
+        x  \\
+        y  \\
+        z
+    \end{bmatrix}
+    - (\sinh{\zeta})
+    \begin{bmatrix}
+        0     & n_{x} & n_{y} & n_{z} \\
+        n_{x} & 0     & 0     & 0     \\
+        n_{y} & 0     & 0     & 0     \\
+        n_{z} & 0     & 0     & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        ct \\
+        x  \\
+        y  \\
+        z
+    \end{bmatrix}
+    + (\cosh{\zeta} - 1)
+    \begin{bmatrix}
+        1 & 0          & 0          & 0          \\
+        0 & n_{x}^{2}  & n_{x}n_{y} & n_{x}n_{z} \\
+        0 & n_{x}n_{y} & n_{y}^{2}  & n_{y}n_{z} \\
+        0 & n_{x}n_{z} & n_{y}n_{z} & n_{z}^{2}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+        ct \\
+        x  \\
+        y  \\
+        z
+    \end{bmatrix}
+\end{equation}
+
+Now focus on the $x$ component of the equation:
+
+\begin{equation}
+    \begin{split}
+        0 &= x - \sinh{\zeta} n_{x} ct + (\cosh{\zeta} - 1) n_{x} (n_{x} x + n_{y} y + n_{z} z) \\
+        &= x - \sinh{\zeta} n_{x} ct + (\cosh{\zeta} - 1) n_{x} (\mathbf{n} \cdot \mathbf{v}) t
+    \end{split}
+\end{equation}
+
+Now note that $\mathbf{n} = \mathbf{v}/\left\lvert \mathbf{v} \right\rvert$ so that $v_{x} = v n_{x}$. Thus:
+
+\begin{equation}
+    0 = v n_{x} t - \sinh{\zeta} n_{x} ct + (\cosh{\zeta} - 1) n_{x} v t
+\end{equation}
+
+solving which gives $\tanh{\zeta} = v/c = \beta$.
+
+Then:
+
+\begin{equation}
+    \begin{split}
+        \Lambda &= \mathbb{I} - \frac{\beta}{\sqrt{1 - \beta^{2}}} \hat{\mathbf{u}} \cdot \mathbf{K} + \left( \frac{1}{\sqrt{1 - \beta^{2}}} - 1 \right) (\hat{\mathbf{u}} \cdot \mathbf{K})^{2} \\
+        &=
+        \begin{bmatrix}
+            \gamma              & -\gamma \beta n_{x}        & -\gamma \beta n_{y}        & -\gamma \beta n_{z}        \\
+            -\gamma \beta n_{x} & 1 + (\gamma - 1) n_{x}^{2} & (\gamma - 1) n_{x} n_{y}   & (\gamma - 1) n_{x} n_{z}   \\
+            -\gamma \beta n_{y} & (\gamma - 1) n_{x} n_{y}   & 1 + (\gamma - 1) n_{y}^{2} & (\gamma - 1) n_{y} n_{z}   \\
+            -\gamma \beta n_{z} & (\gamma - 1) n_{x} n_{z}   & (\gamma - 1) n_{y} n_{z}   & 1 + (\gamma - 1) n_{z}^{2}
+        \end{bmatrix}
+    \end{split}
+\end{equation}
+
+
+\problem{3}{Decomposing a Lorentz transformation into boost and rotation}
+
+
+Define a matrix $L$ that satisfies $L^{\intercal}gL$ where $g = \operatorname{diag}{(-1, 1, 1, 1)}$. It being in $SO(1, 3)$, we need $L^{\intercal} = L$.
+
+
+\subproblem{a}
+Writing the relation in index notation, the inverse of $L$ is defined as:
+
+\begin{equation}
+    (L^{-1})_{ij} = L^{ij} = g^{ik}L_{k}^{j} = g^{ik}g^{jl}L_{kl}
+\end{equation}
+
+From the relation, we have:
+
+\begin{equation}
+    \begin{split}
+        L_{ik}g^{kl}(L^{\intercal})_{lj} &= g_{ij} \\
+        L_{ik}g_{kl}L_{lj} &= g_{ij}
+    \end{split}
+\end{equation}
+
+First consider $i = j = 0$ so that the RHS is $-1$. The non-zero components of the LHS are obtained by setting $k = l$ so that:
+
+\begin{equation}
+    -L_{00}L_{00} + \sum_{\alpha = 1, 2, 3} L_{0\alpha}L_{0\alpha} = -1
+\end{equation}
+
+Consider $i \ne j$ so that the RHS is zero. The non-zero components of the LHS are obtained by setting $k = l$ so that:
+
+\begin{equation}
+    -L_{i0}L_{0j} + \sum_{\alpha = 1, 2, 3} L_{i\alpha}L_{\alpha j} = 0
+\end{equation}
+
+Now take $j = 0$ so that $i$ takes $1, 2, 3$:
+
+\begin{equation}
+    L_{00}L_{i0} - \sum_{\alpha = 1, 2, 3} L_{i\alpha}L_{\alpha 0} = 0
+\end{equation}
+
+\subproblem{b}
+We demand that transformations of coordinates between two frames is facilitated by $L$, i.e. $X'^{\mu} = L^{\mu}_{\nu} X^{\nu} = g^{\mu \rho} L_{\rho \nu} X^{\nu}$. Consider the origin of frame $S'$ so that $X'^{\mu} = (ct', 0, 0, 0)$. Setting $\mu = 0$ demands $\rho = 0$, leading to:
+
+\begin{equation}
+    ct' = -L_{0 \nu} X^{\nu}
+\end{equation}
+
+For $i = 1, 2, 3$:
+
+\begin{equation}
+    0 = L_{i \nu} X^{\nu} = L_{i 0} X^{0} + L_{i j} X^{j}
+\end{equation}
+
+Multiply the second equation by $L_{00}$:
+
+\begin{equation}
+    \begin{split}
+        0 &= L_{00}L_{i 0}X^{0} + L_{00}L_{i j} X^{j} \\
+        &= L_{i\alpha}L_{\alpha 0} X^{0} + L_{00}L_{i j} X^{j} \\
+        &= L_{ij} (L_{j0} X^{0} + L_{00} X^{j})
+    \end{split}
+\end{equation}
+
+where at the third equality we relabelled $\alpha \to j$.
+
+But we know that $X^{\nu}$ has to be $(ct, \mathbf{v}t)$ so $X^{0} = ct$ and $X^{j} = v^{j}t$. This implies:
+
+\begin{equation}
+    \beta^{i} \equiv \frac{v_{i}}{c} = -\frac{L_{i0}}{L_{00}}
+\end{equation}
+
+which determines $L$ up to $L_{00}$.
+
+Using the first equation we derived, we have:
+
+\begin{equation}
+    \begin{split}
+        -L_{00}L_{00} + \sum_{\alpha = 1, 2, 3} L_{0\alpha}L_{0\alpha} &= -1 \\
+        -1 + \beta^{2} &= -L_{00}^{-2}
+    \end{split}
+\end{equation}
+
+which immediately gives $L_{00} = \gamma \equiv (1 - \beta^{2})^{-1/2}$.
+
+\subproblem{c}
+To demonstrate $R = L\Lambda^{-1}$ is in $SO(1, 3)$, it suffices to check the inner product condition:
+
+\begin{equation}
+    R^{\intercal} g R = (\Lambda^{-1})^{\intercal} L^{\intercal} g L \Lambda^{-1} = (\Lambda^{-1})^{\intercal} g \Lambda^{-1} = g
+\end{equation}
+
+since $\Lambda$ preserves inner product.
+
+From the previous problem we have:
+
+\begin{equation}
+    \Lambda^{-1}(\beta) = \Lambda(-\beta) = \mathbb{I} + \gamma \beta \mathbf{n} \cdot \mathbf{K} + (\gamma - 1) (\mathbf{n} \cdot \mathbf{K})^{2}
+\end{equation}
+
+Then:
+
+\begin{equation}
+    \begin{split}
+        R_{00} &= L_{0\mu} [\Lambda^{-1}(\beta)]_{\mu 0} \\
+        &= L_{0\mu} \left( \delta_{\mu 0} + \gamma \beta n_{\mu} + (\gamma - 1) \delta_{0 \mu} \right) \\
+        &= \gamma L_{00} + \gamma \beta L_{0i} n_{i} \\
+        &= \gamma^{2} + \gamma \beta (-\gamma \beta^{i}) n_{i} \\
+        &= \gamma^{2} (1 - \beta^{2}) \\
+        &= 1
+    \end{split}
+\end{equation}
+
+since $n_{i} = v_{i}/\left\lvert \mathbf{v} \right\rvert = \beta_{i}/\beta$
+\qed
+
+
+\problem{4}{Lorentz transformations and their expressions through SU(2)}
+
+\subproblem{a}
+Suppose $M^{\dagger}M = MM^{\dagger} = \mathbb{I}$. Consider $M = \mathbb{I} + X$. To first order in $X$, we need:
+
+\begin{equation}
+    X^{\dagger} = -X
+\end{equation}
+
+Assume a $X$ in the form:
+
+\begin{equation}
+    X =
+    \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}
+\end{equation}
+
+We need the equations:
+
+\begin{equation}
+    \begin{split}
+        a + a^{*} &= d + d^{*} = 0 \\
+        b + c^{*} &= 0 \\
+    \end{split}
+\end{equation}
+
+The first line implies that $a$ and $d$ are purely imaginary but otherwise independent. For the second line, we write $c = -b^{*}$ so that $c$ is determined by $b$. This gives three independent parameters, which means that there must be three independent generators.
+
+\subproblem{b}
+Since $J_{i}$ are generators of $SU(2)$, they satisfy $J_{i}^{\dagger} = -J_{i}$. On the other hand, if we write:
+
+\begin{equation}
+    M = \mathbb{I} + i z_{1} J_{1} + i z_{2} J_{2} + i z_{3} J_{3}
+\end{equation}
+
+we require:
+
+\begin{equation}
+    \begin{split}
+        M^{\dagger}M &= \mathbb{I} \\
+        i(z_{1}J_{1} - z_{1}^{*}J_{1}\dagger) + i(z_{2}J_{2} - z_{2}^{*}J_{2}\dagger) + i(z_{3}J_{3} - z_{3}^{*}J_{3}\dagger) &= 0
+    \end{split}
+\end{equation}
+
+Since $J_{i}^{\dagger} = -J_{i}$, we have $z_{i} = -z_{i}^{*}$, which means that $z_{i}$ are purely imaginary. Thus:
+
+\begin{equation}
+    K_{i}^{\dagger} = (z_{i}J_{i})^{\dagger} = -z_{i}^{*}J_{i}^{\dagger} = z_{i}J_{i} = K_{i}
+\end{equation}
+
+Suppose we write $K_{i}$ in the form:
+
+\begin{equation}
+    K_{i} =
+    \begin{pmatrix}
+        \alpha & \beta  \\
+        \gamma & \delta
+    \end{pmatrix}
+\end{equation}
+
+For it to be Hermitian, we need $\alpha = \alpha^{*}$ and $\delta = \delta^{*}$, which means they are real. We also need $\beta = \gamma^{*}$, which means that $\beta$ and $\gamma$ are complex conjugates of each other. In a more symmetric form, we can write:
+
+\begin{equation}
+    K_{i} =
+    \begin{pmatrix}
+        a + d  & b - ic \\
+        b + ic & a - d
+    \end{pmatrix}
+    =
+    a\mathbb{I} + b\sigma_{1} + c\sigma_{2} + d\sigma_{3}
+\end{equation}
+
+which gives:
+
+\begin{equation}
+    M = \mathbb{I} - i(a_{1} \sigma_{1} + a_{2} \sigma_{2} + a_{3} \sigma_{3})
+\end{equation}
+
+\subproblem{c}
+We have demonstrated via $K_{i}$ that any $2 \times 2$ Hermitian matrix $S$ can be written as a linear combination of $\mathbb{I}$ and $\sigma_{i}$. Let us rename the coefficients of $\sigma_{i}$:
+
+\begin{equation}
+    S = ct\mathbb{I} + x\sigma_{1} + y\sigma_{2} + z\sigma_{3}
+\end{equation}
+
+The determinant of $S$ is:
+
+\begin{equation}
+    \det(S) = c^{2}t^{2} - x^{2} - y^{2} - z^{2} \\
+\end{equation}
+
+Consider the transformation $S' = LSL^{\dagger}$. We can show that $S'$ is Hermitian:
+
+\begin{equation}
+    (S')^{\dagger} = (LSL^{\dagger})^{\dagger} = (L^{\dagger})^{\dagger} S^{\dagger} L^{\dagger} = LSL^{\dagger} = S'
+\end{equation}
+
+Thus $L$ can be viewed as a Lorentz transformation and $S$ and $S'$ represent spacetimes events.
+
+\subproblem{d}
+Consider $L = \operatorname{diag}{(a, b)}$ with $\det(L) = ab = 1$. Then:
+
+\begin{equation}
+    LSL^{\dagger} =
+    \begin{pmatrix}
+        a & 0 \\
+        0 & b
+    \end{pmatrix}
+    \begin{pmatrix}
+        ct & x \\
+        y  & z
+    \end{pmatrix}
+    \begin{pmatrix}
+        a & 0 \\
+        0 & b
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        a^{2} ct & ab x    \\
+        ab y     & b^{2} z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        ct' & x' \\
+        y'  & z'
+    \end{pmatrix}
+\end{equation}
+
+This means that $t' = a^{2} t$, $x' = x$, $y' = y$, and $z' = z/a^{2}$. This is a boost in the $z$ direction with a factor of $a^{2}$.
+
+Consider another form of $L$:
+
+\begin{equation}
+    L = (\cosh{q}) \mathbb{I} - (\sinh{q}) \sigma_{3}
+    =
+    \begin{pmatrix}
+        \cosh{q}-\sinh{q} & 0                 \\
+        0                 & \cosh{q}+\sinh{q}
+    \end{pmatrix}
+\end{equation}
+
+which apparently satisfies $\det(L) = 1$.
+
+\subproblem{e}
+Consider $S = x\sigma_{1} + y\sigma_{2} + z\sigma_{3}$. Then:
+
+\begin{equation}
+    \tr(S) = x\tr(\sigma_{1}) + y\tr(\sigma_{2}) + z\tr(\sigma_{3}) = 0
+\end{equation}
+
+Let us demand $\tr(S') = 0$ as well. Then:
+
+\begin{equation}
+    \tr(S') = \tr(LSL^{\dagger}) = \tr(LL^{\dagger}S) = 0 = \tr(S)
+\end{equation}
+
+which demands $L$ to be unitary, i.e. $L$ is in $SU(2)$.
+
+We can thus write $L$ in the form:
+
+\begin{equation}
+    L = \exp[-i(a_{1} \sigma_{1} + a_{2} \sigma_{2} + a_{3} \sigma_{3})]
+\end{equation}
+
+Let $a_{1} = a_{2} = 0$ and $a_{3} = \theta$, then:
+
+\begin{equation}
+    \begin{split}
+        L &= \exp[-i\theta \sigma_{3}] \\
+        &= \sum_{n = 0}^{\infty} \frac{(-i\theta)^{n}}{n!} \sigma_{3}^{n} \\
+    \end{split}
+\end{equation}
+
+However, it is easy to check that $\sigma_{3}^{n}$ is $\mathbb{I}$ for even $n$ and $\sigma_{3}$ for odd $n$. Thus:
+
+\begin{equation}
+    \begin{split}
+        L &= \sum_{\text{even } n} \frac{(-i\theta)^{n}}{n!} \mathbb{I} + \sum_{\text{odd } n} \frac{(-i\theta)^{n}}{n!} \sigma_{3} \\
+        &= \cos{\theta} \mathbb{I} - i\sin{\theta} \sigma_{3} \\
+        &=
+        \begin{pmatrix}
+            e^{-i\theta} & 0           \\
+            0            & e^{i\theta}
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+\qed
+
+
+\end{document}

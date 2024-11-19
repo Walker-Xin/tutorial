@@ -1,0 +1,295 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Condensed Matter Physics}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Crystal Structure, Reciprocal Lattice, and Scattering}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{3.1}{Crystal structure}
+
+
+This is a face-centred cubic (FCC) lattice with a basis:
+
+\begin{equation}
+    \begin{split}
+        \text{Zn} & : [0, 0, 0] \\
+        & : [1/2, 0, 1/2] \\
+        & : [0, 1/2, 1/2] \\
+        & : [1/2, 1/2, 0] \\
+        \text{S} & : [1/4, 1/4, 3/4] \\
+        & : [3/4, 3/4, 3/4] \\
+        & : [3/4, 1/4, 1/4] \\
+        & : [1/4, 3/4, 1/4]
+    \end{split}
+\end{equation}
+
+By simple geometry, the closest distances are:
+
+\begin{equation}
+    \begin{split}
+        d_{\text{Zn-Zn}} & = \frac{\sqrt{2}}{2} a \\
+        d_{\text{Zn-S}} & = \frac{\sqrt{3}}{4} a \\
+        d_{\text{S-S}} & = \frac{\sqrt{2}}{2} a
+    \end{split}
+\end{equation}
+
+The spacing between $(210)$ planes is $d_{[210]} = \sqrt{5} a / 10$.
+\qed
+
+
+\problem{3.2}{Directions and spacings of crystal planes}
+
+The direction $[hkl]$ is defined by the vector:
+
+\begin{equation}
+    \mathbf{v} = h \mathbf{a}_{1} + k \mathbf{a}_{2} + l \mathbf{a}_{3}
+\end{equation}
+
+where as the plane $(hkl)$ is defined by the equation:
+
+\begin{equation}
+    \mathbf{r} \cdot \mathbf{G} = \mathbf{r} \cdot (h \mathbf{b}_{1} + k \mathbf{b}_{2} + l \mathbf{b}_{3}) = 2\pi m
+\end{equation}
+
+Since we have $\mathbf{a}_{i} \cdot \mathbf{b}_{j} = 2\pi \delta_{ij}$, we substitute $\mathbf{r} \to \mathbf{v}$:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{v} \cdot \mathbf{G} & = h^{2} \mathbf{a}_{1} \cdot \mathbf{b}_{1} + k^{2} \mathbf{a}_{2} \cdot \mathbf{b}_{2} + l \mathbf{a}_{3} \cdot \mathbf{b}_{3} \\
+        & = 2\pi (h + k + l)
+    \end{split}
+\end{equation}
+
+which satisfies the condition for the $(hkl)$ plane, i.e. vector $\mathbf{v}$ is perpendicular to the $(hkl)$ plane.
+
+The same holds true for an orthorhombic lattice, where the (reciprocal) lattice vectors are orthogonal to each other.
+
+The spacing between $(hkl)$ planes is:
+
+\begin{equation}
+    \begin{split}
+        d &= \frac{2\pi}{\left\lvert \mathbf{G} \right\rvert} \\
+        &= \frac{2\pi}{\sqrt{(2\pi/a)^{2} (h^{2} + k^{2} + l^{2})}} \\
+        &= \frac{a}{\sqrt{h^{2} + k^{2} + l^{2}}}
+    \end{split}
+\end{equation}
+
+To generalize this to an orthorhombic lattice, we have:
+
+\begin{equation}
+    \begin{split}
+        d &= \frac{2\pi}{\left\lvert \mathbf{G} \right\rvert} \\
+        &= \frac{2\pi}{\sqrt{(2\pi h/a)^{2} + (2\pi k/b)^{2} + (2\pi l/c)^{2}}} \\
+        &= \frac{1}{\sqrt{(h/a)^{2} + (k/b)^{2} + (l/c)^{2}}}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{3.3}{Reciprocal lattice}
+
+
+\subproblem{b}
+Consider the given expressions for the reciprocal lattice vectors. We have:
+
+\begin{equation}
+    \begin{split}
+        \mathbf{a}_{1} \cdot \mathbf{b}_{1} & = 2\pi \frac{\mathbf{a}_{1} \cdot \mathbf{a}_{2} \times \mathbf{a}_{3}}{\mathbf{a}_{1} \cdot \mathbf{a}_{2} \times \mathbf{a}_{3}} = 2\pi \\
+        \mathbf{a}_{1} \cdot \mathbf{b}_{2} & = 2\pi \frac{\mathbf{a}_{1} \cdot \mathbf{a}_{3} \times \mathbf{a}_{1}}{\mathbf{a}_{1} \cdot \mathbf{a}_{2} \times \mathbf{a}_{3}} = 0 \\
+        \mathbf{a}_{1} \cdot \mathbf{b}_{3} & = 2\pi \frac{\mathbf{a}_{1} \cdot \mathbf{a}_{1} \times \mathbf{a}_{2}}{\mathbf{a}_{1} \cdot \mathbf{a}_{2} \times \mathbf{a}_{3}} = 0
+    \end{split}
+\end{equation}
+
+where the last two expressions are zero because $\mathbf{a}_{1}$ is orthogonal to $\mathbf{a}_{3} \times \mathbf{a}_{1}$ and $\mathbf{a}_{1} \times \mathbf{a}_{2}$. A similar argument can be made for the other reciprocal lattice vectors.
+
+\subproblem{c}
+Tetragonal lattice has two of the three sides equal at $90^{\circ}$, whereas orthorhombic lattice has all three sides unequal at $90^{\circ}$. For orthorhombic lattice, a lattice vector can be written as:
+
+\begin{equation}
+    \mathbf{R} = ha_{1} \hat{\mathbf{x}} + ka_{2} \hat{\mathbf{y}} + la_{3} \hat{\mathbf{z}}
+\end{equation}
+
+The vectors are already orthogonal so we choose $\mathbf{b}_{i} = 2\pi \hat{\mathbf{i}} / a_{i}$. The length of a reciprocal lattice vector is:
+
+\begin{equation}
+    \begin{split}
+        \left\lvert \mathbf{G} \right\rvert &= \left\lvert h \mathbf{b}_{1} + k \mathbf{b}_{2} + l \mathbf{b}_{3} \right\rvert \\
+        &= \sqrt{h^{2} \left( \frac{2\pi}{a_{1}} \right)^{2} + k^{2} \left( \frac{2\pi}{a_{2}} \right)^{2} + l^{2} \left( \frac{2\pi}{a_{3}} \right)^{2}} \\
+        &= 2\pi \sqrt{\frac{h^{2}}{a_{1}^{2}} + \frac{k^{2}}{a_{2}^{2}} + \frac{l^{2}}{a_{3}^{2}}} \\
+        &= 2\pi/d
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{3.4}{Reciprocal lattice and diffraction}
+The $(210)$ planes cut the $x$-axis at $x = a/2$, $y$-axis at $y = a$. The reciprocal lattice vector is thus $\mathbf{G} = 4\pi/a_{1} \hat{\mathbf{x}} + 2\pi/a_{2} \hat{\mathbf{y}}$. Now consider the relation:
+
+\begin{equation}
+    \Delta \mathbf{k} = \mathbf{k}' - \mathbf{k} = \mathbf{G}
+\end{equation}
+
+The two wave vectors have the same magnitude so the difference has the length $\Delta k = 2k \sin{\theta}$. But the length of $\mathbf{G}$ is $2\pi / d$ so we arrive at the Laue condition:
+
+\begin{equation}
+    \lambda = 2d \sin{\theta}
+\end{equation}
+\qed
+
+
+\problem{3.5}{Scattering from a crystal lattice}
+
+
+The X-ray structure factor for $(00l)$ Bragg reflection is:
+
+\begin{equation}
+    \begin{split}
+        S_{00l} &= f_{Ba} + f_{Ti} \exp{2\pi i (00l) [\frac{1}{2} \frac{1}{2} \frac{1}{2}]} \\
+        &+ f_{O} \left[ \exp{2\pi i (00l) [\frac{1}{2} \frac{1}{2} 0]} + \exp{2\pi i (00l) [\frac{1}{2} 0 \frac{1}{2}]} + \exp{2\pi i (00l) [0 \frac{1}{2} \frac{1}{2}]} \right] \\
+        &= f_{Ba} + f_{Ti} \exp{2\pi i l} + f_{O} \left[ 1 + 2 \exp{2\pi i l} \right] \\
+        &= f_{Ba} + (-1)^{l} f_{Ti} + \left[ 1 + 2(-1)^{l} \right] f_{O}
+    \end{split}
+\end{equation}
+
+We have the intensity ratio:
+
+\begin{equation}
+    \begin{split}
+        \frac{I_{002}}{I_{001}} &= \frac{(f_{Ba} + f_{Ti} + 3f_{O})^{2}}{(f_{Ba} + f_{Ti} - f_{O})^{2}} \\
+        &= \left( \frac{Z_{Ba} + Z_{Ti} + 3Z_{O}}{Z_{Ba} + Z_{Ti} - Z_{O}} \right)^{2} \\
+        &= 15.4
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{3.6}{X-ray scattering and systematic absences}
+
+
+\subproblem{b}
+For BCC lattice, we have the basis:
+
+\begin{equation}
+    \begin{split}
+        X & : [0, 0, 0] \\
+        & : [1/2, 1/2, 1/2]
+    \end{split}
+\end{equation}
+
+Then the structure factor is:
+
+\begin{equation}
+    \begin{split}
+        S_{hkl} &= f_{X} \left[ \exp{2\pi i (hkl) [0 0 0]} + \exp{2\pi i (hkl) [\frac{1}{2} \frac{1}{2} \frac{1}{2}]} \right] \\
+        &= f_{X} \left[ 1 + (-1)^{h+k+l} \right]
+    \end{split}
+\end{equation}
+
+which is $2f_{X}$ for $h+k+l$ even and zero otherwise.
+
+For FCC lattice, we have the basis:
+
+\begin{equation}
+    \begin{split}
+        X & : [0, 0, 0] \\
+        & : [1/2, 0, 1/2] \\
+        & : [0, 1/2, 1/2] \\
+        & : [1/2, 1/2, 0]
+    \end{split}
+\end{equation}
+
+Then the structure factor is:
+
+\begin{equation}
+    \begin{split}
+        S_{hkl} &= f_{X} \left[ 1 + (-1)^{h+k} + (-1)^{k+l} + (-1)^{l+h} \right]
+    \end{split}
+\end{equation}
+
+which is $4f_{X}$ if $h$, $k$, and $l$ are all even or all odd, and zero otherwise.
+
+Thus $(110)$ reflection is allowed for BCC lattice and forbidden for FCC lattice.
+
+\subproblem{c}
+The overall structure factor is a multiplication of the lattice factor and the basis factor. Thus, as long as the lattice is BCC or FCC, the selection rules apply regardless of the basis.
+
+\subproblem{d}
+Consider the following data:
+
+\begin{table}[h!]
+    \begin{tabular}{ccccccc}
+        $2\theta$ & $d$    & $(d_{1}/d)^{2}$ & 3     & $N = h^{2} + k^{2} + l^{2}$ & ${hkl}$ & $a=d\sqrt{h^{2} + k^{2} + l^{2}}$ \\ \hline
+        42.3      & 0.2245 & 1               & 3     & 3                           & 111     & 0.389                             \\
+        49.2      & 0.1945 & 1.331           & 3.99  & 4                           & 200     & 0.389                             \\
+        72.2      & 0.1374 & 2.667           & 8     & 8                           & 220     & 0.389                             \\
+        87.4      & 0.1172 & 3.667           & 11    & 11                          & 311     & 0.389                             \\
+        92.3      & 0.1123 & 3.995           & 11.98 & 12                          & 222     & 0.389
+    \end{tabular}
+\end{table}
+
+Thus the lattice is FCC with $a = 0.389$ nm.
+\qed
+
+
+\problem{3.7}{Neutron scattering}
+
+
+\subproblem{a}
+If we have a NaCl lattice, the structure factor is:
+
+\begin{equation}
+    \begin{split}
+        S_{hkl} &= S^{\text{FCC}} \times S^{\text{basis}} \\
+        &= \left[ 1 + (-1)^{h+k} + (-1)^{k+l} + (-1)^{l+h} \right] \times \left[ f_{Na} + f_{H} \exp{2\pi i (hkl) [\frac{1}{4} \frac{1}{4} \frac{1}{4}]} \right]
+    \end{split}
+\end{equation}
+
+Substituting $(hkl) = (111)$ and $(hkl) = (200)$, we have:
+
+\begin{equation}
+    \begin{split}
+        S_{111} &= 4(f_{Na} - if_{H}) \\
+        S_{200} &= 4(f_{Na} - f_{H}) \\
+    \end{split}
+\end{equation}
+
+If we have a ZnS lattice, the structure factor is:
+
+\begin{equation}
+    \begin{split}
+        S_{hkl} &= S^{\text{BCC}} \times S^{\text{basis}} \\
+        &= \left[ 1 + (-1)^{h+k+l} \right] \times \left[ f_{Zn} + f_{S} \exp{2\pi i (hkl) [\frac{1}{2} \frac{1}{2} \frac{1}{2}]} \right]
+    \end{split}
+\end{equation}
+
+Substituting $(hkl) = (111)$ and $(hkl) = (200)$, we have:
+
+\begin{equation}
+    \begin{split}
+        S_{111} &= 0 \\
+        S_{200} &= 2(f_{Zn} - f_{S})
+    \end{split}
+\end{equation}
+
+For $(111)$ reflection to be much stronger than $(200)$ reflection, we need NaCl lattice.
+
+The difference between X-ray and neutron scattering lies mainly in the scattering intensity. For neutrons we may typically assume that the scatter length is independent of scattering angle, whereas the form factor for X-rays is angle-dependent.
+\qed
+
+
+\end{document}

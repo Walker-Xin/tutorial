@@ -1,0 +1,502 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Condensed Matter Physics}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Chemical Bonding, Thermal Expansion, Normal Modes, Phonons in 1D}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{2.1}{Chemical bonding}
+
+
+The first two questions are pure copy-and-paste.
+% \begin{items}
+%     \item Ionic bond: Electron is transferred from one atom to another, leading to a bonding due to Coulomb interaction.
+%     \item Covalent bond: Electrons are shared between atoms, leading to a bonding due to the overlap of electron wavefunctions.
+%     \item Metallic bond: Electrons are delocalized over the entire solid, leading to a bonding due to the interaction between electrons and ions.
+%     \item Van der Waals bond: Atoms are bonded due to the dipole-dipole interaction between them.
+%     \item Hydrogen bond: Atoms are bonded due to the interaction between a hydrogen atom and an electronegative atom.
+% \end{items}
+
+\subproblem{c}
+\begin{equation}
+    \Delta E = \frac{1}{4\pi \epsilon_{0}} \frac{e^{2}}{d} - E_{\text{ion}} + E_{\text{aff}} = 4.57 eV
+\end{equation}
+
+This is an overestimate due to us only crudely taking the Coulomb energy as a simple inverse function of bond length but neglecting the inner structure of the atoms.
+\qed
+
+
+\problem{2.2}{Covalent bonding in detail}
+
+
+\subproblem{a}
+Consider the trial ket $\ket{\psi} = \sum \phi_{n} \ket{n}$ and the energy:
+
+\begin{equation}
+    \begin{split}
+        E &= \frac{\mel{\psi}{\hat{H}}{\psi}}{\braket{\psi}{\psi}} \\
+        &= \sum_{n} \frac{\sum_{m} \phi_{n}^{*} \phi_{m} \mel{n}{\hat{H}}{m}}{\phi_{n}^{*} \phi_{n}}
+    \end{split}
+\end{equation}
+
+Now we minimise $\bar{H}$ with respect to $\phi_{m}$:
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \bar{H}}{\partial \phi_{m}} &\propto \frac{\partial}{\partial \phi_{m}} \left( \sum_{n, m} \phi_{n}^{*} \phi_{m} \mel{n}{\hat{H}}{m} \right) \left( \sum_{n} \phi_{n}^{*} \phi_{n} \right) - \frac{\partial}{\partial \phi_{m}} \left( \sum_{n} \phi_{n}^{*} \phi_{n} \right) \left( \sum_{n, m} \phi_{n}^{*} \phi_{m} \mel{n}{\hat{H}}{m} \right) \\
+        &= \left( \sum_{n, m} \phi_{n}^{*} \mel{n}{\hat{H}}{m} \right) \left( \sum_{n} \phi_{n}^{*} \phi_{n} \right) - \left( \sum_{n} \phi_{n}^{*} \delta_{n, m} \right) \left( \sum_{n, m} \phi_{n}^{*} \phi_{m} \mel{n}{\hat{H}}{m} \right) \\
+        &= \left\lvert \phi \right\rvert^{2} \phi_{n}^{*} \mel{n}{\hat{H}}{m} - \phi_{m}^{*} (\phi_{i}^{*} \phi_{j} \mel{i}{\hat{H}}{j}) = 0
+    \end{split}
+\end{equation}
+
+and minimise with respect to $\phi_{m}^{*}$:
+
+\begin{equation}
+    \left\lvert \phi \right\rvert^{2} \phi_{m} \mel{n}{\hat{H}}{m} - \phi_{m} (\phi_{i}^{*} \phi_{j} \mel{i}{\hat{H}}{j}) = 0
+\end{equation}
+
+Consider the first term in the above equation. We may swap the indices $m$ and $n$ and assume $\mel{n}{\hat{H}}{m} = \mel{m}{\hat{H}}{n}$, leading to:
+
+\begin{equation}
+    \left\lvert \phi \right\rvert^{2} \phi_{n} \mel{n}{\hat{H}}{m} - \phi_{m} (\phi_{i}^{*} \phi_{j} \mel{i}{\hat{H}}{j}) = 0
+\end{equation}
+
+This with the first equation demands $\phi_{m} = \phi_{m}^{*}$, i.e. $\phi_{m}$ is real. Given this, we rewrite the first equation as:
+
+\begin{equation}
+    \left\lvert \phi \right\rvert^{2} \phi_{n} \mel{n}{\hat{H}}{m} - \phi_{m} \left( \sum_{i, j} \phi_{i} \phi_{j} \mel{i}{\hat{H}}{j} \right) = 0
+\end{equation}
+
+Note that the second term is just the energy $E$ of the system multiplied by $\left\lvert \phi \right\rvert^{2}$. Then:
+
+\begin{equation}
+    \begin{split}
+        \left\lvert \phi \right\rvert^{2} \phi_{n} \mel{n}{\hat{H}}{m} - \left\lvert \phi \right\rvert^{2} E \phi_{m} &= 0 \\
+        \mel{n}{\hat{H}}{m} \phi_{n} = E \phi_{m}
+    \end{split}
+\end{equation}
+
+which is just the matrix equation desired.
+
+\subproblem{b}
+Due to symmetry in the two nuclei Hamiltonian, the potential of particle $1$ is the same as that of particle $2$. Thus $\mel{1}{V_{2}}{1} = \mel{2}{V_{1}}{2}$ and $\mel{1}{V_{2}}{2} = \mel{1}{V_{1}}{2}$.
+
+Consider the matrix equation:
+
+\begin{equation}
+    \begin{bmatrix}
+        E_{0} + V_{\text{cross}} & t                        \\
+        t^{*}                    & E_{0} + V_{\text{cross}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \phi_{1} \\
+        \phi_{2}
+    \end{bmatrix}
+    = \epsilon
+    \begin{bmatrix}
+        \phi_{1} \\
+        \phi_{2}
+    \end{bmatrix}
+\end{equation}
+
+Diagonalising the matrix, we need:
+
+\begin{equation}
+    (E_{0} + V_{\text{cross}} - \epsilon)^{2} - \left\lvert t \right\rvert^{2} = 0
+\end{equation}
+
+which gives $\epsilon_{\pm} = E_{0} + V_{\text{cross}} \pm \left\lvert t \right\rvert$.
+
+This model does not take into strong electron-electron repulsion at all so it is bound to fail when the atoms are too close to each other where the Coulomb interaction diverges.
+\qed
+
+
+\problem{2.3}{Potential bewtween atoms}
+
+The $-6$ power term in the Lennard-Jones potential is due to the van der Waals interaction between atoms. Since van der Waals force is of order $1/r^{7}$, the potential energy is of order $1/r^{6}$.
+
+Consider the potential:
+
+\begin{equation}
+    V(x) = 4 \epsilon \left[ \left( \frac{\sigma}{x} \right)^{12} - \left( \frac{\sigma}{x} \right)^{6} \right] + \epsilon
+\end{equation}
+
+The minimum of the potential is at $x = 2^{1/6} \sigma$ at which $V(x) = \epsilon$. Define $\Delta = x - 2\sigma$ and expand the potential around the minimum:
+
+\begin{equation}
+    \begin{split}
+        V(\Delta) &= V(2^{1/6} \sigma) + \frac{1}{2} \left. \frac{\partial^{2} V}{\partial x^{2}} \right|_{x = 2^{1/6}\sigma} \Delta^{2} + \frac{1}{6} \left. \frac{\partial^{3} V}{\partial x^{3}} \right|_{x = 2^{1/6}\sigma} \Delta^{3} + \cdots \\
+        &= \epsilon \left[ \frac{36 (4)^{1/3}}{2} \left( \frac{\Delta}{\sigma} \right)^{2} - \frac{756\sqrt{2}}{6} \left( \frac{\Delta}{\sigma} \right)^{3} \right] + \cdots
+    \end{split}
+\end{equation}
+
+which gives $\kappa = 36 (4)^{1/3} \epsilon / 2\sigma^{2}$ and $\kappa_{3} = 756\sqrt{2} \epsilon / 6\sigma^{3}$.
+\qed
+
+
+\problem{2.4}{Classical model of thermal expansion}
+
+
+Consider the following expansion:
+
+\begin{equation}
+    \begin{split}
+        \exp[-\beta V(x)] &\approx \exp \left[ -\beta \left( \frac{\kappa}{2} \Delta^{2} - \frac{\kappa_{3}}{6} \Delta^{3} \right) \right] \\
+        &= e^{-\beta \kappa \Delta^{2}/2} e^{+\beta \kappa_{3} \Delta^{3}/6} \\
+        &= e^{-\beta \kappa \Delta^{2}/2} \left( 1 + \frac{\beta \kappa_{3} \Delta^{3}}{6} + \cdots \right)
+    \end{split}
+\end{equation}
+
+where the approximation is allowed as long as $\beta \kappa \Delta^{2}/2 \ll 1$ and $\beta \kappa_{3} \Delta^{3}/6 \ll 1$.
+
+Consider the integral:
+
+\begin{equation}
+    \begin{split}
+        \int_{-\infty}^{\infty} x e^{-\beta V(x)} \, \mathrm{d}x &= \int_{-\infty}^{\infty} x e^{-\beta \kappa \Delta^{2}/2} \left( 1 + \frac{\beta \kappa_{3} \Delta^{3}}{6} + \cdots \right) \, \mathrm{d}x \\
+        &= \int_{-\infty}^{\infty} (\Delta + x_{0}) e^{-\beta \kappa \Delta^{2}/2} \left( 1 + \frac{\beta \kappa_{3} \Delta^{3}}{6} + \cdots \right) \, \mathrm{d}\Delta \\
+        &= x_{0} \int_{-\infty}^{\infty} e^{-\beta \kappa \Delta^{2}/2} \, \mathrm{d}\Delta + \frac{\beta \kappa_{3}}{6} \int_{-\infty}^{\infty} \Delta^{4} e^{-\beta \kappa \Delta^{2}/2} \, \mathrm{d}\Delta \\
+        &= x_{0} \sqrt{\frac{2\pi}{\beta \kappa}} + \frac{\beta \kappa_{3}}{2} \sqrt{\frac{2\pi}{(\beta \kappa)^{5}}}
+    \end{split}
+\end{equation}
+
+and the normalisation:
+
+\begin{equation}
+    \begin{split}
+        \int_{-\infty}^{\infty} e^{-\beta V(x)} \, \mathrm{d}x &= \int_{-\infty}^{\infty} e^{-\beta \kappa \Delta^{2}/2} \left( 1 + \frac{\beta \kappa_{3} \Delta^{3}}{6} + \cdots \right) \, \mathrm{d}x \\
+        &= \sqrt{\frac{2\pi}{\beta \kappa}}
+    \end{split}
+\end{equation}
+
+We have the average displacement:
+
+\begin{equation}
+    \begin{split}
+        \langle x \rangle_{\beta} &= \frac{\int_{-\infty}^{\infty} x e^{-\beta V(x)} \, \mathrm{d}x}{\int_{-\infty}^{\infty} e^{-\beta V(x)} \, \mathrm{d}x} \\
+        &= x_{0} + \frac{\kappa_{3}}{2\beta \kappa^{2}}
+    \end{split}
+\end{equation}
+
+which leads to the coefficient of thermal expansion:
+
+\begin{equation}
+    \alpha = \frac{1}{x_{0}} \frac{\mathrm{d}\langle x \rangle_{\beta}}{\mathrm{d}T} = \frac{1}{x_{0}} \frac{k_{B}\kappa_{3}}{2\kappa^{2}}
+\end{equation}
+
+For this approximation to be valid, the cubic approximation to $V(x)$ must be valid, i.e. $\beta \kappa_{3} \Delta^{3}/6 \ll 1$. Let $\Delta = \kappa_{3}/2\beta \kappa^{2}$, then we arrive at a condition on $T$:
+
+\begin{equation}
+    T \ll \frac{4\sqrt{3} \kappa^{3}}{\kappa_{3}^{2} k_{B}}
+\end{equation}
+
+For a multi-atom system, the potential is no longer the simple atom-atom potential, and the approximation may not be valid.
+\qed
+
+
+\problem{2.5}{Normal modes of a one dimensional monatomic chain}
+
+
+\subproblem{a}
+A normal mode is a (angular) frequency at which all the particles in the system oscillate with the frequency and constant phase. A phonon is a quantized normal mode of a lattice vibration.
+
+Multiple phonons can occupy the same normal mode, which implies that phonons are bosons.
+
+\subproblem{b}
+Consider a one-dimensional chain of atoms with mass $m$ and equilibrium spacing $a$. The potential energy of the system is:
+
+\begin{equation}
+    \begin{split}
+        V &= \sum V(x_{n + 1} - x_{n}) \\
+        &= \sum \frac{\kappa}{2} (\delta x_{n + 1} - \delta x_{n})^2 \\
+    \end{split}
+\end{equation}
+
+leading to the equation of motion:
+
+\begin{equation}
+    F_{n} = -\frac{\partial V}{\partial x_{n}} = \kappa (\delta x_{n + 1} - 2\delta x_{n} + \delta x_{n - 1}) = m \delta \ddot{x}_{n}
+\end{equation}
+
+Solving this with the ansatz $\delta x_{n} = A e^{i(\omega t - kna)}$ gives the dispersion relation:
+
+\begin{equation}
+    \omega = 2\sqrt{\frac{\kappa}{m}} \left\lvert \sin{\left( \frac{ka}{2} \right)} \right\rvert
+\end{equation}
+
+where we use the absolute value to impose $\omega \geq 0$ but allow $k$ to take any value.
+
+\subproblem{c}
+From the dispersion relation, it is clear that for any integer $q$, the substitution $k \to k + q (2\pi/a)$ leaves $\omega$ and thus the physical motion of the atoms unchanged. Thus the dispersion relation is periodic in $k$ with period $2\pi/a$. However, we do not have an infinite number of normal modes, as we view the atoms as a circle such that $\delta x_{n + N} = \delta x_{n}$ for a chain of $N$ atoms. For this, we require:
+
+\begin{equation}
+    A e^{i(\omega t - kNa)} = A e^{i(\omega t - ka)}
+\end{equation}
+
+which leads to the quantisation of $k$:
+
+\begin{equation}
+    k = \frac{2\pi p}{Na} = \frac{2\pi p}{L}
+\end{equation}
+
+where $p$ is an integer and $L = Na$ is the length of the chain.
+
+There are thus $N$ normal modes in the chain, each with a different $k$ and $\omega$.
+
+\subproblem{d}
+We define the group velocity as the speed at which the wave packet moves (the speed of information, i.e. sound speed):
+
+\begin{equation}
+    v_{g} = \frac{d\omega}{dk} = a \sqrt{\frac{\kappa}{m}} \cos{\left( \frac{ka}{2} \right)}
+\end{equation}
+
+and the phase velocity as the speed at which the wave moves:
+
+\begin{equation}
+    v_{p} = \frac{\omega}{k} = 2\sqrt{\frac{\kappa}{m}} \frac{1}{k} \left\lvert \sin{\left( \frac{ka}{2} \right)} \right\rvert
+\end{equation}
+
+From force balance we have $F = -\kappa \delta x$ and the compressibility is $\beta = -(1/L) \partial L/\partial F = 1/\kappa a$. The speed of sound is then:
+
+\begin{equation}
+    v_{s} = \sqrt{\frac{1}{\beta \rho}}
+\end{equation}
+
+\subproblem{e}
+Since $k = 2\pi p / L$, we have $\Delta k = 2\pi / L$ which is very small for large $L$. Thus we may calculate at the continuous limit:
+
+\begin{equation}
+    \begin{split}
+        \sum_{k} &= \frac{L}{2\pi} \sum \Delta k \\
+        &\approx \frac{L}{2\pi} \int_{-\pi/a}^{\pi/a} \, \mathrm{d}k \\
+    \end{split}
+\end{equation}
+
+Changing to $\omega$-space using the dispersion relation, we require:
+
+\begin{equation}
+    \begin{split}
+        g(\omega) \, \mathrm{d}\omega &= \frac{L}{2\pi} \, \mathrm{d}k \\
+        g(\omega) &= \frac{L}{2\pi} \left\lvert \frac{\mathrm{d}k}{\mathrm{d}\omega} \right\rvert \\
+        &= \frac{Na}{2\pi} \frac{1}{a} \sqrt{\frac{m}{\kappa}} \cos{\left( \frac{ka}{2} \right)} \\
+        &= \frac{N}{2\pi} \sqrt{\frac{m}{\kappa}} \left( 1 - \frac{\omega^{2}}{4\kappa/m} \right)^{-1/2}
+    \end{split}
+\end{equation}
+
+\subproblem{f}
+The total energy is:
+
+\begin{equation}
+    U = \int g(\omega) \hbar \omega \left( n_{\omega} + \frac{1}{2} \right) \, \mathrm{d}\omega
+\end{equation}
+
+where $n_{\omega} = 1/[\exp(\beta \hbar \omega) - 1]$ is the Bose-Einstein distribution.
+
+and the heat capacity is:
+
+\begin{equation}
+    C = \frac{\partial U}{\partial T} = \left( -\frac{1}{k_{B}T^{2}} \right) \int g(\omega) \hbar \omega^{2} \frac{\partial }{\partial \beta} \left( \frac{1}{\exp(\beta \hbar \omega) - 1} \right) \, \mathrm{d}\omega
+\end{equation}
+
+\subproblem{g}
+At high temperatures, we have $\beta \hbar \omega \ll 1$ so $n_{\omega} \approx 1/\beta \hbar \omega$. The heat capacity is then:
+
+\begin{equation}
+    \begin{split}
+        C &= -\frac{1}{k_{B}T^{2}} \int g(\omega) \hbar \omega \frac{\partial }{\partial \beta} \left( \frac{1}{\beta \hbar \omega} \right) \, \mathrm{d}\omega \\
+        &= \frac{1/\beta^{2}}{k_{B}T^{2}} \int g(\omega) \, \mathrm{d}\omega \\
+        &= Nk_{B}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{2.6}{Normal modes of a one dimensional diatomic chain}
+
+\subproblem{a}
+In solving the equation of motion for a diatomic chain, we have derive the dispersion relation with two branches. The branch of higher value is called the optical branch and the branch of lower value is called the acoustic branch.
+
+\subproblem{b}
+Consider the equations of motion:
+
+\begin{equation}
+    \begin{split}
+        m_{1} \delta \ddot{x}_{n} &= \kappa (\delta y_{n - 1} - \delta x_{n}) + \kappa (\delta y_{n} - \delta x_{n}) \\
+        m_{2} \delta \ddot{y}_{n} &= \kappa (\delta x_{n} - \delta y_{n}) + \kappa (\delta x_{n + 1} - \delta y_{n})
+    \end{split}
+\end{equation}
+
+Still consider the ansatz $\delta x_{n} = A_{x} e^{i(\omega t - kna)}$ and $\delta y_{n} = A_{y} e^{i(\omega t - kna)}$. Substituting, we have:
+
+\begin{equation}
+    \begin{split}
+        -\omega^{2} A_{x} &= \frac{\kappa}{m_{1}} \left( A_{y} e^{-ika} - 2A_{x} + A_{y} \right) \\
+        -\omega^{2} A_{y} &= \frac{\kappa}{m_{2}} \left( A_{x} - 2A_{y} + A_{x} e^{ika} \right)
+    \end{split}
+\end{equation}
+
+solving which yields to the dispersion relation:
+
+\begin{equation}
+    \omega_{\pm}^{2} = \omega_{1}^{2} + \omega_{2}^{2} \pm \sqrt{\omega_{1}^{4} + \omega_{2}^{4} + 2\omega_{1}^{2}\omega_{2}^{2} \cos{ka}}
+\end{equation}
+
+where we define $\omega_{1, 2} \equiv \sqrt{\kappa / m_{1, 2}}$.
+
+\subproblem{c}
+At $k = 0$, we have $\omega_{+} = \sqrt{2(\omega_{1}^{2} + \omega_{2}^{2})}$ as the optical frequency and $\omega_{-} = 0$ as the acoustic frequency. At $k = \pi/a$, we have $\omega_{+} = \omega_{1}$ as the optical frequency and $\omega_{-} = \omega_{2}$ as the acoustic frequency, assuming $\omega_{1} > \omega_{2}$ (the other way round if $\omega_{1} < \omega_{2}$).
+
+The sound velocity is the group velocity of the acoustic branch, which is:
+
+\begin{equation}
+    v_{s} = \frac{d\omega_{-}}{dk} = a \frac{2\omega_{1}^{2}\omega_{2}^{2} \sin{ka}}{\sqrt{\omega_{1}^{4} + \omega_{2}^{4} + 2\omega_{1}^{2}\omega_{2}^{2} \cos{ka}}}
+\end{equation}
+
+At $k = \pi/a$, this is zero since the sine term is zero.
+
+\subproblem{d}
+Given $N$ atoms, we have $2N$ normal modes, half of which are optical and half of which are acoustic.
+
+\subproblem{e}
+When $m_{1} = m_{2}$, we have $\omega_{1} = \omega_{2}$ and the problem is reduced to the one-dimensional chain.
+\qed
+
+
+\problem{7}{One dimensional tight binding model}
+
+
+\subproblem{a}
+Consider the equation:
+
+\begin{equation}
+    \begin{split}
+        \mel{n}{\hat{H}}{m} \phi_{m} = E \phi_{n} \\
+        \epsilon \delta_{nm} - t (\delta_{n, m+1}, \delta_{n, m-1}) = E \phi_{n}
+    \end{split}
+\end{equation}
+
+Consider the ansatz $\phi_{n} = e^{-ikna}/\sqrt{N}$. Substituting yields the equation:
+
+\begin{equation}
+    \frac{1}{\sqrt{N}} \left( \epsilon e^{-ikna} - te^{-ik(n+1)a} - te^{-ik(m-1)a} \right) = \frac{1}{\sqrt{N}} E \epsilon e^{-ikna}
+\end{equation}
+
+which then leads to the dispersion relation:
+
+\begin{equation}
+    E = \epsilon_{0} - 2t \cos{ka}
+\end{equation}
+
+If periodic condition is still imposed, we still only have $N$ possible quantisations of $k = 2\pi p/L$ for integer $p$. We thus have $N$ different eigenstates.
+
+Near the bottom of the band, we may treat the dispersion relation as a parabolic curve, i.e. $E(k) = \epsilon_{0} - 2t + ta^{2}k^{2}$. Then consider:
+
+\begin{equation}
+    \begin{split}
+        \frac{\hbar^{2}k^{2}}{2m^{*}} &= ta^{2}k^{2} \\
+        m^{*} &= \frac{\hbar^{2}}{2ta^{2}}
+    \end{split}
+\end{equation}
+
+The density of states is given by the quantisation:
+
+\begin{equation}
+    \sum_{k} = 2 \frac{L}{2\pi} \sum_{k} \Delta k \approx \int \frac{L}{\pi} \, \mathrm{d}k
+\end{equation}
+
+where the factor of two is due to electron spin.
+
+For monovalent atoms, the band is half-filled so that the Fermi surface is at $E = \epsilon_{0}$, which is just the Fermi energy. The density of states is still constant at $L/\pi$.
+
+\subproblem{a}
+Consider the equation:
+
+\begin{equation}
+    \begin{split}
+        \mel{n}{\hat{H}}{m} \phi_{m} = E \phi_{n} \\
+        \epsilon_{n} \delta_{nm} - t (\delta_{n, m+1}, \delta_{n, m-1}) = E \phi_{n}
+    \end{split}
+\end{equation}
+
+where we require $\epsilon_{n} = \epsilon_{A}$ for odd $n$ and $\epsilon_{n} = \epsilon_{B}$ for even $n$. This motivate us to separate odd and even $n$ and consider separate equations. Consider the anstaz:
+
+\begin{equation}
+    \phi_{n} =
+    \begin{cases}
+        \frac{1}{\sqrt{N}} e^{-ik_{-}na} \text{ if } n \text{ is odd} \\
+        \frac{1}{\sqrt{N}} e^{-ik_{+}na} \text{ if } n \text{ is even}
+    \end{cases}
+\end{equation}
+
+Assume $n$ is odd and we have:
+
+\begin{equation}
+    \frac{1}{\sqrt{N}} \left( \epsilon_{A} e^{-ik_{-}na} - t e^{-ik_{+}(n-1)a} - t e^{-ik_{+}(n+1)a} \right) = E \frac{1}{\sqrt{N}} e^{-ik_{-}na}
+\end{equation}
+
+On the other hand, with even index, say $n+1$, we have:
+
+\begin{equation}
+    \frac{1}{\sqrt{N}} \left( \epsilon_{B} e^{-ik_{+}(n+1)a} - t e^{-ik_{-}na} - t e^{-ik_{-}(n+2)a} \right) = E \frac{1}{\sqrt{N}} e^{-ik_{+}(n+1)a}
+\end{equation}
+
+Similarly we can also give an equation for $n-1$:
+
+\begin{equation}
+    \frac{1}{\sqrt{N}} \left( \epsilon_{B} e^{-ik_{+}(n-1)a} - t e^{-ik_{-}(n-2)a} - t e^{-ik_{-}na} \right) = E \frac{1}{\sqrt{N}} e^{-ik_{+}(n+-)a}
+\end{equation}
+
+We use the even index equations to eliminate the terms with $k_{+}$ in the odd index equation to arrive at:
+
+\begin{equation}
+    E^{2} - (\epsilon_{A} + \epsilon_{B})E + \epsilon_{A} \epsilon_{B} - 4t^{2} \cos^{2}{(2k_{-}a)} = 0
+\end{equation}
+
+Due to symmetry in the system, we have an exactly the same equation for $k_{+}$. We choose that $k_{-}$ should correspond to $E_{-}$ of the solution to the above equation and vice versa. That is:
+
+\begin{equation}
+    E_{\pm} = \frac{\epsilon_{A} + \epsilon_{B}}{2} \pm \sqrt{\frac{(\epsilon_{A} - \epsilon_{B})^{2}}{4} + 4t^{2} \cos^{2}{(2k_{\pm}a)}}
+\end{equation}
+
+When $t$ is very small, we make the approximation:
+
+\begin{equation}
+    \begin{split}
+        E_{\pm} &= \frac{\epsilon_{A} + \epsilon_{B}}{2} \pm \frac{\epsilon_{A} - \epsilon_{B}}{2} \sqrt{1 - \frac{16t^{2}}{(\epsilon_{A} - \epsilon_{B})^{2}} \cos^{2}{(2k_{\pm}a)}} \\
+        &\approx \frac{\epsilon_{A} + \epsilon_{B}}{2} \pm \frac{\epsilon_{A} - \epsilon_{B}}{2} \left[ 1 - \frac{8t^{2}}{(\epsilon_{A} - \epsilon_{B})^{2}} \cos^{2}{(2k_{\pm}a)} \right] \\
+        &= \frac{\epsilon_{A} + \epsilon_{B}}{2} \pm \frac{\epsilon_{A} - \epsilon_{B}}{2} \mp \frac{4t^{2}}{\epsilon_{A} - \epsilon_{B}} \cos^{2}{(2k_{\pm}a)}
+    \end{split}
+\end{equation}
+
+For the lower band of lower energy, at small $k$, we have:
+
+\begin{equation}
+    E_{-} \approx \epsilon_{B} + \frac{4t^{2}}{\epsilon_{A} - \epsilon_{B}} (1 - 4k_{-}^{2}a^{2})
+\end{equation}
+
+which gives an effective mass of:
+
+\begin{equation}
+    m^{*} = \frac{\hbar^{2}(\epsilon_{A} - \epsilon_{B})}{32a^{2}t^{2}}
+\end{equation}
+
+If $\epsilon_{A} = \epsilon_{B}$, we ought to discard the lower energy band and treat this system as a monatomic solid.
+\qed
+
+
+\end{document}
