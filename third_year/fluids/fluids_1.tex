@@ -1,0 +1,339 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 1}
+\def\assignmentname{Kinematics of fluids}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Eulerian and Lagrangian descriptions}
+
+\subproblem{a}
+Since the fluid is incompressible and steady, the density $\rho$ is constant and the velocity field $\mathbf{v}$ is independent of time. By conservation of mass, the input from the circular area above equals the output from the side:
+\begin{equation}
+    \rho v_{0} \pi r^{2} = \rho v_{r} (2\pi r) h
+\end{equation}
+which gives $v_{r} = (r/2h) v_{0}$.
+
+For incomprehensibility, we have $\nabla \cdot \mathbf{v} = 0$, which gives:
+\begin{equation}
+    \frac{1}{r} \frac{\partial}{\partial r} (r v_{r}) + \frac{\partial v_{z}}{\partial z} = 0
+\end{equation}
+where we have ignored any azimuthal component due to symmetry.
+
+Substituting $v_{r}$ into the equation and solving, we find $v_{z} = -(z/h) v_{0} + f(r)$, where $f(r)$ is a function of $r$ only. Since the fluid is at rest at $z = 0$, we have $f(r) = 0$. Thus, $v_{z} = -(z/h) v_{0}$.
+
+To find the velocity potential, we demand:
+\begin{equation}
+    \frac{v_{0}}{2h} r \hat{\mathbf{r}} - \frac{v_{0}}{h} z \hat{\mathbf{z}} = \nabla \phi
+\end{equation}
+which gives:
+\begin{equation}
+    \phi = \frac{v_{0}}{4h} r^{2} - \frac{v_{0}}{2h} z^{2}
+\end{equation}
+
+\subproblem{b}
+Consider $\mathbf{v} = \nabla \times \mathbf{A}$, where $\mathbf{A} = A_{\theta} \hat{\mathbf{\theta}}$. We have the equations:
+\begin{equation}
+    \begin{split}
+        -\frac{\partial A_{\theta}}{\partial z} = \frac{v_{0}}{2h} r \\
+        \frac{1}{r} \frac{\partial}{\partial r} (r A_{\theta}) = -\frac{v_{0}}{h} z
+    \end{split}
+\end{equation}
+which gives $A_{\theta} = -(v_{0}/2h) r z$.
+
+The streamlines are given by curves of constant $A_{\theta}$. They are hyperbolae of the form $r z = \text{constant}$. Since the fluid is steady, the streamlines are also the trajectories of fluid particles.
+
+The equipotential surfaces are given by curves of constant $\phi$. They are paraboloids of the form $r^{2} - 2z^{2} = \text{constant}$.
+
+\subproblem{c}
+Consider the initial condition $\mathbf{r}(0) = (r_{0}, \theta_{0}, z_{0})$. Due to symmetry, the $\theta$ component will stay constant. Focusing on the radial component, we have:
+\begin{equation}
+    \frac{\mathrm{d}r}{\mathrm{d}t} = \frac{v_{0}}{2h} r
+\end{equation}
+which can be solved by separation of variables to give:
+\begin{equation}
+    r(t) = r_{0} e^{v_{0} t/(2h)}
+\end{equation}
+
+Similarly, the $z$ component satisfies:
+\begin{equation}
+    \frac{\mathrm{d}z}{\mathrm{d}t} = -\frac{v_{0}}{h} z
+\end{equation}
+which gives:
+\begin{equation}
+    z(t) = z_{0} e^{-v_{0} t/h}
+\end{equation}
+
+It is easy to see that $r(t) z(t) = r_{0} z_{0} = \text{constant}$, which is the equation of the streamlines.
+\qed
+
+
+\problem{2}{Streamlines and trajectories}
+
+\subproblem{a}
+The stream function $A_{z}$ satisfies:
+\begin{equation}
+    \begin{split}
+        \frac{\partial A_{z}}{\partial y} &= v_{0} \\
+        -\frac{\partial A_{x}}{\partial z} &= kt
+    \end{split}
+\end{equation}
+which gives $A_{z} = v_{0}y - ktx$.
+
+The streamlines are given by curves of constant $A_{z}$, which are straight lines of the form $y = (kt/v_{0}) x + \text{constant}$. The time component changes the gradient of the lines.
+
+\subproblem{b}
+The equations of motion can be trivially solved to give:
+\begin{equation}
+    \begin{split}
+        x(t) &= v_{0} t \\
+        y(t) &= \frac{1}{2} kt^{2}
+    \end{split}
+\end{equation}
+which gives $y(x) = (k/2v_{0}) x^{2}$, which is a parabola.
+\qed
+
+
+\problem{3}{Acceleration in a rotating frame}
+\subproblem{a}
+First note the following relation:
+\begin{equation}
+    \mathbf{v}_{r} = \mathbf{v}_{f} - \mathbf{\Omega} \times \mathbf{r}
+\end{equation}
+which follows from simple velocity addition.
+
+Consider:
+\begin{equation}
+    \begin{split}
+        \left( \frac{\mathrm{D} \mathbf{v}_{f}}{\mathrm{D} t} \right)_{f} &= \left( \frac{\mathrm{D} \mathbf{v}_{f}}{\mathrm{D} t} \right)_{r} + \mathbf{\Omega} \times \mathbf{v}_{f} \\
+        &= \left( \frac{\mathrm{D} \mathbf{v}_{r}}{\mathrm{D} t} \right)_{r} + \left[ \frac{\mathrm{D} (\mathbf{\Omega} \times \mathbf{r})}{\mathrm{D} t} \right]_{r} + \mathbf{\Omega} \times \mathbf{v}_{r} \\
+    \end{split}
+\end{equation}
+where we have used the above relation.
+
+Now focus on the second term:
+\begin{equation}
+    \begin{split}
+        \left[ \frac{\mathrm{D} (\mathbf{\Omega} \times \mathbf{r})}{\mathrm{D} t} \right]_{r} &= \left[ \frac{\mathrm{D} (\mathbf{\Omega} \times \mathbf{r})}{\mathrm{D} t} \right]_{f} - \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r}) \\
+        &= \mathbf{\Omega} \times \mathbf{v}_{f} - \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{f})
+    \end{split}
+\end{equation}
+
+On the other hand, the third term can be written as:
+\begin{equation}
+    \mathbf{\Omega} \times \mathbf{v}_{f} = \mathbf{\Omega} \times \mathbf{v}_{r} + \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r})
+\end{equation}
+where we use the fact that $\mathbf{\Omega}$ is constant.
+
+Putting everything together, we find:
+\begin{equation}
+    \left( \frac{\mathrm{D} \mathbf{v}_{f}}{\mathrm{D} t} \right)_{f} = \left( \frac{\mathrm{D} \mathbf{v}_{r}}{\mathrm{D} t} \right)_{r} + 2 \mathbf{\Omega} \times \mathbf{v}_{r} + \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r})
+\end{equation}
+
+\subproblem{b}
+For a fluid element moving along a circle at constant speed, we have $\mathbf{v}_{r} = \mathbf{0}$ so $\mathbf{f}_{\text{cor}} = \mathbf{0}$ and $\mathbf{f}_{\text{cen}} = -\omega^{2} r \hat{\mathbf{r}}$.
+\qed
+
+
+\problem{4}{Deformation of a fluid element}
+
+\subproblem{a}
+We have the deformation tensor and its components:
+\begin{equation}
+    \begin{split}
+        D_{ij} &= \frac{\partial v_{i}}{\partial x_{j}} =
+        \begin{pmatrix}
+            \alpha & 2\beta  \\
+            0      & -\alpha
+        \end{pmatrix} \\
+        e_{ij} &= \frac{1}{2} (D_{ij} + D_{ji}) =
+        \begin{pmatrix}
+            \alpha & \beta   \\
+            \beta  & -\alpha
+        \end{pmatrix} \\
+        \omega_{ij} &= \frac{1}{2} (D_{ij} - D_{ji}) =
+        \begin{pmatrix}
+            0      & \beta \\
+            -\beta & 0
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+The diagonal components of $e_{ij}$ is an expansion, the off-diagonal components is deformation, and $\omega_{ij}$ is a rotation.
+
+\subproblem{b}
+Labelling the points of the rectangle as $A, B, C, D$, starting from the top left and going clockwise, we have:
+\begin{equation}
+    \begin{split}
+        \mathbf{v}_{A} &= D_{xx} (-\delta x) \hat{\mathbf{x}} + D_{yy} \delta y \hat{\mathbf{y}} = \alpha (-\delta x \hat{\mathbf{x}} - \delta y \hat{\mathbf{y}}) \\
+        \mathbf{v}_{B} &= D_{xx} \delta x \hat{\mathbf{x}} + D_{yy} \delta y \hat{\mathbf{y}} = \alpha (\delta x \hat{\mathbf{x}} - \delta y \hat{\mathbf{y}}) \\
+        \mathbf{v}_{C} &= D_{xx} \delta x \hat{\mathbf{x}} + D_{yy} (-\delta y) \hat{\mathbf{y}} = \alpha (\delta x \hat{\mathbf{x}} + \delta y \hat{\mathbf{y}}) \\
+        \mathbf{v}_{D} &= D_{xx} (-\delta x) \hat{\mathbf{x}} + D_{yy} (-\delta y) \hat{\mathbf{y}} = \alpha (-\delta x \hat{\mathbf{x}} + \delta y \hat{\mathbf{y}})
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{5}{Vorticity}
+
+\subproblem{a}
+The vorticity is given by:
+\begin{equation}
+    \begin{split}
+        \mathbf{\omega} &= \nabla \times (\mathbf{\Omega} \times \mathbf{r}) \\
+        &= -(\mathbf{\Omega} \cdot \nabla) \mathbf{r} + \mathbf{\Omega} (\nabla \cdot \mathbf{r}) \\
+        &= 2 \mathbf{\Omega}
+    \end{split}
+\end{equation}
+since:
+\begin{equation}
+    (\mathbf{\Omega} \cdot \nabla) \mathbf{r}= \Omega (\nabla \mathbf{r})_{3j} = \mathbf{\Omega}
+\end{equation}
+
+The streamlines are concentric circles with the center at the origin.
+
+\subproblem{b}
+The vorticity is given by:
+\begin{equation}
+    \begin{split}
+        \mathbf{\omega} &= \nabla \times \mathbf{v} \\
+        &= -k \hat{\mathbf{z}}
+    \end{split}
+\end{equation}
+
+The streamlines are lines parallel to the $x$ with increasing length as $y$ increases.
+
+\subproblem{c}
+The vorticity is given by:
+\begin{equation}
+    \begin{split}
+        \mathbf{\omega} &= \nabla \times \mathbf{v} \\
+        &= \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{k}{r} \right) \hat{\mathbf{\theta}} \\
+        &= \mathbf{0}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{6}{Stream function and flow rate}
+
+\subproblem{a}
+First note that we may write the normal vector as:
+\begin{equation}
+    \hat{n} = \frac{1}{\mathrm{d}l} (\mathrm{d}y \hat{\mathbf{x}} - \mathrm{d}x \hat{\mathbf{y}})
+\end{equation}
+
+Thus:
+\begin{equation}
+    \begin{split}
+        Q &= \int_{A}^{B} \mathbf{v} \cdot \hat{n} \, \mathrm{d}l \\
+        &= \int_{A}^{B} v_{x} \, \mathrm{d}y - v_{y} \, \mathrm{d}x \\
+        &= \int_{A}^{B} \frac{\partial \psi}{\partial y} \, \mathrm{d}y + \frac{\partial \psi}{\partial x} \, \mathrm{d}x \\
+        &= \int_{A}^{B} \mathrm{d}\psi \\
+        &= \psi(B) - \psi(A)
+    \end{split}
+\end{equation}
+
+$Q$ quantifies how the velocity of the flow changes according to the distance between two streamlines.
+
+\subproblem{b}
+Note:
+\begin{equation}
+    \begin{split}
+        \nabla \cdot \mathbf{v} &= -\frac{1}{r} \frac{\partial}{\partial r} \left( r v_{\theta} \right) + \frac{\partial v_{z}}{\partial z} \\
+        &= -\frac{1}{r} \frac{\partial}{\partial r} \left( \frac{\partial \psi}{\partial z} \right) + \frac{\partial}{\partial z} \left( \frac{1}{r} \frac{\partial \psi}{\partial r} \right) \\
+        &= 0
+    \end{split}
+\end{equation}
+as required by incompressibility.
+
+On streamlines, we have a change in $\psi$:
+\begin{equation}
+    \begin{split}
+        \delta \psi &= \frac{\partial \psi}{\partial r} \delta r + \frac{\partial \psi}{\partial z} \delta z \\
+        &= r v_{z} \delta r - r v_{r} \delta z
+    \end{split}
+\end{equation}
+
+But since on streamlines, $\delta r/v_{r} = \delta z/v_{z}$, we have $\delta \psi = 0$.
+
+It can be easily checked that $\mathbf{v} = \nabla \times (\psi/r) \hat{\mathbf{\theta}}$.
+
+We can compute the required flow rate as the difference between two surface integrals:
+\begin{equation}
+    \begin{split}
+        Q &= \int_{S_{+}} \mathbf{v} \cdot \mathrm{d}\mathbf{S} - \int_{S_{-}} \mathbf{v} \cdot \mathrm{d}\mathbf{S} \\
+        &= \int_{S_{+}} \nabla \times \left( \frac{\psi}{r} \hat{\mathbf{\theta}} \right) \cdot \mathrm{d}\mathbf{S} - \int_{S_{-}} \nabla \times \left( \frac{\psi}{r} \hat{\mathbf{\theta}} \right) \cdot \mathrm{d}\mathbf{S} \\
+        &= \oint_{C_{+}} \frac{\psi}{r} \, \mathrm{d}l - \oint_{C_{-}} \frac{\psi}{r} \, \mathrm{d}l \\
+        &= 2\pi (\psi_{+} - \psi_{-})
+    \end{split}
+\end{equation}
+where the third equality follows from Stokes' theorem.
+\qed
+
+
+\problem{7}{Mass conservation}
+In a time interval $\delta t$, the mass of the fluid element changes according to:
+\begin{equation}
+    m \to m - \rho(t) Q \delta t + \rho_{0} Q \delta t
+\end{equation}
+
+This means that the total density changes according to:
+\begin{equation}
+    \rho \to \rho - \frac{Q}{V} (\rho - \rho_{0}) \delta t
+\end{equation}
+where the second term is the change $\delta \rho$ in the density.
+
+We then have the differential equation:
+\begin{equation}
+    \frac{\partial \rho}{\partial t} = -\frac{Q}{V} (\rho - \rho_{0})
+\end{equation}
+which has the solution:
+\begin{equation}
+    \rho(t) = \rho_{0} \left( 1 + 0.025 e^{-Qt/V} \right)
+\end{equation}
+
+Demanding $\rho(t) = 0.99 \rho(0)$, we find $t = 0.527 V/Q$.
+\qed
+
+
+\problem{8}{Hydrostatic pressure}
+
+\subproblem{a}
+The total force acting on a fluid element is given by the integral of the pressure over its surface:
+\begin{equation}
+    \begin{split}
+        \mathbf{F} &= -\int_{S} P \, \mathrm{d}\mathbf{S} \\
+        &= -\int_{S} \nabla P \, \mathrm{d}V
+    \end{split}
+\end{equation}
+which suggests that the force per unit volume is $-\nabla P$.
+
+In a gravitational field, $\nabla P = -\rho g \hat{\mathbf{z}}$ so that $P = P_{0} - \rho g z$.
+
+\subproblem{b}
+The force exerted on the cube immersed in the fluid is given by:
+\begin{equation}
+    F = \int \rho g \mathbf{z} \, \mathrm{d}V = \rho g V \hat{\mathbf{z}} = mg \hat{\mathbf{z}}
+\end{equation}
+where the last equality follows by balancing the forces.
+
+Then we deduce the mass of the displaced fluid equals the mass of the cube, which gives the Archimedes' principle.
+\qed
+
+\end{document}
