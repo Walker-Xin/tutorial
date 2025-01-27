@@ -1,0 +1,357 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Condensed Matter Physics}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Band Structure, Semiconductor Physics}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{4.1}{Number of states in the Brillouin zone}
+
+
+Consider the construction of density of states in $k$-space. A wave vector $\mathbf{k}$ is specified by $(k_{x}, k_{y}, k_{z})$ where $k_{i} = n_{i}(2\pi/L)$ for $n_{i} \in \mathbb{Z}$. This is a periodic boundary condition in the physical space. The minimum increment in components of $\mathbf{k}$ is $2\pi/L$, so that:
+
+
+\begin{equation}
+    \begin{split}
+        \sum_{\mathbf{k}} &= \frac{V}{(2\pi)^{3}} \sum_{\mathbf{k}} \Delta k_{x} \Delta k_{y} \Delta k_{z} \\
+        &\approx \frac{V}{(2\pi)^{3}} \int \, \mathrm{d}^{3}k
+    \end{split}
+\end{equation}
+
+
+On the other hand, integrating the density of states in $k$-space gives the total number of states in the crystal:
+
+
+\begin{equation}
+    \begin{split}
+        \begin{split}
+            N &= \frac{V}{(2\pi)^{3}} \int_{BZ} \, \mathrm{d}^{3}k \\
+            &= \frac{V}{(2\pi)^{3}} \frac{(2\pi)^{3}}{a^{3}} = \frac{V}{a^{3}}
+        \end{split}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{4.2}{Nearly free electron model}
+
+
+\subproblem{a}
+Exactly at the zone boundary, we have degeneracy so we would like to diagonalise the Hamiltonian:
+
+\begin{equation}
+    \begin{bmatrix}
+        \epsilon_{0}(\mathbf{k}) & V_{-\mathbf{G}}                       \\
+        V_{\mathbf{G}}           & \epsilon_{0}(\mathbf{k} + \mathbf{G})
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha \\
+        \beta
+    \end{bmatrix}
+    =
+    E
+    \begin{bmatrix}
+        \alpha \\
+        \beta
+    \end{bmatrix}
+\end{equation}
+
+where $\epsilon_{0}(\mathbf{k}) = \epsilon_{0}(\mathbf{k} + \mathbf{G})$ if we are at the zone boundary.
+
+After diagonalising the Hamiltonian, we have the eigenstates $\ket{\psi_{\pm}} = (\ket{k} \pm \ket{k + G})/\sqrt{2}$. But we know that $\braket{x}{k} = e^{ikx}/\sqrt{L}$ for a free electron, so that the wave function should take the form:
+
+\begin{equation}
+    \psi(x) = \frac{1}{\sqrt{2}} e^{ikx} \pm \frac{1}{\sqrt{2}} e^{i(k + G)x}
+\end{equation}
+
+Near the zone boundary, we should expect the wave function to be of a similar form but the coefficients of the two terms will be different.
+
+\subproblem{b}
+Consider the expectation of the Hamiltonian:
+
+\begin{equation}
+    \begin{split}
+        \mel{\psi}{H}{\psi} &= \left\lvert A \right\rvert^{2} \mel{k}{H}{k} + \left\lvert B \right\rvert^{2} \mel{k'}{H}{k'} + A^{*}B \mel{k}{H}{k'} + AB^{*} \mel{k'}{H}{k} \\
+        &= \left\lvert A \right\rvert^{2} \mel{k}{H_{0}}{k} + \left\lvert B \right\rvert^{2} \mel{k'}{H_{0}}{k'} + \left\lvert A \right\rvert^{2} \mel{k}{V}{k} + \left\lvert B \right\rvert^{2} \mel{k'}{V}{k'} \\
+        &+ A^{*}B \mel{k}{V}{k'} + AB^{*} \mel{k'}{V}{k} \\
+        &= \mel{k}{H_{0}}{k} + \mel{k}{V}{k} + 2\Re\left(AB^{*} \mel{k'}{V}{k}\right) \\
+        &= \frac{\hbar^{2}k^{2}}{2m} + V_{0} \pm \left\lvert V_{G} \right\rvert
+    \end{split}
+\end{equation}
+
+where the last line follows because $A = \pm B = 1/\sqrt{2}$ if we are at the zone boundary.
+
+The splitting of the energy levels is due to degeneracies near the zone boundary that can only be lifted by giving the two states different energies. The splitting is symmetric about the zone boundary because the Hamiltonian is symmetric about the zone boundary.
+
+\subproblem{c}
+Consider a one-dimensional system for simplicity. Then we will have the reciprocal lattice vector $G = \pm 2\pi/a$ and wave vectors on the boundaries are defined by $k = \pm n\pi/a$. We solve the characteristic equation for some $k = n\pi/a + \delta$ such that the wave vector is almost on the boundary. We have $k' = -n\pi/a + \delta$ and and the energies:
+
+\begin{equation}
+    \begin{split}
+        \epsilon_{0}(k) &= \frac{\hbar^{2}k^{2}}{2m} = \frac{\hbar^{2}(n\pi/a + \delta)^{2}}{2m} \\
+        \epsilon_{0}(k') &= \frac{\hbar^{2}k'^{2}}{2m} = \frac{\hbar^{2}(-n\pi/a + \delta)^{2}}{2m}
+    \end{split}
+\end{equation}
+
+The characteristic equation becomes:
+
+\begin{equation}
+    \chi^{2} - 2\left[ \left( \frac{n\pi}{a} \right)^{2} + \delta^{2} \right] \chi + \left[ \left( \frac{n\pi}{a} \right)^{2} - \delta^{2} \right]^{2} - C = 0
+\end{equation}
+
+where $\chi = E/(\hbar^{2}/2m)$ and $C = |V_{G}|^{2}/(\hbar^{2}/2m)^{2}$.
+
+Solving this yields, to second order in $\delta$:
+
+\begin{equation}
+    \frac{E_{\pm}}{h^{2}/2m} = \left( \frac{n\pi}{a} \right)^{2} + \delta^{2} \pm \frac{|V_{G}|}{h^{2}/2m} \pm 2\frac{h^{2}/2m}{|V_{G}|} \left( \frac{n\pi}{a} \right)^{2} \delta^{2}
+\end{equation}
+
+so that the band gap is quadratic in $\delta$.
+
+Since the dispersion is parabolic near the boundary, we can write it as:
+
+\begin{equation}
+    E_{\pm} = C_{\pm} \pm \frac{\hbar^{2}}{2m^{*}_{\pm}}\delta^{2}
+\end{equation}
+
+where we identify the effective mass using the relation:
+
+\begin{equation}
+    \frac{1}{m^{*}_{\pm}} = \frac{1}{m} \left[ 1 \pm \frac{h^{2}/m}{|V_{G}|} \left( \frac{n\pi}{a} \right)^{2} \right]
+\end{equation}
+
+\subproblem{d}
+A monovalent lattice only fills half of the available states in the Brillouin zone due to two possible electron spins. The Fermi surface for a weakly perturbed 2D free electron gas is almost a circle that covers half the area of the first Brillouin zone. For stronger perturbations, the parts of the circle that are closer to the zone boundary are `attracted' to the zone boundary so that the shape tends to a `star'.
+\qed
+
+
+\problem{4.3}{Band theory}
+
+
+\subproblem{a}
+Electron bands occur in crystals due to the periodic nature of potentials in the crystal. Perturbation theory then tells us that the energy levels of the electrons will split close to the zone boundaries due to degeneracies. This is fundamentally due to symmetries present in the crystal.
+
+\subproblem{b}
+Sodium has total valence $2$ and calcium has total valence $8$. Both have even valence so their Fermi surface has an equal volume as that of the first Brillouin zone. However, if the periodic potential is not strong enough, the first band is not completely filled as some of the electrons cross to the second band. There are thus holes in the first band and electrons in the second band, which allows for conduction. That is, the two substances are metals.
+
+Diamond, silicon and germanium all have even valence. Diamond is not conductive because the periodic potential is strong enough to completely fill the first band and leave the second band empty. Silicon and germanium are semiconductors because the periodic potential is not strong enough to completely fill the first band, leaving holes in the first band and electrons in the second band.
+
+Diamond is transparent as the band gap is large enough that the energy of the photons in the visible spectrum is not enough to excite electrons across the band gap.
+
+\subproblem{c}
+If $k_{x} = k_{y} = k$, the energy bands are:
+
+\begin{equation}
+    \begin{split}
+        \epsilon_{c} = 6 - 4 \cos{ka} \\
+        \epsilon_{v} = -2 + 2 \cos{ka}
+    \end{split}
+\end{equation}
+
+The band gap is then:
+
+\begin{equation}
+    E_{g} = \epsilon_{c} - \epsilon_{v} = 8 - 6 \cos{ka} \in [2, 14]
+\end{equation}
+
+where the minimum gap occurs at $k = 0$ and the maximum gap occurs at $k = \pm \pi/a$.
+
+Now consider the conduction band. Let $ak_{x, y} + \delta_{x, y} = \pi$ where $\delta_{x, y} \ll 1$. Then we can approximate the energy band:
+
+\begin{equation}
+    \begin{split}
+        \epsilon_{c} &= 6 - 2\cos{(\pi - \delta_{x})} - 2\cos{(\pi - \delta_{y})} \\
+        &= 6 + 2 (\cos{\delta_{x}} + \cos{\delta_{y}}) \\
+        &\approx 6 + 2 \left( 1 - \frac{\delta_{x}^{2}}{2} + 1 - \frac{\delta_{y}^{2}}{2} \right) \\
+        &= 10 - \frac{\delta_{x}^{2} + \delta_{y}^{2}}{2} \\
+        &= 10 - \frac{a^{2}}{2} \left[ \left( \frac{\pi}{a} - k_{x} \right)^{2} - \left( \frac{\pi}{a} - k_{y} \right)^{2} \right] \\
+    \end{split}
+\end{equation}
+
+which is manifestly a circle in $k$-space.
+
+This suggests that the effective mass of the hole is:
+
+\begin{equation}
+    m_{h}^{*} = \frac{\hbar^{2}}{a^{2}}
+\end{equation}
+
+On the other hand, if $ak_{x, y} \ll 1$, we have:
+
+\begin{equation}
+    \begin{split}
+        \epsilon_{c} &= 6 - 2\cos{ak_{x}} - 2\cos{ak_{y}} \\
+        &\approx 6 - 2 \left( 1 - \frac{(ak_{x})^{2}}{2} + 1 - \frac{(ak_{y})^{2}}{2} \right) \\
+        &= 2 + \frac{a^{2}}{2} (k_{x}^{2} + k_{y}^{2})
+    \end{split}
+\end{equation}
+
+This suggests that the effective mass of the electron is the same as the hole:
+
+\begin{equation}
+    m_{e}^{*} = \frac{\hbar^{2}}{a^{2}}
+\end{equation}
+
+\subproblem{d}
+From the 1D tight-binding model, we have the Hamiltonian $H = H_{0} + V$ where $V$ is a perturbation. We find that the energy eigenvalues are:
+
+\begin{equation}
+    E_{\pm} = E_{0} + V_{cross} \pm \left\lvert t \right\rvert
+\end{equation}
+
+which produces exactly the splitting of energy levels we considered.
+\qed
+
+
+\problem{4.4}{Law of mass action and doping of semiconductors}
+
+
+\subproblem{a}
+Consider a band structure where the minimum energy of the conduction band is $\epsilon_{c}$ and the maximum energy of the valence band is $\epsilon_{v}$. We define the band gap as $E_{g} = \epsilon_{c} - \epsilon_{v}$. Consider the density of states in the energy space:
+
+\begin{equation}
+    g(\epsilon) \, \mathrm{d}\epsilon = \frac{V}{2\pi^{2}} \left( \frac{2m}{\hbar^{2}} \right)^{3/2} \sqrt{\epsilon} \, \mathrm{d}\epsilon
+\end{equation}
+
+For the electrons in the conduction band, they have a minimum energy of $\epsilon_{c}$ so $\epsilon \geq \epsilon_{c}$. They also have a modified effective mass $m_{c}$. Their density of states is:
+
+\begin{equation}
+    g_{c}(\epsilon) \, \mathrm{d}\epsilon = \frac{V}{2\pi^{2}} \left( \frac{2m_{e}^{*}}{\hbar^{2}} \right)^{3/2} \sqrt{\epsilon - \epsilon_{c}} \, \mathrm{d}\epsilon
+\end{equation}
+
+The holes in the valence band have a maximum energy of $\epsilon_{v}$ so $\epsilon \leq \epsilon_{v}$. They have a modified effective mass $m_{v}$. Their density of states is:
+
+\begin{equation}
+    g_{v}(\epsilon) \, \mathrm{d}\epsilon = \frac{V}{2\pi^{2}} \left( \frac{2m_{h}^{*}}{\hbar^{2}} \right)^{3/2} \sqrt{\epsilon_{v} - \epsilon} \, \mathrm{d}\epsilon
+\end{equation}
+
+Then the total number of electrons $n$ in the conduction band is given by the Fermi-Dirac distribution:
+
+\begin{equation}
+    n(T) = \int_{\epsilon_{c}}^{\infty} g_{c}(\epsilon) \frac{1}{e^{\beta(\epsilon - \mu)} + 1} \, \mathrm{d}\epsilon
+\end{equation}
+
+The total number of holes $p$ in the valence band is given by:
+
+\begin{equation}
+    p(T) = \int_{-\infty}^{\epsilon_{v}} g_{v}(\epsilon) \left[ 1 - \frac{1}{e^{\beta(\epsilon - \mu)} + 1} \right] \, \mathrm{d}\epsilon
+\end{equation}
+
+If the temperature is low such that $\beta(\epsilon - \mu) \gg 1$, then the Fermi-Dirac distribution can be approximated as a Boltzmann distribution. The integrals can be solved to give:
+
+\begin{equation}
+    \begin{split}
+        n(T) &= \frac{1}{4} \left( \frac{2m_{e}^{*}k_{B}T}{\pi\hbar^{2}} \right)^{3/2} e^{-(\epsilon_{c} - \mu)/k_{B}T} \\
+        p(T) &= \frac{1}{4} \left( \frac{2m_{h}^{*}k_{B}T}{\pi\hbar^{2}} \right)^{3/2} e^{-(\mu - \epsilon_{v})/k_{B}T}
+    \end{split}
+\end{equation}
+
+Note how the product of the two depends only on the band gap $E_{g}$:
+
+\begin{equation}
+    np = \frac{1}{2} \left( \frac{k_{B}T}{\pi \hbar^{2}} \right)^{3} (m_{e}^{*}m_{h}^{*})^{3/2} e^{-E_{g}/k_{B}T}
+\end{equation}
+
+\subproblem{b}
+The intrinsic electron concentration for silicon is given by the mass action law:
+
+\begin{equation}
+    n_{i} = p_{i} = \frac{1}{\sqrt{2}} \left( \frac{k_{B}T}{\pi \hbar^{2}} \right)^{3/2} (m_{e}/2)^{3/4} e^{-E_{g}/2k_{B}T} = \qty{2.1e-9}{fm^{-3}}
+\end{equation}
+
+where we have taken $T = \qty{293}{K}$.
+
+For the intrinsic behaviour to be valid, we need doping to be much smaller than $n_{i}$. This means that the concentration of ionized impurities must be of the order of $0.1n_{i} = \qty{2.1e-10}{fm^{-3}}$.
+
+For germanium, the intrinsic electron concentration only differs by the band gap:
+
+\begin{equation}
+    n_{i}' = p_{i}' = \frac{1}{\sqrt{2}} \left( \frac{k_{B}T}{\pi \hbar^{2}} \right)^{3/2} (m_{e}/2)^{3/4} e^{-E_{g}'/2k_{B}T} = \qty{9.7e-6}{fm^{-3}}
+\end{equation}
+
+\subproblem{c}
+From the graph, the band gap is approximately:
+
+\begin{equation}
+    E_{g} = k_{B} \Delta T = \qty{6e-3}{eV}
+\end{equation}
+\qed
+
+
+\problem{4.5}{More about semiconductors}
+
+
+\subproblem{a}
+A hole is defined as a vacancy in the valence band that is not filled by an electron. It is a quasiparticle that behaves as if it were a positive charge. The effective mass of a hole is the same as the effective mass of an electron in the valence band. Since the valence band is almost full, it is more convenient to keep track of the holes rather than the electrons.
+
+\subproblem{b}
+Consider $E = -10^{-37} k^{2}$. The effective mass is derived from $E = \hbar^{2}k^{2}/2m^{*}$:
+
+\begin{equation}
+    m^{*} = \frac{\hbar^{2}}{2E} = \qty{5.6e-32}{kg}
+\end{equation}
+
+The energy is:
+
+\begin{equation}
+    E = \qty{-4e-21}{J}
+\end{equation}
+
+The momentum is:
+
+\begin{equation}
+    p = \hbar k = \qty{2.1e-26}{kg ms^{-1}}
+\end{equation}
+
+The velocity is:
+
+\begin{equation}
+    v = \frac{p}{m^{*}} = \qty{3.8e5}{ms^{-1}}
+\end{equation}
+
+The current density generated by the hole is:
+
+\begin{equation}
+    j = epv = \qty{6e-9}{Am^{-2}}
+\end{equation}
+
+where the sign is positive, i.e. same direction as movement of the hole.
+
+\subproblem{c}
+The chemical potential of an intrinsic semiconductor can be derived by dividing $n_{i}$ with $p_{i} = n_{i}$ and taking the logarithm:
+
+\begin{equation}
+    \mu = \frac{\epsilon_{c} + \epsilon_{v}}{2} + \frac{3}{4} k_{B}T \ln{\left( \frac{m_{h}^{*}}{m_{e}^{*}} \right)}
+\end{equation}
+
+For low enough $T$, this is just be middle of the band gap.
+
+\subproblem{d}
+We know from the mass action law that:
+
+\begin{equation}
+    np = \frac{1}{2} \left( \frac{k_{B}T}{\pi \hbar^{2}} \right)^{3} (m_{e}^{*}m_{h}^{*})^{3/2} e^{-E_{g}/k_{B}T}
+\end{equation}
+
+Solving for $p$ gives $p = \qty{1e8}{m^{-3}}$.
+\qed
+
+
+
+\end{document}

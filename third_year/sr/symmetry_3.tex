@@ -1,0 +1,537 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Kinematics and Dynamics in Special Relativity}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Evaluation of derivatives for a four-vector field}
+We define the covariant derivative:
+
+\begin{equation}
+    \partial_{\mu} = \left( \frac{1}{c} \frac{\partial}{\partial t}, \nabla \right)
+\end{equation}
+
+and the contravariant derivative:
+
+\begin{equation}
+    \partial^{\mu} = \left( -\frac{1}{c} \frac{\partial}{\partial t}, \nabla \right)
+\end{equation}
+
+We have the following calculations:
+
+\begin{equation}
+    \partial_{\lambda} X^{\lambda} = 4
+\end{equation}
+
+\begin{equation}
+    \partial^{\mu} (X_{\lambda} X^{\lambda}) = 0
+\end{equation}
+
+as $X_{\lambda} X^{\lambda}$ is an invariant scalar.
+
+\begin{equation}
+    \partial^{\mu} \partial_{\mu} X_{\nu} X^{\nu} = 0
+\end{equation}
+
+as $X_{\nu} X^{\nu}$ is an invariant scalar.
+
+\begin{equation}
+    \partial^{\mu} X^{\nu} =
+    \begin{pmatrix}
+        \partial^{0} X^{0} & \partial^{0} X^{1} & \partial^{0} X^{2} & \partial^{0} X^{3} \\
+        \partial^{1} X^{0} & \partial^{1} X^{1} & \partial^{1} X^{2} & \partial^{1} X^{3} \\
+        \partial^{2} X^{0} & \partial^{2} X^{1} & \partial^{2} X^{2} & \partial^{2} X^{3} \\
+        \partial^{3} X^{0} & \partial^{3} X^{1} & \partial^{3} X^{2} & \partial^{3} X^{3} \\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        -1 & 0 & 0 & 0 \\
+        0  & 1 & 0 & 0 \\
+        0  & 0 & 1 & 0 \\
+        0  & 0 & 0 & 1 \\
+    \end{pmatrix}
+    =
+    \eta^{\mu \nu}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \partial_{\lambda} F^{\lambda} &= 2\partial_{\lambda} X^{\lambda} + \partial_{\lambda} \left[ K^{\lambda} (X_{\nu} X^{\nu}) \right] \\
+        &= 8
+    \end{split}
+\end{equation}
+
+since the second term is a constant scalar.
+
+\begin{equation}
+    \partial^{\mu} (\partial_{\lambda} F^{\lambda}) = \partial^{\mu} (8) = 0
+\end{equation}
+
+\begin{equation}
+    \partial^{\mu} \partial_{\mu} \sin{(K_{\lambda} X^{\lambda})} = 0
+\end{equation}
+
+as $\sin{(K_{\lambda} X^{\lambda})}$ is an invariant scalar.
+\qed
+
+
+\problem{2}{Properties of spacetime intervals}
+
+\subproblem{a}
+A time-like 4-vector satisfies $A^{\mu} A_{\mu} < 0$. We attempt to find a Lorentz transformation such that $A'^{i} = 0$ for $i = 1, 2, 3$. It is customary to align our axes such that the only non-zero components of $A^{\mu}$ are $A^{0}$ and $A^{1}$. Then we have:
+
+\begin{equation}
+    A^{\mu} A_{\mu} = -A^{0} A^{0} + A^{1} A^{1} < 0
+\end{equation}
+
+Consider the Lorentz transformation along the $x$-axis:
+
+\begin{equation}
+    \begin{split}
+        A'^{0} &= \gamma (A^{0} - \beta A^{1}) \\
+        A'^{1} &= \gamma (A^{1} - \beta A^{0}) \\
+        A'^{2} &= A^{2} = 0 \\
+        A'^{3} &= A^{3} = 0
+    \end{split}
+\end{equation}
+
+$A'^{1}$ can be made zero by choosing $\beta = A^{1}/A^{0} < 1$. This can always be done since $A^{0} > A^{1}$. This shows that there always exists a frame in which a time-like 4-vector has zero spatial components.
+
+\subproblem{b}
+Suppose that in a reference frame $S$, the two events $A^{\mu}$ and $B^{\mu}$ are simultaneous. Then we have $A^{0} = B^{0}$ or their separation satisfies:
+
+\begin{equation}
+    X^{\mu} = A^{\mu} - B^{\mu} = (0, X^{1}, X^{2}, X^{3})
+\end{equation}
+
+That is, the two events are separated by a space-like interval.
+
+Suppose on the contrary that in a reference frame $S$, the two events $A^{\mu}$ and $B^{\mu}$ are separated by a time-like interval. Then their separation satisfies $X^{\mu} X_{\mu} > 0$. We attempt to find a Lorentz transformation such that $X'^{0} = 0$. Again, we align our axes such that the only non-zero components of $X^{\mu}$ are $X^{0}$ and $X^{1}$. Then we have:
+
+\begin{equation}
+    X^{\mu} X_{\mu} = -X^{0} X^{0} + X^{1} X^{1} > 0
+\end{equation}
+
+and a Lorentz transformation along the $x$-axis:
+
+\begin{equation}
+    X'^{0} = \gamma (X^{0} - \beta X^{1})
+\end{equation}
+
+which is an equality satisfied by $\beta = X^{0}/X^{1} < 1$.
+
+This shows that two events are simultaneous if and only if they are separated by a space-like interval in some reference frame.
+
+\subproblem{c}
+Consider two events separated by a time-like interval $X^{\mu} X_{\mu} < 0$. We define the temporal order of the events as the sign of $X^{0}$. For this sign to be conserved under Lorentz transformations, we consider a general Lorentz transformation:
+
+\begin{equation}
+    X'^{0} = \gamma (X^{0} - \beta_{x} X^{1} - \beta_{y} X^{2} - \beta_{z} X^{3})
+\end{equation}
+
+Again, we can align our axes such that the only non-zero components of $X^{\mu}$ are $X^{0}$ and $X^{1}$. Then we have $X'^{0} = \gamma (X^{0} - \beta_{x} X^{1})$, where $\beta_{x} < 1$. Let us demand $\gamma = \Lambda^{0}_{0} > 0$.
+
+We have demanded $X^{\mu}$ to be time-like, that is $X^{0}X^{0} > X^{1}X^{1}$. Say $X^{0} > 0$. It is clear that there is no way to choose $\beta_{x}$ or $X^{1}$ such that $X'^{0} < 0$. The same argument can be made for $X^{0} < 0$. This shows that the temporal order of two events separated by a time-like interval is always conserved under Lorentz transformations satisfying $\gamma > 0$. The complete opposite happens if $\gamma < 0$, which yields an improper Lorentz transformation.
+
+\subproblem{d}
+If two 4-vectors are orthogonal, they satisfy:
+
+\begin{equation}
+    A^{\mu} B_{\mu} = A^{0} B^{0} - A^{1} B^{1} - A^{2} B^{2} - A^{3} B^{3} = 0
+\end{equation}
+
+Suppose that $A^{\mu}$ is time-like so that $A^{0} A_{0} > A^{1} A_{1} + A^{2} A_{2} + A^{3} A_{3}$. We can orient our axes such that only $A^{0}$ and $A^{1}$ are non-zero. Then we have:
+
+\begin{equation}
+    A^{\mu} B_{\mu} = A^{0} B^{0} - A^{1} B^{1} = 0
+\end{equation}
+
+This implies:
+
+\begin{equation}
+    (B^{0})^{2} = \left( \frac{A^{1}}{A^{0}} \right)^{2} (B^{1})^{2} < (B^{1})^{2}
+\end{equation}
+
+which implies that $B^{\mu}$ must be space-like.
+
+\subproblem{e}
+Suppose instead that $A^{\mu}$ is light-like so that $A^{0} A_{0} = A^{1} A_{1}$. We have:
+
+\begin{equation}
+    (B^{0})^{2} = \left( \frac{A^{1}}{A^{0}} \right)^{2} (B^{1})^{2} = (B^{1})^{2}
+\end{equation}
+
+Unless $B^{2} = B^{3} = 0$, $B^{\mu}$ will be time-like. If $B^{2} = B^{3} = 0$, then $B^{\mu}$ is light-like.
+
+\subproblem{f}
+The world line of an observer is necessarily time-like. Thus, if some displacement vector is orthogonal to the world line, it must be space-like. By previous results, there must exist a frame in which the displacement vector has zero temporal component, i.e. the events are simultaneous. The position of the observer can be described by a time-like 4-vector $A^{\mu}$ and the displacement vector by a space-like 4-vector $X^{\mu}$. Since they are orthogonal, they satisfy $A^{\mu} X_{\mu} = 0$. Let us align our axes such that only $X^{0}$ and $X^{1}$ are non-zero. Then we have:
+
+\begin{equation}
+    A^{\mu} X_{\mu} = A^{0} X^{0} - A^{1} X^{1} = 0
+\end{equation}
+
+Then we choose a Lorentz transformation along the $x$-axis such that:
+
+\begin{equation}
+    X'^{0} = \gamma (X^{0} - \beta X^{1}) = 0
+\end{equation}
+
+This is a condition on $\beta = X^{0}/X^{1}$. But from the orthogonality condition, we have $A^{0} X^{0} = A^{1} X^{1}$ so that $\beta = A^{1}/A^{0}$. Let us consider transforming the observer's position vector:
+
+\begin{equation}
+    \begin{split}
+        A'^{0} &= \gamma (A^{0} - \beta A^{1}) \\
+        A'^{1} &= \gamma (A^{1} - \beta A^{0}) = 0 \\
+        A'^{2} &= A^{2} \\
+        A'^{3} &= A^{3}
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{3}{Motion under a constant force}
+
+\subproblem{a}
+The particle in the constant electric field has the momentum:
+
+\begin{equation}
+    P^{\mu} = (E/c, qE_{x}t)
+\end{equation}
+
+where $E = mc^{2} + qE_{x}x$ is the total energy of the particle.
+Consider the invariant length of the momentum:
+
+\begin{equation}
+    P^{\mu} P_{\mu} = -\frac{E^{2}}{c^{2}} + q^{2}E_{x}^{2}t^{2} = -m^{2}c^{2}
+\end{equation}
+
+Expanding the expression for $E$ and simplifying, we have the equation of motion:
+
+\begin{equation}
+    x^{2} + \frac{2mc^{2}}{qE_{x}} x - c^{2}t^{2} = 0
+\end{equation}
+
+which is equivalent to:
+
+\begin{equation}
+    \left( x + \frac{c^{2}}{\alpha} \right)^{2} - c^{2}t^{2} = \frac{c^{4}}{\alpha^{2}}
+\end{equation}
+
+where we claim that $\alpha = qE_{x}/m$ is the proper acceleration of the particle.
+
+\subproblem{b}
+Consider the acceleration of the particle in frame $S$.
+
+\begin{equation}
+    \begin{split}
+        A^{\mu} &= \frac{1}{m} \gamma_{v} \frac{dP^{\mu}}{dt} \\
+        &= \frac{1}{m} \gamma_{v} \left( \frac{qE_{x}}{c} \frac{\mathrm{d}x}{\mathrm{d}t}, qE_{x} \right)
+    \end{split}
+\end{equation}
+
+Now we have the proper acceleration:
+
+\begin{equation}
+    a_{0}^{2} = A^{\mu} A_{\mu} = \gamma_{v}^{2} \left[ -\frac{q^{2}E_{x}^{2}}{m^{2}c^{2}} \left( \frac{\mathrm{d}x}{\mathrm{d}t} \right)^{2} + \frac{q^{2}E_{x}^{2}}{m^{2}} \right] = \frac{q^{2}E_{x}^{2}}{m^{2}}
+\end{equation}
+
+which confirms our previous claim.
+
+\subproblem{c}
+At point $P(ct, x)$, we construct an instantaneous inertial frame $S'$ with its origin coinciding with that of $S$. As observed in $S'$, the the point $P$ has the coordinates:
+
+\begin{equation}
+    P' = \gamma_{v} (ct - \beta x, x - \beta ct)
+\end{equation}
+
+so $ct_{p}' = \gamma_{v} (ct - \beta x)$.
+
+As observed in $S'$, the point $A(0, -c^{2}/\alpha)$ has the coordinates:
+
+\begin{equation}
+    A' = \gamma_{v} \left( \beta \frac{c^{2}}{\alpha}, -\frac{c^{2}}{\alpha} \right)
+\end{equation}
+
+so $ct_{A}' = \gamma_{v} \beta (c^{2}/\alpha)$.
+
+But we know from the equation of motion that $c^{2}/\alpha + x = (c^{4}/\alpha^{2} + c^{2}t^{2})^{1/2}$. Therefore, $ct_{A}' = -\gamma_{v} \beta (c^{4}/\alpha^{2} + c^{2}t^{2})^{1/2}$.
+
+Let us compute the `slope' of the line $P'A'$ in the $S'$ frame:
+
+\begin{equation}
+    \frac{ct_{P}' - ct_{A}'}{x_{P}' - x_{A}'} = \frac{ct - \beta x - \beta c^{2}/\alpha}{x - \beta ct + c^{2}/\alpha}
+\end{equation}
+\qed
+
+
+\problem{4}{Circular motion in a magnetic field}
+
+\subproblem{a}
+For a pure magnetic field, the Lagrangian of a charged particle is:
+
+\begin{equation}
+    \mathcal{L} = -mc^{2} \sqrt{1 - \frac{v^{2}}{c^{2}}} + q \mathbf{v} \cdot \mathbf{A}
+\end{equation}
+
+where $\mathbf{A}$ only has spatial components.
+
+We identify the 4-momentum:
+
+\begin{equation}
+    P^{\mu} = \frac{\partial \mathcal{L}}{\partial \mathbf{v}} = \gamma m \mathbf{v} + q \mathbf{A}
+\end{equation}
+
+The Hamiltonian (energy) of the particle is:
+
+\begin{equation}
+    \begin{split}
+        \mathcal{H} &= \mathbf{v} \cdot \frac{\partial \mathcal{L}}{\partial \mathbf{v}} - \mathcal{L} \\
+        &= \gamma m v^{2} + q \mathbf{v} \cdot \mathbf{A} + \frac{1}{\gamma} mc^{2} - q \mathbf{v} \cdot \mathbf{A} \\
+        &= \gamma m v^{2} + \frac{1}{\gamma} mc^{2} \\
+        &= \gamma m c^{2}
+    \end{split}
+\end{equation}
+
+The equation of motion is given by the Euler-Lagrange equation:
+
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( \gamma m \mathbf{v} + q \mathbf{A} \right) = \frac{\partial }{\partial \mathbf{r}} \left( q \mathbf{A} \cdot \mathbf{v} \right)
+\end{equation}
+
+Consider the vector identity:
+
+\begin{equation}
+    \nabla \left( \mathbf{A} \cdot \mathbf{v} \right) = (\mathbf{A} \cdot \nabla) \mathbf{v} + (\mathbf{v} \cdot \nabla) \mathbf{A} + \mathbf{A} \times (\nabla \times \mathbf{v}) + \mathbf{v} \times (\nabla \times \mathbf{A}) = (\mathbf{v} \cdot \nabla) \mathbf{A} + \mathbf{v} \times (\nabla \times \mathbf{A})
+\end{equation}
+
+since the derivatives are taken with $\mathbf{v}$ held constant.
+
+On the other hand:
+
+\begin{equation}
+    \frac{\mathrm{d}A^{i}}{\mathrm{d}t} = \frac{\partial A^{i}}{\partial t} + \frac{\partial A^{i}}{\partial x^{j}} v^{j} = \frac{\partial \mathbf{A}}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{A}
+\end{equation}
+
+Combining, we have the equation of motion:
+
+\begin{equation}
+    \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = -q \frac{\partial \mathbf{A}}{\partial t} + q \mathbf{v} \times (\nabla \times \mathbf{A})
+\end{equation}
+
+For a constant magnetic field $\mathbf{H}$, we can write $\mathbf{A} = \frac{1}{2} \mathbf{H} \times \mathbf{r}$ and $\mathbf{H} = \nabla \times \mathbf{A}$. The equation of motion becomes:
+
+\begin{equation}
+    \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = q \mathbf{v} \times \mathbf{H}
+\end{equation}
+
+Finally, consider the time derivative of $p^{2}$:
+
+\begin{equation}
+    \frac{\mathrm{d}p^{2}}{\mathrm{d}t} = 2 \mathbf{p} \cdot \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = 0
+\end{equation}
+
+This is because in the expression for $\dot{\mathbf{p}}$, the right-hand-side is orthogonal to $\mathbf{v}$ and thus $\mathbf{p}$. Thus, we have proven that the particle has constant momentum and velocity. Since the energy is a function of $\gamma$, the energy is also constant.
+
+\subproblem{b}
+We rewrite the equation of motion in terms of the velocity:
+
+\begin{equation}
+    \frac{E}{c^{2}} \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q \mathbf{v} \times \mathbf{H}
+\end{equation}
+
+This is solved by:
+
+\begin{equation}
+    \begin{split}
+        v_{x} = \frac{v_{0}}{\sqrt{2}} \cos{(\omega t)} \\
+        v_{y} = \frac{v_{0}}{\sqrt{2}} \sin{(\omega t)} \\
+    \end{split}
+\end{equation}
+
+where $\omega = qc^{2}H/E$ and $v_{0} = pc^{2}/E$.
+
+Integrating the equations of motion, we have a condition on the radius of the circular motion:
+
+\begin{equation}
+    r = \frac{v_{0}}{\omega} = \frac{pc^{2}}{qc^{2}H} = \frac{p}{qH}
+\end{equation}
+
+\subproblem{c}
+In $S$, the 4-velocity of the particle is $U^{\mu} = \gamma_{v} (c, v_{x}, v_{y}, 0)$. In some other frame $S'$ moving at velocity $u$ in the $x$-direction, the 4-velocity becomes $U'^{\mu} = \gamma_{v'} (c, v'_{x}, v'_{y}, 0)$. But by the Lorentz transformation:
+
+\begin{equation}
+    U'^{0} = \gamma_{u} \gamma_{v} (c - \beta_{u} v_{x}) = \gamma_{v'} c
+\end{equation}
+
+Since $v_{x}$ is varying, $\gamma_{v'}$ is also varying, implying that $S'$ does not observe the particle to be moving at constant velocity. This is in a moving frame, the field is not purely magnetic so the particle may accelerate.
+
+\subproblem{d}
+For synchronisation, we need $\pi/\omega = (1/f)/2$, or:
+
+\begin{equation}
+    2\pi f = \omega = \frac{qc^{2}H}{E}
+\end{equation}
+
+Since $E$ is increasing after every period, we demand $E$ to be increasing in tandem. This is achieved by having a non-uniform magnetic field $H(r)$ as a function of the energy $E$. The initial energy is $\Delta E$ so the magnetic field at the centre is:
+
+\begin{equation}
+    H_{i} = \frac{2\pi f \Delta E}{qc^{2}}
+\end{equation}
+
+The final energy is $E_{f}$, leading to:
+
+\begin{equation}
+    H_{f} = \frac{2\pi f E_{f}}{qc^{2}}
+\end{equation}
+
+Upon exiting the cyclotron, the momentum of the particle satisfies $p = rqH_{f}$ or:
+
+\begin{equation}
+    p = rqH_{f} = rq \left( \frac{2\pi f E_{f}}{qc^{2}} \right) = 2\pi c^{-2} f r E_{f}
+\end{equation}
+
+so that the exit velocity is:
+
+\begin{equation}
+    v_{f} = c^{2}\frac{p}{E_{f}} = 2\pi f r = \qty{1.2e12}{ms^{-1}}
+\end{equation}
+
+Each revolution leads to $2\Delta E$ increase in energy, so the total number of revolutions is:
+
+\begin{equation}
+    N = \frac{E_{f}}{2\Delta E} = 684
+\end{equation}
+
+The total time taken is:
+
+\begin{equation}
+    T = \frac{N}{f} = \qty{1.14e-6}{s}
+\end{equation}
+\qed
+
+
+\problem{5}{Motion in a magnetic dipole}
+
+We have the equation of motion:
+
+\begin{equation}
+    \frac{E}{c^{2}} \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = q \mathbf{v} \times (\nabla \times \mathbf{A})
+\end{equation}
+
+Consider dotting the equation with $\hat{z}$:
+
+\begin{equation}
+    \begin{split}
+        \hat{z} \cdot \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} &\propto \hat{z} \cdot [\mathbf{v} \times (\nabla \times \mathbf{A})] \\
+        &= \mathbf{v} \cdot [(\nabla \times \mathbf{A}) \times \hat{z}] \\
+    \end{split}
+\end{equation}
+
+Consider the following vector identity:
+
+\begin{equation}
+    \nabla (\hat{z} \cdot \mathbf{A}) = (\hat{z} \cdot \nabla) \mathbf{A} + (\mathbf{A} \cdot \nabla) \hat{z} + \hat{z} \times (\nabla \times \mathbf{A}) + \mathbf{A} \times (\nabla \times \hat{z})
+\end{equation}
+
+Now, $\mathbf{A}$ does not have a $z$ component, so the left-hand-side is zero. On the right-hand-side, the first term is zero since $\mathbf{A}$ does not have a $z$ component. The second and last terms are zero since $\hat{z}$ is a constant vector. Thus, we must have $\mathbf{v} \cdot (\nabla \times \mathbf{A}) = 0$. This means that $\hat{z} \cdot \dot{\mathbf{v}} = 0$ and the motion is confined to the $xy$-plane.
+
+We may now use cylindrical coordinates $(r, \phi, z)$ to describe the motion. Consider the vector potential:
+
+\begin{equation}
+    \mathbf{A} = \frac{\mu_{0}}{4\pi} \frac{M \hat{z} \times \mathbf{r}}{r^{3}} = \frac{\mu_{0} M}{4\pi r^{2}} \hat{\phi}
+\end{equation}
+
+We can write the Lagrangian:
+
+\begin{equation}
+    \mathcal{L} = -\frac{mc^{2}}{\gamma} + q \mathbf{v} \cdot \mathbf{A} = -mc^{2} \left( 1 - \frac{\dot{r}^{2} + r^{2} \dot{\phi}^{2}}{c^{2}} \right)^{1/2} + \frac{q\mu_{0} M}{4\pi} \frac{1}{r} \dot{\phi}
+\end{equation}
+
+Apparently $\phi$ is a cyclic coordinate so the angular momentum is conserved:
+
+\begin{equation}
+    p_{\phi} = \frac{\partial \mathcal{L}}{\partial \dot{\phi}} = \gamma m r^{2} \dot{\phi} + \frac{q\mu_{0} M}{4\pi} \frac{1}{r} = \text{constant}
+\end{equation}
+
+Apparently the energy is also conserved, so we may write $E = \gamma m c^{2}$ as a constant. Now consider setting $\dot{r} = 0$ so that $v^{2} = r^{2} \dot{\phi}^{2}$. We have from the energy conservation:
+
+\begin{equation}
+    \begin{split}
+        \frac{m^{2}c^{4}}{E^{2}} &= 1 - \frac{r^{2} \dot{\phi}^{2}}{c^{2}} \\
+        \frac{m^{2}c^{4}}{E^{2}} &= 1 - \frac{r^{2}}{c^{2}} \left[ \frac{p_{\phi} - \frac{q\mu_{0} M}{4\pi} \frac{1}{r}}{(E/c^{2}) r} \right]^{2} \\
+    \end{split}
+\end{equation}
+
+From the initial condition, we know $p_{\phi} = q\mu_{0} M/(4\pi r_{0})$ and $E = mc^{2}(1 - v_{0}^{2}/c^{2})^{-1/2}$. We can solve for $r$:
+
+\begin{equation}
+    r = r_{0} \left( 1 \pm \frac{4\pi}{q\mu_{0} M} \frac{E}{c} \sqrt{1 - \frac{m^{2}c^{4}}{E^{2}}} \right)^{-1}
+\end{equation}
+\qed
+
+
+\problem{6}{Relativistic rocket}
+
+
+We know that rapidity is additive under Lorentz transformations. Consider the rocket in its instantaneous rest frame $S'$ which moves at velocity $v$ relative to the Earth $S$. In a short time interval $\mathrm{d}\tau$, the rocket acquires a velocity $\mathrm{d}v$ relative to $S'$. Consider its 4-momentum, which was initially $\mathbf{P} = (m(\tau)c, 0)$. Since the fuel is turned into photons, the 4-momentum becomes:
+
+\begin{equation}
+    \mathbf{P} + \mathrm{d}\mathbf{P} = (m c - \mathrm{d}m c, \mathrm{d}m c)
+\end{equation}
+
+Therefore, we have the increment in velocity:
+
+\begin{equation}
+    \begin{split}
+        \gamma_{v} (m - \mathrm{d}m) \mathrm{d}v = \mathrm{d}m c \\
+        \mathrm{d}v \approx \frac{c}{m} \mathrm{d}m
+    \end{split}
+\end{equation}
+
+On the other hand, the $\mathrm{d}\rho = \tanh^{-1}(\mathrm{d}v/c) \approx \mathrm{d}v/c$ so that:
+
+\begin{equation}
+    \mathrm{d}\rho \approx \frac{\mathrm{d}m}{m}
+\end{equation}
+
+where $\mathrm{d}m$ is a negative quantity.
+
+This equation is also satisfied in the Earth frame as rapidity is additive. Changing to velocity in the Earth frame, we have:
+
+\begin{equation}
+    \frac{\mathrm{d}M}{M} = -\frac{\mathrm{d}v/c}{1 - v^{2}/c^{2}}
+\end{equation}
+
+Integrating, we have:
+
+\begin{equation}
+    \rho = \tanh^{-1} \left( \frac{v}{c} \right) = -\ln{\left( \frac{M_{f}}{M_{i}} \right)}
+\end{equation}
+
+The energy of the rocket is:
+
+\begin{equation}
+    E = \frac{mc^{2}}{1 - \rho^{2}}
+\end{equation}
+
+When $M_{f} = 0$, we have $\rho \to \infty$ so the energy of the rocket tends to zero.
+\qed
+
+
+\end{document}

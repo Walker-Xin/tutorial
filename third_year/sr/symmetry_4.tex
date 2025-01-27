@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 4}
+\def\assignmentname{Dynamics and Electromagnetism in Special Relativity}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Sticky collision}
+Initially, we have two 4-momenta $P_{1}^{\mu} = (4mc, p_{0})$ and $P_{2}^{\mu} = (2mc, 0)$, where $p_{0} = \sqrt{3}mc$. Suppose that after the collision, the combined system has a 4-momentum $P^{\mu} = (E_{f}/c, p_{f}) =(6mc, p_{0})$, since we demand conservation of 4-momentum. We have:
+\begin{equation}
+    \frac{E_{f}^{2}}{c^{2}} - p_{f}^{2} = m_{f}^{2}c^{2}
+\end{equation}
+
+On the other hand, $p_{0}$ satisfies $16m^{2}c^{2} - p_{0}^{2} = m^{2}c^{2}$, so $p_{0} = \sqrt{15}mc$. We can then solve for $m_{f}$:
+\begin{equation}
+    m_{f} = \sqrt{21} m
+\end{equation}
+
+To find the velocity of the combined system, consider the relation $E_{f} = \gamma m_{f}c^{2}$, leading to $\gamma = 6/\sqrt{21}$. The velocity is then:
+\begin{equation}
+    v = \beta c = \sqrt{\frac{5}{12}} c
+\end{equation}
+\qed
+
+
+\problem{2}{Pair production}
+In the centre of mass frame, the two photons have the 4-momenta $P_{1}^{\mu} = (E'/c, E'/c)$ and $P_{2}^{\mu} = (E'/c, -E'/c)$. After production of the electron-positron pair, the 4-momenta are $P_{\pm}^{\mu} = (mc, 0)$. Thus, we require $2E'/c = 2mc$ so the threshold energy is $E' = mc^{2}$.
+
+On the other hand, the velocity of the centre of mass frame is:
+\begin{equation}
+    v_{\text{cm}} = \frac{(E_{0}/c - E/c) c^{2}}{E_{0}/c + E/c} = \frac{E_{0} - E}{E_{0} + E} c
+\end{equation}
+
+Thus, we find the relation between $E'$ and $E_{0}$:
+\begin{equation}
+    E' = \gamma \frac{E_{0}}{c} - \gamma \beta \frac{E_{0}}{c} = \frac{E_{0}}{c} \sqrt{\frac{1 - \beta}{1 + \beta}} = \sqrt{E_{0} E}
+\end{equation}
+where $\beta = (E_{0} - E)/(E_{0} + E)$.
+
+Since $E' = mc^{2}$, we have:
+\begin{equation}
+    E = \frac{mc^{4}}{E_{0}}
+\end{equation}
+\qed
+
+
+\problem{3}{Two-body decay}
+In the centre of mass frame, the initial 4-momenta $(Mc, 0)$ splits into $P_{1}^{\mu} = (E_{1}'/c, p')$ and $P_{2}^{\mu} = (E_{2}'/c, -p')$. We have the equations:
+\begin{equation}
+    \begin{split}
+        E_{1}' + E_{2}' &= M c^{2} \\
+        E_{1}'^{2}/c^{2} - p'^{2} &= m_{1}^{2}c^{2} \\
+        E_{2}'^{2}/c^{2} - p'^{2} &= m_{2}^{2}c^{2}
+    \end{split}
+\end{equation}
+
+Solving for $E_{1}'$ and $E_{2}'$:
+\begin{equation}
+    \begin{split}
+        E_{1}' &= \frac{c^{2}}{2} \left( M + \frac{m_{1}^{2} - m_{2}^{2}}{M} \right) \\
+        E_{2}' &= \frac{c^{2}}{2} \left( M + \frac{m_{2}^{2} - m_{1}^{2}}{M} \right)
+    \end{split}
+\end{equation}
+which leads to an expression for $p'$:
+\begin{equation}
+    p' = \frac{c}{2M} \left[ (m_{1}^{2} + m_{2}^{2} - M^{2})^{2} - 4m_{1}^{2}m_{2}^{2} \right]^{1/2}
+\end{equation}
+
+To find the Lorentz factor, first note that in the lab frame, $\gamma = E/Mc^{2}$ so $\beta = \sqrt{1 - M^{2}c^{4}/E^{2}}$. $E_{1}$ and $E_{1}'$ are related via Lorentz transformations. If the products are emitted along the line of motion, we have:
+\begin{equation}
+    E_{1} = \gamma (E_{1}' + v p')
+\end{equation}
+
+If the products are emitted perpendicular to the line of motion, we have:
+\begin{equation}
+    E_{1}= \gamma E_{1}'
+\end{equation}
+\qed
+
+
+\problem{4}{Motion in an electromagnetic field}
+
+\subproblem{a}
+Following transformation rules for the electromagnetic field, we have:
+\begin{equation}
+    \begin{split}
+        \mathbf{E}' = \gamma (E \hat{\mathbf{x}} - vB \hat{\mathbf{x}}) \\
+        \mathbf{B}' = \gamma (B \hat{\mathbf{y}} - \frac{1}{c^{2}} vE \hat{\mathbf{y}})
+    \end{split}
+\end{equation}
+
+For $\mathbf{E}' = 0$, we need $v = E/B$, which leads to $\mathbf{B}' = \gamma B \hat{\mathbf{y}}$. We must have $v = E/B < c$ for this to be possible.
+
+\subproblem{b}
+In frame $S'$, the particle has velocity:
+\begin{equation}
+    \mathbf{u}' = \frac{1}{1 + vu_{z}/c^{2}} \left[ (u_{z} - v) \hat{\mathbf{z}} + \sqrt{1 - \beta^{2}} u_{x} \hat{\mathbf{x}} \right]
+\end{equation}
+
+As in $S'$, the magnetic field is along $\hat{\mathbf{y}}$, the particle undergoes a circular motion in the $xz$-plane. The radius of the circle is:
+\qed
+
+
+\problem{5}{Interactions between two charged beams in a magnetic field}
+
+\subproblem{a}
+In the lab frame, the two particle beams can be represented by the 4-currents $J_{1}^{\mu} = J_{2}^{\mu} = (c\lambda/A, v\lambda/A)$. The electric field produced by one of the beam at the other is $E = \lambda/(2\pi\epsilon_{0}r)$. The balance of forces is:
+\begin{equation}
+    E\lambda = Bv\lambda
+\end{equation}
+which leads to:
+\begin{equation}
+    B = \frac{E}{v} = \frac{\lambda}{2\pi\epsilon_{0}vd}
+\end{equation}
+
+\subproblem{b}
+In the rest frame of the beams, we transform the 4-currents to:
+\begin{equation}
+    (J_{1}')^{\mu} =
+    \begin{pmatrix}
+        \gamma        & -\gamma \beta \\
+        -\gamma \beta & \gamma
+    \end{pmatrix}
+    \begin{pmatrix}
+        c\lambda/A \\
+        v\lambda/A
+    \end{pmatrix}
+    =
+    \gamma \frac{\lambda}{A}
+    \begin{pmatrix}
+        c - \beta v \\
+        -\beta c + v
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        c \rho' \\
+        j'
+    \end{pmatrix}
+\end{equation}
+
+This gives the linear charge density $\lambda' = A \rho' = \sqrt{1 - \beta^{2}} \lambda$ and the current density $j' = 0$. The force by one beam on the other is:
+\begin{equation}
+    f' = E' \lambda' = \frac{\lambda'^{2}}{2\pi\epsilon_{0}d} = (1 - \beta^{2}) \frac{\lambda^{2}}{2\pi\epsilon_{0}d}
+\end{equation}
+
+Now transform this force back to the lab frame:
+\begin{equation}
+    f = \gamma f' = \sqrt{1 - \beta^{2}} \frac{\lambda^{2}}{2\pi\epsilon_{0}d}
+\end{equation}
+
+This must be equal to the magnetic force $Bv\lambda$ in the lab frame, so we have:
+
+\begin{equation}
+    B = \frac{1}{\gamma} \frac{\lambda}{2\pi\epsilon_{0}vd}
+\end{equation}
+\qed
+
+
+\problem{6}{Covariant generalisation of Ohm's law}
+
+\subproblem{a}
+In the rest frame of the conductor, the product $U_{\nu} J^{\nu}$ evaluates to $-\rho_{0} c^{2}$. Thus:
+\begin{equation}
+    \begin{split}
+        (J_{0})^{\mu} &= -\frac{1}{c^{2}} (U_{\nu} J^{\nu}) (U_{0})^{\mu} + \sigma_{0} (F_{0})^{\mu \nu} (U_{0})_{\nu} \\
+        &= \rho_{0} (U_{0})^{\mu} + \sigma_{0} (F_{0})^{\mu \nu} (U_{0})_{\nu}
+    \end{split}
+\end{equation}
+
+Noting that the only non-zero component of $U_{0}$ is its time component, we have:
+\begin{equation}
+    \mathbf{j} = (J_{0})^{i} = \sigma_{0} (F_{0})^{i0} (-c) = \sigma_{0} \mathbf{E}_{0}
+\end{equation}
+
+\subproblem{b}
+In an arbitrary frame, we have:
+\begin{equation}
+    J^{\mu} = \rho_{0} U^{\mu} + \sigma_{0} F^{\mu \nu} U_{\nu}
+\end{equation}
+since the product $U_{\nu} J^{\nu}$ is a scalar invariant.
+
+Isolating the spatial components of $J^{\mu}$, we have:
+\begin{equation}
+    \begin{split}
+        J^{i} &= \rho_{0} \gamma v_{i} + \gamma \sigma_{0} (-F^{i0}c + F^{ij} v_{j}) \\
+        &= \gamma \rho_{0} v_{i} + \gamma \sigma_{0} (E_{i} + \epsilon_{ijk} v_{j} B_{k}) \\
+        &= \gamma \rho_{0} \mathbf{v} + \gamma \sigma_{0} (\mathbf{E} + \mathbf{v} \times \mathbf{B})
+    \end{split}
+\end{equation}
+
+On the other hand, note the temporal component of $J^{\mu}$:
+\begin{equation}
+    \begin{split}
+        J^{0} &= \rho_{0} \gamma c + \sigma_{0} F^{0\nu} U_{\nu} \\
+        &= \gamma \rho_{0} c + \gamma_{v} \sigma_{0} \frac{E_{i} v_{i}}{c} \\
+        &= \rho c
+    \end{split}
+\end{equation}
+which means:
+\begin{equation}
+    \gamma \rho_{0} = \rho - \gamma \sigma_{0} \frac{\mathbf{E} \cdot \mathbf{v}}{c^{2}}
+\end{equation}
+
+Combining the two results, we have:
+\begin{equation}
+    \mathbf{j} = \rho \mathbf{v} + \gamma \sigma_{0} \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} - \frac{\mathbf{E} \cdot \mathbf{v}}{c^{2}} \mathbf{v} \right)
+\end{equation}
+
+\subproblem{c}
+If $\rho_{0} = 0$, from the above results, we have:
+\begin{equation}
+    \rho = \gamma \sigma_{0} \frac{\mathbf{E} \cdot \mathbf{v}}{c^{2}}
+\end{equation}
+and:
+\begin{equation}
+    \mathbf{j} = \gamma \sigma_{0} \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+\end{equation}
+\qed
+
+
+\problem{7}{Angular momentum of the electromagnetic field}
+
+\subproblem{a}
+We have:
+\begin{equation}
+    \begin{split}
+        \partial_{\alpha} M^{\alpha \beta \gamma} &= \partial_{\alpha} (X^{\gamma} T^{\alpha \beta}) - \partial_{\alpha} (X^{\beta} T^{\alpha \gamma}) \\
+        &= (\partial_{\alpha} X^{\gamma}) T^{\alpha \beta} + X^{\gamma} (\partial_{\alpha} T^{\alpha \beta}) - (\partial_{\alpha} X^{\beta}) T^{\alpha \gamma} - X^{\beta} (\partial_{\alpha} T^{\alpha \gamma}) \\
+        &= \delta^{\gamma}_{\alpha} T^{\alpha \beta} - \delta^{\beta}_{\alpha} T^{\alpha \gamma} \\
+        &= T^{\alpha \beta} - T^{\beta \gamma} \\
+        &= 0
+    \end{split}
+\end{equation}
+where the third equality follows because we are relabelling the indices and the final equality follows from the symmetry of $T^{\alpha \beta}$.
+
+\subproblem{b}
+\begin{equation}
+    \begin{split}
+        \partial_{\alpha} M^{\alpha i j} &= \partial_{\alpha} (X^{j} T^{\alpha i}) - \partial_{\alpha} (X^{i} T^{\alpha j}) \\
+        &= T^{ji} + X^{j} (0 - \partial_{\alpha} T^{\alpha 0}) - T^{ij} - X^{i} (0 - \partial_{\alpha} T^{\alpha 0}) \\
+        &= X^{i} \partial_{\alpha} T^{\alpha 0} - X^{j} \partial_{\alpha} T^{\alpha 0} \\
+        &= cX^{i} \nabla \cdot \mathbf{g} - cX^{j} \nabla \cdot \mathbf{g} \\
+    \end{split}
+\end{equation}
+
+
+\end{document}
