@@ -1,0 +1,266 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Symmetry and Relativity}
+\def\assignmentno{Problem Set 5}
+\def\assignmentname{Dynamics and Electromagnetism in Special Relativity}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Magnetic dipole radiation}
+
+\subproblem{a}
+Consider the magnetic potential:
+\begin{equation}
+    \begin{split}
+        \mathbf{A}(\mathbf{r}, t) &= \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} \, \mathrm{d}\mathbf{l} \\
+        &= \hat{\phi} \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} a \, \mathrm{d}\phi \\
+        &= \hat{\phi} \frac{\mu_{0} a}{2} \frac{I(t - R/c)}{R}
+    \end{split}
+\end{equation}
+since there is no $\phi$ dependence in the integrand.
+
+Several approximations can be made. First, from geometry:
+\begin{equation}
+    \begin{split}
+        R^{2} &= a^{2} + r^{2} - 2ar \sin{\theta} \\
+        R &\approx \sqrt{r^{2} - 2ar \sin{\theta}} \approx r \left( 1 - \frac{a}{r} \sin{\theta} \right) \\
+        \frac{1}{R} &\approx \frac{1}{r} \left( 1 + \frac{a}{r} \sin{\theta} \right)
+    \end{split}
+\end{equation}
+
+Further:
+\begin{equation}
+    \begin{split}
+        I(t - R/c) &= I_{0} \cos{\left( \omega t - R \frac{\omega}{c} \right)} \\
+        &\approx I_{0} \cos{\left[ \omega (t - r/c) + \frac{a\omega}{c} \sin{\theta} \right]} \\
+        &\approx I_{0} \cos{\left[ \omega (t - r/c) \right]} - I_{0} \sin{\left[ \omega (t - r/c) \right]} \frac{a \omega}{c} \sin{\theta}
+    \end{split}
+\end{equation}
+
+Then:
+\begin{equation}
+    \begin{split}
+        \frac{I(t - R/c)}{R} &\approx \frac{I_{0}}{r} \left\{ \cos{\left[ \omega (t - r/c) \right]} + \cos{\left[ \omega (t - r/c) \right]} \frac{a}{r} \sin{\theta} - \sin{\left[ \omega (t - r/c) \right]} \frac{a \omega}{c} \sin{\theta} \right\} \\
+    \end{split}
+\end{equation}
+
+Given that $I_{0} = M_{0}/(\pi a^{2})$, we have:
+\begin{equation}
+    \mathbf{A}(\mathbf{r}, t) \approx -\hat{\phi} \frac{\mu_{0} M_{0} \omega}{2\pi c} \frac{\sin{\theta}}{r} \sin{\left[ \omega (t - r/c) \right]}
+\end{equation}
+
+\subproblem{b}
+For this case, since the magnetic potential has only a $\phi$ component, the magnetic field is perpendicular to the electric field, so that the Poynting vector is $S = E^{2}/c\mu_{0}$. The electric field is given by:
+\begin{equation}
+    \mathbf{E} = -\frac{\partial \mathbf{A}}{\partial t} = \hat{\phi} \frac{\mu_{0} M_{0} \omega^{2}}{2\pi c} \frac{\sin{\theta}}{r} \cos{\left[ \omega (t - r/c) \right]}
+\end{equation}
+so that the magnitude of the Poynting vector is:
+\begin{equation}
+    S = \frac{E^{2}}{c\mu_{0}} = \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \frac{\sin^{2}{\theta}}{r^{2}} \cos^{2}{\left[ \omega (t - r/c) \right]}
+\end{equation}
+
+The radiated power is then:
+\begin{equation}
+    \begin{split}
+        P &= \int S \, \mathrm{d}A \\
+        &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \cos^{2}{\left[ \omega (t - r/c) \right]} \int \frac{\sin^{2}{\theta}}{r^{2}} \, r^{2} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi \\
+        &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \left( \frac{1}{2} \right) \left( \frac{4}{3} \right) \\
+        &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{12\pi c^{3}}
+    \end{split}
+\end{equation}
+where the third line follows by time averaging the cosine squared function.
+\qed
+
+
+\problem{2}{Electric field of a charge moving under a constant force}
+We have $\mathbf{r} = (\eta, y, 0)$, $\mathbf{r}(t_{c}) = (\sqrt{\eta^{2} + c^{2} t_{c}^{2}}, 0, 0)$ and $\mathbf{R} = \mathbf{r} - \mathbf{r}(t_{c})$. At $t = 0$, we have the relation:
+\begin{equation}
+    \begin{split}
+        c t_{c} &= R \\
+        c^{2} t_{c}^{2} &= (\eta - \sqrt{\eta^{2} + c^{2} t_{c}^{2}})^{2} + y^{2} \\
+    \end{split}
+\end{equation}
+
+Expanding the above equation gives us $2\eta \sqrt{\eta^{2} + c^{2} t_{c}^{2}} = 2\eta^{2} + y^{2}$, which leads to:
+\begin{equation}
+    x_{c} = \eta + \frac{y^{2}}{2\eta}
+\end{equation}
+
+Then:
+\begin{equation}
+    \begin{split}
+        v_{c} &= \frac{\mathrm{d}x_{c}}{\mathrm{d}t_{c}} = \frac{c^{2} t_{c}}{x_{c}} \\
+        a_{c} &= \frac{\mathrm{d}^{2}x_{c}}{\mathrm{d}t_{c}^{2}} = \frac{c^{2} \eta^{2}}{x_{c}^{3}}
+    \end{split}
+\end{equation}
+
+When $\eta = 1$ and $y = 2$, $x_{c} = 3$, $c t_{c} = \sqrt{8}$. This means $v_{c}/c = \sqrt{8}/3$ and $a_{c}/c^{2} = 1/27$.
+
+We have $\mathbf{R} = (-2, 2, 0)$ so $\hat{R} = (-1, 1, 0)/\sqrt{2}$. This means:
+\begin{equation}
+    \begin{split}
+        \hat{R} - \mathbf{v}_{c}/c &=
+        \begin{pmatrix}
+            -1/\sqrt{2} - \sqrt{8}/3 \\
+            1/\sqrt{2}               \\
+            0
+        \end{pmatrix} \\
+        \hat{R} \times (\hat{R} \times \mathbf{a}_{c}) &=
+        \begin{pmatrix}
+            -1/54 \\
+            -1/54 \\
+            0
+        \end{pmatrix}
+    \end{split}
+\end{equation}
+
+On the other hand, $\gamma^{2} = 1 - v_{c}^{2}/c^{2} = 1 - 8/9 = 1/9$ so the factor $\gamma^{-2} R^{-1}$ gives $9/\sqrt{8}$.
+\qed
+
+
+\problem{3}{Radiation losses in accelerators}
+
+\subproblem{a}
+In the current case, the velocity is parallel to the acceleration, so that radiation power is given by:
+\begin{equation}
+    P_{\text{rad}} = \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \gamma^{6} a^{2} = \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} a_{0}^{2}
+\end{equation}
+where $a_{0} = \gamma^{6} a^{2}$ is the proper acceleration.
+
+The 4-force is given by:
+\begin{equation}
+    F^{\mu} = \gamma (P/c, f) = m A^{\mu}
+\end{equation}
+
+Apparently the force is pure, so that $fu = \mathrm{d}E/\mathrm{d}t = P$. Then, taking the inner product of the above equation:
+\begin{equation}
+    \begin{split}
+        \gamma^{2} (-P^{2}/c^{2} + f^{2}) &= m^{2} a_{0}^{2} \\
+        \gamma^{2} P^{2} (-1/c^{2} + 1/u^{2}) &= m^{2} a_{0}^{2} \\
+        P^{2}/u^{2} &= m^{2} a_{0}^{2} \\
+    \end{split}
+\end{equation}
+
+Now consider:
+\begin{equation}
+    P = \frac{\mathrm{d}E}{\mathrm{d}t} = \frac{\mathrm{d}E}{\mathrm{d}x} u
+\end{equation}
+so that $\mathrm{d}E/\mathrm{d}x = P/u = m a_{0}$.
+
+Finally, the ratio $P_{\text{rad}}/P$ is:
+\begin{equation}
+    \begin{split}
+        \frac{P_{\text{rad}}}{P} &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \frac{a_{0}^{2}}{P^{2}} P \\
+        &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \frac{1}{m^{2} u^{2}} \frac{\mathrm{d}E}{\mathrm{d}x} u \\
+        &\approx \frac{q^{2}}{6\pi \epsilon_{0} m^{2} c^{4}} \frac{\mathrm{d}E}{\mathrm{d}x}
+    \end{split}
+\end{equation}
+where the final approximation follows from the fact that $u \approx c$ for ultra-relativistic particles.
+
+\subproblem{b}
+For circular motion, we have:
+\begin{equation}
+    \begin{split}
+        P_{\text{rad}} &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \gamma^{6} \left( a^{2} - \frac{v^{2}a^{2}}{c^{2}} \right) \\
+        &\propto \gamma^{4} a^{2} \\
+    \end{split}
+\end{equation}
+
+On the other hand, $a = v^{2}/r$ and $T \propto r/v$. Now, the energy loss per turn is:
+\begin{equation}
+    \begin{split}
+        \delta E &\propto P_{\text{rad}} T \\
+        &\propto \gamma^{4} \left( \frac{v^{3}}{r} \right)^{2} \frac{r}{v} \\
+        &\propto \gamma^{4} v^{5} \frac{1}{r} \\
+        &\propto \frac{E^{4}}{r}
+    \end{split}
+\end{equation}
+since for ultra-relativistic particles, $\gamma = E/mc^{2} \approx E$ and $v \approx c$.
+\qed
+
+
+\problem{4}{Radiation reaction force}
+
+\subproblem{a}
+The work done by the radiation reaction force is:
+\begin{equation}
+    \begin{split}
+        \int_{T} \mathbf{F}_{\text{rad}} \cdot \mathbf{v} \, \mathrm{d}t &= -\frac{\mu_{0}q^{2}}{6\pi c} \int_{T} \mathbf{a} \cdot \mathbf{a} \, \mathrm{d}t \\
+        &= -\frac{\mu_{0}q^{2}}{6\pi c} \int_{T} \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} \cdot \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} \, \mathrm{d}t \\
+        &= \left[ -\frac{\mu_{0}q^{2}}{6\pi c} \mathbf{v} \cdot \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} \right]_{T} + \frac{\mu_{0}q^{2}}{6\pi c} \int_{T} \mathbf{v} \cdot \frac{\mathrm{d}^{2}\mathbf{v}}{\mathrm{d}t^{2}} \, \mathrm{d}t \\
+    \end{split}
+\end{equation}
+
+The boundary term vanishes over a period, so that by equating the integrands, we have:
+\begin{equation}
+    \mathbf{F}_{\text{rad}} = \frac{\mu_{0}q^{2}}{6\pi c} \frac{\mathrm{d}\mathbf{a}}{\mathrm{d}t}
+\end{equation}
+
+\subproblem{b}
+
+\subproblem{c}
+To force $F^{\mu}U_{\mu} = 0$, we need to have:
+\begin{equation}
+    F^{\mu}U_{\mu} \propto \left[ \frac{\mathrm{d}A^{\mu}}{\mathrm{d}\tau} U_{\mu} + \alpha \left( \frac{\mathrm{d}A^{\nu}}{\mathrm{d}\tau} U_{\nu} \right) U^{\mu} U_{\mu} \right] = 0
+\end{equation}
+
+Since $U_{\mu}U^{\mu} = -c^{2}$, we simply need $\alpha = -1/c^{2}$ so that the two terms cancel each other out.
+
+On the other hand, consider:
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}A^{\nu}}{\mathrm{d}\tau} U_{\nu} &= \int A^{\nu} U_{\nu} \, \mathrm{d}\tau - A^{\nu} \frac{\mathrm{d}U_{\nu}}{\mathrm{d}\tau} \\
+        &= -A^{\nu} A_{\nu}
+    \end{split}
+\end{equation}
+where the last line follows from the fact that $A^{\nu} U_{\nu} = 0$.
+\qed
+
+
+\problem{5}{Radiation from a charge under a constant force}
+Using results from Problem 2, we have:
+\begin{equation}
+    \begin{split}
+        x &= \sqrt{\eta^{2} + c^{2} t^{2}} \\
+        v &= \frac{c^{2} t}{x} \\
+        a &= \frac{c^{2} \eta^{2}}{x^{3}}
+    \end{split}
+\end{equation}
+
+Since the velocity is parallel to the acceleration, the radiation power is given by:
+\begin{equation}
+    \begin{split}
+        P_{\text{rad}} &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \gamma^{6} a^{2} \\
+        &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \left( \frac{1}{1 - v^{2}/c^{2}} \right)^{3} a^{2} \\
+        &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \left( \frac{1}{1 - c^{2} t^{2}/x^{2}} \right)^{3} \frac{c^{4} \eta^{4}}{x^{6}} \\
+        &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \left( \frac{1}{x^{2} - c^{2} t^{2}} \right)^{3} c^{4} \eta^{4} \\
+        &= \frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \frac{c^{4}}{\eta^{2}}
+    \end{split}
+\end{equation}
+where $c^{4}/\eta^{2}$ is just the proper acceleration $a_{0}$.
+
+From the previous question, we have the radiation reaction force:
+\begin{equation}
+    \begin{split}
+        F^{\mu}_{\text{rad}} &= \frac{\mu_{0}q^{2}}{6\pi c} \left[ -\frac{1}{c^{2}} (A_{\nu} A^{\nu}) U^{\mu} \right] \\
+        &= -\frac{q^{2}}{6\pi \epsilon_{0} c^{3}} \left( \frac{c^{4}}{\eta^{2}} \right) \frac{U^{\mu}}{c^{2}}\\
+    \end{split}
+\end{equation}
+\qed
+
+
+\end{document}
