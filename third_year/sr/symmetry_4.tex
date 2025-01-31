@@ -104,7 +104,17 @@ Following transformation rules for the electromagnetic field, we have:
     \end{split}
 \end{equation}
 
-For $\mathbf{E}' = 0$, we need $v = E/B$, which leads to $\mathbf{B}' = \gamma B \hat{\mathbf{y}}$. We must have $v = E/B < c$ for this to be possible.
+For $\mathbf{E}' = 0$, we need $v = E/B$, which leads to $\mistake{\mathbf{B}' = \gamma B \hat{\mathbf{y}}}$. We must have $v = E/B < c$ for this to be possible.
+
+\begin{correction}
+    For $\mathbf{E}' = 0$, we need $v = E/B$. Then we have $B' = \gamma B (1 - E^{2}/B^{2}c^{2})$. On the other hand, note that $E^{2} - B^{2}c^{2}$ is an invariant, so:
+    \begin{equation}
+        E^{2} - B^{2}c^{2} = -B'^{2}c^{2}
+    \end{equation}
+    where the right hand side has no $E'$ term as it is zero.
+
+    This leads to $B' = B/\gamma$.
+\end{correction}
 
 \subproblem{b}
 In frame $S'$, the particle has velocity:
@@ -119,14 +129,25 @@ As in $S'$, the magnetic field is along $\hat{\mathbf{y}}$, the particle undergo
 \problem{5}{Interactions between two charged beams in a magnetic field}
 
 \subproblem{a}
-In the lab frame, the two particle beams can be represented by the 4-currents $J_{1}^{\mu} = J_{2}^{\mu} = (c\lambda/A, v\lambda/A)$. The electric field produced by one of the beam at the other is $E = \lambda/(2\pi\epsilon_{0}r)$. The balance of forces is:
+In the lab frame, the two particle beams can be represented by the 4-currents $J_{1}^{\mu} = J_{2}^{\mu} = (c\lambda/A, v\lambda/A)$. The electric field produced by one of the beam at the other is $E = \lambda/(2\pi\epsilon_{0}d)$. The balance of forces is:
 \begin{equation}
-    E\lambda = Bv\lambda
+    \mistake{E\lambda = Bv\lambda}
 \end{equation}
 which leads to:
 \begin{equation}
-    B = \frac{E}{v} = \frac{\lambda}{2\pi\epsilon_{0}vd}
+    \mistake{B = \frac{E}{v} = \frac{\lambda}{2\pi\epsilon_{0}vd}}
 \end{equation}
+
+\begin{correction}
+    The magnetic field on one beam by the other is $\mu_{0}v\lambda/(2\pi d)$. The net force must be compensated by an external magnetic field $B$ so we have:
+    \begin{equation}
+        Bv\lambda = \frac{\lambda^{2}}{2\pi\epsilon_{0}d} - \frac{\mu_{0}\lambda^{2} v^{2}}{2\pi d}
+    \end{equation}
+    which can be solved for $B$ to give:
+    \begin{equation}
+        B = \left( 1 - \frac{v^{2}}{c^{2}} \right) \frac{\lambda}{2\pi\epsilon_{0}vd}
+    \end{equation}
+\end{correction}
 
 \subproblem{b}
 In the rest frame of the beams, we transform the 4-currents to:
@@ -158,7 +179,7 @@ This gives the linear charge density $\lambda' = A \rho' = \sqrt{1 - \beta^{2}} 
     f' = E' \lambda' = \frac{\lambda'^{2}}{2\pi\epsilon_{0}d} = (1 - \beta^{2}) \frac{\lambda^{2}}{2\pi\epsilon_{0}d}
 \end{equation}
 
-Now transform this force back to the lab frame:
+\mistake{Now transform this force back to the lab frame:}
 \begin{equation}
     f = \gamma f' = \sqrt{1 - \beta^{2}} \frac{\lambda^{2}}{2\pi\epsilon_{0}d}
 \end{equation}
@@ -166,8 +187,19 @@ Now transform this force back to the lab frame:
 This must be equal to the magnetic force $Bv\lambda$ in the lab frame, so we have:
 
 \begin{equation}
-    B = \frac{1}{\gamma} \frac{\lambda}{2\pi\epsilon_{0}vd}
+    \mistake{B = \frac{1}{\gamma} \frac{\lambda}{2\pi\epsilon_{0}vd}}
 \end{equation}
+
+\begin{correction}
+    We transform the pure electric field in the rest frame to the lab frame to obtain the extra magnetic field $B$:
+    \begin{equation}
+        E' = \frac{\lambda'}{2\pi\epsilon_{0}d} = \gamma v B
+    \end{equation}
+    which gives:
+    \begin{equation}
+        B = \frac{\lambda}{2\pi\epsilon_{0}vd} \left( 1 - \frac{v^{2}}{c^{2}} \right)
+    \end{equation}
+\end{correction}
 \qed
 
 

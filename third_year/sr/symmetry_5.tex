@@ -27,8 +27,8 @@ Consider the magnetic potential:
 \begin{equation}
     \begin{split}
         \mathbf{A}(\mathbf{r}, t) &= \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} \, \mathrm{d}\mathbf{l} \\
-        &= \hat{\phi} \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} a \, \mathrm{d}\phi \\
-        &= \hat{\phi} \frac{\mu_{0} a}{2} \frac{I(t - R/c)}{R}
+        &= \mistake{\hat{\phi} \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} a \, \mathrm{d}\phi} \\
+        &= \mistake{\hat{\phi} \frac{\mu_{0} a}{2} \frac{I(t - R/c)}{R}}
     \end{split}
 \end{equation}
 since there is no $\phi$ dependence in the integrand.
@@ -36,9 +36,9 @@ since there is no $\phi$ dependence in the integrand.
 Several approximations can be made. First, from geometry:
 \begin{equation}
     \begin{split}
-        R^{2} &= a^{2} + r^{2} - 2ar \sin{\theta} \\
-        R &\approx \sqrt{r^{2} - 2ar \sin{\theta}} \approx r \left( 1 - \frac{a}{r} \sin{\theta} \right) \\
-        \frac{1}{R} &\approx \frac{1}{r} \left( 1 + \frac{a}{r} \sin{\theta} \right)
+        R^{2} &= \mistake{a^{2} + r^{2} - 2ar \sin{\theta}} \\
+        R &\approx \mistake{\sqrt{r^{2} - 2ar \sin{\theta}} \approx r \left( 1 - \frac{a}{r} \sin{\theta} \right)} \\
+        \frac{1}{R} &\approx \mistake{\frac{1}{r} \left( 1 + \frac{a}{r} \sin{\theta} \right)}
     \end{split}
 \end{equation}
 
@@ -63,6 +63,37 @@ Given that $I_{0} = M_{0}/(\pi a^{2})$, we have:
     \mathbf{A}(\mathbf{r}, t) \approx -\hat{\phi} \frac{\mu_{0} M_{0} \omega}{2\pi c} \frac{\sin{\theta}}{r} \sin{\left[ \omega (t - r/c) \right]}
 \end{equation}
 
+\begin{correction}
+    Consider the magnetic potential:
+    \begin{equation}
+        \begin{split}
+            \mathbf{A}(\mathbf{r}, t) &= \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} \, \mathrm{d}\mathbf{l} \\
+            &= \hat{\phi} \frac{\mu_{0}}{4\pi} \int \frac{I(t - R/c)}{R} a \cos{\phi} \, \mathrm{d}\phi
+        \end{split}
+    \end{equation}
+    where $\phi$ is the azimuthal angle between the current element and the radial vector $\mathbf{R}$.
+
+    From geometry:
+    \begin{equation}
+        \begin{split}
+            R^{2} &= a^{2} \cos^{2}{\phi} + r^{2} - 2ar \cos{\phi} \sin{\theta} \\
+            R &\approx \sqrt{r^{2} - 2ar \cos{\phi} \sin{\theta}} \approx r \left( 1 - \frac{a}{r} \cos{\phi} \sin{\theta} \right) \\
+            \frac{1}{R} &\approx \frac{1}{r} \left( 1 + \frac{a}{r} \cos{\phi} \sin{\theta} \right)
+        \end{split}
+    \end{equation}
+
+    Further:
+    \begin{equation}
+        \begin{split}
+            I(t - R/c) &= I_{0} \cos{\left( \omega t - R \frac{\omega}{c} \right)} \\
+            &\approx I_{0} \cos{\left[ \omega (t - r/c) + \frac{a\omega}{c} \cos{\phi} \sin{\theta} \right]} \\
+            &\approx I_{0} \cos{\left[ \omega (t - r/c) \right]} - I_{0} \sin{\left[ \omega (t - r/c) \right]} \frac{a \omega}{c} \cos{\phi} \sin{\theta}
+        \end{split}
+    \end{equation}
+
+    Note that the first term integrates to zero, and the second term gives the correct result.
+\end{correction}
+
 \subproblem{b}
 For this case, since the magnetic potential has only a $\phi$ component, the magnetic field is perpendicular to the electric field, so that the Poynting vector is $S = E^{2}/c\mu_{0}$. The electric field is given by:
 \begin{equation}
@@ -78,7 +109,7 @@ The radiated power is then:
     \begin{split}
         P &= \int S \, \mathrm{d}A \\
         &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \cos^{2}{\left[ \omega (t - r/c) \right]} \int \frac{\sin^{2}{\theta}}{r^{2}} \, r^{2} \sin{\theta} \, \mathrm{d}\theta \, \mathrm{d}\phi \\
-        &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \left( \frac{1}{2} \right) \left( \frac{4}{3} \right) \\
+        &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{8\pi^{2} c^{3}} \left( \frac{1}{2} \right) \left( \frac{4}{3} \right) (2\pi) \\
         &= \frac{\mu_{0} M_{0}^{2} \omega^{4}}{12\pi c^{3}}
     \end{split}
 \end{equation}
@@ -108,7 +139,11 @@ Then:
     \end{split}
 \end{equation}
 
-When $\eta = 1$ and $y = 2$, $x_{c} = 3$, $c t_{c} = \sqrt{8}$. This means $v_{c}/c = \sqrt{8}/3$ and $a_{c}/c^{2} = 1/27$.
+When $\eta = 1$ and $y = 2$, $x_{c} = 3$, $c t_{c} = \sqrt{8}$. This means $v_{c}/c = \mistake{\sqrt{8}/3}$ and $a_{c}/c^{2} = 1/27$.
+
+\begin{correction}
+    $v_{c}/c = -\sqrt{8}/3$ as the charge is moving in the negative $x$ direction.
+\end{correction}
 
 We have $\mathbf{R} = (-2, 2, 0)$ so $\hat{R} = (-1, 1, 0)/\sqrt{2}$. This means:
 \begin{equation}
@@ -189,7 +224,7 @@ On the other hand, $a = v^{2}/r$ and $T \propto r/v$. Now, the energy loss per t
         &\propto \frac{E^{4}}{r}
     \end{split}
 \end{equation}
-since for ultra-relativistic particles, $\gamma = E/mc^{2} \approx E$ and $v \approx c$.
+since for ultra-relativistic particles, $\gamma = E/mc^{2}$ and $v \approx c$.
 \qed
 
 
