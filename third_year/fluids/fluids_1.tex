@@ -3,9 +3,9 @@
 \pagestyle{fancy}
 
 % assignment information
-\def\course{Symmetry and Relativity}
+\def\course{Fluids}
 \def\assignmentno{Problem Set 1}
-\def\assignmentname{Kinematics of fluids}
+\def\assignmentname{Kinematics of Fluids}
 \def\name{Xin, Wenkang}
 \def\time{\today}
 
@@ -80,6 +80,24 @@ which gives:
 \end{equation}
 
 It is easy to see that $r(t) z(t) = r_{0} z_{0} = \text{constant}$, which is the equation of the streamlines.
+
+\subproblem{d}
+The Lagrangian velocity $\mathbf{V}(t, \mathbf{r}_{0})$ for this fluid particle is given by:
+\begin{equation}
+    \mathbf{V}(t, \mathbf{r}_{0}) = \frac{v_{0}}{2h} r \mathbf{\hat{r}} - \frac{v_{0}}{h} z \mathbf{\hat{z}}
+\end{equation}
+so that:
+\begin{equation}
+    \frac{\partial \mathbf{V}}{\partial t} = \frac{v_{0}}{2h} \frac{\partial r}{\partial t} \mathbf{\hat{r}} - \frac{v_{0}}{h} \frac{\partial z}{\partial t} \mathbf{\hat{z}}
+\end{equation}
+
+Consider the material derivative of the Eulerian velocity $\mathbf{v}$:
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{D} \mathbf{v}}{\mathrm{D} t} &= \frac{\partial \mathbf{v}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v} \\
+        &= \left( \frac{v_{0}}{2h} \frac{\partial r}{\partial t} \hat{\mathbf{r}} - \frac{v_{0}}{h} \frac{\partial z}{\partial t} \hat{\mathbf{z}} \right) + \left( \frac{v_{0}}{2h} r \frac{\partial }{\partial r} - \frac{v_{0}}{h} z \frac{\partial }{\partial z} \right) \left( \frac{v_{0}}{2h} r \hat{\mathbf{r}} - \frac{v_{0}}{h} z \hat{\mathbf{z}} \right) \\
+    \end{split}
+\end{equation}
 \qed
 
 
@@ -147,6 +165,11 @@ Putting everything together, we find:
 
 \subproblem{b}
 For a fluid element moving along a circle at constant speed, we have $\mathbf{v}_{r} = \mathbf{0}$ so $\mathbf{f}_{\text{cor}} = \mathbf{0}$ and $\mathbf{f}_{\text{cen}} = -\omega^{2} r \hat{\mathbf{r}}$.
+
+\subproblem{c}
+The velocity points in the $-\hat{\mathbf{\theta}}$ direction whereas the rotation is in the $\hat{\mathbf{z}}$ direction. The Coriolis force is then in the azimuthal direction. The point is that the Coriolis force is perpendicular to the velocity of the fluid element, so as to change its direction to create circulation. Without the Coriolis force, a fluid at the surface of the Earth would move in straight lines since there is no force parallel to the surface to change its direction.
+
+At the equatorial region, the Coriolis force is zero since the velocity is parallel to the rotation axis. Thus it is difficult for hurricanes to form at the equator. The hurricanes cannot pass the equator since the part of the hurricane in the northern hemisphere will be deflected to the right, and the part in the southern hemisphere will be deflected to the left. This will cause the hurricane to dissipate.
 \qed
 
 
@@ -186,6 +209,38 @@ Labelling the points of the rectangle as $A, B, C, D$, starting from the top lef
         \mathbf{v}_{D} &= D_{xx} (-\delta x) \hat{\mathbf{x}} + D_{yy} (-\delta y) \hat{\mathbf{y}} = \alpha (-\delta x \hat{\mathbf{x}} + \delta y \hat{\mathbf{y}})
     \end{split}
 \end{equation}
+
+The initial area of the rectangle is $4\delta x \delta y$. After a time $\delta t$, the area becomes:
+\begin{equation}
+    \begin{split}
+        A' &= 4(\delta x + \alpha \delta x \delta t)(\delta y - \alpha \delta y \delta t) \\
+        &= 4\delta x \delta y + 4\alpha \delta x \delta y \delta t - 4\alpha \delta x \delta y \delta t - 4\alpha^{2} \delta x \delta y \delta t^{2} \\
+        &\approx 4\delta x \delta y
+    \end{split}
+\end{equation}
+where we have ignored terms of order $\delta t^{2}$.
+
+\subproblem{c}
+Label the points of the circle as $A, B, C, D$, starting from the rightmost point and going clockwise. We have, for the deformation tensor:
+\begin{equation}
+    \begin{split}
+        \mathbf{v}_{A} &= \beta \delta_{x} \hat{\mathbf{y}} = \mathbf{v}_{C} \\
+        \mathbf{v}_{B} &= -\beta \delta_{y} \hat{\mathbf{x}} = \mathbf{v}_{D}
+    \end{split}
+\end{equation}
+which is a shear effect along the $y = x$ line.
+
+For the rotation tensor, we have:
+\begin{equation}
+    \begin{split}
+        \mathbf{v}_{A} &= -\beta \delta_{x} \hat{\mathbf{y}} = -\mathbf{v}_{C} \\
+        \mathbf{v}_{B} &= \beta \delta_{y} \hat{\mathbf{x}} = \mathbf{v}_{D}
+    \end{split}
+\end{equation}
+which is a rotation in the clockwise direction.
+
+\subproblem{d}
+The filamentary structure forms because the tracers, representing fluid flows, do not cross each other but evolves according to the deformation tensor.
 \qed
 
 
@@ -270,7 +325,7 @@ On streamlines, we have a change in $\psi$:
     \end{split}
 \end{equation}
 
-But since on streamlines, $\delta r/v_{r} = \delta z/v_{z}$, we have $\delta \psi = 0$.
+But since $\delta r/v_{r} = \delta z/v_{z}$ on streamlines, we have $\delta \psi = 0$.
 
 It can be easily checked that $\mathbf{v} = \nabla \times (\psi/r) \hat{\mathbf{\theta}}$.
 

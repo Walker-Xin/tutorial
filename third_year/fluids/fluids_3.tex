@@ -1,0 +1,299 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Fluids}
+\def\assignmentno{Problem Set 3}
+\def\assignmentname{Dynamics of Fluids \& Potential Flows}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{Dynamics of Fluids}
+%==========
+
+
+\problem{1}{Force on a bent garden hose}
+Consider a short time interval $\delta t$. The input momentum is:
+\begin{equation}
+    \delta \mathbf{P}_{\text{in}} = \rho_{1} \delta V_{1} v_{1} \hat{x} = \rho_{1} A_{1} v_{1} \delta t \hat{x}
+\end{equation}
+
+The output momentum is:
+\begin{equation}
+    \delta \mathbf{P}_{\text{out}} = -\rho_{2} \delta V_{2} v_{2} \cos{\theta} \hat{x} - \rho_{2} \delta V_{2} v_{2} \sin{\theta} \hat{y} = -\rho_{2} A_{2} v_{2} \delta t \cos{\theta} \hat{x} - \rho_{2} A_{2} v_{2} \delta t \sin{\theta} \hat{y}
+\end{equation}
+
+This means that the force acting on the hose must be
+\begin{equation}
+    \begin{split}
+        \mathbf{F} &= \frac{\delta \mathbf{P}_{\text{in}} - \delta \mathbf{P}_{\text{out}}}{\delta t} \\
+        &= \rho_{1} A_{1} v_{1} \hat{x} + \rho_{2} A_{2} v_{2} \cos{\theta} \hat{x} + \rho_{2} A_{2} v_{2} \sin{\theta} \hat{y} \\
+    \end{split}
+\end{equation}
+
+On the other hand, by continuity and Bernoulli's equation, we have:
+\begin{equation}
+    \begin{split}
+        \rho_{1} v_{1} A_{1} &= \rho_{2} v_{2} A_{2} \\
+        \frac{1}{2} \rho_{1} v_{1}^{2} + P_{1} &= \frac{1}{2} \rho_{2} v_{2}^{2} + P_{2}
+    \end{split}
+\end{equation}
+
+This gives:
+\begin{equation}
+    \begin{split}
+        F &= \left[ \left( \rho_{1} A_{1} v_{1} + \rho_{2} A_{2} v_{2} \cos{\theta} \right)^{2} + \left( \rho_{2} A_{2} v_{2} \sin{\theta} \right)^{2} \right]^{1/2} \\
+        &= \rho_{1} A_{1} v_{1} \sqrt{2 + 2\cos{\theta}} \\
+        &= 2\rho_{1} A_{1} v_{1} \cos^{2}{\left( \frac{\theta}{2} \right)}
+    \end{split}
+\end{equation}
+
+When $\theta = 0$, the force is at its maximum; this means that the potential associated with this force is at its steepest. The system is thus in its most unstable state.
+\qed
+
+
+\problem{2}{Drainage of a large reservoir of water}
+
+\subproblem{a}
+It is safe to assume that the fluid is inviscid and incompressible. Then initially the flow has no vorticity, so the vorticity is zero always by Kelvin's theorem. This means that the flow is irrotational.
+
+\subproblem{b}
+
+\qed
+
+
+%==========
+\pagebreak
+\section*{Potential Flows: Method of Images and Conformal Mapping}
+%==========
+
+
+\problem{3}{Force from a line source or vortex on a wall}
+
+\subproblem{a}
+We are solving the Poisson equation $\nabla^{2} \phi = 0$ in the region $x > 0$ subject to the boundary conditions:
+\begin{equation}
+    \begin{split}
+        \frac{\partial \phi}{\partial x} = 0 \quad &\text{at} \quad x = 0 \\
+        \phi \to 0 \quad &\text{as} \quad x \to \infty
+    \end{split}
+\end{equation}
+where the first condition is the no-flow condition at the wall and the second condition is the far-field condition.
+
+If we were to replace the wall with another source at $x = -a$, the potential becomes:
+\begin{equation}
+    \phi = \frac{m}{2\pi} \left( \ln{\frac{\left\lvert \mathbf{r} - a \hat{x} \right\rvert}{r_{0}}} + \ln{\frac{\left\lvert \mathbf{r} + a \hat{x} \right\rvert}{r_{0}}} \right)
+\end{equation}
+
+We can check:
+\begin{equation}
+    \begin{split}
+        \frac{\partial \phi}{\partial x} &= \frac{m}{2\pi} \left( \frac{1}{\left\lvert \mathbf{r} - a \hat{x} \right\rvert} \frac{\partial}{\partial x} \left\lvert \mathbf{r} - a \hat{x} \right\rvert + \frac{1}{\left\lvert \mathbf{r} + a \hat{x} \right\rvert} \frac{\partial}{\partial x} \left\lvert \mathbf{r} + a \hat{x} \right\rvert \right) \\
+        &= \frac{m}{2\pi} \left( \frac{r_{x} - a}{\left\lvert \mathbf{r} - a \hat{x} \right\rvert^{2}} + \frac{r_{x} + a}{\left\lvert \mathbf{r} + a \hat{x} \right\rvert^{2}} \right) \\
+    \end{split}
+\end{equation}
+
+When $r_{x} = 0$, this becomes zero so the first condition is satisfied; the second condition is trivially satisfied by the logarithmic nature.
+
+\subproblem{b}
+Consider the expansion:
+\begin{equation}
+    \begin{split}
+        \ln{\left\lvert \mathbf{r} - a \hat{x} \right\rvert} &= \frac{1}{2} \ln{\left( r^{2} - 2ar\cos{\theta} + a^{2} \right)} \\
+        &= \ln{r} + \frac{1}{2} \ln{\left( 1 - 2\cos{\theta}\frac{a}{r} + \frac{a^{2}}{r^{2}} \right)} \\
+        &\approx \ln{r} + \frac{1}{2} \left[ -2\cos{\theta}\frac{a}{r} + \frac{a^{2}}{r^{2}} - \frac{1}{2} \left( -2\cos{\theta}\frac{a}{r} + \frac{a^{2}}{r^{2}} \right)^{2} \right] \\
+        &\approx \ln{r} + \frac{1}{2} \left[ -2\cos{\theta}\frac{a}{r} + \left( 1 - 2\cos^{2}{\theta} \right) \frac{a^{2}}{r^{2}} \right] \\
+        &= \ln{r} - \cos{\theta} \frac{a}{r} - \frac{1}{2} \cos{2\theta} \frac{a^{2}}{r^{2}}
+    \end{split}
+\end{equation}
+from which it follows that:
+\begin{equation}
+    \ln{\left\lvert \mathbf{r} + a \hat{x} \right\rvert} \approx \ln{r} + \cos{\theta} \frac{a}{r} - \frac{1}{2} \cos{2\theta} \frac{a^{2}}{r^{2}}
+\end{equation}
+
+This means that the potential becomes:
+\begin{equation}
+    \begin{split}
+        \phi &\approx \frac{m}{2\pi} \left( 2\ln{\frac{r}{r_{0}}} - \cos{2\theta} \frac{a^{2}}{r^{2}} \right) \\
+    \end{split}
+\end{equation}
+
+Now consider the stream function:
+\begin{equation}
+    \psi = \frac{m}{2\pi} \left[ \tan^{-1}{\left( \frac{r\sin{\theta}}{r\cos{\theta} - a} \right)} + \tan^{-1}{\left( \frac{r\sin{\theta}}{r\cos{\theta} + a} \right)} \right]
+\end{equation}
+
+We have the approximation:
+\begin{equation}
+    \psi = \frac{m}{2\pi} \left( 2\theta + \sin{2\theta} \frac{a^{2}}{r^{2}} \right)
+\end{equation}
+
+Putting these together, we have the complex potential:
+\begin{equation}
+    \begin{split}
+        w &= \phi + i\psi \\
+        &= \frac{m}{2\pi} \left[ 2 \left( \ln{\frac{r}{r_{0}}} + i\theta \right) - \frac{a^{2}}{r^{2}} \left( \cos{2\theta} - i\sin{2\theta} \right) \right] \\
+        &= \frac{m}{2\pi} \left[ 2 \left( \ln{\frac{r}{r_{0}}} + \ln{e^{i\theta}} \right) - \frac{a^{2}}{r^{2}} e^{-2i\theta} \right] \\
+        &= \frac{m}{2\pi} \left[ \ln{\left( \frac{z}{r_{0}} \right)^{2}} - \ln{\exp\left( \frac{a^{2}}{r^{2}} e^{-2i\theta} \right)} \right] \\
+        &\approx \frac{m}{2\pi} \left[ \ln{\left( \frac{z}{r_{0}} \right)^{2}} - \ln{\left( 1 + \frac{a^{2}}{r^{2}} e^{-2i\theta} \right)} \right] \\
+        &= \frac{m}{2\pi} \ln{\left[ \frac{z^{2}/r_{0}^{2}}{1 + (a^{2}/r^{2}) e^{-2i\theta}} \right]} \\
+        &\approx \frac{m}{2\pi} \ln{\left[ \frac{z^{2}}{r_{0}^{2}} \left( 1 - \frac{a^{2}}{z^{2}} \right) \right]} \\
+        &= \frac{m}{2\pi} \ln{\left( \frac{z^{2} - a^{2}}{r_{0}^{2}} \right)}
+    \end{split}
+\end{equation}
+
+\subproblem{c}
+The velocity field is given by:
+\begin{equation}
+    v_{x} - iv_{y} = \frac{\mathrm{d}w}{\mathrm{d}z} = \frac{m}{2\pi} \frac{2z}{z^{2} - a^{2}}
+\end{equation}
+
+For $x = 0$, we have $z = iy$ so that $v_{r} = 0$ and:
+\begin{equation}
+    v_{y} = \frac{m}{2\pi} \frac{2y}{a^{2} + y^{2}}
+\end{equation}
+
+By Bernoulli's equation, we have $p_{0} = \rho v^{2}/2 + p$ so that:
+\begin{equation}
+    \delta p(0, y) = -\frac{1}{2} \rho v_{y}^{2} = -\frac{\rho}{2} \left( \frac{m}{\pi a} \right)^{2} \frac{y^{2}/a^{2}}{(1 + y^{2}/a^{2})^{2}}
+\end{equation}
+
+\subproblem{d}
+Integrating the pressure:
+\begin{equation}
+    \begin{split}
+        \frac{F}{L} &= \int_{-\infty}^{\infty} \delta p(0, y) \, \mathrm{d}y \\
+        &= -\frac{\rho}{2} \left( \frac{m}{\pi a} \right)^{2} \int_{-\infty}^{\infty} \frac{y^{2}/a^{2}}{(1 + y^{2}/a^{2})^{2}} \, \mathrm{d}y \\
+        &= -\frac{\rho}{2} \left( \frac{m}{\pi a} \right)^{2} a \int_{-\infty}^{\infty} \frac{u^{2}}{(1 + u^{2})^{2}} \, \mathrm{d}u \\
+        &= -\frac{\rho}{2} \left( \frac{m}{\pi a} \right)^{2} a \left( \frac{\pi}{2} \right)
+    \end{split}
+\end{equation}
+
+The force is in the negative $x$-direction.
+
+\subproblem{e}
+If the line source is replaced by a sink, the force changes sign (in positive $x$-direction). If the line source is replaced by a vortex, the potential becomes:
+\begin{equation}
+    w = -i \frac{\Gamma}{2\pi} \ln{\left( \frac{z^{2} - a^{2}}{r_{0}^{2}} \right)}
+\end{equation}
+where we have made the replacement $m \to \Gamma$.
+
+Then the velocity field is:
+\begin{equation}
+    v_{x} - iv_{y} = \frac{\mathrm{d}w}{\mathrm{d}z} = -i \frac{\Gamma}{2\pi} \frac{2z}{z^{2} - a^{2}}
+\end{equation}
+which gives:
+\begin{equation}
+    \begin{split}
+        v_{x} &= \frac{\Gamma}{2\pi} \frac{2y}{x^{2} + y^{2} - a^{2}} \\
+        v_{y} &= -\frac{\Gamma}{2\pi} \frac{2x}{x^{2} + y^{2} - a^{2}}
+    \end{split}
+\end{equation}
+
+Initially, $y = 0$ so $v_{x} = 0$ and the velocity is in the $y$-direction. Due to symmetry of the problem, $v_{x}$ is always zero so the vortex moves parallel to the wall.
+
+\subproblem{f}
+The vortices above the wings help to generate lift by accelerating the flow above the wing and creating more pressure difference.
+\qed
+
+
+\problem{4}{Line vortices in motion}
+
+\subproblem{a}
+First consider a single line vortex located at $(0, b)$, with a wall along $y = 0$. We wish to demonstrate that the suitable image is an oppositely rotating vortex located at $(0, -b)$. To see this, consider the potential:
+\begin{equation}
+    \phi = \frac{\Gamma}{2\pi} (\theta_{+} - \theta_{-})
+\end{equation}
+where $\theta_{\pm} = \tan^{-1}{[(y \mp b)/x]}$ are the angles of the points $(x, y)$ with respect to the vortices.
+
+The boundary condition at the wall is $\partial \phi/\partial y = 0$. Consider:
+\begin{equation}
+    \frac{\partial \phi}{\partial y} \propto \frac{1}{1 + (y - b)^{2}/x^{2}} - \frac{1}{1 + (y + b)^{2}/x^{2}}
+\end{equation}
+from which it is clear that the condition is satisfied.
+
+Thus, we conclude that the suitable image vortices are one of $-\Gamma$ at $(a, -b)$ and another $\Gamma$ at $(-a, -b)$.
+
+\subproblem{b}
+At $z_{1} = a + ib$, the complex potential is from the other three vortices. For a single vortex, its complex potential is:
+\begin{equation}
+    w = -i\frac{\Gamma}{2\pi} \ln{\frac{z^{2}}{r_{0}^{2}}}
+\end{equation}
+and the velocity field is:
+\begin{equation}
+    v_{x} - iv_{y} = \frac{\mathrm{d}w}{\mathrm{d}z} = -i\frac{\Gamma}{2\pi} \frac{2}{z}
+\end{equation}
+
+Then:
+\begin{equation}
+    w_{1} = -i\frac{\Gamma}{2\pi} \left( \ln{\frac{4a^{2}}{r_{0}^{2}}} + \ln{\frac{4a^{2}+ 4b^{2}}{r_{0}^{2}}} + \ln{\frac{4b^{2}}{r_{0}^{2}}} \right)
+\end{equation}
+and the velocity field is:
+\begin{equation}
+    \begin{split}
+        v_{x} - iv_{y} &= -i\frac{\Gamma}{\pi} \left( -\frac{1}{2a} + \frac{1}{2a + i2b} - \frac{1}{i2b} \right) \\
+        &= i \frac{\Gamma}{2\pi} \left( \frac{1}{z_{1} + z_{1}^{*}} + \frac{1}{z_{1} - z_{1}^{*}} - \frac{1}{2z_{1}} \right) \\
+    \end{split}
+\end{equation}
+
+Extracting the real and imaginary parts, we have:
+\begin{equation}
+    \begin{split}
+        v_{x} &= \frac{\Gamma}{2\pi} \left( \frac{1}{y} - \frac{y}{x^{2} + y^{2}} \right) \\
+        v_{y} &= -\frac{\Gamma}{2\pi} \left( \frac{1}{x} - \frac{x}{x^{2} + y^{2}} \right)
+    \end{split}
+\end{equation}
+where we have made the replacements $a \to x$ and $b \to y$ as coordinates of the line vortex initially at $(a, b)$.
+
+Then we have:
+\begin{equation}
+    \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{v_{y}}{v_{x}} = -\frac{y^{3}}{x^{3}}
+\end{equation}
+integrating which gives the trajectory:
+\begin{equation}
+    \frac{1}{x^{2}} + \frac{1}{y^{2}} = \frac{1}{a^{2}} + \frac{1}{b^{2}} = \text{const}
+\end{equation}
+\qed
+
+
+\problem{5}{Conformal mapping: vortex in a semi-infinite channel}
+
+\subproblem{a}
+The two boundaries in the $z$-plane are represented by $z = x$ and $z = x + i2h$. Applying the transformation gives:
+\begin{equation}
+    \begin{split}
+        f(z = x) &= \cosh{\left( \frac{\pi x}{2h} \right)} \in [1, \infty) \\
+        f(z = x + i2h) &= \cosh{\left( \frac{\pi x}{2h} + i\pi \right)} = \sinh{\left( \frac{\pi x}{2h} \right)} \in [0, 1)
+    \end{split}
+\end{equation}
+
+Therefore the two boundaries are mapped to the $Y > 0$ half-plane.
+
+\subproblem{b}
+Consider the point $z_{1} = a + ih$. The transformation gives:
+\begin{equation}
+    Z_{1} = \cosh{\left( \frac{\pi a}{2h} + i\frac{\pi}{2} \right)} = i\sinh{\left( \frac{\pi a}{2h} \right)}
+\end{equation}
+
+We have the complex potential:
+\begin{equation}
+    W(Z) = \frac{1}{i} \frac{\Gamma}{2\pi} \ln{(Z - Z_{1})} - \frac{1}{i} \frac{\Gamma}{2\pi} \ln{(Z + Z_{1})} = w(z)
+\end{equation}
+
+Substituting $Z = f(z)$ and differentiating, we have:
+\begin{equation}
+    \begin{split}
+        \frac{\mathrm{d}w}{\mathrm{d}z} &= \frac{1}{i} \frac{\Gamma}{2\pi} \frac{\pi}{2h} \left[ \frac{\sinh{(\pi z/2h)}}{\cosh{(\pi z/2h)} - i\sinh{(\pi a/2h)}} - \frac{\sinh{(\pi z/2h)}}{\cosh{(\pi z/2h)} + i\sinh{(\pi a/2h)}} \right] \\
+        &= \frac{\Gamma}{2h} \frac{\sinh{(\pi z/2h)} \sinh{(\pi a/2h)}}{\cosh^{2}{(\pi z/2h)} + \sinh^{2}{(\pi a/2h)}}
+    \end{split}
+\end{equation}
+
+\end{document}

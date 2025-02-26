@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage{homework}
+\pagestyle{fancy}
+
+% assignment information
+\def\course{Fluids}
+\def\assignmentno{Problem Set 2}
+\def\assignmentname{Dynamics of Fluids}
+\def\name{Xin, Wenkang}
+\def\time{\today}
+
+\begin{document}
+
+\input{../title.tex}
+
+
+%==========
+\pagebreak
+\section*{}
+%==========
+
+
+\problem{1}{Poiseuille flow in a cylindrical tube}
+
+\subproblem{a}
+For the current problem, we the Navier-Stokes equation:
+\begin{equation}
+    \frac{\mathrm{D}\mathbf{v}}{\mathrm{D}t} = -\frac{1}{\rho}\nabla p + \nu \nabla^{2} \mathbf{v}
+\end{equation}
+
+We only have $\mathbf{v} = v_{z}(r)\hat{z}$ and consider steady-state flow, so the equation reduces to:
+\begin{equation}
+    0 = -\frac{1}{\rho} \frac{\partial p}{\partial z} + \nu (\nabla^{2} \mathbf{v})_{z}
+\end{equation}
+
+Note the vector calculus identity:
+\begin{equation}
+    \begin{split}
+        \nabla^{2} \mathbf{v} &= \nabla (\nabla \cdot \mathbf{v}) - \nabla \times (\nabla \times \mathbf{v}) \\
+        &= -\nabla \times (\nabla \times \mathbf{v}) \\
+        &= \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial v_{z}}{\partial r} \right) \hat{z}
+    \end{split}
+\end{equation}
+
+Letting $\partial p/\partial z = \Delta p/L$ and solving the equation, we have:
+\begin{equation}
+    v_{z}(r) = \frac{\Delta p}{L} \frac{1}{4\eta} (R^{2} - r^{2})
+\end{equation}
+where we have used the boundary condition $v_{z}(R) = 0$.
+
+\subproblem{b}
+The flow rate across a cross section of the tube is given by:
+\begin{equation}
+    \begin{split}
+        Q &= \oint v_{z} \mathrm{d}A \\
+        &= \int_{0}^{R} \frac{\Delta p}{L} \frac{1}{4\eta} (R^{2} - r^{2}) 2\pi r \mathrm{d}r \\
+        &\propto R^{4} \Delta p
+    \end{split}
+\end{equation}
+which implies $\Delta p \propto QR^{-4}$.
+
+If the flow rate reduces to half $Q \to Q/2$, the radius should change according to $R \to 2^{-1/4} R$ with constant pressure difference; the pressure should decrease according to $\Delta p \to 2^{-1} \Delta p$ with constant radius.
+
+\subproblem{c}
+The viscous friction force is given by:
+\begin{equation}
+    \begin{split}
+        f_{z} &= \frac{\mathrm{d}\sigma_{zr}}{\mathrm{d}r} \\
+        &= \eta \frac{\mathrm{d}}{\mathrm{d}r} \left( \frac{\partial v_{z}}{\partial r} \right) \\
+        &= \eta \frac{\mathrm{d}}{\mathrm{d}r} \left( -\frac{\Delta p}{L} \frac{1}{2\eta} r \right) \\
+        &= -\frac{\Delta p}{2L}
+    \end{split}
+\end{equation}
+
+The energy loss due to viscous friction is given by the integral:
+\begin{equation}
+    \begin{split}
+        D &= \int_{V} \sigma_{ij} \frac{\partial v_{i}}{\partial x_{j}} \mathrm{d}V \\
+        &= \int_{0}^{L} \int_{0}^{2\pi} \int_{0}^{R} \sigma_{zr} \frac{\partial v_{z}}{\partial r} r \, \mathrm{d}r \, \mathrm{d}\theta \, \mathrm{d}z \\
+        &= \eta \left( \frac{\Delta p}{L} \frac{1}{2\eta} \right)^{2} \frac{R^{4}}{4} 2\pi L \\
+        &= 2\pi L v_{\text{max}}^{2} \eta
+    \end{split}
+\end{equation}
+\qed
+
+
+\problem{2}{Couette ow between rotating cylinders}
+
+\subproblem{a}
+Since there is longitudinal symmetry, we can write the velocity field as $\mathbf{v} = v_{r}(r)\hat{r} + v_{\theta}(r)\hat{\theta}$. Neglecting any external pressure, the Navier-Stokes equation reduces to $\nabla^{2} \mathbf{v} = 0$. This gives:
+\begin{equation}
+    \begin{split}
+        \nabla^{2} \mathbf{v} &= -\nabla \times (\nabla \times \mathbf{v}) \\
+        &= \frac{\partial }{\partial r} \left[ \frac{1}{r} \frac{\partial}{\partial r} (r v_{\theta}) \right] \hat{\theta} \\
+        &= \mathbf{0}
+    \end{split}
+\end{equation}
+
+This can be solved by integrating the equation to yield $v_{\theta}(r) = C_{1} r + C_{2}/r$ and $\Omega = C_{1} + C_{2}/r^{2}$. The boundary conditions are $v_{\theta}(R_{1,2})/R_{1,2} = \Omega_{1,2}$, which gives:
+\begin{equation}
+    \begin{split}
+        C_{1} &= \frac{\Omega_{1} - \Omega_{2}}{1/R_{1}^{2} - 1/R_{2}^{2}} \\
+        C_{2} &= \frac{\Omega_{1} R_{1}^{2} - \Omega_{2} R_{2}^{2}}{R_{1}^{2} - R_{2}^{2}}
+    \end{split}
+\end{equation}
+
+For the case $\Omega_{1} = \Omega_{2} = \Omega$, we have $C_{1} = 0$ and $C_{2} = \Omega$. This is just co-rotation with the two cylinders rotating at the same angular velocity. For the case $\Omega_{2} = 0$ and $R_{2} \to \infty$, we have $C_{1} = \Omega_{1}R_{1}^{2}$ and $C_{2} = 0$. This is just the case of a rotating cylinder in an otherwise stationary fluid. For $R_{1, 2} \gg R_{2} - R_{1}$
+
+\subproblem{b}
+The viscous friction force is given by:
+\begin{equation}
+    \begin{split}
+        f_{\theta} &= \frac{\mathrm{d}\sigma_{\theta r}}{\mathrm{d}r} \\
+        &= \eta \frac{\mathrm{d}}{\mathrm{d}r} \left( \frac{\partial v_{\theta}}{\partial r} \right) \\
+        &= \frac{2C_{2} \eta}{r^{3}}
+    \end{split}
+\end{equation}
+
+This is a force per unit area, so the viscous torque on either cylinder is given by:
+\begin{equation}
+    \begin{split}
+        \tau &= R \int f_{\theta} \, \mathrm{d}A \\
+        &= RL \int f_{\theta} R \, \mathrm{d}\theta \\
+        &= 2\pi R^{2} L f_{\theta}(R) \\
+        &= 4\pi C_{2} \eta \frac{L}{R}
+    \end{split}
+\end{equation}
+where $R = R_{1}$ or $R_{2}$.
+\qed
+
+
+\problem{3}{Motion of a sphere in a very viscous fluid: Stokes law}
+
+\subproblem{a}
+Given the velocity field $\mathbf{v} = \mathbf{v}_{r} \hat{r} + \mathbf{v}_{\theta} \hat{\theta}$, where:
+\begin{equation}
+    \begin{split}
+        v_{r} &= \frac{1}{r^{2}\sin{\theta}} \frac{\partial \psi}{\partial \theta} \\
+        v_{\theta} &= -\frac{1}{r\sin{\theta}} \frac{\partial \psi}{\partial r}
+    \end{split}
+\end{equation}
+we have the curl of the velocity field:
+\begin{equation}
+    \begin{split}
+        \omega_{\phi} &= \frac{1}{r} \left[ \frac{\partial}{\partial r} (r v_{\theta}) - \frac{\partial v_{r}}{\partial \theta} \right] \\
+        &= \frac{1}{r\sin{\theta}} \left[ -\frac{\partial^{2} \psi}{\partial x^{2}} + \frac{\sin{\theta}}{r^{2}} \frac{\partial }{\partial \theta} \left( \frac{1}{\theta} \frac{\partial \psi}{\partial \theta} \right) \right] \\
+        &= \frac{1}{r\sin{\theta}} \left[ -\mathcal{O} _{1}(\psi) + \mathcal{O} _{2}(\psi) \right]
+    \end{split}
+\end{equation}
+
+The Navier-Stokes equation gives $0 = -\nabla p + \eta \nabla^{2} \mathbf{v}$. But:
+\begin{equation}
+    \nabla^{2} \mathbf{v} = -\nabla \times (\nabla \times \mathbf{v}) = -\nabla \times \omega
+\end{equation}
+which gives:
+\begin{equation}
+    \nabla p = -\eta \nabla \times \omega
+\end{equation}
+
+This implies that the curl of this equation is zero. Consider the $\phi$ component of $\nabla \times (\nabla \times \omega)$:
+\begin{equation}
+    \begin{split}
+        0 &= \frac{\partial }{\partial r} \left[ -\frac{\partial (r\omega_{\phi})}{\partial r} - \frac{\partial }{\partial \theta} \left( \frac{1}{r\sin{\theta}} \frac{\partial (\sin{\theta} \omega_{\phi})}{\partial \theta} \right) \right] \\
+        &= \mathcal{O}_{1}(r\omega_{\phi}) - \frac{1}{\sin{\theta}} \mathcal{O}_{2}(\sin{\theta}\omega_{\phi})
+    \end{split}
+\end{equation}
+
+But given the previous results, we have:
+\begin{equation}
+    \mathcal{O}_{1}(r\omega_{\phi}) = \frac{1}{\sin{\theta}} \left[ -\mathcal{O}_{1} \mathcal{O}_{1}(\psi) + \mathcal{O}_{1} \mathcal{O}_{2}(\psi) \right]
+\end{equation}
+and:
+\begin{equation}
+    \mathcal{O}_{2}(\sin{\theta}\omega_{\phi}) = \frac{1}{r} \left[ -\mathcal{O}_{2} \mathcal{O}_{1}(\psi) + \mathcal{O}_{2} \mathcal{O}_{2}(\psi) \right]
+\end{equation}
+which eventually gives:
+\begin{equation}
+    \left[ \mathcal{O}_{1} + \mathcal{O}_{2} \right]^2 \psi = 0
+\end{equation}
+
+Consider a solution of the form $\psi(r) = f(r) \sin^{2}{\theta}$. We have:
+\begin{equation}
+    (\mathcal{O}_{1} + \mathcal{O}_{2}) f = \sin^{2}{\theta} (n^{2} - n - 2) r^{n-2}
+\end{equation}
+and thus:
+\begin{equation}
+    (\mathcal{O}_{1} + \mathcal{O}_{2})^{2} f = \sin^{2}{\theta} (n^{2} - n - 2)^{2} (n^{2} - 5n + 4) r^{n-4}
+\end{equation}
+
+This means that $n = -1, 1, 2, 4$ are the only possible values for $n$, meaning:
+\begin{equation}
+    \psi = \sin^{2}{\theta} \left( A r^{-1} + B r + C r^{2} + D r^{4} \right)
+\end{equation}
+
+For finite velocity, $D = 0$, and we have, upon subsituting $v_{r}(R) = v_{\theta}(R) = 0$:
+\begin{equation}
+    \begin{split}
+        v_{r} &= U \left( 1 - \frac{3R}{2r} + \frac{R^{3}}{2r^{3}} \right) \cos{\theta} \\
+        v_{\theta} &= -U \left( 1 - \frac{3R}{4r} - \frac{R^{3}}{4r^{3}} \right) \sin{\theta}
+    \end{split}
+\end{equation}
+
+\subproblem{b}
+For an incompressible fluid, the stress tensor is given by:
+\begin{equation}
+    \sigma_{ij} = \eta \left( \frac{\partial v_{i}}{\partial x_{j}} + \frac{\partial v_{j}}{\partial x_{i}} \right)
+\end{equation}
+
+The only non-zero component is:
+\begin{equation}
+    \sigma_{r\theta} = - \eta U \sin{\theta} \frac{3}{2R}
+\end{equation}
+
+\subproblem{c}
+Balancing the viscous force with the gravitational force, we have:
+\begin{equation}
+    U = \frac{1}{9} \frac{\rho g R^{2}}{\eta} = \qty{6.48e-3}{ms^{-1}}
+\end{equation}
+\qed
+
+
+\problem{4}{Coriolis force and vorticity}
+
+\subproblem{a}
+In the fixed frame, the Navier-Stokes equation is given by:
+\begin{equation}
+    \left( \frac{\mathrm{d}\mathbf{v}_{f}}{\mathrm{d}t} \right)_{f} = -\frac{1}{\rho} \nabla p + \nu \nabla^{2} \mathbf{v}_{f} + \mathbf{g}
+\end{equation}
+
+In the rotating frame, the Navier-Stokes equation is given by:
+\begin{equation}
+    \left( \frac{\mathrm{d}\mathbf{v}_{r}}{\mathrm{d}t} \right)_{r} + 2\mathbf{\Omega} \times \mathbf{v}_{r} + \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r}) = -\frac{1}{\rho} \nabla p + \nu \nabla^{2} \mathbf{v}_{r} + \mathbf{g}
+\end{equation}
+
+Consider the third term on the left-hand side of the equation. We have:
+\begin{equation}
+    \begin{split}
+        \nabla (\mathbf{\Omega} \times \mathbf{r})^{2} &= 2 (\mathbf{\Omega} \times \mathbf{r}) \cdot \nabla (\mathbf{\Omega} \times \mathbf{r}) + (\mathbf{\Omega} \times \mathbf{r}) \times \left[ \nabla (\mathbf{\Omega} \times \mathbf{r}) \right] \\
+        &= (\mathbf{\Omega} \times \mathbf{r}) \times (2\mathbf{\Omega})
+    \end{split}
+\end{equation}
+which gives:
+\begin{equation}
+    \mathbf{\Omega} \times (\mathbf{\Omega} \times \mathbf{r}) = -\frac{1}{2} \nabla (\mathbf{\Omega} \times \mathbf{r})^{2}
+\end{equation}
+so that the centrifugal force can be subsumed into the gravitational force.
+
+\subproblem{b}
+For inviscid flow, we have:
+\begin{equation}
+    \left( \frac{\mathrm{d}\mathbf{v}_{r}}{\mathrm{d}t} \right)_{r} = -2\mathbf{\Omega} \times \mathbf{v}_{r} - \frac{1}{\rho} \nabla p + \mathbf{g}'
+\end{equation}
+
+Consider the rate of change of circulation:
+\begin{equation}
+    \begin{split}
+        \frac{\partial \Gamma}{\partial t} &= \oint \frac{\partial \mathbf{v}_{r}}{\partial t} \cdot \mathrm{d}\mathbf{l} \\
+        &= \oint \left[ -2\mathbf{\Omega} \times \mathbf{v}_{r} - \frac{1}{\rho} \nabla p + \mathbf{g}' - (\mathbf{v}_{r} \cdot \nabla) \mathbf{v}_{r} \right] \cdot \mathrm{d}\mathbf{l} \\
+    \end{split}
+\end{equation}
+
+The curl of a gradient is zero, so the pressure term does not contribute to the circulation. $(\mathbf{v}_{r} \cdot \nabla) \mathbf{v}_{r}$ is along the direction of the flow, so its curl vanishes too. The contributing term is the Coriolis force.
+\qed
+
+
+\problem{5}{Rankine vortex}
+
+\subproblem{a}
+Given the velocity field:
+\begin{equation}
+    v_{\theta} =
+    \begin{cases}
+        \Omega r               & r < R \\
+        \frac{\Omega R^{2}}{r} & r > R
+    \end{cases}
+\end{equation}
+we have the vorticity:
+\begin{equation}
+    \omega_{z} =
+    \begin{cases}
+        2\Omega & r < R \\
+        0       & r > R
+    \end{cases}
+\end{equation}
+
+\subproblem{b}
+By Bernoulli's equation and ignoring gravity, we have $p + \frac{1}{2} \rho v^{2} = \text{const}$. This gives:
+\begin{equation}
+    p_{\infty} = p(r) + \frac{1}{2} \rho v_{\theta}^{2} = p_{0}
+\end{equation}
+
+Thus, the pressure is given by:
+\begin{equation}
+    p(r) =
+    \begin{cases}
+        p_{\infty} - \frac{1}{2} \rho \Omega^{2} r^{2}               & r < R \\
+        p_{\infty} - \frac{1}{2} \rho \frac{\Omega^{2} R^{4}}{r^{2}} & r > R
+    \end{cases}
+\end{equation}
+
+\subproblem{c}
+
+\end{document}
